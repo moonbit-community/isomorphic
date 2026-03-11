@@ -1,0 +1,5 @@
+_build/
+.mooncakes/
+.repos/
+todos.db
+public/frontend.js
