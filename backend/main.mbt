@@ -83,6 +83,36 @@ fn delete_todo(
 
 ///|
 fn main {
+  let matches = try {
+    @argparse.parse(
+      @argparse.Command::new(
+        "todo-server",
+        about="Todo List backend server",
+        options=[
+          @argparse.OptionArg::new(
+            "port",
+            short='p',
+            long="port",
+            about="Port to listen on",
+            default_values=["4000"],
+          ),
+        ],
+      ),
+    )
+  } catch {
+    e => {
+      println("\{e}")
+      return
+    }
+  }
+  let port = try {
+    @strconv.parse_int(matches.values["port"][0])
+  } catch {
+    _ => {
+      println("Invalid port number")
+      return
+    }
+  }
   let conn = try {
     @sqlite3.Connection::open("todos.db")
   } catch {
@@ -129,10 +159,11 @@ fn main {
   ..get("/frontend.js", fn(_event) noraise {
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      let res = @mocket.HttpResponse::new(OK)
-      res.headers["Content-Type"] = "application/javascript; charset=utf-8"
-      res.raw_body = bytes
-      res
+      @mocket.HttpResponse::new(
+        OK,
+        headers={ "Content-Type": "application/javascript; charset=utf-8" },
+        raw_body=bytes,
+      )
     } catch {
       _ => @mocket.HttpResponse::new(NotFound).body("Not Found")
     }
@@ -182,6 +213,6 @@ fn main {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
     }
   })
-  println("Server running at http://localhost:4000")
-  app.serve(port=4000)
+  println("Server running at http://localhost:\{port}")
+  app.serve(port~)
 }

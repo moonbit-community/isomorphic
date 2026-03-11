@@ -2,6 +2,7 @@ import {
   "oboard/mocket",
   "oboard/mocket/cors",
   "myfreess/sqlite3",
+  "moonbitlang/core/argparse",
   "moonbitlang/core/json",
   "moonbitlang/core/strconv",
   "moonbitlang/core/encoding/utf8",

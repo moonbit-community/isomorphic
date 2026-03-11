@@ -9,8 +9,9 @@ build-backend:
 
 build: build-frontend build-backend
 
+PORT ?= 4000
 serve: build
-	moon run backend --target native
+	moon run backend --target native -- --port $(PORT)
 
 clean:
 	rm -f public/frontend.js todos.db
