@@ -94,13 +94,16 @@ fn main raise {
   let port = @strconv.parse_int(matches.values["port"][0])
 
   let conn = @sqlite3.Connection::open("todos.db")
+  println("Database opened: todos.db")
 
   init_db(conn)
+  println("Database initialized")
 
   let app = @mocket.new()
   app
   ..use_middleware(@cors.handle_cors())
   ..get("/", _ => {
+    println("GET /")
     let html =
       #|<!DOCTYPE html>
       #|<html>
@@ -125,6 +128,7 @@ fn main raise {
     )
   })
   ..get("/frontend.js", _ => {
+    println("GET /frontend.js")
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
       @mocket.HttpResponse::new(
@@ -133,51 +137,76 @@ fn main raise {
         raw_body=bytes,
       )
     } catch {
-      _ => @mocket.HttpResponse::new(NotFound).body("Not Found")
+      _ => {
+        println("  -> 404 Not Found")
+        @mocket.HttpResponse::new(NotFound).body("Not Found")
+      }
     }
   })
   ..get("/api/todos", _ => {
+    println("GET /api/todos")
     try {
       let todos = get_all_todos(conn)
+      println("  -> 200 (\{todos.length()} todos)")
       @mocket.HttpResponse::new(OK).json(todos)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
     }
   })
   ..post("/api/todos", event => {
+    println("POST /api/todos")
     try {
       let json : Json = event.req.body()
       let text = match json {
         { "text": String(t), .. } => t
-        _ =>
+        _ => {
+          println("  -> 400 Missing text field")
           return @mocket.HttpResponse::new(BadRequest).body(
             "Missing text field",
           )
+        }
       }
       let todo = create_todo(conn, text)
+      println("  -> 201 created todo: \{text}")
       @mocket.HttpResponse::new(Created).json(todo)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
     }
   })
   ..post("/api/todos/:id/toggle", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/todos/\{id_str}/toggle")
     try {
-      let id_str = event.params.get("id").unwrap()
-      let id = @strconv.parse_int(id_str.to_string())
+      let id = @strconv.parse_int(id_str)
       let todo = toggle_todo(conn, id)
+      println("  -> 200 toggled todo \{id}")
       @mocket.HttpResponse::new(OK).json(todo)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
     }
   })
   .delete("/api/todos/:id", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("DELETE /api/todos/\{id_str}")
     try {
-      let id_str = event.params.get("id").unwrap()
-      let id = @strconv.parse_int(id_str.to_string())
+      let id = @strconv.parse_int(id_str)
       delete_todo(conn, id)
+      println("  -> 204 deleted todo \{id}")
       @mocket.HttpResponse::new(NoContent)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
     }
   })
   println("Server running at http://localhost:\{port}")
