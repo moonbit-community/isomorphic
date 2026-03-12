@@ -4,6 +4,7 @@ struct Model {
   tasks : Array[@shared.Task]
   members : Array[@shared.Member]
   activities : Array[@shared.Activity]
+  dependencies : Array[@shared.Dependency]
   today : String
   // Filters
   filter_status : String
@@ -80,6 +81,10 @@ enum Msg {
   CancelDelete
   ConfirmDelete
   TaskDeleted
+  // Dependencies
+  AddDep(Int, Int) // task_id, depends_on_id
+  RemoveDep(Int, Int)
+  DepChanged
   // Comments
   ShowComments(Int)
   HideComments
@@ -173,6 +178,7 @@ fn update(
           tasks: board.tasks,
           members: board.members,
           activities: board.activities,
+          dependencies: board.dependencies,
           today: board.today,
           loading: false,
         },
@@ -355,6 +361,39 @@ fn update(
       (cmd, { ..model, tasks, confirm_delete: 0 })
     }
     TaskDeleted => (fetch_board(dispatch), model)
+    // ---- Dependencies ----
+    AddDep(task_id, depends_on_id) => {
+      let url = @shared.api_task_deps(task_id)
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(DepChanged)
+      })
+      let cmd = @http.post(
+        url,
+        Json(({ "depends_on_id": depends_on_id.to_double() } : Json)),
+        expect~,
+      )
+      // Optimistic update
+      let deps = model.dependencies.copy()
+      deps.push({ task_id, depends_on_id })
+      (cmd, { ..model, dependencies: deps })
+    }
+    RemoveDep(task_id, depends_on_id) => {
+      let url = @shared.api_task_deps_remove(task_id)
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(DepChanged)
+      })
+      let cmd = @http.post(
+        url,
+        Json(({ "depends_on_id": depends_on_id.to_double() } : Json)),
+        expect~,
+      )
+      // Optimistic update
+      let deps = model.dependencies.filter(fn(d) {
+        not(d.task_id == task_id && d.depends_on_id == depends_on_id)
+      })
+      (cmd, { ..model, dependencies: deps })
+    }
+    DepChanged => (fetch_board(dispatch), model)
     // ---- Comments ----
     ShowComments(task_id) => {
       let url = @shared.api_task_comments(task_id)
@@ -1326,6 +1365,32 @@ fn view_task_item(
   } else {
     @html.text("")
   }
+  // Dependency indicator
+  let dep_ids = @shared.get_dependencies(model.dependencies, task.id)
+  let has_blocked = @shared.has_unresolved_deps(
+    model.dependencies,
+    model.tasks,
+    task.id,
+  )
+  let dep_html = if dep_ids.length() > 0 {
+    let dep_names : Array[String] = []
+    for did in dep_ids {
+      for t in model.tasks {
+        if t.id == did {
+          dep_names.push(t.title)
+          break
+        }
+      }
+    }
+    let color = if has_blocked { "#ef4444" } else { "#22c55e" }
+    let label = if has_blocked { "Blocked by" } else { "Depends on (done)" }
+    let names = dep_names.join(", ")
+    @html.div(style=["font-size: 10px", "color: \{color}", "margin-top: 2px"], [
+      @html.text("\{label}: \{names}"),
+    ])
+  } else {
+    @html.text("")
+  }
   @html.div(
     style=[
       "background: \{theme.card_bg}",
@@ -1367,6 +1432,7 @@ fn view_task_item(
             } else {
               @html.text("")
             },
+            dep_html,
           ]),
           @html.div(
             style=[
@@ -2020,6 +2086,134 @@ fn view_comments_panel(
               ),
             )
           }
+          // Dependencies section
+          let task_id = model.viewing_comments
+          let dep_ids = @shared.get_dependencies(model.dependencies, task_id)
+          items.push(
+            @html.div(
+              style=[
+                "margin-top: 16px",
+                "padding-top: 12px",
+                "border-top: 1px solid \{theme.card_border}",
+              ],
+              {
+                let dep_items : Array[@rabbita.Html] = [
+                  @html.div(
+                    style=[
+                      "font-size: 13px",
+                      "font-weight: 600",
+                      "color: \{theme.text}",
+                      "margin-bottom: 8px",
+                    ],
+                    [@html.text("Dependencies")],
+                  ),
+                ]
+                // Show current deps with remove button
+                for did in dep_ids {
+                  let mut dep_name = ""
+                  let mut dep_done = false
+                  for t in model.tasks {
+                    if t.id == did {
+                      dep_name = t.title
+                      dep_done = t.status == "done"
+                      break
+                    }
+                  }
+                  let color = if dep_done { "#22c55e" } else { "#ef4444" }
+                  let status_text = if dep_done { " (done)" } else { "" }
+                  let dep_id = did
+                  dep_items.push(
+                    @html.div(
+                      style=[
+                        "display: flex", "align-items: center", "gap: 6px", "padding: 3px 0",
+                      ],
+                      [
+                        @html.span(
+                          style=[
+                            "width: 6px",
+                            "height: 6px",
+                            "border-radius: 50%",
+                            "background: \{color}",
+                          ],
+                          "",
+                        ),
+                        @html.span(
+                          style=[
+                            "font-size: 12px",
+                            "color: \{theme.text_secondary}",
+                            "flex: 1",
+                          ],
+                          "\{dep_name}\{status_text}",
+                        ),
+                        @html.button(
+                          on_click=dispatch(RemoveDep(task_id, dep_id)),
+                          style=[
+                            "background: none",
+                            "border: none",
+                            "color: \{theme.text_muted}",
+                            "cursor: pointer",
+                            "font-size: 14px",
+                            "padding: 0 2px",
+                          ],
+                          "×",
+                        ),
+                      ],
+                    ),
+                  )
+                }
+                if dep_ids.length() == 0 {
+                  dep_items.push(
+                    @html.div(
+                      style=[
+                        "font-size: 12px",
+                        "color: \{theme.text_muted}",
+                        "padding: 4px 0",
+                      ],
+                      [@html.text("No dependencies")],
+                    ),
+                  )
+                }
+                // Add dependency: show other tasks as clickable items
+                let other_tasks = model.tasks.filter(fn(t) {
+                  t.id != task_id && not(dep_ids.contains(t.id))
+                })
+                if other_tasks.length() > 0 {
+                  dep_items.push(
+                    @html.div(
+                      style=[
+                        "font-size: 11px",
+                        "color: \{theme.text_muted}",
+                        "margin-top: 8px",
+                        "margin-bottom: 4px",
+                      ],
+                      [@html.text("Add dependency:")],
+                    ),
+                  )
+                  dep_items.push(
+                    @html.div(
+                      style=["display: flex", "flex-wrap: wrap", "gap: 4px"],
+                      other_tasks.map(fn(t) {
+                        @html.button(
+                          on_click=dispatch(AddDep(task_id, t.id)),
+                          style=[
+                            "padding: 2px 8px",
+                            "font-size: 11px",
+                            "cursor: pointer",
+                            "border-radius: 4px",
+                            "border: 1px solid \{theme.input_border}",
+                            "background: \{theme.filter_inactive}",
+                            "color: \{theme.text_secondary}",
+                          ],
+                          t.title,
+                        )
+                      }),
+                    ),
+                  )
+                }
+                dep_items
+              },
+            ),
+          )
           items
         },
       ),
@@ -2155,6 +2349,7 @@ fn main {
       tasks: [],
       members: [],
       activities: [],
+      dependencies: [],
       today: "",
       filter_status: "",
       filter_assignee: 0,

@@ -792,3 +792,62 @@ test "is_overdue boundary" {
   // One day after is not overdue
   inspect(@shared.is_overdue("2026-03-13", "2026-03-12"), content="false")
 }
+
+///|
+test "get_dependencies" {
+  let deps : Array[@shared.Dependency] = [
+    { task_id: 1, depends_on_id: 2 },
+    { task_id: 1, depends_on_id: 3 },
+    { task_id: 2, depends_on_id: 3 },
+  ]
+  inspect(@shared.get_dependencies(deps, 1), content="[2, 3]")
+  inspect(@shared.get_dependencies(deps, 2), content="[3]")
+  inspect(@shared.get_dependencies(deps, 3), content="[]")
+}
+
+///|
+test "has_unresolved_deps" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "B",
+      description: "",
+      status: "done",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "C",
+      description: "",
+      status: "in_progress",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  let deps : Array[@shared.Dependency] = [
+    { task_id: 1, depends_on_id: 2 },
+    { task_id: 1, depends_on_id: 3 },
+  ]
+  // Task 1 depends on 2 (done) and 3 (in_progress) -> has unresolved
+  inspect(@shared.has_unresolved_deps(deps, tasks, 1), content="true")
+  // Task 2 has no deps
+  inspect(@shared.has_unresolved_deps(deps, tasks, 2), content="false")
+  // Task with only done deps
+  let deps2 : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 2 }]
+  inspect(@shared.has_unresolved_deps(deps2, tasks, 1), content="false")
+}

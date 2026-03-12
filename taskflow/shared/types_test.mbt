@@ -47,6 +47,7 @@ test "Board JSON round-trip" {
         timestamp: "2026-03-12 10:30",
       },
     ],
+    dependencies: [{ task_id: 1, depends_on_id: 2 }],
     today: "2026-03-12",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
@@ -100,6 +101,13 @@ test "Member JSON structure" {
     "name": "Alice",
     "color": "blue",
   })
+}
+
+///|
+test "Dependency JSON round-trip" {
+  let d : @shared.Dependency = { task_id: 1, depends_on_id: 2 }
+  let decoded : @shared.Dependency = @json.from_json(d.to_json())
+  assert_eq(decoded, d)
 }
 
 ///|

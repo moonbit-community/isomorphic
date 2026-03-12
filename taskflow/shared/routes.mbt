@@ -25,5 +25,17 @@ pub fn api_task_comments(id : Int) -> String {
 }
 
 ///|
+/// `GET` — list dependencies for a task. `POST` — add a dependency.
+pub fn api_task_deps(id : Int) -> String {
+  "/api/tasks/\{id}/deps"
+}
+
+///|
+/// `POST` — remove a dependency.
+pub fn api_task_deps_remove(id : Int) -> String {
+  "/api/tasks/\{id}/deps/remove"
+}
+
+///|
 /// `GET` — list all team members.
 pub let api_members : String = "/api/members"

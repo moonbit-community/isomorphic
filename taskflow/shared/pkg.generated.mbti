@@ -16,6 +16,10 @@ pub fn api_task(Int) -> String
 
 pub fn api_task_comments(Int) -> String
 
+pub fn api_task_deps(Int) -> String
+
+pub fn api_task_deps_remove(Int) -> String
+
 pub fn api_task_status(Int) -> String
 
 pub let api_tasks : String
@@ -29,6 +33,10 @@ pub fn filter_tasks(Array[Task], String, Int, String, query? : String, urgency? 
 pub fn find_member(Array[Member], Int) -> Member?
 
 pub fn format_activity(Activity) -> String
+
+pub fn get_dependencies(Array[Dependency], Int) -> Array[Int]
+
+pub fn has_unresolved_deps(Array[Dependency], Array[Task], Int) -> Bool
 
 pub fn is_overdue(String, String) -> Bool
 
@@ -108,6 +116,7 @@ pub(all) struct Board {
   tasks : Array[Task]
   members : Array[Member]
   activities : Array[Activity]
+  dependencies : Array[Dependency]
   today : String
 }
 pub impl Eq for Board
@@ -126,6 +135,15 @@ pub impl Eq for Comment
 pub impl Show for Comment
 pub impl ToJson for Comment
 pub impl @json.FromJson for Comment
+
+pub(all) struct Dependency {
+  task_id : Int
+  depends_on_id : Int
+}
+pub impl Eq for Dependency
+pub impl Show for Dependency
+pub impl ToJson for Dependency
+pub impl @json.FromJson for Dependency
 
 pub(all) struct Member {
   id : Int

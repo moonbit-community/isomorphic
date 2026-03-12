@@ -41,10 +41,18 @@ pub(all) struct Comment {
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
+/// A dependency between tasks: `task_id` depends on `depends_on_id`.
+pub(all) struct Dependency {
+  task_id : Int
+  depends_on_id : Int
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
 /// Full board state returned by `GET /api/board`.
 pub(all) struct Board {
   tasks : Array[Task]
   members : Array[Member]
   activities : Array[Activity]
+  dependencies : Array[Dependency]
   today : String
 } derive(ToJson, FromJson, Show, Eq)

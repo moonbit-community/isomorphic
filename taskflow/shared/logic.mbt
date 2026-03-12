@@ -332,6 +332,36 @@ pub fn search_matches(task : Task, query : String) -> Bool {
 }
 
 ///|
+/// Get the dependency IDs (tasks that a given task depends on).
+pub fn get_dependencies(deps : Array[Dependency], task_id : Int) -> Array[Int] {
+  let result : Array[Int] = []
+  for d in deps {
+    if d.task_id == task_id {
+      result.push(d.depends_on_id)
+    }
+  }
+  result
+}
+
+///|
+/// Check if a task has unresolved dependencies (depends on non-done tasks).
+pub fn has_unresolved_deps(
+  deps : Array[Dependency],
+  tasks : Array[Task],
+  task_id : Int,
+) -> Bool {
+  let dep_ids = get_dependencies(deps, task_id)
+  for id in dep_ids {
+    for t in tasks {
+      if t.id == id && t.status != "done" {
+        return true
+      }
+    }
+  }
+  false
+}
+
+///|
 /// Filter tasks by status, assignee, priority, and text search query.
 /// Empty string or 0 means "all" (no filter).
 pub fn filter_tasks(

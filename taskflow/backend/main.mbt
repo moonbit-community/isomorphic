@@ -58,6 +58,20 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   )
   s4.step_once()
   s4.finalize()
+  // Dependencies table
+  let s5 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS task_dependencies (
+      #|  task_id INTEGER NOT NULL,
+      #|  depends_on_id INTEGER NOT NULL,
+      #|  PRIMARY KEY (task_id, depends_on_id),
+      #|  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+      #|  FOREIGN KEY (depends_on_id) REFERENCES tasks(id) ON DELETE CASCADE
+      #|)
+    ),
+  )
+  s5.step_once()
+  s5.finalize()
   // Indexes for common query patterns
   let idx_stmts = [
     "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status)", "CREATE INDEX IF NOT EXISTS idx_tasks_assignee ON tasks(assignee_id)",
@@ -292,6 +306,79 @@ fn add_comment(
 }
 
 ///|
+/// Fetch dependencies for a task.
+fn get_task_deps(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+) -> Array[@shared.Dependency] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "SELECT task_id, depends_on_id FROM task_dependencies WHERE task_id = ?",
+  )
+  stmt.bind(index=1, val=task_id)
+  let deps : Array[@shared.Dependency] = []
+  while stmt.step() {
+    let tid : Int = stmt.column(index=0)
+    let did : Int = stmt.column(index=1)
+    deps.push({ task_id: tid, depends_on_id: did })
+  }
+  stmt.finalize()
+  deps
+}
+
+///|
+/// Fetch all dependencies.
+fn get_all_deps(
+  conn : @sqlite3.Connection,
+) -> Array[@shared.Dependency] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "SELECT task_id, depends_on_id FROM task_dependencies",
+  )
+  let deps : Array[@shared.Dependency] = []
+  while stmt.step() {
+    let tid : Int = stmt.column(index=0)
+    let did : Int = stmt.column(index=1)
+    deps.push({ task_id: tid, depends_on_id: did })
+  }
+  stmt.finalize()
+  deps
+}
+
+///|
+/// Add a dependency: task_id depends on depends_on_id.
+fn add_dep(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  depends_on_id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    (
+      #|INSERT OR IGNORE INTO task_dependencies (task_id, depends_on_id)
+      #|VALUES (?, ?)
+    ),
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind(index=2, val=depends_on_id)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
+/// Remove a dependency.
+fn remove_dep(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  depends_on_id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "DELETE FROM task_dependencies WHERE task_id = ? AND depends_on_id = ?",
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind(index=2, val=depends_on_id)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
 /// Fetch the full board: tasks + members + activities + today's date.
 fn get_board(
   conn : @sqlite3.Connection,
@@ -299,8 +386,9 @@ fn get_board(
   let tasks = get_all_tasks(conn)
   let members = get_all_members(conn)
   let activities = get_recent_activities(conn)
+  let dependencies = get_all_deps(conn)
   let today = get_today(conn)
-  { tasks, members, activities, today }
+  { tasks, members, activities, dependencies, today }
 }
 
 ///|
@@ -649,6 +737,73 @@ fn main raise {
           @mocket.HttpResponse::new(OK).json(updated.to_json())
         }
       }
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  // ---- Dependencies ----
+  ..get("/api/tasks/:id/deps", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("GET /api/tasks/\{id_str}/deps")
+    try {
+      let id = @strconv.parse_int(id_str)
+      let deps = get_task_deps(conn, id)
+      @mocket.HttpResponse::new(OK).json(deps.to_json())
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..post("/api/tasks/:id/deps", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/tasks/\{id_str}/deps")
+    try {
+      let id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let depends_on = match json {
+        { "depends_on_id": Number(n, ..), .. } => n.to_int()
+        _ =>
+          return @mocket.HttpResponse::new(BadRequest).body(
+            "Missing depends_on_id",
+          )
+      }
+      if depends_on == id {
+        return @mocket.HttpResponse::new(BadRequest).body(
+          "Cannot depend on self",
+        )
+      }
+      add_dep(conn, id, depends_on)
+      println("  -> 201 dependency added: \{id} -> \{depends_on}")
+      let dep : @shared.Dependency = { task_id: id, depends_on_id: depends_on }
+      @mocket.HttpResponse::new(Created).json(dep.to_json())
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..post("/api/tasks/:id/deps/remove", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/tasks/\{id_str}/deps/remove")
+    try {
+      let id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let depends_on = match json {
+        { "depends_on_id": Number(n, ..), .. } => n.to_int()
+        _ =>
+          return @mocket.HttpResponse::new(BadRequest).body(
+            "Missing depends_on_id",
+          )
+      }
+      remove_dep(conn, id, depends_on)
+      println("  -> 200 dependency removed: \{id} -> \{depends_on}")
+      @mocket.HttpResponse::new(OK).body("ok")
     } catch {
       e => {
         println("  -> 500 \{e}")
