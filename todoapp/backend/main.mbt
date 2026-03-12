@@ -1,4 +1,9 @@
 ///|
+/// Create the `todos` table if it doesn't already exist.
+///
+/// The `text` column is stored as `BLOB` so that SQLite round-trips
+/// arbitrary UTF-8 without re-encoding. See `bind_string_as_blob` /
+/// `column_blob_as_string` in the read/write helpers.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     (
@@ -14,6 +19,10 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Extract a `Todo` from the current row of a prepared statement.
+///
+/// Expects columns in `SELECT id, text, done` order. Uses
+/// `column_blob_as_string` for the text column to match the BLOB storage.
 fn read_todo_from_stmt(stmt : @sqlite3.Statement) -> @shared.Todo {
   let id : Int = stmt.column(index=0)
   let text : String = stmt.column_blob_as_string(index=1)
@@ -22,6 +31,7 @@ fn read_todo_from_stmt(stmt : @sqlite3.Statement) -> @shared.Todo {
 }
 
 ///|
+/// Return every todo, ordered by id (insertion order).
 fn get_all_todos(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Todo] raise @sqlite3.SqliteError {
@@ -35,6 +45,10 @@ fn get_all_todos(
 }
 
 ///|
+/// Insert a new todo and return it with the auto-generated id.
+///
+/// Uses `bind_string_as_blob` for UTF-8 safety, then queries
+/// `last_insert_rowid()` to populate the returned `Todo.id`.
 fn create_todo(
   conn : @sqlite3.Connection,
   text : String,
@@ -51,6 +65,10 @@ fn create_todo(
 }
 
 ///|
+/// Flip a todo's `done` status and return the updated row.
+///
+/// Performs the toggle in a single UPDATE (no read-modify-write race),
+/// then re-selects the row to return the full `Todo` to the caller.
 fn toggle_todo(
   conn : @sqlite3.Connection,
   id : Int,
@@ -70,6 +88,7 @@ fn toggle_todo(
 }
 
 ///|
+/// Delete a todo by id. No-op if the id doesn't exist.
 fn delete_todo(
   conn : @sqlite3.Connection,
   id : Int,
@@ -81,16 +100,30 @@ fn delete_todo(
 }
 
 ///|
+/// Entry point — parse CLI args, open the database, register routes, and
+/// start the Mocket HTTP server.
+///
+/// Routes:
+/// - `GET /`                — serves the HTML shell (inlined) that loads the frontend
+/// - `GET /frontend.js`     — serves the compiled frontend bundle from `public/`
+/// - `GET /api/todos`       — list all todos (JSON)
+/// - `POST /api/todos`      — create a todo (`{"text": "..."}`)
+/// - `POST /api/todos/:id/toggle` — toggle done status, returns updated todo
+/// - `DELETE /api/todos/:id` — delete a todo (204 No Content)
 fn main raise {
   // FIXME: error only highlight `appfn`
-  let matches = @argparse.parse(
-    Command("todo-server", about="Todo List backend server", options=[
-      OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
-        "4000",
+  guard @argparse.parse(
+      Command("todo-server", about="Todo List backend server", options=[
+        OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
+          "4000",
+        ]),
       ]),
-    ]),
-  )
-  let port = @strconv.parse_int(matches.values["port"][0])
+    )
+    is { values: { "port": [port], .. }, .. } else {
+    println("Failed to parse arguments")
+    return
+  }
+  let port = @strconv.parse_int(port)
 
   let conn = @sqlite3.Connection::open("todos.db")
   println("Database opened: todos.db")
@@ -168,7 +201,7 @@ fn main raise {
           )
         }
       }
-      if not(@shared.validate_text(text)) {
+      if !@shared.validate_text(text) {
         println("  -> 400 Invalid todo text")
         return @mocket.HttpResponse::new(BadRequest).body(
           "Todo text must be between 1 and \{@shared.max_todo_length} characters",

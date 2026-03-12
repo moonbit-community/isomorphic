@@ -1,3 +1,4 @@
+///|
 /// Application state for the todo list UI.
 ///
 /// Follows the Elm architecture (Model-Update-View) via Rabbita.
@@ -9,6 +10,7 @@ struct Model {
   loading : Bool
 }
 
+///|
 /// Messages that drive state transitions in the update loop.
 ///
 /// Each user action or async HTTP response is represented as a `Msg` variant.
@@ -36,6 +38,7 @@ enum Msg {
   TodoDeleted(Result[Int, String])
 }
 
+///|
 /// Fetch all todos from the backend (`GET /api/todos`).
 ///
 /// Returns a Rabbita command that, when executed by the runtime, issues the
@@ -51,6 +54,7 @@ fn fetch_todos(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   )
 }
 
+///|
 /// Central state machine — processes each `Msg` and returns the next model
 /// plus an optional side-effect command (HTTP request or `@rabbita.none`).
 ///
@@ -135,6 +139,7 @@ fn update(
   }
 }
 
+///|
 /// Render the entire UI as a virtual DOM tree from the current model.
 ///
 /// Layout: a centered card containing a heading, an add-todo form, and either
@@ -225,6 +230,7 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
   )
 }
 
+///|
 /// Entry point — wire up the Rabbita app and mount it to the `#app` DOM node.
 ///
 /// Uses `cell_with_dispatch` (not `simple_cell`) because `update` needs the
