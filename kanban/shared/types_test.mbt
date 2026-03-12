@@ -8,24 +8,15 @@ test "Card JSON round-trip" {
     color: "red",
     position: 1000,
   }
-  let json = card.to_json()
-  let decoded : @shared.Card = @json.from_json(json)
-  inspect(decoded.id, content="1")
-  inspect(decoded.column_id, content="2")
-  inspect(decoded.title, content="Fix bug")
-  inspect(decoded.description, content="Urgent fix")
-  inspect(decoded.color, content="red")
-  inspect(decoded.position, content="1000")
+  let decoded : @shared.Card = @json.from_json(card.to_json())
+  assert_eq(decoded, card)
 }
 
 ///|
 test "Column JSON round-trip" {
   let col : @shared.Column = { id: 3, title: "In Progress", position: 2000 }
-  let json = col.to_json()
-  let decoded : @shared.Column = @json.from_json(json)
-  inspect(decoded.id, content="3")
-  inspect(decoded.title, content="In Progress")
-  inspect(decoded.position, content="2000")
+  let decoded : @shared.Column = @json.from_json(col.to_json())
+  assert_eq(decoded, col)
 }
 
 ///|
@@ -46,13 +37,8 @@ test "Board JSON round-trip" {
       },
     ],
   }
-  let json = board.to_json()
-  let decoded : @shared.Board = @json.from_json(json)
-  inspect(decoded.columns.length(), content="2")
-  inspect(decoded.cards.length(), content="1")
-  inspect(decoded.columns[0].title, content="To Do")
-  inspect(decoded.cards[0].title, content="Task")
-  inspect(decoded.cards[0].color, content="blue")
+  let decoded : @shared.Board = @json.from_json(board.to_json())
+  assert_eq(decoded, board)
 }
 
 ///|
@@ -62,11 +48,8 @@ test "MoveCardRequest JSON round-trip" {
     target_column_id: 2,
     new_position: 1500,
   }
-  let json = req.to_json()
-  let decoded : @shared.MoveCardRequest = @json.from_json(json)
-  inspect(decoded.card_id, content="5")
-  inspect(decoded.target_column_id, content="2")
-  inspect(decoded.new_position, content="1500")
+  let decoded : @shared.MoveCardRequest = @json.from_json(req.to_json())
+  assert_eq(decoded, req)
 }
 
 ///|
@@ -79,16 +62,33 @@ test "Card with unicode title JSON round-trip" {
     color: "",
     position: 1000,
   }
-  let json = card.to_json()
-  let decoded : @shared.Card = @json.from_json(json)
-  inspect(decoded.title, content="Fix le bug")
+  let decoded : @shared.Card = @json.from_json(card.to_json())
+  assert_eq(decoded, card)
 }
 
 ///|
 test "Board with empty columns and cards" {
   let board : @shared.Board = { columns: [], cards: [] }
-  let json = board.to_json()
-  let decoded : @shared.Board = @json.from_json(json)
-  inspect(decoded.columns.length(), content="0")
-  inspect(decoded.cards.length(), content="0")
+  let decoded : @shared.Board = @json.from_json(board.to_json())
+  assert_eq(decoded, board)
+}
+
+///|
+test "Card to_json produces expected structure" {
+  let card : @shared.Card = {
+    id: 42,
+    column_id: 1,
+    title: "Hello",
+    description: "",
+    color: "blue",
+    position: 3000,
+  }
+  json_inspect(card, content={
+    "id": 42,
+    "column_id": 1,
+    "title": "Hello",
+    "description": "",
+    "color": "blue",
+    "position": 3000,
+  })
 }

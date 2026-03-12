@@ -63,6 +63,7 @@ pub(all) struct Board {
   columns : Array[Column]
   cards : Array[Card]
 }
+pub impl Eq for Board
 pub impl Show for Board
 pub impl ToJson for Board
 pub impl @json.FromJson for Board
@@ -75,6 +76,7 @@ pub(all) struct Card {
   color : String
   position : Int
 }
+pub impl Eq for Card
 pub impl Show for Card
 pub impl ToJson for Card
 pub impl @json.FromJson for Card
@@ -84,6 +86,7 @@ pub(all) struct Column {
   title : String
   position : Int
 }
+pub impl Eq for Column
 pub impl Show for Column
 pub impl ToJson for Column
 pub impl @json.FromJson for Column
@@ -93,6 +96,7 @@ pub(all) struct MoveCardRequest {
   target_column_id : Int
   new_position : Int
 }
+pub impl Eq for MoveCardRequest
 pub impl Show for MoveCardRequest
 pub impl ToJson for MoveCardRequest
 pub impl @json.FromJson for MoveCardRequest

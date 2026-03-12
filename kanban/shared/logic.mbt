@@ -79,7 +79,21 @@ pub fn renumber_positions(count : Int) -> Array[Int] {
 }
 
 ///|
-/// Sort items by position ascending.
+/// Sort items by position ascending. Returns a new array; the original is not mutated.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   let cols : Array[@shared.Column] = [
+///     { id: 1, title: "C", position: 3000 },
+///     { id: 2, title: "A", position: 1000 },
+///   ]
+///   let sorted = @shared.sort_by_position(cols, fn(c) { c.position })
+///   inspect(sorted[0].title, content="A")
+///   inspect(sorted[1].title, content="C")
+/// }
+/// ```
 pub fn[T] sort_by_position(items : Array[T], get_pos : (T) -> Int) -> Array[T] {
   let result = items.copy()
   result.sort_by(fn(a, b) { get_pos(a).compare(get_pos(b)) })
@@ -87,7 +101,8 @@ pub fn[T] sort_by_position(items : Array[T], get_pos : (T) -> Int) -> Array[T] {
 }
 
 ///|
-/// Get cards in a specific column, sorted by position.
+/// Get cards in a specific column, sorted by position ascending.
+/// Returns an empty array if the column has no cards.
 pub fn cards_in_column(cards : Array[Card], column_id : Int) -> Array[Card] {
   let filtered = cards.filter(fn(c) { c.column_id == column_id })
   sort_by_position(filtered, fn(c) { c.position })
@@ -95,8 +110,9 @@ pub fn cards_in_column(cards : Array[Card], column_id : Int) -> Array[Card] {
 
 ///|
 /// Compute position for moving a card to a target index within a column.
-/// `sorted_cards` should exclude the card being moved.
-/// Returns 0 if renumbering is needed.
+/// `sorted_cards` should be the column's cards excluding the card being moved,
+/// already sorted by position ascending.
+/// Returns 0 if the gap is exhausted (caller should renumber then retry).
 pub fn compute_move_position(
   sorted_cards : Array[Card],
   target_index : Int,
