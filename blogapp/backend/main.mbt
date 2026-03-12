@@ -30,56 +30,42 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
-fn post_to_json(
-  id : Int,
-  title : String,
-  content : String,
-  created_at : String,
-  updated_at : String,
-) -> Json {
-  {
-    "id": id,
-    "title": title,
-    "content": content,
-    "created_at": created_at,
-    "updated_at": updated_at,
-  }
+fn read_post_from_stmt(
+  stmt : @sqlite3.Statement,
+) -> @shared.Post raise @sqlite3.SqliteError {
+  let id : Int = stmt.column(index=0)
+  let title : String = stmt.column_blob_as_string(index=1)
+  let content : String = stmt.column_blob_as_string(index=2)
+  let ca_bytes : Bytes = stmt.column(index=3)
+  let ua_bytes : Bytes = stmt.column(index=4)
+  let created_at : String = try! @utf8.decode(ca_bytes[:])
+  let updated_at : String = try! @utf8.decode(ua_bytes[:])
+  { id, title, content, created_at, updated_at }
 }
 
 ///|
-fn comment_to_json(
-  id : Int,
-  post_id : Int,
-  author : String,
-  content : String,
-  created_at : String,
-) -> Json {
-  {
-    "id": id,
-    "post_id": post_id,
-    "author": author,
-    "content": content,
-    "created_at": created_at,
-  }
+fn read_comment_from_stmt(
+  stmt : @sqlite3.Statement,
+) -> @shared.Comment raise @sqlite3.SqliteError {
+  let id : Int = stmt.column(index=0)
+  let post_id : Int = stmt.column(index=1)
+  let author : String = stmt.column_blob_as_string(index=2)
+  let content : String = stmt.column_blob_as_string(index=3)
+  let ca_bytes : Bytes = stmt.column(index=4)
+  let created_at : String = try! @utf8.decode(ca_bytes[:])
+  { id, post_id, author, content, created_at }
 }
 
 ///|
 fn get_all_posts(
   conn : @sqlite3.Connection,
-) -> Array[Json] raise @sqlite3.SqliteError {
+) -> Array[@shared.Post] raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     "SELECT id, title, content, created_at, updated_at FROM posts ORDER BY id DESC",
   )
-  let posts : Array[Json] = []
+  let posts : Array[@shared.Post] = []
   while stmt.step() {
-    let id : Int = stmt.column(index=0)
-    let title : String = stmt.column_blob_as_string(index=1)
-    let content : String = stmt.column_blob_as_string(index=2)
-    let created_at_bytes : Bytes = stmt.column(index=3)
-    let updated_at_bytes : Bytes = stmt.column(index=4)
-    let created_at : String = try! @utf8.decode(created_at_bytes[:])
-    let updated_at : String = try! @utf8.decode(updated_at_bytes[:])
-    posts.push(post_to_json(id, title, content, created_at, updated_at))
+    posts.push(read_post_from_stmt(stmt))
   }
   stmt.finalize()
   posts
@@ -89,24 +75,14 @@ fn get_all_posts(
 fn get_post(
   conn : @sqlite3.Connection,
   id : Int,
-) -> Json? raise @sqlite3.SqliteError {
+) -> @shared.Post? raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     "SELECT id, title, content, created_at, updated_at FROM posts WHERE id = ?",
   )
   stmt.bind(index=1, val=id)
-  if stmt.step() {
-    let title : String = stmt.column_blob_as_string(index=1)
-    let content : String = stmt.column_blob_as_string(index=2)
-    let ca_bytes : Bytes = stmt.column(index=3)
-    let ua_bytes : Bytes = stmt.column(index=4)
-    let created_at : String = try! @utf8.decode(ca_bytes[:])
-    let updated_at : String = try! @utf8.decode(ua_bytes[:])
-    stmt.finalize()
-    Some(post_to_json(id, title, content, created_at, updated_at))
-  } else {
-    stmt.finalize()
-    None
-  }
+  let result = if stmt.step() { Some(read_post_from_stmt(stmt)) } else { None }
+  stmt.finalize()
+  result
 }
 
 ///|
@@ -114,7 +90,7 @@ fn create_post(
   conn : @sqlite3.Connection,
   title : String,
   content : String,
-) -> Json raise @sqlite3.SqliteError {
+) -> @shared.Post raise @sqlite3.SqliteError {
   let stmt = conn.prepare("INSERT INTO posts (title, content) VALUES (?, ?)")
   stmt.bind_string_as_blob(index=1, val=title)
   stmt.bind_string_as_blob(index=2, val=content)
@@ -126,7 +102,7 @@ fn create_post(
   stmt2.finalize()
   match get_post(conn, id) {
     Some(post) => post
-    None => post_to_json(id, title, content, "", "")
+    None => { id, title, content, created_at: "", updated_at: "" }
   }
 }
 
@@ -136,7 +112,7 @@ fn update_post(
   id : Int,
   title : String,
   content : String,
-) -> Json? raise @sqlite3.SqliteError {
+) -> @shared.Post? raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     "UPDATE posts SET title = ?, content = ?, updated_at = datetime('now') WHERE id = ?",
   )
@@ -168,20 +144,14 @@ fn delete_post(
 fn get_comments(
   conn : @sqlite3.Connection,
   post_id : Int,
-) -> Array[Json] raise @sqlite3.SqliteError {
+) -> Array[@shared.Comment] raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     "SELECT id, post_id, author, content, created_at FROM comments WHERE post_id = ? ORDER BY id ASC",
   )
   stmt.bind(index=1, val=post_id)
-  let comments : Array[Json] = []
+  let comments : Array[@shared.Comment] = []
   while stmt.step() {
-    let id : Int = stmt.column(index=0)
-    let pid : Int = stmt.column(index=1)
-    let author : String = stmt.column_blob_as_string(index=2)
-    let content : String = stmt.column_blob_as_string(index=3)
-    let ca_bytes : Bytes = stmt.column(index=4)
-    let created_at : String = try! @utf8.decode(ca_bytes[:])
-    comments.push(comment_to_json(id, pid, author, content, created_at))
+    comments.push(read_comment_from_stmt(stmt))
   }
   stmt.finalize()
   comments
@@ -191,23 +161,18 @@ fn get_comments(
 fn get_comment(
   conn : @sqlite3.Connection,
   id : Int,
-) -> Json? raise @sqlite3.SqliteError {
+) -> @shared.Comment? raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     "SELECT id, post_id, author, content, created_at FROM comments WHERE id = ?",
   )
   stmt.bind(index=1, val=id)
-  if stmt.step() {
-    let pid : Int = stmt.column(index=1)
-    let author : String = stmt.column_blob_as_string(index=2)
-    let content : String = stmt.column_blob_as_string(index=3)
-    let ca_bytes : Bytes = stmt.column(index=4)
-    let created_at : String = try! @utf8.decode(ca_bytes[:])
-    stmt.finalize()
-    Some(comment_to_json(id, pid, author, content, created_at))
+  let result = if stmt.step() {
+    Some(read_comment_from_stmt(stmt))
   } else {
-    stmt.finalize()
     None
   }
+  stmt.finalize()
+  result
 }
 
 ///|
@@ -216,7 +181,8 @@ fn create_comment(
   post_id : Int,
   author : String,
   content : String,
-) -> Json raise @sqlite3.SqliteError {
+) -> @shared.Comment raise @sqlite3.SqliteError {
+  let author = @shared.normalize_author(author)
   let stmt = conn.prepare(
     "INSERT INTO comments (post_id, author, content) VALUES (?, ?, ?)",
   )
@@ -231,7 +197,7 @@ fn create_comment(
   stmt2.finalize()
   match get_comment(conn, id) {
     Some(comment) => comment
-    None => comment_to_json(id, post_id, author, content, "")
+    None => { id, post_id, author, content, created_at: "" }
   }
 }
 
@@ -308,12 +274,12 @@ fn main raise {
       }
     }
   })
-  ..get("/api/posts", _ => {
-    println("GET /api/posts")
+  ..get(@shared.api_posts, _ => {
+    println("GET \{@shared.api_posts}")
     try {
       let posts = get_all_posts(conn)
       println("  -> 200 (\{posts.length()} posts)")
-      @mocket.HttpResponse::new(OK).json(posts)
+      @mocket.HttpResponse::new(OK).json(posts.map(fn(p) { p.to_json() }))
     } catch {
       e => {
         println("  -> 500 \{e}")
@@ -329,7 +295,7 @@ fn main raise {
       match get_post(conn, id) {
         Some(post) => {
           println("  -> 200")
-          @mocket.HttpResponse::new(OK).json(post)
+          @mocket.HttpResponse::new(OK).json(post.to_json())
         }
         None => {
           println("  -> 404 Not Found")
@@ -350,7 +316,7 @@ fn main raise {
       let post_id = @strconv.parse_int(id_str)
       let comments = get_comments(conn, post_id)
       println("  -> 200 (\{comments.length()} comments)")
-      @mocket.HttpResponse::new(OK).json(comments)
+      @mocket.HttpResponse::new(OK).json(comments.map(fn(c) { c.to_json() }))
     } catch {
       e => {
         println("  -> 500 \{e}")
@@ -358,8 +324,8 @@ fn main raise {
       }
     }
   })
-  ..post("/api/posts", event => {
-    println("POST /api/posts")
+  ..post(@shared.api_posts, event => {
+    println("POST \{@shared.api_posts}")
     try {
       let json : Json = event.req.body()
       let title = match json {
@@ -371,13 +337,19 @@ fn main raise {
           )
         }
       }
+      if not(@shared.validate_title(title)) {
+        println("  -> 400 Empty title")
+        return @mocket.HttpResponse::new(BadRequest).body(
+          "Title cannot be empty",
+        )
+      }
       let content = match json {
         { "content": String(c), .. } => c
         _ => ""
       }
       let post = create_post(conn, title, content)
       println("  -> 201 created post: \{title}")
-      @mocket.HttpResponse::new(Created).json(post)
+      @mocket.HttpResponse::new(Created).json(post.to_json())
     } catch {
       e => {
         println("  -> 500 \{e}")
@@ -400,6 +372,12 @@ fn main raise {
           )
         }
       }
+      if not(@shared.validate_title(title)) {
+        println("  -> 400 Empty title")
+        return @mocket.HttpResponse::new(BadRequest).body(
+          "Title cannot be empty",
+        )
+      }
       let content = match json {
         { "content": String(c), .. } => c
         _ => ""
@@ -407,7 +385,7 @@ fn main raise {
       match update_post(conn, id, title, content) {
         Some(post) => {
           println("  -> 200 updated post \{id}")
-          @mocket.HttpResponse::new(OK).json(post)
+          @mocket.HttpResponse::new(OK).json(post.to_json())
         }
         None => {
           println("  -> 404 Not Found")
@@ -429,7 +407,7 @@ fn main raise {
       let json : Json = event.req.body()
       let author = match json {
         { "author": String(a), .. } => a
-        _ => "Anonymous"
+        _ => ""
       }
       let content = match json {
         { "content": String(c), .. } => c
@@ -441,8 +419,8 @@ fn main raise {
         }
       }
       let comment = create_comment(conn, post_id, author, content)
-      println("  -> 201 created comment by \{author}")
-      @mocket.HttpResponse::new(Created).json(comment)
+      println("  -> 201 created comment by \{comment.author}")
+      @mocket.HttpResponse::new(Created).json(comment.to_json())
     } catch {
       e => {
         println("  -> 500 \{e}")

@@ -1,4 +1,5 @@
 import {
+  "haoxiang/blog-app/shared",
   "oboard/mocket",
   "oboard/mocket/cors",
   "myfreess/sqlite3",

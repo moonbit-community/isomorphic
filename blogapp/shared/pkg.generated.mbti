@@ -1,0 +1,53 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "haoxiang/blog-app/shared"
+
+import {
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_comment(Int) -> String
+
+pub fn api_post(Int) -> String
+
+pub fn api_post_comments(Int) -> String
+
+pub let api_posts : String
+
+pub let default_author : String
+
+pub fn normalize_author(String) -> String
+
+pub fn truncate(String, Int) -> String
+
+pub fn validate_title(String) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct Comment {
+  id : Int
+  post_id : Int
+  author : String
+  content : String
+  created_at : String
+}
+pub impl Show for Comment
+pub impl ToJson for Comment
+pub impl @json.FromJson for Comment
+
+pub(all) struct Post {
+  id : Int
+  title : String
+  content : String
+  created_at : String
+  updated_at : String
+}
+pub impl Show for Post
+pub impl ToJson for Post
+pub impl @json.FromJson for Post
+
+// Type aliases
+
+// Traits
+

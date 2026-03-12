@@ -1,22 +1,4 @@
 ///|
-struct Post {
-  id : Int
-  title : String
-  content : String
-  created_at : String
-  updated_at : String
-} derive(FromJson)
-
-///|
-struct Comment {
-  id : Int
-  post_id : Int
-  author : String
-  content : String
-  created_at : String
-} derive(FromJson)
-
-///|
 enum Page {
   PostList
   ViewPost(Int)
@@ -26,9 +8,9 @@ enum Page {
 
 ///|
 struct Model {
-  posts : Array[Post]
-  current_post : Post?
-  comments : Array[Comment]
+  posts : Array[@shared.Post]
+  current_post : @shared.Post?
+  comments : Array[@shared.Comment]
   page : Page
   title_input : String
   content_input : String
@@ -46,9 +28,9 @@ enum Msg {
   GoToEditPost(Int)
   // Data fetching
   Init
-  GotPosts(Result[Array[Post], String])
-  GotPost(Result[Post, String])
-  GotComments(Result[Array[Comment], String])
+  GotPosts(Result[Array[@shared.Post], String])
+  GotPost(Result[@shared.Post, String])
+  GotComments(Result[Array[@shared.Comment], String])
   // Form inputs
   TitleChanged(String)
   ContentChanged(String)
@@ -56,14 +38,14 @@ enum Msg {
   CommentContentChanged(String)
   // Post CRUD
   CreatePost
-  PostCreated(Result[Post, String])
+  PostCreated(Result[@shared.Post, String])
   UpdatePost(Int)
-  PostUpdated(Result[Post, String])
+  PostUpdated(Result[@shared.Post, String])
   DeletePost(Int)
   PostDeleted(Result[Int, String])
   // Comment CRUD
   AddComment(Int)
-  CommentAdded(Result[Comment, String])
+  CommentAdded(Result[@shared.Comment, String])
   DeleteComment(Int, Int)
   CommentDeleted(Result[Int, String])
 }
@@ -71,7 +53,7 @@ enum Msg {
 ///|
 fn fetch_posts(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
-    "/api/posts",
+    @shared.api_posts,
     expect=Json(fn(result) { dispatch(GotPosts(result)) }, fn(json) {
       Ok(@json.from_json(json)) catch {
         _ => Err("Failed to decode posts")
@@ -83,7 +65,7 @@ fn fetch_posts(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 ///|
 fn fetch_post(dispatch : @rabbita.Dispatch[Msg], id : Int) -> @rabbita.Cmd {
   @http.get(
-    "/api/posts/\{id}",
+    @shared.api_post(id),
     expect=Json(fn(result) { dispatch(GotPost(result)) }, fn(json) {
       Ok(@json.from_json(json)) catch {
         _ => Err("Failed to decode post")
@@ -98,7 +80,7 @@ fn fetch_comments(
   post_id : Int,
 ) -> @rabbita.Cmd {
   @http.get(
-    "/api/posts/\{post_id}/comments",
+    @shared.api_post_comments(post_id),
     expect=Json(fn(result) { dispatch(GotComments(result)) }, fn(json) {
       Ok(@json.from_json(json)) catch {
         _ => Err("Failed to decode comments")
@@ -163,13 +145,13 @@ fn update(
     CommentContentChanged(value) =>
       (@rabbita.none, { ..model, comment_content: value })
     CreatePost => {
-      if model.title_input == "" {
+      if not(@shared.validate_title(model.title_input)) {
         return (@rabbita.none, model)
       }
       let title = model.title_input
       let content = model.content_input
       let cmd = @http.post(
-        "/api/posts",
+        @shared.api_posts,
         Json(({ "title": title, "content": content } : Json)),
         expect=Json(fn(result) { dispatch(PostCreated(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
@@ -194,13 +176,13 @@ fn update(
       )
     PostCreated(Err(_)) => (@rabbita.none, { ..model, loading: false })
     UpdatePost(id) => {
-      if model.title_input == "" {
+      if not(@shared.validate_title(model.title_input)) {
         return (@rabbita.none, model)
       }
       let title = model.title_input
       let content = model.content_input
       let cmd = @http.post(
-        "/api/posts/\{id}",
+        @shared.api_post(id),
         Json(({ "title": title, "content": content } : Json)),
         expect=Json(fn(result) { dispatch(PostUpdated(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
@@ -223,7 +205,7 @@ fn update(
     PostUpdated(Err(_)) => (@rabbita.none, { ..model, loading: false })
     DeletePost(id) => {
       let cmd = @http.delete(
-        "/api/posts/\{id}",
+        @shared.api_post(id),
         expect=Text(fn(result) {
           dispatch(
             PostDeleted(
@@ -246,14 +228,10 @@ fn update(
       if model.comment_content == "" {
         return (@rabbita.none, model)
       }
-      let author = if model.comment_author == "" {
-        "Anonymous"
-      } else {
-        model.comment_author
-      }
+      let author = @shared.normalize_author(model.comment_author)
       let content = model.comment_content
       let cmd = @http.post(
-        "/api/posts/\{post_id}/comments",
+        @shared.api_post_comments(post_id),
         Json(({ "author": author, "content": content } : Json)),
         expect=Json(fn(result) { dispatch(CommentAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
@@ -274,7 +252,7 @@ fn update(
     CommentAdded(Err(_)) => (@rabbita.none, model)
     DeleteComment(_post_id, comment_id) => {
       let cmd = @http.delete(
-        "/api/comments/\{comment_id}",
+        @shared.api_comment(comment_id),
         expect=Text(fn(result) {
           dispatch(
             CommentDeleted(
@@ -293,23 +271,6 @@ fn update(
       (@rabbita.none, { ..model, comments, })
     }
     CommentDeleted(Err(_)) => (@rabbita.none, model)
-  }
-}
-
-///|
-fn truncate(s : String, max_chars : Int) -> String {
-  // Iterate by Char to avoid splitting surrogate pairs
-  let buf = StringBuilder::new()
-  for i = 0, count = 0 {
-    guard count < max_chars else { break buf.to_string() + "..." }
-    match s.get_char(i) {
-      None => break buf.to_string()
-      Some(c) => {
-        buf.write_char(c)
-        let advance = if c.to_int() > 0xFFFF { 2 } else { 1 }
-        continue i + advance, count + 1
-      }
-    }
   }
 }
 
@@ -400,7 +361,7 @@ fn view_post_list(
               ),
               @html.p(
                 style=["color: #64748b", "font-size: 15px", "line-height: 1.6"],
-                truncate(post.content, 120),
+                @shared.truncate(post.content, 120),
               ),
             ],
           )
