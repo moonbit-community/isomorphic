@@ -1,28 +1,49 @@
-///|
+/// Application state for the todo list UI.
+///
+/// Follows the Elm architecture (Model-Update-View) via Rabbita.
+/// The model is immutable from the framework's perspective — each `update`
+/// returns a new copy with the relevant fields changed.
 struct Model {
   todos : Array[@shared.Todo]
   input : String
   loading : Bool
 }
 
-///|
+/// Messages that drive state transitions in the update loop.
+///
+/// Each user action or async HTTP response is represented as a `Msg` variant.
+/// Naming convention: imperative verbs (`AddTodo`, `ToggleTodo`) are user-initiated
+/// actions that fire HTTP requests; past-tense variants (`TodoAdded`, `TodoToggled`)
+/// carry the async result back from the server.
 enum Msg {
+  /// Fired once on app startup to kick off the initial fetch.
   Init
+  /// Response from `GET /api/todos`.
   GotTodos(Result[Array[@shared.Todo], String])
+  /// Text input value changed.
   InputChanged(String)
+  /// User submitted the add-todo form.
   AddTodo
+  /// Response from `POST /api/todos`.
   TodoAdded(Result[@shared.Todo, String])
+  /// User clicked a todo's checkbox.
   ToggleTodo(Int)
+  /// Response from `POST /api/todos/:id/toggle`.
   TodoToggled(Result[@shared.Todo, String])
+  /// User clicked a todo's delete button.
   DeleteTodo(Int)
+  /// Response from `DELETE /api/todos/:id`.
   TodoDeleted(Result[Int, String])
 }
 
-///|
+/// Fetch all todos from the backend (`GET /api/todos`).
+///
+/// Returns a Rabbita command that, when executed by the runtime, issues the
+/// HTTP request and dispatches `GotTodos` with the decoded result.
 fn fetch_todos(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_todos,
-    expect=Json(fn(result) { dispatch(GotTodos(result)) }, fn(json) {
+    expect=Json(result => dispatch(GotTodos(result)), json => {
       Ok(@json.from_json(json)) catch {
         _ => Err("Failed to decode todos")
       }
@@ -30,7 +51,11 @@ fn fetch_todos(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   )
 }
 
-///|
+/// Central state machine — processes each `Msg` and returns the next model
+/// plus an optional side-effect command (HTTP request or `@rabbita.none`).
+///
+/// Pure except for constructing HTTP commands via `dispatch`. The Rabbita
+/// runtime executes returned commands after the view re-renders.
 fn update(
   dispatch : @rabbita.Dispatch[Msg],
   msg : Msg,
@@ -110,7 +135,12 @@ fn update(
   }
 }
 
-///|
+/// Render the entire UI as a virtual DOM tree from the current model.
+///
+/// Layout: a centered card containing a heading, an add-todo form, and either
+/// a loading indicator, an empty-state message, or the todo list. Each todo
+/// item has a checkbox (toggle) and a delete button, both wired to dispatch
+/// the corresponding `Msg`.
 fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
   @html.div(
     style=[
@@ -195,7 +225,10 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
   )
 }
 
-///|
+/// Entry point — wire up the Rabbita app and mount it to the `#app` DOM node.
+///
+/// Uses `cell_with_dispatch` (not `simple_cell`) because `update` needs the
+/// dispatch function to construct async HTTP commands.
 fn main {
   let (dispatch, app_cell) = @rabbita.cell_with_dispatch(
     model={ todos: [], input: "", loading: false },

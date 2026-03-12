@@ -10,6 +10,7 @@ make build          # Build both targets without running
 make build-frontend # moon build --target js, copy JS to public/
 make build-backend  # moon build --target native
 make clean          # Remove public/frontend.js, todos.db, and _build/
+moon check --target native,js  # Type-check both targets without building — fast feedback during dev
 ```
 
 The server runs at http://localhost:4000. Data persists in `todos.db` (SQLite).
