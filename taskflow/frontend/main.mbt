@@ -27,6 +27,10 @@ struct Model {
   edit_priority : String
   edit_assignee : Int
   edit_due_date : String
+  // Comments
+  viewing_comments : Int
+  comments : Array[@shared.Comment]
+  new_comment : String
   // Delete confirmation
   confirm_delete : Int
   // Error notification
@@ -76,6 +80,13 @@ enum Msg {
   CancelDelete
   ConfirmDelete
   TaskDeleted
+  // Comments
+  ShowComments(Int)
+  HideComments
+  GotComments(Result[Array[@shared.Comment], String])
+  NewCommentChanged(String)
+  AddComment
+  CommentAdded(Result[@shared.Comment, String])
   // Keyboard
   KeyPressed(String)
   // Errors
@@ -344,10 +355,56 @@ fn update(
       (cmd, { ..model, tasks, confirm_delete: 0 })
     }
     TaskDeleted => (fetch_board(dispatch), model)
+    // ---- Comments ----
+    ShowComments(task_id) => {
+      let url = @shared.api_task_comments(task_id)
+      let cmd = @http.get(
+        url,
+        expect=Json(fn(result) { dispatch(GotComments(result)) }, fn(json) {
+          Ok((@json.from_json(json) : Array[@shared.Comment])) catch {
+            _ => Err("Failed to decode comments")
+          }
+        }),
+      )
+      (
+        cmd,
+        { ..model, viewing_comments: task_id, comments: [], new_comment: "" },
+      )
+    }
+    HideComments =>
+      (@rabbita.none, { ..model, viewing_comments: 0, comments: [] })
+    GotComments(Ok(comments)) => (@rabbita.none, { ..model, comments, })
+    GotComments(Err(e)) => (@rabbita.none, { ..model, error_msg: e })
+    NewCommentChanged(v) => (@rabbita.none, { ..model, new_comment: v })
+    AddComment => {
+      let task_id = model.viewing_comments
+      if task_id == 0 || not(@shared.validate_comment_text(model.new_comment)) {
+        return (@rabbita.none, model)
+      }
+      let text = model.new_comment
+      let url = @shared.api_task_comments(task_id)
+      let cmd = @http.post(
+        url,
+        Json(({ "text": text, "author": "Me" } : Json)),
+        expect=Json(fn(result) { dispatch(CommentAdded(result)) }, fn(json) {
+          Ok((@json.from_json(json) : @shared.Comment)) catch {
+            _ => Err("Failed to decode comment")
+          }
+        }),
+      )
+      (cmd, { ..model, new_comment: "" })
+    }
+    CommentAdded(Ok(comment)) => {
+      let comments = [comment, ..model.comments]
+      (@rabbita.none, { ..model, comments, })
+    }
+    CommentAdded(Err(e)) => (@rabbita.none, { ..model, error_msg: e })
     // ---- Keyboard shortcuts ----
     KeyPressed(key) => {
       // Skip shortcuts when typing in forms
-      if model.adding_task || model.editing_task != 0 {
+      if model.adding_task ||
+        model.editing_task != 0 ||
+        model.viewing_comments != 0 {
         if key == "Escape" {
           if model.adding_task {
             return (@rabbita.none, { ..model, adding_task: false })
@@ -358,6 +415,9 @@ fn update(
       }
       // Dismiss dialogs/errors with Escape
       if key == "Escape" {
+        if model.viewing_comments != 0 {
+          return (@rabbita.none, { ..model, viewing_comments: 0, comments: [] })
+        }
         if model.confirm_delete != 0 {
           return (@rabbita.none, { ..model, confirm_delete: 0 })
         }
@@ -1357,8 +1417,21 @@ fn view_task_item(
               )
             }),
           ),
-          // Edit / Delete
+          // Notes / Edit / Delete
           @html.div(style=["display: flex", "gap: 3px"], [
+            @html.button(
+              on_click=dispatch(ShowComments(task.id)),
+              style=[
+                "padding: 2px 8px",
+                "font-size: 11px",
+                "cursor: pointer",
+                "border-radius: 4px",
+                "border: 1px solid \{theme.input_border}",
+                "background: \{theme.filter_inactive}",
+                "color: \{theme.text_secondary}",
+              ],
+              "Notes",
+            ),
             @html.button(
               on_click=dispatch(StartEditTask(task)),
               style=[
@@ -1498,10 +1571,30 @@ fn view_kanban_card(
           })
           buttons.push(
             @html.button(
+              on_click=dispatch(ShowComments(task.id)),
+              style=[
+                "padding: 1px 6px",
+                "font-size: 9px",
+                "cursor: pointer",
+                "border-radius: 3px",
+                "border: 1px solid \{theme.input_border}",
+                "background: \{theme.filter_inactive}",
+                "color: \{theme.text_muted}",
+              ],
+              "Notes",
+            ),
+          )
+          buttons.push(
+            @html.button(
               on_click=dispatch(StartEditTask(task)),
               style=[
-                "padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px",
-                "border: 1px solid #e2e8f0", "background: #f8fafc", "color: #94a3b8",
+                "padding: 1px 6px",
+                "font-size: 9px",
+                "cursor: pointer",
+                "border-radius: 3px",
+                "border: 1px solid \{theme.input_border}",
+                "background: \{theme.filter_inactive}",
+                "color: \{theme.text_muted}",
               ],
               "Edit",
             ),
@@ -1768,6 +1861,173 @@ fn view_delete_confirm(
 }
 
 ///|
+/// Render the comments/notes panel as a modal overlay.
+fn view_comments_panel(
+  dispatch : @rabbita.Dispatch[Msg],
+  model : Model,
+) -> @rabbita.Html {
+  if model.viewing_comments == 0 {
+    return @html.text("")
+  }
+  let theme = get_theme(model.dark_mode)
+  let mut task_title = "Task"
+  for t in model.tasks {
+    if t.id == model.viewing_comments {
+      task_title = t.title
+      break
+    }
+  }
+  @html.div(
+    style=[
+      "position: fixed", "top: 0", "left: 0", "right: 0", "bottom: 0", "background: rgba(0,0,0,0.4)",
+      "display: flex", "align-items: center", "justify-content: center", "z-index: 1000",
+    ],
+    [
+      @html.div(
+        style=[
+          "background: \{theme.card_bg}",
+          "border-radius: 12px",
+          "padding: 20px",
+          "max-width: 500px",
+          "width: 90%",
+          "max-height: 80vh",
+          "overflow-y: auto",
+          "box-shadow: 0 20px 60px rgba(0,0,0,0.2)",
+        ],
+        {
+          let items : Array[@rabbita.Html] = [
+            // Header
+            @html.div(
+              style=[
+                "display: flex", "justify-content: space-between", "align-items: center",
+                "margin-bottom: 16px",
+              ],
+              [
+                @html.div(style=[], [
+                  @html.div(
+                    style=[
+                      "font-size: 15px",
+                      "font-weight: 600",
+                      "color: \{theme.text}",
+                    ],
+                    [@html.text("Notes")],
+                  ),
+                  @html.div(
+                    style=[
+                      "font-size: 12px",
+                      "color: \{theme.text_muted}",
+                      "margin-top: 2px",
+                    ],
+                    [@html.text(task_title)],
+                  ),
+                ]),
+                @html.button(
+                  on_click=dispatch(HideComments),
+                  style=[
+                    "background: none",
+                    "border: none",
+                    "color: \{theme.text_muted}",
+                    "cursor: pointer",
+                    "font-size: 18px",
+                    "padding: 0 4px",
+                  ],
+                  "×",
+                ),
+              ],
+            ),
+            // Add comment form
+            @html.div(
+              style=["display: flex", "gap: 8px", "margin-bottom: 16px"],
+              [
+                @html.input(
+                  input_type=Text,
+                  placeholder="Add a note...",
+                  value=model.new_comment,
+                  on_input=fn(v) { dispatch(NewCommentChanged(v)) },
+                  style=[
+                    "flex: 1",
+                    "padding: 8px 10px",
+                    "border: 1px solid \{theme.input_border}",
+                    "border-radius: 6px",
+                    "font-size: 13px",
+                    "outline: none",
+                    "background: \{theme.input_bg}",
+                    "color: \{theme.text}",
+                  ],
+                  "",
+                ),
+                @html.button(
+                  on_click=dispatch(AddComment),
+                  style=[
+                    "padding: 8px 14px", "background: #4f46e5", "color: white", "border: none",
+                    "border-radius: 6px", "cursor: pointer", "font-size: 13px",
+                  ],
+                  "Add",
+                ),
+              ],
+            ),
+          ]
+          // Comment list
+          if model.comments.length() == 0 {
+            items.push(
+              @html.div(
+                style=[
+                  "text-align: center",
+                  "padding: 20px 0",
+                  "color: \{theme.text_muted}",
+                  "font-size: 13px",
+                ],
+                [@html.text("No notes yet")],
+              ),
+            )
+          }
+          for c in model.comments {
+            items.push(
+              @html.div(
+                style=[
+                  "padding: 10px 0",
+                  "border-bottom: 1px solid \{theme.card_border}",
+                ],
+                [
+                  @html.div(
+                    style=[
+                      "display: flex", "justify-content: space-between", "margin-bottom: 4px",
+                    ],
+                    [
+                      @html.span(
+                        style=[
+                          "font-size: 12px",
+                          "font-weight: 600",
+                          "color: \{theme.text_secondary}",
+                        ],
+                        c.author,
+                      ),
+                      @html.span(
+                        style=["font-size: 11px", "color: \{theme.text_muted}"],
+                        c.created_at,
+                      ),
+                    ],
+                  ),
+                  @html.div(
+                    style=[
+                      "font-size: 13px",
+                      "color: \{theme.text}",
+                      "line-height: 1.5",
+                    ],
+                    [@html.text(c.text)],
+                  ),
+                ],
+              ),
+            )
+          }
+          items
+        },
+      ),
+    ],
+  )
+}
+
+///|
 /// Render the error toast notification.
 fn view_error_toast(
   dispatch : @rabbita.Dispatch[Msg],
@@ -1827,6 +2087,7 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
     attrs=@html.Attrs::build().tabindex(0),
     [
       view_error_toast(dispatch, model),
+      view_comments_panel(dispatch, model),
       view_delete_confirm(dispatch, model),
       view_header(dispatch, model),
       if model.loading {
@@ -1914,6 +2175,9 @@ fn main {
       edit_assignee: 0,
       edit_due_date: "",
       dark_mode: false,
+      viewing_comments: 0,
+      comments: [],
+      new_comment: "",
       confirm_delete: 0,
       error_msg: "",
       loading: false,

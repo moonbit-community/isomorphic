@@ -87,8 +87,19 @@ test "validate_due_date edge dates" {
 }
 
 ///|
+test "validate_comment_text" {
+  inspect(@shared.validate_comment_text("Looking good"), content="true")
+  inspect(@shared.validate_comment_text(""), content="false")
+  let long = "a".repeat(500)
+  inspect(@shared.validate_comment_text(long), content="true")
+  let too_long = "a".repeat(501)
+  inspect(@shared.validate_comment_text(too_long), content="false")
+}
+
+///|
 test "constants" {
   inspect(@shared.max_task_title, content="100")
   inspect(@shared.max_task_description, content="500")
+  inspect(@shared.max_comment_text, content="500")
   inspect(@shared.max_tasks, content="100")
 }

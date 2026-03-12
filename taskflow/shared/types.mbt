@@ -31,6 +31,16 @@ pub(all) struct Activity {
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
+/// A comment on a task.
+pub(all) struct Comment {
+  id : Int
+  task_id : Int
+  author : String
+  text : String
+  created_at : String
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
 /// Full board state returned by `GET /api/board`.
 pub(all) struct Board {
   tasks : Array[Task]

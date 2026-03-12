@@ -43,10 +43,25 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   )
   s3.step_once()
   s3.finalize()
+  // Comments table for task notes
+  let s4 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS comments (
+      #|  id INTEGER PRIMARY KEY AUTOINCREMENT,
+      #|  task_id INTEGER NOT NULL,
+      #|  author BLOB NOT NULL,
+      #|  text BLOB NOT NULL,
+      #|  created_at BLOB NOT NULL,
+      #|  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
+      #|)
+    ),
+  )
+  s4.step_once()
+  s4.finalize()
   // Indexes for common query patterns
   let idx_stmts = [
     "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status)", "CREATE INDEX IF NOT EXISTS idx_tasks_assignee ON tasks(assignee_id)",
-    "CREATE INDEX IF NOT EXISTS idx_tasks_due ON tasks(due_date)",
+    "CREATE INDEX IF NOT EXISTS idx_tasks_due ON tasks(due_date)", "CREATE INDEX IF NOT EXISTS idx_comments_task ON comments(task_id)",
   ]
   for sql in idx_stmts {
     let s = conn.prepare(sql)
@@ -214,6 +229,66 @@ fn log_activity(
   stmt.bind_string_as_blob(index=5, val=today)
   stmt.step_once()
   stmt.finalize()
+}
+
+///|
+/// Read a Comment from the current row of a prepared statement.
+fn read_comment(stmt : @sqlite3.Statement) -> @shared.Comment {
+  let id : Int = stmt.column(index=0)
+  let task_id : Int = stmt.column(index=1)
+  let author : String = stmt.column_blob_as_string(index=2)
+  let text : String = stmt.column_blob_as_string(index=3)
+  let created_at : String = stmt.column_blob_as_string(index=4)
+  { id, task_id, author, text, created_at }
+}
+
+///|
+/// Fetch all comments for a task, newest first.
+fn get_task_comments(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+) -> Array[@shared.Comment] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    (
+      #|SELECT id, task_id, author, text, created_at
+      #|FROM comments WHERE task_id = ? ORDER BY id DESC
+    ),
+  )
+  stmt.bind(index=1, val=task_id)
+  let comments : Array[@shared.Comment] = []
+  while stmt.step() {
+    comments.push(read_comment(stmt))
+  }
+  stmt.finalize()
+  comments
+}
+
+///|
+/// Add a comment to a task.
+fn add_comment(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  author : String,
+  text : String,
+) -> @shared.Comment raise @sqlite3.SqliteError {
+  let today = get_today(conn)
+  let stmt = conn.prepare(
+    (
+      #|INSERT INTO comments (task_id, author, text, created_at)
+      #|VALUES (?, ?, ?, ?)
+    ),
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind_string_as_blob(index=2, val=author)
+  stmt.bind_string_as_blob(index=3, val=text)
+  stmt.bind_string_as_blob(index=4, val=today)
+  stmt.step_once()
+  stmt.finalize()
+  let id_stmt = conn.prepare("SELECT last_insert_rowid()")
+  guard id_stmt.step()
+  let id : Int = id_stmt.column(index=0)
+  id_stmt.finalize()
+  { id, task_id, author, text, created_at: today }
 }
 
 ///|
@@ -574,6 +649,49 @@ fn main raise {
           @mocket.HttpResponse::new(OK).json(updated.to_json())
         }
       }
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  // ---- Comments ----
+  ..get("/api/tasks/:id/comments", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("GET /api/tasks/\{id_str}/comments")
+    try {
+      let id = @strconv.parse_int(id_str)
+      let comments = get_task_comments(conn, id)
+      println("  -> 200 (\{comments.length()} comments)")
+      @mocket.HttpResponse::new(OK).json(comments.to_json())
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..post("/api/tasks/:id/comments", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/tasks/\{id_str}/comments")
+    try {
+      let id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let text = match json {
+        { "text": String(t), .. } => t
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing text")
+      }
+      if not(@shared.validate_comment_text(text)) {
+        return @mocket.HttpResponse::new(BadRequest).body("Invalid comment")
+      }
+      let author = match json {
+        { "author": String(a), .. } => a
+        _ => "Anonymous"
+      }
+      let comment = add_comment(conn, id, author, text)
+      println("  -> 201 comment added to task \{id}")
+      @mocket.HttpResponse::new(Created).json(comment.to_json())
     } catch {
       e => {
         println("  -> 500 \{e}")

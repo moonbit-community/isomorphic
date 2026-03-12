@@ -14,6 +14,8 @@ pub let api_members : String
 
 pub fn api_task(Int) -> String
 
+pub fn api_task_comments(Int) -> String
+
 pub fn api_task_status(Int) -> String
 
 pub let api_tasks : String
@@ -35,6 +37,8 @@ pub fn is_terminal(String) -> Bool
 pub fn is_valid_transition(String, String) -> Bool
 
 pub fn matches_urgency(Task, String, String) -> Bool
+
+pub let max_comment_text : Int
 
 pub let max_task_description : Int
 
@@ -72,6 +76,8 @@ pub let valid_priorities : Array[String]
 
 pub let valid_statuses : Array[String]
 
+pub fn validate_comment_text(String) -> Bool
+
 pub fn validate_due_date(String) -> Bool
 
 pub fn validate_priority(String) -> Bool
@@ -108,6 +114,18 @@ pub impl Eq for Board
 pub impl Show for Board
 pub impl ToJson for Board
 pub impl @json.FromJson for Board
+
+pub(all) struct Comment {
+  id : Int
+  task_id : Int
+  author : String
+  text : String
+  created_at : String
+}
+pub impl Eq for Comment
+pub impl Show for Comment
+pub impl ToJson for Comment
+pub impl @json.FromJson for Comment
 
 pub(all) struct Member {
   id : Int

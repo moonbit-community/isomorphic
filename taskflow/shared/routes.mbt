@@ -19,5 +19,11 @@ pub fn api_task_status(id : Int) -> String {
 }
 
 ///|
+/// `GET` — list comments for a task. `POST` — add a comment.
+pub fn api_task_comments(id : Int) -> String {
+  "/api/tasks/\{id}/comments"
+}
+
+///|
 /// `GET` — list all team members.
 pub let api_members : String = "/api/members"

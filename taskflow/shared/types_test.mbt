@@ -101,3 +101,16 @@ test "Member JSON structure" {
     "color": "blue",
   })
 }
+
+///|
+test "Comment JSON round-trip" {
+  let c : @shared.Comment = {
+    id: 1,
+    task_id: 2,
+    author: "Alice",
+    text: "Looking good",
+    created_at: "2026-03-12",
+  }
+  let decoded : @shared.Comment = @json.from_json(c.to_json())
+  assert_eq(decoded, c)
+}

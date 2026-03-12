@@ -7,6 +7,10 @@ pub let max_task_title : Int = 100
 pub let max_task_description : Int = 500
 
 ///|
+/// Maximum character length for a comment.
+pub let max_comment_text : Int = 500
+
+///|
 /// Maximum number of tasks allowed.
 pub let max_tasks : Int = 100
 
@@ -51,6 +55,12 @@ pub fn validate_priority(priority : String) -> Bool {
     }
   }
   false
+}
+
+///|
+/// Validate comment text: non-empty and within max length.
+pub fn validate_comment_text(text : String) -> Bool {
+  text != "" && text.char_length() <= max_comment_text
 }
 
 ///|
