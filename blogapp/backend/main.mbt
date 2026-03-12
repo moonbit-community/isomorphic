@@ -75,8 +75,10 @@ fn get_all_posts(
     let id : Int = stmt.column(index=0)
     let title : String = stmt.column_blob_as_string(index=1)
     let content : String = stmt.column_blob_as_string(index=2)
-    let created_at : String = stmt.column_blob_as_string(index=3)
-    let updated_at : String = stmt.column_blob_as_string(index=4)
+    let created_at_bytes : Bytes = stmt.column(index=3)
+    let updated_at_bytes : Bytes = stmt.column(index=4)
+    let created_at : String = try! @utf8.decode(created_at_bytes[:])
+    let updated_at : String = try! @utf8.decode(updated_at_bytes[:])
     posts.push(post_to_json(id, title, content, created_at, updated_at))
   }
   stmt.finalize()
@@ -95,8 +97,10 @@ fn get_post(
   if stmt.step() {
     let title : String = stmt.column_blob_as_string(index=1)
     let content : String = stmt.column_blob_as_string(index=2)
-    let created_at : String = stmt.column_blob_as_string(index=3)
-    let updated_at : String = stmt.column_blob_as_string(index=4)
+    let ca_bytes : Bytes = stmt.column(index=3)
+    let ua_bytes : Bytes = stmt.column(index=4)
+    let created_at : String = try! @utf8.decode(ca_bytes[:])
+    let updated_at : String = try! @utf8.decode(ua_bytes[:])
     stmt.finalize()
     Some(post_to_json(id, title, content, created_at, updated_at))
   } else {
@@ -175,7 +179,8 @@ fn get_comments(
     let pid : Int = stmt.column(index=1)
     let author : String = stmt.column_blob_as_string(index=2)
     let content : String = stmt.column_blob_as_string(index=3)
-    let created_at : String = stmt.column_blob_as_string(index=4)
+    let ca_bytes : Bytes = stmt.column(index=4)
+    let created_at : String = try! @utf8.decode(ca_bytes[:])
     comments.push(comment_to_json(id, pid, author, content, created_at))
   }
   stmt.finalize()
@@ -195,7 +200,8 @@ fn get_comment(
     let pid : Int = stmt.column(index=1)
     let author : String = stmt.column_blob_as_string(index=2)
     let content : String = stmt.column_blob_as_string(index=3)
-    let created_at : String = stmt.column_blob_as_string(index=4)
+    let ca_bytes : Bytes = stmt.column(index=4)
+    let created_at : String = try! @utf8.decode(ca_bytes[:])
     stmt.finalize()
     Some(comment_to_json(id, pid, author, content, created_at))
   } else {
