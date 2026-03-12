@@ -1,8 +1,18 @@
 ///|
+/// Gap between consecutive item positions. Used for initial spacing.
 pub let position_gap : Int = 1000
 
 ///|
 /// Compute position for appending after all existing items.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   inspect(@shared.next_position([1000, 2000, 3000]), content="4000")
+///   inspect(@shared.next_position([]), content="1000")
+/// }
+/// ```
 pub fn next_position(existing_positions : Array[Int]) -> Int {
   let mut max = 0
   for p in existing_positions {
@@ -17,6 +27,18 @@ pub fn next_position(existing_positions : Array[Int]) -> Int {
 /// Compute position for inserting between two adjacent items.
 /// Pass 0 for `before` to insert at top, 0 for `after` to insert at bottom.
 /// Returns 0 if gap is too small (caller should renumber).
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   inspect(@shared.compute_insert_position(1000, 3000), content="2000")
+///   inspect(@shared.compute_insert_position(0, 2000), content="1000")
+///   inspect(@shared.compute_insert_position(3000, 0), content="4000")
+///   // Returns 0 when no room between adjacent positions
+///   inspect(@shared.compute_insert_position(100, 101), content="0")
+/// }
+/// ```
 pub fn compute_insert_position(before : Int, after : Int) -> Int {
   if before == 0 && after == 0 {
     return position_gap
@@ -40,6 +62,14 @@ pub fn compute_insert_position(before : Int, after : Int) -> Int {
 
 ///|
 /// Generate evenly-spaced positions for `count` items.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
+/// }
+/// ```
 pub fn renumber_positions(count : Int) -> Array[Int] {
   let result : Array[Int] = []
   for i in 0..<count {
@@ -89,6 +119,15 @@ pub fn compute_move_position(
 
 ///|
 /// Map color label to CSS hex value. Empty string for no color.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   inspect(@shared.color_to_css("blue"), content="#3b82f6")
+///   inspect(@shared.color_to_css("unknown"), content="")
+/// }
+/// ```
 pub fn color_to_css(color : String) -> String {
   match color {
     "red" => "#ef4444"
