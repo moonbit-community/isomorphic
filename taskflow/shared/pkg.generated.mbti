@@ -1,0 +1,118 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/taskflow/shared"
+
+import {
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn allowed_transitions(String) -> Array[String]
+
+pub let api_board : String
+
+pub let api_members : String
+
+pub fn api_task(Int) -> String
+
+pub fn api_task_status(Int) -> String
+
+pub let api_tasks : String
+
+pub fn completion_percent(Array[Task]) -> Int
+
+pub fn count_by_status(Array[Task], String) -> Int
+
+pub fn filter_tasks(Array[Task], String, Int, String) -> Array[Task]
+
+pub fn find_member(Array[Member], Int) -> Member?
+
+pub fn is_overdue(String, String) -> Bool
+
+pub fn is_terminal(String) -> Bool
+
+pub fn is_valid_transition(String, String) -> Bool
+
+pub let max_task_description : Int
+
+pub let max_task_title : Int
+
+pub let max_tasks : Int
+
+pub fn member_color(String) -> String
+
+pub fn member_initial(String) -> String
+
+pub fn priority_color(String) -> String
+
+pub fn priority_label(String) -> String
+
+pub fn priority_weight(String) -> Int
+
+pub fn sort_tasks(Array[Task]) -> Array[Task]
+
+pub fn status_color(String) -> String
+
+pub fn status_label(String) -> String
+
+pub fn tasks_for_member(Array[Task], Int) -> Array[Task]
+
+pub fn transition_label(String, String) -> String
+
+pub fn urgency_label(String, String) -> String
+
+pub let valid_priorities : Array[String]
+
+pub let valid_statuses : Array[String]
+
+pub fn validate_due_date(String) -> Bool
+
+pub fn validate_priority(String) -> Bool
+
+pub fn validate_status(String) -> Bool
+
+pub fn validate_task_description(String) -> Bool
+
+pub fn validate_task_title(String) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct Board {
+  tasks : Array[Task]
+  members : Array[Member]
+  today : String
+}
+pub impl Eq for Board
+pub impl Show for Board
+pub impl ToJson for Board
+pub impl @json.FromJson for Board
+
+pub(all) struct Member {
+  id : Int
+  name : String
+  color : String
+}
+pub impl Eq for Member
+pub impl Show for Member
+pub impl ToJson for Member
+pub impl @json.FromJson for Member
+
+pub(all) struct Task {
+  id : Int
+  title : String
+  description : String
+  status : String
+  priority : String
+  assignee_id : Int
+  due_date : String
+  created_at : String
+}
+pub impl Eq for Task
+pub impl Show for Task
+pub impl ToJson for Task
+pub impl @json.FromJson for Task
+
+// Type aliases
+
+// Traits
+

@@ -1,0 +1,16 @@
+import {
+  "bobzhang/taskflow/shared",
+  "oboard/mocket",
+  "oboard/mocket/cors",
+  "myfreess/sqlite3",
+  "moonbitlang/core/argparse",
+  "moonbitlang/core/json",
+  "moonbitlang/core/strconv",
+  "moonbitlang/core/encoding/utf8",
+  "moonbitlang/x/fs",
+}
+
+options(
+  "is-main": true,
+  "supported-targets": "-all+native",
+)

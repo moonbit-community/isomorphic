@@ -1,0 +1,12 @@
+import {
+  "bobzhang/taskflow/shared",
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/http",
+  "moonbitlang/core/json",
+}
+
+options(
+  "is-main": true,
+  "supported-targets": "-all+js",
+)
