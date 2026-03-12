@@ -3,6 +3,7 @@
 struct Model {
   tasks : Array[@shared.Task]
   members : Array[@shared.Member]
+  activities : Array[@shared.Activity]
   today : String
   // Filters
   filter_status : String
@@ -104,6 +105,7 @@ fn update(
           ..model,
           tasks: board.tasks,
           members: board.members,
+          activities: board.activities,
           today: board.today,
           loading: false,
         },
@@ -1299,6 +1301,72 @@ fn view_kanban(
 }
 
 ///|
+/// Render the activity feed showing recent status changes.
+fn view_activity_feed(model : Model) -> @rabbita.Html {
+  let activities = @shared.recent_activities(model.activities, 10)
+  if activities.length() == 0 {
+    return @html.text("")
+  }
+  @html.div(
+    style=[
+      "background: white", "border-radius: 10px", "padding: 14px 16px", "border: 1px solid #e2e8f0",
+      "margin-top: 16px",
+    ],
+    {
+      let items : Array[@rabbita.Html] = [
+        @html.div(
+          style=[
+            "font-size: 13px", "font-weight: 600", "color: #334155", "margin-bottom: 10px",
+          ],
+          [@html.text("Recent Activity")],
+        ),
+      ]
+      for act in activities {
+        let desc = @shared.format_activity(act)
+        let to_color = @shared.status_color(act.to_status)
+        let label = if act.from_status == "" {
+          "Created"
+        } else {
+          @shared.transition_label(act.from_status, act.to_status)
+        }
+        items.push(
+          @html.div(
+            style=[
+              "display: flex", "align-items: center", "gap: 8px", "padding: 4px 0",
+              "border-bottom: 1px solid #f1f5f9",
+            ],
+            [
+              @html.span(
+                style=[
+                  "padding: 1px 6px",
+                  "border-radius: 4px",
+                  "font-size: 10px",
+                  "color: white",
+                  "background: \{to_color}",
+                  "white-space: nowrap",
+                ],
+                label,
+              ),
+              @html.span(
+                style=["font-size: 12px", "color: #64748b", "flex: 1"],
+                desc,
+              ),
+              @html.span(
+                style=[
+                  "font-size: 10px", "color: #94a3b8", "white-space: nowrap",
+                ],
+                act.timestamp,
+              ),
+            ],
+          ),
+        )
+      }
+      items
+    },
+  )
+}
+
+///|
 /// Render the delete confirmation dialog overlay.
 fn view_delete_confirm(
   dispatch : @rabbita.Dispatch[Msg],
@@ -1446,6 +1514,7 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
               sorted.map(fn(task) { view_task_item(dispatch, model, task) }),
             )
           },
+          view_activity_feed(model),
         ])
       },
     ],
@@ -1458,6 +1527,7 @@ fn main {
     model={
       tasks: [],
       members: [],
+      activities: [],
       today: "",
       filter_status: "",
       filter_assignee: 0,

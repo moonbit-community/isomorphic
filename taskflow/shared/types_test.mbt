@@ -37,10 +37,34 @@ test "Board JSON round-trip" {
       },
     ],
     members: [{ id: 1, name: "Alice", color: "blue" }],
+    activities: [
+      {
+        id: 1,
+        task_id: 1,
+        task_title: "Task 1",
+        from_status: "todo",
+        to_status: "in_progress",
+        timestamp: "2026-03-12 10:30",
+      },
+    ],
     today: "2026-03-12",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
   assert_eq(decoded, board)
+}
+
+///|
+test "Activity JSON round-trip" {
+  let act : @shared.Activity = {
+    id: 1,
+    task_id: 2,
+    task_title: "Fix bug",
+    from_status: "todo",
+    to_status: "in_progress",
+    timestamp: "2026-03-12 14:30",
+  }
+  let decoded : @shared.Activity = @json.from_json(act.to_json())
+  assert_eq(decoded, act)
 }
 
 ///|

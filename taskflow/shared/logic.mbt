@@ -216,6 +216,49 @@ pub fn sort_tasks(tasks : Array[Task]) -> Array[Task] {
 }
 
 ///|
+/// Format an activity entry as a human-readable string.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   let act : @shared.Activity = {
+///     id: 1,
+///     task_id: 1,
+///     task_title: "Fix bug",
+///     from_status: "todo",
+///     to_status: "in_progress",
+///     timestamp: "2026-03-12 10:30",
+///   }
+///   inspect(
+///     @shared.format_activity(act),
+///     content="Fix bug: To Do → In Progress",
+///   )
+/// }
+/// ```
+pub fn format_activity(act : Activity) -> String {
+  let from = status_label(act.from_status)
+  let to = status_label(act.to_status)
+  "\{act.task_title}: \{from} → \{to}"
+}
+
+///|
+/// Get the N most recent activities (assumes activities are in descending order).
+pub fn recent_activities(
+  activities : Array[Activity],
+  limit : Int,
+) -> Array[Activity] {
+  let result : Array[Activity] = []
+  for i, act in activities {
+    if i >= limit {
+      break
+    }
+    result.push(act)
+  }
+  result
+}
+
+///|
 /// Check if a task matches a search query (case-insensitive, matches title
 /// or description). Empty query matches everything.
 ///

@@ -26,6 +26,8 @@ pub fn filter_tasks(Array[Task], String, Int, String, query? : String) -> Array[
 
 pub fn find_member(Array[Member], Int) -> Member?
 
+pub fn format_activity(Activity) -> String
+
 pub fn is_overdue(String, String) -> Bool
 
 pub fn is_terminal(String) -> Bool
@@ -47,6 +49,8 @@ pub fn priority_color(String) -> String
 pub fn priority_label(String) -> String
 
 pub fn priority_weight(String) -> Int
+
+pub fn recent_activities(Array[Activity], Int) -> Array[Activity]
 
 pub fn search_matches(Task, String) -> Bool
 
@@ -79,9 +83,23 @@ pub fn validate_task_title(String) -> Bool
 // Errors
 
 // Types and methods
+pub(all) struct Activity {
+  id : Int
+  task_id : Int
+  task_title : String
+  from_status : String
+  to_status : String
+  timestamp : String
+}
+pub impl Eq for Activity
+pub impl Show for Activity
+pub impl ToJson for Activity
+pub impl @json.FromJson for Activity
+
 pub(all) struct Board {
   tasks : Array[Task]
   members : Array[Member]
+  activities : Array[Activity]
   today : String
 }
 pub impl Eq for Board

@@ -127,6 +127,30 @@ test {
 }
 ```
 
+## Activity Tracking
+
+Status changes are logged as activities for team visibility:
+
+```mbt check
+///|
+test {
+  let act : @shared.Activity = {
+    id: 1,
+    task_id: 1,
+    task_title: "Fix bug",
+    from_status: "todo",
+    to_status: "in_progress",
+    timestamp: "2026-03-12",
+  }
+  inspect(
+    @shared.format_activity(act),
+    content="Fix bug: To Do → In Progress",
+  )
+  let activities = @shared.recent_activities([act], 5)
+  inspect(activities.length(), content="1")
+}
+```
+
 ## Text Search
 
 Case-insensitive search across task title and description:

@@ -440,6 +440,14 @@ function _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberERP
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberERPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0TPB9ArrayViewGsE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -705,6 +713,25 @@ function _M0TPC13set5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE
 function _M0TPC13ref3RefGOsE(param0) {
   this.val = param0;
 }
+function _M0TPC13ref3RefGOiE(param0) {
+  this.val = param0;
+}
+function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0TP38bobzhang8taskflow6shared8Activity(param0, param1, param2, param3, param4, param5) {
+  this.id = param0;
+  this.task_id = param1;
+  this.task_title = param2;
+  this.from_status = param3;
+  this.to_status = param4;
+  this.timestamp = param5;
+}
 function _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(param0) {
   this.val = param0;
 }
@@ -725,6 +752,16 @@ function _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4
   this._0 = param0;
 }
 _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some.prototype.$tag = 1;
+function _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(param0) {
+  this.val = param0;
+}
+function _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None() {}
+_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None__ = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None();
+function _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some(param0) {
+  this._0 = param0;
+}
+_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some.prototype.$tag = 1;
 function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(param0) {
   this._0 = param0;
 }
@@ -733,13 +770,11 @@ function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15Jso
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
-function _M0TP38bobzhang8taskflow6shared5Board(param0, param1, param2) {
+function _M0TP38bobzhang8taskflow6shared5Board(param0, param1, param2, param3) {
   this.tasks = param0;
   this.members = param1;
-  this.today = param2;
-}
-function _M0TPC13ref3RefGOiE(param0) {
-  this.val = param0;
+  this.activities = param2;
+  this.today = param3;
 }
 function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(param0) {
   this._0 = param0;
@@ -1212,30 +1247,31 @@ function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardsE2Ok(param0) 
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardsE2Ok.prototype.$tag = 1;
-function _M0TP38bobzhang8taskflow8frontend5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21, param22) {
+function _M0TP38bobzhang8taskflow8frontend5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21, param22, param23) {
   this.tasks = param0;
   this.members = param1;
-  this.today = param2;
-  this.filter_status = param3;
-  this.filter_assignee = param4;
-  this.filter_priority = param5;
-  this.search_query = param6;
-  this.view_mode = param7;
-  this.adding_task = param8;
-  this.new_title = param9;
-  this.new_desc = param10;
-  this.new_priority = param11;
-  this.new_assignee = param12;
-  this.new_due_date = param13;
-  this.editing_task = param14;
-  this.edit_title = param15;
-  this.edit_desc = param16;
-  this.edit_priority = param17;
-  this.edit_assignee = param18;
-  this.edit_due_date = param19;
-  this.confirm_delete = param20;
-  this.error_msg = param21;
-  this.loading = param22;
+  this.activities = param2;
+  this.today = param3;
+  this.filter_status = param4;
+  this.filter_assignee = param5;
+  this.filter_priority = param6;
+  this.search_query = param7;
+  this.view_mode = param8;
+  this.adding_task = param9;
+  this.new_title = param10;
+  this.new_desc = param11;
+  this.new_priority = param12;
+  this.new_assignee = param13;
+  this.new_due_date = param14;
+  this.editing_task = param15;
+  this.edit_title = param16;
+  this.edit_desc = param17;
+  this.edit_priority = param18;
+  this.edit_assignee = param19;
+  this.edit_due_date = param20;
+  this.confirm_delete = param21;
+  this.error_msg = param22;
+  this.loading = param23;
 }
 function _M0TPB9ArrayViewGUsRPB4JsonEE(param0, param1, param2) {
   this.buf = param0;
@@ -1278,68 +1314,68 @@ const _M0FPC17strconv17parse__scientificN8exp__numS241 = $0L;
 const _M0FPC17strconv13parse__numberN11exp__numberS222 = $0L;
 const _M0FPC17strconv12double__info = new _M0TPC17strconv9FloatInfo(52, 11, -1023);
 const _M0FPC17strconv6powtab = [1, 3, 6, 9, 13, 16, 19, 23, 26, 29, 33, 36, 39, 43, 46, 49, 53, 56, 59];
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2040 = { _0: 0, _1: "" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2041 = { _0: 1, _1: "5" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2042 = { _0: 1, _1: "25" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2043 = { _0: 1, _1: "125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2044 = { _0: 2, _1: "625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2045 = { _0: 2, _1: "3125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2046 = { _0: 2, _1: "15625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2047 = { _0: 3, _1: "78125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2048 = { _0: 3, _1: "390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2049 = { _0: 3, _1: "1953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2050 = { _0: 4, _1: "9765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2051 = { _0: 4, _1: "48828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2052 = { _0: 4, _1: "244140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2053 = { _0: 4, _1: "1220703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2054 = { _0: 5, _1: "6103515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2055 = { _0: 5, _1: "30517578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2056 = { _0: 5, _1: "152587890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2057 = { _0: 6, _1: "762939453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2058 = { _0: 6, _1: "3814697265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2059 = { _0: 6, _1: "19073486328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2060 = { _0: 7, _1: "95367431640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2061 = { _0: 7, _1: "476837158203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2062 = { _0: 7, _1: "2384185791015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2063 = { _0: 7, _1: "11920928955078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2064 = { _0: 8, _1: "59604644775390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2065 = { _0: 8, _1: "298023223876953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2066 = { _0: 8, _1: "1490116119384765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2067 = { _0: 9, _1: "7450580596923828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2068 = { _0: 9, _1: "37252902984619140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2069 = { _0: 9, _1: "186264514923095703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2070 = { _0: 10, _1: "931322574615478515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2071 = { _0: 10, _1: "4656612873077392578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2072 = { _0: 10, _1: "23283064365386962890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2073 = { _0: 10, _1: "116415321826934814453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2074 = { _0: 11, _1: "582076609134674072265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2075 = { _0: 11, _1: "2910383045673370361328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2076 = { _0: 11, _1: "14551915228366851806640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2077 = { _0: 12, _1: "72759576141834259033203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2078 = { _0: 12, _1: "363797880709171295166015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2079 = { _0: 12, _1: "1818989403545856475830078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2080 = { _0: 13, _1: "9094947017729282379150390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2081 = { _0: 13, _1: "45474735088646411895751953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2082 = { _0: 13, _1: "227373675443232059478759765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2083 = { _0: 13, _1: "1136868377216160297393798828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2084 = { _0: 14, _1: "5684341886080801486968994140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2085 = { _0: 14, _1: "28421709430404007434844970703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2086 = { _0: 14, _1: "142108547152020037174224853515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2087 = { _0: 15, _1: "710542735760100185871124267578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2088 = { _0: 15, _1: "3552713678800500929355621337890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2089 = { _0: 15, _1: "17763568394002504646778106689453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2090 = { _0: 16, _1: "88817841970012523233890533447265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2091 = { _0: 16, _1: "444089209850062616169452667236328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2092 = { _0: 16, _1: "2220446049250313080847263336181640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2093 = { _0: 16, _1: "11102230246251565404236316680908203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2094 = { _0: 17, _1: "55511151231257827021181583404541015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2095 = { _0: 17, _1: "277555756156289135105907917022705078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2096 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2097 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2098 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2099 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2100 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
-const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f2040, _M0FPC17strconv34left__shift__cheats_2etuple_2f2041, _M0FPC17strconv34left__shift__cheats_2etuple_2f2042, _M0FPC17strconv34left__shift__cheats_2etuple_2f2043, _M0FPC17strconv34left__shift__cheats_2etuple_2f2044, _M0FPC17strconv34left__shift__cheats_2etuple_2f2045, _M0FPC17strconv34left__shift__cheats_2etuple_2f2046, _M0FPC17strconv34left__shift__cheats_2etuple_2f2047, _M0FPC17strconv34left__shift__cheats_2etuple_2f2048, _M0FPC17strconv34left__shift__cheats_2etuple_2f2049, _M0FPC17strconv34left__shift__cheats_2etuple_2f2050, _M0FPC17strconv34left__shift__cheats_2etuple_2f2051, _M0FPC17strconv34left__shift__cheats_2etuple_2f2052, _M0FPC17strconv34left__shift__cheats_2etuple_2f2053, _M0FPC17strconv34left__shift__cheats_2etuple_2f2054, _M0FPC17strconv34left__shift__cheats_2etuple_2f2055, _M0FPC17strconv34left__shift__cheats_2etuple_2f2056, _M0FPC17strconv34left__shift__cheats_2etuple_2f2057, _M0FPC17strconv34left__shift__cheats_2etuple_2f2058, _M0FPC17strconv34left__shift__cheats_2etuple_2f2059, _M0FPC17strconv34left__shift__cheats_2etuple_2f2060, _M0FPC17strconv34left__shift__cheats_2etuple_2f2061, _M0FPC17strconv34left__shift__cheats_2etuple_2f2062, _M0FPC17strconv34left__shift__cheats_2etuple_2f2063, _M0FPC17strconv34left__shift__cheats_2etuple_2f2064, _M0FPC17strconv34left__shift__cheats_2etuple_2f2065, _M0FPC17strconv34left__shift__cheats_2etuple_2f2066, _M0FPC17strconv34left__shift__cheats_2etuple_2f2067, _M0FPC17strconv34left__shift__cheats_2etuple_2f2068, _M0FPC17strconv34left__shift__cheats_2etuple_2f2069, _M0FPC17strconv34left__shift__cheats_2etuple_2f2070, _M0FPC17strconv34left__shift__cheats_2etuple_2f2071, _M0FPC17strconv34left__shift__cheats_2etuple_2f2072, _M0FPC17strconv34left__shift__cheats_2etuple_2f2073, _M0FPC17strconv34left__shift__cheats_2etuple_2f2074, _M0FPC17strconv34left__shift__cheats_2etuple_2f2075, _M0FPC17strconv34left__shift__cheats_2etuple_2f2076, _M0FPC17strconv34left__shift__cheats_2etuple_2f2077, _M0FPC17strconv34left__shift__cheats_2etuple_2f2078, _M0FPC17strconv34left__shift__cheats_2etuple_2f2079, _M0FPC17strconv34left__shift__cheats_2etuple_2f2080, _M0FPC17strconv34left__shift__cheats_2etuple_2f2081, _M0FPC17strconv34left__shift__cheats_2etuple_2f2082, _M0FPC17strconv34left__shift__cheats_2etuple_2f2083, _M0FPC17strconv34left__shift__cheats_2etuple_2f2084, _M0FPC17strconv34left__shift__cheats_2etuple_2f2085, _M0FPC17strconv34left__shift__cheats_2etuple_2f2086, _M0FPC17strconv34left__shift__cheats_2etuple_2f2087, _M0FPC17strconv34left__shift__cheats_2etuple_2f2088, _M0FPC17strconv34left__shift__cheats_2etuple_2f2089, _M0FPC17strconv34left__shift__cheats_2etuple_2f2090, _M0FPC17strconv34left__shift__cheats_2etuple_2f2091, _M0FPC17strconv34left__shift__cheats_2etuple_2f2092, _M0FPC17strconv34left__shift__cheats_2etuple_2f2093, _M0FPC17strconv34left__shift__cheats_2etuple_2f2094, _M0FPC17strconv34left__shift__cheats_2etuple_2f2095, _M0FPC17strconv34left__shift__cheats_2etuple_2f2096, _M0FPC17strconv34left__shift__cheats_2etuple_2f2097, _M0FPC17strconv34left__shift__cheats_2etuple_2f2098, _M0FPC17strconv34left__shift__cheats_2etuple_2f2099, _M0FPC17strconv34left__shift__cheats_2etuple_2f2100];
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2054 = { _0: 0, _1: "" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2055 = { _0: 1, _1: "5" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2056 = { _0: 1, _1: "25" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2057 = { _0: 1, _1: "125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2058 = { _0: 2, _1: "625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2059 = { _0: 2, _1: "3125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2060 = { _0: 2, _1: "15625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2061 = { _0: 3, _1: "78125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2062 = { _0: 3, _1: "390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2063 = { _0: 3, _1: "1953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2064 = { _0: 4, _1: "9765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2065 = { _0: 4, _1: "48828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2066 = { _0: 4, _1: "244140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2067 = { _0: 4, _1: "1220703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2068 = { _0: 5, _1: "6103515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2069 = { _0: 5, _1: "30517578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2070 = { _0: 5, _1: "152587890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2071 = { _0: 6, _1: "762939453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2072 = { _0: 6, _1: "3814697265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2073 = { _0: 6, _1: "19073486328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2074 = { _0: 7, _1: "95367431640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2075 = { _0: 7, _1: "476837158203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2076 = { _0: 7, _1: "2384185791015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2077 = { _0: 7, _1: "11920928955078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2078 = { _0: 8, _1: "59604644775390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2079 = { _0: 8, _1: "298023223876953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2080 = { _0: 8, _1: "1490116119384765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2081 = { _0: 9, _1: "7450580596923828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2082 = { _0: 9, _1: "37252902984619140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2083 = { _0: 9, _1: "186264514923095703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2084 = { _0: 10, _1: "931322574615478515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2085 = { _0: 10, _1: "4656612873077392578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2086 = { _0: 10, _1: "23283064365386962890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2087 = { _0: 10, _1: "116415321826934814453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2088 = { _0: 11, _1: "582076609134674072265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2089 = { _0: 11, _1: "2910383045673370361328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2090 = { _0: 11, _1: "14551915228366851806640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2091 = { _0: 12, _1: "72759576141834259033203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2092 = { _0: 12, _1: "363797880709171295166015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2093 = { _0: 12, _1: "1818989403545856475830078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2094 = { _0: 13, _1: "9094947017729282379150390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2095 = { _0: 13, _1: "45474735088646411895751953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2096 = { _0: 13, _1: "227373675443232059478759765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2097 = { _0: 13, _1: "1136868377216160297393798828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2098 = { _0: 14, _1: "5684341886080801486968994140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2099 = { _0: 14, _1: "28421709430404007434844970703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2100 = { _0: 14, _1: "142108547152020037174224853515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2101 = { _0: 15, _1: "710542735760100185871124267578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2102 = { _0: 15, _1: "3552713678800500929355621337890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2103 = { _0: 15, _1: "17763568394002504646778106689453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2104 = { _0: 16, _1: "88817841970012523233890533447265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2105 = { _0: 16, _1: "444089209850062616169452667236328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2106 = { _0: 16, _1: "2220446049250313080847263336181640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2107 = { _0: 16, _1: "11102230246251565404236316680908203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2108 = { _0: 17, _1: "55511151231257827021181583404541015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2109 = { _0: 17, _1: "277555756156289135105907917022705078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2110 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2111 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2112 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2113 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2114 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
+const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f2054, _M0FPC17strconv34left__shift__cheats_2etuple_2f2055, _M0FPC17strconv34left__shift__cheats_2etuple_2f2056, _M0FPC17strconv34left__shift__cheats_2etuple_2f2057, _M0FPC17strconv34left__shift__cheats_2etuple_2f2058, _M0FPC17strconv34left__shift__cheats_2etuple_2f2059, _M0FPC17strconv34left__shift__cheats_2etuple_2f2060, _M0FPC17strconv34left__shift__cheats_2etuple_2f2061, _M0FPC17strconv34left__shift__cheats_2etuple_2f2062, _M0FPC17strconv34left__shift__cheats_2etuple_2f2063, _M0FPC17strconv34left__shift__cheats_2etuple_2f2064, _M0FPC17strconv34left__shift__cheats_2etuple_2f2065, _M0FPC17strconv34left__shift__cheats_2etuple_2f2066, _M0FPC17strconv34left__shift__cheats_2etuple_2f2067, _M0FPC17strconv34left__shift__cheats_2etuple_2f2068, _M0FPC17strconv34left__shift__cheats_2etuple_2f2069, _M0FPC17strconv34left__shift__cheats_2etuple_2f2070, _M0FPC17strconv34left__shift__cheats_2etuple_2f2071, _M0FPC17strconv34left__shift__cheats_2etuple_2f2072, _M0FPC17strconv34left__shift__cheats_2etuple_2f2073, _M0FPC17strconv34left__shift__cheats_2etuple_2f2074, _M0FPC17strconv34left__shift__cheats_2etuple_2f2075, _M0FPC17strconv34left__shift__cheats_2etuple_2f2076, _M0FPC17strconv34left__shift__cheats_2etuple_2f2077, _M0FPC17strconv34left__shift__cheats_2etuple_2f2078, _M0FPC17strconv34left__shift__cheats_2etuple_2f2079, _M0FPC17strconv34left__shift__cheats_2etuple_2f2080, _M0FPC17strconv34left__shift__cheats_2etuple_2f2081, _M0FPC17strconv34left__shift__cheats_2etuple_2f2082, _M0FPC17strconv34left__shift__cheats_2etuple_2f2083, _M0FPC17strconv34left__shift__cheats_2etuple_2f2084, _M0FPC17strconv34left__shift__cheats_2etuple_2f2085, _M0FPC17strconv34left__shift__cheats_2etuple_2f2086, _M0FPC17strconv34left__shift__cheats_2etuple_2f2087, _M0FPC17strconv34left__shift__cheats_2etuple_2f2088, _M0FPC17strconv34left__shift__cheats_2etuple_2f2089, _M0FPC17strconv34left__shift__cheats_2etuple_2f2090, _M0FPC17strconv34left__shift__cheats_2etuple_2f2091, _M0FPC17strconv34left__shift__cheats_2etuple_2f2092, _M0FPC17strconv34left__shift__cheats_2etuple_2f2093, _M0FPC17strconv34left__shift__cheats_2etuple_2f2094, _M0FPC17strconv34left__shift__cheats_2etuple_2f2095, _M0FPC17strconv34left__shift__cheats_2etuple_2f2096, _M0FPC17strconv34left__shift__cheats_2etuple_2f2097, _M0FPC17strconv34left__shift__cheats_2etuple_2f2098, _M0FPC17strconv34left__shift__cheats_2etuple_2f2099, _M0FPC17strconv34left__shift__cheats_2etuple_2f2100, _M0FPC17strconv34left__shift__cheats_2etuple_2f2101, _M0FPC17strconv34left__shift__cheats_2etuple_2f2102, _M0FPC17strconv34left__shift__cheats_2etuple_2f2103, _M0FPC17strconv34left__shift__cheats_2etuple_2f2104, _M0FPC17strconv34left__shift__cheats_2etuple_2f2105, _M0FPC17strconv34left__shift__cheats_2etuple_2f2106, _M0FPC17strconv34left__shift__cheats_2etuple_2f2107, _M0FPC17strconv34left__shift__cheats_2etuple_2f2108, _M0FPC17strconv34left__shift__cheats_2etuple_2f2109, _M0FPC17strconv34left__shift__cheats_2etuple_2f2110, _M0FPC17strconv34left__shift__cheats_2etuple_2f2111, _M0FPC17strconv34left__shift__cheats_2etuple_2f2112, _M0FPC17strconv34left__shift__cheats_2etuple_2f2113, _M0FPC17strconv34left__shift__cheats_2etuple_2f2114];
 const _M0FPC17strconv10int__pow10 = [$1L, $10L, $100L, $1000L, $10000L, $100000L, $1000000L, $10000000L, $100000000L, $1000000000L, $10000000000L, $100000000000L, $1000000000000L, $10000000000000L, $100000000000000L, $1000000000000000L];
 const _M0FPC17strconv25max__exponent__fast__path = $22L;
 const _M0FPC17strconv5table = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1e+12, 1e+13, 1e+14, 1e+15, 1e+16, 1e+17, 1e+18, 1e+19, 1e+20, 1e+21, 1e+22, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1363,7 +1399,7 @@ const _M0FPB33brute__force__find_2econstr_2f425 = 0;
 const _M0FPB43boyer__moore__horspool__find_2econstr_2f411 = 0;
 const _M0FPC16double14not__a__number = _M0MPC15int645Int6423reinterpret__as__double($9221120237041090561L);
 const _M0FPC17strconv25max__mantissa__fast__path = _M0IPC16uint646UInt64PB3Shl3shl($2L, 52);
-const _M0FPC17strconv28checked__mul_2econstr_2f2520 = $0L;
+const _M0FPC17strconv28checked__mul_2econstr_2f2534 = $0L;
 function _M0FPC15abort5abortGuE(msg) {
   $panic();
 }
@@ -5444,7 +5480,7 @@ function _M0FPB23fixed__bubble__sort__byGRP38bobzhang8taskflow6shared4TaskE(arr,
     }
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__2_2f1888(_env, a, b) {
+function _M0FPB41fixed__choose__pivot__by_2esort__2_2f1893(_env, a, b) {
   const swaps = _env._2;
   const arr = _env._1;
   const cmp = _env._0;
@@ -5456,10 +5492,10 @@ function _M0FPB41fixed__choose__pivot__by_2esort__2_2f1888(_env, a, b) {
     return;
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__3_2f1889(_env, a, b, c) {
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f1888(_env, a, b);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f1888(_env, b, c);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f1888(_env, a, b);
+function _M0FPB41fixed__choose__pivot__by_2esort__3_2f1894(_env, a, b, c) {
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f1893(_env, a, b);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f1893(_env, b, c);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f1893(_env, a, b);
 }
 function _M0FPB24fixed__choose__pivot__byGRP38bobzhang8taskflow6shared4TaskE(arr, cmp) {
   const len = _M0MPC15array12MutArrayView6lengthGRP38bobzhang8taskflow6shared4TaskE(arr);
@@ -5479,11 +5515,11 @@ function _M0FPB24fixed__choose__pivot__byGRP38bobzhang8taskflow6shared4TaskE(arr
     const c = Math.imul(len / 4 | 0, 3) | 0;
     const _env = { _0: cmp, _1: arr, _2: swaps };
     if (len > 50) {
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f1889(_env, a - 1 | 0, a, a + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f1889(_env, b - 1 | 0, b, b + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f1889(_env, c - 1 | 0, c, c + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f1894(_env, a - 1 | 0, a, a + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f1894(_env, b - 1 | 0, b, b + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f1894(_env, c - 1 | 0, c, c + 1 | 0);
     }
-    _M0FPB41fixed__choose__pivot__by_2esort__3_2f1889(_env, a, b, c);
+    _M0FPB41fixed__choose__pivot__by_2esort__3_2f1894(_env, a, b, c);
   }
   if (swaps.val === 12) {
     _M0MPC15array12MutArrayView14rev__in__placeGRP38bobzhang8taskflow6shared4TaskE(arr);
@@ -5764,6 +5800,34 @@ function _M0MPC15array5Array4mapiGRPB4JsonRP38bobzhang8taskflow6shared6MemberEHR
     }
   }
   return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberERPC14json15JsonDecodeErrorE2Ok(arr);
+}
+function _M0MPC15array5Array4mapiGRPB4JsonRP38bobzhang8taskflow6shared8ActivityEHRPC14json15JsonDecodeError(self, f) {
+  if (self.length === 0) {
+    return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE2Ok([]);
+  }
+  const arr = new Array(self.length);
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const v = self[i];
+      const _bind$2 = f(i, v);
+      let _tmp$2;
+      if (_bind$2.$tag === 1) {
+        const _ok = _bind$2;
+        _tmp$2 = _ok._0;
+      } else {
+        return _bind$2;
+      }
+      arr[i] = _tmp$2;
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE2Ok(arr);
 }
 function _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared4TaskE(self, f) {
   const arr = [];
@@ -8085,7 +8149,7 @@ function _M0MPC17strconv7Decimal16to__double__priv(self) {
 }
 function _M0FPC17strconv12checked__mul(a, b) {
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $0L) || _M0IPC16uint646UInt64PB2Eq5equal(b, $0L)) {
-    return _M0FPC17strconv28checked__mul_2econstr_2f2520;
+    return _M0FPC17strconv28checked__mul_2econstr_2f2534;
   }
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $1L)) {
     return b;
@@ -9664,6 +9728,24 @@ function _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6
     return _M0FPC14json13decode__errorGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(path, "Array::from_json: expected array");
   }
 }
+function _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared8ActivityE(json, path) {
+  if (json.$tag === 5) {
+    const _Array = json;
+    const _a = _Array._0;
+    const _bind = new _M0DTPC14json8JsonPath5Index(path, 0);
+    if (_bind.$tag === 2) {
+      const _Index = _bind;
+      return _M0MPC15array5Array4mapiGRPB4JsonRP38bobzhang8taskflow6shared8ActivityEHRPC14json15JsonDecodeError(_a, (i, x) => {
+        _Index._1 = i;
+        return _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(x, _Index);
+      });
+    } else {
+      return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityERPC14json15JsonDecodeErrorE2Ok($panic());
+    }
+  } else {
+    return _M0FPC14json13decode__errorGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(path, "Array::from_json: expected array");
+  }
+}
 function _M0MPC15queue5Queue3newGRP38bobzhang8taskflow8frontend3MsgE() {
   return new _M0TPC15queue5QueueGRP38bobzhang8taskflow8frontend3MsgE(0, undefined, undefined);
 }
@@ -10010,19 +10092,232 @@ function _M0MPC13set3Set9to__arrayGRP419moonbit_2dcommunity7rabbita8internal7run
   }
   return arr;
 }
-function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_163, _x_164) {
-  const _de_today_167 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_tasks_166 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4None__);
-  const _de_members_165 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4None__);
+function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_x_207, _x_208) {
+  const _de_to_status_214 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_timestamp_213 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_title_212 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_211 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_210 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_from_status_209 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_163.$tag === 6) {
-      const _Object = _x_163;
+    if (_x_207.$tag === 6) {
+      const _Object = _x_207;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_164, _1: "Expected object to deserialize Board" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Expected object to deserialize Activity" }));
+    }
+  }
+  let _v;
+  _L$2: {
+    _L$3: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "id");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v = __v;
+        break _L$3;
+      }
+      break _L$2;
+    }
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_208, "id"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_id_210.val = _tmp;
+  }
+  let _v$2;
+  _L$3: {
+    _L$4: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "task_id");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$2 = __v;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_208, "task_id"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_task_id_211.val = _tmp;
+  }
+  let _v$3;
+  _L$4: {
+    _L$5: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "task_title");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$3 = __v;
+        break _L$5;
+      }
+      break _L$4;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_208, "task_title"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_task_title_212.val = _tmp;
+  }
+  let _v$4;
+  _L$5: {
+    _L$6: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "from_status");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$4 = __v;
+        break _L$6;
+      }
+      break _L$5;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_208, "from_status"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_from_status_209.val = _tmp;
+  }
+  let _v$5;
+  _L$6: {
+    _L$7: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "to_status");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$5 = __v;
+        break _L$7;
+      }
+      break _L$6;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_208, "to_status"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_to_status_214.val = _tmp;
+  }
+  let _v$6;
+  _L$7: {
+    _L$8: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "timestamp");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$6 = __v;
+        break _L$8;
+      }
+      break _L$7;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_208, "timestamp"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_timestamp_213.val = _tmp;
+  }
+  let _de_to_status_214$2;
+  const _bind = _de_to_status_214.val;
+  if (_bind === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Missing field to_status" }));
+  } else {
+    const _Some = _bind;
+    const _v$7 = _Some;
+    _de_to_status_214$2 = _v$7;
+  }
+  let _de_timestamp_213$2;
+  const _bind$2 = _de_timestamp_213.val;
+  if (_bind$2 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Missing field timestamp" }));
+  } else {
+    const _Some = _bind$2;
+    const _v$7 = _Some;
+    _de_timestamp_213$2 = _v$7;
+  }
+  let _de_task_title_212$2;
+  const _bind$3 = _de_task_title_212.val;
+  if (_bind$3 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Missing field task_title" }));
+  } else {
+    const _Some = _bind$3;
+    const _v$7 = _Some;
+    _de_task_title_212$2 = _v$7;
+  }
+  let _de_task_id_211$2;
+  const _bind$4 = _de_task_id_211.val;
+  if (_bind$4 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Missing field task_id" }));
+  } else {
+    const _Some = _bind$4;
+    const _v$7 = _Some;
+    _de_task_id_211$2 = _v$7;
+  }
+  let _de_id_210$2;
+  const _bind$5 = _de_id_210.val;
+  if (_bind$5 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Missing field id" }));
+  } else {
+    const _Some = _bind$5;
+    const _v$7 = _Some;
+    _de_id_210$2 = _v$7;
+  }
+  let _de_from_status_209$2;
+  const _bind$6 = _de_from_status_209.val;
+  if (_bind$6 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_208, _1: "Missing field from_status" }));
+  } else {
+    const _Some = _bind$6;
+    const _v$7 = _Some;
+    _de_from_status_209$2 = _v$7;
+  }
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared8Activity(_de_id_210$2, _de_task_id_211$2, _de_task_title_212$2, _de_from_status_209$2, _de_to_status_214$2, _de_timestamp_213$2));
+}
+function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_171, _x_172) {
+  const _de_today_176 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_tasks_175 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4None__);
+  const _de_members_174 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4None__);
+  const _de_activities_173 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None__);
+  let _map;
+  _L: {
+    if (_x_171.$tag === 6) {
+      const _Object = _x_171;
+      const __map = _Object._0;
+      _map = __map;
+      break _L;
+    } else {
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_172, _1: "Expected object to deserialize Board" }));
     }
   }
   let _v;
@@ -10038,7 +10333,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_1
       }
       break _L$2;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared4TaskE(_v, _M0MPC14json8JsonPath8add__key(_x_164, "tasks"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared4TaskE(_v, _M0MPC14json8JsonPath8add__key(_x_172, "tasks"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10046,7 +10341,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_1
     } else {
       return _bind;
     }
-    _de_tasks_166.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4Some(_tmp);
+    _de_tasks_175.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4Some(_tmp);
   }
   let _v$2;
   _L$3: {
@@ -10061,7 +10356,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_1
       }
       break _L$3;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared6MemberE(_v$2, _M0MPC14json8JsonPath8add__key(_x_164, "members"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared6MemberE(_v$2, _M0MPC14json8JsonPath8add__key(_x_172, "members"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10069,12 +10364,12 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_1
     } else {
       return _bind;
     }
-    _de_members_165.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some(_tmp);
+    _de_members_174.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some(_tmp);
   }
   let _v$3;
   _L$4: {
     _L$5: {
-      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "today");
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "activities");
       if (_bind === undefined) {
       } else {
         const _Some = _bind;
@@ -10084,7 +10379,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_1
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_164, "today"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared8ActivityE(_v$3, _M0MPC14json8JsonPath8add__key(_x_172, "activities"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10092,55 +10387,87 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_1
     } else {
       return _bind;
     }
-    _de_today_167.val = _tmp;
+    _de_activities_173.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some(_tmp);
   }
-  let _de_today_167$2;
-  const _bind = _de_today_167.val;
+  let _v$4;
+  _L$5: {
+    _L$6: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "today");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$4 = __v;
+        break _L$6;
+      }
+      break _L$5;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_172, "today"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_today_176.val = _tmp;
+  }
+  let _de_today_176$2;
+  const _bind = _de_today_176.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_164, _1: "Missing field today" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_172, _1: "Missing field today" }));
   } else {
     const _Some = _bind;
-    const _v$4 = _Some;
-    _de_today_167$2 = _v$4;
+    const _v$5 = _Some;
+    _de_today_176$2 = _v$5;
   }
-  let _de_tasks_166$2;
-  const _bind$2 = _de_tasks_166.val;
+  let _de_tasks_175$2;
+  const _bind$2 = _de_tasks_175.val;
   if (_bind$2.$tag === 1) {
     const _Some = _bind$2;
-    const _v$4 = _Some._0;
-    _de_tasks_166$2 = _v$4;
+    const _v$5 = _Some._0;
+    _de_tasks_175$2 = _v$5;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_164, _1: "Missing field tasks" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_172, _1: "Missing field tasks" }));
   }
-  let _de_members_165$2;
-  const _bind$3 = _de_members_165.val;
+  let _de_members_174$2;
+  const _bind$3 = _de_members_174.val;
   if (_bind$3.$tag === 1) {
     const _Some = _bind$3;
-    const _v$4 = _Some._0;
-    _de_members_165$2 = _v$4;
+    const _v$5 = _Some._0;
+    _de_members_174$2 = _v$5;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_164, _1: "Missing field members" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_172, _1: "Missing field members" }));
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Board(_de_tasks_166$2, _de_members_165$2, _de_today_167$2));
+  let _de_activities_173$2;
+  const _bind$4 = _de_activities_173.val;
+  if (_bind$4.$tag === 1) {
+    const _Some = _bind$4;
+    const _v$5 = _Some._0;
+    _de_activities_173$2 = _v$5;
+  } else {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_172, _1: "Missing field activities" }));
+  }
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Board(_de_tasks_175$2, _de_members_174$2, _de_activities_173$2, _de_today_176$2));
 }
-function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_107, _x_108) {
-  const _de_title_116 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_status_115 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_priority_114 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_113 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_due_date_112 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_description_111 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_created_at_110 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_assignee_id_109 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_115, _x_116) {
+  const _de_title_124 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_status_123 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_priority_122 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_121 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_due_date_120 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_description_119 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_created_at_118 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_assignee_id_117 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_107.$tag === 6) {
-      const _Object = _x_107;
+    if (_x_115.$tag === 6) {
+      const _Object = _x_115;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Expected object to deserialize Task" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Expected object to deserialize Task" }));
     }
   }
   let _v;
@@ -10156,7 +10483,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_108, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_116, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10164,7 +10491,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_id_113.val = _tmp;
+    _de_id_121.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -10179,7 +10506,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_108, "title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_116, "title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10187,7 +10514,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_title_116.val = _tmp;
+    _de_title_124.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -10202,7 +10529,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_108, "description"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_116, "description"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10210,7 +10537,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_description_111.val = _tmp;
+    _de_description_119.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -10225,7 +10552,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_108, "status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_116, "status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10233,7 +10560,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_status_115.val = _tmp;
+    _de_status_123.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -10248,7 +10575,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_108, "priority"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_116, "priority"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10256,7 +10583,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_priority_114.val = _tmp;
+    _de_priority_122.val = _tmp;
   }
   let _v$6;
   _L$7: {
@@ -10271,7 +10598,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$7;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_108, "assignee_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_116, "assignee_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10279,7 +10606,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_assignee_id_109.val = _tmp;
+    _de_assignee_id_117.val = _tmp;
   }
   let _v$7;
   _L$8: {
@@ -10294,7 +10621,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$8;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_108, "due_date"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_116, "due_date"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10302,7 +10629,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_due_date_112.val = _tmp;
+    _de_due_date_120.val = _tmp;
   }
   let _v$8;
   _L$9: {
@@ -10317,7 +10644,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
       }
       break _L$9;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_108, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_116, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10325,95 +10652,95 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_10
     } else {
       return _bind;
     }
-    _de_created_at_110.val = _tmp;
+    _de_created_at_118.val = _tmp;
   }
-  let _de_title_116$2;
-  const _bind = _de_title_116.val;
+  let _de_title_124$2;
+  const _bind = _de_title_124.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field title" }));
   } else {
     const _Some = _bind;
     const _v$9 = _Some;
-    _de_title_116$2 = _v$9;
+    _de_title_124$2 = _v$9;
   }
-  let _de_status_115$2;
-  const _bind$2 = _de_status_115.val;
+  let _de_status_123$2;
+  const _bind$2 = _de_status_123.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field status" }));
   } else {
     const _Some = _bind$2;
     const _v$9 = _Some;
-    _de_status_115$2 = _v$9;
+    _de_status_123$2 = _v$9;
   }
-  let _de_priority_114$2;
-  const _bind$3 = _de_priority_114.val;
+  let _de_priority_122$2;
+  const _bind$3 = _de_priority_122.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field priority" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field priority" }));
   } else {
     const _Some = _bind$3;
     const _v$9 = _Some;
-    _de_priority_114$2 = _v$9;
+    _de_priority_122$2 = _v$9;
   }
-  let _de_id_113$2;
-  const _bind$4 = _de_id_113.val;
+  let _de_id_121$2;
+  const _bind$4 = _de_id_121.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field id" }));
   } else {
     const _Some = _bind$4;
     const _v$9 = _Some;
-    _de_id_113$2 = _v$9;
+    _de_id_121$2 = _v$9;
   }
-  let _de_due_date_112$2;
-  const _bind$5 = _de_due_date_112.val;
+  let _de_due_date_120$2;
+  const _bind$5 = _de_due_date_120.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field due_date" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field due_date" }));
   } else {
     const _Some = _bind$5;
     const _v$9 = _Some;
-    _de_due_date_112$2 = _v$9;
+    _de_due_date_120$2 = _v$9;
   }
-  let _de_description_111$2;
-  const _bind$6 = _de_description_111.val;
+  let _de_description_119$2;
+  const _bind$6 = _de_description_119.val;
   if (_bind$6 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field description" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field description" }));
   } else {
     const _Some = _bind$6;
     const _v$9 = _Some;
-    _de_description_111$2 = _v$9;
+    _de_description_119$2 = _v$9;
   }
-  let _de_created_at_110$2;
-  const _bind$7 = _de_created_at_110.val;
+  let _de_created_at_118$2;
+  const _bind$7 = _de_created_at_118.val;
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$7;
     const _v$9 = _Some;
-    _de_created_at_110$2 = _v$9;
+    _de_created_at_118$2 = _v$9;
   }
-  let _de_assignee_id_109$2;
-  const _bind$8 = _de_assignee_id_109.val;
+  let _de_assignee_id_117$2;
+  const _bind$8 = _de_assignee_id_117.val;
   if (_bind$8 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_108, _1: "Missing field assignee_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_116, _1: "Missing field assignee_id" }));
   } else {
     const _Some = _bind$8;
     const _v$9 = _Some;
-    _de_assignee_id_109$2 = _v$9;
+    _de_assignee_id_117$2 = _v$9;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4Task(_de_id_113$2, _de_title_116$2, _de_description_111$2, _de_status_115$2, _de_priority_114$2, _de_assignee_id_109$2, _de_due_date_112$2, _de_created_at_110$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4Task(_de_id_121$2, _de_title_124$2, _de_description_119$2, _de_status_123$2, _de_priority_122$2, _de_assignee_id_117$2, _de_due_date_120$2, _de_created_at_118$2));
 }
-function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_76, _x_77) {
-  const _de_name_80 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_79 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_78 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_84, _x_85) {
+  const _de_name_88 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_87 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_86 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_76.$tag === 6) {
-      const _Object = _x_76;
+    if (_x_84.$tag === 6) {
+      const _Object = _x_84;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_77, _1: "Expected object to deserialize Member" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_85, _1: "Expected object to deserialize Member" }));
     }
   }
   let _v;
@@ -10429,7 +10756,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_77, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_85, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10437,7 +10764,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_id_79.val = _tmp;
+    _de_id_87.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -10452,7 +10779,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_77, "name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_85, "name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10460,7 +10787,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_name_80.val = _tmp;
+    _de_name_88.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -10475,7 +10802,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_77, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_85, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -10483,36 +10810,36 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_color_78.val = _tmp;
+    _de_color_86.val = _tmp;
   }
-  let _de_name_80$2;
-  const _bind = _de_name_80.val;
+  let _de_name_88$2;
+  const _bind = _de_name_88.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_77, _1: "Missing field name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_85, _1: "Missing field name" }));
   } else {
     const _Some = _bind;
     const _v$4 = _Some;
-    _de_name_80$2 = _v$4;
+    _de_name_88$2 = _v$4;
   }
-  let _de_id_79$2;
-  const _bind$2 = _de_id_79.val;
+  let _de_id_87$2;
+  const _bind$2 = _de_id_87.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_77, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_85, _1: "Missing field id" }));
   } else {
     const _Some = _bind$2;
     const _v$4 = _Some;
-    _de_id_79$2 = _v$4;
+    _de_id_87$2 = _v$4;
   }
-  let _de_color_78$2;
-  const _bind$3 = _de_color_78.val;
+  let _de_color_86$2;
+  const _bind$3 = _de_color_86.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_77, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_85, _1: "Missing field color" }));
   } else {
     const _Some = _bind$3;
     const _v$4 = _Some;
-    _de_color_78$2 = _v$4;
+    _de_color_86$2 = _v$4;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared6Member(_de_id_79$2, _de_name_80$2, _de_color_78$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared6Member(_de_id_87$2, _de_name_88$2, _de_color_86$2));
 }
 function _M0FP38bobzhang8taskflow6shared21validate__task__title(title) {
   return _M0IP016_24default__implPB2Eq10not__equalGsE(title, "") && _M0MPC16string6String20char__length_2einner(title, 0, undefined) <= _M0FP38bobzhang8taskflow6shared16max__task__title;
@@ -10861,6 +11188,31 @@ function _M0FP38bobzhang8taskflow6shared11sort__tasks(tasks) {
     }
     return a.id - b.id | 0;
   });
+  return result;
+}
+function _M0FP38bobzhang8taskflow6shared16format__activity(act) {
+  const from = _M0FP38bobzhang8taskflow6shared13status__label(act.from_status);
+  const to = _M0FP38bobzhang8taskflow6shared13status__label(act.to_status);
+  return `${_M0IPC16string6StringPB4Show10to__string(act.task_title)}: ${_M0IPC16string6StringPB4Show10to__string(from)} → ${_M0IPC16string6StringPB4Show10to__string(to)}`;
+}
+function _M0FP38bobzhang8taskflow6shared18recent__activities(activities, limit) {
+  const result = [];
+  const _bind = activities.length;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const act = activities[i];
+      if (i >= limit) {
+        break;
+      }
+      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared4TaskE(result, act);
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
   return result;
 }
 function _M0FP38bobzhang8taskflow6shared15search__matches(task, query) {
@@ -14888,7 +15240,7 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                             _L$22: {
                                               switch (msg.$tag) {
                                                 case 0: {
-                                                  return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch), _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, true) };
+                                                  return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch), _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, true) };
                                                 }
                                                 case 1: {
                                                   const _GotBoard = msg;
@@ -14936,10 +15288,10 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                                   break _L$16;
                                                 }
                                                 case 7: {
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, true, "", "", "medium", 0, "", model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, true, "", "", "medium", 0, "", model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                                 }
                                                 case 8: {
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, false, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, false, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                                 }
                                                 case 9: {
                                                   const _NewTitleChanged = msg;
@@ -14998,7 +15350,7 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                                     }
                                                     return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TasksE3Err("Failed to decode task");
                                                   }));
-                                                  return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, false, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                                  return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, false, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                                 }
                                                 case 15: {
                                                   const _TaskAdded = msg;
@@ -15022,7 +15374,7 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                                   break _L$8;
                                                 }
                                                 case 17: {
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, 0, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, 0, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                                 }
                                                 case 18: {
                                                   const _EditTitleChanged = msg;
@@ -15069,7 +15421,7 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                                   const _bind$2 = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(title$2) }, { _0: "description", _1: _M0IPC16string6StringPB6ToJson8to__json(desc$2) }, { _0: "priority", _1: _M0IPC16string6StringPB6ToJson8to__json(priority$2) }, { _0: "assignee_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(assignee$2 + 0) }, { _0: "due_date", _1: _M0IPC16string6StringPB6ToJson8to__json(due$2) }];
                                                   const cmd$2 = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$2, 0, 5)))), expect);
                                                   const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model.tasks, (t) => t.id === id$6 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, title$2, desc$2, t.status, priority$2, assignee$2, due$2, t.created_at) : t);
-                                                  return { _0: cmd$2, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, 0, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                                  return { _0: cmd$2, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, 0, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                                 }
                                                 case 24: {
                                                   return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch), _1: model };
@@ -15092,7 +15444,7 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                                   break _L;
                                                 }
                                                 case 28: {
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, 0, model.error_msg, model.loading) };
+                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, 0, model.error_msg, model.loading) };
                                                 }
                                                 case 29: {
                                                   const id$7 = model.confirm_delete;
@@ -15102,57 +15454,57 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
                                                   const expect$2 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg11TaskDeleted__));
                                                   const cmd$3 = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang8taskflow6shared9api__task(id$7), expect$2);
                                                   const tasks$2 = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared4TaskE(model.tasks, (t) => t.id !== id$7);
-                                                  return { _0: cmd$3, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks$2, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, 0, model.error_msg, model.loading) };
+                                                  return { _0: cmd$3, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks$2, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, 0, model.error_msg, model.loading) };
                                                 }
                                                 case 30: {
                                                   return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch), _1: model };
                                                 }
                                                 default: {
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, "", model.loading) };
+                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, "", model.loading) };
                                                 }
                                               }
                                             }
-                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(board.tasks, board.members, board.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, false) };
+                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(board.tasks, board.members, board.activities, board.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, false) };
                                           }
-                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, e$2, false) };
+                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, e$2, false) };
                                         }
-                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, s, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, s, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                       }
-                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, id$5, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, id$5, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                     }
-                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, p, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, p, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                   }
-                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, q, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, q, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                                 }
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, m, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, m, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                               }
-                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, v$8, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, v$8, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                             }
-                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, v$7, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, v$7, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                           }
-                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, v$6, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, v$6, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                         }
-                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, id$4, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, id$4, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                       }
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, v$5, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, v$5, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                     }
                     const tasks = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared4TaskE(model.tasks);
                     _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared4TaskE(tasks, task$2);
-                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
                   }
-                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, e, model.loading) };
+                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, e, model.loading) };
                 }
-                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, task.id, task.title, task.description, task.priority, task.assignee_id, task.due_date, model.confirm_delete, model.error_msg, model.loading) };
+                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, task.id, task.title, task.description, task.priority, task.assignee_id, task.due_date, model.confirm_delete, model.error_msg, model.loading) };
               }
-              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, v$4, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, v$4, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
             }
-            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, v$3, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, v$3, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
           }
-          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, v$2, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, v$2, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
         }
-        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, id$3, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, id$3, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
       }
-      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, v, model.confirm_delete, model.error_msg, model.loading) };
+      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, v, model.confirm_delete, model.error_msg, model.loading) };
     }
     const current_status = new _M0TPC13ref3RefGsE("");
     const _bind = model.tasks;
@@ -15180,9 +15532,9 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
     const _bind$3 = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(new_status) }];
     const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$2, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 1)))), expect);
     const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model.tasks, (t) => t.id === id$2 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, new_status, t.priority, t.assignee_id, t.due_date, t.created_at) : t);
-    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
+    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, model.confirm_delete, model.error_msg, model.loading) };
   }
-  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, id, model.error_msg, model.loading) };
+  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model.tasks, model.members, model.activities, model.today, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query, model.view_mode, model.adding_task, model.new_title, model.new_desc, model.new_priority, model.new_assignee, model.new_due_date, model.editing_task, model.edit_title, model.edit_desc, model.edit_priority, model.edit_assignee, model.edit_due_date, id, model.error_msg, model.loading) };
 }
 function _M0FP38bobzhang8taskflow8frontend12view__header(dispatch, model) {
   const pct = _M0FP38bobzhang8taskflow6shared19completion__percent(model.tasks);
@@ -15458,6 +15810,31 @@ function _M0FP38bobzhang8taskflow8frontend12view__kanban(dispatch, model, tasks)
     return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, items);
   }));
 }
+function _M0FP38bobzhang8taskflow8frontend20view__activity__feed(model) {
+  const activities = _M0FP38bobzhang8taskflow6shared18recent__activities(model.activities, 10);
+  if (activities.length === 0) {
+    return _M0FP319moonbit_2dcommunity7rabbita4html4text("");
+  }
+  const _tmp = ["background: white", "border-radius: 10px", "padding: 14px 16px", "border: 1px solid #e2e8f0", "margin-top: 16px"];
+  const items = [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", "font-weight: 600", "color: #334155", "margin-bottom: 10px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text("Recent Activity")])];
+  const _bind = activities.length;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind) {
+      const act = activities[_];
+      const desc = _M0FP38bobzhang8taskflow6shared16format__activity(act);
+      const to_color = _M0FP38bobzhang8taskflow6shared13status__color(act.to_status);
+      const label = act.from_status === "" ? "Created" : _M0FP38bobzhang8taskflow6shared17transition__label(act.from_status, act.to_status);
+      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared4TaskE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 8px", "padding: 4px 0", "border-bottom: 1px solid #f1f5f9"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 1px 6px", "border-radius: 4px", "font-size: 10px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(to_color)}`, "white-space: nowrap"], undefined, undefined, undefined, -1, undefined, label), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 12px", "color: #64748b", "flex: 1"], undefined, undefined, undefined, -1, undefined, desc), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 10px", "color: #94a3b8", "white-space: nowrap"], undefined, undefined, undefined, -1, undefined, act.timestamp)]));
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, items);
+}
 function _M0FP38bobzhang8taskflow8frontend21view__delete__confirm(dispatch, model) {
   if (model.confirm_delete === 0) {
     return _M0FP319moonbit_2dcommunity7rabbita4html4text("");
@@ -15491,13 +15868,13 @@ function _M0FP38bobzhang8taskflow8frontend18view__error__toast(dispatch, model) 
 function _M0FP38bobzhang8taskflow8frontend4view(dispatch, model) {
   const filtered = _M0FP38bobzhang8taskflow6shared21filter__tasks_2einner(model.tasks, model.filter_status, model.filter_assignee, model.filter_priority, model.search_query);
   const sorted = _M0FP38bobzhang8taskflow6shared11sort__tasks(filtered);
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 16px 24px", "min-height: 100vh", "max-width: 900px", "margin: 0 auto"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP38bobzhang8taskflow8frontend18view__error__toast(dispatch, model), _M0FP38bobzhang8taskflow8frontend21view__delete__confirm(dispatch, model), _M0FP38bobzhang8taskflow8frontend12view__header(dispatch, model), model.loading ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center", "padding: 60px 0", "color: #94a3b8", "font-size: 15px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text("Loading...")]) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP38bobzhang8taskflow8frontend13view__filters(dispatch, model), model.adding_task ? _M0FP38bobzhang8taskflow8frontend21view__add__task__form(dispatch, model) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), model.view_mode === "kanban" ? _M0FP38bobzhang8taskflow8frontend12view__kanban(dispatch, model, sorted) : sorted.length === 0 ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center", "padding: 40px 0", "color: #94a3b8", "font-size: 14px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text("No tasks match your filters")]) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-direction: column"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP319moonbit_2dcommunity7rabbita4html4HtmlE(sorted, (task) => _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, task)))])]);
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 16px 24px", "min-height: 100vh", "max-width: 900px", "margin: 0 auto"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP38bobzhang8taskflow8frontend18view__error__toast(dispatch, model), _M0FP38bobzhang8taskflow8frontend21view__delete__confirm(dispatch, model), _M0FP38bobzhang8taskflow8frontend12view__header(dispatch, model), model.loading ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center", "padding: 60px 0", "color: #94a3b8", "font-size: 15px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text("Loading...")]) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP38bobzhang8taskflow8frontend13view__filters(dispatch, model), model.adding_task ? _M0FP38bobzhang8taskflow8frontend21view__add__task__form(dispatch, model) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), model.view_mode === "kanban" ? _M0FP38bobzhang8taskflow8frontend12view__kanban(dispatch, model, sorted) : sorted.length === 0 ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center", "padding: 40px 0", "color: #94a3b8", "font-size: 14px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text("No tasks match your filters")]) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-direction: column"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP319moonbit_2dcommunity7rabbita4html4HtmlE(sorted, (task) => _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, task))), _M0FP38bobzhang8taskflow8frontend20view__activity__feed(model)])]);
 }
 (() => {
   let dispatch;
   let app_cell;
   _L: {
-    const _bind = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP38bobzhang8taskflow8frontend5ModelRP38bobzhang8taskflow8frontend3MsgE(new _M0TP38bobzhang8taskflow8frontend5Model([], [], "", "", 0, "", "", "list", false, "", "", "medium", 0, "", 0, "", "", "", 0, "", 0, "", false), _M0FP38bobzhang8taskflow8frontend6update, _M0FP38bobzhang8taskflow8frontend4view);
+    const _bind = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP38bobzhang8taskflow8frontend5ModelRP38bobzhang8taskflow8frontend3MsgE(new _M0TP38bobzhang8taskflow8frontend5Model([], [], [], "", "", 0, "", "", "list", false, "", "", "medium", 0, "", 0, "", "", "", 0, "", 0, "", false), _M0FP38bobzhang8taskflow8frontend6update, _M0FP38bobzhang8taskflow8frontend4view);
     const _dispatch = _bind._0;
     const _app_cell = _bind._1;
     dispatch = _dispatch;

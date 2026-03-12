@@ -20,9 +20,21 @@ pub(all) struct Task {
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
+/// A recorded status change for audit/history tracking.
+pub(all) struct Activity {
+  id : Int
+  task_id : Int
+  task_title : String
+  from_status : String
+  to_status : String
+  timestamp : String
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
 /// Full board state returned by `GET /api/board`.
 pub(all) struct Board {
   tasks : Array[Task]
   members : Array[Member]
+  activities : Array[Activity]
   today : String
 } derive(ToJson, FromJson, Show, Eq)

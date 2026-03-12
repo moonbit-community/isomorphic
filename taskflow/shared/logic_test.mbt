@@ -628,6 +628,52 @@ test "search_matches empty description" {
 }
 
 ///|
+test "format_activity" {
+  let act : @shared.Activity = {
+    id: 1,
+    task_id: 1,
+    task_title: "Deploy v2",
+    from_status: "review",
+    to_status: "done",
+    timestamp: "2026-03-12",
+  }
+  inspect(@shared.format_activity(act), content="Deploy v2: Review → Done")
+}
+
+///|
+test "format_activity created" {
+  let act : @shared.Activity = {
+    id: 1,
+    task_id: 1,
+    task_title: "New task",
+    from_status: "",
+    to_status: "todo",
+    timestamp: "2026-03-12",
+  }
+  inspect(@shared.format_activity(act), content="New task:  → To Do")
+}
+
+///|
+test "recent_activities limit" {
+  let acts : Array[@shared.Activity] = []
+  for i in 0..<5 {
+    acts.push({
+      id: i + 1,
+      task_id: 1,
+      task_title: "Task",
+      from_status: "todo",
+      to_status: "in_progress",
+      timestamp: "",
+    })
+  }
+  let recent = @shared.recent_activities(acts, 3)
+  inspect(recent.length(), content="3")
+  inspect(recent[0].id, content="1")
+  // Empty input
+  inspect(@shared.recent_activities([], 5).length(), content="0")
+}
+
+///|
 test "is_overdue boundary" {
   // Same date is not overdue
   inspect(@shared.is_overdue("2026-03-12", "2026-03-12"), content="false")

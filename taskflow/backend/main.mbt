@@ -28,6 +28,21 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   )
   s2.step_once()
   s2.finalize()
+  // Activities table for status change history
+  let s3 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS activities (
+      #|  id INTEGER PRIMARY KEY AUTOINCREMENT,
+      #|  task_id INTEGER NOT NULL,
+      #|  task_title BLOB NOT NULL,
+      #|  from_status BLOB NOT NULL,
+      #|  to_status BLOB NOT NULL,
+      #|  timestamp BLOB NOT NULL
+      #|)
+    ),
+  )
+  s3.step_once()
+  s3.finalize()
   // Indexes for common query patterns
   let idx_stmts = [
     "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status)", "CREATE INDEX IF NOT EXISTS idx_tasks_assignee ON tasks(assignee_id)",
@@ -146,14 +161,71 @@ fn get_all_tasks(
 }
 
 ///|
-/// Fetch the full board: tasks + members + today's date.
+/// Read an Activity from the current row of a prepared statement.
+fn read_activity(stmt : @sqlite3.Statement) -> @shared.Activity {
+  let id : Int = stmt.column(index=0)
+  let task_id : Int = stmt.column(index=1)
+  let task_title : String = stmt.column_blob_as_string(index=2)
+  let from_status : String = stmt.column_blob_as_string(index=3)
+  let to_status : String = stmt.column_blob_as_string(index=4)
+  let timestamp : String = stmt.column_blob_as_string(index=5)
+  { id, task_id, task_title, from_status, to_status, timestamp }
+}
+
+///|
+/// Fetch recent activities (last 20) in descending order.
+fn get_recent_activities(
+  conn : @sqlite3.Connection,
+) -> Array[@shared.Activity] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    (
+      #|SELECT id, task_id, task_title, from_status, to_status, timestamp
+      #|FROM activities ORDER BY id DESC LIMIT 20
+    ),
+  )
+  let activities : Array[@shared.Activity] = []
+  while stmt.step() {
+    activities.push(read_activity(stmt))
+  }
+  stmt.finalize()
+  activities
+}
+
+///|
+/// Log a status change activity.
+fn log_activity(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  task_title : String,
+  from_status : String,
+  to_status : String,
+) -> Unit raise @sqlite3.SqliteError {
+  let today = get_today(conn)
+  let stmt = conn.prepare(
+    (
+      #|INSERT INTO activities (task_id, task_title, from_status, to_status, timestamp)
+      #|VALUES (?, ?, ?, ?, ?)
+    ),
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind_string_as_blob(index=2, val=task_title)
+  stmt.bind_string_as_blob(index=3, val=from_status)
+  stmt.bind_string_as_blob(index=4, val=to_status)
+  stmt.bind_string_as_blob(index=5, val=today)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
+/// Fetch the full board: tasks + members + activities + today's date.
 fn get_board(
   conn : @sqlite3.Connection,
 ) -> @shared.Board raise @sqlite3.SqliteError {
   let tasks = get_all_tasks(conn)
   let members = get_all_members(conn)
+  let activities = get_recent_activities(conn)
   let today = get_today(conn)
-  { tasks, members, today }
+  { tasks, members, activities, today }
 }
 
 ///|
@@ -403,6 +475,7 @@ fn main raise {
       let task = create_task(
         conn, title, description, priority, assignee_id, due_date,
       )
+      log_activity(conn, task.id, title, "", "todo")
       println("  -> 201 created task: \{title}")
       @mocket.HttpResponse::new(Created).json(task.to_json())
     } catch {
@@ -495,6 +568,7 @@ fn main raise {
           stmt.bind(index=2, val=id)
           stmt.step_once()
           stmt.finalize()
+          log_activity(conn, id, task.title, task.status, new_status)
           let updated = { ..task, status: new_status }
           println("  -> 200 status changed to \{new_status}")
           @mocket.HttpResponse::new(OK).json(updated.to_json())
