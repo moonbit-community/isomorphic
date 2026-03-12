@@ -259,3 +259,83 @@ test "renumber_positions large count" {
   let positions = @shared.renumber_positions(5)
   inspect(positions, content="[1000, 2000, 3000, 4000, 5000]")
 }
+
+///|
+test "compute_move_position returns 0 when gap exhausted" {
+  // Two cards with adjacent positions — no room between them
+  let cards : Array[@shared.Card] = [
+    {
+      id: 1,
+      column_id: 1,
+      title: "A",
+      description: "",
+      color: "",
+      position: 100,
+    },
+    {
+      id: 2,
+      column_id: 1,
+      title: "B",
+      description: "",
+      color: "",
+      position: 101,
+    },
+  ]
+  // Insert between index 0 and 1 — should return 0 (gap exhausted)
+  inspect(@shared.compute_move_position(cards, 1), content="0")
+}
+
+///|
+test "cards_in_column with many cards across multiple columns" {
+  let cards : Array[@shared.Card] = []
+  // 5 cards in column 1, 4 in column 2, 1 in column 3
+  for i in 0..<5 {
+    cards.push({
+      id: i + 1,
+      column_id: 1,
+      title: "C1-\{i}",
+      description: "",
+      color: "",
+      position: (5 - i) * 1000,
+    })
+  }
+  for i in 0..<4 {
+    cards.push({
+      id: i + 6,
+      column_id: 2,
+      title: "C2-\{i}",
+      description: "",
+      color: "",
+      position: (i + 1) * 1000,
+    })
+  }
+  cards.push({
+    id: 10,
+    column_id: 3,
+    title: "C3-only",
+    description: "",
+    color: "",
+    position: 1000,
+  })
+  // Column 1: 5 cards sorted by position
+  let col1 = @shared.cards_in_column(cards, 1)
+  inspect(col1.length(), content="5")
+  inspect(col1[0].title, content="C1-4")
+  inspect(col1[4].title, content="C1-0")
+  // Column 2: 4 cards
+  let col2 = @shared.cards_in_column(cards, 2)
+  inspect(col2.length(), content="4")
+  inspect(col2[0].title, content="C2-0")
+  // Column 3: 1 card
+  let col3 = @shared.cards_in_column(cards, 3)
+  inspect(col3.length(), content="1")
+  inspect(col3[0].title, content="C3-only")
+  // Column 99: nonexistent
+  let col99 = @shared.cards_in_column(cards, 99)
+  inspect(col99.length(), content="0")
+}
+
+///|
+test "next_position with large sparse array" {
+  inspect(@shared.next_position([1, 999999]), content="1000999")
+}

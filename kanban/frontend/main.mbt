@@ -1,4 +1,5 @@
 ///|
+/// Application state for the Kanban board MVU architecture.
 struct Model {
   columns : Array[@shared.Column]
   cards : Array[@shared.Card]
@@ -24,6 +25,7 @@ struct Model {
 }
 
 ///|
+/// All possible user actions and server responses.
 enum Msg {
   Init
   GotBoard(Result[@shared.Board, String])
@@ -68,6 +70,7 @@ enum Msg {
 }
 
 ///|
+/// Issue GET /api/board and dispatch GotBoard on response.
 fn fetch_board(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_board,
@@ -80,6 +83,7 @@ fn fetch_board(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
+/// MVU update: handle a message, return new model and optional command.
 fn update(
   dispatch : @rabbita.Dispatch[Msg],
   msg : Msg,
@@ -362,6 +366,7 @@ fn update(
 // ========== View ==========
 
 ///|
+/// Render the top header bar with title and action buttons.
 fn view_header(
   dispatch : @rabbita.Dispatch[Msg],
   model : Model,
@@ -412,6 +417,7 @@ fn view_header(
 }
 
 ///|
+/// Render the inline form for adding a new column.
 fn view_add_column_form(
   dispatch : @rabbita.Dispatch[Msg],
   model : Model,
@@ -456,6 +462,7 @@ fn view_add_column_form(
 }
 
 ///|
+/// Render a clickable drop zone for card placement during move mode.
 fn view_drop_zone(
   dispatch : @rabbita.Dispatch[Msg],
   column_id : Int,
@@ -472,6 +479,7 @@ fn view_drop_zone(
 }
 
 ///|
+/// Render a row of color swatches for card label selection.
 fn view_color_picker(
   dispatch : @rabbita.Dispatch[Msg],
   current : String,
@@ -504,6 +512,7 @@ fn view_color_picker(
 }
 
 ///|
+/// Render a single card; shows inline edit form when editing this card.
 fn view_card_item(
   dispatch : @rabbita.Dispatch[Msg],
   model : Model,
@@ -645,6 +654,7 @@ fn view_card_item(
 }
 
 ///|
+/// Render the inline form for creating a new card in a column.
 fn view_add_card_form(
   dispatch : @rabbita.Dispatch[Msg],
   model : Model,
@@ -704,6 +714,7 @@ fn view_add_card_form(
 }
 
 ///|
+/// Render a single column with its header, card list, and add-card button.
 fn view_column(
   dispatch : @rabbita.Dispatch[Msg],
   model : Model,
@@ -847,6 +858,7 @@ fn view_column(
 }
 
 ///|
+/// MVU view: render the full board from current model state.
 fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
   let sorted_columns = @shared.sort_by_position(model.columns, fn(c) {
     c.position

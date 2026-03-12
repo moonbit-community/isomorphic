@@ -36,6 +36,7 @@ The positioning algorithm uses integer positions with a gap of 1000. New items a
 |---|---|---|
 | GET | `/api/board` | Full board (columns + cards) |
 | POST | `/api/columns` | Create column `{"title": "..."}` |
+| GET | `/api/columns/:id` | Get a single column |
 | POST | `/api/columns/:id` | Rename column `{"title": "..."}` |
 | POST | `/api/columns/:id/move` | Move column `{"new_position": N}` |
 | DELETE | `/api/columns/:id` | Delete column and its cards |
@@ -57,7 +58,9 @@ kanban/
 │   ├── logic.mbt          # Positioning algorithms & helpers
 │   ├── logic_test.mbt     # Tests for positioning logic
 │   ├── validation_test.mbt # Tests for validation
-│   └── routes_test.mbt    # Tests for route builders
+│   ├── routes_test.mbt    # Tests for route builders
+│   ├── types_test.mbt     # JSON round-trip tests
+│   └── README.mbt.md      # Testable documentation
 ├── backend/               # Native target — Mocket + SQLite3
 │   └── main.mbt
 ├── frontend/              # JS target — Rabbita MVU
@@ -69,6 +72,6 @@ kanban/
 ## Testing
 
 ```bash
-moon test shared/          # Run shared package tests (21 tests)
+moon test shared/          # Run shared package tests (50+ tests)
 moon test shared/ -v       # Verbose with test names
 ```

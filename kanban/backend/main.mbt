@@ -1,4 +1,5 @@
 ///|
+/// Create tables and seed default columns ("To Do", "In Progress", "Done") if empty.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     (
@@ -46,6 +47,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Read a Column from the current row of a prepared statement.
 fn read_column(stmt : @sqlite3.Statement) -> @shared.Column {
   let id : Int = stmt.column(index=0)
   let title : String = stmt.column_blob_as_string(index=1)
@@ -54,6 +56,7 @@ fn read_column(stmt : @sqlite3.Statement) -> @shared.Column {
 }
 
 ///|
+/// Read a Card from the current row of a prepared statement.
 fn read_card(stmt : @sqlite3.Statement) -> @shared.Card {
   let id : Int = stmt.column(index=0)
   let column_id : Int = stmt.column(index=1)
@@ -65,6 +68,7 @@ fn read_card(stmt : @sqlite3.Statement) -> @shared.Card {
 }
 
 ///|
+/// Fetch all columns and cards, ordered by position.
 fn get_board(
   conn : @sqlite3.Connection,
 ) -> @shared.Board raise @sqlite3.SqliteError {
@@ -88,6 +92,7 @@ fn get_board(
 }
 
 ///|
+/// Insert a new column at the end (max position + gap).
 fn create_column(
   conn : @sqlite3.Connection,
   title : String,
@@ -113,6 +118,7 @@ fn create_column(
 }
 
 ///|
+/// Update a column's title. Returns None if not found.
 fn rename_column(
   conn : @sqlite3.Connection,
   id : Int,
@@ -127,6 +133,7 @@ fn rename_column(
 }
 
 ///|
+/// Look up a single column by ID. Returns None if not found.
 fn get_column(
   conn : @sqlite3.Connection,
   id : Int,
@@ -141,6 +148,7 @@ fn get_column(
 }
 
 ///|
+/// Update a column's position. Returns None if not found.
 fn move_column(
   conn : @sqlite3.Connection,
   id : Int,
@@ -155,6 +163,7 @@ fn move_column(
 }
 
 ///|
+/// Delete a column and all its cards.
 fn delete_column(
   conn : @sqlite3.Connection,
   id : Int,
@@ -170,6 +179,7 @@ fn delete_column(
 }
 
 ///|
+/// Insert a new card at the end of a column (max position + gap).
 fn create_card(
   conn : @sqlite3.Connection,
   column_id : Int,
@@ -204,6 +214,7 @@ fn create_card(
 }
 
 ///|
+/// Look up a single card by ID. Returns None if not found.
 fn get_card(
   conn : @sqlite3.Connection,
   id : Int,
@@ -218,6 +229,7 @@ fn get_card(
 }
 
 ///|
+/// Update a card's title, description, and color. Returns None if not found.
 fn update_card(
   conn : @sqlite3.Connection,
   id : Int,
@@ -238,6 +250,7 @@ fn update_card(
 }
 
 ///|
+/// Move a card to a target column at the given position. Returns None if not found.
 fn move_card(
   conn : @sqlite3.Connection,
   id : Int,
@@ -256,6 +269,7 @@ fn move_card(
 }
 
 ///|
+/// Delete a card by ID.
 fn delete_card(
   conn : @sqlite3.Connection,
   id : Int,
@@ -267,6 +281,7 @@ fn delete_card(
 }
 
 ///|
+/// Reassign evenly-spaced positions to all cards in a column.
 fn renumber_cards_in_column(
   conn : @sqlite3.Connection,
   column_id : Int,
@@ -292,6 +307,7 @@ fn renumber_cards_in_column(
 }
 
 ///|
+/// Reassign evenly-spaced positions to all columns.
 fn renumber_columns(
   conn : @sqlite3.Connection,
 ) -> Unit raise @sqlite3.SqliteError {
@@ -313,6 +329,7 @@ fn renumber_columns(
 }
 
 ///|
+/// Count total columns on the board.
 fn column_count(conn : @sqlite3.Connection) -> Int raise @sqlite3.SqliteError {
   let stmt = conn.prepare("SELECT COUNT(*) FROM columns")
   guard stmt.step()
@@ -322,6 +339,7 @@ fn column_count(conn : @sqlite3.Connection) -> Int raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Count cards in a specific column (for limit enforcement).
 fn card_count_in_column(
   conn : @sqlite3.Connection,
   column_id : Int,
@@ -335,6 +353,7 @@ fn card_count_in_column(
 }
 
 ///|
+/// Entry point: parse args, open DB, register routes, start HTTP server.
 fn main raise {
   let matches = @argparse.parse(
     Command("kanban-server", about="Kanban Board backend server", options=[
