@@ -1,5 +1,5 @@
 ///|
-/// Create tables and seed default team members if empty.
+/// Create tables, indexes, and run migrations.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let s1 = conn.prepare(
     (
@@ -83,23 +83,17 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
     s.step_once()
     s.finalize()
   }
-  // Migrate: add user_name column to activities if missing (for existing DBs)
-  let pragma = conn.prepare("PRAGMA table_info(activities)")
-  let mut has_user_name = false
-  while pragma.step() {
-    let col_name : String = pragma.column_blob_as_string(index=1)
-    if col_name == "user_name" {
-      has_user_name = true
-    }
-  }
-  pragma.finalize()
-  if not(has_user_name) {
+  // Migrate: add user_name column to activities if missing (for existing DBs).
+  // Uses try/catch because column_blob_as_string cannot read PRAGMA TEXT columns.
+  try {
     let alter = conn.prepare(
       "ALTER TABLE activities ADD COLUMN user_name BLOB NOT NULL DEFAULT ''",
     )
     alter.step_once()
     alter.finalize()
     println("Migrated activities table: added user_name column")
+  } catch {
+    _ => () // Column already exists — expected for new databases
   }
 }
 
