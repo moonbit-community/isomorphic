@@ -1,0 +1,13 @@
+import {
+  "bobzhang/taskflow/shared",
+  "oboard/mocket",
+  "oboard/mocket/fetch",
+  "moonbitlang/core/json",
+  "moonbitlang/core/encoding/utf8",
+  "moonbitlang/async",
+}
+
+options(
+  "is-main": true,
+  "supported-targets": "-all+native",
+)
