@@ -197,3 +197,73 @@ test "validate_password special characters" {
   inspect(@shared.validate_password("中文密码"), content="true")
   inspect(@shared.validate_password("    "), content="true")
 }
+
+///|
+test "validate_due_date month-day limits" {
+  // Validator checks format (YYYY-MM-DD) and ranges (month 01-12, day 01-31).
+  // It does NOT enforce per-month day limits (e.g., Feb 30 passes).
+  // This documents the current behavior as a known simplification.
+  inspect(@shared.validate_due_date("2026-02-30"), content="true") // Feb 30 accepted
+  inspect(@shared.validate_due_date("2026-04-31"), content="true") // Apr 31 accepted
+  inspect(@shared.validate_due_date("2025-02-29"), content="true") // Non-leap Feb 29 accepted
+  // But day 32+ and day 00 are rejected
+  inspect(@shared.validate_due_date("2026-02-32"), content="false")
+  inspect(@shared.validate_due_date("2026-02-00"), content="false")
+}
+
+///|
+test "validate_due_date short and long strings" {
+  inspect(@shared.validate_due_date("2026-03"), content="false") // too short
+  inspect(@shared.validate_due_date("2026-03-12X"), content="false") // too long
+  inspect(@shared.validate_due_date("20260312"), content="false") // no separators
+  inspect(@shared.validate_due_date("26-03-12"), content="false") // 2-digit year
+}
+
+///|
+test "validate_comment_text unicode" {
+  // Comments support any characters (like passwords)
+  inspect(@shared.validate_comment_text("中文评论"), content="true")
+  inspect(@shared.validate_comment_text("Ñoño"), content="true")
+  inspect(@shared.validate_comment_text("emoji 🎉"), content="true")
+}
+
+///|
+test "validate_comment_text boundary" {
+  inspect(@shared.validate_comment_text("x"), content="true") // min: 1 char
+  inspect(@shared.validate_comment_text("a".repeat(500)), content="true") // at limit
+  inspect(@shared.validate_comment_text("a".repeat(501)), content="false") // over limit
+}
+
+///|
+test "validate_task_description boundary" {
+  inspect(@shared.validate_task_description("a".repeat(500)), content="true")
+  inspect(@shared.validate_task_description("a".repeat(501)), content="false")
+}
+
+///|
+test "validate_task_title unicode" {
+  inspect(@shared.validate_task_title("修复登录错误"), content="true")
+  inspect(@shared.validate_task_title("タスク"), content="true")
+}
+
+///|
+test "validate_status case sensitive" {
+  // Status values are exact strings, case-sensitive
+  inspect(@shared.validate_status("Todo"), content="false")
+  inspect(@shared.validate_status("IN_PROGRESS"), content="false")
+  inspect(@shared.validate_status("Done"), content="false")
+}
+
+///|
+test "validate_priority case sensitive" {
+  inspect(@shared.validate_priority("Low"), content="false")
+  inspect(@shared.validate_priority("HIGH"), content="false")
+  inspect(@shared.validate_priority("Urgent"), content="false")
+}
+
+///|
+test "validate_username leading trailing underscore" {
+  inspect(@shared.validate_username("_abc"), content="true")
+  inspect(@shared.validate_username("abc_"), content="true")
+  inspect(@shared.validate_username("__a"), content="true")
+}
