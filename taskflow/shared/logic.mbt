@@ -470,6 +470,17 @@ pub fn format_activity(act : Activity) -> String {
 
 ///|
 /// Get the N most recent activities (assumes activities are in descending order).
+///
+/// # Example
+///
+/// ```
+/// let acts : Array[@shared.Activity] = [
+///   { id: 3, task_id: 1, task_title: "A", from_status: "todo", to_status: "done", timestamp: "2026-03-13", user_name: "" },
+///   { id: 2, task_id: 1, task_title: "A", from_status: "todo", to_status: "in_progress", timestamp: "2026-03-12", user_name: "" },
+///   { id: 1, task_id: 2, task_title: "B", from_status: "todo", to_status: "done", timestamp: "2026-03-11", user_name: "" },
+/// ]
+/// assert_eq(@shared.recent_activities(acts, 2).length(), 2)
+/// ```
 pub fn recent_activities(
   activities : Array[Activity],
   limit : Int,
@@ -593,6 +604,19 @@ pub fn search_matches(task : Task, query : String) -> Bool {
 
 ///|
 /// Get the dependency IDs (tasks that a given task depends on).
+///
+/// # Example
+///
+/// ```
+/// let deps : Array[@shared.Dependency] = [
+///   { task_id: 1, depends_on_id: 2 },
+///   { task_id: 1, depends_on_id: 3 },
+///   { task_id: 2, depends_on_id: 3 },
+/// ]
+/// assert_eq(@shared.get_dependencies(deps, 1), [2, 3])
+/// assert_eq(@shared.get_dependencies(deps, 2), [3])
+/// assert_eq(@shared.get_dependencies(deps, 99), [])
+/// ```
 pub fn get_dependencies(deps : Array[Dependency], task_id : Int) -> Array[Int] {
   let result : Array[Int] = []
   for d in deps {
@@ -605,6 +629,17 @@ pub fn get_dependencies(deps : Array[Dependency], task_id : Int) -> Array[Int] {
 
 ///|
 /// Check if a task has unresolved dependencies (depends on non-done tasks).
+///
+/// # Example
+///
+/// ```
+/// let deps : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 2 }]
+/// let tasks : Array[@shared.Task] = [
+///   { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+///   { id: 2, title: "B", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+/// ]
+/// assert_true(@shared.has_unresolved_deps(deps, tasks, 1))
+/// ```
 pub fn has_unresolved_deps(
   deps : Array[Dependency],
   tasks : Array[Task],
@@ -1018,6 +1053,13 @@ pub fn tasks_in_project(
 
 ///|
 /// Human-readable label for a recurrence interval.
+///
+/// # Example
+///
+/// ```
+/// assert_eq(@shared.recurrence_label("daily"), "Daily")
+/// assert_eq(@shared.recurrence_label("weekly"), "Weekly")
+/// ```
 pub fn recurrence_label(interval : String) -> String {
   match interval {
     "daily" => "Daily"
