@@ -216,3 +216,20 @@ pub fn validate_time_minutes(minutes : Int) -> Bool {
 pub fn validate_attachment_url(url : String) -> Bool {
   url.has_prefix("https://") || url.has_prefix("http://")
 }
+
+///|
+/// Maximum character length for a project name.
+pub let max_project_name : Int = 50
+
+///|
+/// Validate a project name: non-empty and within max length.
+///
+/// # Example
+///
+/// ```
+/// assert_true(@shared.validate_project_name("My Project"))
+/// assert_false(@shared.validate_project_name(""))
+/// ```
+pub fn validate_project_name(name : String) -> Bool {
+  name != "" && name.char_length() <= max_project_name
+}

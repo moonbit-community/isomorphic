@@ -153,6 +153,31 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   )
   s11.step_once()
   s11.finalize()
+  // Projects table
+  let s12 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS projects (
+      #|  id INTEGER PRIMARY KEY AUTOINCREMENT,
+      #|  name BLOB NOT NULL,
+      #|  color BLOB NOT NULL
+      #|)
+    ),
+  )
+  s12.step_once()
+  s12.finalize()
+  // Task-project junction (each task belongs to at most one project)
+  let s13 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS task_projects (
+      #|  task_id INTEGER PRIMARY KEY,
+      #|  project_id INTEGER NOT NULL,
+      #|  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+      #|  FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
+      #|)
+    ),
+  )
+  s13.step_once()
+  s13.finalize()
   // Indexes for common query patterns
   let idx_stmts = [
     "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status)", "CREATE INDEX IF NOT EXISTS idx_tasks_assignee ON tasks(assignee_id)",
@@ -815,6 +840,102 @@ fn delete_time_entry(
 }
 
 ///|
+/// Fetch all projects.
+fn get_all_projects(
+  conn : @sqlite3.Connection,
+) -> Array[@shared.Project] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("SELECT id, name, color FROM projects ORDER BY id ASC")
+  let result : Array[@shared.Project] = []
+  while stmt.step() {
+    let id : Int = stmt.column(index=0)
+    let name : String = stmt.column_blob_as_string(index=1)
+    let color : String = stmt.column_blob_as_string(index=2)
+    result.push({ id, name, color })
+  }
+  stmt.finalize()
+  result
+}
+
+///|
+/// Create a new project.
+fn create_project(
+  conn : @sqlite3.Connection,
+  name : String,
+  color : String,
+) -> @shared.Project raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("INSERT INTO projects (name, color) VALUES (?, ?)")
+  stmt.bind_string_as_blob(index=1, val=name)
+  stmt.bind_string_as_blob(index=2, val=color)
+  stmt.step_once()
+  stmt.finalize()
+  let id_stmt = conn.prepare("SELECT last_insert_rowid()")
+  guard id_stmt.step()
+  let id : Int = id_stmt.column(index=0)
+  id_stmt.finalize()
+  { id, name, color }
+}
+
+///|
+/// Delete a project and all its task associations.
+fn delete_project(
+  conn : @sqlite3.Connection,
+  id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt1 = conn.prepare("DELETE FROM task_projects WHERE project_id = ?")
+  stmt1.bind(index=1, val=id)
+  stmt1.step_once()
+  stmt1.finalize()
+  let stmt2 = conn.prepare("DELETE FROM projects WHERE id = ?")
+  stmt2.bind(index=1, val=id)
+  stmt2.step_once()
+  stmt2.finalize()
+}
+
+///|
+/// Fetch all task-project associations.
+fn get_all_task_projects(
+  conn : @sqlite3.Connection,
+) -> Array[@shared.TaskProject] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("SELECT task_id, project_id FROM task_projects")
+  let result : Array[@shared.TaskProject] = []
+  while stmt.step() {
+    let task_id : Int = stmt.column(index=0)
+    let project_id : Int = stmt.column(index=1)
+    result.push({ task_id, project_id })
+  }
+  stmt.finalize()
+  result
+}
+
+///|
+/// Assign a task to a project (upsert).
+fn set_task_project(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  project_id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "INSERT OR REPLACE INTO task_projects (task_id, project_id) VALUES (?, ?)",
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind(index=2, val=project_id)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
+/// Remove a task from its project.
+fn remove_task_project(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("DELETE FROM task_projects WHERE task_id = ?")
+  stmt.bind(index=1, val=task_id)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
 /// Fetch the full board: tasks + members + activities + today's date.
 fn get_board(
   conn : @sqlite3.Connection,
@@ -829,8 +950,10 @@ fn get_board(
   let time_entries = get_all_time_entries(conn)
   let recurrence_rules = get_all_recurrence_rules(conn)
   let attachments = get_all_attachments(conn)
+  let projects = get_all_projects(conn)
+  let task_projects = get_all_task_projects(conn)
   let today = get_today(conn)
-  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, recurrence_rules, attachments, today }
+  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, recurrence_rules, attachments, projects, task_projects, today }
 }
 
 ///|
@@ -1841,6 +1964,91 @@ fn main raise {
       delete_attachment(conn, id)
       println("  -> 204 deleted attachment \{id}")
       @mocket.HttpResponse::new(NoContent)
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  // ---- Projects ----
+  ..get(@shared.api_projects, _ => {
+    println("GET \{@shared.api_projects}")
+    try {
+      let projects = get_all_projects(conn)
+      println("  -> 200 (\{projects.length()} projects)")
+      @mocket.HttpResponse::new(OK).json(projects.to_json())
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..post(@shared.api_projects, fn(event) noraise {
+    println("POST \{@shared.api_projects}")
+    try {
+      if not(require_editor(conn, event.req)) {
+        return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot create projects")
+      }
+      let json : Json = event.req.body()
+      let name = match json {
+        { "name": String(n), .. } => n
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing name")
+      }
+      if not(@shared.validate_project_name(name)) {
+        return @mocket.HttpResponse::new(BadRequest).body("Invalid project name")
+      }
+      let color = match json {
+        { "color": String(c), .. } => c
+        _ => "#6366f1"
+      }
+      let project = create_project(conn, name, color)
+      println("  -> 201 project \{project.id}: \{name}")
+      @mocket.HttpResponse::new(Created).json(project.to_json())
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..delete("/api/projects/:id", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("DELETE /api/projects/\{id_str}")
+    try {
+      if not(require_editor(conn, event.req)) {
+        return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot delete projects")
+      }
+      let id = @strconv.parse_int(id_str)
+      delete_project(conn, id)
+      println("  -> 204 deleted project \{id}")
+      @mocket.HttpResponse::new(NoContent)
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..post("/api/tasks/:id/project", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/tasks/\{id_str}/project")
+    try {
+      let task_id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let project_id = match json {
+        { "project_id": Number(n, ..), .. } => n.to_int()
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing project_id")
+      }
+      if project_id == 0 {
+        remove_task_project(conn, task_id)
+        println("  -> 200 removed task \{task_id} from project")
+      } else {
+        set_task_project(conn, task_id, project_id)
+        println("  -> 200 assigned task \{task_id} to project \{project_id}")
+      }
+      @mocket.HttpResponse::new(OK).json(({ "ok": true } : Json))
     } catch {
       e => {
         println("  -> 500 \{e}")

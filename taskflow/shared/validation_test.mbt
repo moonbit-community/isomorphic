@@ -297,3 +297,19 @@ test "validate_attachment_url" {
   inspect(@shared.validate_attachment_url("not-a-url"), content="false")
   inspect(@shared.validate_attachment_url("javascript:alert(1)"), content="false")
 }
+
+///|
+test "validate_project_name" {
+  inspect(@shared.validate_project_name("My Project"), content="true")
+  inspect(@shared.validate_project_name("X"), content="true")
+  inspect(@shared.validate_project_name(""), content="false")
+  let at_limit = "a".repeat(50)
+  inspect(@shared.validate_project_name(at_limit), content="true")
+  let over_limit = "a".repeat(51)
+  inspect(@shared.validate_project_name(over_limit), content="false")
+}
+
+///|
+test "constants include project" {
+  inspect(@shared.max_project_name, content="50")
+}

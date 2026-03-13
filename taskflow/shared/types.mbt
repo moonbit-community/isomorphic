@@ -117,6 +117,21 @@ pub(all) struct Attachment {
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
+/// A project that groups related tasks.
+pub(all) struct Project {
+  id : Int
+  name : String
+  color : String
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
+/// Association between a task and a project.
+pub(all) struct TaskProject {
+  task_id : Int
+  project_id : Int
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
 /// Full board state returned by `GET /api/board`.
 pub(all) struct Board {
   tasks : Array[Task]
@@ -129,5 +144,7 @@ pub(all) struct Board {
   time_entries : Array[TimeEntry]
   recurrence_rules : Array[RecurrenceRule]
   attachments : Array[Attachment]
+  projects : Array[Project]
+  task_projects : Array[TaskProject]
   today : String
 } derive(ToJson, FromJson, Show, Eq)

@@ -1561,3 +1561,47 @@ test "t_undo_status formats undo message" {
     content="待办 → 完成，点击撤销",
   )
 }
+
+///|
+test "project_for_task finds project ID" {
+  let tps : Array[@shared.TaskProject] = [
+    { task_id: 1, project_id: 10 },
+    { task_id: 2, project_id: 20 },
+  ]
+  inspect(@shared.project_for_task(tps, 1), content="10")
+  inspect(@shared.project_for_task(tps, 2), content="20")
+  inspect(@shared.project_for_task(tps, 99), content="0")
+}
+
+///|
+test "find_project by ID" {
+  let projects : Array[@shared.Project] = [
+    { id: 1, name: "Alpha", color: "#3b82f6" },
+    { id: 2, name: "Beta", color: "#22c55e" },
+  ]
+  inspect(@shared.find_project(projects, 1).unwrap().name, content="Alpha")
+  inspect(@shared.find_project(projects, 2).unwrap().name, content="Beta")
+  assert_true(@shared.find_project(projects, 99) is None)
+}
+
+///|
+test "tasks_in_project filters by project" {
+  let tasks : Array[@shared.Task] = [
+    { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+    { id: 2, title: "B", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+    { id: 3, title: "C", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+  ]
+  let tps : Array[@shared.TaskProject] = [
+    { task_id: 1, project_id: 10 },
+    { task_id: 3, project_id: 10 },
+  ]
+  // Filter by project 10 → tasks 1 and 3
+  let filtered = @shared.tasks_in_project(tasks, tps, 10)
+  inspect(filtered.length(), content="2")
+  inspect(filtered[0].id, content="1")
+  inspect(filtered[1].id, content="3")
+  // project_id 0 returns all tasks
+  inspect(@shared.tasks_in_project(tasks, tps, 0).length(), content="3")
+  // Nonexistent project returns empty
+  inspect(@shared.tasks_in_project(tasks, tps, 99).length(), content="0")
+}

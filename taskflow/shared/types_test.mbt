@@ -55,6 +55,8 @@ test "Board JSON round-trip" {
     time_entries: [],
     recurrence_rules: [],
     attachments: [],
+    projects: [],
+    task_projects: [],
     today: "2026-03-12",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
@@ -230,6 +232,8 @@ test "Board JSON round-trip with empty arrays" {
     time_entries: [],
     recurrence_rules: [],
     attachments: [],
+    projects: [],
+    task_projects: [],
     today: "2026-03-13",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
@@ -289,6 +293,8 @@ test "Board with multiple tasks and deps" {
     time_entries: [],
     recurrence_rules: [],
     attachments: [],
+    projects: [],
+    task_projects: [],
     today: "2026-03-13",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())

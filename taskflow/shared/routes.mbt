@@ -125,6 +125,22 @@ pub fn api_attachment(id : Int) -> String {
 }
 
 ///|
+/// `GET` — list all projects. `POST` — create a project.
+pub let api_projects : String = "/api/projects"
+
+///|
+/// `DELETE` — remove a project.
+pub fn api_project(id : Int) -> String {
+  "/api/projects/\{id}"
+}
+
+///|
+/// `POST` — assign a task to a project. `DELETE` — remove from project.
+pub fn api_task_project(id : Int) -> String {
+  "/api/tasks/\{id}/project"
+}
+
+///|
 /// `POST` — change a user's role (admin only).
 pub fn api_user_role(id : Int) -> String {
   "/api/users/\{id}/role"

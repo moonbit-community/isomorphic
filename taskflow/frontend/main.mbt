@@ -19,6 +19,8 @@ struct Model {
   time_entries : Array[@shared.TimeEntry]
   recurrence_rules : Array[@shared.RecurrenceRule]
   attachments : Array[@shared.Attachment]
+  projects : Array[@shared.Project]
+  task_projects : Array[@shared.TaskProject]
   today : String
   // Attachment input
   new_attach_url : String
@@ -30,6 +32,7 @@ struct Model {
   search_query : String
   filter_urgency : String
   filter_label : Int // 0 = all, >0 = label ID
+  filter_project : Int // 0 = all, >0 = project ID
   view_mode : String
   sort_by : String
   sort_asc : Bool
@@ -186,6 +189,10 @@ enum Msg {
   AttachmentAdded
   DeleteAttachment(Int) // attachment_id
   AttachmentDeleted
+  // Projects
+  SetFilterProject(Int)
+  SetTaskProject(Int, Int) // task_id, project_id
+  TaskProjectChanged
   // Drag-and-drop
   DragStartTask(Int)
   DragOverColumn(String)
@@ -326,6 +333,8 @@ fn update(
           time_entries: board.time_entries,
           recurrence_rules: board.recurrence_rules,
           attachments: board.attachments,
+          projects: board.projects,
+          task_projects: board.task_projects,
           today: board.today,
           loading: false,
         },
@@ -1016,6 +1025,21 @@ fn update(
       (cmd, model)
     }
     AttachmentDeleted => (fetch_board(dispatch), model)
+    // ---- Projects ----
+    SetFilterProject(id) =>
+      (@rabbita.none, { ..model, filter_project: id })
+    SetTaskProject(task_id, project_id) => {
+      let expect : @http.Expecting[_, Unit] = Text(fn(_) {
+        dispatch(TaskProjectChanged)
+      })
+      let cmd = @http.post(
+        @shared.api_task_project(task_id),
+        Json(({ "project_id": project_id.to_double() } : Json)),
+        expect~,
+      )
+      (cmd, model)
+    }
+    TaskProjectChanged => (fetch_board(dispatch), model)
     // ---- Drag-and-drop ----
     DragStartTask(id) =>
       (@rabbita.none, { ..model, dragging_task_id: id })
@@ -1953,6 +1977,66 @@ fn view_filters(
       } else {
         @html.text("")
       },
+      // Project filter
+      if model.projects.length() > 0 {
+        @html.div(
+          style=["display: flex", "gap: 4px", "align-items: center"],
+          {
+            let items : Array[@rabbita.Html] = [
+              @html.span(
+                style=[
+                  "font-size: 12px",
+                  "color: \{theme.text_muted}",
+                  "margin-right: 4px",
+                ],
+                @shared.t(model.lang, "project_filter"),
+              ),
+              {
+                let is_sel = model.filter_project == 0
+                let bg = if is_sel { "#4f46e5" } else { theme.filter_inactive }
+                let fg = if is_sel { "white" } else { theme.text_secondary }
+                @html.button(
+                  on_click=dispatch(SetFilterProject(0)),
+                  style=[
+                    "padding: 3px 10px",
+                    "border-radius: 12px",
+                    "border: none",
+                    "cursor: pointer",
+                    "font-size: 11px",
+                    "background: \{bg}",
+                    "color: \{fg}",
+                  ],
+                  @shared.t(model.lang, "all"),
+                )
+              },
+            ]
+            for p in model.projects {
+              let is_sel = model.filter_project == p.id
+              let bg = if is_sel { p.color } else { theme.filter_inactive }
+              let fg = if is_sel { "white" } else { theme.text_secondary }
+              let pid = p.id
+              items.push(
+                @html.button(
+                  on_click=dispatch(SetFilterProject(pid)),
+                  style=[
+                    "padding: 3px 10px",
+                    "border-radius: 12px",
+                    "border: none",
+                    "cursor: pointer",
+                    "font-size: 11px",
+                    "background: \{bg}",
+                    "color: \{fg}",
+                  ],
+                  p.name,
+                ),
+              )
+            }
+            items
+          },
+        )
+      } else {
+        @html.text("")
+      },
       // Sort controls
       @html.div(
         style=["display: flex", "gap: 4px", "align-items: center"],
@@ -2571,24 +2655,45 @@ fn view_task_item(
               let task_labels = @shared.labels_for_task(
                 model.labels, model.task_labels, task.id,
               )
-              if task_labels.length() > 0 {
+              let proj_id = @shared.project_for_task(
+                model.task_projects, task.id,
+              )
+              let proj_badge : Array[@rabbita.Html] = match @shared.find_project(model.projects, proj_id) {
+                Some(p) => [
+                  @html.span(
+                    style=[
+                      "font-size: 10px",
+                      "padding: 1px 6px",
+                      "border-radius: 8px",
+                      "color: white",
+                      "background: \{p.color}",
+                      "white-space: nowrap",
+                      "font-weight: 500",
+                    ],
+                    p.name,
+                  ),
+                ]
+                None => []
+              }
+              let all_badges = proj_badge + task_labels.map(fn(l) {
+                @html.span(
+                  style=[
+                    "font-size: 10px",
+                    "padding: 1px 6px",
+                    "border-radius: 8px",
+                    "color: white",
+                    "background: \{l.color}",
+                    "white-space: nowrap",
+                  ],
+                  l.name,
+                )
+              })
+              if all_badges.length() > 0 {
                 @html.div(
                   style=[
                     "display: flex", "gap: 4px", "flex-wrap: wrap", "margin-top: 4px",
                   ],
-                  task_labels.map(fn(l) {
-                    @html.span(
-                      style=[
-                        "font-size: 10px",
-                        "padding: 1px 6px",
-                        "border-radius: 8px",
-                        "color: white",
-                        "background: \{l.color}",
-                        "white-space: nowrap",
-                      ],
-                      l.name,
-                    )
-                  }),
+                  all_badges,
                 )
               } else {
                 @html.text("")
@@ -2887,28 +2992,48 @@ fn view_kanban_card(
       } else {
         @html.text("")
       },
-      // Labels
+      // Labels + project
       {
         let task_labels = @shared.labels_for_task(
           model.labels, model.task_labels, task.id,
         )
-        if task_labels.length() > 0 {
+        let proj_id = @shared.project_for_task(
+          model.task_projects, task.id,
+        )
+        let proj_badge : Array[@rabbita.Html] = match @shared.find_project(model.projects, proj_id) {
+          Some(p) => [
+            @html.span(
+              style=[
+                "font-size: 9px",
+                "padding: 0px 5px",
+                "border-radius: 6px",
+                "color: white",
+                "background: \{p.color}",
+                "font-weight: 500",
+              ],
+              p.name,
+            ),
+          ]
+          None => []
+        }
+        let all_badges = proj_badge + task_labels.map(fn(l) {
+          @html.span(
+            style=[
+              "font-size: 9px",
+              "padding: 0px 5px",
+              "border-radius: 6px",
+              "color: white",
+              "background: \{l.color}",
+            ],
+            l.name,
+          )
+        })
+        if all_badges.length() > 0 {
           @html.div(
             style=[
               "display: flex", "gap: 3px", "flex-wrap: wrap", "margin-top: 4px",
             ],
-            task_labels.map(fn(l) {
-              @html.span(
-                style=[
-                  "font-size: 9px",
-                  "padding: 0px 5px",
-                  "border-radius: 6px",
-                  "color: white",
-                  "background: \{l.color}",
-                ],
-                l.name,
-              )
-            }),
+            all_badges,
           )
         } else {
           @html.text("")
@@ -4214,6 +4339,84 @@ fn view_comments_panel(
               ],
             ),
           )
+          // Project assignment
+          if model.projects.length() > 0 {
+            let current_proj = @shared.project_for_task(
+              model.task_projects, task_id,
+            )
+            items.push(
+              @html.div(
+                style=[
+                  "margin-top: 16px",
+                  "padding-top: 12px",
+                  "border-top: 1px solid \{theme.card_border}",
+                ],
+                {
+                  let proj_items : Array[@rabbita.Html] = [
+                    @html.div(
+                      style=[
+                        "font-size: 13px",
+                        "font-weight: 600",
+                        "color: \{theme.text}",
+                        "margin-bottom: 8px",
+                      ],
+                      [@html.text(@shared.t(model.lang, "projects"))],
+                    ),
+                    @html.div(
+                      style=[
+                        "display: flex", "gap: 4px", "flex-wrap: wrap",
+                      ],
+                      {
+                        let btns : Array[@rabbita.Html] = [
+                          {
+                            let is_sel = current_proj == 0
+                            let bg = if is_sel { "#6b7280" } else { theme.filter_inactive }
+                            let fg = if is_sel { "white" } else { theme.text_secondary }
+                            @html.button(
+                              on_click=dispatch(SetTaskProject(task_id, 0)),
+                              style=[
+                                "padding: 3px 10px",
+                                "border-radius: 12px",
+                                "border: none",
+                                "cursor: pointer",
+                                "font-size: 11px",
+                                "background: \{bg}",
+                                "color: \{fg}",
+                              ],
+                              @shared.t(model.lang, "no_project"),
+                            )
+                          },
+                        ]
+                        for p in model.projects {
+                          let is_sel = current_proj == p.id
+                          let bg = if is_sel { p.color } else { theme.filter_inactive }
+                          let fg = if is_sel { "white" } else { theme.text_secondary }
+                          let pid = p.id
+                          btns.push(
+                            @html.button(
+                              on_click=dispatch(SetTaskProject(task_id, pid)),
+                              style=[
+                                "padding: 3px 10px",
+                                "border-radius: 12px",
+                                "border: none",
+                                "cursor: pointer",
+                                "font-size: 11px",
+                                "background: \{bg}",
+                                "color: \{fg}",
+                              ],
+                              p.name,
+                            ),
+                          )
+                        }
+                        btns
+                      },
+                    ),
+                  ]
+                  proj_items
+                },
+              ),
+            )
+          }
           // Attachments section
           let task_attachments = @shared.attachments_for_task(
             model.attachments, task_id,
@@ -4531,6 +4734,9 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
   } else {
     filtered
   }
+  let filtered = @shared.tasks_in_project(
+    filtered, model.task_projects, model.filter_project,
+  )
   let sorted = @shared.sort_tasks_by(filtered, model.sort_by, model.sort_asc)
   let mobile = is_mobile_viewport()
   let padding = if mobile { "padding: 8px 12px" } else { "padding: 16px 24px" }
@@ -4728,6 +4934,8 @@ fn main {
       time_entries: [],
       recurrence_rules: [],
       attachments: [],
+      projects: [],
+      task_projects: [],
       today: "",
       new_attach_url: "",
       new_attach_label: "",
@@ -4737,6 +4945,7 @@ fn main {
       search_query: "",
       filter_urgency: "",
       filter_label: 0,
+      filter_project: 0,
       view_mode: "list",
       sort_by: "priority",
       sort_asc: true,

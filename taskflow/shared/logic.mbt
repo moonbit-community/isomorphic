@@ -888,6 +888,82 @@ pub fn get_recurrence(
 }
 
 ///|
+/// Get the project ID for a task, or 0 if unassigned.
+///
+/// # Example
+///
+/// ```
+/// let tps : Array[@shared.TaskProject] = [
+///   { task_id: 10, project_id: 1 },
+///   { task_id: 20, project_id: 2 },
+/// ]
+/// assert_eq(@shared.project_for_task(tps, 10), 1)
+/// assert_eq(@shared.project_for_task(tps, 99), 0)
+/// ```
+pub fn project_for_task(
+  task_projects : Array[TaskProject],
+  task_id : Int,
+) -> Int {
+  for tp in task_projects {
+    if tp.task_id == task_id {
+      return tp.project_id
+    }
+  }
+  0
+}
+
+///|
+/// Find a project by ID. Returns None if not found.
+///
+/// # Example
+///
+/// ```
+/// let projects : Array[@shared.Project] = [
+///   { id: 1, name: "Alpha", color: "#3b82f6" },
+/// ]
+/// assert_true(@shared.find_project(projects, 1) is Some(_))
+/// assert_true(@shared.find_project(projects, 99) is None)
+/// ```
+pub fn find_project(projects : Array[Project], id : Int) -> Project? {
+  for p in projects {
+    if p.id == id {
+      return Some(p)
+    }
+  }
+  None
+}
+
+///|
+/// Filter tasks belonging to a specific project.
+/// If project_id is 0, returns all tasks (no filter).
+///
+/// # Example
+///
+/// ```
+/// let tps : Array[@shared.TaskProject] = [
+///   { task_id: 1, project_id: 10 },
+///   { task_id: 3, project_id: 10 },
+/// ]
+/// let tasks : Array[@shared.Task] = [
+///   { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+///   { id: 2, title: "B", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+///   { id: 3, title: "C", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+/// ]
+/// assert_eq(@shared.tasks_in_project(tasks, tps, 10).length(), 2)
+/// assert_eq(@shared.tasks_in_project(tasks, tps, 0).length(), 3)
+/// ```
+pub fn tasks_in_project(
+  tasks : Array[Task],
+  task_projects : Array[TaskProject],
+  project_id : Int,
+) -> Array[Task] {
+  if project_id == 0 {
+    return tasks.copy()
+  }
+  tasks.filter(fn(t) { project_for_task(task_projects, t.id) == project_id })
+}
+
+///|
 /// Human-readable label for a recurrence interval.
 pub fn recurrence_label(interval : String) -> String {
   match interval {
