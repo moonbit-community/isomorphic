@@ -692,3 +692,42 @@ pub fn format_duration(minutes : Int) -> String {
     "\{h}h \{m}m"
   }
 }
+
+///|
+/// All valid recurrence intervals.
+pub let recurrence_intervals : Array[String] = ["daily", "weekly", "monthly"]
+
+///|
+/// Get the recurrence interval for a task, or "" if none.
+///
+/// # Example
+///
+/// ```
+/// let rules : Array[@shared.RecurrenceRule] = [
+///   { task_id: 10, interval: "weekly" },
+/// ]
+/// assert_eq(@shared.get_recurrence(rules, 10), "weekly")
+/// assert_eq(@shared.get_recurrence(rules, 99), "")
+/// ```
+pub fn get_recurrence(
+  rules : Array[RecurrenceRule],
+  task_id : Int,
+) -> String {
+  for r in rules {
+    if r.task_id == task_id {
+      return r.interval
+    }
+  }
+  ""
+}
+
+///|
+/// Human-readable label for a recurrence interval.
+pub fn recurrence_label(interval : String) -> String {
+  match interval {
+    "daily" => "Daily"
+    "weekly" => "Weekly"
+    "monthly" => "Monthly"
+    _ => interval
+  }
+}

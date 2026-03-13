@@ -128,6 +128,18 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   )
   s9.step_once()
   s9.finalize()
+  // Recurrence rules table
+  let s10 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS recurrence_rules (
+      #|  task_id INTEGER PRIMARY KEY,
+      #|  interval BLOB NOT NULL,
+      #|  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
+      #|)
+    ),
+  )
+  s10.step_once()
+  s10.finalize()
   // Indexes for common query patterns
   let idx_stmts = [
     "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status)", "CREATE INDEX IF NOT EXISTS idx_tasks_assignee ON tasks(assignee_id)",
@@ -601,6 +613,84 @@ fn delete_subtask(
 }
 
 ///|
+/// Fetch all recurrence rules.
+fn get_all_recurrence_rules(
+  conn : @sqlite3.Connection,
+) -> Array[@shared.RecurrenceRule] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("SELECT task_id, interval FROM recurrence_rules")
+  let rules : Array[@shared.RecurrenceRule] = []
+  while stmt.step() {
+    let task_id : Int = stmt.column(index=0)
+    let interval : String = stmt.column_blob_as_string(index=1)
+    rules.push({ task_id, interval })
+  }
+  stmt.finalize()
+  rules
+}
+
+///|
+/// Set recurrence for a task (upsert).
+fn set_recurrence(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  interval : String,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "INSERT OR REPLACE INTO recurrence_rules (task_id, interval) VALUES (?, ?)",
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind_string_as_blob(index=2, val=interval)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
+/// Remove recurrence from a task.
+fn remove_recurrence(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "DELETE FROM recurrence_rules WHERE task_id = ?",
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
+/// Check if a task has recurrence, and if so, create a copy in "todo" status.
+fn handle_recurrence_on_done(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let interval = @shared.get_recurrence(get_all_recurrence_rules(conn), task_id)
+  if interval == "" {
+    return
+  }
+  // Get the completed task
+  match get_task(conn, task_id) {
+    Some(task) => {
+      // Create a new copy with "todo" status
+      let new_task = create_task(
+        conn,
+        task.title,
+        task.description,
+        task.priority,
+        task.assignee_id,
+        task.due_date,
+      )
+      // Copy the recurrence rule to the new task
+      set_recurrence(conn, new_task.id, interval)
+      // Remove recurrence from the completed task
+      remove_recurrence(conn, task_id)
+      println("  Recurring task: created new task \{new_task.id} from \{task_id}")
+    }
+    None => ()
+  }
+}
+
+///|
 /// Fetch all time entries.
 fn get_all_time_entries(
   conn : @sqlite3.Connection,
@@ -671,8 +761,9 @@ fn get_board(
   let task_labels = get_all_task_labels(conn)
   let subtasks = get_all_subtasks(conn)
   let time_entries = get_all_time_entries(conn)
+  let recurrence_rules = get_all_recurrence_rules(conn)
   let today = get_today(conn)
-  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, today }
+  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, recurrence_rules, today }
 }
 
 ///|
@@ -1234,6 +1325,10 @@ fn main raise {
             new_status,
             user_name~,
           )
+          // If moved to "done" and has recurrence, create a copy
+          if new_status == "done" {
+            handle_recurrence_on_done(conn, id)
+          }
           let updated = { ..task, status: new_status }
           println("  -> 200 status changed to \{new_status}")
           @mocket.HttpResponse::new(OK).json(updated.to_json())
@@ -1555,6 +1650,45 @@ fn main raise {
       let id = @strconv.parse_int(id_str)
       delete_time_entry(conn, id)
       println("  -> 204 deleted time entry \{id}")
+      @mocket.HttpResponse::new(NoContent)
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  // Recurrence endpoints
+  ..post("/api/tasks/:id/recurrence", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/tasks/\{id_str}/recurrence")
+    try {
+      let id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let interval = match json {
+        { "interval": String(s), .. } => s
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing interval")
+      }
+      if not(@shared.recurrence_intervals.contains(interval)) {
+        return @mocket.HttpResponse::new(BadRequest).body("Invalid interval")
+      }
+      set_recurrence(conn, id, interval)
+      println("  -> 200 set recurrence \{interval} for task \{id}")
+      @mocket.HttpResponse::new(OK).json(({ "ok": true } : Json))
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..delete("/api/tasks/:id/recurrence", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("DELETE /api/tasks/\{id_str}/recurrence")
+    try {
+      let id = @strconv.parse_int(id_str)
+      remove_recurrence(conn, id)
+      println("  -> 204 removed recurrence for task \{id}")
       @mocket.HttpResponse::new(NoContent)
     } catch {
       e => {

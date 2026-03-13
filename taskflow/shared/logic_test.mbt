@@ -1393,6 +1393,26 @@ test "subtasks_for_task filters by task_id" {
 }
 
 ///|
+test "get_recurrence returns interval or empty" {
+  let rules : Array[@shared.RecurrenceRule] = [
+    { task_id: 10, interval: "weekly" },
+    { task_id: 20, interval: "daily" },
+  ]
+  inspect(@shared.get_recurrence(rules, 10), content="weekly")
+  inspect(@shared.get_recurrence(rules, 20), content="daily")
+  inspect(@shared.get_recurrence(rules, 99), content="")
+  let empty : Array[@shared.RecurrenceRule] = []
+  inspect(@shared.get_recurrence(empty, 10), content="")
+}
+
+///|
+test "recurrence_label formats intervals" {
+  inspect(@shared.recurrence_label("daily"), content="Daily")
+  inspect(@shared.recurrence_label("weekly"), content="Weekly")
+  inspect(@shared.recurrence_label("monthly"), content="Monthly")
+}
+
+///|
 test "total_time sums minutes for task" {
   let entries : Array[@shared.TimeEntry] = [
     { id: 1, task_id: 10, minutes: 30, note: "coding", created_at: "" },

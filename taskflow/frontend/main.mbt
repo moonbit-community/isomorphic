@@ -17,6 +17,7 @@ struct Model {
   task_labels : Array[@shared.TaskLabel]
   subtasks : Array[@shared.Subtask]
   time_entries : Array[@shared.TimeEntry]
+  recurrence_rules : Array[@shared.RecurrenceRule]
   today : String
   // Filters
   filter_status : String
@@ -152,6 +153,10 @@ enum Msg {
   ToggleSubtask(Int) // subtask_id
   DeleteSubtask(Int) // subtask_id
   SubtaskChanged
+  // Recurrence
+  SetRecurrence(Int, String) // task_id, interval
+  RemoveRecurrence(Int) // task_id
+  RecurrenceChanged
   // Time tracking
   NewTimeMinutesChanged(String)
   NewTimeNoteChanged(String)
@@ -300,6 +305,7 @@ fn update(
           task_labels: board.task_labels,
           subtasks: board.subtasks,
           time_entries: board.time_entries,
+          recurrence_rules: board.recurrence_rules,
           today: board.today,
           loading: false,
         },
@@ -722,6 +728,40 @@ fn update(
       (cmd, { ..model, subtasks: subs })
     }
     SubtaskChanged => (fetch_board(dispatch), model)
+    // ---- Recurrence ----
+    SetRecurrence(task_id, interval) => {
+      let url = @shared.api_task_recurrence(task_id)
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(RecurrenceChanged)
+      })
+      let cmd = @http.post(
+        url,
+        Json(({ "interval": interval } : Json)),
+        expect~,
+      )
+      // Optimistic update
+      let rules = model.recurrence_rules.filter(fn(r) {
+        r.task_id != task_id
+      })
+      let rules = {
+        let r = rules.copy()
+        r.push({ task_id, interval })
+        r
+      }
+      (cmd, { ..model, recurrence_rules: rules })
+    }
+    RemoveRecurrence(task_id) => {
+      let url = @shared.api_task_recurrence(task_id)
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(RecurrenceChanged)
+      })
+      let cmd = @http.delete(url, expect~)
+      let rules = model.recurrence_rules.filter(fn(r) {
+        r.task_id != task_id
+      })
+      (cmd, { ..model, recurrence_rules: rules })
+    }
+    RecurrenceChanged => (fetch_board(dispatch), model)
     // ---- Time tracking ----
     NewTimeMinutesChanged(v) =>
       (@rabbita.none, { ..model, new_time_minutes: v })
@@ -2425,6 +2465,22 @@ fn view_task_item(
                 @html.text("")
               }
             },
+            {
+              let rec = @shared.get_recurrence(model.recurrence_rules, task.id)
+              if rec != "" {
+                let label = @shared.recurrence_label(rec)
+                @html.span(
+                  style=[
+                    "font-size: 9px",
+                    "color: #6366f1",
+                    "margin-top: 3px",
+                  ],
+                  "🔄 \{label}",
+                )
+              } else {
+                @html.text("")
+              }
+            },
           ]),
           ]),
           @html.div(
@@ -3757,6 +3813,72 @@ fn view_comments_panel(
               },
             ),
           )
+          // Recurrence section
+          let current_interval = @shared.get_recurrence(
+            model.recurrence_rules, task_id,
+          )
+          items.push(
+            @html.div(
+              style=[
+                "margin-top: 16px",
+                "padding-top: 12px",
+                "border-top: 1px solid \{theme.card_border}",
+              ],
+              [
+                @html.div(
+                  style=[
+                    "font-size: 13px",
+                    "font-weight: 600",
+                    "color: \{theme.text}",
+                    "margin-bottom: 8px",
+                  ],
+                  [@html.text(@shared.t(model.lang, "recurrence"))],
+                ),
+                @html.div(
+                  style=[
+                    "display: flex", "gap: 4px", "flex-wrap: wrap",
+                  ],
+                  {
+                    let btns : Array[@rabbita.Html] = []
+                    // "None" button
+                    let is_none = current_interval == ""
+                    let none_bg = if is_none { "#4f46e5" } else { theme.filter_inactive }
+                    let none_fg = if is_none { "white" } else { theme.text_secondary }
+                    btns.push(
+                      @html.button(
+                        on_click=dispatch(RemoveRecurrence(task_id)),
+                        style=[
+                          "padding: 3px 10px", "border-radius: 12px",
+                          "border: none", "cursor: pointer", "font-size: 11px",
+                          "background: \{none_bg}", "color: \{none_fg}",
+                        ],
+                        @shared.t(model.lang, "no_recurrence"),
+                      ),
+                    )
+                    // Interval buttons
+                    for interval in @shared.recurrence_intervals {
+                      let is_sel = current_interval == interval
+                      let bg = if is_sel { "#4f46e5" } else { theme.filter_inactive }
+                      let fg = if is_sel { "white" } else { theme.text_secondary }
+                      let iv = interval
+                      btns.push(
+                        @html.button(
+                          on_click=dispatch(SetRecurrence(task_id, iv)),
+                          style=[
+                            "padding: 3px 10px", "border-radius: 12px",
+                            "border: none", "cursor: pointer", "font-size: 11px",
+                            "background: \{bg}", "color: \{fg}",
+                          ],
+                          @shared.t(model.lang, interval),
+                        ),
+                      )
+                    }
+                    btns
+                  },
+                ),
+              ],
+            ),
+          )
           // Task activity history section
           let task_acts = @shared.activities_for_task(
             model.activities, task_id,
@@ -4093,6 +4215,7 @@ fn main {
       task_labels: [],
       subtasks: [],
       time_entries: [],
+      recurrence_rules: [],
       today: "",
       filter_status: "",
       filter_assignee: 0,

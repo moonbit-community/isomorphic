@@ -89,6 +89,14 @@ pub(all) struct Subtask {
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
+/// A recurrence rule for automatic task re-creation on completion.
+/// Interval is one of: "daily", "weekly", "monthly".
+pub(all) struct RecurrenceRule {
+  task_id : Int
+  interval : String
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
 /// A time tracking entry for a task.
 pub(all) struct TimeEntry {
   id : Int
@@ -109,5 +117,6 @@ pub(all) struct Board {
   task_labels : Array[TaskLabel]
   subtasks : Array[Subtask]
   time_entries : Array[TimeEntry]
+  recurrence_rules : Array[RecurrenceRule]
   today : String
 } derive(ToJson, FromJson, Show, Eq)

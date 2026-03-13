@@ -105,3 +105,9 @@ pub fn api_task_time(id : Int) -> String {
 pub fn api_time_entry(id : Int) -> String {
   "/api/time/\{id}"
 }
+
+///|
+/// `POST` — set recurrence for a task. `DELETE` — remove recurrence.
+pub fn api_task_recurrence(id : Int) -> String {
+  "/api/tasks/\{id}/recurrence"
+}
