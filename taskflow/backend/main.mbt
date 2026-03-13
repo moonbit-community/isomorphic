@@ -567,21 +567,27 @@ fn main raise {
       let username = match json {
         { "username": String(u), .. } => u
         _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing username")
+          return @mocket.HttpResponse::new(BadRequest).json(
+            ({ "error": "Missing username" } : Json),
+          )
       }
       let password = match json {
         { "password": String(p), .. } => p
         _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing password")
+          return @mocket.HttpResponse::new(BadRequest).json(
+            ({ "error": "Missing password" } : Json),
+          )
       }
       if not(@shared.validate_username(username)) {
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Username must be 3-30 alphanumeric characters or underscores",
+        return @mocket.HttpResponse::new(BadRequest).json(
+          ({
+            "error": "Username must be 3-30 alphanumeric characters or underscores",
+          } : Json),
         )
       }
       if not(@shared.validate_password(password)) {
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Password must be 4-100 characters",
+        return @mocket.HttpResponse::new(BadRequest).json(
+          ({ "error": "Password must be 4-100 characters" } : Json),
         )
       }
       let user = register_user(conn, username, password)
@@ -604,12 +610,16 @@ fn main raise {
     } catch {
       e => {
         let msg = "\{e}"
-        if msg.contains("UNIQUE") {
+        if msg.contains("UNIQUE") || msg.contains("(19,") {
           println("  -> 409 username taken")
-          @mocket.HttpResponse::new(Conflict).body("Username already taken")
+          @mocket.HttpResponse::new(Conflict).json(
+            ({ "error": "Username already taken" } : Json),
+          )
         } else {
           println("  -> 500 \{e}")
-          @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+          @mocket.HttpResponse::new(InternalServerError).json(
+            ({ "error": "\{e}" } : Json),
+          )
         }
       }
     }
@@ -621,12 +631,16 @@ fn main raise {
       let username = match json {
         { "username": String(u), .. } => u
         _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing username")
+          return @mocket.HttpResponse::new(BadRequest).json(
+            ({ "error": "Missing username" } : Json),
+          )
       }
       let password = match json {
         { "password": String(p), .. } => p
         _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing password")
+          return @mocket.HttpResponse::new(BadRequest).json(
+            ({ "error": "Missing password" } : Json),
+          )
       }
       match login_user(conn, username, password) {
         Some(user) => {
@@ -649,15 +663,17 @@ fn main raise {
         }
         None => {
           println("  -> 401 invalid credentials")
-          @mocket.HttpResponse::new(Unauthorized).body(
-            "Invalid username or password",
+          @mocket.HttpResponse::new(Unauthorized).json(
+            ({ "error": "Invalid username or password" } : Json),
           )
         }
       }
     } catch {
       e => {
         println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        @mocket.HttpResponse::new(InternalServerError).json(
+          ({ "error": "\{e}" } : Json),
+        )
       }
     }
   })

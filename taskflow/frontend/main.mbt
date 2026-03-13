@@ -284,8 +284,12 @@ fn update(
         @shared.api_login,
         Json(({ "username": username, "password": password } : Json)),
         expect=Json(fn(result) { dispatch(AuthResult(result)) }, fn(json) {
-          Ok(@json.from_json(json)) catch {
-            _ => Err("Invalid username or password")
+          match json {
+            { "error": String(msg), .. } => Err(msg)
+            _ =>
+              Ok(@json.from_json(json)) catch {
+                _ => Err("Invalid username or password")
+              }
           }
         }),
       )
@@ -313,8 +317,12 @@ fn update(
         @shared.api_register,
         Json(({ "username": username, "password": password } : Json)),
         expect=Json(fn(result) { dispatch(AuthResult(result)) }, fn(json) {
-          Ok(@json.from_json(json)) catch {
-            _ => Err("Registration failed")
+          match json {
+            { "error": String(msg), .. } => Err(msg)
+            _ =>
+              Ok(@json.from_json(json)) catch {
+                _ => Err("Registration failed")
+              }
           }
         }),
       )

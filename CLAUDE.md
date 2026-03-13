@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Ask `codex` CLI to review for each commit and adjust its feedback when it makes sense.
+
 ## Build & Run
 
 ```bash
