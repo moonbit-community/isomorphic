@@ -20625,6 +20625,113 @@ function _M0FP38bobzhang8taskflow8frontend22view__edit__task__form(dispatch, mod
   const theme = _M0FP38bobzhang8taskflow8frontend10get__theme(model.dark_mode);
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: ${_M0IPC16string6StringPB4Show10to__string(theme.card_bg)}`, "border-radius: 8px", "padding: 14px", "border: 1px solid #4f46e5", "margin-bottom: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, model.edit_title, -1, -1, -1, undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "task_title_placeholder"), undefined, ["width: 100%", "padding: 6px 8px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, "border-radius: 4px", "font-size: 13px", "outline: none", "margin-bottom: 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.input_bg)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, undefined, (v) => dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg16EditTitleChanged(v)), undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html16textarea_2einnerGsE(["width: 100%", "padding: 6px 8px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, "border-radius: 4px", "font-size: 12px", "outline: none", "resize: vertical", "font-family: inherit", "margin-bottom: 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.input_bg)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`], undefined, undefined, undefined, -1, undefined, model.edit_desc, 2, undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "desc_placeholder"), -1, -1, undefined, undefined, -1, -1, undefined, undefined, (v) => dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg15EditDescChanged(v)), undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 12px", "margin-bottom: 6px", "flex-wrap: wrap"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "margin-bottom: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "priority"))]), _M0FP38bobzhang8taskflow8frontend30view__priority__picker_2einner(dispatch, model.edit_priority, (p) => new _M0DTP38bobzhang8taskflow8frontend3Msg19EditPriorityChanged(p), model.lang)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "margin-bottom: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "assignee"))]), _M0FP38bobzhang8taskflow8frontend22view__assignee__picker(dispatch, model.members, model.edit_assignee, (id) => new _M0DTP38bobzhang8taskflow8frontend3Msg19EditAssigneeChanged(id))]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "margin-bottom: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "due_date"))]), _M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, model.edit_due_date, -1, -1, -1, undefined, "YYYY-MM-DD", undefined, ["padding: 4px 8px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, "border-radius: 4px", "font-size: 12px", "outline: none", "width: 120px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.input_bg)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, undefined, (v) => dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg18EditDueDateChanged(v)), undefined, "")])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 6px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 5px 12px", "background: #4f46e5", "color: white", "border: none", "border-radius: 4px", "cursor: pointer", "font-size: 12px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg12SaveEditTask__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "save")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 5px 12px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`, "border: none", "border-radius: 4px", "cursor: pointer", "font-size: 12px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg14CancelEditTask__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "cancel"))])]);
 }
+function _M0FP38bobzhang8taskflow8frontend10find__char(chars, target, from) {
+  const i = new _M0TPC13ref3RefGiE(from);
+  while (true) {
+    if (i.val < chars.length) {
+      if (_M0MPC15array5Array2atGcE(chars, i.val) === target) {
+        return i.val;
+      }
+      i.val = i.val + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return -1;
+}
+function _M0FP38bobzhang8taskflow8frontend18find__double__char(chars, target, from) {
+  const i = new _M0TPC13ref3RefGiE(from);
+  while (true) {
+    if ((i.val + 1 | 0) < chars.length) {
+      if (_M0MPC15array5Array2atGcE(chars, i.val) === target && _M0MPC15array5Array2atGcE(chars, i.val + 1 | 0) === target) {
+        return i.val;
+      }
+      i.val = i.val + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return -1;
+}
+function _M0FP38bobzhang8taskflow8frontend18is__username__char(c) {
+  return c >= 97 && c <= 122 || (c >= 65 && c <= 90 || (c >= 48 && c <= 57 || c === 95));
+}
+function _M0FP38bobzhang8taskflow8frontend18render__rich__text(text) {
+  const nodes = [];
+  const chars = _M0MPC16string6String9to__array(text);
+  const len = chars.length;
+  const i = new _M0TPC13ref3RefGiE(0);
+  const seg_start = new _M0TPC13ref3RefGiE(0);
+  while (true) {
+    if (i.val < len) {
+      if (_M0MPC15array5Array2atGcE(chars, i.val) === 64 && (i.val === 0 || (_M0MPC15array5Array2atGcE(chars, i.val - 1 | 0) === 32 || _M0MPC15array5Array2atGcE(chars, i.val - 1 | 0) === 10))) {
+        if (i.val > seg_start.val) {
+          _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html4text(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, seg_start.val, i.val))));
+        }
+        const name_start = i.val + 1 | 0;
+        const end = new _M0TPC13ref3RefGiE(name_start);
+        while (true) {
+          if (end.val < len && _M0FP38bobzhang8taskflow8frontend18is__username__char(_M0MPC15array5Array2atGcE(chars, end.val))) {
+            end.val = end.val + 1 | 0;
+            continue;
+          } else {
+            break;
+          }
+        }
+        if (end.val > name_start) {
+          const mention = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, i.val, end.val));
+          _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["color: #6366f1", "font-weight: 600"], undefined, undefined, undefined, -1, undefined, mention));
+          i.val = end.val;
+          seg_start.val = end.val;
+        } else {
+          i.val = i.val + 1 | 0;
+        }
+      } else {
+        if (_M0MPC15array5Array2atGcE(chars, i.val) === 96) {
+          const close = _M0FP38bobzhang8taskflow8frontend10find__char(chars, 96, i.val + 1 | 0);
+          if (close > (i.val + 1 | 0)) {
+            if (i.val > seg_start.val) {
+              _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html4text(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, seg_start.val, i.val))));
+            }
+            const code = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, i.val + 1 | 0, close));
+            _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-family: monospace", "background: rgba(99,102,241,0.1)", "padding: 1px 4px", "border-radius: 3px", "font-size: 12px"], undefined, undefined, undefined, -1, undefined, code));
+            i.val = close + 1 | 0;
+            seg_start.val = i.val;
+          } else {
+            i.val = i.val + 1 | 0;
+          }
+        } else {
+          if (_M0MPC15array5Array2atGcE(chars, i.val) === 42 && ((i.val + 1 | 0) < len && _M0MPC15array5Array2atGcE(chars, i.val + 1 | 0) === 42)) {
+            const content_start = i.val + 2 | 0;
+            const close = _M0FP38bobzhang8taskflow8frontend18find__double__char(chars, 42, content_start);
+            if (close > content_start) {
+              if (i.val > seg_start.val) {
+                _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html4text(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, seg_start.val, i.val))));
+              }
+              const bold = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, content_start, close));
+              _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: 700"], undefined, undefined, undefined, -1, undefined, bold));
+              i.val = close + 2 | 0;
+              seg_start.val = i.val;
+            } else {
+              i.val = i.val + 1 | 0;
+            }
+          } else {
+            i.val = i.val + 1 | 0;
+          }
+        }
+      }
+      continue;
+    } else {
+      break;
+    }
+  }
+  if (seg_start.val < len) {
+    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html4text(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, seg_start.val, len))));
+  }
+  return nodes;
+}
 function _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, task) {
   if (model.editing_task === task.id) {
     return _M0FP38bobzhang8taskflow8frontend22view__edit__task__form(dispatch, model);
@@ -20730,7 +20837,7 @@ function _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, ta
   const _tmp$4 = _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["width: 16px", "height: 16px", "min-width: 16px", "border-radius: 3px", check_border, `background: ${_M0IPC16string6StringPB4Show10to__string(check_bg)}`, "cursor: pointer", "display: flex", "align-items: center", "justify-content: center", "font-size: 10px", `color: ${_M0IPC16string6StringPB4Show10to__string(check_color)}`, "padding: 0", "margin-top: 2px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg16ToggleSelectTask(tid)), undefined, "✓");
   const _tmp$5 = ["flex: 1"];
   const _tmp$6 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 14px", "font-weight: 500", `color: ${_M0IPC16string6StringPB4Show10to__string(title_color)}`, `text-decoration: ${_M0IPC16string6StringPB4Show10to__string(title_decoration)}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(task.title)]);
-  const _tmp$7 = _M0IP016_24default__implPB2Eq10not__equalGsE(task.description, "") ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 12px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`, "margin-top: 2px", "line-height: 1.4"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(task.description)]) : _M0FP319moonbit_2dcommunity7rabbita4html4text("");
+  const _tmp$7 = _M0IP016_24default__implPB2Eq10not__equalGsE(task.description, "") ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 12px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`, "margin-top: 2px", "line-height: 1.4"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0FP38bobzhang8taskflow8frontend18render__rich__text(task.description)) : _M0FP319moonbit_2dcommunity7rabbita4html4text("");
   const task_labels = _M0FP38bobzhang8taskflow6shared17labels__for__task(model.labels, model.task_labels, task.id);
   const _tmp$8 = task_labels.length > 0 ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 4px", "flex-wrap: wrap", "margin-top: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared5LabelRP319moonbit_2dcommunity7rabbita4html4HtmlE(task_labels, (l) => _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 10px", "padding: 1px 6px", "border-radius: 8px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(l.color)}`, "white-space: nowrap"], undefined, undefined, undefined, -1, undefined, l.name))) : _M0FP319moonbit_2dcommunity7rabbita4html4text("");
   let _tmp$9;
@@ -21014,49 +21121,6 @@ function _M0FP38bobzhang8taskflow8frontend21view__delete__confirm(dispatch, mode
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: fixed", "top: 0", "left: 0", "right: 0", "bottom: 0", "background: rgba(0,0,0,0.4)", "display: flex", "align-items: center", "justify-content: center", "z-index: 1000"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: ${_M0IPC16string6StringPB4Show10to__string(theme.card_bg)}`, "border-radius: 12px", "padding: 24px", "max-width: 400px", "width: 90%", "box-shadow: 0 20px 60px rgba(0,0,0,0.2)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 16px", "font-weight: 600", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`, "margin-bottom: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "delete_task"))]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`, "margin-bottom: 20px", "line-height: 1.5"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(task_title.val)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "justify-content: flex-end"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 16px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`, "border: none", "border-radius: 6px", "cursor: pointer", "font-size: 13px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg12CancelDelete__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "cancel")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 16px", "background: #dc2626", "color: white", "border: none", "border-radius: 6px", "cursor: pointer", "font-size: 13px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg13ConfirmDelete__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "delete"))])])]);
 }
-function _M0FP38bobzhang8taskflow8frontend21render__mention__text(text) {
-  const nodes = [];
-  const chars = _M0MPC16string6String9to__array(text);
-  const len = chars.length;
-  const i = new _M0TPC13ref3RefGiE(0);
-  const seg_start = new _M0TPC13ref3RefGiE(0);
-  while (true) {
-    if (i.val < len) {
-      if (_M0MPC15array5Array2atGcE(chars, i.val) === 64 && (i.val === 0 || (_M0MPC15array5Array2atGcE(chars, i.val - 1 | 0) === 32 || _M0MPC15array5Array2atGcE(chars, i.val - 1 | 0) === 10))) {
-        if (i.val > seg_start.val) {
-          _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html4text(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, seg_start.val, i.val))));
-        }
-        const name_start = i.val + 1 | 0;
-        const end = new _M0TPC13ref3RefGiE(name_start);
-        while (true) {
-          if (end.val < len && (_M0MPC15array5Array2atGcE(chars, end.val) >= 97 && _M0MPC15array5Array2atGcE(chars, end.val) <= 122 || (_M0MPC15array5Array2atGcE(chars, end.val) >= 65 && _M0MPC15array5Array2atGcE(chars, end.val) <= 90 || (_M0MPC15array5Array2atGcE(chars, end.val) >= 48 && _M0MPC15array5Array2atGcE(chars, end.val) <= 57 || _M0MPC15array5Array2atGcE(chars, end.val) === 95)))) {
-            end.val = end.val + 1 | 0;
-            continue;
-          } else {
-            break;
-          }
-        }
-        if (end.val > name_start) {
-          const mention = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, i.val, end.val));
-          _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["color: #6366f1", "font-weight: 600"], undefined, undefined, undefined, -1, undefined, mention));
-          i.val = end.val;
-          seg_start.val = end.val;
-        } else {
-          i.val = i.val + 1 | 0;
-        }
-      } else {
-        i.val = i.val + 1 | 0;
-      }
-      continue;
-    } else {
-      break;
-    }
-  }
-  if (seg_start.val < len) {
-    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(nodes, _M0FP319moonbit_2dcommunity7rabbita4html4text(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, seg_start.val, len))));
-  }
-  return nodes;
-}
 function _M0FP38bobzhang8taskflow8frontend21view__comments__panel(dispatch, model) {
   if (model.viewing_comments === 0) {
     return _M0FP319moonbit_2dcommunity7rabbita4html4text("");
@@ -21099,7 +21163,7 @@ function _M0FP38bobzhang8taskflow8frontend21view__comments__panel(dispatch, mode
     const _ = _tmp$4;
     if (_ < _bind$4) {
       const c = _bind$3[_];
-      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 10px 0", `border-bottom: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.card_border)}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: space-between", "margin-bottom: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 12px", "font-weight: 600", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, c.author), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`], undefined, undefined, undefined, -1, undefined, c.created_at)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`, "line-height: 1.5"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0FP38bobzhang8taskflow8frontend21render__mention__text(c.text))]));
+      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 10px 0", `border-bottom: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.card_border)}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: space-between", "margin-bottom: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 12px", "font-weight: 600", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, c.author), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`], undefined, undefined, undefined, -1, undefined, c.created_at)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`, "line-height: 1.5"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0FP38bobzhang8taskflow8frontend18render__rich__text(c.text))]));
       _tmp$4 = _ + 1 | 0;
       continue;
     } else {

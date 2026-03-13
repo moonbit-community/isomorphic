@@ -2471,7 +2471,7 @@ fn view_task_item(
                   "margin-top: 2px",
                   "line-height: 1.4",
                 ],
-                [@html.text(task.description)],
+                render_rich_text(task.description),
               )
             } else {
               @html.text("")
@@ -3195,8 +3195,17 @@ fn view_delete_confirm(
 }
 
 ///|
-/// Render text with @mentions highlighted in blue/bold.
-fn render_mention_text(text : String) -> Array[@rabbita.Html] {
+/// Check if a character is a valid username character (alphanumeric or underscore).
+fn is_username_char(c : Char) -> Bool {
+  (c.to_int() >= 'a'.to_int() && c.to_int() <= 'z'.to_int()) ||
+  (c.to_int() >= 'A'.to_int() && c.to_int() <= 'Z'.to_int()) ||
+  (c.to_int() >= '0'.to_int() && c.to_int() <= '9'.to_int()) ||
+  c == '_'
+}
+
+///|
+/// Render text with @mentions, `code`, and **bold** formatting.
+fn render_rich_text(text : String) -> Array[@rabbita.Html] {
   let nodes : Array[@rabbita.Html] = []
   let chars = text.to_array()
   let len = chars.length()
@@ -3204,26 +3213,20 @@ fn render_mention_text(text : String) -> Array[@rabbita.Html] {
   let mut seg_start = 0
   while i < len {
     if chars[i] == '@' && (i == 0 || chars[i - 1] == ' ' || chars[i - 1] == '\n') {
-      // Flush text before the @
+      // @mention
       if i > seg_start {
         nodes.push(@html.text(text[seg_start:i].to_string()))
       }
       let name_start = i + 1
       let mut end = name_start
-      while end < len && ((chars[end].to_int() >= 'a'.to_int() && chars[end].to_int() <= 'z'.to_int()) ||
-        (chars[end].to_int() >= 'A'.to_int() && chars[end].to_int() <= 'Z'.to_int()) ||
-        (chars[end].to_int() >= '0'.to_int() && chars[end].to_int() <= '9'.to_int()) ||
-        chars[end] == '_') {
+      while end < len && is_username_char(chars[end]) {
         end += 1
       }
       if end > name_start {
         let mention = text[i:end].to_string()
         nodes.push(
           @html.span(
-            style=[
-              "color: #6366f1",
-              "font-weight: 600",
-            ],
+            style=["color: #6366f1", "font-weight: 600"],
             mention,
           ),
         )
@@ -3232,15 +3235,79 @@ fn render_mention_text(text : String) -> Array[@rabbita.Html] {
       } else {
         i += 1
       }
+    } else if chars[i] == '`' {
+      // Inline code
+      let close = find_char(chars, '`', i + 1)
+      if close > i + 1 {
+        if i > seg_start {
+          nodes.push(@html.text(text[seg_start:i].to_string()))
+        }
+        let code = text[i + 1:close].to_string()
+        nodes.push(
+          @html.span(
+            style=[
+              "font-family: monospace", "background: rgba(99,102,241,0.1)",
+              "padding: 1px 4px", "border-radius: 3px", "font-size: 12px",
+            ],
+            code,
+          ),
+        )
+        i = close + 1
+        seg_start = i
+      } else {
+        i += 1
+      }
+    } else if chars[i] == '*' && i + 1 < len && chars[i + 1] == '*' {
+      // **bold**
+      let content_start = i + 2
+      let close = find_double_char(chars, '*', content_start)
+      if close > content_start {
+        if i > seg_start {
+          nodes.push(@html.text(text[seg_start:i].to_string()))
+        }
+        let bold = text[content_start:close].to_string()
+        nodes.push(
+          @html.span(style=["font-weight: 700"], bold),
+        )
+        i = close + 2
+        seg_start = i
+      } else {
+        i += 1
+      }
     } else {
       i += 1
     }
   }
-  // Flush remaining text
   if seg_start < len {
     nodes.push(@html.text(text[seg_start:len].to_string()))
   }
   nodes
+}
+
+///|
+/// Find the index of a character starting from a position.
+fn find_char(chars : Array[Char], target : Char, from : Int) -> Int {
+  let mut i = from
+  while i < chars.length() {
+    if chars[i] == target {
+      return i
+    }
+    i += 1
+  }
+  -1
+}
+
+///|
+/// Find the index of a double character (e.g. **) starting from a position.
+fn find_double_char(chars : Array[Char], target : Char, from : Int) -> Int {
+  let mut i = from
+  while i + 1 < chars.length() {
+    if chars[i] == target && chars[i + 1] == target {
+      return i
+    }
+    i += 1
+  }
+  -1
 }
 
 ///|
@@ -3403,7 +3470,7 @@ fn view_comments_panel(
                       "color: \{theme.text}",
                       "line-height: 1.5",
                     ],
-                    render_mention_text(c.text),
+                    render_rich_text(c.text),
                   ),
                 ],
               ),
