@@ -59,9 +59,9 @@ pub fn Model::update(
   dispatch~ : @rabbita.Dispatch[Msg],
 ) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => ({ ..self, loading: true }, fetch_posts(dispatch))
-    GotPosts(Ok(posts)) => ({ ..self, posts, loading: false }, @rabbita.none)
-    GotPosts(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+    Init => ({ ..self, loading: true, }, fetch_posts(dispatch))
+    GotPosts(Ok(posts)) => ({ ..self, posts, loading: false, }, @rabbita.none)
+    GotPosts(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
     GotPost(Ok(post)) =>
       (
         {
@@ -73,14 +73,14 @@ pub fn Model::update(
         },
         fetch_comments(dispatch, post.id),
       )
-    GotPost(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
-    GotComments(Ok(comments)) => ({ ..self, comments }, @rabbita.none)
+    GotPost(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
+    GotComments(Ok(comments)) => ({ ..self, comments, }, @rabbita.none)
     GotComments(Err(_)) => (self, @rabbita.none)
     GoToList =>
-      ({ ..self, page: PostList, loading: true }, fetch_posts(dispatch))
+      ({ ..self, page: PostList, loading: true, }, fetch_posts(dispatch))
     GoToNewPost =>
       (
-        { ..self, page: NewPost, title_input: "", content_input: "" },
+        { ..self, page: NewPost, title_input: "", content_input: "", },
         @rabbita.none,
       )
     GoToViewPost(id) =>
@@ -98,31 +98,31 @@ pub fn Model::update(
       )
     GoToEditPost(id) =>
       (
-        { ..self, page: EditPost(id), current_post: None, loading: true },
+        { ..self, page: EditPost(id), current_post: None, loading: true, },
         fetch_post(dispatch, id),
       )
-    TitleChanged(value) => ({ ..self, title_input: value }, @rabbita.none)
-    ContentChanged(value) => ({ ..self, content_input: value }, @rabbita.none)
+    TitleChanged(value) => ({ ..self, title_input: value, }, @rabbita.none)
+    ContentChanged(value) => ({ ..self, content_input: value, }, @rabbita.none)
     CommentAuthorChanged(value) =>
-      ({ ..self, comment_author: value }, @rabbita.none)
+      ({ ..self, comment_author: value, }, @rabbita.none)
     CommentContentChanged(value) =>
-      ({ ..self, comment_content: value }, @rabbita.none)
+      ({ ..self, comment_content: value, }, @rabbita.none)
     CreatePost => {
-      if not(@shared.validate_title(self.title_input)) {
+      if !@shared.validate_title(self.title_input) {
         return (self, @rabbita.none)
       }
       let title = self.title_input
       let content = self.content_input
       let cmd = @http.post(
         @shared.api_posts,
-        Json(({ "title": title, "content": content } : Json)),
+        Json({ "title": title, "content": content }),
         expect=Json(fn(result) { dispatch(PostCreated(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode post")
           }
         }),
       )
-      ({ ..self, loading: true }, cmd)
+      ({ ..self, loading: true, }, cmd)
     }
     PostCreated(Ok(post)) =>
       (
@@ -137,23 +137,23 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    PostCreated(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+    PostCreated(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
     UpdatePost(id) => {
-      if not(@shared.validate_title(self.title_input)) {
+      if !@shared.validate_title(self.title_input) {
         return (self, @rabbita.none)
       }
       let title = self.title_input
       let content = self.content_input
       let cmd = @http.post(
         @shared.api_post(id),
-        Json(({ "title": title, "content": content } : Json)),
+        Json({ "title": title, "content": content }),
         expect=Json(fn(result) { dispatch(PostUpdated(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode post")
           }
         }),
       )
-      ({ ..self, loading: true }, cmd)
+      ({ ..self, loading: true, }, cmd)
     }
     PostUpdated(Ok(post)) =>
       (
@@ -165,7 +165,7 @@ pub fn Model::update(
         },
         fetch_comments(dispatch, post.id),
       )
-    PostUpdated(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+    PostUpdated(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
     DeletePost(id) => {
       let cmd = @http.delete(
         @shared.api_post(id),
@@ -184,7 +184,7 @@ pub fn Model::update(
     }
     PostDeleted(Ok(id)) => {
       let posts = self.posts.filter(fn(p) { p.id != id })
-      ({ ..self, posts, page: PostList }, @rabbita.none)
+      ({ ..self, posts, page: PostList, }, @rabbita.none)
     }
     PostDeleted(Err(_)) => (self, @rabbita.none)
     AddComment(post_id) => {
@@ -195,7 +195,7 @@ pub fn Model::update(
       let content = self.comment_content
       let cmd = @http.post(
         @shared.api_post_comments(post_id),
-        Json(({ "author": author, "content": content } : Json)),
+        Json({ "author": author, "content": content }),
         expect=Json(fn(result) { dispatch(CommentAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode comment")
@@ -208,7 +208,7 @@ pub fn Model::update(
       let comments = self.comments.copy()
       comments.push(comment)
       (
-        { ..self, comments, comment_author: "", comment_content: "" },
+        { ..self, comments, comment_author: "", comment_content: "", },
         @rabbita.none,
       )
     }
@@ -231,7 +231,7 @@ pub fn Model::update(
     }
     CommentDeleted(Ok(comment_id)) => {
       let comments = self.comments.filter(fn(c) { c.id != comment_id })
-      ({ ..self, comments }, @rabbita.none)
+      ({ ..self, comments, }, @rabbita.none)
     }
     CommentDeleted(Err(_)) => (self, @rabbita.none)
   }

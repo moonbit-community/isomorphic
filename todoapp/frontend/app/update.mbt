@@ -4,12 +4,11 @@ fn expect_todo(
   dispatch : @rabbita.Dispatch[Msg],
   on_result : (Result[@shared.Todo, String]) -> Msg,
 ) -> @http.Expecting[@rabbita.Cmd, @shared.Todo] {
-  Json(
-    fn(result) { dispatch(on_result(result)) },
-    fn(json) {
-      Ok(@json.from_json(json)) catch { _ => Err("Failed to decode todo") }
-    },
-  )
+  Json(fn(result) { dispatch(on_result(result)) }, fn(json) {
+    Ok(@json.from_json(json)) catch {
+      _ => Err("Failed to decode todo")
+    }
+  })
 }
 
 ///|
@@ -17,12 +16,11 @@ fn expect_todo(
 fn fetch_todos(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_todos,
-    expect=Json(
-      fn(result) { dispatch(GotTodos(result)) },
-      fn(json) {
-        Ok(@json.from_json(json)) catch { _ => Err("Failed to decode todos") }
-      },
-    ),
+    expect=Json(fn(result) { dispatch(GotTodos(result)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("Failed to decode todos")
+      }
+    }),
   )
 }
 
@@ -56,12 +54,12 @@ pub fn Model::update(
     GotTodos(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
     InputChanged(value) => ({ ..self, input: value }, @rabbita.none)
     AddTodo => {
-      if not(@shared.validate_text(self.input)) {
+      if !@shared.validate_text(self.input) {
         return (self, @rabbita.none)
       }
       let cmd = @http.post(
         @shared.api_todos,
-        Json(({ "text": self.input } : Json)),
+        Json({ "text": self.input }),
         expect=expect_todo(dispatch, fn(r) { TodoAdded(r) }),
       )
       ({ ..self, input: "" }, cmd)
@@ -69,22 +67,26 @@ pub fn Model::update(
     TodoAdded(Ok(todo)) => {
       let todos = self.todos.copy()
       todos.push(todo)
-      ({ ..self, todos }, @rabbita.none)
+      ({ ..self, todos, }, @rabbita.none)
     }
     TodoAdded(Err(_)) => (self, @rabbita.none)
     ToggleTodo(id) => {
       let cmd = @http.post(
         @shared.api_todo_toggle(id),
-        Json(({} : Json)),
-        expect=expect_todo(dispatch, fn(r) { TodoToggled(r) }),
+        Json({}),
+        expect=expect_todo(dispatch, r => TodoToggled(r)),
       )
       (self, cmd)
     }
     TodoToggled(Ok(updated)) => {
-      let todos = self.todos.map(
-        fn(t) { if t.id == updated.id { updated } else { t } },
-      )
-      ({ ..self, todos }, @rabbita.none)
+      let todos = self.todos.map(t => {
+        if t.id == updated.id {
+          updated
+        } else {
+          t
+        }
+      })
+      ({ ..self, todos, }, @rabbita.none)
     }
     TodoToggled(Err(_)) => (self, @rabbita.none)
     DeleteTodo(id) => {
@@ -99,7 +101,7 @@ pub fn Model::update(
     }
     TodoDeleted(Ok(id)) => {
       let todos = self.todos.filter(fn(t) { t.id != id })
-      ({ ..self, todos }, @rabbita.none)
+      ({ ..self, todos, }, @rabbita.none)
     }
     TodoDeleted(Err(_)) => (self, @rabbita.none)
   }

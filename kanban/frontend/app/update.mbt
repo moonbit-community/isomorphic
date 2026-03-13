@@ -35,13 +35,13 @@ pub fn Model::update(
     NewColumnTitleChanged(v) =>
       ({ ..self, new_column_title: v }, @rabbita.none)
     AddColumn => {
-      if not(@shared.validate_column_title(self.new_column_title)) {
+      if !@shared.validate_column_title(self.new_column_title) {
         return (self, @rabbita.none)
       }
       let title = self.new_column_title
       let cmd = @http.post(
         @shared.api_columns,
-        Json(({ "title": title } : Json)),
+        Json({ "title": title }),
         expect=Json(fn(result) { dispatch(ColumnAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode column")
@@ -67,7 +67,7 @@ pub fn Model::update(
     ConfirmRenameColumn => {
       let id = self.renaming_column
       if id == 0 ||
-        not(@shared.validate_column_title(self.rename_column_title)) {
+        !@shared.validate_column_title(self.rename_column_title) {
         return (self, @rabbita.none)
       }
       let title = self.rename_column_title
@@ -76,7 +76,7 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         @shared.api_column(id),
-        Json(({ "title": title } : Json)),
+        Json({ "title": title }),
         expect~,
       )
       // Optimistically update
@@ -125,7 +125,7 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         @shared.api_column_move(id),
-        Json(({ "new_position": new_pos.to_double() } : Json)),
+        Json({ "new_position": new_pos.to_double() }),
         expect~,
       )
       // Optimistic swap
@@ -159,7 +159,7 @@ pub fn Model::update(
     NewCardColorChanged(v) => ({ ..self, new_card_color: v }, @rabbita.none)
     AddCard => {
       let col_id = self.adding_to_column
-      if col_id == 0 || not(@shared.validate_card_title(self.new_card_title)) {
+      if col_id == 0 || !@shared.validate_card_title(self.new_card_title) {
         return (self, @rabbita.none)
       }
       let title = self.new_card_title
@@ -168,13 +168,12 @@ pub fn Model::update(
       let cmd = @http.post(
         @shared.api_cards,
         Json(
-          (
-            {
-              "column_id": col_id.to_double(),
-              "title": title,
-              "description": desc,
-              "color": color,
-            } : Json),
+          {
+            "column_id": col_id.to_double(),
+            "title": title,
+            "description": desc,
+            "color": color,
+          },
         ),
         expect=Json(fn(result) { dispatch(CardAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
@@ -207,7 +206,7 @@ pub fn Model::update(
     EditColorChanged(v) => ({ ..self, edit_color: v }, @rabbita.none)
     SaveEditCard => {
       let id = self.editing_card
-      if id == 0 || not(@shared.validate_card_title(self.edit_title)) {
+      if id == 0 || !@shared.validate_card_title(self.edit_title) {
         return (self, @rabbita.none)
       }
       let title = self.edit_title
@@ -218,7 +217,7 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         @shared.api_card(id),
-        Json(({ "title": title, "description": desc, "color": color } : Json)),
+        Json({ "title": title, "description": desc, "color": color }),
         expect~,
       )
       // Optimistic update
@@ -267,11 +266,10 @@ pub fn Model::update(
       let cmd = @http.post(
         @shared.api_card_move(card_id),
         Json(
-          (
-            {
-              "target_column_id": target_col.to_double(),
-              "new_position": new_position.to_double(),
-            } : Json),
+          {
+            "target_column_id": target_col.to_double(),
+            "new_position": new_position.to_double(),
+          },
         ),
         expect~,
       )

@@ -26,14 +26,14 @@ pub fn Model::update(
   match msg {
     Init => (self, fetch_contacts(dispatch))
     GotContacts(Ok(contacts)) =>
-      ({ ..self, contacts }, @rabbita.none)
+      ({ ..self, contacts, }, @rabbita.none)
     GotContacts(Err(_)) => (self, @rabbita.none)
-    SearchChanged(v) => ({ ..self, search_query: v }, @rabbita.none)
+    SearchChanged(v) => ({ ..self, search_query: v, }, @rabbita.none)
     ToggleForm =>
-      ({ ..self, show_form: !self.show_form }, @rabbita.none)
-    NameInputChanged(v) => ({ ..self, name_input: v }, @rabbita.none)
-    EmailInputChanged(v) => ({ ..self, email_input: v }, @rabbita.none)
-    PhoneInputChanged(v) => ({ ..self, phone_input: v }, @rabbita.none)
+      ({ ..self, show_form: !self.show_form, }, @rabbita.none)
+    NameInputChanged(v) => ({ ..self, name_input: v, }, @rabbita.none)
+    EmailInputChanged(v) => ({ ..self, email_input: v, }, @rabbita.none)
+    PhoneInputChanged(v) => ({ ..self, phone_input: v, }, @rabbita.none)
     AddContact => {
       if !@shared.validate_name(self.name_input) {
         return (self, @rabbita.none)
@@ -72,13 +72,13 @@ pub fn Model::update(
     ContactAdded(Ok(contact)) => {
       let contacts = self.contacts.copy()
       contacts.push(contact)
-      ({ ..self, contacts }, @rabbita.none)
+      ({ ..self, contacts, }, @rabbita.none)
     }
     ContactAdded(Err(_)) => (self, @rabbita.none)
     ToggleFavorite(id) => {
       let cmd = @http.post(
         @shared.api_contact_favorite(id),
-        Json(({  } : Json)),
+        Json({}),
         expect=Json(fn(r) { dispatch(FavoriteToggled(r)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode contact")
@@ -95,7 +95,7 @@ pub fn Model::update(
           c
         }
       })
-      ({ ..self, contacts }, @rabbita.none)
+      ({ ..self, contacts, }, @rabbita.none)
     }
     FavoriteToggled(Err(_)) => (self, @rabbita.none)
     DeleteContact(id) => {
@@ -116,7 +116,7 @@ pub fn Model::update(
     }
     ContactDeleted(Ok(id)) => {
       let contacts = self.contacts.filter(fn(c) { c.id != id })
-      ({ ..self, contacts }, @rabbita.none)
+      ({ ..self, contacts, }, @rabbita.none)
     }
     ContactDeleted(Err(_)) => (self, @rabbita.none)
   }

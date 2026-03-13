@@ -75,7 +75,7 @@ pub fn Model::update(
       )
     }
     GotState(Err(_)) => (self, @rabbita.none)
-    PersonInputChanged(v) => ({ ..self, person_input: v }, @rabbita.none)
+    PersonInputChanged(v) => ({ ..self, person_input: v, }, @rabbita.none)
     AddPerson => {
       if !@shared.validate_name(self.person_input) {
         return (self, @rabbita.none)
@@ -83,24 +83,24 @@ pub fn Model::update(
       let name = self.person_input
       let cmd = @http.post(
         @shared.api_people,
-        Json(({ "name": name } : Json)),
+        Json({ "name": name }),
         expect=Json(fn(r) { dispatch(PersonAdded(r)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode person")
           }
         }),
       )
-      ({ ..self, person_input: "" }, cmd)
+      ({ ..self, person_input: "", }, cmd)
     }
     PersonAdded(Ok(person)) => {
       let people = self.people.copy()
       people.push(person)
-      ({ ..self, people }, @rabbita.none)
+      ({ ..self, people, }, @rabbita.none)
     }
     PersonAdded(Err(_)) => (self, @rabbita.none)
-    DescInputChanged(v) => ({ ..self, desc_input: v }, @rabbita.none)
-    AmountInputChanged(v) => ({ ..self, amount_input: v }, @rabbita.none)
-    PaidByChanged(id) => ({ ..self, paid_by_input: id }, @rabbita.none)
+    DescInputChanged(v) => ({ ..self, desc_input: v, }, @rabbita.none)
+    AmountInputChanged(v) => ({ ..self, amount_input: v, }, @rabbita.none)
+    PaidByChanged(id) => ({ ..self, paid_by_input: id, }, @rabbita.none)
     AddExpense => {
       if !@shared.validate_description(self.desc_input) {
         return (self, @rabbita.none)
@@ -134,13 +134,13 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, desc_input: "", amount_input: "" }, cmd)
+      ({ ..self, desc_input: "", amount_input: "", }, cmd)
     }
     ExpenseAdded(Ok(expense)) => {
       let expenses = self.expenses.copy()
       expenses.push(expense)
       let settlements = @shared.compute_settlements(self.people, expenses)
-      ({ ..self, expenses, settlements }, @rabbita.none)
+      ({ ..self, expenses, settlements, }, @rabbita.none)
     }
     ExpenseAdded(Err(_)) => (self, @rabbita.none)
     DeleteExpense(id) => {
@@ -162,7 +162,7 @@ pub fn Model::update(
     ExpenseDeleted(Ok(id)) => {
       let expenses = self.expenses.filter(fn(e) { e.id != id })
       let settlements = @shared.compute_settlements(self.people, expenses)
-      ({ ..self, expenses, settlements }, @rabbita.none)
+      ({ ..self, expenses, settlements, }, @rabbita.none)
     }
     ExpenseDeleted(Err(_)) => (self, @rabbita.none)
   }

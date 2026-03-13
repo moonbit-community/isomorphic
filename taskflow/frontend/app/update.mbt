@@ -115,7 +115,7 @@ pub fn Model::update(
       let password = self.auth_password
       let cmd = @http.post(
         @shared.api_login,
-        Json(({ "username": username, "password": password } : Json)),
+        Json({ "username": username, "password": password }),
         expect=Json(fn(result) { dispatch(AuthResult(result)) }, fn(json) {
           match json {
             { "error": String(msg), .. } => Err(msg)
@@ -129,7 +129,7 @@ pub fn Model::update(
       ({ ..self, auth_loading: true, auth_error: "" }, cmd)
     }
     SubmitRegister => {
-      if not(@shared.validate_username(self.auth_username)) {
+      if !@shared.validate_username(self.auth_username) {
         return (
           {
             ..self,
@@ -138,7 +138,7 @@ pub fn Model::update(
           @rabbita.none,
         )
       }
-      if not(@shared.validate_password(self.auth_password)) {
+      if !@shared.validate_password(self.auth_password) {
         return (
           { ..self, auth_error: @shared.t(self.lang, "password_hint") },
           @rabbita.none,
@@ -148,7 +148,7 @@ pub fn Model::update(
       let password = self.auth_password
       let cmd = @http.post(
         @shared.api_register,
-        Json(({ "username": username, "password": password } : Json)),
+        Json({ "username": username, "password": password }),
         expect=Json(fn(result) { dispatch(AuthResult(result)) }, fn(json) {
           match json {
             { "error": String(msg), .. } => Err(msg)
@@ -182,7 +182,7 @@ pub fn Model::update(
     Logout => {
       let cmd = @http.post(
         @shared.api_logout,
-        Json(({} : Json)),
+        Json({}),
         expect=Json(fn(_result) { dispatch(LoggedOut) }, fn(_json) { Ok("") }),
       )
       (self, cmd)
@@ -208,7 +208,7 @@ pub fn Model::update(
     SetFilterUrgency(u) => ({ ..self, filter_urgency: u }, @rabbita.none)
     SetViewMode(m) => ({ ..self, view_mode: m }, @rabbita.none)
     ToggleDarkMode =>
-      ({ ..self, dark_mode: not(self.dark_mode) }, @rabbita.none)
+      ({ ..self, dark_mode: !self.dark_mode }, @rabbita.none)
     // ---- Task creation ----
     ShowAddTask =>
       (
@@ -230,7 +230,7 @@ pub fn Model::update(
     NewAssigneeChanged(id) => ({ ..self, new_assignee: id }, @rabbita.none)
     NewDueDateChanged(v) => ({ ..self, new_due_date: v }, @rabbita.none)
     AddTask => {
-      if not(@shared.validate_task_title(self.new_title)) {
+      if !@shared.validate_task_title(self.new_title) {
         return (self, @rabbita.none)
       }
       let title = self.new_title
@@ -241,14 +241,13 @@ pub fn Model::update(
       let cmd = @http.post(
         @shared.api_tasks,
         Json(
-          (
-            {
-              "title": title,
-              "description": desc,
-              "priority": priority,
-              "assignee_id": assignee.to_double(),
-              "due_date": due,
-            } : Json),
+          {
+            "title": title,
+            "description": desc,
+            "priority": priority,
+            "assignee_id": assignee.to_double(),
+            "due_date": due,
+          },
         ),
         expect=Json(fn(result) { dispatch(TaskAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
@@ -286,7 +285,7 @@ pub fn Model::update(
     EditDueDateChanged(v) => ({ ..self, edit_due_date: v }, @rabbita.none)
     SaveEditTask => {
       let id = self.editing_task
-      if id == 0 || not(@shared.validate_task_title(self.edit_title)) {
+      if id == 0 || !@shared.validate_task_title(self.edit_title) {
         return (self, @rabbita.none)
       }
       let title = self.edit_title
@@ -300,14 +299,13 @@ pub fn Model::update(
       let cmd = @http.post(
         @shared.api_task(id),
         Json(
-          (
-            {
-              "title": title,
-              "description": desc,
-              "priority": priority,
-              "assignee_id": assignee.to_double(),
-              "due_date": due,
-            } : Json),
+          {
+            "title": title,
+            "description": desc,
+            "priority": priority,
+            "assignee_id": assignee.to_double(),
+            "due_date": due,
+          },
         ),
         expect~,
       )
@@ -338,7 +336,7 @@ pub fn Model::update(
           break
         }
       }
-      if not(@shared.is_valid_transition(current_status, new_status)) {
+      if !@shared.is_valid_transition(current_status, new_status) {
         return (self, @rabbita.none)
       }
       let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
@@ -346,7 +344,7 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         @shared.api_task_status(id),
-        Json(({ "status": new_status } : Json)),
+        Json({ "status": new_status }),
         expect~,
       )
       // Optimistic update
@@ -384,7 +382,7 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         url,
-        Json(({ "depends_on_id": depends_on_id.to_double() } : Json)),
+        Json({ "depends_on_id": depends_on_id.to_double() }),
         expect~,
       )
       // Optimistic update
@@ -399,12 +397,12 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         url,
-        Json(({ "depends_on_id": depends_on_id.to_double() } : Json)),
+        Json({ "depends_on_id": depends_on_id.to_double() }),
         expect~,
       )
       // Optimistic update
       let deps = self.dependencies.filter(fn(d) {
-        not(d.task_id == task_id && d.depends_on_id == depends_on_id)
+        !(d.task_id == task_id && d.depends_on_id == depends_on_id)
       })
       ({ ..self, dependencies: deps }, cmd)
     }
@@ -432,14 +430,14 @@ pub fn Model::update(
     NewCommentChanged(v) => ({ ..self, new_comment: v }, @rabbita.none)
     AddComment => {
       let task_id = self.viewing_comments
-      if task_id == 0 || not(@shared.validate_comment_text(self.new_comment)) {
+      if task_id == 0 || !@shared.validate_comment_text(self.new_comment) {
         return (self, @rabbita.none)
       }
       let text = self.new_comment
       let url = @shared.api_task_comments(task_id)
       let cmd = @http.post(
         url,
-        Json(({ "text": text } : Json)),
+        Json({ "text": text }),
         expect=Json(fn(result) { dispatch(CommentAdded(result)) }, fn(json) {
           Ok((@json.from_json(json) : @shared.Comment)) catch {
             _ => Err("Failed to decode comment")
@@ -499,7 +497,7 @@ pub fn Model::update(
           )
         "l" => ({ ..self, view_mode: "list" }, @rabbita.none)
         "b" => ({ ..self, view_mode: "kanban" }, @rabbita.none)
-        "d" => ({ ..self, dark_mode: not(self.dark_mode) }, @rabbita.none)
+        "d" => ({ ..self, dark_mode: !self.dark_mode }, @rabbita.none)
         "/" => (self, @rabbita.none) // Search focus handled by browser
         _ => (self, @rabbita.none)
       }
