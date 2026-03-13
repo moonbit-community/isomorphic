@@ -5,7 +5,7 @@ pub(all) struct User {
   username : String
   color : String
   role : String // "admin" | "member" | "viewer"
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// A team member who can be assigned tasks.
@@ -14,14 +14,14 @@ pub(all) struct Member {
   id : Int
   name : String
   color : String
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// Server response for login/register.
 pub(all) struct AuthResponse {
   user : User
   message : String
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// A task in the task management system.
@@ -34,7 +34,7 @@ pub(all) struct Task {
   assignee_id : Int
   due_date : String
   created_at : String
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// A recorded status change for audit/history tracking.
@@ -46,7 +46,7 @@ pub(all) struct Activity {
   to_status : String
   timestamp : String
   user_name : String
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// A comment on a task.
@@ -56,14 +56,14 @@ pub(all) struct Comment {
   author : String
   text : String
   created_at : String
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// A dependency between tasks: `task_id` depends on `depends_on_id`.
 pub(all) struct Dependency {
   task_id : Int
   depends_on_id : Int
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)
 
 ///|
 /// A label that can be attached to tasks.
@@ -147,4 +147,4 @@ pub(all) struct Board {
   projects : Array[Project]
   task_projects : Array[TaskProject]
   today : String
-} derive(ToJson, FromJson, Show, Eq)
+} derive(ToJson, FromJson, Show, Eq, Debug)

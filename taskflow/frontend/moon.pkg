@@ -1,10 +1,7 @@
 import {
+  "bobzhang/taskflow/frontend/app",
   "bobzhang/taskflow/shared",
   "moonbit-community/rabbita",
-  "moonbit-community/rabbita/html",
-  "moonbit-community/rabbita/http",
-  "moonbitlang/core/json",
-  "moonbitlang/core/strconv",
 }
 
 options(

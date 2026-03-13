@@ -3,7 +3,7 @@
 pub(all) enum Lang {
   En
   Zh
-} derive(Eq, Show, ToJson, FromJson)
+} derive(Eq, Show, ToJson, FromJson, Debug)
 
 ///|
 /// Translate a UI string key to the current language.
