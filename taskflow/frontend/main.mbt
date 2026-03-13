@@ -776,6 +776,9 @@ fn update(
     SubtaskChanged => (fetch_board(dispatch), model)
     // ---- Recurrence ----
     SetRecurrence(task_id, interval) => {
+      if not(@shared.validate_recurrence(interval)) {
+        return (@rabbita.none, model)
+      }
       let url = @shared.api_task_recurrence(task_id)
       let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
         dispatch(RecurrenceChanged)
@@ -819,7 +822,7 @@ fn update(
       } catch {
         _ => 0
       }
-      if minutes <= 0 {
+      if not(@shared.validate_time_minutes(minutes)) {
         return (@rabbita.none, model)
       }
       let url = @shared.api_task_time(task_id)
@@ -1001,7 +1004,7 @@ fn update(
     NewAttachLabelChanged(v) =>
       (@rabbita.none, { ..model, new_attach_label: v })
     AddAttachment(task_id) => {
-      if model.new_attach_url == "" {
+      if not(@shared.validate_attachment_url(model.new_attach_url)) {
         return (@rabbita.none, model)
       }
       let url_val = model.new_attach_url

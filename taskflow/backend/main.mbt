@@ -1862,7 +1862,7 @@ fn main raise {
         { "interval": String(s), .. } => s
         _ => return @mocket.HttpResponse::new(BadRequest).body("Missing interval")
       }
-      if not(@shared.recurrence_intervals.contains(interval)) {
+      if not(@shared.validate_recurrence(interval)) {
         return @mocket.HttpResponse::new(BadRequest).body("Invalid interval")
       }
       set_recurrence(conn, id, interval)
