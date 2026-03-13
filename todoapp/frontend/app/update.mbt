@@ -29,7 +29,7 @@ fn fetch_todos(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 ///|
 /// Central state machine — processes each `Msg` and returns the next model
 /// plus an optional side-effect command (HTTP request or `@rabbita.none`).
-fn update(
+pub fn update(
   dispatch : @rabbita.Dispatch[Msg],
   msg : Msg,
   model : Model,
