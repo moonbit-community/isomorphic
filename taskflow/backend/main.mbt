@@ -1175,6 +1175,9 @@ fn main raise {
   ..post(@shared.api_tasks, event => {
     println("POST \{@shared.api_tasks}")
     try {
+      if not(require_editor(conn, event.req)) {
+        return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot create tasks")
+      }
       let user_name = match get_request_user(conn, event.req) {
         Some(u) => u.username
         None => ""
@@ -1701,6 +1704,9 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("DELETE /api/tasks/\{id_str}")
     try {
+      if not(require_editor(conn, event.req)) {
+        return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot delete tasks")
+      }
       let id = @strconv.parse_int(id_str)
       delete_task(conn, id)
       println("  -> 204 deleted task \{id}")
@@ -1712,7 +1718,7 @@ fn main raise {
       }
     }
   })
-  .get("/api/tasks/:id", fn(event) noraise {
+  ..get("/api/tasks/:id", fn(event) noraise {
     let id_str = event.params.get("id").unwrap().to_string()
     try {
       let id = @strconv.parse_int(id_str)
@@ -1722,6 +1728,44 @@ fn main raise {
       }
     } catch {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+    }
+  })
+  // ---- Role management (admin only) ----
+  .post("/api/users/:id/role", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/users/\{id_str}/role")
+    try {
+      let admin = match get_request_user(conn, event.req) {
+        Some(u) => u
+        None =>
+          return @mocket.HttpResponse::new(Unauthorized).body(
+            "Not logged in",
+          )
+      }
+      if not(@shared.is_admin(admin.role)) {
+        return @mocket.HttpResponse::new(Forbidden).body(
+          "Only admins can change roles",
+        )
+      }
+      let target_id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let role = match json {
+        { "role": String(r), .. } =>
+          if r == "admin" || r == "member" || r == "viewer" {
+            r
+          } else {
+            return @mocket.HttpResponse::new(BadRequest).body("Invalid role")
+          }
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing role")
+      }
+      set_user_role(conn, target_id, role)
+      println("  -> 200 set user \{target_id} role to \{role}")
+      @mocket.HttpResponse::new(OK).json(({ "ok": true } : Json))
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
     }
   })
   println("Server running at http://localhost:\{port}")

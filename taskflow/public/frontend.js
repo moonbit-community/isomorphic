@@ -1007,10 +1007,11 @@ function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15Json
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
-function _M0TP38bobzhang8taskflow6shared4User(param0, param1, param2) {
+function _M0TP38bobzhang8taskflow6shared4User(param0, param1, param2, param3) {
   this.id = param0;
   this.username = param1;
   this.color = param2;
+  this.role = param3;
 }
 function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(param0) {
   this._0 = param0;
@@ -11429,18 +11430,18 @@ function _M0MPC13set3Set9to__arrayGRP419moonbit_2dcommunity7rabbita8internal7run
   }
   return arr;
 }
-function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__json(_x_680, _x_681) {
-  const _de_task_id_683 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_depends_on_id_682 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__json(_x_688, _x_689) {
+  const _de_task_id_691 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_depends_on_id_690 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_680.$tag === 6) {
-      const _Object = _x_680;
+    if (_x_688.$tag === 6) {
+      const _Object = _x_688;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_681, _1: "Expected object to deserialize Dependency" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_689, _1: "Expected object to deserialize Dependency" }));
     }
   }
   let _v;
@@ -11456,7 +11457,7 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_681, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_689, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11464,7 +11465,7 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
     } else {
       return _bind;
     }
-    _de_task_id_683.val = _tmp;
+    _de_task_id_691.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11479,7 +11480,7 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_681, "depends_on_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_689, "depends_on_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11487,40 +11488,40 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
     } else {
       return _bind;
     }
-    _de_depends_on_id_682.val = _tmp;
+    _de_depends_on_id_690.val = _tmp;
   }
-  let _de_task_id_683$2;
-  const _bind = _de_task_id_683.val;
+  let _de_task_id_691$2;
+  const _bind = _de_task_id_691.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_681, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_689, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_task_id_683$2 = _v$3;
+    _de_task_id_691$2 = _v$3;
   }
-  let _de_depends_on_id_682$2;
-  const _bind$2 = _de_depends_on_id_682.val;
+  let _de_depends_on_id_690$2;
+  const _bind$2 = _de_depends_on_id_690.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_681, _1: "Missing field depends_on_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_689, _1: "Missing field depends_on_id" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_depends_on_id_682$2 = _v$3;
+    _de_depends_on_id_690$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared10Dependency(_de_task_id_683$2, _de_depends_on_id_682$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared10Dependency(_de_task_id_691$2, _de_depends_on_id_690$2));
 }
-function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from__json(_x_654, _x_655) {
-  const _de_task_id_657 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_interval_656 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from__json(_x_662, _x_663) {
+  const _de_task_id_665 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_interval_664 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_654.$tag === 6) {
-      const _Object = _x_654;
+    if (_x_662.$tag === 6) {
+      const _Object = _x_662;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_655, _1: "Expected object to deserialize RecurrenceRule" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_663, _1: "Expected object to deserialize RecurrenceRule" }));
     }
   }
   let _v;
@@ -11536,7 +11537,7 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_655, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_663, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11544,7 +11545,7 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
     } else {
       return _bind;
     }
-    _de_task_id_657.val = _tmp;
+    _de_task_id_665.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11559,7 +11560,7 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_655, "interval"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_663, "interval"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11567,42 +11568,42 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
     } else {
       return _bind;
     }
-    _de_interval_656.val = _tmp;
+    _de_interval_664.val = _tmp;
   }
-  let _de_task_id_657$2;
-  const _bind = _de_task_id_657.val;
+  let _de_task_id_665$2;
+  const _bind = _de_task_id_665.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_655, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_663, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_task_id_657$2 = _v$3;
+    _de_task_id_665$2 = _v$3;
   }
-  let _de_interval_656$2;
-  const _bind$2 = _de_interval_656.val;
+  let _de_interval_664$2;
+  const _bind$2 = _de_interval_664.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_655, _1: "Missing field interval" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_663, _1: "Missing field interval" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_interval_656$2 = _v$3;
+    _de_interval_664$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared14RecurrenceRule(_de_task_id_657$2, _de_interval_656$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared14RecurrenceRule(_de_task_id_665$2, _de_interval_664$2));
 }
-function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x_618, _x_619) {
-  const _de_title_623 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_id_622 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_621 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_done_620 = new _M0TPC13ref3RefGObE(-1);
+function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x_626, _x_627) {
+  const _de_title_631 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_630 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_629 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_done_628 = new _M0TPC13ref3RefGObE(-1);
   let _map;
   _L: {
-    if (_x_618.$tag === 6) {
-      const _Object = _x_618;
+    if (_x_626.$tag === 6) {
+      const _Object = _x_626;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_619, _1: "Expected object to deserialize Subtask" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_627, _1: "Expected object to deserialize Subtask" }));
     }
   }
   let _v;
@@ -11618,7 +11619,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_619, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_627, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11626,7 +11627,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_id_621.val = _tmp;
+    _de_id_629.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11641,7 +11642,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_619, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_627, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11649,7 +11650,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_task_id_622.val = _tmp;
+    _de_task_id_630.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -11664,7 +11665,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_619, "title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_627, "title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11672,7 +11673,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_title_623.val = _tmp;
+    _de_title_631.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -11687,7 +11688,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$5;
     }
-    const _bind = _M0IPC14bool4BoolPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_619, "done"));
+    const _bind = _M0IPC14bool4BoolPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_627, "done"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11695,73 +11696,73 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_done_620.val = _tmp;
+    _de_done_628.val = _tmp;
   }
-  let _de_title_623$2;
-  const _bind = _de_title_623.val;
+  let _de_title_631$2;
+  const _bind = _de_title_631.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_619, _1: "Missing field title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_627, _1: "Missing field title" }));
   } else {
     const _Some = _bind;
     const _v$5 = _Some;
-    _de_title_623$2 = _v$5;
+    _de_title_631$2 = _v$5;
   }
-  let _de_task_id_622$2;
-  const _bind$2 = _de_task_id_622.val;
+  let _de_task_id_630$2;
+  const _bind$2 = _de_task_id_630.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_619, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_627, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind$2;
     const _v$5 = _Some;
-    _de_task_id_622$2 = _v$5;
+    _de_task_id_630$2 = _v$5;
   }
-  let _de_id_621$2;
-  const _bind$3 = _de_id_621.val;
+  let _de_id_629$2;
+  const _bind$3 = _de_id_629.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_619, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_627, _1: "Missing field id" }));
   } else {
     const _Some = _bind$3;
     const _v$5 = _Some;
-    _de_id_621$2 = _v$5;
+    _de_id_629$2 = _v$5;
   }
-  let _de_done_620$2;
-  const _bind$4 = _de_done_620.val;
+  let _de_done_628$2;
+  const _bind$4 = _de_done_628.val;
   if (_bind$4 === -1) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_619, _1: "Missing field done" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_627, _1: "Missing field done" }));
   } else {
     const _Some = _bind$4;
     const _v$5 = _Some;
-    _de_done_620$2 = _v$5;
+    _de_done_628$2 = _v$5;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Subtask(_de_id_621$2, _de_task_id_622$2, _de_title_623$2, _de_done_620$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Subtask(_de_id_629$2, _de_task_id_630$2, _de_title_631$2, _de_done_628$2));
 }
-function _M0IP38bobzhang8taskflow6shared4LangPB2Eq5equal(_x_606, _x_607) {
-  if (_x_606 === 0) {
-    if (_x_607 === 0) {
+function _M0IP38bobzhang8taskflow6shared4LangPB2Eq5equal(_x_614, _x_615) {
+  if (_x_614 === 0) {
+    if (_x_615 === 0) {
       return true;
     } else {
       return false;
     }
   } else {
-    if (_x_607 === 1) {
+    if (_x_615 === 1) {
       return true;
     } else {
       return false;
     }
   }
 }
-function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(_x_574, _x_575) {
-  const _de_task_id_577 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_label_id_576 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(_x_582, _x_583) {
+  const _de_task_id_585 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_label_id_584 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_574.$tag === 6) {
-      const _Object = _x_574;
+    if (_x_582.$tag === 6) {
+      const _Object = _x_582;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_575, _1: "Expected object to deserialize TaskLabel" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_583, _1: "Expected object to deserialize TaskLabel" }));
     }
   }
   let _v;
@@ -11777,7 +11778,7 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_575, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_583, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11785,7 +11786,7 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_task_id_577.val = _tmp;
+    _de_task_id_585.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11800,7 +11801,7 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_575, "label_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_583, "label_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11808,45 +11809,45 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_label_id_576.val = _tmp;
+    _de_label_id_584.val = _tmp;
   }
-  let _de_task_id_577$2;
-  const _bind = _de_task_id_577.val;
+  let _de_task_id_585$2;
+  const _bind = _de_task_id_585.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_575, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_583, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_task_id_577$2 = _v$3;
+    _de_task_id_585$2 = _v$3;
   }
-  let _de_label_id_576$2;
-  const _bind$2 = _de_label_id_576.val;
+  let _de_label_id_584$2;
+  const _bind$2 = _de_label_id_584.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_575, _1: "Missing field label_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_583, _1: "Missing field label_id" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_label_id_576$2 = _v$3;
+    _de_label_id_584$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TaskLabel(_de_task_id_577$2, _de_label_id_576$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TaskLabel(_de_task_id_585$2, _de_label_id_584$2));
 }
-function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_x_523, _x_524) {
-  const _de_user_name_531 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_to_status_530 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_timestamp_529 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_title_528 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_id_527 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_526 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_from_status_525 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_x_531, _x_532) {
+  const _de_user_name_539 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_to_status_538 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_timestamp_537 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_title_536 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_535 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_534 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_from_status_533 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_523.$tag === 6) {
-      const _Object = _x_523;
+    if (_x_531.$tag === 6) {
+      const _Object = _x_531;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Expected object to deserialize Activity" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Expected object to deserialize Activity" }));
     }
   }
   let _v;
@@ -11862,7 +11863,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_524, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_532, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11870,7 +11871,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_id_526.val = _tmp;
+    _de_id_534.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11885,7 +11886,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_524, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_532, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11893,7 +11894,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_task_id_527.val = _tmp;
+    _de_task_id_535.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -11908,7 +11909,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_524, "task_title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_532, "task_title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11916,7 +11917,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_task_title_528.val = _tmp;
+    _de_task_title_536.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -11931,7 +11932,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_524, "from_status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_532, "from_status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11939,7 +11940,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_from_status_525.val = _tmp;
+    _de_from_status_533.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -11954,7 +11955,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_524, "to_status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_532, "to_status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11962,7 +11963,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_to_status_530.val = _tmp;
+    _de_to_status_538.val = _tmp;
   }
   let _v$6;
   _L$7: {
@@ -11977,7 +11978,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$7;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_524, "timestamp"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_532, "timestamp"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11985,7 +11986,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_timestamp_529.val = _tmp;
+    _de_timestamp_537.val = _tmp;
   }
   let _v$7;
   _L$8: {
@@ -12000,7 +12001,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$8;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_524, "user_name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_532, "user_name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12008,93 +12009,93 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_user_name_531.val = _tmp;
+    _de_user_name_539.val = _tmp;
   }
-  let _de_user_name_531$2;
-  const _bind = _de_user_name_531.val;
+  let _de_user_name_539$2;
+  const _bind = _de_user_name_539.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field user_name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field user_name" }));
   } else {
     const _Some = _bind;
     const _v$8 = _Some;
-    _de_user_name_531$2 = _v$8;
+    _de_user_name_539$2 = _v$8;
   }
-  let _de_to_status_530$2;
-  const _bind$2 = _de_to_status_530.val;
+  let _de_to_status_538$2;
+  const _bind$2 = _de_to_status_538.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field to_status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field to_status" }));
   } else {
     const _Some = _bind$2;
     const _v$8 = _Some;
-    _de_to_status_530$2 = _v$8;
+    _de_to_status_538$2 = _v$8;
   }
-  let _de_timestamp_529$2;
-  const _bind$3 = _de_timestamp_529.val;
+  let _de_timestamp_537$2;
+  const _bind$3 = _de_timestamp_537.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field timestamp" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field timestamp" }));
   } else {
     const _Some = _bind$3;
     const _v$8 = _Some;
-    _de_timestamp_529$2 = _v$8;
+    _de_timestamp_537$2 = _v$8;
   }
-  let _de_task_title_528$2;
-  const _bind$4 = _de_task_title_528.val;
+  let _de_task_title_536$2;
+  const _bind$4 = _de_task_title_536.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field task_title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field task_title" }));
   } else {
     const _Some = _bind$4;
     const _v$8 = _Some;
-    _de_task_title_528$2 = _v$8;
+    _de_task_title_536$2 = _v$8;
   }
-  let _de_task_id_527$2;
-  const _bind$5 = _de_task_id_527.val;
+  let _de_task_id_535$2;
+  const _bind$5 = _de_task_id_535.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind$5;
     const _v$8 = _Some;
-    _de_task_id_527$2 = _v$8;
+    _de_task_id_535$2 = _v$8;
   }
-  let _de_id_526$2;
-  const _bind$6 = _de_id_526.val;
+  let _de_id_534$2;
+  const _bind$6 = _de_id_534.val;
   if (_bind$6 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field id" }));
   } else {
     const _Some = _bind$6;
     const _v$8 = _Some;
-    _de_id_526$2 = _v$8;
+    _de_id_534$2 = _v$8;
   }
-  let _de_from_status_525$2;
-  const _bind$7 = _de_from_status_525.val;
+  let _de_from_status_533$2;
+  const _bind$7 = _de_from_status_533.val;
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_524, _1: "Missing field from_status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_532, _1: "Missing field from_status" }));
   } else {
     const _Some = _bind$7;
     const _v$8 = _Some;
-    _de_from_status_525$2 = _v$8;
+    _de_from_status_533$2 = _v$8;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared8Activity(_de_id_526$2, _de_task_id_527$2, _de_task_title_528$2, _de_from_status_525$2, _de_to_status_530$2, _de_timestamp_529$2, _de_user_name_531$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared8Activity(_de_id_534$2, _de_task_id_535$2, _de_task_title_536$2, _de_from_status_533$2, _de_to_status_538$2, _de_timestamp_537$2, _de_user_name_539$2));
 }
-function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_457, _x_458) {
-  const _de_today_468 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_time_entries_467 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4None__);
-  const _de_tasks_466 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4None__);
-  const _de_task_labels_465 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4None__);
-  const _de_subtasks_464 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4None__);
-  const _de_recurrence_rules_463 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4None__);
-  const _de_members_462 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4None__);
-  const _de_labels_461 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4None__);
-  const _de_dependencies_460 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4None__);
-  const _de_activities_459 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None__);
+function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_465, _x_466) {
+  const _de_today_476 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_time_entries_475 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4None__);
+  const _de_tasks_474 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4None__);
+  const _de_task_labels_473 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4None__);
+  const _de_subtasks_472 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4None__);
+  const _de_recurrence_rules_471 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4None__);
+  const _de_members_470 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4None__);
+  const _de_labels_469 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4None__);
+  const _de_dependencies_468 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4None__);
+  const _de_activities_467 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None__);
   let _map;
   _L: {
-    if (_x_457.$tag === 6) {
-      const _Object = _x_457;
+    if (_x_465.$tag === 6) {
+      const _Object = _x_465;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Expected object to deserialize Board" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Expected object to deserialize Board" }));
     }
   }
   let _v;
@@ -12110,7 +12111,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$2;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared4TaskE(_v, _M0MPC14json8JsonPath8add__key(_x_458, "tasks"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared4TaskE(_v, _M0MPC14json8JsonPath8add__key(_x_466, "tasks"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12118,7 +12119,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_tasks_466.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4Some(_tmp);
+    _de_tasks_474.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4Some(_tmp);
   }
   let _v$2;
   _L$3: {
@@ -12133,7 +12134,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$3;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared6MemberE(_v$2, _M0MPC14json8JsonPath8add__key(_x_458, "members"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared6MemberE(_v$2, _M0MPC14json8JsonPath8add__key(_x_466, "members"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12141,7 +12142,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_members_462.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some(_tmp);
+    _de_members_470.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some(_tmp);
   }
   let _v$3;
   _L$4: {
@@ -12156,7 +12157,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$4;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared8ActivityE(_v$3, _M0MPC14json8JsonPath8add__key(_x_458, "activities"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared8ActivityE(_v$3, _M0MPC14json8JsonPath8add__key(_x_466, "activities"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12164,7 +12165,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_activities_459.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some(_tmp);
+    _de_activities_467.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some(_tmp);
   }
   let _v$4;
   _L$5: {
@@ -12179,7 +12180,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$5;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared10DependencyE(_v$4, _M0MPC14json8JsonPath8add__key(_x_458, "dependencies"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared10DependencyE(_v$4, _M0MPC14json8JsonPath8add__key(_x_466, "dependencies"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12187,7 +12188,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_dependencies_460.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4Some(_tmp);
+    _de_dependencies_468.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4Some(_tmp);
   }
   let _v$5;
   _L$6: {
@@ -12202,7 +12203,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$6;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared5LabelE(_v$5, _M0MPC14json8JsonPath8add__key(_x_458, "labels"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared5LabelE(_v$5, _M0MPC14json8JsonPath8add__key(_x_466, "labels"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12210,7 +12211,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_labels_461.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4Some(_tmp);
+    _de_labels_469.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4Some(_tmp);
   }
   let _v$6;
   _L$7: {
@@ -12225,7 +12226,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$7;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TaskLabelE(_v$6, _M0MPC14json8JsonPath8add__key(_x_458, "task_labels"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TaskLabelE(_v$6, _M0MPC14json8JsonPath8add__key(_x_466, "task_labels"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12233,7 +12234,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_task_labels_465.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4Some(_tmp);
+    _de_task_labels_473.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4Some(_tmp);
   }
   let _v$7;
   _L$8: {
@@ -12248,7 +12249,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$8;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared7SubtaskE(_v$7, _M0MPC14json8JsonPath8add__key(_x_458, "subtasks"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared7SubtaskE(_v$7, _M0MPC14json8JsonPath8add__key(_x_466, "subtasks"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12256,7 +12257,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_subtasks_464.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4Some(_tmp);
+    _de_subtasks_472.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4Some(_tmp);
   }
   let _v$8;
   _L$9: {
@@ -12271,7 +12272,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$9;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TimeEntryE(_v$8, _M0MPC14json8JsonPath8add__key(_x_458, "time_entries"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TimeEntryE(_v$8, _M0MPC14json8JsonPath8add__key(_x_466, "time_entries"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12279,7 +12280,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_time_entries_467.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4Some(_tmp);
+    _de_time_entries_475.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4Some(_tmp);
   }
   let _v$9;
   _L$10: {
@@ -12294,7 +12295,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$10;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared14RecurrenceRuleE(_v$9, _M0MPC14json8JsonPath8add__key(_x_458, "recurrence_rules"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared14RecurrenceRuleE(_v$9, _M0MPC14json8JsonPath8add__key(_x_466, "recurrence_rules"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12302,7 +12303,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_recurrence_rules_463.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4Some(_tmp);
+    _de_recurrence_rules_471.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4Some(_tmp);
   }
   let _v$10;
   _L$11: {
@@ -12317,7 +12318,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$11;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$10, _M0MPC14json8JsonPath8add__key(_x_458, "today"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$10, _M0MPC14json8JsonPath8add__key(_x_466, "today"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12325,118 +12326,118 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_today_468.val = _tmp;
+    _de_today_476.val = _tmp;
   }
-  let _de_today_468$2;
-  const _bind = _de_today_468.val;
+  let _de_today_476$2;
+  const _bind = _de_today_476.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field today" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field today" }));
   } else {
     const _Some = _bind;
     const _v$11 = _Some;
-    _de_today_468$2 = _v$11;
+    _de_today_476$2 = _v$11;
   }
-  let _de_time_entries_467$2;
-  const _bind$2 = _de_time_entries_467.val;
+  let _de_time_entries_475$2;
+  const _bind$2 = _de_time_entries_475.val;
   if (_bind$2.$tag === 1) {
     const _Some = _bind$2;
     const _v$11 = _Some._0;
-    _de_time_entries_467$2 = _v$11;
+    _de_time_entries_475$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field time_entries" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field time_entries" }));
   }
-  let _de_tasks_466$2;
-  const _bind$3 = _de_tasks_466.val;
+  let _de_tasks_474$2;
+  const _bind$3 = _de_tasks_474.val;
   if (_bind$3.$tag === 1) {
     const _Some = _bind$3;
     const _v$11 = _Some._0;
-    _de_tasks_466$2 = _v$11;
+    _de_tasks_474$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field tasks" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field tasks" }));
   }
-  let _de_task_labels_465$2;
-  const _bind$4 = _de_task_labels_465.val;
+  let _de_task_labels_473$2;
+  const _bind$4 = _de_task_labels_473.val;
   if (_bind$4.$tag === 1) {
     const _Some = _bind$4;
     const _v$11 = _Some._0;
-    _de_task_labels_465$2 = _v$11;
+    _de_task_labels_473$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field task_labels" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field task_labels" }));
   }
-  let _de_subtasks_464$2;
-  const _bind$5 = _de_subtasks_464.val;
+  let _de_subtasks_472$2;
+  const _bind$5 = _de_subtasks_472.val;
   if (_bind$5.$tag === 1) {
     const _Some = _bind$5;
     const _v$11 = _Some._0;
-    _de_subtasks_464$2 = _v$11;
+    _de_subtasks_472$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field subtasks" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field subtasks" }));
   }
-  let _de_recurrence_rules_463$2;
-  const _bind$6 = _de_recurrence_rules_463.val;
+  let _de_recurrence_rules_471$2;
+  const _bind$6 = _de_recurrence_rules_471.val;
   if (_bind$6.$tag === 1) {
     const _Some = _bind$6;
     const _v$11 = _Some._0;
-    _de_recurrence_rules_463$2 = _v$11;
+    _de_recurrence_rules_471$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field recurrence_rules" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field recurrence_rules" }));
   }
-  let _de_members_462$2;
-  const _bind$7 = _de_members_462.val;
+  let _de_members_470$2;
+  const _bind$7 = _de_members_470.val;
   if (_bind$7.$tag === 1) {
     const _Some = _bind$7;
     const _v$11 = _Some._0;
-    _de_members_462$2 = _v$11;
+    _de_members_470$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field members" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field members" }));
   }
-  let _de_labels_461$2;
-  const _bind$8 = _de_labels_461.val;
+  let _de_labels_469$2;
+  const _bind$8 = _de_labels_469.val;
   if (_bind$8.$tag === 1) {
     const _Some = _bind$8;
     const _v$11 = _Some._0;
-    _de_labels_461$2 = _v$11;
+    _de_labels_469$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field labels" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field labels" }));
   }
-  let _de_dependencies_460$2;
-  const _bind$9 = _de_dependencies_460.val;
+  let _de_dependencies_468$2;
+  const _bind$9 = _de_dependencies_468.val;
   if (_bind$9.$tag === 1) {
     const _Some = _bind$9;
     const _v$11 = _Some._0;
-    _de_dependencies_460$2 = _v$11;
+    _de_dependencies_468$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field dependencies" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field dependencies" }));
   }
-  let _de_activities_459$2;
-  const _bind$10 = _de_activities_459.val;
+  let _de_activities_467$2;
+  const _bind$10 = _de_activities_467.val;
   if (_bind$10.$tag === 1) {
     const _Some = _bind$10;
     const _v$11 = _Some._0;
-    _de_activities_459$2 = _v$11;
+    _de_activities_467$2 = _v$11;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_458, _1: "Missing field activities" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_466, _1: "Missing field activities" }));
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Board(_de_tasks_466$2, _de_members_462$2, _de_activities_459$2, _de_dependencies_460$2, _de_labels_461$2, _de_task_labels_465$2, _de_subtasks_464$2, _de_time_entries_467$2, _de_recurrence_rules_463$2, _de_today_468$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Board(_de_tasks_474$2, _de_members_470$2, _de_activities_467$2, _de_dependencies_468$2, _de_labels_469$2, _de_task_labels_473$2, _de_subtasks_472$2, _de_time_entries_475$2, _de_recurrence_rules_471$2, _de_today_476$2));
 }
-function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_401, _x_402) {
-  const _de_title_410 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_status_409 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_priority_408 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_407 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_due_date_406 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_description_405 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_created_at_404 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_assignee_id_403 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_409, _x_410) {
+  const _de_title_418 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_status_417 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_priority_416 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_415 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_due_date_414 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_description_413 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_created_at_412 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_assignee_id_411 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_401.$tag === 6) {
-      const _Object = _x_401;
+    if (_x_409.$tag === 6) {
+      const _Object = _x_409;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Expected object to deserialize Task" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Expected object to deserialize Task" }));
     }
   }
   let _v;
@@ -12452,7 +12453,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_402, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_410, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12460,7 +12461,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_id_407.val = _tmp;
+    _de_id_415.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12475,7 +12476,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_402, "title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_410, "title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12483,7 +12484,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_title_410.val = _tmp;
+    _de_title_418.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12498,7 +12499,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_402, "description"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_410, "description"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12506,7 +12507,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_description_405.val = _tmp;
+    _de_description_413.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -12521,7 +12522,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_402, "status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_410, "status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12529,7 +12530,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_status_409.val = _tmp;
+    _de_status_417.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -12544,7 +12545,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_402, "priority"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_410, "priority"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12552,7 +12553,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_priority_408.val = _tmp;
+    _de_priority_416.val = _tmp;
   }
   let _v$6;
   _L$7: {
@@ -12567,7 +12568,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$7;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_402, "assignee_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_410, "assignee_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12575,7 +12576,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_assignee_id_403.val = _tmp;
+    _de_assignee_id_411.val = _tmp;
   }
   let _v$7;
   _L$8: {
@@ -12590,7 +12591,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$8;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_402, "due_date"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_410, "due_date"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12598,7 +12599,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_due_date_406.val = _tmp;
+    _de_due_date_414.val = _tmp;
   }
   let _v$8;
   _L$9: {
@@ -12613,7 +12614,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
       }
       break _L$9;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_402, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_410, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12621,95 +12622,95 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_40
     } else {
       return _bind;
     }
-    _de_created_at_404.val = _tmp;
+    _de_created_at_412.val = _tmp;
   }
-  let _de_title_410$2;
-  const _bind = _de_title_410.val;
+  let _de_title_418$2;
+  const _bind = _de_title_418.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field title" }));
   } else {
     const _Some = _bind;
     const _v$9 = _Some;
-    _de_title_410$2 = _v$9;
+    _de_title_418$2 = _v$9;
   }
-  let _de_status_409$2;
-  const _bind$2 = _de_status_409.val;
+  let _de_status_417$2;
+  const _bind$2 = _de_status_417.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field status" }));
   } else {
     const _Some = _bind$2;
     const _v$9 = _Some;
-    _de_status_409$2 = _v$9;
+    _de_status_417$2 = _v$9;
   }
-  let _de_priority_408$2;
-  const _bind$3 = _de_priority_408.val;
+  let _de_priority_416$2;
+  const _bind$3 = _de_priority_416.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field priority" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field priority" }));
   } else {
     const _Some = _bind$3;
     const _v$9 = _Some;
-    _de_priority_408$2 = _v$9;
+    _de_priority_416$2 = _v$9;
   }
-  let _de_id_407$2;
-  const _bind$4 = _de_id_407.val;
+  let _de_id_415$2;
+  const _bind$4 = _de_id_415.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field id" }));
   } else {
     const _Some = _bind$4;
     const _v$9 = _Some;
-    _de_id_407$2 = _v$9;
+    _de_id_415$2 = _v$9;
   }
-  let _de_due_date_406$2;
-  const _bind$5 = _de_due_date_406.val;
+  let _de_due_date_414$2;
+  const _bind$5 = _de_due_date_414.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field due_date" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field due_date" }));
   } else {
     const _Some = _bind$5;
     const _v$9 = _Some;
-    _de_due_date_406$2 = _v$9;
+    _de_due_date_414$2 = _v$9;
   }
-  let _de_description_405$2;
-  const _bind$6 = _de_description_405.val;
+  let _de_description_413$2;
+  const _bind$6 = _de_description_413.val;
   if (_bind$6 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field description" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field description" }));
   } else {
     const _Some = _bind$6;
     const _v$9 = _Some;
-    _de_description_405$2 = _v$9;
+    _de_description_413$2 = _v$9;
   }
-  let _de_created_at_404$2;
-  const _bind$7 = _de_created_at_404.val;
+  let _de_created_at_412$2;
+  const _bind$7 = _de_created_at_412.val;
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$7;
     const _v$9 = _Some;
-    _de_created_at_404$2 = _v$9;
+    _de_created_at_412$2 = _v$9;
   }
-  let _de_assignee_id_403$2;
-  const _bind$8 = _de_assignee_id_403.val;
+  let _de_assignee_id_411$2;
+  const _bind$8 = _de_assignee_id_411.val;
   if (_bind$8 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_402, _1: "Missing field assignee_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_410, _1: "Missing field assignee_id" }));
   } else {
     const _Some = _bind$8;
     const _v$9 = _Some;
-    _de_assignee_id_403$2 = _v$9;
+    _de_assignee_id_411$2 = _v$9;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4Task(_de_id_407$2, _de_title_410$2, _de_description_405$2, _de_status_409$2, _de_priority_408$2, _de_assignee_id_403$2, _de_due_date_406$2, _de_created_at_404$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4Task(_de_id_415$2, _de_title_418$2, _de_description_413$2, _de_status_417$2, _de_priority_416$2, _de_assignee_id_411$2, _de_due_date_414$2, _de_created_at_412$2));
 }
-function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_370, _x_371) {
-  const _de_name_374 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_373 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_372 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_378, _x_379) {
+  const _de_name_382 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_381 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_380 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_370.$tag === 6) {
-      const _Object = _x_370;
+    if (_x_378.$tag === 6) {
+      const _Object = _x_378;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_371, _1: "Expected object to deserialize Label" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_379, _1: "Expected object to deserialize Label" }));
     }
   }
   let _v;
@@ -12725,7 +12726,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_371, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_379, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12733,7 +12734,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
     } else {
       return _bind;
     }
-    _de_id_373.val = _tmp;
+    _de_id_381.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12748,7 +12749,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_371, "name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_379, "name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12756,7 +12757,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
     } else {
       return _bind;
     }
-    _de_name_374.val = _tmp;
+    _de_name_382.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12771,7 +12772,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_371, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_379, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12779,50 +12780,51 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
     } else {
       return _bind;
     }
-    _de_color_372.val = _tmp;
+    _de_color_380.val = _tmp;
   }
-  let _de_name_374$2;
-  const _bind = _de_name_374.val;
+  let _de_name_382$2;
+  const _bind = _de_name_382.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_371, _1: "Missing field name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_379, _1: "Missing field name" }));
   } else {
     const _Some = _bind;
     const _v$4 = _Some;
-    _de_name_374$2 = _v$4;
+    _de_name_382$2 = _v$4;
   }
-  let _de_id_373$2;
-  const _bind$2 = _de_id_373.val;
+  let _de_id_381$2;
+  const _bind$2 = _de_id_381.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_371, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_379, _1: "Missing field id" }));
   } else {
     const _Some = _bind$2;
     const _v$4 = _Some;
-    _de_id_373$2 = _v$4;
+    _de_id_381$2 = _v$4;
   }
-  let _de_color_372$2;
-  const _bind$3 = _de_color_372.val;
+  let _de_color_380$2;
+  const _bind$3 = _de_color_380.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_371, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_379, _1: "Missing field color" }));
   } else {
     const _Some = _bind$3;
     const _v$4 = _Some;
-    _de_color_372$2 = _v$4;
+    _de_color_380$2 = _v$4;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Label(_de_id_373$2, _de_name_374$2, _de_color_372$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Label(_de_id_381$2, _de_name_382$2, _de_color_380$2));
 }
-function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_339, _x_340) {
-  const _de_username_343 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_342 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_341 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_342, _x_343) {
+  const _de_username_347 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_role_346 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_345 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_344 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_339.$tag === 6) {
-      const _Object = _x_339;
+    if (_x_342.$tag === 6) {
+      const _Object = _x_342;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_340, _1: "Expected object to deserialize User" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_343, _1: "Expected object to deserialize User" }));
     }
   }
   let _v;
@@ -12838,7 +12840,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_33
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_340, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_343, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12846,7 +12848,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_33
     } else {
       return _bind;
     }
-    _de_id_342.val = _tmp;
+    _de_id_345.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12861,7 +12863,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_33
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_340, "username"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_343, "username"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12869,7 +12871,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_33
     } else {
       return _bind;
     }
-    _de_username_343.val = _tmp;
+    _de_username_347.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12884,7 +12886,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_33
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_340, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_343, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12892,52 +12894,84 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_33
     } else {
       return _bind;
     }
-    _de_color_341.val = _tmp;
+    _de_color_344.val = _tmp;
   }
-  let _de_username_343$2;
-  const _bind = _de_username_343.val;
+  let _v$4;
+  _L$5: {
+    _L$6: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "role");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$4 = __v;
+        break _L$6;
+      }
+      break _L$5;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_343, "role"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_role_346.val = _tmp;
+  }
+  let _de_username_347$2;
+  const _bind = _de_username_347.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_340, _1: "Missing field username" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_343, _1: "Missing field username" }));
   } else {
     const _Some = _bind;
-    const _v$4 = _Some;
-    _de_username_343$2 = _v$4;
+    const _v$5 = _Some;
+    _de_username_347$2 = _v$5;
   }
-  let _de_id_342$2;
-  const _bind$2 = _de_id_342.val;
+  let _de_role_346$2;
+  const _bind$2 = _de_role_346.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_340, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_343, _1: "Missing field role" }));
   } else {
     const _Some = _bind$2;
-    const _v$4 = _Some;
-    _de_id_342$2 = _v$4;
+    const _v$5 = _Some;
+    _de_role_346$2 = _v$5;
   }
-  let _de_color_341$2;
-  const _bind$3 = _de_color_341.val;
+  let _de_id_345$2;
+  const _bind$3 = _de_id_345.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_340, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_343, _1: "Missing field id" }));
   } else {
     const _Some = _bind$3;
-    const _v$4 = _Some;
-    _de_color_341$2 = _v$4;
+    const _v$5 = _Some;
+    _de_id_345$2 = _v$5;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4User(_de_id_342$2, _de_username_343$2, _de_color_341$2));
+  let _de_color_344$2;
+  const _bind$4 = _de_color_344.val;
+  if (_bind$4 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_343, _1: "Missing field color" }));
+  } else {
+    const _Some = _bind$4;
+    const _v$5 = _Some;
+    _de_color_344$2 = _v$5;
+  }
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4User(_de_id_345$2, _de_username_347$2, _de_color_344$2, _de_role_346$2));
 }
-function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x_298, _x_299) {
-  const _de_text_304 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_id_303 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_302 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_created_at_301 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_author_300 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x_301, _x_302) {
+  const _de_text_307 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_306 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_305 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_created_at_304 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_author_303 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_298.$tag === 6) {
-      const _Object = _x_298;
+    if (_x_301.$tag === 6) {
+      const _Object = _x_301;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_299, _1: "Expected object to deserialize Comment" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_302, _1: "Expected object to deserialize Comment" }));
     }
   }
   let _v;
@@ -12953,7 +12987,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_299, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_302, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12961,7 +12995,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_id_302.val = _tmp;
+    _de_id_305.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12976,7 +13010,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_299, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_302, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12984,7 +13018,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_task_id_303.val = _tmp;
+    _de_task_id_306.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12999,7 +13033,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_299, "author"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_302, "author"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13007,7 +13041,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_author_300.val = _tmp;
+    _de_author_303.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -13022,7 +13056,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_299, "text"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_302, "text"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13030,7 +13064,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_text_304.val = _tmp;
+    _de_text_307.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -13045,7 +13079,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_299, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_302, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13053,70 +13087,70 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_created_at_301.val = _tmp;
+    _de_created_at_304.val = _tmp;
   }
-  let _de_text_304$2;
-  const _bind = _de_text_304.val;
+  let _de_text_307$2;
+  const _bind = _de_text_307.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_299, _1: "Missing field text" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_302, _1: "Missing field text" }));
   } else {
     const _Some = _bind;
     const _v$6 = _Some;
-    _de_text_304$2 = _v$6;
+    _de_text_307$2 = _v$6;
   }
-  let _de_task_id_303$2;
-  const _bind$2 = _de_task_id_303.val;
+  let _de_task_id_306$2;
+  const _bind$2 = _de_task_id_306.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_299, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_302, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind$2;
     const _v$6 = _Some;
-    _de_task_id_303$2 = _v$6;
+    _de_task_id_306$2 = _v$6;
   }
-  let _de_id_302$2;
-  const _bind$3 = _de_id_302.val;
+  let _de_id_305$2;
+  const _bind$3 = _de_id_305.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_299, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_302, _1: "Missing field id" }));
   } else {
     const _Some = _bind$3;
     const _v$6 = _Some;
-    _de_id_302$2 = _v$6;
+    _de_id_305$2 = _v$6;
   }
-  let _de_created_at_301$2;
-  const _bind$4 = _de_created_at_301.val;
+  let _de_created_at_304$2;
+  const _bind$4 = _de_created_at_304.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_299, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_302, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$4;
     const _v$6 = _Some;
-    _de_created_at_301$2 = _v$6;
+    _de_created_at_304$2 = _v$6;
   }
-  let _de_author_300$2;
-  const _bind$5 = _de_author_300.val;
+  let _de_author_303$2;
+  const _bind$5 = _de_author_303.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_299, _1: "Missing field author" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_302, _1: "Missing field author" }));
   } else {
     const _Some = _bind$5;
     const _v$6 = _Some;
-    _de_author_300$2 = _v$6;
+    _de_author_303$2 = _v$6;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Comment(_de_id_302$2, _de_task_id_303$2, _de_author_300$2, _de_text_304$2, _de_created_at_301$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Comment(_de_id_305$2, _de_task_id_306$2, _de_author_303$2, _de_text_307$2, _de_created_at_304$2));
 }
-function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(_x_257, _x_258) {
-  const _de_task_id_263 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_note_262 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_minutes_261 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_260 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_created_at_259 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(_x_260, _x_261) {
+  const _de_task_id_266 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_note_265 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_minutes_264 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_263 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_created_at_262 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_257.$tag === 6) {
-      const _Object = _x_257;
+    if (_x_260.$tag === 6) {
+      const _Object = _x_260;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_258, _1: "Expected object to deserialize TimeEntry" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_261, _1: "Expected object to deserialize TimeEntry" }));
     }
   }
   let _v;
@@ -13132,7 +13166,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_258, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_261, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13140,7 +13174,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_id_260.val = _tmp;
+    _de_id_263.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13155,7 +13189,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_258, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_261, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13163,7 +13197,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_task_id_263.val = _tmp;
+    _de_task_id_266.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -13178,7 +13212,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$4;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_258, "minutes"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_261, "minutes"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13186,7 +13220,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_minutes_261.val = _tmp;
+    _de_minutes_264.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -13201,7 +13235,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_258, "note"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_261, "note"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13209,7 +13243,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_note_262.val = _tmp;
+    _de_note_265.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -13224,7 +13258,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_258, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_261, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13232,67 +13266,67 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_created_at_259.val = _tmp;
+    _de_created_at_262.val = _tmp;
   }
-  let _de_task_id_263$2;
-  const _bind = _de_task_id_263.val;
+  let _de_task_id_266$2;
+  const _bind = _de_task_id_266.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_258, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_261, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$6 = _Some;
-    _de_task_id_263$2 = _v$6;
+    _de_task_id_266$2 = _v$6;
   }
-  let _de_note_262$2;
-  const _bind$2 = _de_note_262.val;
+  let _de_note_265$2;
+  const _bind$2 = _de_note_265.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_258, _1: "Missing field note" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_261, _1: "Missing field note" }));
   } else {
     const _Some = _bind$2;
     const _v$6 = _Some;
-    _de_note_262$2 = _v$6;
+    _de_note_265$2 = _v$6;
   }
-  let _de_minutes_261$2;
-  const _bind$3 = _de_minutes_261.val;
+  let _de_minutes_264$2;
+  const _bind$3 = _de_minutes_264.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_258, _1: "Missing field minutes" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_261, _1: "Missing field minutes" }));
   } else {
     const _Some = _bind$3;
     const _v$6 = _Some;
-    _de_minutes_261$2 = _v$6;
+    _de_minutes_264$2 = _v$6;
   }
-  let _de_id_260$2;
-  const _bind$4 = _de_id_260.val;
+  let _de_id_263$2;
+  const _bind$4 = _de_id_263.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_258, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_261, _1: "Missing field id" }));
   } else {
     const _Some = _bind$4;
     const _v$6 = _Some;
-    _de_id_260$2 = _v$6;
+    _de_id_263$2 = _v$6;
   }
-  let _de_created_at_259$2;
-  const _bind$5 = _de_created_at_259.val;
+  let _de_created_at_262$2;
+  const _bind$5 = _de_created_at_262.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_258, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_261, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$5;
     const _v$6 = _Some;
-    _de_created_at_259$2 = _v$6;
+    _de_created_at_262$2 = _v$6;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TimeEntry(_de_id_260$2, _de_task_id_263$2, _de_minutes_261$2, _de_note_262$2, _de_created_at_259$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TimeEntry(_de_id_263$2, _de_task_id_266$2, _de_minutes_264$2, _de_note_265$2, _de_created_at_262$2));
 }
-function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__json(_x_231, _x_232) {
-  const _de_user_234 = new _M0TPC13ref3RefGORP38bobzhang8taskflow6shared4UserE(undefined);
-  const _de_message_233 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__json(_x_234, _x_235) {
+  const _de_user_237 = new _M0TPC13ref3RefGORP38bobzhang8taskflow6shared4UserE(undefined);
+  const _de_message_236 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_231.$tag === 6) {
-      const _Object = _x_231;
+    if (_x_234.$tag === 6) {
+      const _Object = _x_234;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_232, _1: "Expected object to deserialize AuthResponse" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_235, _1: "Expected object to deserialize AuthResponse" }));
     }
   }
   let _v;
@@ -13308,7 +13342,7 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
       }
       break _L$2;
     }
-    const _bind = _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_232, "user"));
+    const _bind = _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_235, "user"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13316,7 +13350,7 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
     } else {
       return _bind;
     }
-    _de_user_234.val = _tmp;
+    _de_user_237.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13331,7 +13365,7 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_232, "message"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_235, "message"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13339,41 +13373,41 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
     } else {
       return _bind;
     }
-    _de_message_233.val = _tmp;
+    _de_message_236.val = _tmp;
   }
-  let _de_user_234$2;
-  const _bind = _de_user_234.val;
+  let _de_user_237$2;
+  const _bind = _de_user_237.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_232, _1: "Missing field user" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_235, _1: "Missing field user" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_user_234$2 = _v$3;
+    _de_user_237$2 = _v$3;
   }
-  let _de_message_233$2;
-  const _bind$2 = _de_message_233.val;
+  let _de_message_236$2;
+  const _bind$2 = _de_message_236.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_232, _1: "Missing field message" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_235, _1: "Missing field message" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_message_233$2 = _v$3;
+    _de_message_236$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared12AuthResponse(_de_user_234$2, _de_message_233$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared12AuthResponse(_de_user_237$2, _de_message_236$2));
 }
-function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_200, _x_201) {
-  const _de_name_204 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_203 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_202 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_203, _x_204) {
+  const _de_name_207 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_206 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_205 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_200.$tag === 6) {
-      const _Object = _x_200;
+    if (_x_203.$tag === 6) {
+      const _Object = _x_203;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_201, _1: "Expected object to deserialize Member" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_204, _1: "Expected object to deserialize Member" }));
     }
   }
   let _v;
@@ -13389,7 +13423,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_201, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_204, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13397,7 +13431,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_id_203.val = _tmp;
+    _de_id_206.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13412,7 +13446,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_201, "name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_204, "name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13420,7 +13454,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_name_204.val = _tmp;
+    _de_name_207.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -13435,7 +13469,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_201, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_204, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13443,36 +13477,36 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_color_202.val = _tmp;
+    _de_color_205.val = _tmp;
   }
-  let _de_name_204$2;
-  const _bind = _de_name_204.val;
+  let _de_name_207$2;
+  const _bind = _de_name_207.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_201, _1: "Missing field name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_204, _1: "Missing field name" }));
   } else {
     const _Some = _bind;
     const _v$4 = _Some;
-    _de_name_204$2 = _v$4;
+    _de_name_207$2 = _v$4;
   }
-  let _de_id_203$2;
-  const _bind$2 = _de_id_203.val;
+  let _de_id_206$2;
+  const _bind$2 = _de_id_206.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_201, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_204, _1: "Missing field id" }));
   } else {
     const _Some = _bind$2;
     const _v$4 = _Some;
-    _de_id_203$2 = _v$4;
+    _de_id_206$2 = _v$4;
   }
-  let _de_color_202$2;
-  const _bind$3 = _de_color_202.val;
+  let _de_color_205$2;
+  const _bind$3 = _de_color_205.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_201, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_204, _1: "Missing field color" }));
   } else {
     const _Some = _bind$3;
     const _v$4 = _Some;
-    _de_color_202$2 = _v$4;
+    _de_color_205$2 = _v$4;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared6Member(_de_id_203$2, _de_name_204$2, _de_color_202$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared6Member(_de_id_206$2, _de_name_207$2, _de_color_205$2));
 }
 function _M0FP38bobzhang8taskflow6shared18validate__username(name) {
   const len = _M0MPC16string6String20char__length_2einner(name, 0, undefined);
@@ -13705,6 +13739,9 @@ function _M0FP38bobzhang8taskflow6shared16api__time__entry(id) {
 }
 function _M0FP38bobzhang8taskflow6shared21api__task__recurrence(id) {
   return `/api/tasks/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/recurrence`;
+}
+function _M0FP38bobzhang8taskflow6shared9can__edit(role) {
+  return role === "admin" || role === "member";
 }
 function _M0FP38bobzhang8taskflow6shared16priority__weight(priority) {
   switch (priority) {
@@ -14444,6 +14481,18 @@ function _M0FP38bobzhang8taskflow6shared1t(lang, key) {
       case "not_logged_in": {
         return "未登录";
       }
+      case "role_admin": {
+        return "管理员";
+      }
+      case "role_member": {
+        return "成员";
+      }
+      case "role_viewer": {
+        return "观察者";
+      }
+      case "view_only": {
+        return "（只读）";
+      }
       case "undo": {
         return "撤销";
       }
@@ -14746,6 +14795,18 @@ function _M0FP38bobzhang8taskflow6shared1t(lang, key) {
       }
       case "not_logged_in": {
         return "Not logged in";
+      }
+      case "role_admin": {
+        return "Admin";
+      }
+      case "role_member": {
+        return "Member";
+      }
+      case "role_viewer": {
+        return "Viewer";
+      }
+      case "view_only": {
+        return "(View Only)";
       }
       case "undo": {
         return "Undo";
@@ -18469,6 +18530,15 @@ function _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(style, id, cl
   _M0FP319moonbit_2dcommunity7rabbita4html8push__id(id, attrs$2);
   return _M0FP319moonbit_2dcommunity7rabbita4html4nodeGsE("span", attrs$2, children);
 }
+function _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(style, id, class_, title, hidden, attrs, children) {
+  const attrs$2 = _M0FP319moonbit_2dcommunity7rabbita4html14resolve__attrs(attrs);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__title(title, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html12push__hidden(hidden, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__style(style, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__class(class_, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html8push__id(id, attrs$2);
+  return _M0FP319moonbit_2dcommunity7rabbita4html4nodeGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE("span", attrs$2, children);
+}
 function _M0FP319moonbit_2dcommunity7rabbita4html4text(str) {
   return _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5VNode4text(str);
 }
@@ -20323,11 +20393,28 @@ function _M0FP38bobzhang8taskflow8frontend12view__header(dispatch, model) {
   _tmp$11 = _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 10px", "border: none", "cursor: pointer", "font-size: 12px", "color: white", "border-radius: 4px", "background: rgba(255,255,255,0.15)"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg7SetLang(target_lang)), undefined, label);
   const _tmp$12 = _tmp$11;
   const _tmp$13 = _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 10px", "border: none", "cursor: pointer", "font-size: 12px", "color: white", "border-radius: 4px", "background: rgba(255,255,255,0.15)"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg11ExportTasks__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "export"));
-  const _tmp$14 = model.adding_task ? _M0FP319moonbit_2dcommunity7rabbita4html4text("") : _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 16px", "background: rgba(255,255,255,0.2)", "color: white", "border: 1px solid rgba(255,255,255,0.3)", "border-radius: 6px", "cursor: pointer", "font-size: 13px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg11ShowAddTask__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "new_task"));
-  let _tmp$15;
-  let user$2;
+  let user_role;
+  let u;
   _L$3: {
     _L$4: {
+      const _bind = model.current_user;
+      if (_bind === undefined) {
+        user_role = "viewer";
+      } else {
+        const _Some = _bind;
+        const _u = _Some;
+        u = _u;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    user_role = u.role;
+  }
+  const _tmp$14 = model.adding_task || !_M0FP38bobzhang8taskflow6shared9can__edit(user_role) ? _M0FP319moonbit_2dcommunity7rabbita4html4text("") : _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 16px", "background: rgba(255,255,255,0.2)", "color: white", "border: 1px solid rgba(255,255,255,0.3)", "border-radius: 6px", "cursor: pointer", "font-size: 13px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg11ShowAddTask__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "new_task"));
+  let _tmp$15;
+  let user$2;
+  _L$4: {
+    _L$5: {
       const _bind = model.current_user;
       if (_bind === undefined) {
         _tmp$15 = _M0FP319moonbit_2dcommunity7rabbita4html4text("");
@@ -20335,13 +20422,17 @@ function _M0FP38bobzhang8taskflow8frontend12view__header(dispatch, model) {
         const _Some = _bind;
         const _user = _Some;
         user$2 = _user;
-        break _L$4;
+        break _L$5;
       }
-      break _L$3;
+      break _L$4;
     }
     const color = _M0FP38bobzhang8taskflow6shared13member__color(user$2.color);
     const initial = _M0FP38bobzhang8taskflow6shared15member__initial(user$2.username);
-    _tmp$15 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 8px", "margin-left: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["width: 28px", "height: 28px", "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center", "font-size: 12px", "font-weight: 600", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(initial)]), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["color: rgba(255,255,255,0.9)", "font-size: 13px", "font-weight: 500"], undefined, undefined, undefined, -1, undefined, user$2.username), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 4px 10px", "border: none", "cursor: pointer", "font-size: 11px", "color: rgba(255,255,255,0.8)", "border-radius: 4px", "background: rgba(255,255,255,0.1)"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg6Logout__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "logout"))]);
+    const _tmp$16 = ["display: flex", "align-items: center", "gap: 8px", "margin-left: 8px"];
+    const _tmp$17 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["width: 28px", "height: 28px", "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center", "font-size: 12px", "font-weight: 600", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(initial)]);
+    const _tmp$18 = _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["color: rgba(255,255,255,0.9)", "font-size: 13px", "font-weight: 500"], undefined, undefined, undefined, -1, undefined, user$2.username);
+    const role_key = `role_${user$2.role}`;
+    _tmp$15 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$16, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$17, _tmp$18, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 10px", "padding: 1px 6px", "border-radius: 3px", "background: rgba(255,255,255,0.15)", "color: rgba(255,255,255,0.7)"], undefined, undefined, undefined, -1, undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, role_key)), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 4px 10px", "border: none", "cursor: pointer", "font-size: 11px", "color: rgba(255,255,255,0.8)", "border-radius: 4px", "background: rgba(255,255,255,0.1)"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP38bobzhang8taskflow8frontend3Msg6Logout__), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "logout"))]);
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$2, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$4, _tmp$7, _tmp$9, _tmp$10, _tmp$12, _tmp$13, _tmp$14, _tmp$15])]);
 }
@@ -20678,11 +20769,33 @@ function _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, ta
   } else {
     _tmp$12 = _M0FP319moonbit_2dcommunity7rabbita4html4text("");
   }
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$2, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$4, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$5, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$6, _tmp$7, dep_html, _tmp$8, _tmp$10, _tmp$11, _tmp$12])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "align-items: center", "margin-left: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [assignee_html, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 2px 8px", "border-radius: 10px", "font-size: 11px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(status_bg)}`], undefined, undefined, undefined, -1, undefined, _M0FP38bobzhang8taskflow6shared9t__status(model.lang, task.status)), due_html])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 4px", "justify-content: space-between", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGsRP319moonbit_2dcommunity7rabbita4html4HtmlE(transitions, (target) => {
+  const _tmp$13 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$2, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$4, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$5, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$6, _tmp$7, dep_html, _tmp$8, _tmp$10, _tmp$11, _tmp$12])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "align-items: center", "margin-left: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [assignee_html, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 2px 8px", "border-radius: 10px", "font-size: 11px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(status_bg)}`], undefined, undefined, undefined, -1, undefined, _M0FP38bobzhang8taskflow6shared9t__status(model.lang, task.status)), due_html])]);
+  const _tmp$14 = ["display: flex", "gap: 4px", "justify-content: space-between", "align-items: center"];
+  const _tmp$15 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGsRP319moonbit_2dcommunity7rabbita4html4HtmlE(transitions, (target) => {
     const label = _M0FP38bobzhang8taskflow6shared13t__transition(model.lang, task.status, target);
     const bg = _M0FP38bobzhang8taskflow6shared13status__color(target);
     return _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "border-radius: 4px", "border: none", "cursor: pointer", "font-size: 10px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(bg)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ChangeStatus(task.id, target)), undefined, label);
-  })), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ShowComments(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "notes")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13StartEditTask(task)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "edit")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13RequestDelete(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "del"))])])]);
+  }));
+  const _tmp$16 = ["display: flex", "gap: 3px"];
+  const _tmp$17 = _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ShowComments(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "notes"));
+  let user_role;
+  let u;
+  _L$3: {
+    _L$4: {
+      const _bind = model.current_user;
+      if (_bind === undefined) {
+        user_role = "viewer";
+      } else {
+        const _Some = _bind;
+        const _u = _Some;
+        u = _u;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    user_role = u.role;
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$13, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$14, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$15, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$16, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$17, _M0FP38bobzhang8taskflow6shared9can__edit(user_role) ? _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: contents"], undefined, undefined, undefined, -1, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13StartEditTask(task)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "edit")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13RequestDelete(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "del"))]) : _M0FP319moonbit_2dcommunity7rabbita4html4text("")])])]);
 }
 function _M0FP38bobzhang8taskflow8frontend18view__kanban__card(dispatch, model, task) {
   if (model.editing_task === task.id) {
@@ -20767,8 +20880,27 @@ function _M0FP38bobzhang8taskflow8frontend18view__kanban__card(dispatch, model, 
     return _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 1px 6px", "border-radius: 3px", "border: none", "cursor: pointer", "font-size: 9px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(bg)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ChangeStatus(task.id, target)), undefined, label);
   });
   _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(buttons, _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ShowComments(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "notes")));
-  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(buttons, _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13StartEditTask(task)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "edit")));
-  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(buttons, _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px", "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13RequestDelete(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "del")));
+  let user_role;
+  let u;
+  _L$3: {
+    _L$4: {
+      const _bind = model.current_user;
+      if (_bind === undefined) {
+        user_role = "viewer";
+      } else {
+        const _Some = _bind;
+        const _u = _Some;
+        u = _u;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    user_role = u.role;
+  }
+  if (_M0FP38bobzhang8taskflow6shared9can__edit(user_role)) {
+    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(buttons, _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13StartEditTask(task)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "edit")));
+    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(buttons, _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px", "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13RequestDelete(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "del")));
+  }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, _tmp$2, [_tmp$3, _tmp$5, _tmp$6, _tmp$8, _tmp$9, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$10, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, buttons)]);
 }
 function _M0FP38bobzhang8taskflow8frontend12view__kanban(dispatch, model, tasks) {

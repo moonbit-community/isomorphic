@@ -1,4 +1,31 @@
 ///|
+/// Check if a role can create/edit/delete tasks.
+///
+/// # Example
+///
+/// ```
+/// assert_true(@shared.can_edit("admin"))
+/// assert_true(@shared.can_edit("member"))
+/// assert_false(@shared.can_edit("viewer"))
+/// ```
+pub fn can_edit(role : String) -> Bool {
+  role == "admin" || role == "member"
+}
+
+///|
+/// Check if a role can manage users (change roles).
+///
+/// # Example
+///
+/// ```
+/// assert_true(@shared.is_admin("admin"))
+/// assert_false(@shared.is_admin("member"))
+/// ```
+pub fn is_admin(role : String) -> Bool {
+  role == "admin"
+}
+
+///|
 /// All valid priority values, in order from lowest to highest.
 pub let valid_priorities : Array[String] = ["low", "medium", "high", "urgent"]
 

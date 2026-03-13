@@ -1444,18 +1444,24 @@ fn view_header(
           ],
           @shared.t(model.lang, "export"),
         ),
-        if model.adding_task {
-          @html.text("")
-        } else {
-          @html.button(
-            on_click=dispatch(ShowAddTask),
-            style=[
-              "padding: 8px 16px", "background: rgba(255,255,255,0.2)", "color: white",
-              "border: 1px solid rgba(255,255,255,0.3)", "border-radius: 6px", "cursor: pointer",
-              "font-size: 13px",
-            ],
-            @shared.t(model.lang, "new_task"),
-          )
+        {
+          let user_role = match model.current_user {
+            Some(u) => u.role
+            None => "viewer"
+          }
+          if model.adding_task || not(@shared.can_edit(user_role)) {
+            @html.text("")
+          } else {
+            @html.button(
+              on_click=dispatch(ShowAddTask),
+              style=[
+                "padding: 8px 16px", "background: rgba(255,255,255,0.2)", "color: white",
+                "border: 1px solid rgba(255,255,255,0.3)", "border-radius: 6px", "cursor: pointer",
+                "font-size: 13px",
+              ],
+              @shared.t(model.lang, "new_task"),
+            )
+          }
         },
         // User info + logout
         match model.current_user {
@@ -1488,6 +1494,16 @@ fn view_header(
                   ],
                   user.username,
                 ),
+                {
+                  let role_key = "role_" + user.role
+                  @html.span(
+                    style=[
+                      "font-size: 10px", "padding: 1px 6px", "border-radius: 3px",
+                      "background: rgba(255,255,255,0.15)", "color: rgba(255,255,255,0.7)",
+                    ],
+                    @shared.t(model.lang, role_key),
+                  )
+                },
                 @html.button(
                   on_click=dispatch(Logout),
                   style=[
@@ -2627,27 +2643,39 @@ fn view_task_item(
               ],
               @shared.t(model.lang, "notes"),
             ),
-            @html.button(
-              on_click=dispatch(StartEditTask(task)),
-              style=[
-                "padding: 2px 8px",
-                "font-size: 11px",
-                "cursor: pointer",
-                "border-radius: 4px",
-                "border: 1px solid \{theme.input_border}",
-                "background: \{theme.filter_inactive}",
-                "color: \{theme.text_secondary}",
-              ],
-              @shared.t(model.lang, "edit"),
-            ),
-            @html.button(
-              on_click=dispatch(RequestDelete(task.id)),
-              style=[
-                "padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px",
-                "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626",
-              ],
-              @shared.t(model.lang, "del"),
-            ),
+            {
+              let user_role = match model.current_user {
+                Some(u) => u.role
+                None => "viewer"
+              }
+              if @shared.can_edit(user_role) {
+                @html.span(style=["display: contents"], [
+                  @html.button(
+                    on_click=dispatch(StartEditTask(task)),
+                    style=[
+                      "padding: 2px 8px",
+                      "font-size: 11px",
+                      "cursor: pointer",
+                      "border-radius: 4px",
+                      "border: 1px solid \{theme.input_border}",
+                      "background: \{theme.filter_inactive}",
+                      "color: \{theme.text_secondary}",
+                    ],
+                    @shared.t(model.lang, "edit"),
+                  ),
+                  @html.button(
+                    on_click=dispatch(RequestDelete(task.id)),
+                    style=[
+                      "padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px",
+                      "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626",
+                    ],
+                    @shared.t(model.lang, "del"),
+                  ),
+                ])
+              } else {
+                @html.text("")
+              }
+            },
           ]),
         ],
       ),
@@ -2853,31 +2881,37 @@ fn view_kanban_card(
               @shared.t(model.lang, "notes"),
             ),
           )
-          buttons.push(
-            @html.button(
-              on_click=dispatch(StartEditTask(task)),
-              style=[
-                "padding: 1px 6px",
-                "font-size: 9px",
-                "cursor: pointer",
-                "border-radius: 3px",
-                "border: 1px solid \{theme.input_border}",
-                "background: \{theme.filter_inactive}",
-                "color: \{theme.text_muted}",
-              ],
-              @shared.t(model.lang, "edit"),
-            ),
-          )
-          buttons.push(
-            @html.button(
-              on_click=dispatch(RequestDelete(task.id)),
-              style=[
-                "padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px",
-                "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626",
-              ],
-              @shared.t(model.lang, "del"),
-            ),
-          )
+          let user_role = match model.current_user {
+            Some(u) => u.role
+            None => "viewer"
+          }
+          if @shared.can_edit(user_role) {
+            buttons.push(
+              @html.button(
+                on_click=dispatch(StartEditTask(task)),
+                style=[
+                  "padding: 1px 6px",
+                  "font-size: 9px",
+                  "cursor: pointer",
+                  "border-radius: 3px",
+                  "border: 1px solid \{theme.input_border}",
+                  "background: \{theme.filter_inactive}",
+                  "color: \{theme.text_muted}",
+                ],
+                @shared.t(model.lang, "edit"),
+              ),
+            )
+            buttons.push(
+              @html.button(
+                on_click=dispatch(RequestDelete(task.id)),
+                style=[
+                  "padding: 1px 6px", "font-size: 9px", "cursor: pointer", "border-radius: 3px",
+                  "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626",
+                ],
+                @shared.t(model.lang, "del"),
+              ),
+            )
+          }
           buttons
         },
       ),

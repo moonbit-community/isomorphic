@@ -1465,6 +1465,21 @@ test "subtask_progress counts done vs total" {
 }
 
 ///|
+test "can_edit checks role permissions" {
+  assert_true(@shared.can_edit("admin"))
+  assert_true(@shared.can_edit("member"))
+  assert_false(@shared.can_edit("viewer"))
+  assert_false(@shared.can_edit(""))
+}
+
+///|
+test "is_admin checks admin role" {
+  assert_true(@shared.is_admin("admin"))
+  assert_false(@shared.is_admin("member"))
+  assert_false(@shared.is_admin("viewer"))
+}
+
+///|
 test "t_undo_status formats undo message" {
   inspect(
     @shared.t_undo_status(@shared.Lang::En, "todo", "in_progress"),

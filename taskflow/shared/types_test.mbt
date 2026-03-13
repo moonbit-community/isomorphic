@@ -119,7 +119,7 @@ test "Dependency JSON round-trip" {
 
 ///|
 test "User JSON round-trip" {
-  let user : @shared.User = { id: 1, username: "alice", color: "blue" }
+  let user : @shared.User = { id: 1, username: "alice", color: "blue", role: "member" }
   let decoded : @shared.User = @json.from_json(user.to_json())
   assert_eq(decoded, user)
 }
@@ -127,7 +127,7 @@ test "User JSON round-trip" {
 ///|
 test "AuthResponse JSON round-trip" {
   let resp : @shared.AuthResponse = {
-    user: { id: 1, username: "alice", color: "blue" },
+    user: { id: 1, username: "alice", color: "blue", role: "member" },
     message: "Login successful",
   }
   let decoded : @shared.AuthResponse = @json.from_json(resp.to_json())
@@ -136,22 +136,23 @@ test "AuthResponse JSON round-trip" {
 
 ///|
 test "User JSON structure" {
-  let user : @shared.User = { id: 1, username: "alice", color: "blue" }
+  let user : @shared.User = { id: 1, username: "alice", color: "blue", role: "member" }
   json_inspect(user.to_json(), content={
     "id": 1,
     "username": "alice",
     "color": "blue",
+    "role": "member",
   })
 }
 
 ///|
 test "AuthResponse JSON structure" {
   let resp : @shared.AuthResponse = {
-    user: { id: 1, username: "alice", color: "blue" },
+    user: { id: 1, username: "alice", color: "blue", role: "member" },
     message: "Login successful",
   }
   json_inspect(resp.to_json(), content={
-    "user": { "id": 1, "username": "alice", "color": "blue" },
+    "user": { "id": 1, "username": "alice", "color": "blue", "role": "member" },
     "message": "Login successful",
   })
 }

@@ -111,3 +111,9 @@ pub fn api_time_entry(id : Int) -> String {
 pub fn api_task_recurrence(id : Int) -> String {
   "/api/tasks/\{id}/recurrence"
 }
+
+///|
+/// `POST` — change a user's role (admin only).
+pub fn api_user_role(id : Int) -> String {
+  "/api/users/\{id}/role"
+}

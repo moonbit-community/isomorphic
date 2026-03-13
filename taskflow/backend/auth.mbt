@@ -39,12 +39,23 @@ fn init_auth_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|  username BLOB NOT NULL UNIQUE,
       #|  password_hash BLOB NOT NULL,
       #|  salt BLOB NOT NULL,
-      #|  color BLOB NOT NULL
+      #|  color BLOB NOT NULL,
+      #|  role BLOB NOT NULL DEFAULT 'member'
       #|)
     ),
   )
   s1.step_once()
   s1.finalize()
+  // Migration: add role column if missing
+  let migrate = conn.prepare(
+    "ALTER TABLE users ADD COLUMN role BLOB NOT NULL DEFAULT 'member'",
+  )
+  try {
+    migrate.step_once()
+  } catch {
+    _ => () // Column already exists
+  }
+  migrate.finalize()
   let s2 = conn.prepare(
     (
       #|CREATE TABLE IF NOT EXISTS sessions (
@@ -87,10 +98,16 @@ fn register_user(
   let salt_hash = @crypto.sha256(@utf8.encode("salt:\{username}"))
   let salt = @crypto.bytes_to_hex_string(salt_hash)
   let pw_hash = hash_password(password, salt)
+  // First user becomes admin, subsequent users are members
+  let count_stmt = conn.prepare("SELECT COUNT(*) FROM users")
+  guard count_stmt.step()
+  let user_count : Int = count_stmt.column(index=0)
+  count_stmt.finalize()
+  let role = if user_count == 0 { "admin" } else { "member" }
   let stmt = conn.prepare(
     (
-      #|INSERT INTO users (username, password_hash, salt, color)
-      #|VALUES (?, ?, ?, ?)
+      #|INSERT INTO users (username, password_hash, salt, color, role)
+      #|VALUES (?, ?, ?, ?, ?)
     ),
   )
   stmt.bind_string_as_blob(index=1, val=username)
@@ -98,6 +115,7 @@ fn register_user(
   stmt.bind_string_as_blob(index=3, val=salt)
   // Temporary color, will update after we get the ID
   stmt.bind_string_as_blob(index=4, val="blue")
+  stmt.bind_string_as_blob(index=5, val=role)
   stmt.step_once()
   stmt.finalize()
   // Get the new user's ID
@@ -118,7 +136,7 @@ fn register_user(
   mem_stmt.bind_string_as_blob(index=2, val=color)
   mem_stmt.step_once()
   mem_stmt.finalize()
-  { id, username, color }
+  { id, username, color, role }
 }
 
 ///|
@@ -129,7 +147,7 @@ fn login_user(
   password : String,
 ) -> @shared.User? raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
-    "SELECT id, username, password_hash, salt, color FROM users WHERE username = ?",
+    "SELECT id, username, password_hash, salt, color, role FROM users WHERE username = ?",
   )
   stmt.bind_string_as_blob(index=1, val=username)
   if not(stmt.step()) {
@@ -141,12 +159,13 @@ fn login_user(
   let stored_hash : String = stmt.column_blob_as_string(index=2)
   let salt : String = stmt.column_blob_as_string(index=3)
   let color : String = stmt.column_blob_as_string(index=4)
+  let role : String = stmt.column_blob_as_string(index=5)
   stmt.finalize()
   let pw_hash = hash_password(password, salt)
   if pw_hash != stored_hash {
     return None
   }
-  Some({ id, username: uname, color })
+  Some({ id, username: uname, color, role })
 }
 
 ///|
@@ -177,7 +196,7 @@ fn get_session_user(
 ) -> @shared.User? raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     (
-      #|SELECT u.id, u.username, u.color FROM users u
+      #|SELECT u.id, u.username, u.color, u.role FROM users u
       #|INNER JOIN sessions s ON s.user_id = u.id
       #|WHERE s.token = ?
     ),
@@ -190,8 +209,9 @@ fn get_session_user(
   let id : Int = stmt.column(index=0)
   let username : String = stmt.column_blob_as_string(index=1)
   let color : String = stmt.column_blob_as_string(index=2)
+  let role : String = stmt.column_blob_as_string(index=3)
   stmt.finalize()
-  Some({ id, username, color })
+  Some({ id, username, color, role })
 }
 
 ///|
@@ -216,4 +236,30 @@ fn get_request_user(
     Some(cookie) => get_session_user(conn, cookie.value)
     None => None
   }
+}
+
+///|
+/// Check if request user can perform write operations. Returns true if allowed.
+fn require_editor(
+  conn : @sqlite3.Connection,
+  req : @mocket.HttpRequest,
+) -> Bool raise @sqlite3.SqliteError {
+  match get_request_user(conn, req) {
+    Some(u) => @shared.can_edit(u.role)
+    None => false
+  }
+}
+
+///|
+/// Update a user's role (admin only).
+fn set_user_role(
+  conn : @sqlite3.Connection,
+  user_id : Int,
+  role : String,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("UPDATE users SET role = ? WHERE id = ?")
+  stmt.bind_string_as_blob(index=1, val=role)
+  stmt.bind(index=2, val=user_id)
+  stmt.step_once()
+  stmt.finalize()
 }

@@ -216,6 +216,15 @@ pub fn t(lang : Lang, key : String) -> String {
     (_, "no_matches") => "No tasks match your filters"
     (Zh, "not_logged_in") => "未登录"
     (_, "not_logged_in") => "Not logged in"
+    // Roles
+    (Zh, "role_admin") => "管理员"
+    (_, "role_admin") => "Admin"
+    (Zh, "role_member") => "成员"
+    (_, "role_member") => "Member"
+    (Zh, "role_viewer") => "观察者"
+    (_, "role_viewer") => "Viewer"
+    (Zh, "view_only") => "（只读）"
+    (_, "view_only") => "(View Only)"
     // Undo
     (Zh, "undo") => "撤销"
     (_, "undo") => "Undo"

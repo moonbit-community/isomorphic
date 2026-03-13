@@ -4,6 +4,7 @@ pub(all) struct User {
   id : Int
   username : String
   color : String
+  role : String // "admin" | "member" | "viewer"
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
