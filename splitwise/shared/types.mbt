@@ -2,7 +2,7 @@
 pub(all) struct Person {
   id : Int
   name : String
-} derive(ToJson, FromJson)
+} derive(ToJson, FromJson, Debug)
 
 /// An expense paid by one person, split among participants.
 pub(all) struct Expense {
@@ -14,7 +14,7 @@ pub(all) struct Expense {
   paid_by : Int
   /// IDs of people who share this expense (including the payer).
   split_among : Array[Int]
-} derive(ToJson, FromJson)
+} derive(ToJson, FromJson, Debug)
 
 /// A settlement: one person pays another to resolve debts.
 pub(all) struct Settlement {
@@ -24,11 +24,11 @@ pub(all) struct Settlement {
   to_name : String
   /// Amount in cents.
   amount : Int
-} derive(ToJson, FromJson)
+} derive(ToJson, FromJson, Debug)
 
 /// Full state returned by GET /api/state.
 pub(all) struct AppState {
   people : Array[Person]
   expenses : Array[Expense]
   settlements : Array[Settlement]
-} derive(ToJson, FromJson)
+} derive(ToJson, FromJson, Debug)
