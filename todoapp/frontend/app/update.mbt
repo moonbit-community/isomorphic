@@ -43,6 +43,8 @@ fn fetch_todos(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 ///   `dispatch`; only branches that build HTTP requests pass it into the
 ///   request's `expect` callback so the runtime knows which `Msg` to
 ///   deliver when the response arrives.
+// TODO (upstream): @http.Excpeting is not well designed? 
+#warnings("-unresolved_type_variable")
 pub fn Model::update(
   self : Model,
   msg~ : Msg,

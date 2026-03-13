@@ -1,4 +1,5 @@
 ///|
+#warnings("-alert_unstable")
 fn main {
   let (dispatch, app_cell) = @rabbita.cell_with_dispatch(
     model=@app.Model::{ todos: [], input: "", loading: false },
