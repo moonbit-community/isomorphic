@@ -2985,10 +2985,11 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
 }
 
 ///|
-/// Enable HTML5 drag-and-drop by preventing default on dragover/drop only
-/// within elements marked with data-drop-zone. This avoids breaking native
-/// text drops in input/textarea fields elsewhere on the page.
-extern "js" fn enable_drag_drop() = "() => { const check = e => { let el = e.target; while (el) { if (el.dataset && el.dataset.dropZone) { e.preventDefault(); return; } el = el.parentElement; } }; document.addEventListener('dragover', check); document.addEventListener('drop', check); }"
+/// Enable HTML5 drag-and-drop by preventing default on dragover and drop
+/// globally. This stops the browser from navigating away when something is
+/// dropped on the page. Kanban columns use data-drop-zone to accept drops
+/// via Rabbita event handlers; everywhere else the drop is silently ignored.
+extern "js" fn enable_drag_drop() = "() => { const h = e => e.preventDefault(); document.addEventListener('dragover', h); document.addEventListener('drop', h); }"
 
 ///|
 fn main {
