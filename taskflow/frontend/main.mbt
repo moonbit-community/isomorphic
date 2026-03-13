@@ -48,6 +48,9 @@ struct Model {
   loading : Bool
   // Language
   lang : @shared.Lang
+  // Drag-and-drop
+  dragging_task_id : Int
+  drag_over_status : String
 }
 
 ///|
@@ -119,6 +122,11 @@ enum Msg {
   DismissError
   // Language
   SetLang(@shared.Lang)
+  // Drag-and-drop
+  DragStartTask(Int)
+  DragOverColumn(String)
+  DropOnColumn(String)
+  DragEnd
 }
 
 ///|
@@ -676,6 +684,46 @@ fn update(
     DismissError => (@rabbita.none, { ..model, error_msg: "" })
     // ---- Language ----
     SetLang(l) => (@rabbita.none, { ..model, lang: l, auth_error: "" })
+    // ---- Drag-and-drop ----
+    DragStartTask(id) =>
+      (@rabbita.none, { ..model, dragging_task_id: id })
+    DragOverColumn(status) =>
+      (@rabbita.none, { ..model, drag_over_status: status })
+    DropOnColumn(new_status) => {
+      let id = model.dragging_task_id
+      if id == 0 {
+        return (
+          @rabbita.none,
+          { ..model, dragging_task_id: 0, drag_over_status: "" },
+        )
+      }
+      let model = { ..model, dragging_task_id: 0, drag_over_status: "" }
+      let mut current_status = ""
+      for t in model.tasks {
+        if t.id == id {
+          current_status = t.status
+          break
+        }
+      }
+      if current_status == new_status ||
+        not(@shared.is_valid_transition(current_status, new_status)) {
+        return (@rabbita.none, model)
+      }
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(StatusChanged)
+      })
+      let cmd = @http.post(
+        @shared.api_task_status(id),
+        Json(({ "status": new_status } : Json)),
+        expect~,
+      )
+      let tasks = model.tasks.map(fn(t) {
+        if t.id == id { { ..t, status: new_status } } else { t }
+      })
+      (cmd, { ..model, tasks })
+    }
+    DragEnd =>
+      (@rabbita.none, { ..model, dragging_task_id: 0, drag_over_status: "" })
   }
 }
 
@@ -2058,7 +2106,12 @@ fn view_kanban_card(
     }
     None => @html.text("")
   }
+  let dragging = model.dragging_task_id == task.id
   @html.div(
+    attrs=@html.Attrs::build()
+      .draggable("true")
+      .on_dragstart(fn(_e) { dispatch(DragStartTask(task.id)) })
+      .on_dragend(fn(_e) { dispatch(DragEnd) }),
     style=[
       "background: \{theme.card_bg}",
       "border-radius: 6px",
@@ -2066,6 +2119,9 @@ fn view_kanban_card(
       "margin-bottom: 6px",
       "border-left: 3px solid \{border_color}",
       "box-shadow: 0 1px 2px rgba(0,0,0,0.05)",
+      "cursor: grab",
+      if dragging { "opacity: 0.4" } else { "opacity: 1" },
+      "transition: opacity 0.15s ease",
     ],
     [
       // Title + assignee
@@ -2191,7 +2247,32 @@ fn view_kanban(
       let col_tasks = tasks.filter(fn(t) { t.status == status })
       let col_color = @shared.status_color(status)
       let count = col_tasks.length()
+      // Drag-and-drop: compute visual feedback for drop target
+      let is_hover = model.drag_over_status == status
+      let drop_valid = if model.dragging_task_id > 0 && is_hover {
+        let mut from = ""
+        for t in model.tasks {
+          if t.id == model.dragging_task_id {
+            from = t.status
+            break
+          }
+        }
+        from != status && @shared.is_valid_transition(from, status)
+      } else {
+        false
+      }
+      let outline = if is_hover && drop_valid {
+        "outline: 2px dashed \{col_color}"
+      } else if is_hover && model.dragging_task_id > 0 {
+        "outline: 2px dashed #ef4444"
+      } else {
+        "outline: 2px dashed transparent"
+      }
       @html.div(
+        attrs=@html.Attrs::build()
+          .on_dragover(fn(_e) { dispatch(DragOverColumn(status)) })
+          .on_drop(fn(_e) { dispatch(DropOnColumn(status)) })
+          .on_dragleave(fn(_e) { dispatch(DragOverColumn("")) }),
         style=[
           "min-width: 200px",
           "flex: 1",
@@ -2199,6 +2280,8 @@ fn view_kanban(
           "border-radius: 8px",
           "padding: 10px",
           "border: 1px solid \{theme.input_border}",
+          outline,
+          "transition: outline 0.15s ease",
         ],
         {
           let items : Array[@rabbita.Html] = [
@@ -2838,7 +2921,14 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
 }
 
 ///|
+/// Enable HTML5 drag-and-drop by preventing default on dragover/drop globally.
+/// Without this, browsers reject drops. Drop handlers on specific elements
+/// still control which drops actually take effect.
+extern "js" fn enable_drag_drop() = "() => { document.addEventListener('dragover', e => e.preventDefault()); document.addEventListener('drop', e => e.preventDefault()); }"
+
+///|
 fn main {
+  enable_drag_drop()
   let (dispatch, app_cell) = @rabbita.cell_with_dispatch(
     model={
       current_user: None,
@@ -2878,6 +2968,8 @@ fn main {
       error_msg: "",
       loading: false,
       lang: @shared.Lang::En,
+      dragging_task_id: 0,
+      drag_over_status: "",
     },
     update~,
     view~,

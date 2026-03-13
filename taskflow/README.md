@@ -385,7 +385,7 @@ Adding a new language: add a variant to `Lang`, then add match arms in each `t_*
 
 - **Task CRUD**: Create, edit, delete tasks with title, description, priority, assignee, due date
 - **Status workflow**: Tasks follow a validated state machine (To Do, In Progress, Review, Done, Blocked)
-- **Two views**: List view and Kanban board view
+- **Two views**: List view and Kanban board with drag-and-drop between status columns
 - **Filtering**: By status, priority, assignee, urgency, and text search — all combinable
 - **Task dependencies**: Link tasks with depends-on relationships; blocked indicators shown
 - **Comments/notes**: Per-task comment threads
