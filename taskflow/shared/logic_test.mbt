@@ -1288,3 +1288,30 @@ test "tasks_for_member empty list" {
   let tasks : Array[@shared.Task] = []
   inspect(@shared.tasks_for_member(tasks, 1).length(), content="0")
 }
+
+///|
+test "activities_for_task filters by task_id" {
+  let acts : Array[@shared.Activity] = [
+    {
+      id: 1, task_id: 10, task_title: "A", from_status: "todo",
+      to_status: "in_progress", timestamp: "2026-03-12", user_name: "Alice",
+    },
+    {
+      id: 2, task_id: 20, task_title: "B", from_status: "todo",
+      to_status: "done", timestamp: "2026-03-12", user_name: "Bob",
+    },
+    {
+      id: 3, task_id: 10, task_title: "A", from_status: "in_progress",
+      to_status: "review", timestamp: "2026-03-13", user_name: "Alice",
+    },
+  ]
+  let result = @shared.activities_for_task(acts, 10)
+  inspect(result.length(), content="2")
+  inspect(result[0].id, content="1")
+  inspect(result[1].id, content="3")
+  // Non-existent task returns empty
+  inspect(@shared.activities_for_task(acts, 99).length(), content="0")
+  // Empty input returns empty
+  let empty : Array[@shared.Activity] = []
+  inspect(@shared.activities_for_task(empty, 10).length(), content="0")
+}

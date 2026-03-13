@@ -351,6 +351,40 @@ pub fn recent_activities(
 }
 
 ///|
+/// Filter activities for a specific task.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   let acts : Array[@shared.Activity] = [
+///     {
+///       id: 1, task_id: 1, task_title: "A", from_status: "todo",
+///       to_status: "in_progress", timestamp: "2026-03-12", user_name: "Alice",
+///     },
+///     {
+///       id: 2, task_id: 2, task_title: "B", from_status: "todo",
+///       to_status: "done", timestamp: "2026-03-12", user_name: "Bob",
+///     },
+///     {
+///       id: 3, task_id: 1, task_title: "A", from_status: "in_progress",
+///       to_status: "review", timestamp: "2026-03-13", user_name: "Alice",
+///     },
+///   ]
+///   let result = @shared.activities_for_task(acts, 1)
+///   inspect(result.length(), content="2")
+///   inspect(result[0].to_status, content="in_progress")
+///   inspect(result[1].to_status, content="review")
+/// }
+/// ```
+pub fn activities_for_task(
+  activities : Array[Activity],
+  task_id : Int,
+) -> Array[Activity] {
+  activities.filter(fn(a) { a.task_id == task_id })
+}
+
+///|
 /// Check if a task matches an urgency filter.
 /// Values: "" (all), "overdue", "due_today", "has_deadline", "no_deadline".
 ///

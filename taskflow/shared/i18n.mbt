@@ -144,6 +144,11 @@ pub fn t(lang : Lang, key : String) -> String {
     (_, "no_dependencies") => "No dependencies"
     (Zh, "add_dependency") => "添加依赖："
     (_, "add_dependency") => "Add dependency:"
+    // Task history
+    (Zh, "history") => "历史记录"
+    (_, "history") => "History"
+    (Zh, "no_history") => "暂无历史"
+    (_, "no_history") => "No history"
     // Status
     (Zh, "loading") => "加载中..."
     (_, "loading") => "Loading..."

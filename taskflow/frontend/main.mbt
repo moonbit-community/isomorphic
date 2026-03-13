@@ -2853,6 +2853,93 @@ fn view_comments_panel(
               },
             ),
           )
+          // Task activity history section
+          let task_acts = @shared.activities_for_task(
+            model.activities, task_id,
+          )
+          items.push(
+            @html.div(
+              style=[
+                "margin-top: 16px",
+                "padding-top: 12px",
+                "border-top: 1px solid \{theme.card_border}",
+              ],
+              {
+                let hist_items : Array[@rabbita.Html] = [
+                  @html.div(
+                    style=[
+                      "font-size: 13px",
+                      "font-weight: 600",
+                      "color: \{theme.text}",
+                      "margin-bottom: 8px",
+                    ],
+                    [@html.text(@shared.t(model.lang, "history"))],
+                  ),
+                ]
+                if task_acts.length() == 0 {
+                  hist_items.push(
+                    @html.div(
+                      style=[
+                        "font-size: 12px",
+                        "color: \{theme.text_muted}",
+                        "padding: 4px 0",
+                      ],
+                      [@html.text(@shared.t(model.lang, "no_history"))],
+                    ),
+                  )
+                }
+                for act in task_acts {
+                  let to_color = @shared.status_color(act.to_status)
+                  let label = if act.from_status == "" {
+                    @shared.t(model.lang, "created")
+                  } else {
+                    @shared.t_transition(
+                      model.lang, act.from_status, act.to_status,
+                    )
+                  }
+                  hist_items.push(
+                    @html.div(
+                      style=[
+                        "display: flex",
+                        "align-items: center",
+                        "gap: 8px",
+                        "padding: 3px 0",
+                      ],
+                      [
+                        @html.span(
+                          style=[
+                            "padding: 1px 6px",
+                            "border-radius: 4px",
+                            "font-size: 10px",
+                            "color: white",
+                            "background: \{to_color}",
+                            "white-space: nowrap",
+                          ],
+                          label,
+                        ),
+                        @html.span(
+                          style=[
+                            "font-size: 11px",
+                            "color: \{theme.text_muted}",
+                            "flex: 1",
+                          ],
+                          {
+                            let name = if act.user_name != "" {
+                              act.user_name + " · "
+                            } else {
+                              ""
+                            }
+                            "\{name}\{act.timestamp}"
+                          },
+                        ),
+                      ],
+                    ),
+                  )
+                }
+                hist_items
+              },
+            ),
+          )
           items
         },
       ),
