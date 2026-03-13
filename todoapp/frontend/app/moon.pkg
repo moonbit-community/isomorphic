@@ -7,5 +7,5 @@ import {
 }
 
 options(
-  "supported-targets": "-all+js",
+  "supported-targets": "js",
 )
