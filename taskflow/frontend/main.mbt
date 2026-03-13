@@ -279,7 +279,7 @@ fn update(
       if model.auth_username == "" || model.auth_password == "" {
         return (
           @rabbita.none,
-          { ..model, auth_error: "Please fill in all fields" },
+          { ..model, auth_error: @shared.t(model.lang, "fill_all_fields") },
         )
       }
       let username = model.auth_username
@@ -292,7 +292,7 @@ fn update(
             { "error": String(msg), .. } => Err(msg)
             _ =>
               Ok(@json.from_json(json)) catch {
-                _ => Err("Invalid username or password")
+                _ => Err(@shared.t(model.lang, "invalid_credentials"))
               }
           }
         }),
@@ -305,14 +305,14 @@ fn update(
           @rabbita.none,
           {
             ..model,
-            auth_error: "Username: 3-30 alphanumeric or underscore characters",
+            auth_error: @shared.t(model.lang, "username_hint"),
           },
         )
       }
       if not(@shared.validate_password(model.auth_password)) {
         return (
           @rabbita.none,
-          { ..model, auth_error: "Password: 4-100 characters" },
+          { ..model, auth_error: @shared.t(model.lang, "password_hint") },
         )
       }
       let username = model.auth_username
@@ -325,7 +325,7 @@ fn update(
             { "error": String(msg), .. } => Err(msg)
             _ =>
               Ok(@json.from_json(json)) catch {
-                _ => Err("Registration failed")
+                _ => Err(@shared.t(model.lang, "registration_failed"))
               }
           }
         }),
@@ -855,6 +855,25 @@ fn view_auth(
                 "font-size: 13px", "padding: 0",
               ],
               switch_label,
+            ),
+          ]),
+          // Language toggle
+          @html.div(style=["text-align: center", "margin-top: 16px"], [
+            @html.button(
+              on_click=dispatch(
+                SetLang(
+                  if lang == @shared.Lang::En {
+                    @shared.Lang::Zh
+                  } else {
+                    @shared.Lang::En
+                  },
+                ),
+              ),
+              style=[
+                "background: none", "border: 1px solid #6366f1", "color: #6366f1", "cursor: pointer",
+                "font-size: 12px", "padding: 4px 12px", "border-radius: 12px",
+              ],
+              if lang == @shared.Lang::En { "中文" } else { "EN" },
             ),
           ]),
         ],
