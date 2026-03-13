@@ -226,6 +226,55 @@ test {
 }
 ```
 
+## Dependencies
+
+Tasks can depend on other tasks. Unresolved dependencies block progress:
+
+```mbt check
+///|
+test {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "Design",
+      description: "",
+      status: "done",
+      priority: "high",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "Implement",
+      description: "",
+      status: "in_progress",
+      priority: "high",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  let deps : Array[@shared.Dependency] = [{ task_id: 2, depends_on_id: 1 }]
+  inspect(@shared.get_dependencies(deps, 2), content="[1]")
+  // Design is done, so Implement has no unresolved deps
+  inspect(@shared.has_unresolved_deps(deps, tasks, 2), content="false")
+}
+```
+
+## Comments
+
+Comment text is validated (non-empty, max 500 chars):
+
+```mbt check
+///|
+test {
+  inspect(@shared.validate_comment_text("Looks good!"), content="true")
+  inspect(@shared.validate_comment_text(""), content="false")
+  inspect(@shared.max_comment_text, content="500")
+}
+```
+
 ## Member Helpers
 
 ```mbt check
