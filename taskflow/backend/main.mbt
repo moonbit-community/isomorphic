@@ -865,6 +865,48 @@ fn main raise {
       }
     }
   })
+  // ---- Export ----
+  ..get(@shared.api_export, event => {
+    println("GET \{@shared.api_export}")
+    try {
+      let tasks = get_all_tasks(conn)
+      let members = get_all_members(conn)
+      let format = match (event.req.body() : Json) {
+        { "format": String(f), .. } => f
+        _ => {
+          // Check query-string style: just default to csv
+          "csv"
+        }
+      }
+      if format == "json" {
+        println("  -> 200 JSON export (\{tasks.length()} tasks)")
+        @mocket.HttpResponse::new(
+          OK,
+          headers={
+            "Content-Type": "application/json; charset=utf-8",
+            "Content-Disposition": "attachment; filename=\"tasks.json\"",
+          },
+          raw_body=@utf8.encode(tasks.to_json().stringify()),
+        )
+      } else {
+        let csv = @shared.tasks_to_csv(tasks, members)
+        println("  -> 200 CSV export (\{tasks.length()} tasks)")
+        @mocket.HttpResponse::new(
+          OK,
+          headers={
+            "Content-Type": "text/csv; charset=utf-8",
+            "Content-Disposition": "attachment; filename=\"tasks.csv\"",
+          },
+          raw_body=@utf8.encode(csv),
+        )
+      }
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
   // ---- Members ----
   ..get(@shared.api_members, _ => {
     println("GET \{@shared.api_members}")

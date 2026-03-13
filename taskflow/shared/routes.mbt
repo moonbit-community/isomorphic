@@ -57,6 +57,10 @@ pub fn api_task_deps_remove(id : Int) -> String {
 pub let api_members : String = "/api/members"
 
 ///|
+/// `GET` — export all tasks as JSON.
+pub let api_export : String = "/api/export"
+
+///|
 /// `GET` — list all labels. `POST` — create a label.
 pub let api_labels : String = "/api/labels"
 

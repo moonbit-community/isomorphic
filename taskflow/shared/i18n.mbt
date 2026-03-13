@@ -162,6 +162,9 @@ pub fn t(lang : Lang, key : String) -> String {
     (_, "label_name") => "Label name"
     (Zh, "label_filter") => "标签："
     (_, "label_filter") => "Label:"
+    // Export
+    (Zh, "export") => "导出"
+    (_, "export") => "Export"
     // Status
     (Zh, "loading") => "加载中..."
     (_, "loading") => "Loading..."

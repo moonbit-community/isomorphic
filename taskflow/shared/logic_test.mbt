@@ -1290,6 +1290,44 @@ test "tasks_for_member empty list" {
 }
 
 ///|
+test "tasks_to_csv basic output" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1, title: "Fix bug", description: "Critical issue",
+      status: "todo", priority: "high", assignee_id: 1,
+      due_date: "2026-03-15", created_at: "2026-03-12",
+    },
+    {
+      id: 2, title: "Add, feature", description: "Has \"quotes\"",
+      status: "done", priority: "low", assignee_id: 0,
+      due_date: "", created_at: "2026-03-13",
+    },
+  ]
+  let members : Array[@shared.Member] = [
+    { id: 1, name: "Alice", color: "blue" },
+  ]
+  let csv = @shared.tasks_to_csv(tasks, members)
+  // Header
+  assert_true(csv.contains("id,title,description,status,priority,assignee,due_date,created_at"))
+  // First task with assignee
+  assert_true(csv.contains("Fix bug"))
+  assert_true(csv.contains("Alice"))
+  // Second task: title with comma should be quoted
+  assert_true(csv.contains("\"Add, feature\""))
+  // Description with quotes should be escaped (double-quoted)
+  assert_true(csv.contains("Has"))
+}
+
+///|
+test "tasks_to_csv empty tasks" {
+  let tasks : Array[@shared.Task] = []
+  let members : Array[@shared.Member] = []
+  let csv = @shared.tasks_to_csv(tasks, members)
+  // Should only have header
+  inspect(csv, content="id,title,description,status,priority,assignee,due_date,created_at")
+}
+
+///|
 test "labels_for_task returns matching labels" {
   let labels : Array[@shared.Label] = [
     { id: 1, name: "bug", color: "#ef4444" },

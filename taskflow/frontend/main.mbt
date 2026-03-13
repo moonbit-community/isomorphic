@@ -130,6 +130,8 @@ enum Msg {
   DismissError
   // Language
   SetLang(@shared.Lang)
+  // Export
+  ExportTasks
   // Labels
   AddTaskLabel(Int, Int) // task_id, label_id
   RemoveTaskLabel(Int, Int)
@@ -607,6 +609,12 @@ fn update(
       (cmd, { ..model, dependencies: deps })
     }
     DepChanged => (fetch_board(dispatch), model)
+    // ---- Export ----
+    ExportTasks => {
+      let csv = @shared.tasks_to_csv(model.tasks, model.members)
+      download_file(csv, "tasks.csv", "text/csv")
+      (@rabbita.none, model)
+    }
     // ---- Labels ----
     AddTaskLabel(task_id, label_id) => {
       let url = @shared.api_task_labels(task_id)
@@ -1143,6 +1151,15 @@ fn view_header(
             label,
           )
         },
+        // Export button
+        @html.button(
+          on_click=dispatch(ExportTasks),
+          style=[
+            "padding: 6px 10px", "border: none", "cursor: pointer", "font-size: 12px",
+            "color: white", "border-radius: 4px", "background: rgba(255,255,255,0.15)",
+          ],
+          @shared.t(model.lang, "export"),
+        ),
         if model.adding_task {
           @html.text("")
         } else {
@@ -3356,6 +3373,10 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
 /// dropped on the page. Kanban columns use data-drop-zone to accept drops
 /// via Rabbita event handlers; everywhere else the drop is silently ignored.
 extern "js" fn enable_drag_drop() = "() => { const h = e => e.preventDefault(); document.addEventListener('dragover', h); document.addEventListener('drop', h); }"
+
+///|
+/// Trigger a file download in the browser with the given content and filename.
+extern "js" fn download_file(content : String, filename : String, mime : String) = "(content, filename, mime) => { const blob = new Blob([content], { type: mime }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); }"
 
 ///|
 fn main {

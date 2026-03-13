@@ -550,3 +550,62 @@ pub fn labels_for_task(
 pub let label_colors : Array[String] = [
   "#ef4444", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#a855f7", "#ec4899",
 ]
+
+///|
+/// Escape a string for CSV: wrap in quotes and double any internal quotes.
+fn csv_escape(s : String) -> String {
+  if s.contains(",") || s.contains("\"") || s.contains("\n") {
+    "\"" + s.replace(old="\"", new="\"\"") + "\""
+  } else {
+    s
+  }
+}
+
+///|
+/// Export tasks as a CSV string.
+///
+/// # Example
+///
+/// ```mbt check
+/// test {
+///   let tasks : Array[@shared.Task] = [
+///     {
+///       id: 1, title: "Fix bug", description: "desc",
+///       status: "todo", priority: "high", assignee_id: 1,
+///       due_date: "2026-03-15", created_at: "2026-03-12",
+///     },
+///   ]
+///   let members : Array[@shared.Member] = [
+///     { id: 1, name: "Alice", color: "blue" },
+///   ]
+///   let csv = @shared.tasks_to_csv(tasks, members)
+///   assert_true(csv.contains("Fix bug"))
+///   assert_true(csv.contains("Alice"))
+/// }
+/// ```
+pub fn tasks_to_csv(
+  tasks : Array[Task],
+  members : Array[Member],
+) -> String {
+  let lines : Array[String] = [
+    "id,title,description,status,priority,assignee,due_date,created_at",
+  ]
+  for t in tasks {
+    let assignee = match find_member(members, t.assignee_id) {
+      Some(m) => m.name
+      None => ""
+    }
+    let line = [
+      t.id.to_string(),
+      csv_escape(t.title),
+      csv_escape(t.description),
+      t.status,
+      t.priority,
+      csv_escape(assignee),
+      t.due_date,
+      t.created_at,
+    ].join(",")
+    lines.push(line)
+  }
+  lines.join("\n")
+}
