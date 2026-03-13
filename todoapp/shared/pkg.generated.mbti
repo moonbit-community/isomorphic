@@ -1,0 +1,33 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/todo-list/shared"
+
+import {
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_todo(Int) -> String
+
+pub fn api_todo_toggle(Int) -> String
+
+pub let api_todos : String
+
+pub let max_todo_length : Int
+
+pub fn validate_text(String) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct Todo {
+  id : Int
+  text : String
+  done : Bool
+}
+pub impl ToJson for Todo
+pub impl @json.FromJson for Todo
+
+// Type aliases
+
+// Traits
+

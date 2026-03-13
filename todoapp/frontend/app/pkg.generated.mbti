@@ -1,0 +1,39 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/todo-list/frontend/app"
+
+import {
+  "bobzhang/todo-list/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+}
+
+// Values
+pub fn update((Msg) -> @runtime.Cmd, Msg, Model) -> (@runtime.Cmd, Model)
+
+pub fn view((Msg) -> @runtime.Cmd, Model) -> @html.Html
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  todos : Array[@shared.Todo]
+  input : String
+  loading : Bool
+}
+
+pub(all) enum Msg {
+  Init
+  GotTodos(Result[Array[@shared.Todo], String])
+  InputChanged(String)
+  AddTodo
+  TodoAdded(Result[@shared.Todo, String])
+  ToggleTodo(Int)
+  TodoToggled(Result[@shared.Todo, String])
+  DeleteTodo(Int)
+  TodoDeleted(Result[Int, String])
+}
+
+// Type aliases
+
+// Traits
+
