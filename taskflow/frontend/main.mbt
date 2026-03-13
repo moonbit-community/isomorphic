@@ -18,7 +18,11 @@ struct Model {
   subtasks : Array[@shared.Subtask]
   time_entries : Array[@shared.TimeEntry]
   recurrence_rules : Array[@shared.RecurrenceRule]
+  attachments : Array[@shared.Attachment]
   today : String
+  // Attachment input
+  new_attach_url : String
+  new_attach_label : String
   // Filters
   filter_status : String
   filter_assignee : Int
@@ -175,6 +179,13 @@ enum Msg {
   BulkChangeStatus(String) // target status
   BulkDelete
   BulkDone
+  // Attachments
+  NewAttachUrlChanged(String)
+  NewAttachLabelChanged(String)
+  AddAttachment(Int) // task_id
+  AttachmentAdded
+  DeleteAttachment(Int) // attachment_id
+  AttachmentDeleted
   // Drag-and-drop
   DragStartTask(Int)
   DragOverColumn(String)
@@ -314,6 +325,7 @@ fn update(
           subtasks: board.subtasks,
           time_entries: board.time_entries,
           recurrence_rules: board.recurrence_rules,
+          attachments: board.attachments,
           today: board.today,
           loading: false,
         },
@@ -975,6 +987,35 @@ fn update(
       (cmd, { ..model, tasks, selected_tasks: [] })
     }
     BulkDone => (fetch_board(dispatch), { ..model, selected_tasks: [] })
+    // ---- Attachments ----
+    NewAttachUrlChanged(v) => (@rabbita.none, { ..model, new_attach_url: v })
+    NewAttachLabelChanged(v) =>
+      (@rabbita.none, { ..model, new_attach_label: v })
+    AddAttachment(task_id) => {
+      if model.new_attach_url == "" {
+        return (@rabbita.none, model)
+      }
+      let url_val = model.new_attach_url
+      let label_val = model.new_attach_label
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(AttachmentAdded)
+      })
+      let cmd = @http.post(
+        @shared.api_task_attachments(task_id),
+        Json(({ "url": url_val, "label": label_val } : Json)),
+        expect~,
+      )
+      (cmd, { ..model, new_attach_url: "", new_attach_label: "" })
+    }
+    AttachmentAdded => (fetch_board(dispatch), model)
+    DeleteAttachment(att_id) => {
+      let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+        dispatch(AttachmentDeleted)
+      })
+      let cmd = @http.delete(@shared.api_attachment(att_id), expect~)
+      (cmd, model)
+    }
+    AttachmentDeleted => (fetch_board(dispatch), model)
     // ---- Drag-and-drop ----
     DragStartTask(id) =>
       (@rabbita.none, { ..model, dragging_task_id: id })
@@ -2626,6 +2667,21 @@ fn view_task_item(
                 @html.text("")
               }
             },
+            {
+              let att_count = @shared.attachment_count(model.attachments, task.id)
+              if att_count > 0 {
+                @html.span(
+                  style=[
+                    "font-size: 9px",
+                    "color: \{theme.text_muted}",
+                    "margin-top: 3px",
+                  ],
+                  "📎 \{att_count}",
+                )
+              } else {
+                @html.text("")
+              }
+            },
           ]),
           ]),
           @html.div(
@@ -4158,6 +4214,132 @@ fn view_comments_panel(
               ],
             ),
           )
+          // Attachments section
+          let task_attachments = @shared.attachments_for_task(
+            model.attachments, task_id,
+          )
+          items.push(
+            @html.div(
+              style=[
+                "margin-top: 16px",
+                "padding-top: 12px",
+                "border-top: 1px solid \{theme.card_border}",
+              ],
+              {
+                let att_items : Array[@rabbita.Html] = [
+                  @html.div(
+                    style=[
+                      "font-size: 13px",
+                      "font-weight: 600",
+                      "color: \{theme.text}",
+                      "margin-bottom: 8px",
+                    ],
+                    [@html.text(@shared.t(model.lang, "attachments"))],
+                  ),
+                ]
+                if task_attachments.is_empty() {
+                  att_items.push(
+                    @html.div(
+                      style=[
+                        "font-size: 12px",
+                        "color: \{theme.text_muted}",
+                        "padding: 4px 0",
+                      ],
+                      [@html.text(@shared.t(model.lang, "no_attachments"))],
+                    ),
+                  )
+                }
+                for a in task_attachments {
+                  let display = if a.label != "" { a.label } else { a.url }
+                  let att_id = a.id
+                  att_items.push(
+                    @html.div(
+                      style=[
+                        "display: flex", "align-items: center", "gap: 6px",
+                        "padding: 3px 0",
+                      ],
+                      [
+                        @html.span(
+                          style=["font-size: 12px"],
+                          "📎",
+                        ),
+                        @html.div(
+                          style=[
+                            "font-size: 12px",
+                            "color: #6366f1",
+                            "text-decoration: underline",
+                            "cursor: pointer",
+                            "flex: 1",
+                            "overflow: hidden",
+                            "text-overflow: ellipsis",
+                            "white-space: nowrap",
+                          ],
+                          [@html.text(display)],
+                        ),
+                        @html.button(
+                          on_click=dispatch(DeleteAttachment(att_id)),
+                          style=[
+                            "background: none", "border: none", "color: #dc2626",
+                            "cursor: pointer", "font-size: 12px", "padding: 0 2px",
+                          ],
+                          "×",
+                        ),
+                      ],
+                    ),
+                  )
+                }
+                // Add attachment form
+                att_items.push(
+                  @html.div(
+                    style=[
+                      "display: flex", "gap: 4px", "margin-top: 6px",
+                      "align-items: center",
+                    ],
+                    [
+                      @html.input(
+                        input_type=Text,
+                        on_input=fn(v) { dispatch(NewAttachUrlChanged(v)) },
+                        value=model.new_attach_url,
+                        placeholder=@shared.t(model.lang, "url_placeholder"),
+                        style=[
+                          "flex: 2", "padding: 4px 8px", "font-size: 12px",
+                          "border: 1px solid \{theme.input_border}",
+                          "border-radius: 4px",
+                          "background: \{theme.input_bg}",
+                          "color: \{theme.text}",
+                        ],
+                        "",
+                      ),
+                      @html.input(
+                        input_type=Text,
+                        on_input=fn(v) { dispatch(NewAttachLabelChanged(v)) },
+                        value=model.new_attach_label,
+                        placeholder=@shared.t(model.lang, "link_label_placeholder"),
+                        style=[
+                          "flex: 1", "padding: 4px 8px", "font-size: 12px",
+                          "border: 1px solid \{theme.input_border}",
+                          "border-radius: 4px",
+                          "background: \{theme.input_bg}",
+                          "color: \{theme.text}",
+                        ],
+                        "",
+                      ),
+                      @html.button(
+                        on_click=dispatch(AddAttachment(task_id)),
+                        style=[
+                          "padding: 4px 10px", "background: #4f46e5", "color: white",
+                          "border: none", "border-radius: 4px", "cursor: pointer",
+                          "font-size: 11px",
+                        ],
+                        @shared.t(model.lang, "add"),
+                      ),
+                    ],
+                  ),
+                )
+                att_items
+              },
+            ),
+          )
           // Task activity history section
           let task_acts = @shared.activities_for_task(
             model.activities, task_id,
@@ -4545,7 +4727,10 @@ fn main {
       subtasks: [],
       time_entries: [],
       recurrence_rules: [],
+      attachments: [],
       today: "",
+      new_attach_url: "",
+      new_attach_label: "",
       filter_status: "",
       filter_assignee: 0,
       filter_priority: "",

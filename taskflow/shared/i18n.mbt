@@ -216,6 +216,17 @@ pub fn t(lang : Lang, key : String) -> String {
     (_, "no_matches") => "No tasks match your filters"
     (Zh, "not_logged_in") => "未登录"
     (_, "not_logged_in") => "Not logged in"
+    // Attachments
+    (Zh, "attachments") => "附件"
+    (_, "attachments") => "Attachments"
+    (Zh, "no_attachments") => "暂无附件"
+    (_, "no_attachments") => "No attachments"
+    (Zh, "add_link") => "添加链接"
+    (_, "add_link") => "Add link"
+    (Zh, "url_placeholder") => "输入URL..."
+    (_, "url_placeholder") => "Enter URL..."
+    (Zh, "link_label_placeholder") => "链接名称（可选）"
+    (_, "link_label_placeholder") => "Label (optional)"
     // Notifications
     (Zh, "overdue_tasks") => "逾期任务"
     (_, "overdue_tasks") => "overdue"

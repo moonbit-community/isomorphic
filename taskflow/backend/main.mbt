@@ -140,6 +140,19 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   )
   s10.step_once()
   s10.finalize()
+  let s11 = conn.prepare(
+    (
+      #|CREATE TABLE IF NOT EXISTS attachments (
+      #|  id INTEGER PRIMARY KEY AUTOINCREMENT,
+      #|  task_id INTEGER NOT NULL,
+      #|  url BLOB NOT NULL,
+      #|  label BLOB NOT NULL DEFAULT '',
+      #|  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
+      #|)
+    ),
+  )
+  s11.step_once()
+  s11.finalize()
   // Indexes for common query patterns
   let idx_stmts = [
     "CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status)", "CREATE INDEX IF NOT EXISTS idx_tasks_assignee ON tasks(assignee_id)",
@@ -691,6 +704,59 @@ fn handle_recurrence_on_done(
 }
 
 ///|
+/// Fetch all attachments.
+fn get_all_attachments(
+  conn : @sqlite3.Connection,
+) -> Array[@shared.Attachment] raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("SELECT id, task_id, url, label FROM attachments")
+  let result : Array[@shared.Attachment] = []
+  while stmt.step() {
+    let id : Int = stmt.column(index=0)
+    let task_id : Int = stmt.column(index=1)
+    let url : String = stmt.column_blob_as_string(index=2)
+    let label : String = stmt.column_blob_as_string(index=3)
+    result.push({ id, task_id, url, label })
+  }
+  stmt.finalize()
+  result
+}
+
+///|
+/// Add an attachment to a task.
+fn create_attachment(
+  conn : @sqlite3.Connection,
+  task_id : Int,
+  url : String,
+  label : String,
+) -> @shared.Attachment raise @sqlite3.SqliteError {
+  let stmt = conn.prepare(
+    "INSERT INTO attachments (task_id, url, label) VALUES (?, ?, ?)",
+  )
+  stmt.bind(index=1, val=task_id)
+  stmt.bind_string_as_blob(index=2, val=url)
+  stmt.bind_string_as_blob(index=3, val=label)
+  stmt.step_once()
+  stmt.finalize()
+  let id_stmt = conn.prepare("SELECT last_insert_rowid()")
+  guard id_stmt.step()
+  let id : Int = id_stmt.column(index=0)
+  id_stmt.finalize()
+  { id, task_id, url, label }
+}
+
+///|
+/// Delete an attachment.
+fn delete_attachment(
+  conn : @sqlite3.Connection,
+  id : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let stmt = conn.prepare("DELETE FROM attachments WHERE id = ?")
+  stmt.bind(index=1, val=id)
+  stmt.step_once()
+  stmt.finalize()
+}
+
+///|
 /// Fetch all time entries.
 fn get_all_time_entries(
   conn : @sqlite3.Connection,
@@ -762,8 +828,9 @@ fn get_board(
   let subtasks = get_all_subtasks(conn)
   let time_entries = get_all_time_entries(conn)
   let recurrence_rules = get_all_recurrence_rules(conn)
+  let attachments = get_all_attachments(conn)
   let today = get_today(conn)
-  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, recurrence_rules, today }
+  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, recurrence_rules, attachments, today }
 }
 
 ///|
@@ -1728,6 +1795,52 @@ fn main raise {
       }
     } catch {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+    }
+  })
+  // ---- Attachments ----
+  ..post("/api/tasks/:id/attachments", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("POST /api/tasks/\{id_str}/attachments")
+    try {
+      if not(require_editor(conn, event.req)) {
+        return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot add attachments")
+      }
+      let task_id = @strconv.parse_int(id_str)
+      let json : Json = event.req.body()
+      let url = match json {
+        { "url": String(u), .. } => u
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing url")
+      }
+      let label = match json {
+        { "label": String(l), .. } => l
+        _ => ""
+      }
+      let att = create_attachment(conn, task_id, url, label)
+      println("  -> 201 attachment \{att.id}")
+      @mocket.HttpResponse::new(Created).json(att.to_json())
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
+    }
+  })
+  ..delete("/api/attachments/:id", fn(event) noraise {
+    let id_str = event.params.get("id").unwrap().to_string()
+    println("DELETE /api/attachments/\{id_str}")
+    try {
+      if not(require_editor(conn, event.req)) {
+        return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot delete attachments")
+      }
+      let id = @strconv.parse_int(id_str)
+      delete_attachment(conn, id)
+      println("  -> 204 deleted attachment \{id}")
+      @mocket.HttpResponse::new(NoContent)
+    } catch {
+      e => {
+        println("  -> 500 \{e}")
+        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      }
     }
   })
   // ---- Role management (admin only) ----

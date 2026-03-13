@@ -113,6 +113,18 @@ pub fn api_task_recurrence(id : Int) -> String {
 }
 
 ///|
+/// `POST` — add attachment to a task. `GET` — list attachments.
+pub fn api_task_attachments(id : Int) -> String {
+  "/api/tasks/\{id}/attachments"
+}
+
+///|
+/// `DELETE` — remove an attachment.
+pub fn api_attachment(id : Int) -> String {
+  "/api/attachments/\{id}"
+}
+
+///|
 /// `POST` — change a user's role (admin only).
 pub fn api_user_role(id : Int) -> String {
   "/api/users/\{id}/role"

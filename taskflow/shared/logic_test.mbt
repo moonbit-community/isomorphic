@@ -1465,6 +1465,20 @@ test "subtask_progress counts done vs total" {
 }
 
 ///|
+test "attachments_for_task filters by task_id" {
+  let atts : Array[@shared.Attachment] = [
+    { id: 1, task_id: 10, url: "https://example.com", label: "Docs" },
+    { id: 2, task_id: 20, url: "https://other.com", label: "" },
+    { id: 3, task_id: 10, url: "https://design.com", label: "Design" },
+  ]
+  let result = @shared.attachments_for_task(atts, 10)
+  inspect(result.length(), content="2")
+  inspect(result[0].label, content="Docs")
+  inspect(@shared.attachment_count(atts, 10), content="2")
+  inspect(@shared.attachment_count(atts, 99), content="0")
+}
+
+///|
 test "count_overdue counts incomplete overdue tasks" {
   let tasks : Array[@shared.Task] = [
     { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },

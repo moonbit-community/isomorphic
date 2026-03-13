@@ -108,6 +108,15 @@ pub(all) struct TimeEntry {
 } derive(ToJson, FromJson, Show, Eq)
 
 ///|
+/// A URL-based attachment on a task.
+pub(all) struct Attachment {
+  id : Int
+  task_id : Int
+  url : String
+  label : String
+} derive(ToJson, FromJson, Show, Eq)
+
+///|
 /// Full board state returned by `GET /api/board`.
 pub(all) struct Board {
   tasks : Array[Task]
@@ -119,5 +128,6 @@ pub(all) struct Board {
   subtasks : Array[Subtask]
   time_entries : Array[TimeEntry]
   recurrence_rules : Array[RecurrenceRule]
+  attachments : Array[Attachment]
   today : String
 } derive(ToJson, FromJson, Show, Eq)

@@ -735,6 +735,30 @@ pub fn total_time(entries : Array[TimeEntry], task_id : Int) -> Int {
 }
 
 ///|
+/// Get attachments for a specific task.
+pub fn attachments_for_task(
+  attachments : Array[Attachment],
+  task_id : Int,
+) -> Array[Attachment] {
+  attachments.filter(fn(a) { a.task_id == task_id })
+}
+
+///|
+/// Count attachments for a task.
+pub fn attachment_count(
+  attachments : Array[Attachment],
+  task_id : Int,
+) -> Int {
+  let mut count = 0
+  for a in attachments {
+    if a.task_id == task_id {
+      count += 1
+    }
+  }
+  count
+}
+
+///|
 /// Format minutes as "Xh Ym" or just "Ym" if under an hour.
 ///
 /// # Example

@@ -512,6 +512,14 @@ function _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared14Recurren
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleERPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0TPB9ArrayViewGsE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -938,6 +946,16 @@ function _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10Dependen
   this._0 = param0;
 }
 _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4Some.prototype.$tag = 1;
+function _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE(param0) {
+  this.val = param0;
+}
+function _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4None() {}
+_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4None__ = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4None();
+function _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4Some(param0) {
+  this._0 = param0;
+}
+_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4Some.prototype.$tag = 1;
 function _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(param0) {
   this.val = param0;
 }
@@ -956,7 +974,7 @@ function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15Jso
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
-function _M0TP38bobzhang8taskflow6shared5Board(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9) {
+function _M0TP38bobzhang8taskflow6shared5Board(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10) {
   this.tasks = param0;
   this.members = param1;
   this.activities = param2;
@@ -966,7 +984,8 @@ function _M0TP38bobzhang8taskflow6shared5Board(param0, param1, param2, param3, p
   this.subtasks = param6;
   this.time_entries = param7;
   this.recurrence_rules = param8;
-  this.today = param9;
+  this.attachments = param9;
+  this.today = param10;
 }
 function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(param0) {
   this._0 = param0;
@@ -1012,6 +1031,20 @@ function _M0TP38bobzhang8taskflow6shared4User(param0, param1, param2, param3) {
   this.username = param1;
   this.color = param2;
   this.role = param3;
+}
+function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0TP38bobzhang8taskflow6shared10Attachment(param0, param1, param2, param3) {
+  this.id = param0;
+  this.task_id = param1;
+  this.url = param2;
+  this.label = param3;
 }
 function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(param0) {
   this._0 = param0;
@@ -1712,29 +1745,51 @@ const _M0DTP38bobzhang8taskflow8frontend3Msg10BulkDelete__ = new _M0DTP38bobzhan
 function _M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone() {}
 _M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone.prototype.$tag = 82;
 const _M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone__ = new _M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone();
+function _M0DTP38bobzhang8taskflow8frontend3Msg19NewAttachUrlChanged(param0) {
+  this._0 = param0;
+}
+_M0DTP38bobzhang8taskflow8frontend3Msg19NewAttachUrlChanged.prototype.$tag = 83;
+function _M0DTP38bobzhang8taskflow8frontend3Msg21NewAttachLabelChanged(param0) {
+  this._0 = param0;
+}
+_M0DTP38bobzhang8taskflow8frontend3Msg21NewAttachLabelChanged.prototype.$tag = 84;
+function _M0DTP38bobzhang8taskflow8frontend3Msg13AddAttachment(param0) {
+  this._0 = param0;
+}
+_M0DTP38bobzhang8taskflow8frontend3Msg13AddAttachment.prototype.$tag = 85;
+function _M0DTP38bobzhang8taskflow8frontend3Msg15AttachmentAdded() {}
+_M0DTP38bobzhang8taskflow8frontend3Msg15AttachmentAdded.prototype.$tag = 86;
+const _M0DTP38bobzhang8taskflow8frontend3Msg15AttachmentAdded__ = new _M0DTP38bobzhang8taskflow8frontend3Msg15AttachmentAdded();
+function _M0DTP38bobzhang8taskflow8frontend3Msg16DeleteAttachment(param0) {
+  this._0 = param0;
+}
+_M0DTP38bobzhang8taskflow8frontend3Msg16DeleteAttachment.prototype.$tag = 87;
+function _M0DTP38bobzhang8taskflow8frontend3Msg17AttachmentDeleted() {}
+_M0DTP38bobzhang8taskflow8frontend3Msg17AttachmentDeleted.prototype.$tag = 88;
+const _M0DTP38bobzhang8taskflow8frontend3Msg17AttachmentDeleted__ = new _M0DTP38bobzhang8taskflow8frontend3Msg17AttachmentDeleted();
 function _M0DTP38bobzhang8taskflow8frontend3Msg13DragStartTask(param0) {
   this._0 = param0;
 }
-_M0DTP38bobzhang8taskflow8frontend3Msg13DragStartTask.prototype.$tag = 83;
+_M0DTP38bobzhang8taskflow8frontend3Msg13DragStartTask.prototype.$tag = 89;
 function _M0DTP38bobzhang8taskflow8frontend3Msg14DragOverColumn(param0) {
   this._0 = param0;
 }
-_M0DTP38bobzhang8taskflow8frontend3Msg14DragOverColumn.prototype.$tag = 84;
+_M0DTP38bobzhang8taskflow8frontend3Msg14DragOverColumn.prototype.$tag = 90;
 function _M0DTP38bobzhang8taskflow8frontend3Msg12DropOnColumn(param0) {
   this._0 = param0;
 }
-_M0DTP38bobzhang8taskflow8frontend3Msg12DropOnColumn.prototype.$tag = 85;
+_M0DTP38bobzhang8taskflow8frontend3Msg12DropOnColumn.prototype.$tag = 91;
 function _M0DTP38bobzhang8taskflow8frontend3Msg7DragEnd() {}
-_M0DTP38bobzhang8taskflow8frontend3Msg7DragEnd.prototype.$tag = 86;
+_M0DTP38bobzhang8taskflow8frontend3Msg7DragEnd.prototype.$tag = 92;
 const _M0DTP38bobzhang8taskflow8frontend3Msg7DragEnd__ = new _M0DTP38bobzhang8taskflow8frontend3Msg7DragEnd();
 function _M0DTP38bobzhang8taskflow8frontend3Msg4Undo() {}
-_M0DTP38bobzhang8taskflow8frontend3Msg4Undo.prototype.$tag = 87;
+_M0DTP38bobzhang8taskflow8frontend3Msg4Undo.prototype.$tag = 93;
 const _M0DTP38bobzhang8taskflow8frontend3Msg4Undo__ = new _M0DTP38bobzhang8taskflow8frontend3Msg4Undo();
 function _M0DTP38bobzhang8taskflow8frontend3Msg11DismissUndo() {}
-_M0DTP38bobzhang8taskflow8frontend3Msg11DismissUndo.prototype.$tag = 88;
+_M0DTP38bobzhang8taskflow8frontend3Msg11DismissUndo.prototype.$tag = 94;
 const _M0DTP38bobzhang8taskflow8frontend3Msg11DismissUndo__ = new _M0DTP38bobzhang8taskflow8frontend3Msg11DismissUndo();
 function _M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete() {}
-_M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete.prototype.$tag = 89;
+_M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete.prototype.$tag = 95;
 const _M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete__ = new _M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete();
 function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UsersE3Err(param0) {
   this._0 = param0;
@@ -1763,7 +1818,7 @@ function _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardsE2Ok(param0) 
 _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardsE2Ok.prototype.$tag = 1;
 const _M0FP38bobzhang8taskflow8frontend14download__file = (content, filename, mime) => { const blob = new Blob([content], { type: mime }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); };
 const _M0FP38bobzhang8taskflow8frontend10save__pref = (k, v) => { try { localStorage.setItem(k, v); } catch(e) {} };
-function _M0TP38bobzhang8taskflow8frontend5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21, param22, param23, param24, param25, param26, param27, param28, param29, param30, param31, param32, param33, param34, param35, param36, param37, param38, param39, param40, param41, param42, param43, param44, param45, param46, param47, param48, param49, param50, param51, param52, param53) {
+function _M0TP38bobzhang8taskflow8frontend5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21, param22, param23, param24, param25, param26, param27, param28, param29, param30, param31, param32, param33, param34, param35, param36, param37, param38, param39, param40, param41, param42, param43, param44, param45, param46, param47, param48, param49, param50, param51, param52, param53, param54, param55, param56) {
   this.current_user = param0;
   this.auth_screen = param1;
   this.auth_username = param2;
@@ -1779,45 +1834,48 @@ function _M0TP38bobzhang8taskflow8frontend5Model(param0, param1, param2, param3,
   this.subtasks = param12;
   this.time_entries = param13;
   this.recurrence_rules = param14;
-  this.today = param15;
-  this.filter_status = param16;
-  this.filter_assignee = param17;
-  this.filter_priority = param18;
-  this.search_query = param19;
-  this.filter_urgency = param20;
-  this.filter_label = param21;
-  this.view_mode = param22;
-  this.sort_by = param23;
-  this.sort_asc = param24;
-  this.dark_mode = param25;
-  this.adding_task = param26;
-  this.new_title = param27;
-  this.new_desc = param28;
-  this.new_priority = param29;
-  this.new_assignee = param30;
-  this.new_due_date = param31;
-  this.editing_task = param32;
-  this.edit_title = param33;
-  this.edit_desc = param34;
-  this.edit_priority = param35;
-  this.edit_assignee = param36;
-  this.edit_due_date = param37;
-  this.viewing_comments = param38;
-  this.comments = param39;
-  this.new_comment = param40;
-  this.new_subtask = param41;
-  this.new_time_minutes = param42;
-  this.new_time_note = param43;
-  this.confirm_delete = param44;
-  this.error_msg = param45;
-  this.loading = param46;
-  this.lang = param47;
-  this.selected_tasks = param48;
-  this.dragging_task_id = param49;
-  this.drag_over_status = param50;
-  this.undo_msg = param51;
-  this.undo_task_id = param52;
-  this.undo_old_status = param53;
+  this.attachments = param15;
+  this.today = param16;
+  this.new_attach_url = param17;
+  this.new_attach_label = param18;
+  this.filter_status = param19;
+  this.filter_assignee = param20;
+  this.filter_priority = param21;
+  this.search_query = param22;
+  this.filter_urgency = param23;
+  this.filter_label = param24;
+  this.view_mode = param25;
+  this.sort_by = param26;
+  this.sort_asc = param27;
+  this.dark_mode = param28;
+  this.adding_task = param29;
+  this.new_title = param30;
+  this.new_desc = param31;
+  this.new_priority = param32;
+  this.new_assignee = param33;
+  this.new_due_date = param34;
+  this.editing_task = param35;
+  this.edit_title = param36;
+  this.edit_desc = param37;
+  this.edit_priority = param38;
+  this.edit_assignee = param39;
+  this.edit_due_date = param40;
+  this.viewing_comments = param41;
+  this.comments = param42;
+  this.new_comment = param43;
+  this.new_subtask = param44;
+  this.new_time_minutes = param45;
+  this.new_time_note = param46;
+  this.confirm_delete = param47;
+  this.error_msg = param48;
+  this.loading = param49;
+  this.lang = param50;
+  this.selected_tasks = param51;
+  this.dragging_task_id = param52;
+  this.drag_over_status = param53;
+  this.undo_msg = param54;
+  this.undo_task_id = param55;
+  this.undo_old_status = param56;
 }
 function _M0TPB9ArrayViewGUsRPB4JsonEE(param0, param1, param2) {
   this.buf = param0;
@@ -1921,68 +1979,68 @@ const _M0FPC17strconv17parse__scientificN8exp__numS241 = $0L;
 const _M0FPC17strconv13parse__numberN11exp__numberS222 = $0L;
 const _M0FPC17strconv12double__info = new _M0TPC17strconv9FloatInfo(52, 11, -1023);
 const _M0FPC17strconv6powtab = [1, 3, 6, 9, 13, 16, 19, 23, 26, 29, 33, 36, 39, 43, 46, 49, 53, 56, 59];
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2350 = { _0: 0, _1: "" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2351 = { _0: 1, _1: "5" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2352 = { _0: 1, _1: "25" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2353 = { _0: 1, _1: "125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2354 = { _0: 2, _1: "625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2355 = { _0: 2, _1: "3125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2356 = { _0: 2, _1: "15625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2357 = { _0: 3, _1: "78125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2358 = { _0: 3, _1: "390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2359 = { _0: 3, _1: "1953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2360 = { _0: 4, _1: "9765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2361 = { _0: 4, _1: "48828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2362 = { _0: 4, _1: "244140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2363 = { _0: 4, _1: "1220703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2364 = { _0: 5, _1: "6103515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2365 = { _0: 5, _1: "30517578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2366 = { _0: 5, _1: "152587890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2367 = { _0: 6, _1: "762939453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2368 = { _0: 6, _1: "3814697265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2369 = { _0: 6, _1: "19073486328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2370 = { _0: 7, _1: "95367431640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2371 = { _0: 7, _1: "476837158203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2372 = { _0: 7, _1: "2384185791015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2373 = { _0: 7, _1: "11920928955078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2374 = { _0: 8, _1: "59604644775390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2375 = { _0: 8, _1: "298023223876953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2376 = { _0: 8, _1: "1490116119384765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2377 = { _0: 9, _1: "7450580596923828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2378 = { _0: 9, _1: "37252902984619140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2379 = { _0: 9, _1: "186264514923095703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2380 = { _0: 10, _1: "931322574615478515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2381 = { _0: 10, _1: "4656612873077392578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2382 = { _0: 10, _1: "23283064365386962890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2383 = { _0: 10, _1: "116415321826934814453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2384 = { _0: 11, _1: "582076609134674072265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2385 = { _0: 11, _1: "2910383045673370361328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2386 = { _0: 11, _1: "14551915228366851806640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2387 = { _0: 12, _1: "72759576141834259033203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2388 = { _0: 12, _1: "363797880709171295166015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2389 = { _0: 12, _1: "1818989403545856475830078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2390 = { _0: 13, _1: "9094947017729282379150390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2391 = { _0: 13, _1: "45474735088646411895751953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2392 = { _0: 13, _1: "227373675443232059478759765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2393 = { _0: 13, _1: "1136868377216160297393798828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2394 = { _0: 14, _1: "5684341886080801486968994140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2395 = { _0: 14, _1: "28421709430404007434844970703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2396 = { _0: 14, _1: "142108547152020037174224853515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2397 = { _0: 15, _1: "710542735760100185871124267578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2398 = { _0: 15, _1: "3552713678800500929355621337890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2399 = { _0: 15, _1: "17763568394002504646778106689453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2400 = { _0: 16, _1: "88817841970012523233890533447265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2401 = { _0: 16, _1: "444089209850062616169452667236328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2402 = { _0: 16, _1: "2220446049250313080847263336181640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2403 = { _0: 16, _1: "11102230246251565404236316680908203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2404 = { _0: 17, _1: "55511151231257827021181583404541015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2405 = { _0: 17, _1: "277555756156289135105907917022705078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2406 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2407 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2408 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2409 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2410 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
-const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f2350, _M0FPC17strconv34left__shift__cheats_2etuple_2f2351, _M0FPC17strconv34left__shift__cheats_2etuple_2f2352, _M0FPC17strconv34left__shift__cheats_2etuple_2f2353, _M0FPC17strconv34left__shift__cheats_2etuple_2f2354, _M0FPC17strconv34left__shift__cheats_2etuple_2f2355, _M0FPC17strconv34left__shift__cheats_2etuple_2f2356, _M0FPC17strconv34left__shift__cheats_2etuple_2f2357, _M0FPC17strconv34left__shift__cheats_2etuple_2f2358, _M0FPC17strconv34left__shift__cheats_2etuple_2f2359, _M0FPC17strconv34left__shift__cheats_2etuple_2f2360, _M0FPC17strconv34left__shift__cheats_2etuple_2f2361, _M0FPC17strconv34left__shift__cheats_2etuple_2f2362, _M0FPC17strconv34left__shift__cheats_2etuple_2f2363, _M0FPC17strconv34left__shift__cheats_2etuple_2f2364, _M0FPC17strconv34left__shift__cheats_2etuple_2f2365, _M0FPC17strconv34left__shift__cheats_2etuple_2f2366, _M0FPC17strconv34left__shift__cheats_2etuple_2f2367, _M0FPC17strconv34left__shift__cheats_2etuple_2f2368, _M0FPC17strconv34left__shift__cheats_2etuple_2f2369, _M0FPC17strconv34left__shift__cheats_2etuple_2f2370, _M0FPC17strconv34left__shift__cheats_2etuple_2f2371, _M0FPC17strconv34left__shift__cheats_2etuple_2f2372, _M0FPC17strconv34left__shift__cheats_2etuple_2f2373, _M0FPC17strconv34left__shift__cheats_2etuple_2f2374, _M0FPC17strconv34left__shift__cheats_2etuple_2f2375, _M0FPC17strconv34left__shift__cheats_2etuple_2f2376, _M0FPC17strconv34left__shift__cheats_2etuple_2f2377, _M0FPC17strconv34left__shift__cheats_2etuple_2f2378, _M0FPC17strconv34left__shift__cheats_2etuple_2f2379, _M0FPC17strconv34left__shift__cheats_2etuple_2f2380, _M0FPC17strconv34left__shift__cheats_2etuple_2f2381, _M0FPC17strconv34left__shift__cheats_2etuple_2f2382, _M0FPC17strconv34left__shift__cheats_2etuple_2f2383, _M0FPC17strconv34left__shift__cheats_2etuple_2f2384, _M0FPC17strconv34left__shift__cheats_2etuple_2f2385, _M0FPC17strconv34left__shift__cheats_2etuple_2f2386, _M0FPC17strconv34left__shift__cheats_2etuple_2f2387, _M0FPC17strconv34left__shift__cheats_2etuple_2f2388, _M0FPC17strconv34left__shift__cheats_2etuple_2f2389, _M0FPC17strconv34left__shift__cheats_2etuple_2f2390, _M0FPC17strconv34left__shift__cheats_2etuple_2f2391, _M0FPC17strconv34left__shift__cheats_2etuple_2f2392, _M0FPC17strconv34left__shift__cheats_2etuple_2f2393, _M0FPC17strconv34left__shift__cheats_2etuple_2f2394, _M0FPC17strconv34left__shift__cheats_2etuple_2f2395, _M0FPC17strconv34left__shift__cheats_2etuple_2f2396, _M0FPC17strconv34left__shift__cheats_2etuple_2f2397, _M0FPC17strconv34left__shift__cheats_2etuple_2f2398, _M0FPC17strconv34left__shift__cheats_2etuple_2f2399, _M0FPC17strconv34left__shift__cheats_2etuple_2f2400, _M0FPC17strconv34left__shift__cheats_2etuple_2f2401, _M0FPC17strconv34left__shift__cheats_2etuple_2f2402, _M0FPC17strconv34left__shift__cheats_2etuple_2f2403, _M0FPC17strconv34left__shift__cheats_2etuple_2f2404, _M0FPC17strconv34left__shift__cheats_2etuple_2f2405, _M0FPC17strconv34left__shift__cheats_2etuple_2f2406, _M0FPC17strconv34left__shift__cheats_2etuple_2f2407, _M0FPC17strconv34left__shift__cheats_2etuple_2f2408, _M0FPC17strconv34left__shift__cheats_2etuple_2f2409, _M0FPC17strconv34left__shift__cheats_2etuple_2f2410];
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2372 = { _0: 0, _1: "" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2373 = { _0: 1, _1: "5" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2374 = { _0: 1, _1: "25" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2375 = { _0: 1, _1: "125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2376 = { _0: 2, _1: "625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2377 = { _0: 2, _1: "3125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2378 = { _0: 2, _1: "15625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2379 = { _0: 3, _1: "78125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2380 = { _0: 3, _1: "390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2381 = { _0: 3, _1: "1953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2382 = { _0: 4, _1: "9765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2383 = { _0: 4, _1: "48828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2384 = { _0: 4, _1: "244140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2385 = { _0: 4, _1: "1220703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2386 = { _0: 5, _1: "6103515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2387 = { _0: 5, _1: "30517578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2388 = { _0: 5, _1: "152587890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2389 = { _0: 6, _1: "762939453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2390 = { _0: 6, _1: "3814697265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2391 = { _0: 6, _1: "19073486328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2392 = { _0: 7, _1: "95367431640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2393 = { _0: 7, _1: "476837158203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2394 = { _0: 7, _1: "2384185791015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2395 = { _0: 7, _1: "11920928955078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2396 = { _0: 8, _1: "59604644775390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2397 = { _0: 8, _1: "298023223876953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2398 = { _0: 8, _1: "1490116119384765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2399 = { _0: 9, _1: "7450580596923828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2400 = { _0: 9, _1: "37252902984619140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2401 = { _0: 9, _1: "186264514923095703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2402 = { _0: 10, _1: "931322574615478515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2403 = { _0: 10, _1: "4656612873077392578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2404 = { _0: 10, _1: "23283064365386962890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2405 = { _0: 10, _1: "116415321826934814453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2406 = { _0: 11, _1: "582076609134674072265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2407 = { _0: 11, _1: "2910383045673370361328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2408 = { _0: 11, _1: "14551915228366851806640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2409 = { _0: 12, _1: "72759576141834259033203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2410 = { _0: 12, _1: "363797880709171295166015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2411 = { _0: 12, _1: "1818989403545856475830078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2412 = { _0: 13, _1: "9094947017729282379150390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2413 = { _0: 13, _1: "45474735088646411895751953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2414 = { _0: 13, _1: "227373675443232059478759765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2415 = { _0: 13, _1: "1136868377216160297393798828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2416 = { _0: 14, _1: "5684341886080801486968994140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2417 = { _0: 14, _1: "28421709430404007434844970703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2418 = { _0: 14, _1: "142108547152020037174224853515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2419 = { _0: 15, _1: "710542735760100185871124267578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2420 = { _0: 15, _1: "3552713678800500929355621337890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2421 = { _0: 15, _1: "17763568394002504646778106689453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2422 = { _0: 16, _1: "88817841970012523233890533447265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2423 = { _0: 16, _1: "444089209850062616169452667236328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2424 = { _0: 16, _1: "2220446049250313080847263336181640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2425 = { _0: 16, _1: "11102230246251565404236316680908203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2426 = { _0: 17, _1: "55511151231257827021181583404541015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2427 = { _0: 17, _1: "277555756156289135105907917022705078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2428 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2429 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2430 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2431 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2432 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
+const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f2372, _M0FPC17strconv34left__shift__cheats_2etuple_2f2373, _M0FPC17strconv34left__shift__cheats_2etuple_2f2374, _M0FPC17strconv34left__shift__cheats_2etuple_2f2375, _M0FPC17strconv34left__shift__cheats_2etuple_2f2376, _M0FPC17strconv34left__shift__cheats_2etuple_2f2377, _M0FPC17strconv34left__shift__cheats_2etuple_2f2378, _M0FPC17strconv34left__shift__cheats_2etuple_2f2379, _M0FPC17strconv34left__shift__cheats_2etuple_2f2380, _M0FPC17strconv34left__shift__cheats_2etuple_2f2381, _M0FPC17strconv34left__shift__cheats_2etuple_2f2382, _M0FPC17strconv34left__shift__cheats_2etuple_2f2383, _M0FPC17strconv34left__shift__cheats_2etuple_2f2384, _M0FPC17strconv34left__shift__cheats_2etuple_2f2385, _M0FPC17strconv34left__shift__cheats_2etuple_2f2386, _M0FPC17strconv34left__shift__cheats_2etuple_2f2387, _M0FPC17strconv34left__shift__cheats_2etuple_2f2388, _M0FPC17strconv34left__shift__cheats_2etuple_2f2389, _M0FPC17strconv34left__shift__cheats_2etuple_2f2390, _M0FPC17strconv34left__shift__cheats_2etuple_2f2391, _M0FPC17strconv34left__shift__cheats_2etuple_2f2392, _M0FPC17strconv34left__shift__cheats_2etuple_2f2393, _M0FPC17strconv34left__shift__cheats_2etuple_2f2394, _M0FPC17strconv34left__shift__cheats_2etuple_2f2395, _M0FPC17strconv34left__shift__cheats_2etuple_2f2396, _M0FPC17strconv34left__shift__cheats_2etuple_2f2397, _M0FPC17strconv34left__shift__cheats_2etuple_2f2398, _M0FPC17strconv34left__shift__cheats_2etuple_2f2399, _M0FPC17strconv34left__shift__cheats_2etuple_2f2400, _M0FPC17strconv34left__shift__cheats_2etuple_2f2401, _M0FPC17strconv34left__shift__cheats_2etuple_2f2402, _M0FPC17strconv34left__shift__cheats_2etuple_2f2403, _M0FPC17strconv34left__shift__cheats_2etuple_2f2404, _M0FPC17strconv34left__shift__cheats_2etuple_2f2405, _M0FPC17strconv34left__shift__cheats_2etuple_2f2406, _M0FPC17strconv34left__shift__cheats_2etuple_2f2407, _M0FPC17strconv34left__shift__cheats_2etuple_2f2408, _M0FPC17strconv34left__shift__cheats_2etuple_2f2409, _M0FPC17strconv34left__shift__cheats_2etuple_2f2410, _M0FPC17strconv34left__shift__cheats_2etuple_2f2411, _M0FPC17strconv34left__shift__cheats_2etuple_2f2412, _M0FPC17strconv34left__shift__cheats_2etuple_2f2413, _M0FPC17strconv34left__shift__cheats_2etuple_2f2414, _M0FPC17strconv34left__shift__cheats_2etuple_2f2415, _M0FPC17strconv34left__shift__cheats_2etuple_2f2416, _M0FPC17strconv34left__shift__cheats_2etuple_2f2417, _M0FPC17strconv34left__shift__cheats_2etuple_2f2418, _M0FPC17strconv34left__shift__cheats_2etuple_2f2419, _M0FPC17strconv34left__shift__cheats_2etuple_2f2420, _M0FPC17strconv34left__shift__cheats_2etuple_2f2421, _M0FPC17strconv34left__shift__cheats_2etuple_2f2422, _M0FPC17strconv34left__shift__cheats_2etuple_2f2423, _M0FPC17strconv34left__shift__cheats_2etuple_2f2424, _M0FPC17strconv34left__shift__cheats_2etuple_2f2425, _M0FPC17strconv34left__shift__cheats_2etuple_2f2426, _M0FPC17strconv34left__shift__cheats_2etuple_2f2427, _M0FPC17strconv34left__shift__cheats_2etuple_2f2428, _M0FPC17strconv34left__shift__cheats_2etuple_2f2429, _M0FPC17strconv34left__shift__cheats_2etuple_2f2430, _M0FPC17strconv34left__shift__cheats_2etuple_2f2431, _M0FPC17strconv34left__shift__cheats_2etuple_2f2432];
 const _M0FPC17strconv10int__pow10 = [$1L, $10L, $100L, $1000L, $10000L, $100000L, $1000000L, $10000000L, $100000000L, $1000000000L, $10000000000L, $100000000000L, $1000000000000L, $10000000000000L, $100000000000000L, $1000000000000000L];
 const _M0FPC17strconv25max__exponent__fast__path = $22L;
 const _M0FPC17strconv5table = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1e+12, 1e+13, 1e+14, 1e+15, 1e+16, 1e+17, 1e+18, 1e+19, 1e+20, 1e+21, 1e+22, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2015,7 +2073,7 @@ const _M0FPC16double13neg__infinity = _M0MPC15int645Int6423reinterpret__as__doub
 const _M0FPC16double14not__a__number = _M0MPC15int645Int6423reinterpret__as__double($9221120237041090561L);
 const _M0FPC16double8infinity = _M0MPC15int645Int6423reinterpret__as__double($9218868437227405312L);
 const _M0FPC17strconv25max__mantissa__fast__path = _M0IPC16uint646UInt64PB3Shl3shl($2L, 52);
-const _M0FPC17strconv28checked__mul_2econstr_2f2830 = $0L;
+const _M0FPC17strconv28checked__mul_2econstr_2f2852 = $0L;
 const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FP319moonbit_2dcommunity7rabbita3cmd4none = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none;
 function _M0FPC15abort5abortGuE(msg) {
@@ -6264,7 +6322,7 @@ function _M0FPB23fixed__bubble__sort__byGRP38bobzhang8taskflow6shared4TaskE(arr,
     }
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__2_2f2054(_env, a, b) {
+function _M0FPB41fixed__choose__pivot__by_2esort__2_2f2059(_env, a, b) {
   const swaps = _env._2;
   const arr = _env._1;
   const cmp = _env._0;
@@ -6276,10 +6334,10 @@ function _M0FPB41fixed__choose__pivot__by_2esort__2_2f2054(_env, a, b) {
     return;
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__3_2f2055(_env, a, b, c) {
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f2054(_env, a, b);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f2054(_env, b, c);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f2054(_env, a, b);
+function _M0FPB41fixed__choose__pivot__by_2esort__3_2f2060(_env, a, b, c) {
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f2059(_env, a, b);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f2059(_env, b, c);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f2059(_env, a, b);
 }
 function _M0FPB24fixed__choose__pivot__byGRP38bobzhang8taskflow6shared4TaskE(arr, cmp) {
   const len = _M0MPC15array12MutArrayView6lengthGRP38bobzhang8taskflow6shared4TaskE(arr);
@@ -6299,11 +6357,11 @@ function _M0FPB24fixed__choose__pivot__byGRP38bobzhang8taskflow6shared4TaskE(arr
     const c = Math.imul(len / 4 | 0, 3) | 0;
     const _env = { _0: cmp, _1: arr, _2: swaps };
     if (len > 50) {
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f2055(_env, a - 1 | 0, a, a + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f2055(_env, b - 1 | 0, b, b + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f2055(_env, c - 1 | 0, c, c + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f2060(_env, a - 1 | 0, a, a + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f2060(_env, b - 1 | 0, b, b + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f2060(_env, c - 1 | 0, c, c + 1 | 0);
     }
-    _M0FPB41fixed__choose__pivot__by_2esort__3_2f2055(_env, a, b, c);
+    _M0FPB41fixed__choose__pivot__by_2esort__3_2f2060(_env, a, b, c);
   }
   if (swaps.val === 12) {
     _M0MPC15array12MutArrayView14rev__in__placeGRP38bobzhang8taskflow6shared4TaskE(arr);
@@ -6809,6 +6867,34 @@ function _M0MPC15array5Array4mapiGRPB4JsonRP38bobzhang8taskflow6shared14Recurren
   }
   return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleERPC14json15JsonDecodeErrorE2Ok(arr);
 }
+function _M0MPC15array5Array4mapiGRPB4JsonRP38bobzhang8taskflow6shared10AttachmentEHRPC14json15JsonDecodeError(self, f) {
+  if (self.length === 0) {
+    return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE2Ok([]);
+  }
+  const arr = new Array(self.length);
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const v = self[i];
+      const _bind$2 = f(i, v);
+      let _tmp$2;
+      if (_bind$2.$tag === 1) {
+        const _ok = _bind$2;
+        _tmp$2 = _ok._0;
+      } else {
+        return _bind$2;
+      }
+      arr[i] = _tmp$2;
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE2Ok(arr);
+}
 function _M0MPC15array5Array6filterGiE(self, f) {
   const arr = [];
   const _bind = self.length;
@@ -6961,6 +7047,25 @@ function _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared5LabelE(self, f)
   }
   return arr;
 }
+function _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared10AttachmentE(self, f) {
+  const arr = [];
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const v = self[_];
+      if (f(v)) {
+        _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(arr, v);
+      }
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}
 function _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared8ActivityE(self, f) {
   const arr = [];
   const _bind = self.length;
@@ -6980,7 +7085,7 @@ function _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared8ActivityE(self,
   }
   return arr;
 }
-function _M0MPC15array5Array9is__emptyGRPB4JsonE(self) {
+function _M0MPC15array5Array9is__emptyGRP38bobzhang8taskflow6shared10AttachmentE(self) {
   return self.length === 0;
 }
 function _M0MPC15array5Array3revGRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self) {
@@ -9298,7 +9403,7 @@ function _M0MPC17strconv7Decimal16to__double__priv(self) {
 }
 function _M0FPC17strconv12checked__mul(a, b) {
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $0L) || _M0IPC16uint646UInt64PB2Eq5equal(b, $0L)) {
-    return _M0FPC17strconv28checked__mul_2econstr_2f2830;
+    return _M0FPC17strconv28checked__mul_2econstr_2f2852;
   }
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $1L)) {
     return b;
@@ -10728,7 +10833,7 @@ function _M0MPC14json4Json17stringify_2einner(self, escape_slash, indent, replac
         case 5: {
           const _Array = _value;
           const _arr = _Array._0;
-          if (_M0MPC15array5Array9is__emptyGRPB4JsonE(_arr)) {
+          if (_M0MPC15array5Array9is__emptyGRP38bobzhang8taskflow6shared10AttachmentE(_arr)) {
             _M0IPB13StringBuilderPB6Logger13write__string(buf, "[]");
           } else {
             depth = depth + 1 | 0;
@@ -11089,6 +11194,24 @@ function _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6
     return _M0FPC14json13decode__errorGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE(path, "Array::from_json: expected array");
   }
 }
+function _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared10AttachmentE(json, path) {
+  if (json.$tag === 5) {
+    const _Array = json;
+    const _a = _Array._0;
+    const _bind = new _M0DTPC14json8JsonPath5Index(path, 0);
+    if (_bind.$tag === 2) {
+      const _Index = _bind;
+      return _M0MPC15array5Array4mapiGRPB4JsonRP38bobzhang8taskflow6shared10AttachmentEHRPC14json15JsonDecodeError(_a, (i, x) => {
+        _Index._1 = i;
+        return _M0IP38bobzhang8taskflow6shared10AttachmentPC14json8FromJson10from__json(x, _Index);
+      });
+    } else {
+      return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentERPC14json15JsonDecodeErrorE2Ok($panic());
+    }
+  } else {
+    return _M0FPC14json13decode__errorGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE(path, "Array::from_json: expected array");
+  }
+}
 function _M0MPC15queue5Queue3newGRP38bobzhang8taskflow8frontend3MsgE() {
   return new _M0TPC15queue5QueueGRP38bobzhang8taskflow8frontend3MsgE(0, undefined, undefined);
 }
@@ -11435,18 +11558,18 @@ function _M0MPC13set3Set9to__arrayGRP419moonbit_2dcommunity7rabbita8internal7run
   }
   return arr;
 }
-function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__json(_x_696, _x_697) {
-  const _de_task_id_699 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_depends_on_id_698 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__json(_x_746, _x_747) {
+  const _de_task_id_749 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_depends_on_id_748 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_696.$tag === 6) {
-      const _Object = _x_696;
+    if (_x_746.$tag === 6) {
+      const _Object = _x_746;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_697, _1: "Expected object to deserialize Dependency" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_747, _1: "Expected object to deserialize Dependency" }));
     }
   }
   let _v;
@@ -11462,7 +11585,7 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_697, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_747, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11470,7 +11593,7 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
     } else {
       return _bind;
     }
-    _de_task_id_699.val = _tmp;
+    _de_task_id_749.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11485,7 +11608,7 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_697, "depends_on_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_747, "depends_on_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11493,40 +11616,40 @@ function _M0IP38bobzhang8taskflow6shared10DependencyPC14json8FromJson10from__jso
     } else {
       return _bind;
     }
-    _de_depends_on_id_698.val = _tmp;
+    _de_depends_on_id_748.val = _tmp;
   }
-  let _de_task_id_699$2;
-  const _bind = _de_task_id_699.val;
+  let _de_task_id_749$2;
+  const _bind = _de_task_id_749.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_697, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_747, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_task_id_699$2 = _v$3;
+    _de_task_id_749$2 = _v$3;
   }
-  let _de_depends_on_id_698$2;
-  const _bind$2 = _de_depends_on_id_698.val;
+  let _de_depends_on_id_748$2;
+  const _bind$2 = _de_depends_on_id_748.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_697, _1: "Missing field depends_on_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_747, _1: "Missing field depends_on_id" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_depends_on_id_698$2 = _v$3;
+    _de_depends_on_id_748$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared10Dependency(_de_task_id_699$2, _de_depends_on_id_698$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10DependencyRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared10Dependency(_de_task_id_749$2, _de_depends_on_id_748$2));
 }
-function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from__json(_x_670, _x_671) {
-  const _de_task_id_673 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_interval_672 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from__json(_x_720, _x_721) {
+  const _de_task_id_723 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_interval_722 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_670.$tag === 6) {
-      const _Object = _x_670;
+    if (_x_720.$tag === 6) {
+      const _Object = _x_720;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_671, _1: "Expected object to deserialize RecurrenceRule" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_721, _1: "Expected object to deserialize RecurrenceRule" }));
     }
   }
   let _v;
@@ -11542,7 +11665,7 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_671, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_721, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11550,7 +11673,7 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
     } else {
       return _bind;
     }
-    _de_task_id_673.val = _tmp;
+    _de_task_id_723.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11565,7 +11688,7 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_671, "interval"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_721, "interval"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11573,42 +11696,42 @@ function _M0IP38bobzhang8taskflow6shared14RecurrenceRulePC14json8FromJson10from_
     } else {
       return _bind;
     }
-    _de_interval_672.val = _tmp;
+    _de_interval_722.val = _tmp;
   }
-  let _de_task_id_673$2;
-  const _bind = _de_task_id_673.val;
+  let _de_task_id_723$2;
+  const _bind = _de_task_id_723.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_671, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_721, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_task_id_673$2 = _v$3;
+    _de_task_id_723$2 = _v$3;
   }
-  let _de_interval_672$2;
-  const _bind$2 = _de_interval_672.val;
+  let _de_interval_722$2;
+  const _bind$2 = _de_interval_722.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_671, _1: "Missing field interval" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_721, _1: "Missing field interval" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_interval_672$2 = _v$3;
+    _de_interval_722$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared14RecurrenceRule(_de_task_id_673$2, _de_interval_672$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared14RecurrenceRuleRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared14RecurrenceRule(_de_task_id_723$2, _de_interval_722$2));
 }
-function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x_634, _x_635) {
-  const _de_title_639 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_id_638 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_637 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_done_636 = new _M0TPC13ref3RefGObE(-1);
+function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x_684, _x_685) {
+  const _de_title_689 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_688 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_687 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_done_686 = new _M0TPC13ref3RefGObE(-1);
   let _map;
   _L: {
-    if (_x_634.$tag === 6) {
-      const _Object = _x_634;
+    if (_x_684.$tag === 6) {
+      const _Object = _x_684;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_635, _1: "Expected object to deserialize Subtask" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_685, _1: "Expected object to deserialize Subtask" }));
     }
   }
   let _v;
@@ -11624,7 +11747,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_635, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_685, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11632,7 +11755,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_id_637.val = _tmp;
+    _de_id_687.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11647,7 +11770,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_635, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_685, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11655,7 +11778,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_task_id_638.val = _tmp;
+    _de_task_id_688.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -11670,7 +11793,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_635, "title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_685, "title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11678,7 +11801,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_title_639.val = _tmp;
+    _de_title_689.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -11693,7 +11816,7 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
       }
       break _L$5;
     }
-    const _bind = _M0IPC14bool4BoolPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_635, "done"));
+    const _bind = _M0IPC14bool4BoolPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_685, "done"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11701,73 +11824,73 @@ function _M0IP38bobzhang8taskflow6shared7SubtaskPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_done_636.val = _tmp;
+    _de_done_686.val = _tmp;
   }
-  let _de_title_639$2;
-  const _bind = _de_title_639.val;
+  let _de_title_689$2;
+  const _bind = _de_title_689.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_635, _1: "Missing field title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_685, _1: "Missing field title" }));
   } else {
     const _Some = _bind;
     const _v$5 = _Some;
-    _de_title_639$2 = _v$5;
+    _de_title_689$2 = _v$5;
   }
-  let _de_task_id_638$2;
-  const _bind$2 = _de_task_id_638.val;
+  let _de_task_id_688$2;
+  const _bind$2 = _de_task_id_688.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_635, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_685, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind$2;
     const _v$5 = _Some;
-    _de_task_id_638$2 = _v$5;
+    _de_task_id_688$2 = _v$5;
   }
-  let _de_id_637$2;
-  const _bind$3 = _de_id_637.val;
+  let _de_id_687$2;
+  const _bind$3 = _de_id_687.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_635, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_685, _1: "Missing field id" }));
   } else {
     const _Some = _bind$3;
     const _v$5 = _Some;
-    _de_id_637$2 = _v$5;
+    _de_id_687$2 = _v$5;
   }
-  let _de_done_636$2;
-  const _bind$4 = _de_done_636.val;
+  let _de_done_686$2;
+  const _bind$4 = _de_done_686.val;
   if (_bind$4 === -1) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_635, _1: "Missing field done" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_685, _1: "Missing field done" }));
   } else {
     const _Some = _bind$4;
     const _v$5 = _Some;
-    _de_done_636$2 = _v$5;
+    _de_done_686$2 = _v$5;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Subtask(_de_id_637$2, _de_task_id_638$2, _de_title_639$2, _de_done_636$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7SubtaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Subtask(_de_id_687$2, _de_task_id_688$2, _de_title_689$2, _de_done_686$2));
 }
-function _M0IP38bobzhang8taskflow6shared4LangPB2Eq5equal(_x_622, _x_623) {
-  if (_x_622 === 0) {
-    if (_x_623 === 0) {
+function _M0IP38bobzhang8taskflow6shared4LangPB2Eq5equal(_x_672, _x_673) {
+  if (_x_672 === 0) {
+    if (_x_673 === 0) {
       return true;
     } else {
       return false;
     }
   } else {
-    if (_x_623 === 1) {
+    if (_x_673 === 1) {
       return true;
     } else {
       return false;
     }
   }
 }
-function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(_x_590, _x_591) {
-  const _de_task_id_593 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_label_id_592 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(_x_640, _x_641) {
+  const _de_task_id_643 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_label_id_642 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_590.$tag === 6) {
-      const _Object = _x_590;
+    if (_x_640.$tag === 6) {
+      const _Object = _x_640;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_591, _1: "Expected object to deserialize TaskLabel" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_641, _1: "Expected object to deserialize TaskLabel" }));
     }
   }
   let _v;
@@ -11783,7 +11906,7 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_591, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_641, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11791,7 +11914,7 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_task_id_593.val = _tmp;
+    _de_task_id_643.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11806,7 +11929,7 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_591, "label_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_641, "label_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11814,45 +11937,45 @@ function _M0IP38bobzhang8taskflow6shared9TaskLabelPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_label_id_592.val = _tmp;
+    _de_label_id_642.val = _tmp;
   }
-  let _de_task_id_593$2;
-  const _bind = _de_task_id_593.val;
+  let _de_task_id_643$2;
+  const _bind = _de_task_id_643.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_591, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_641, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_task_id_593$2 = _v$3;
+    _de_task_id_643$2 = _v$3;
   }
-  let _de_label_id_592$2;
-  const _bind$2 = _de_label_id_592.val;
+  let _de_label_id_642$2;
+  const _bind$2 = _de_label_id_642.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_591, _1: "Missing field label_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_641, _1: "Missing field label_id" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_label_id_592$2 = _v$3;
+    _de_label_id_642$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TaskLabel(_de_task_id_593$2, _de_label_id_592$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TaskLabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TaskLabel(_de_task_id_643$2, _de_label_id_642$2));
 }
-function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_x_539, _x_540) {
-  const _de_user_name_547 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_to_status_546 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_timestamp_545 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_title_544 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_id_543 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_542 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_from_status_541 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_x_589, _x_590) {
+  const _de_user_name_597 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_to_status_596 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_timestamp_595 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_title_594 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_593 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_592 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_from_status_591 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_539.$tag === 6) {
-      const _Object = _x_539;
+    if (_x_589.$tag === 6) {
+      const _Object = _x_589;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Expected object to deserialize Activity" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Expected object to deserialize Activity" }));
     }
   }
   let _v;
@@ -11868,7 +11991,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_540, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_590, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11876,7 +11999,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_id_542.val = _tmp;
+    _de_id_592.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -11891,7 +12014,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_540, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_590, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11899,7 +12022,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_task_id_543.val = _tmp;
+    _de_task_id_593.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -11914,7 +12037,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_540, "task_title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_590, "task_title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11922,7 +12045,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_task_title_544.val = _tmp;
+    _de_task_title_594.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -11937,7 +12060,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_540, "from_status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_590, "from_status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11945,7 +12068,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_from_status_541.val = _tmp;
+    _de_from_status_591.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -11960,7 +12083,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_540, "to_status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_590, "to_status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11968,7 +12091,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_to_status_546.val = _tmp;
+    _de_to_status_596.val = _tmp;
   }
   let _v$6;
   _L$7: {
@@ -11983,7 +12106,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$7;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_540, "timestamp"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_590, "timestamp"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -11991,7 +12114,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_timestamp_545.val = _tmp;
+    _de_timestamp_595.val = _tmp;
   }
   let _v$7;
   _L$8: {
@@ -12006,7 +12129,7 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
       }
       break _L$8;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_540, "user_name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_590, "user_name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12014,93 +12137,94 @@ function _M0IP38bobzhang8taskflow6shared8ActivityPC14json8FromJson10from__json(_
     } else {
       return _bind;
     }
-    _de_user_name_547.val = _tmp;
+    _de_user_name_597.val = _tmp;
   }
-  let _de_user_name_547$2;
-  const _bind = _de_user_name_547.val;
+  let _de_user_name_597$2;
+  const _bind = _de_user_name_597.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field user_name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field user_name" }));
   } else {
     const _Some = _bind;
     const _v$8 = _Some;
-    _de_user_name_547$2 = _v$8;
+    _de_user_name_597$2 = _v$8;
   }
-  let _de_to_status_546$2;
-  const _bind$2 = _de_to_status_546.val;
+  let _de_to_status_596$2;
+  const _bind$2 = _de_to_status_596.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field to_status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field to_status" }));
   } else {
     const _Some = _bind$2;
     const _v$8 = _Some;
-    _de_to_status_546$2 = _v$8;
+    _de_to_status_596$2 = _v$8;
   }
-  let _de_timestamp_545$2;
-  const _bind$3 = _de_timestamp_545.val;
+  let _de_timestamp_595$2;
+  const _bind$3 = _de_timestamp_595.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field timestamp" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field timestamp" }));
   } else {
     const _Some = _bind$3;
     const _v$8 = _Some;
-    _de_timestamp_545$2 = _v$8;
+    _de_timestamp_595$2 = _v$8;
   }
-  let _de_task_title_544$2;
-  const _bind$4 = _de_task_title_544.val;
+  let _de_task_title_594$2;
+  const _bind$4 = _de_task_title_594.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field task_title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field task_title" }));
   } else {
     const _Some = _bind$4;
     const _v$8 = _Some;
-    _de_task_title_544$2 = _v$8;
+    _de_task_title_594$2 = _v$8;
   }
-  let _de_task_id_543$2;
-  const _bind$5 = _de_task_id_543.val;
+  let _de_task_id_593$2;
+  const _bind$5 = _de_task_id_593.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind$5;
     const _v$8 = _Some;
-    _de_task_id_543$2 = _v$8;
+    _de_task_id_593$2 = _v$8;
   }
-  let _de_id_542$2;
-  const _bind$6 = _de_id_542.val;
+  let _de_id_592$2;
+  const _bind$6 = _de_id_592.val;
   if (_bind$6 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field id" }));
   } else {
     const _Some = _bind$6;
     const _v$8 = _Some;
-    _de_id_542$2 = _v$8;
+    _de_id_592$2 = _v$8;
   }
-  let _de_from_status_541$2;
-  const _bind$7 = _de_from_status_541.val;
+  let _de_from_status_591$2;
+  const _bind$7 = _de_from_status_591.val;
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_540, _1: "Missing field from_status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_590, _1: "Missing field from_status" }));
   } else {
     const _Some = _bind$7;
     const _v$8 = _Some;
-    _de_from_status_541$2 = _v$8;
+    _de_from_status_591$2 = _v$8;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared8Activity(_de_id_542$2, _de_task_id_543$2, _de_task_title_544$2, _de_from_status_541$2, _de_to_status_546$2, _de_timestamp_545$2, _de_user_name_547$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared8ActivityRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared8Activity(_de_id_592$2, _de_task_id_593$2, _de_task_title_594$2, _de_from_status_591$2, _de_to_status_596$2, _de_timestamp_595$2, _de_user_name_597$2));
 }
-function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_473, _x_474) {
-  const _de_today_484 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_time_entries_483 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4None__);
-  const _de_tasks_482 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4None__);
-  const _de_task_labels_481 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4None__);
-  const _de_subtasks_480 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4None__);
-  const _de_recurrence_rules_479 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4None__);
-  const _de_members_478 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4None__);
-  const _de_labels_477 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4None__);
-  const _de_dependencies_476 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4None__);
-  const _de_activities_475 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None__);
+function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_518, _x_519) {
+  const _de_today_530 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_time_entries_529 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4None__);
+  const _de_tasks_528 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4None__);
+  const _de_task_labels_527 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4None__);
+  const _de_subtasks_526 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4None__);
+  const _de_recurrence_rules_525 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4None__);
+  const _de_members_524 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4None__);
+  const _de_labels_523 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4None__);
+  const _de_dependencies_522 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4None__);
+  const _de_attachments_521 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4None__);
+  const _de_activities_520 = new _M0TPC13ref3RefGORPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE(_M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4None__);
   let _map;
   _L: {
-    if (_x_473.$tag === 6) {
-      const _Object = _x_473;
+    if (_x_518.$tag === 6) {
+      const _Object = _x_518;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Expected object to deserialize Board" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Expected object to deserialize Board" }));
     }
   }
   let _v;
@@ -12116,7 +12240,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$2;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared4TaskE(_v, _M0MPC14json8JsonPath8add__key(_x_474, "tasks"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared4TaskE(_v, _M0MPC14json8JsonPath8add__key(_x_519, "tasks"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12124,7 +12248,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_tasks_482.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4Some(_tmp);
+    _de_tasks_528.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared4TaskEE4Some(_tmp);
   }
   let _v$2;
   _L$3: {
@@ -12139,7 +12263,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$3;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared6MemberE(_v$2, _M0MPC14json8JsonPath8add__key(_x_474, "members"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared6MemberE(_v$2, _M0MPC14json8JsonPath8add__key(_x_519, "members"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12147,7 +12271,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_members_478.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some(_tmp);
+    _de_members_524.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared6MemberEE4Some(_tmp);
   }
   let _v$3;
   _L$4: {
@@ -12162,7 +12286,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$4;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared8ActivityE(_v$3, _M0MPC14json8JsonPath8add__key(_x_474, "activities"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared8ActivityE(_v$3, _M0MPC14json8JsonPath8add__key(_x_519, "activities"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12170,7 +12294,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_activities_475.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some(_tmp);
+    _de_activities_520.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared8ActivityEE4Some(_tmp);
   }
   let _v$4;
   _L$5: {
@@ -12185,7 +12309,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$5;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared10DependencyE(_v$4, _M0MPC14json8JsonPath8add__key(_x_474, "dependencies"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared10DependencyE(_v$4, _M0MPC14json8JsonPath8add__key(_x_519, "dependencies"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12193,7 +12317,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_dependencies_476.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4Some(_tmp);
+    _de_dependencies_522.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10DependencyEE4Some(_tmp);
   }
   let _v$5;
   _L$6: {
@@ -12208,7 +12332,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$6;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared5LabelE(_v$5, _M0MPC14json8JsonPath8add__key(_x_474, "labels"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared5LabelE(_v$5, _M0MPC14json8JsonPath8add__key(_x_519, "labels"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12216,7 +12340,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_labels_477.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4Some(_tmp);
+    _de_labels_523.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared5LabelEE4Some(_tmp);
   }
   let _v$6;
   _L$7: {
@@ -12231,7 +12355,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$7;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TaskLabelE(_v$6, _M0MPC14json8JsonPath8add__key(_x_474, "task_labels"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TaskLabelE(_v$6, _M0MPC14json8JsonPath8add__key(_x_519, "task_labels"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12239,7 +12363,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_task_labels_481.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4Some(_tmp);
+    _de_task_labels_527.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TaskLabelEE4Some(_tmp);
   }
   let _v$7;
   _L$8: {
@@ -12254,7 +12378,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$8;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared7SubtaskE(_v$7, _M0MPC14json8JsonPath8add__key(_x_474, "subtasks"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared7SubtaskE(_v$7, _M0MPC14json8JsonPath8add__key(_x_519, "subtasks"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12262,7 +12386,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_subtasks_480.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4Some(_tmp);
+    _de_subtasks_526.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared7SubtaskEE4Some(_tmp);
   }
   let _v$8;
   _L$9: {
@@ -12277,7 +12401,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$9;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TimeEntryE(_v$8, _M0MPC14json8JsonPath8add__key(_x_474, "time_entries"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared9TimeEntryE(_v$8, _M0MPC14json8JsonPath8add__key(_x_519, "time_entries"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12285,7 +12409,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_time_entries_483.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4Some(_tmp);
+    _de_time_entries_529.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared9TimeEntryEE4Some(_tmp);
   }
   let _v$9;
   _L$10: {
@@ -12300,7 +12424,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$10;
     }
-    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared14RecurrenceRuleE(_v$9, _M0MPC14json8JsonPath8add__key(_x_474, "recurrence_rules"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared14RecurrenceRuleE(_v$9, _M0MPC14json8JsonPath8add__key(_x_519, "recurrence_rules"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12308,12 +12432,12 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_recurrence_rules_479.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4Some(_tmp);
+    _de_recurrence_rules_525.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared14RecurrenceRuleEE4Some(_tmp);
   }
   let _v$10;
   _L$11: {
     _L$12: {
-      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "today");
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "attachments");
       if (_bind === undefined) {
       } else {
         const _Some = _bind;
@@ -12323,7 +12447,7 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
       }
       break _L$11;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$10, _M0MPC14json8JsonPath8add__key(_x_474, "today"));
+    const _bind = _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP38bobzhang8taskflow6shared10AttachmentE(_v$10, _M0MPC14json8JsonPath8add__key(_x_519, "attachments"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12331,118 +12455,150 @@ function _M0IP38bobzhang8taskflow6shared5BoardPC14json8FromJson10from__json(_x_4
     } else {
       return _bind;
     }
-    _de_today_484.val = _tmp;
+    _de_attachments_521.val = new _M0DTPC16option6OptionGRPB5ArrayGRP38bobzhang8taskflow6shared10AttachmentEE4Some(_tmp);
   }
-  let _de_today_484$2;
-  const _bind = _de_today_484.val;
+  let _v$11;
+  _L$12: {
+    _L$13: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "today");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$11 = __v;
+        break _L$13;
+      }
+      break _L$12;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$11, _M0MPC14json8JsonPath8add__key(_x_519, "today"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_today_530.val = _tmp;
+  }
+  let _de_today_530$2;
+  const _bind = _de_today_530.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field today" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field today" }));
   } else {
     const _Some = _bind;
-    const _v$11 = _Some;
-    _de_today_484$2 = _v$11;
+    const _v$12 = _Some;
+    _de_today_530$2 = _v$12;
   }
-  let _de_time_entries_483$2;
-  const _bind$2 = _de_time_entries_483.val;
+  let _de_time_entries_529$2;
+  const _bind$2 = _de_time_entries_529.val;
   if (_bind$2.$tag === 1) {
     const _Some = _bind$2;
-    const _v$11 = _Some._0;
-    _de_time_entries_483$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_time_entries_529$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field time_entries" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field time_entries" }));
   }
-  let _de_tasks_482$2;
-  const _bind$3 = _de_tasks_482.val;
+  let _de_tasks_528$2;
+  const _bind$3 = _de_tasks_528.val;
   if (_bind$3.$tag === 1) {
     const _Some = _bind$3;
-    const _v$11 = _Some._0;
-    _de_tasks_482$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_tasks_528$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field tasks" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field tasks" }));
   }
-  let _de_task_labels_481$2;
-  const _bind$4 = _de_task_labels_481.val;
+  let _de_task_labels_527$2;
+  const _bind$4 = _de_task_labels_527.val;
   if (_bind$4.$tag === 1) {
     const _Some = _bind$4;
-    const _v$11 = _Some._0;
-    _de_task_labels_481$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_task_labels_527$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field task_labels" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field task_labels" }));
   }
-  let _de_subtasks_480$2;
-  const _bind$5 = _de_subtasks_480.val;
+  let _de_subtasks_526$2;
+  const _bind$5 = _de_subtasks_526.val;
   if (_bind$5.$tag === 1) {
     const _Some = _bind$5;
-    const _v$11 = _Some._0;
-    _de_subtasks_480$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_subtasks_526$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field subtasks" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field subtasks" }));
   }
-  let _de_recurrence_rules_479$2;
-  const _bind$6 = _de_recurrence_rules_479.val;
+  let _de_recurrence_rules_525$2;
+  const _bind$6 = _de_recurrence_rules_525.val;
   if (_bind$6.$tag === 1) {
     const _Some = _bind$6;
-    const _v$11 = _Some._0;
-    _de_recurrence_rules_479$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_recurrence_rules_525$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field recurrence_rules" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field recurrence_rules" }));
   }
-  let _de_members_478$2;
-  const _bind$7 = _de_members_478.val;
+  let _de_members_524$2;
+  const _bind$7 = _de_members_524.val;
   if (_bind$7.$tag === 1) {
     const _Some = _bind$7;
-    const _v$11 = _Some._0;
-    _de_members_478$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_members_524$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field members" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field members" }));
   }
-  let _de_labels_477$2;
-  const _bind$8 = _de_labels_477.val;
+  let _de_labels_523$2;
+  const _bind$8 = _de_labels_523.val;
   if (_bind$8.$tag === 1) {
     const _Some = _bind$8;
-    const _v$11 = _Some._0;
-    _de_labels_477$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_labels_523$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field labels" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field labels" }));
   }
-  let _de_dependencies_476$2;
-  const _bind$9 = _de_dependencies_476.val;
+  let _de_dependencies_522$2;
+  const _bind$9 = _de_dependencies_522.val;
   if (_bind$9.$tag === 1) {
     const _Some = _bind$9;
-    const _v$11 = _Some._0;
-    _de_dependencies_476$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_dependencies_522$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field dependencies" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field dependencies" }));
   }
-  let _de_activities_475$2;
-  const _bind$10 = _de_activities_475.val;
+  let _de_attachments_521$2;
+  const _bind$10 = _de_attachments_521.val;
   if (_bind$10.$tag === 1) {
     const _Some = _bind$10;
-    const _v$11 = _Some._0;
-    _de_activities_475$2 = _v$11;
+    const _v$12 = _Some._0;
+    _de_attachments_521$2 = _v$12;
   } else {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_474, _1: "Missing field activities" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field attachments" }));
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Board(_de_tasks_482$2, _de_members_478$2, _de_activities_475$2, _de_dependencies_476$2, _de_labels_477$2, _de_task_labels_481$2, _de_subtasks_480$2, _de_time_entries_483$2, _de_recurrence_rules_479$2, _de_today_484$2));
+  let _de_activities_520$2;
+  const _bind$11 = _de_activities_520.val;
+  if (_bind$11.$tag === 1) {
+    const _Some = _bind$11;
+    const _v$12 = _Some._0;
+    _de_activities_520$2 = _v$12;
+  } else {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_519, _1: "Missing field activities" }));
+  }
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5BoardRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Board(_de_tasks_528$2, _de_members_524$2, _de_activities_520$2, _de_dependencies_522$2, _de_labels_523$2, _de_task_labels_527$2, _de_subtasks_526$2, _de_time_entries_529$2, _de_recurrence_rules_525$2, _de_attachments_521$2, _de_today_530$2));
 }
-function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_417, _x_418) {
-  const _de_title_426 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_status_425 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_priority_424 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_423 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_due_date_422 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_description_421 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_created_at_420 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_assignee_id_419 = new _M0TPC13ref3RefGOiE(undefined);
+function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_462, _x_463) {
+  const _de_title_471 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_status_470 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_priority_469 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_468 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_due_date_467 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_description_466 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_created_at_465 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_assignee_id_464 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_417.$tag === 6) {
-      const _Object = _x_417;
+    if (_x_462.$tag === 6) {
+      const _Object = _x_462;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Expected object to deserialize Task" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Expected object to deserialize Task" }));
     }
   }
   let _v;
@@ -12458,7 +12614,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_418, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_463, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12466,7 +12622,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_id_423.val = _tmp;
+    _de_id_468.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12481,7 +12637,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_418, "title"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_463, "title"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12489,7 +12645,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_title_426.val = _tmp;
+    _de_title_471.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12504,7 +12660,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_418, "description"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_463, "description"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12512,7 +12668,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_description_421.val = _tmp;
+    _de_description_466.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -12527,7 +12683,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_418, "status"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_463, "status"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12535,7 +12691,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_status_425.val = _tmp;
+    _de_status_470.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -12550,7 +12706,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_418, "priority"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_463, "priority"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12558,7 +12714,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_priority_424.val = _tmp;
+    _de_priority_469.val = _tmp;
   }
   let _v$6;
   _L$7: {
@@ -12573,7 +12729,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$7;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_418, "assignee_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_463, "assignee_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12581,7 +12737,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_assignee_id_419.val = _tmp;
+    _de_assignee_id_464.val = _tmp;
   }
   let _v$7;
   _L$8: {
@@ -12596,7 +12752,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$8;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_418, "due_date"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_463, "due_date"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12604,7 +12760,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_due_date_422.val = _tmp;
+    _de_due_date_467.val = _tmp;
   }
   let _v$8;
   _L$9: {
@@ -12619,7 +12775,7 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
       }
       break _L$9;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_418, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_463, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12627,95 +12783,95 @@ function _M0IP38bobzhang8taskflow6shared4TaskPC14json8FromJson10from__json(_x_41
     } else {
       return _bind;
     }
-    _de_created_at_420.val = _tmp;
+    _de_created_at_465.val = _tmp;
   }
-  let _de_title_426$2;
-  const _bind = _de_title_426.val;
+  let _de_title_471$2;
+  const _bind = _de_title_471.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field title" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field title" }));
   } else {
     const _Some = _bind;
     const _v$9 = _Some;
-    _de_title_426$2 = _v$9;
+    _de_title_471$2 = _v$9;
   }
-  let _de_status_425$2;
-  const _bind$2 = _de_status_425.val;
+  let _de_status_470$2;
+  const _bind$2 = _de_status_470.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field status" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field status" }));
   } else {
     const _Some = _bind$2;
     const _v$9 = _Some;
-    _de_status_425$2 = _v$9;
+    _de_status_470$2 = _v$9;
   }
-  let _de_priority_424$2;
-  const _bind$3 = _de_priority_424.val;
+  let _de_priority_469$2;
+  const _bind$3 = _de_priority_469.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field priority" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field priority" }));
   } else {
     const _Some = _bind$3;
     const _v$9 = _Some;
-    _de_priority_424$2 = _v$9;
+    _de_priority_469$2 = _v$9;
   }
-  let _de_id_423$2;
-  const _bind$4 = _de_id_423.val;
+  let _de_id_468$2;
+  const _bind$4 = _de_id_468.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field id" }));
   } else {
     const _Some = _bind$4;
     const _v$9 = _Some;
-    _de_id_423$2 = _v$9;
+    _de_id_468$2 = _v$9;
   }
-  let _de_due_date_422$2;
-  const _bind$5 = _de_due_date_422.val;
+  let _de_due_date_467$2;
+  const _bind$5 = _de_due_date_467.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field due_date" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field due_date" }));
   } else {
     const _Some = _bind$5;
     const _v$9 = _Some;
-    _de_due_date_422$2 = _v$9;
+    _de_due_date_467$2 = _v$9;
   }
-  let _de_description_421$2;
-  const _bind$6 = _de_description_421.val;
+  let _de_description_466$2;
+  const _bind$6 = _de_description_466.val;
   if (_bind$6 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field description" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field description" }));
   } else {
     const _Some = _bind$6;
     const _v$9 = _Some;
-    _de_description_421$2 = _v$9;
+    _de_description_466$2 = _v$9;
   }
-  let _de_created_at_420$2;
-  const _bind$7 = _de_created_at_420.val;
+  let _de_created_at_465$2;
+  const _bind$7 = _de_created_at_465.val;
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$7;
     const _v$9 = _Some;
-    _de_created_at_420$2 = _v$9;
+    _de_created_at_465$2 = _v$9;
   }
-  let _de_assignee_id_419$2;
-  const _bind$8 = _de_assignee_id_419.val;
+  let _de_assignee_id_464$2;
+  const _bind$8 = _de_assignee_id_464.val;
   if (_bind$8 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_418, _1: "Missing field assignee_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_463, _1: "Missing field assignee_id" }));
   } else {
     const _Some = _bind$8;
     const _v$9 = _Some;
-    _de_assignee_id_419$2 = _v$9;
+    _de_assignee_id_464$2 = _v$9;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4Task(_de_id_423$2, _de_title_426$2, _de_description_421$2, _de_status_425$2, _de_priority_424$2, _de_assignee_id_419$2, _de_due_date_422$2, _de_created_at_420$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TaskRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4Task(_de_id_468$2, _de_title_471$2, _de_description_466$2, _de_status_470$2, _de_priority_469$2, _de_assignee_id_464$2, _de_due_date_467$2, _de_created_at_465$2));
 }
-function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_386, _x_387) {
-  const _de_name_390 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_389 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_388 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_431, _x_432) {
+  const _de_name_435 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_434 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_433 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_386.$tag === 6) {
-      const _Object = _x_386;
+    if (_x_431.$tag === 6) {
+      const _Object = _x_431;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_387, _1: "Expected object to deserialize Label" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_432, _1: "Expected object to deserialize Label" }));
     }
   }
   let _v;
@@ -12731,7 +12887,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_387, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_432, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12739,7 +12895,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
     } else {
       return _bind;
     }
-    _de_id_389.val = _tmp;
+    _de_id_434.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12754,7 +12910,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_387, "name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_432, "name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12762,7 +12918,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
     } else {
       return _bind;
     }
-    _de_name_390.val = _tmp;
+    _de_name_435.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12777,7 +12933,7 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_387, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_432, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12785,51 +12941,51 @@ function _M0IP38bobzhang8taskflow6shared5LabelPC14json8FromJson10from__json(_x_3
     } else {
       return _bind;
     }
-    _de_color_388.val = _tmp;
+    _de_color_433.val = _tmp;
   }
-  let _de_name_390$2;
-  const _bind = _de_name_390.val;
+  let _de_name_435$2;
+  const _bind = _de_name_435.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_387, _1: "Missing field name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_432, _1: "Missing field name" }));
   } else {
     const _Some = _bind;
     const _v$4 = _Some;
-    _de_name_390$2 = _v$4;
+    _de_name_435$2 = _v$4;
   }
-  let _de_id_389$2;
-  const _bind$2 = _de_id_389.val;
+  let _de_id_434$2;
+  const _bind$2 = _de_id_434.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_387, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_432, _1: "Missing field id" }));
   } else {
     const _Some = _bind$2;
     const _v$4 = _Some;
-    _de_id_389$2 = _v$4;
+    _de_id_434$2 = _v$4;
   }
-  let _de_color_388$2;
-  const _bind$3 = _de_color_388.val;
+  let _de_color_433$2;
+  const _bind$3 = _de_color_433.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_387, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_432, _1: "Missing field color" }));
   } else {
     const _Some = _bind$3;
     const _v$4 = _Some;
-    _de_color_388$2 = _v$4;
+    _de_color_433$2 = _v$4;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Label(_de_id_389$2, _de_name_390$2, _de_color_388$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared5LabelRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared5Label(_de_id_434$2, _de_name_435$2, _de_color_433$2));
 }
-function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_350, _x_351) {
-  const _de_username_355 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_role_354 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_353 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_352 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_395, _x_396) {
+  const _de_username_400 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_role_399 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_398 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_397 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_350.$tag === 6) {
-      const _Object = _x_350;
+    if (_x_395.$tag === 6) {
+      const _Object = _x_395;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_351, _1: "Expected object to deserialize User" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_396, _1: "Expected object to deserialize User" }));
     }
   }
   let _v;
@@ -12845,7 +13001,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_351, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_396, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12853,7 +13009,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
     } else {
       return _bind;
     }
-    _de_id_353.val = _tmp;
+    _de_id_398.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -12868,7 +13024,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_351, "username"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_396, "username"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12876,7 +13032,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
     } else {
       return _bind;
     }
-    _de_username_355.val = _tmp;
+    _de_username_400.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -12891,7 +13047,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_351, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_396, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12899,7 +13055,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
     } else {
       return _bind;
     }
-    _de_color_352.val = _tmp;
+    _de_color_397.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -12914,7 +13070,7 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_351, "role"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_396, "role"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -12922,61 +13078,60 @@ function _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_x_35
     } else {
       return _bind;
     }
-    _de_role_354.val = _tmp;
+    _de_role_399.val = _tmp;
   }
-  let _de_username_355$2;
-  const _bind = _de_username_355.val;
+  let _de_username_400$2;
+  const _bind = _de_username_400.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_351, _1: "Missing field username" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_396, _1: "Missing field username" }));
   } else {
     const _Some = _bind;
     const _v$5 = _Some;
-    _de_username_355$2 = _v$5;
+    _de_username_400$2 = _v$5;
   }
-  let _de_role_354$2;
-  const _bind$2 = _de_role_354.val;
+  let _de_role_399$2;
+  const _bind$2 = _de_role_399.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_351, _1: "Missing field role" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_396, _1: "Missing field role" }));
   } else {
     const _Some = _bind$2;
     const _v$5 = _Some;
-    _de_role_354$2 = _v$5;
+    _de_role_399$2 = _v$5;
   }
-  let _de_id_353$2;
-  const _bind$3 = _de_id_353.val;
+  let _de_id_398$2;
+  const _bind$3 = _de_id_398.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_351, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_396, _1: "Missing field id" }));
   } else {
     const _Some = _bind$3;
     const _v$5 = _Some;
-    _de_id_353$2 = _v$5;
+    _de_id_398$2 = _v$5;
   }
-  let _de_color_352$2;
-  const _bind$4 = _de_color_352.val;
+  let _de_color_397$2;
+  const _bind$4 = _de_color_397.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_351, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_396, _1: "Missing field color" }));
   } else {
     const _Some = _bind$4;
     const _v$5 = _Some;
-    _de_color_352$2 = _v$5;
+    _de_color_397$2 = _v$5;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4User(_de_id_353$2, _de_username_355$2, _de_color_352$2, _de_role_354$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4UserRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared4User(_de_id_398$2, _de_username_400$2, _de_color_397$2, _de_role_399$2));
 }
-function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x_309, _x_310) {
-  const _de_text_315 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_task_id_314 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_313 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_created_at_312 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_author_311 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared10AttachmentPC14json8FromJson10from__json(_x_359, _x_360) {
+  const _de_url_364 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_363 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_label_362 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_361 = new _M0TPC13ref3RefGOiE(undefined);
   let _map;
   _L: {
-    if (_x_309.$tag === 6) {
-      const _Object = _x_309;
+    if (_x_359.$tag === 6) {
+      const _Object = _x_359;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_310, _1: "Expected object to deserialize Comment" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_360, _1: "Expected object to deserialize Attachment" }));
     }
   }
   let _v;
@@ -12992,7 +13147,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_310, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_360, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13000,7 +13155,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_id_313.val = _tmp;
+    _de_id_361.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13015,7 +13170,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_310, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_360, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13023,7 +13178,154 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_task_id_314.val = _tmp;
+    _de_task_id_363.val = _tmp;
+  }
+  let _v$3;
+  _L$4: {
+    _L$5: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "url");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$3 = __v;
+        break _L$5;
+      }
+      break _L$4;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_360, "url"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_url_364.val = _tmp;
+  }
+  let _v$4;
+  _L$5: {
+    _L$6: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "label");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$4 = __v;
+        break _L$6;
+      }
+      break _L$5;
+    }
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_360, "label"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_label_362.val = _tmp;
+  }
+  let _de_url_364$2;
+  const _bind = _de_url_364.val;
+  if (_bind === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_360, _1: "Missing field url" }));
+  } else {
+    const _Some = _bind;
+    const _v$5 = _Some;
+    _de_url_364$2 = _v$5;
+  }
+  let _de_task_id_363$2;
+  const _bind$2 = _de_task_id_363.val;
+  if (_bind$2 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_360, _1: "Missing field task_id" }));
+  } else {
+    const _Some = _bind$2;
+    const _v$5 = _Some;
+    _de_task_id_363$2 = _v$5;
+  }
+  let _de_label_362$2;
+  const _bind$3 = _de_label_362.val;
+  if (_bind$3 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_360, _1: "Missing field label" }));
+  } else {
+    const _Some = _bind$3;
+    const _v$5 = _Some;
+    _de_label_362$2 = _v$5;
+  }
+  let _de_id_361$2;
+  const _bind$4 = _de_id_361.val;
+  if (_bind$4 === undefined) {
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_360, _1: "Missing field id" }));
+  } else {
+    const _Some = _bind$4;
+    const _v$5 = _Some;
+    _de_id_361$2 = _v$5;
+  }
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared10AttachmentRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared10Attachment(_de_id_361$2, _de_task_id_363$2, _de_url_364$2, _de_label_362$2));
+}
+function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x_318, _x_319) {
+  const _de_text_324 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_task_id_323 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_322 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_created_at_321 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_author_320 = new _M0TPC13ref3RefGOsE(undefined);
+  let _map;
+  _L: {
+    if (_x_318.$tag === 6) {
+      const _Object = _x_318;
+      const __map = _Object._0;
+      _map = __map;
+      break _L;
+    } else {
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_319, _1: "Expected object to deserialize Comment" }));
+    }
+  }
+  let _v;
+  _L$2: {
+    _L$3: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "id");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v = __v;
+        break _L$3;
+      }
+      break _L$2;
+    }
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_319, "id"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_id_322.val = _tmp;
+  }
+  let _v$2;
+  _L$3: {
+    _L$4: {
+      const _bind = _M0MPB3Map3getGsRPB4JsonE(_map, "task_id");
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const __v = _Some;
+        _v$2 = __v;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_319, "task_id"));
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    _de_task_id_323.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -13038,7 +13340,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_310, "author"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_319, "author"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13046,7 +13348,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_author_311.val = _tmp;
+    _de_author_320.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -13061,7 +13363,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_310, "text"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_319, "text"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13069,7 +13371,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_text_315.val = _tmp;
+    _de_text_324.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -13084,7 +13386,7 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_310, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_319, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13092,70 +13394,70 @@ function _M0IP38bobzhang8taskflow6shared7CommentPC14json8FromJson10from__json(_x
     } else {
       return _bind;
     }
-    _de_created_at_312.val = _tmp;
+    _de_created_at_321.val = _tmp;
   }
-  let _de_text_315$2;
-  const _bind = _de_text_315.val;
+  let _de_text_324$2;
+  const _bind = _de_text_324.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_310, _1: "Missing field text" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_319, _1: "Missing field text" }));
   } else {
     const _Some = _bind;
     const _v$6 = _Some;
-    _de_text_315$2 = _v$6;
+    _de_text_324$2 = _v$6;
   }
-  let _de_task_id_314$2;
-  const _bind$2 = _de_task_id_314.val;
+  let _de_task_id_323$2;
+  const _bind$2 = _de_task_id_323.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_310, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_319, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind$2;
     const _v$6 = _Some;
-    _de_task_id_314$2 = _v$6;
+    _de_task_id_323$2 = _v$6;
   }
-  let _de_id_313$2;
-  const _bind$3 = _de_id_313.val;
+  let _de_id_322$2;
+  const _bind$3 = _de_id_322.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_310, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_319, _1: "Missing field id" }));
   } else {
     const _Some = _bind$3;
     const _v$6 = _Some;
-    _de_id_313$2 = _v$6;
+    _de_id_322$2 = _v$6;
   }
-  let _de_created_at_312$2;
-  const _bind$4 = _de_created_at_312.val;
+  let _de_created_at_321$2;
+  const _bind$4 = _de_created_at_321.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_310, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_319, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$4;
     const _v$6 = _Some;
-    _de_created_at_312$2 = _v$6;
+    _de_created_at_321$2 = _v$6;
   }
-  let _de_author_311$2;
-  const _bind$5 = _de_author_311.val;
+  let _de_author_320$2;
+  const _bind$5 = _de_author_320.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_310, _1: "Missing field author" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_319, _1: "Missing field author" }));
   } else {
     const _Some = _bind$5;
     const _v$6 = _Some;
-    _de_author_311$2 = _v$6;
+    _de_author_320$2 = _v$6;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Comment(_de_id_313$2, _de_task_id_314$2, _de_author_311$2, _de_text_315$2, _de_created_at_312$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared7Comment(_de_id_322$2, _de_task_id_323$2, _de_author_320$2, _de_text_324$2, _de_created_at_321$2));
 }
-function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(_x_268, _x_269) {
-  const _de_task_id_274 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_note_273 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_minutes_272 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_id_271 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_created_at_270 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(_x_277, _x_278) {
+  const _de_task_id_283 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_note_282 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_minutes_281 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_id_280 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_created_at_279 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_268.$tag === 6) {
-      const _Object = _x_268;
+    if (_x_277.$tag === 6) {
+      const _Object = _x_277;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_269, _1: "Expected object to deserialize TimeEntry" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_278, _1: "Expected object to deserialize TimeEntry" }));
     }
   }
   let _v;
@@ -13171,7 +13473,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_269, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_278, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13179,7 +13481,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_id_271.val = _tmp;
+    _de_id_280.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13194,7 +13496,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$3;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_269, "task_id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_278, "task_id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13202,7 +13504,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_task_id_274.val = _tmp;
+    _de_task_id_283.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -13217,7 +13519,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$4;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_269, "minutes"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_278, "minutes"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13225,7 +13527,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_minutes_272.val = _tmp;
+    _de_minutes_281.val = _tmp;
   }
   let _v$4;
   _L$5: {
@@ -13240,7 +13542,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$5;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_269, "note"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_278, "note"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13248,7 +13550,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_note_273.val = _tmp;
+    _de_note_282.val = _tmp;
   }
   let _v$5;
   _L$6: {
@@ -13263,7 +13565,7 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
       }
       break _L$6;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_269, "created_at"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_278, "created_at"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13271,67 +13573,67 @@ function _M0IP38bobzhang8taskflow6shared9TimeEntryPC14json8FromJson10from__json(
     } else {
       return _bind;
     }
-    _de_created_at_270.val = _tmp;
+    _de_created_at_279.val = _tmp;
   }
-  let _de_task_id_274$2;
-  const _bind = _de_task_id_274.val;
+  let _de_task_id_283$2;
+  const _bind = _de_task_id_283.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_269, _1: "Missing field task_id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_278, _1: "Missing field task_id" }));
   } else {
     const _Some = _bind;
     const _v$6 = _Some;
-    _de_task_id_274$2 = _v$6;
+    _de_task_id_283$2 = _v$6;
   }
-  let _de_note_273$2;
-  const _bind$2 = _de_note_273.val;
+  let _de_note_282$2;
+  const _bind$2 = _de_note_282.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_269, _1: "Missing field note" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_278, _1: "Missing field note" }));
   } else {
     const _Some = _bind$2;
     const _v$6 = _Some;
-    _de_note_273$2 = _v$6;
+    _de_note_282$2 = _v$6;
   }
-  let _de_minutes_272$2;
-  const _bind$3 = _de_minutes_272.val;
+  let _de_minutes_281$2;
+  const _bind$3 = _de_minutes_281.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_269, _1: "Missing field minutes" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_278, _1: "Missing field minutes" }));
   } else {
     const _Some = _bind$3;
     const _v$6 = _Some;
-    _de_minutes_272$2 = _v$6;
+    _de_minutes_281$2 = _v$6;
   }
-  let _de_id_271$2;
-  const _bind$4 = _de_id_271.val;
+  let _de_id_280$2;
+  const _bind$4 = _de_id_280.val;
   if (_bind$4 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_269, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_278, _1: "Missing field id" }));
   } else {
     const _Some = _bind$4;
     const _v$6 = _Some;
-    _de_id_271$2 = _v$6;
+    _de_id_280$2 = _v$6;
   }
-  let _de_created_at_270$2;
-  const _bind$5 = _de_created_at_270.val;
+  let _de_created_at_279$2;
+  const _bind$5 = _de_created_at_279.val;
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_269, _1: "Missing field created_at" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_278, _1: "Missing field created_at" }));
   } else {
     const _Some = _bind$5;
     const _v$6 = _Some;
-    _de_created_at_270$2 = _v$6;
+    _de_created_at_279$2 = _v$6;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TimeEntry(_de_id_271$2, _de_task_id_274$2, _de_minutes_272$2, _de_note_273$2, _de_created_at_270$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared9TimeEntryRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared9TimeEntry(_de_id_280$2, _de_task_id_283$2, _de_minutes_281$2, _de_note_282$2, _de_created_at_279$2));
 }
-function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__json(_x_242, _x_243) {
-  const _de_user_245 = new _M0TPC13ref3RefGORP38bobzhang8taskflow6shared4UserE(undefined);
-  const _de_message_244 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__json(_x_251, _x_252) {
+  const _de_user_254 = new _M0TPC13ref3RefGORP38bobzhang8taskflow6shared4UserE(undefined);
+  const _de_message_253 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_242.$tag === 6) {
-      const _Object = _x_242;
+    if (_x_251.$tag === 6) {
+      const _Object = _x_251;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_243, _1: "Expected object to deserialize AuthResponse" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_252, _1: "Expected object to deserialize AuthResponse" }));
     }
   }
   let _v;
@@ -13347,7 +13649,7 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
       }
       break _L$2;
     }
-    const _bind = _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_243, "user"));
+    const _bind = _M0IP38bobzhang8taskflow6shared4UserPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_252, "user"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13355,7 +13657,7 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
     } else {
       return _bind;
     }
-    _de_user_245.val = _tmp;
+    _de_user_254.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13370,7 +13672,7 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_243, "message"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_252, "message"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13378,41 +13680,41 @@ function _M0IP38bobzhang8taskflow6shared12AuthResponsePC14json8FromJson10from__j
     } else {
       return _bind;
     }
-    _de_message_244.val = _tmp;
+    _de_message_253.val = _tmp;
   }
-  let _de_user_245$2;
-  const _bind = _de_user_245.val;
+  let _de_user_254$2;
+  const _bind = _de_user_254.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_243, _1: "Missing field user" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_252, _1: "Missing field user" }));
   } else {
     const _Some = _bind;
     const _v$3 = _Some;
-    _de_user_245$2 = _v$3;
+    _de_user_254$2 = _v$3;
   }
-  let _de_message_244$2;
-  const _bind$2 = _de_message_244.val;
+  let _de_message_253$2;
+  const _bind$2 = _de_message_253.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_243, _1: "Missing field message" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_252, _1: "Missing field message" }));
   } else {
     const _Some = _bind$2;
     const _v$3 = _Some;
-    _de_message_244$2 = _v$3;
+    _de_message_253$2 = _v$3;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared12AuthResponse(_de_user_245$2, _de_message_244$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponseRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared12AuthResponse(_de_user_254$2, _de_message_253$2));
 }
-function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_211, _x_212) {
-  const _de_name_215 = new _M0TPC13ref3RefGOsE(undefined);
-  const _de_id_214 = new _M0TPC13ref3RefGOiE(undefined);
-  const _de_color_213 = new _M0TPC13ref3RefGOsE(undefined);
+function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_220, _x_221) {
+  const _de_name_224 = new _M0TPC13ref3RefGOsE(undefined);
+  const _de_id_223 = new _M0TPC13ref3RefGOiE(undefined);
+  const _de_color_222 = new _M0TPC13ref3RefGOsE(undefined);
   let _map;
   _L: {
-    if (_x_211.$tag === 6) {
-      const _Object = _x_211;
+    if (_x_220.$tag === 6) {
+      const _Object = _x_220;
       const __map = _Object._0;
       _map = __map;
       break _L;
     } else {
-      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_212, _1: "Expected object to deserialize Member" }));
+      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_221, _1: "Expected object to deserialize Member" }));
     }
   }
   let _v;
@@ -13428,7 +13730,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$2;
     }
-    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_212, "id"));
+    const _bind = _M0IPC13int3IntPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_221, "id"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13436,7 +13738,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_id_214.val = _tmp;
+    _de_id_223.val = _tmp;
   }
   let _v$2;
   _L$3: {
@@ -13451,7 +13753,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$3;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_212, "name"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_221, "name"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13459,7 +13761,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_name_215.val = _tmp;
+    _de_name_224.val = _tmp;
   }
   let _v$3;
   _L$4: {
@@ -13474,7 +13776,7 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
       }
       break _L$4;
     }
-    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_212, "color"));
+    const _bind = _M0IPC16string6StringPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_221, "color"));
     let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
@@ -13482,36 +13784,36 @@ function _M0IP38bobzhang8taskflow6shared6MemberPC14json8FromJson10from__json(_x_
     } else {
       return _bind;
     }
-    _de_color_213.val = _tmp;
+    _de_color_222.val = _tmp;
   }
-  let _de_name_215$2;
-  const _bind = _de_name_215.val;
+  let _de_name_224$2;
+  const _bind = _de_name_224.val;
   if (_bind === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_212, _1: "Missing field name" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_221, _1: "Missing field name" }));
   } else {
     const _Some = _bind;
     const _v$4 = _Some;
-    _de_name_215$2 = _v$4;
+    _de_name_224$2 = _v$4;
   }
-  let _de_id_214$2;
-  const _bind$2 = _de_id_214.val;
+  let _de_id_223$2;
+  const _bind$2 = _de_id_223.val;
   if (_bind$2 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_212, _1: "Missing field id" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_221, _1: "Missing field id" }));
   } else {
     const _Some = _bind$2;
     const _v$4 = _Some;
-    _de_id_214$2 = _v$4;
+    _de_id_223$2 = _v$4;
   }
-  let _de_color_213$2;
-  const _bind$3 = _de_color_213.val;
+  let _de_color_222$2;
+  const _bind$3 = _de_color_222.val;
   if (_bind$3 === undefined) {
-    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_212, _1: "Missing field color" }));
+    return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_221, _1: "Missing field color" }));
   } else {
     const _Some = _bind$3;
     const _v$4 = _Some;
-    _de_color_213$2 = _v$4;
+    _de_color_222$2 = _v$4;
   }
-  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared6Member(_de_id_214$2, _de_name_215$2, _de_color_213$2));
+  return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared6MemberRPC14json15JsonDecodeErrorE2Ok(new _M0TP38bobzhang8taskflow6shared6Member(_de_id_223$2, _de_name_224$2, _de_color_222$2));
 }
 function _M0FP38bobzhang8taskflow6shared18validate__username(name) {
   const len = _M0MPC16string6String20char__length_2einner(name, 0, undefined);
@@ -13744,6 +14046,12 @@ function _M0FP38bobzhang8taskflow6shared16api__time__entry(id) {
 }
 function _M0FP38bobzhang8taskflow6shared21api__task__recurrence(id) {
   return `/api/tasks/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/recurrence`;
+}
+function _M0FP38bobzhang8taskflow6shared22api__task__attachments(id) {
+  return `/api/tasks/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/attachments`;
+}
+function _M0FP38bobzhang8taskflow6shared15api__attachment(id) {
+  return `/api/attachments/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}`;
 }
 function _M0FP38bobzhang8taskflow6shared9can__edit(role) {
   return role === "admin" || role === "member";
@@ -14187,6 +14495,28 @@ function _M0FP38bobzhang8taskflow6shared11total__time(entries, task_id) {
   }
   return total.val;
 }
+function _M0FP38bobzhang8taskflow6shared22attachments__for__task(attachments, task_id) {
+  return _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared10AttachmentE(attachments, (a) => a.task_id === task_id);
+}
+function _M0FP38bobzhang8taskflow6shared17attachment__count(attachments, task_id) {
+  const count = new _M0TPC13ref3RefGiE(0);
+  const _bind = attachments.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const a = attachments[_];
+      if (a.task_id === task_id) {
+        count.val = count.val + 1 | 0;
+      }
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return count.val;
+}
 function _M0FP38bobzhang8taskflow6shared16format__duration(minutes) {
   if (minutes < 60) {
     return `${_M0IP016_24default__implPB4Show10to__stringGiE(minutes)}m`;
@@ -14524,6 +14854,21 @@ function _M0FP38bobzhang8taskflow6shared1t(lang, key) {
       case "not_logged_in": {
         return "未登录";
       }
+      case "attachments": {
+        return "附件";
+      }
+      case "no_attachments": {
+        return "暂无附件";
+      }
+      case "add_link": {
+        return "添加链接";
+      }
+      case "url_placeholder": {
+        return "输入URL...";
+      }
+      case "link_label_placeholder": {
+        return "链接名称（可选）";
+      }
       case "overdue_tasks": {
         return "逾期任务";
       }
@@ -14844,6 +15189,21 @@ function _M0FP38bobzhang8taskflow6shared1t(lang, key) {
       }
       case "not_logged_in": {
         return "Not logged in";
+      }
+      case "attachments": {
+        return "Attachments";
+      }
+      case "no_attachments": {
+        return "No attachments";
+      }
+      case "add_link": {
+        return "Add link";
+      }
+      case "url_placeholder": {
+        return "Enter URL...";
+      }
+      case "link_label_placeholder": {
+        return "Label (optional)";
       }
       case "overdue_tasks": {
         return "overdue";
@@ -19235,1143 +19595,1200 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
       _L$3: {
         let id;
         _L$4: {
-          let target;
+          let att_id;
           _L$5: {
-            let ids;
+            let task_id;
             _L$6: {
-              let id$2;
+              let v;
               _L$7: {
-                let l;
+                let v$2;
                 _L$8: {
-                  let key;
-                  let ctrl;
+                  let target;
                   _L$9: {
-                    let e;
+                    let ids;
                     _L$10: {
-                      let comment;
+                      let id$2;
                       _L$11: {
-                        let v;
+                        let l;
                         _L$12: {
-                          let e$2;
+                          let key;
+                          let ctrl;
                           _L$13: {
-                            let comments;
+                            let e;
                             _L$14: {
-                              let task_id;
+                              let comment;
                               _L$15: {
-                                let entry_id;
+                                let v$3;
                                 _L$16: {
-                                  let task_id$2;
+                                  let e$2;
                                   _L$17: {
-                                    let v$2;
+                                    let comments;
                                     _L$18: {
-                                      let v$3;
+                                      let task_id$2;
                                       _L$19: {
-                                        let task_id$3;
+                                        let entry_id;
                                         _L$20: {
-                                          let task_id$4;
-                                          let interval;
+                                          let task_id$3;
                                           _L$21: {
-                                            let sub_id;
+                                            let v$4;
                                             _L$22: {
-                                              let sub_id$2;
+                                              let v$5;
                                               _L$23: {
-                                                let task_id$5;
+                                                let task_id$4;
                                                 _L$24: {
-                                                  let v$4;
+                                                  let task_id$5;
+                                                  let interval;
                                                   _L$25: {
-                                                    let task_id$6;
-                                                    let label_id;
+                                                    let sub_id;
                                                     _L$26: {
-                                                      let task_id$7;
-                                                      let label_id$2;
+                                                      let sub_id$2;
                                                       _L$27: {
-                                                        let task_id$8;
-                                                        let depends_on_id;
+                                                        let task_id$6;
                                                         _L$28: {
-                                                          let task_id$9;
-                                                          let depends_on_id$2;
+                                                          let v$6;
                                                           _L$29: {
-                                                            let id$3;
+                                                            let task_id$7;
+                                                            let label_id;
                                                             _L$30: {
-                                                              let id$4;
-                                                              let new_status$2;
+                                                              let task_id$8;
+                                                              let label_id$2;
                                                               _L$31: {
-                                                                let v$5;
+                                                                let task_id$9;
+                                                                let depends_on_id;
                                                                 _L$32: {
-                                                                  let id$5;
+                                                                  let task_id$10;
+                                                                  let depends_on_id$2;
                                                                   _L$33: {
-                                                                    let v$6;
+                                                                    let id$3;
                                                                     _L$34: {
-                                                                      let v$7;
+                                                                      let id$4;
+                                                                      let new_status$2;
                                                                       _L$35: {
-                                                                        let v$8;
+                                                                        let v$7;
                                                                         _L$36: {
-                                                                          let task;
+                                                                          let id$5;
                                                                           _L$37: {
-                                                                            let e$3;
+                                                                            let v$8;
                                                                             _L$38: {
-                                                                              let task$2;
+                                                                              let v$9;
                                                                               _L$39: {
-                                                                                let v$9;
+                                                                                let v$10;
                                                                                 _L$40: {
-                                                                                  let id$6;
+                                                                                  let task;
                                                                                   _L$41: {
-                                                                                    let v$10;
+                                                                                    let e$3;
                                                                                     _L$42: {
-                                                                                      let v$11;
+                                                                                      let task$2;
                                                                                       _L$43: {
-                                                                                        let v$12;
+                                                                                        let v$11;
                                                                                         _L$44: {
-                                                                                          let s;
+                                                                                          let id$6;
                                                                                           _L$45: {
-                                                                                            let m;
+                                                                                            let v$12;
                                                                                             _L$46: {
-                                                                                              let id$7;
+                                                                                              let v$13;
                                                                                               _L$47: {
-                                                                                                let u;
+                                                                                                let v$14;
                                                                                                 _L$48: {
-                                                                                                  let q;
+                                                                                                  let s;
                                                                                                   _L$49: {
-                                                                                                    let p;
+                                                                                                    let m;
                                                                                                     _L$50: {
-                                                                                                      let id$8;
+                                                                                                      let id$7;
                                                                                                       _L$51: {
-                                                                                                        let s$2;
+                                                                                                        let u;
                                                                                                         _L$52: {
-                                                                                                          let e$4;
+                                                                                                          let q;
                                                                                                           _L$53: {
-                                                                                                            let resp;
+                                                                                                            let p;
                                                                                                             _L$54: {
-                                                                                                              let v$13;
+                                                                                                              let id$8;
                                                                                                               _L$55: {
-                                                                                                                let v$14;
+                                                                                                                let s$2;
                                                                                                                 _L$56: {
-                                                                                                                  let e$5;
+                                                                                                                  let e$4;
                                                                                                                   _L$57: {
-                                                                                                                    let board;
+                                                                                                                    let resp;
                                                                                                                     _L$58: {
-                                                                                                                      let user;
+                                                                                                                      let v$15;
                                                                                                                       _L$59: {
-                                                                                                                        switch (msg$2.$tag) {
-                                                                                                                          case 0: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend9fetch__me(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, true, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 1: {
-                                                                                                                            const _GotMe = msg$2;
-                                                                                                                            const _x = _GotMe._0;
-                                                                                                                            if (_x.$tag === 1) {
-                                                                                                                              const _Ok = _x;
-                                                                                                                              const _user = _Ok._0;
-                                                                                                                              user = _user;
-                                                                                                                              break _L$59;
-                                                                                                                            } else {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, "login", model$2.auth_username, model$2.auth_password, model$2.auth_error, false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, false, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                          case 2: {
-                                                                                                                            const _GotBoard = msg$2;
-                                                                                                                            const _x$2 = _GotBoard._0;
-                                                                                                                            if (_x$2.$tag === 1) {
-                                                                                                                              const _Ok = _x$2;
-                                                                                                                              const _board = _Ok._0;
-                                                                                                                              board = _board;
-                                                                                                                              break _L$58;
-                                                                                                                            } else {
-                                                                                                                              const _Err = _x$2;
-                                                                                                                              const _e = _Err._0;
-                                                                                                                              e$5 = _e;
-                                                                                                                              break _L$57;
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                          case 3: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, "login", "", "", "", model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 4: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, "register", "", "", "", model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 5: {
-                                                                                                                            const _AuthUsernameChanged = msg$2;
-                                                                                                                            const _v = _AuthUsernameChanged._0;
-                                                                                                                            v$14 = _v;
-                                                                                                                            break _L$56;
-                                                                                                                          }
-                                                                                                                          case 6: {
-                                                                                                                            const _AuthPasswordChanged = msg$2;
-                                                                                                                            const _v$2 = _AuthPasswordChanged._0;
-                                                                                                                            v$13 = _v$2;
-                                                                                                                            break _L$55;
-                                                                                                                          }
-                                                                                                                          case 7: {
-                                                                                                                            if (model$2.auth_username === "" || model$2.auth_password === "") {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, _M0FP38bobzhang8taskflow6shared1t(model$2.lang, "fill_all_fields"), model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                            }
-                                                                                                                            const username = model$2.auth_username;
-                                                                                                                            const password = model$2.auth_password;
-                                                                                                                            const _bind = [{ _0: "username", _1: _M0IPC16string6StringPB6ToJson8to__json(username) }, { _0: "password", _1: _M0IPC16string6StringPB6ToJson8to__json(password) }];
-                                                                                                                            const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared10api__login, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 2)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared12AuthResponseE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg10AuthResult(result)), (json) => {
-                                                                                                                              _L$60: {
-                                                                                                                                let msg$3;
-                                                                                                                                _L$61: {
-                                                                                                                                  if (json.$tag === 6) {
-                                                                                                                                    const _Object = json;
-                                                                                                                                    const _x$3 = _Object._0;
-                                                                                                                                    const _x$4 = _M0MPB3Map3getGsRPB4JsonE(_x$3, "error");
-                                                                                                                                    if (_x$4 === undefined) {
-                                                                                                                                      break _L$60;
+                                                                                                                        let v$16;
+                                                                                                                        _L$60: {
+                                                                                                                          let e$5;
+                                                                                                                          _L$61: {
+                                                                                                                            let board;
+                                                                                                                            _L$62: {
+                                                                                                                              let user;
+                                                                                                                              _L$63: {
+                                                                                                                                switch (msg$2.$tag) {
+                                                                                                                                  case 0: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend9fetch__me(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, true, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 1: {
+                                                                                                                                    const _GotMe = msg$2;
+                                                                                                                                    const _x = _GotMe._0;
+                                                                                                                                    if (_x.$tag === 1) {
+                                                                                                                                      const _Ok = _x;
+                                                                                                                                      const _user = _Ok._0;
+                                                                                                                                      user = _user;
+                                                                                                                                      break _L$63;
                                                                                                                                     } else {
-                                                                                                                                      const _Some = _x$4;
-                                                                                                                                      const _x$5 = _Some;
-                                                                                                                                      if (_x$5.$tag === 4) {
-                                                                                                                                        const _String = _x$5;
-                                                                                                                                        const _msg = _String._0;
-                                                                                                                                        msg$3 = _msg;
-                                                                                                                                        break _L$61;
-                                                                                                                                      } else {
-                                                                                                                                        break _L$60;
-                                                                                                                                      }
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, "login", model$2.auth_username, model$2.auth_password, model$2.auth_error, false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, false, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                                     }
-                                                                                                                                  } else {
+                                                                                                                                  }
+                                                                                                                                  case 2: {
+                                                                                                                                    const _GotBoard = msg$2;
+                                                                                                                                    const _x$2 = _GotBoard._0;
+                                                                                                                                    if (_x$2.$tag === 1) {
+                                                                                                                                      const _Ok = _x$2;
+                                                                                                                                      const _board = _Ok._0;
+                                                                                                                                      board = _board;
+                                                                                                                                      break _L$62;
+                                                                                                                                    } else {
+                                                                                                                                      const _Err = _x$2;
+                                                                                                                                      const _e = _Err._0;
+                                                                                                                                      e$5 = _e;
+                                                                                                                                      break _L$61;
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  case 3: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, "login", "", "", "", model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 4: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, "register", "", "", "", model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 5: {
+                                                                                                                                    const _AuthUsernameChanged = msg$2;
+                                                                                                                                    const _v = _AuthUsernameChanged._0;
+                                                                                                                                    v$16 = _v;
                                                                                                                                     break _L$60;
                                                                                                                                   }
-                                                                                                                                }
-                                                                                                                                return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err(msg$3);
-                                                                                                                              }
-                                                                                                                              let _try_err;
-                                                                                                                              _L$61: {
-                                                                                                                                const _bind$2 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared12AuthResponseE(json, undefined);
-                                                                                                                                let _tmp$4;
-                                                                                                                                if (_bind$2.$tag === 1) {
-                                                                                                                                  const _ok = _bind$2;
-                                                                                                                                  _tmp$4 = _ok._0;
-                                                                                                                                } else {
-                                                                                                                                  const _err = _bind$2;
-                                                                                                                                  _try_err = _err._0;
-                                                                                                                                  break _L$61;
-                                                                                                                                }
-                                                                                                                                return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE2Ok(_tmp$4);
-                                                                                                                              }
-                                                                                                                              return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err("invalid_credentials");
-                                                                                                                            }));
-                                                                                                                            return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, "", true, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 8: {
-                                                                                                                            if (!_M0FP38bobzhang8taskflow6shared18validate__username(model$2.auth_username)) {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, _M0FP38bobzhang8taskflow6shared1t(model$2.lang, "username_hint"), model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                            }
-                                                                                                                            if (!_M0FP38bobzhang8taskflow6shared18validate__password(model$2.auth_password)) {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, _M0FP38bobzhang8taskflow6shared1t(model$2.lang, "password_hint"), model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                            }
-                                                                                                                            const username$2 = model$2.auth_username;
-                                                                                                                            const password$2 = model$2.auth_password;
-                                                                                                                            const _bind$2 = [{ _0: "username", _1: _M0IPC16string6StringPB6ToJson8to__json(username$2) }, { _0: "password", _1: _M0IPC16string6StringPB6ToJson8to__json(password$2) }];
-                                                                                                                            const cmd$2 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared13api__register, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$2, 0, 2)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared12AuthResponseE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg10AuthResult(result)), (json) => {
-                                                                                                                              _L$60: {
-                                                                                                                                let msg$3;
-                                                                                                                                _L$61: {
-                                                                                                                                  if (json.$tag === 6) {
-                                                                                                                                    const _Object = json;
-                                                                                                                                    const _x$3 = _Object._0;
-                                                                                                                                    const _x$4 = _M0MPB3Map3getGsRPB4JsonE(_x$3, "error");
-                                                                                                                                    if (_x$4 === undefined) {
-                                                                                                                                      break _L$60;
+                                                                                                                                  case 6: {
+                                                                                                                                    const _AuthPasswordChanged = msg$2;
+                                                                                                                                    const _v$2 = _AuthPasswordChanged._0;
+                                                                                                                                    v$15 = _v$2;
+                                                                                                                                    break _L$59;
+                                                                                                                                  }
+                                                                                                                                  case 7: {
+                                                                                                                                    if (model$2.auth_username === "" || model$2.auth_password === "") {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, _M0FP38bobzhang8taskflow6shared1t(model$2.lang, "fill_all_fields"), model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                    }
+                                                                                                                                    const username = model$2.auth_username;
+                                                                                                                                    const password = model$2.auth_password;
+                                                                                                                                    const _bind = [{ _0: "username", _1: _M0IPC16string6StringPB6ToJson8to__json(username) }, { _0: "password", _1: _M0IPC16string6StringPB6ToJson8to__json(password) }];
+                                                                                                                                    const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared10api__login, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 2)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared12AuthResponseE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg10AuthResult(result)), (json) => {
+                                                                                                                                      _L$64: {
+                                                                                                                                        let msg$3;
+                                                                                                                                        _L$65: {
+                                                                                                                                          if (json.$tag === 6) {
+                                                                                                                                            const _Object = json;
+                                                                                                                                            const _x$3 = _Object._0;
+                                                                                                                                            const _x$4 = _M0MPB3Map3getGsRPB4JsonE(_x$3, "error");
+                                                                                                                                            if (_x$4 === undefined) {
+                                                                                                                                              break _L$64;
+                                                                                                                                            } else {
+                                                                                                                                              const _Some = _x$4;
+                                                                                                                                              const _x$5 = _Some;
+                                                                                                                                              if (_x$5.$tag === 4) {
+                                                                                                                                                const _String = _x$5;
+                                                                                                                                                const _msg = _String._0;
+                                                                                                                                                msg$3 = _msg;
+                                                                                                                                                break _L$65;
+                                                                                                                                              } else {
+                                                                                                                                                break _L$64;
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          } else {
+                                                                                                                                            break _L$64;
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                        return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err(msg$3);
+                                                                                                                                      }
+                                                                                                                                      let _try_err;
+                                                                                                                                      _L$65: {
+                                                                                                                                        const _bind$2 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared12AuthResponseE(json, undefined);
+                                                                                                                                        let _tmp$4;
+                                                                                                                                        if (_bind$2.$tag === 1) {
+                                                                                                                                          const _ok = _bind$2;
+                                                                                                                                          _tmp$4 = _ok._0;
+                                                                                                                                        } else {
+                                                                                                                                          const _err = _bind$2;
+                                                                                                                                          _try_err = _err._0;
+                                                                                                                                          break _L$65;
+                                                                                                                                        }
+                                                                                                                                        return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE2Ok(_tmp$4);
+                                                                                                                                      }
+                                                                                                                                      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err("invalid_credentials");
+                                                                                                                                    }));
+                                                                                                                                    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, "", true, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 8: {
+                                                                                                                                    if (!_M0FP38bobzhang8taskflow6shared18validate__username(model$2.auth_username)) {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, _M0FP38bobzhang8taskflow6shared1t(model$2.lang, "username_hint"), model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                    }
+                                                                                                                                    if (!_M0FP38bobzhang8taskflow6shared18validate__password(model$2.auth_password)) {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, _M0FP38bobzhang8taskflow6shared1t(model$2.lang, "password_hint"), model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                    }
+                                                                                                                                    const username$2 = model$2.auth_username;
+                                                                                                                                    const password$2 = model$2.auth_password;
+                                                                                                                                    const _bind$2 = [{ _0: "username", _1: _M0IPC16string6StringPB6ToJson8to__json(username$2) }, { _0: "password", _1: _M0IPC16string6StringPB6ToJson8to__json(password$2) }];
+                                                                                                                                    const cmd$2 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared13api__register, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$2, 0, 2)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared12AuthResponseE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg10AuthResult(result)), (json) => {
+                                                                                                                                      _L$64: {
+                                                                                                                                        let msg$3;
+                                                                                                                                        _L$65: {
+                                                                                                                                          if (json.$tag === 6) {
+                                                                                                                                            const _Object = json;
+                                                                                                                                            const _x$3 = _Object._0;
+                                                                                                                                            const _x$4 = _M0MPB3Map3getGsRPB4JsonE(_x$3, "error");
+                                                                                                                                            if (_x$4 === undefined) {
+                                                                                                                                              break _L$64;
+                                                                                                                                            } else {
+                                                                                                                                              const _Some = _x$4;
+                                                                                                                                              const _x$5 = _Some;
+                                                                                                                                              if (_x$5.$tag === 4) {
+                                                                                                                                                const _String = _x$5;
+                                                                                                                                                const _msg = _String._0;
+                                                                                                                                                msg$3 = _msg;
+                                                                                                                                                break _L$65;
+                                                                                                                                              } else {
+                                                                                                                                                break _L$64;
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          } else {
+                                                                                                                                            break _L$64;
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                        return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err(msg$3);
+                                                                                                                                      }
+                                                                                                                                      let _try_err;
+                                                                                                                                      _L$65: {
+                                                                                                                                        const _bind$3 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared12AuthResponseE(json, undefined);
+                                                                                                                                        let _tmp$4;
+                                                                                                                                        if (_bind$3.$tag === 1) {
+                                                                                                                                          const _ok = _bind$3;
+                                                                                                                                          _tmp$4 = _ok._0;
+                                                                                                                                        } else {
+                                                                                                                                          const _err = _bind$3;
+                                                                                                                                          _try_err = _err._0;
+                                                                                                                                          break _L$65;
+                                                                                                                                        }
+                                                                                                                                        return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE2Ok(_tmp$4);
+                                                                                                                                      }
+                                                                                                                                      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err("registration_failed");
+                                                                                                                                    }));
+                                                                                                                                    return { _0: cmd$2, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, "", true, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 9: {
+                                                                                                                                    const _AuthResult = msg$2;
+                                                                                                                                    const _x$3 = _AuthResult._0;
+                                                                                                                                    if (_x$3.$tag === 1) {
+                                                                                                                                      const _Ok = _x$3;
+                                                                                                                                      const _resp = _Ok._0;
+                                                                                                                                      resp = _resp;
+                                                                                                                                      break _L$58;
                                                                                                                                     } else {
-                                                                                                                                      const _Some = _x$4;
-                                                                                                                                      const _x$5 = _Some;
-                                                                                                                                      if (_x$5.$tag === 4) {
-                                                                                                                                        const _String = _x$5;
-                                                                                                                                        const _msg = _String._0;
-                                                                                                                                        msg$3 = _msg;
-                                                                                                                                        break _L$61;
+                                                                                                                                      const _Err = _x$3;
+                                                                                                                                      const _e = _Err._0;
+                                                                                                                                      e$4 = _e;
+                                                                                                                                      break _L$57;
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  case 10: {
+                                                                                                                                    const _bind$3 = [];
+                                                                                                                                    const cmd$3 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared11api__logout, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 0)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdsE4Json((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg9LoggedOut__), (_json) => new _M0DTPC16result6ResultGssE2Ok("")));
+                                                                                                                                    return { _0: cmd$3, _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 11: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(undefined, "login", model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, [], [], [], [], [], [], model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 12: {
+                                                                                                                                    const _SetFilterStatus = msg$2;
+                                                                                                                                    const _s = _SetFilterStatus._0;
+                                                                                                                                    s$2 = _s;
+                                                                                                                                    break _L$56;
+                                                                                                                                  }
+                                                                                                                                  case 13: {
+                                                                                                                                    const _SetFilterAssignee = msg$2;
+                                                                                                                                    const _id = _SetFilterAssignee._0;
+                                                                                                                                    id$8 = _id;
+                                                                                                                                    break _L$55;
+                                                                                                                                  }
+                                                                                                                                  case 14: {
+                                                                                                                                    const _SetFilterPriority = msg$2;
+                                                                                                                                    const _p = _SetFilterPriority._0;
+                                                                                                                                    p = _p;
+                                                                                                                                    break _L$54;
+                                                                                                                                  }
+                                                                                                                                  case 15: {
+                                                                                                                                    const _SearchChanged = msg$2;
+                                                                                                                                    const _q = _SearchChanged._0;
+                                                                                                                                    q = _q;
+                                                                                                                                    break _L$53;
+                                                                                                                                  }
+                                                                                                                                  case 16: {
+                                                                                                                                    const _SetFilterUrgency = msg$2;
+                                                                                                                                    const _u = _SetFilterUrgency._0;
+                                                                                                                                    u = _u;
+                                                                                                                                    break _L$52;
+                                                                                                                                  }
+                                                                                                                                  case 17: {
+                                                                                                                                    const _SetFilterLabel = msg$2;
+                                                                                                                                    const _id$2 = _SetFilterLabel._0;
+                                                                                                                                    id$7 = _id$2;
+                                                                                                                                    break _L$51;
+                                                                                                                                  }
+                                                                                                                                  case 18: {
+                                                                                                                                    const _SetViewMode = msg$2;
+                                                                                                                                    const _m = _SetViewMode._0;
+                                                                                                                                    m = _m;
+                                                                                                                                    break _L$50;
+                                                                                                                                  }
+                                                                                                                                  case 19: {
+                                                                                                                                    const _SetSortBy = msg$2;
+                                                                                                                                    const _s$2 = _SetSortBy._0;
+                                                                                                                                    s = _s$2;
+                                                                                                                                    break _L$49;
+                                                                                                                                  }
+                                                                                                                                  case 20: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, !model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 21: {
+                                                                                                                                    const new_dark = !model$2.dark_mode;
+                                                                                                                                    _M0FP38bobzhang8taskflow8frontend10save__pref("taskflow_dark", new_dark ? "1" : "0");
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, new_dark, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 22: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, true, "", "", "medium", 0, "", model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 23: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, false, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 24: {
+                                                                                                                                    const _NewTitleChanged = msg$2;
+                                                                                                                                    const _v$3 = _NewTitleChanged._0;
+                                                                                                                                    v$14 = _v$3;
+                                                                                                                                    break _L$48;
+                                                                                                                                  }
+                                                                                                                                  case 25: {
+                                                                                                                                    const _NewDescChanged = msg$2;
+                                                                                                                                    const _v$4 = _NewDescChanged._0;
+                                                                                                                                    v$13 = _v$4;
+                                                                                                                                    break _L$47;
+                                                                                                                                  }
+                                                                                                                                  case 26: {
+                                                                                                                                    const _NewPriorityChanged = msg$2;
+                                                                                                                                    const _v$5 = _NewPriorityChanged._0;
+                                                                                                                                    v$12 = _v$5;
+                                                                                                                                    break _L$46;
+                                                                                                                                  }
+                                                                                                                                  case 27: {
+                                                                                                                                    const _NewAssigneeChanged = msg$2;
+                                                                                                                                    const _id$3 = _NewAssigneeChanged._0;
+                                                                                                                                    id$6 = _id$3;
+                                                                                                                                    break _L$45;
+                                                                                                                                  }
+                                                                                                                                  case 28: {
+                                                                                                                                    const _NewDueDateChanged = msg$2;
+                                                                                                                                    const _v$6 = _NewDueDateChanged._0;
+                                                                                                                                    v$11 = _v$6;
+                                                                                                                                    break _L$44;
+                                                                                                                                  }
+                                                                                                                                  case 29: {
+                                                                                                                                    if (!_M0FP38bobzhang8taskflow6shared21validate__task__title(model$2.new_title)) {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                                                                                                    }
+                                                                                                                                    const title = model$2.new_title;
+                                                                                                                                    const desc = model$2.new_desc;
+                                                                                                                                    const priority = model$2.new_priority;
+                                                                                                                                    const assignee = model$2.new_assignee;
+                                                                                                                                    const due = model$2.new_due_date;
+                                                                                                                                    const _bind$4 = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(title) }, { _0: "description", _1: _M0IPC16string6StringPB6ToJson8to__json(desc) }, { _0: "priority", _1: _M0IPC16string6StringPB6ToJson8to__json(priority) }, { _0: "assignee_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(assignee + 0) }, { _0: "due_date", _1: _M0IPC16string6StringPB6ToJson8to__json(due) }];
+                                                                                                                                    const cmd$4 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared10api__tasks, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$4, 0, 5)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared4TaskE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg9TaskAdded(result)), (json) => {
+                                                                                                                                      let _try_err;
+                                                                                                                                      _L$64: {
+                                                                                                                                        const _bind$5 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared4TaskE(json, undefined);
+                                                                                                                                        let _tmp$4;
+                                                                                                                                        if (_bind$5.$tag === 1) {
+                                                                                                                                          const _ok = _bind$5;
+                                                                                                                                          _tmp$4 = _ok._0;
+                                                                                                                                        } else {
+                                                                                                                                          const _err = _bind$5;
+                                                                                                                                          _try_err = _err._0;
+                                                                                                                                          break _L$64;
+                                                                                                                                        }
+                                                                                                                                        return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TasksE2Ok(_tmp$4);
+                                                                                                                                      }
+                                                                                                                                      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TasksE3Err("Failed to decode task");
+                                                                                                                                    }));
+                                                                                                                                    return { _0: cmd$4, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, false, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 30: {
+                                                                                                                                    const _TaskAdded = msg$2;
+                                                                                                                                    const _x$4 = _TaskAdded._0;
+                                                                                                                                    if (_x$4.$tag === 1) {
+                                                                                                                                      const _Ok = _x$4;
+                                                                                                                                      const _task = _Ok._0;
+                                                                                                                                      task$2 = _task;
+                                                                                                                                      break _L$43;
+                                                                                                                                    } else {
+                                                                                                                                      const _Err = _x$4;
+                                                                                                                                      const _e = _Err._0;
+                                                                                                                                      e$3 = _e;
+                                                                                                                                      break _L$42;
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  case 31: {
+                                                                                                                                    const _StartEditTask = msg$2;
+                                                                                                                                    const _task = _StartEditTask._0;
+                                                                                                                                    task = _task;
+                                                                                                                                    break _L$41;
+                                                                                                                                  }
+                                                                                                                                  case 32: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, 0, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 33: {
+                                                                                                                                    const _EditTitleChanged = msg$2;
+                                                                                                                                    const _v$7 = _EditTitleChanged._0;
+                                                                                                                                    v$10 = _v$7;
+                                                                                                                                    break _L$40;
+                                                                                                                                  }
+                                                                                                                                  case 34: {
+                                                                                                                                    const _EditDescChanged = msg$2;
+                                                                                                                                    const _v$8 = _EditDescChanged._0;
+                                                                                                                                    v$9 = _v$8;
+                                                                                                                                    break _L$39;
+                                                                                                                                  }
+                                                                                                                                  case 35: {
+                                                                                                                                    const _EditPriorityChanged = msg$2;
+                                                                                                                                    const _v$9 = _EditPriorityChanged._0;
+                                                                                                                                    v$8 = _v$9;
+                                                                                                                                    break _L$38;
+                                                                                                                                  }
+                                                                                                                                  case 36: {
+                                                                                                                                    const _EditAssigneeChanged = msg$2;
+                                                                                                                                    const _id$4 = _EditAssigneeChanged._0;
+                                                                                                                                    id$5 = _id$4;
+                                                                                                                                    break _L$37;
+                                                                                                                                  }
+                                                                                                                                  case 37: {
+                                                                                                                                    const _EditDueDateChanged = msg$2;
+                                                                                                                                    const _v$10 = _EditDueDateChanged._0;
+                                                                                                                                    v$7 = _v$10;
+                                                                                                                                    break _L$36;
+                                                                                                                                  }
+                                                                                                                                  case 38: {
+                                                                                                                                    const id$9 = model$2.editing_task;
+                                                                                                                                    if (id$9 === 0 || !_M0FP38bobzhang8taskflow6shared21validate__task__title(model$2.edit_title)) {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                                                                                                    }
+                                                                                                                                    const title$2 = model$2.edit_title;
+                                                                                                                                    const desc$2 = model$2.edit_desc;
+                                                                                                                                    const priority$2 = model$2.edit_priority;
+                                                                                                                                    const assignee$2 = model$2.edit_assignee;
+                                                                                                                                    const due$2 = model$2.edit_due_date;
+                                                                                                                                    const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg11TaskUpdated__));
+                                                                                                                                    const _tmp$4 = _M0FP38bobzhang8taskflow6shared9api__task(id$9);
+                                                                                                                                    const _bind$5 = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(title$2) }, { _0: "description", _1: _M0IPC16string6StringPB6ToJson8to__json(desc$2) }, { _0: "priority", _1: _M0IPC16string6StringPB6ToJson8to__json(priority$2) }, { _0: "assignee_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(assignee$2 + 0) }, { _0: "due_date", _1: _M0IPC16string6StringPB6ToJson8to__json(due$2) }];
+                                                                                                                                    const cmd$5 = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$4, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$5, 0, 5)))), expect);
+                                                                                                                                    const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id === id$9 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, title$2, desc$2, t.status, priority$2, assignee$2, due$2, t.created_at) : t);
+                                                                                                                                    return { _0: cmd$5, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, 0, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 39: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 40: {
+                                                                                                                                    const _ChangeStatus = msg$2;
+                                                                                                                                    const _id$5 = _ChangeStatus._0;
+                                                                                                                                    const _new_status = _ChangeStatus._1;
+                                                                                                                                    id$4 = _id$5;
+                                                                                                                                    new_status$2 = _new_status;
+                                                                                                                                    break _L$35;
+                                                                                                                                  }
+                                                                                                                                  case 41: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 42: {
+                                                                                                                                    const _RequestDelete = msg$2;
+                                                                                                                                    const _id$6 = _RequestDelete._0;
+                                                                                                                                    id$3 = _id$6;
+                                                                                                                                    break _L$34;
+                                                                                                                                  }
+                                                                                                                                  case 43: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, 0, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 44: {
+                                                                                                                                    const id$10 = model$2.confirm_delete;
+                                                                                                                                    if (id$10 === 0) {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                                                                                                    }
+                                                                                                                                    const expect$2 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg11TaskDeleted__));
+                                                                                                                                    const cmd$6 = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang8taskflow6shared9api__task(id$10), expect$2);
+                                                                                                                                    const tasks$2 = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id !== id$10);
+                                                                                                                                    return { _0: cmd$6, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks$2, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, 0, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 45: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 46: {
+                                                                                                                                    const _AddDep = msg$2;
+                                                                                                                                    const _task_id = _AddDep._0;
+                                                                                                                                    const _depends_on_id = _AddDep._1;
+                                                                                                                                    task_id$10 = _task_id;
+                                                                                                                                    depends_on_id$2 = _depends_on_id;
+                                                                                                                                    break _L$33;
+                                                                                                                                  }
+                                                                                                                                  case 47: {
+                                                                                                                                    const _RemoveDep = msg$2;
+                                                                                                                                    const _task_id$2 = _RemoveDep._0;
+                                                                                                                                    const _depends_on_id$2 = _RemoveDep._1;
+                                                                                                                                    task_id$9 = _task_id$2;
+                                                                                                                                    depends_on_id = _depends_on_id$2;
+                                                                                                                                    break _L$32;
+                                                                                                                                  }
+                                                                                                                                  case 48: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 58: {
+                                                                                                                                    const csv = _M0FP38bobzhang8taskflow6shared14tasks__to__csv(model$2.tasks, model$2.members);
+                                                                                                                                    _M0FP38bobzhang8taskflow8frontend14download__file(csv, "tasks.csv", "text/csv");
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 59: {
+                                                                                                                                    const _AddTaskLabel = msg$2;
+                                                                                                                                    const _task_id$3 = _AddTaskLabel._0;
+                                                                                                                                    const _label_id = _AddTaskLabel._1;
+                                                                                                                                    task_id$8 = _task_id$3;
+                                                                                                                                    label_id$2 = _label_id;
+                                                                                                                                    break _L$31;
+                                                                                                                                  }
+                                                                                                                                  case 60: {
+                                                                                                                                    const _RemoveTaskLabel = msg$2;
+                                                                                                                                    const _task_id$4 = _RemoveTaskLabel._0;
+                                                                                                                                    const _label_id$2 = _RemoveTaskLabel._1;
+                                                                                                                                    task_id$7 = _task_id$4;
+                                                                                                                                    label_id = _label_id$2;
+                                                                                                                                    break _L$30;
+                                                                                                                                  }
+                                                                                                                                  case 61: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 62: {
+                                                                                                                                    const _NewSubtaskChanged = msg$2;
+                                                                                                                                    const _v$11 = _NewSubtaskChanged._0;
+                                                                                                                                    v$6 = _v$11;
+                                                                                                                                    break _L$29;
+                                                                                                                                  }
+                                                                                                                                  case 63: {
+                                                                                                                                    const _AddSubtask = msg$2;
+                                                                                                                                    const _task_id$5 = _AddSubtask._0;
+                                                                                                                                    task_id$6 = _task_id$5;
+                                                                                                                                    break _L$28;
+                                                                                                                                  }
+                                                                                                                                  case 64: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 65: {
+                                                                                                                                    const _ToggleSubtask = msg$2;
+                                                                                                                                    const _sub_id = _ToggleSubtask._0;
+                                                                                                                                    sub_id$2 = _sub_id;
+                                                                                                                                    break _L$27;
+                                                                                                                                  }
+                                                                                                                                  case 66: {
+                                                                                                                                    const _DeleteSubtask = msg$2;
+                                                                                                                                    const _sub_id$2 = _DeleteSubtask._0;
+                                                                                                                                    sub_id = _sub_id$2;
+                                                                                                                                    break _L$26;
+                                                                                                                                  }
+                                                                                                                                  case 67: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 68: {
+                                                                                                                                    const _SetRecurrence = msg$2;
+                                                                                                                                    const _task_id$6 = _SetRecurrence._0;
+                                                                                                                                    const _interval = _SetRecurrence._1;
+                                                                                                                                    task_id$5 = _task_id$6;
+                                                                                                                                    interval = _interval;
+                                                                                                                                    break _L$25;
+                                                                                                                                  }
+                                                                                                                                  case 69: {
+                                                                                                                                    const _RemoveRecurrence = msg$2;
+                                                                                                                                    const _task_id$7 = _RemoveRecurrence._0;
+                                                                                                                                    task_id$4 = _task_id$7;
+                                                                                                                                    break _L$24;
+                                                                                                                                  }
+                                                                                                                                  case 70: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 71: {
+                                                                                                                                    const _NewTimeMinutesChanged = msg$2;
+                                                                                                                                    const _v$12 = _NewTimeMinutesChanged._0;
+                                                                                                                                    v$5 = _v$12;
+                                                                                                                                    break _L$23;
+                                                                                                                                  }
+                                                                                                                                  case 72: {
+                                                                                                                                    const _NewTimeNoteChanged = msg$2;
+                                                                                                                                    const _v$13 = _NewTimeNoteChanged._0;
+                                                                                                                                    v$4 = _v$13;
+                                                                                                                                    break _L$22;
+                                                                                                                                  }
+                                                                                                                                  case 73: {
+                                                                                                                                    const _LogTime = msg$2;
+                                                                                                                                    const _task_id$8 = _LogTime._0;
+                                                                                                                                    task_id$3 = _task_id$8;
+                                                                                                                                    break _L$21;
+                                                                                                                                  }
+                                                                                                                                  case 74: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 75: {
+                                                                                                                                    const _DeleteTimeEntry = msg$2;
+                                                                                                                                    const _entry_id = _DeleteTimeEntry._0;
+                                                                                                                                    entry_id = _entry_id;
+                                                                                                                                    break _L$20;
+                                                                                                                                  }
+                                                                                                                                  case 76: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 49: {
+                                                                                                                                    const _ShowComments = msg$2;
+                                                                                                                                    const _task_id$9 = _ShowComments._0;
+                                                                                                                                    task_id$2 = _task_id$9;
+                                                                                                                                    break _L$19;
+                                                                                                                                  }
+                                                                                                                                  case 50: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, 0, [], model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 51: {
+                                                                                                                                    const _GotComments = msg$2;
+                                                                                                                                    const _x$5 = _GotComments._0;
+                                                                                                                                    if (_x$5.$tag === 1) {
+                                                                                                                                      const _Ok = _x$5;
+                                                                                                                                      const _comments = _Ok._0;
+                                                                                                                                      comments = _comments;
+                                                                                                                                      break _L$18;
+                                                                                                                                    } else {
+                                                                                                                                      const _Err = _x$5;
+                                                                                                                                      const _e = _Err._0;
+                                                                                                                                      e$2 = _e;
+                                                                                                                                      break _L$17;
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  case 52: {
+                                                                                                                                    const _NewCommentChanged = msg$2;
+                                                                                                                                    const _v$14 = _NewCommentChanged._0;
+                                                                                                                                    v$3 = _v$14;
+                                                                                                                                    break _L$16;
+                                                                                                                                  }
+                                                                                                                                  case 53: {
+                                                                                                                                    const task_id$11 = model$2.viewing_comments;
+                                                                                                                                    if (task_id$11 === 0 || !_M0FP38bobzhang8taskflow6shared23validate__comment__text(model$2.new_comment)) {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                                                                                                    }
+                                                                                                                                    const text = model$2.new_comment;
+                                                                                                                                    const url = _M0FP38bobzhang8taskflow6shared19api__task__comments(task_id$11);
+                                                                                                                                    const _bind$6 = [{ _0: "text", _1: _M0IPC16string6StringPB6ToJson8to__json(text) }];
+                                                                                                                                    const cmd$7 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$6, 0, 1)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared7CommentE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg12CommentAdded(result)), (json) => {
+                                                                                                                                      let _try_err;
+                                                                                                                                      _L$64: {
+                                                                                                                                        const _bind$7 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared7CommentE(json, undefined);
+                                                                                                                                        let _tmp$5;
+                                                                                                                                        if (_bind$7.$tag === 1) {
+                                                                                                                                          const _ok = _bind$7;
+                                                                                                                                          _tmp$5 = _ok._0;
+                                                                                                                                        } else {
+                                                                                                                                          const _err = _bind$7;
+                                                                                                                                          _try_err = _err._0;
+                                                                                                                                          break _L$64;
+                                                                                                                                        }
+                                                                                                                                        return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentsE2Ok(_tmp$5);
+                                                                                                                                      }
+                                                                                                                                      return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentsE3Err("Failed to decode comment");
+                                                                                                                                    }));
+                                                                                                                                    return { _0: cmd$7, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, "", model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 54: {
+                                                                                                                                    const _CommentAdded = msg$2;
+                                                                                                                                    const _x$6 = _CommentAdded._0;
+                                                                                                                                    if (_x$6.$tag === 1) {
+                                                                                                                                      const _Ok = _x$6;
+                                                                                                                                      const _comment = _Ok._0;
+                                                                                                                                      comment = _comment;
+                                                                                                                                      break _L$15;
+                                                                                                                                    } else {
+                                                                                                                                      const _Err = _x$6;
+                                                                                                                                      const _e = _Err._0;
+                                                                                                                                      e = _e;
+                                                                                                                                      break _L$14;
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  case 55: {
+                                                                                                                                    const _KeyPressed = msg$2;
+                                                                                                                                    const _key = _KeyPressed._0;
+                                                                                                                                    const _ctrl = _KeyPressed._1;
+                                                                                                                                    key = _key;
+                                                                                                                                    ctrl = _ctrl;
+                                                                                                                                    break _L$13;
+                                                                                                                                  }
+                                                                                                                                  case 56: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, "", model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 57: {
+                                                                                                                                    const _SetLang = msg$2;
+                                                                                                                                    const _l = _SetLang._0;
+                                                                                                                                    l = _l;
+                                                                                                                                    break _L$12;
+                                                                                                                                  }
+                                                                                                                                  case 77: {
+                                                                                                                                    const _ToggleSelectTask = msg$2;
+                                                                                                                                    const _id$7 = _ToggleSelectTask._0;
+                                                                                                                                    id$2 = _id$7;
+                                                                                                                                    break _L$11;
+                                                                                                                                  }
+                                                                                                                                  case 78: {
+                                                                                                                                    const _SelectAllVisible = msg$2;
+                                                                                                                                    const _ids = _SelectAllVisible._0;
+                                                                                                                                    ids = _ids;
+                                                                                                                                    break _L$10;
+                                                                                                                                  }
+                                                                                                                                  case 79: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 80: {
+                                                                                                                                    const _BulkChangeStatus = msg$2;
+                                                                                                                                    const _target = _BulkChangeStatus._0;
+                                                                                                                                    target = _target;
+                                                                                                                                    break _L$9;
+                                                                                                                                  }
+                                                                                                                                  case 81: {
+                                                                                                                                    const cmd$8 = new _M0TPC13ref3RefGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdE(_M0FP319moonbit_2dcommunity7rabbita3cmd4none);
+                                                                                                                                    const _bind$7 = model$2.selected_tasks;
+                                                                                                                                    const _bind$8 = _bind$7.length;
+                                                                                                                                    let _tmp$5 = 0;
+                                                                                                                                    while (true) {
+                                                                                                                                      const _ = _tmp$5;
+                                                                                                                                      if (_ < _bind$8) {
+                                                                                                                                        const id$11 = _bind$7[_];
+                                                                                                                                        const expect$3 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone__));
+                                                                                                                                        cmd$8.val = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang8taskflow6shared9api__task(id$11), expect$3);
+                                                                                                                                        _tmp$5 = _ + 1 | 0;
+                                                                                                                                        continue;
                                                                                                                                       } else {
-                                                                                                                                        break _L$60;
+                                                                                                                                        break;
                                                                                                                                       }
                                                                                                                                     }
-                                                                                                                                  } else {
-                                                                                                                                    break _L$60;
+                                                                                                                                    const sel = model$2.selected_tasks;
+                                                                                                                                    const tasks$3 = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => !_M0MPC15array5Array8containsGiE(sel, t.id));
+                                                                                                                                    return { _0: cmd$8.val, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks$3, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 82: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 83: {
+                                                                                                                                    const _NewAttachUrlChanged = msg$2;
+                                                                                                                                    const _v$15 = _NewAttachUrlChanged._0;
+                                                                                                                                    v$2 = _v$15;
+                                                                                                                                    break _L$8;
+                                                                                                                                  }
+                                                                                                                                  case 84: {
+                                                                                                                                    const _NewAttachLabelChanged = msg$2;
+                                                                                                                                    const _v$16 = _NewAttachLabelChanged._0;
+                                                                                                                                    v = _v$16;
+                                                                                                                                    break _L$7;
+                                                                                                                                  }
+                                                                                                                                  case 85: {
+                                                                                                                                    const _AddAttachment = msg$2;
+                                                                                                                                    const _task_id$10 = _AddAttachment._0;
+                                                                                                                                    task_id = _task_id$10;
+                                                                                                                                    break _L$6;
+                                                                                                                                  }
+                                                                                                                                  case 86: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 87: {
+                                                                                                                                    const _DeleteAttachment = msg$2;
+                                                                                                                                    const _att_id = _DeleteAttachment._0;
+                                                                                                                                    att_id = _att_id;
+                                                                                                                                    break _L$5;
+                                                                                                                                  }
+                                                                                                                                  case 88: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
+                                                                                                                                  }
+                                                                                                                                  case 89: {
+                                                                                                                                    const _DragStartTask = msg$2;
+                                                                                                                                    const _id$8 = _DragStartTask._0;
+                                                                                                                                    id = _id$8;
+                                                                                                                                    break _L$4;
+                                                                                                                                  }
+                                                                                                                                  case 90: {
+                                                                                                                                    const _DragOverColumn = msg$2;
+                                                                                                                                    const _status = _DragOverColumn._0;
+                                                                                                                                    status = _status;
+                                                                                                                                    break _L$3;
+                                                                                                                                  }
+                                                                                                                                  case 91: {
+                                                                                                                                    const _DropOnColumn = msg$2;
+                                                                                                                                    const _new_status$2 = _DropOnColumn._0;
+                                                                                                                                    new_status = _new_status$2;
+                                                                                                                                    break _L$2;
+                                                                                                                                  }
+                                                                                                                                  case 92: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, 0, "", model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                                  }
+                                                                                                                                  case 93: {
+                                                                                                                                    if (model$2.undo_task_id > 0 && _M0IP016_24default__implPB2Eq10not__equalGsE(model$2.undo_old_status, "")) {
+                                                                                                                                      const id$11 = model$2.undo_task_id;
+                                                                                                                                      const old_status = model$2.undo_old_status;
+                                                                                                                                      const expect$3 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete__));
+                                                                                                                                      const _tmp$6 = _M0FP38bobzhang8taskflow6shared17api__task__status(id$11);
+                                                                                                                                      const _bind$9 = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(old_status) }];
+                                                                                                                                      const cmd$9 = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$6, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$9, 0, 1)))), expect$3);
+                                                                                                                                      const tasks$4 = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id === id$11 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, old_status, t.priority, t.assignee_id, t.due_date, t.created_at) : t);
+                                                                                                                                      return { _0: cmd$9, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks$4, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, "", 0, "") };
+                                                                                                                                    } else {
+                                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, "", 0, "") };
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                  case 94: {
+                                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, "", 0, "") };
+                                                                                                                                  }
+                                                                                                                                  default: {
+                                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
                                                                                                                                   }
                                                                                                                                 }
-                                                                                                                                return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err(msg$3);
                                                                                                                               }
-                                                                                                                              let _try_err;
-                                                                                                                              _L$61: {
-                                                                                                                                const _bind$3 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared12AuthResponseE(json, undefined);
-                                                                                                                                let _tmp$4;
-                                                                                                                                if (_bind$3.$tag === 1) {
-                                                                                                                                  const _ok = _bind$3;
-                                                                                                                                  _tmp$4 = _ok._0;
-                                                                                                                                } else {
-                                                                                                                                  const _err = _bind$3;
-                                                                                                                                  _try_err = _err._0;
-                                                                                                                                  break _L$61;
-                                                                                                                                }
-                                                                                                                                return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE2Ok(_tmp$4);
-                                                                                                                              }
-                                                                                                                              return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared12AuthResponsesE3Err("registration_failed");
-                                                                                                                            }));
-                                                                                                                            return { _0: cmd$2, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, "", true, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 9: {
-                                                                                                                            const _AuthResult = msg$2;
-                                                                                                                            const _x$3 = _AuthResult._0;
-                                                                                                                            if (_x$3.$tag === 1) {
-                                                                                                                              const _Ok = _x$3;
-                                                                                                                              const _resp = _Ok._0;
-                                                                                                                              resp = _resp;
-                                                                                                                              break _L$54;
-                                                                                                                            } else {
-                                                                                                                              const _Err = _x$3;
-                                                                                                                              const _e = _Err._0;
-                                                                                                                              e$4 = _e;
-                                                                                                                              break _L$53;
+                                                                                                                              return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(user, "", model$2.auth_username, model$2.auth_password, model$2.auth_error, false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                             }
+                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, board.tasks, board.members, board.activities, board.dependencies, board.labels, board.task_labels, board.subtasks, board.time_entries, board.recurrence_rules, board.attachments, board.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, false, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                           }
-                                                                                                                          case 10: {
-                                                                                                                            const _bind$3 = [];
-                                                                                                                            const cmd$3 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared11api__logout, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 0)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdsE4Json((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg9LoggedOut__), (_json) => new _M0DTPC16result6ResultGssE2Ok("")));
-                                                                                                                            return { _0: cmd$3, _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 11: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(undefined, "login", model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, [], [], [], [], [], [], model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 12: {
-                                                                                                                            const _SetFilterStatus = msg$2;
-                                                                                                                            const _s = _SetFilterStatus._0;
-                                                                                                                            s$2 = _s;
-                                                                                                                            break _L$52;
-                                                                                                                          }
-                                                                                                                          case 13: {
-                                                                                                                            const _SetFilterAssignee = msg$2;
-                                                                                                                            const _id = _SetFilterAssignee._0;
-                                                                                                                            id$8 = _id;
-                                                                                                                            break _L$51;
-                                                                                                                          }
-                                                                                                                          case 14: {
-                                                                                                                            const _SetFilterPriority = msg$2;
-                                                                                                                            const _p = _SetFilterPriority._0;
-                                                                                                                            p = _p;
-                                                                                                                            break _L$50;
-                                                                                                                          }
-                                                                                                                          case 15: {
-                                                                                                                            const _SearchChanged = msg$2;
-                                                                                                                            const _q = _SearchChanged._0;
-                                                                                                                            q = _q;
-                                                                                                                            break _L$49;
-                                                                                                                          }
-                                                                                                                          case 16: {
-                                                                                                                            const _SetFilterUrgency = msg$2;
-                                                                                                                            const _u = _SetFilterUrgency._0;
-                                                                                                                            u = _u;
-                                                                                                                            break _L$48;
-                                                                                                                          }
-                                                                                                                          case 17: {
-                                                                                                                            const _SetFilterLabel = msg$2;
-                                                                                                                            const _id$2 = _SetFilterLabel._0;
-                                                                                                                            id$7 = _id$2;
-                                                                                                                            break _L$47;
-                                                                                                                          }
-                                                                                                                          case 18: {
-                                                                                                                            const _SetViewMode = msg$2;
-                                                                                                                            const _m = _SetViewMode._0;
-                                                                                                                            m = _m;
-                                                                                                                            break _L$46;
-                                                                                                                          }
-                                                                                                                          case 19: {
-                                                                                                                            const _SetSortBy = msg$2;
-                                                                                                                            const _s$2 = _SetSortBy._0;
-                                                                                                                            s = _s$2;
-                                                                                                                            break _L$45;
-                                                                                                                          }
-                                                                                                                          case 20: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, !model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 21: {
-                                                                                                                            const new_dark = !model$2.dark_mode;
-                                                                                                                            _M0FP38bobzhang8taskflow8frontend10save__pref("taskflow_dark", new_dark ? "1" : "0");
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, new_dark, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 22: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, true, "", "", "medium", 0, "", model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 23: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, false, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 24: {
-                                                                                                                            const _NewTitleChanged = msg$2;
-                                                                                                                            const _v$3 = _NewTitleChanged._0;
-                                                                                                                            v$12 = _v$3;
-                                                                                                                            break _L$44;
-                                                                                                                          }
-                                                                                                                          case 25: {
-                                                                                                                            const _NewDescChanged = msg$2;
-                                                                                                                            const _v$4 = _NewDescChanged._0;
-                                                                                                                            v$11 = _v$4;
-                                                                                                                            break _L$43;
-                                                                                                                          }
-                                                                                                                          case 26: {
-                                                                                                                            const _NewPriorityChanged = msg$2;
-                                                                                                                            const _v$5 = _NewPriorityChanged._0;
-                                                                                                                            v$10 = _v$5;
-                                                                                                                            break _L$42;
-                                                                                                                          }
-                                                                                                                          case 27: {
-                                                                                                                            const _NewAssigneeChanged = msg$2;
-                                                                                                                            const _id$3 = _NewAssigneeChanged._0;
-                                                                                                                            id$6 = _id$3;
-                                                                                                                            break _L$41;
-                                                                                                                          }
-                                                                                                                          case 28: {
-                                                                                                                            const _NewDueDateChanged = msg$2;
-                                                                                                                            const _v$6 = _NewDueDateChanged._0;
-                                                                                                                            v$9 = _v$6;
-                                                                                                                            break _L$40;
-                                                                                                                          }
-                                                                                                                          case 29: {
-                                                                                                                            if (!_M0FP38bobzhang8taskflow6shared21validate__task__title(model$2.new_title)) {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                                                                                            }
-                                                                                                                            const title = model$2.new_title;
-                                                                                                                            const desc = model$2.new_desc;
-                                                                                                                            const priority = model$2.new_priority;
-                                                                                                                            const assignee = model$2.new_assignee;
-                                                                                                                            const due = model$2.new_due_date;
-                                                                                                                            const _bind$4 = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(title) }, { _0: "description", _1: _M0IPC16string6StringPB6ToJson8to__json(desc) }, { _0: "priority", _1: _M0IPC16string6StringPB6ToJson8to__json(priority) }, { _0: "assignee_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(assignee + 0) }, { _0: "due_date", _1: _M0IPC16string6StringPB6ToJson8to__json(due) }];
-                                                                                                                            const cmd$4 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(_M0FP38bobzhang8taskflow6shared10api__tasks, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$4, 0, 5)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared4TaskE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg9TaskAdded(result)), (json) => {
-                                                                                                                              let _try_err;
-                                                                                                                              _L$60: {
-                                                                                                                                const _bind$5 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared4TaskE(json, undefined);
-                                                                                                                                let _tmp$4;
-                                                                                                                                if (_bind$5.$tag === 1) {
-                                                                                                                                  const _ok = _bind$5;
-                                                                                                                                  _tmp$4 = _ok._0;
-                                                                                                                                } else {
-                                                                                                                                  const _err = _bind$5;
-                                                                                                                                  _try_err = _err._0;
-                                                                                                                                  break _L$60;
-                                                                                                                                }
-                                                                                                                                return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TasksE2Ok(_tmp$4);
-                                                                                                                              }
-                                                                                                                              return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared4TasksE3Err("Failed to decode task");
-                                                                                                                            }));
-                                                                                                                            return { _0: cmd$4, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, false, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 30: {
-                                                                                                                            const _TaskAdded = msg$2;
-                                                                                                                            const _x$4 = _TaskAdded._0;
-                                                                                                                            if (_x$4.$tag === 1) {
-                                                                                                                              const _Ok = _x$4;
-                                                                                                                              const _task = _Ok._0;
-                                                                                                                              task$2 = _task;
-                                                                                                                              break _L$39;
-                                                                                                                            } else {
-                                                                                                                              const _Err = _x$4;
-                                                                                                                              const _e = _Err._0;
-                                                                                                                              e$3 = _e;
-                                                                                                                              break _L$38;
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                          case 31: {
-                                                                                                                            const _StartEditTask = msg$2;
-                                                                                                                            const _task = _StartEditTask._0;
-                                                                                                                            task = _task;
-                                                                                                                            break _L$37;
-                                                                                                                          }
-                                                                                                                          case 32: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, 0, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 33: {
-                                                                                                                            const _EditTitleChanged = msg$2;
-                                                                                                                            const _v$7 = _EditTitleChanged._0;
-                                                                                                                            v$8 = _v$7;
-                                                                                                                            break _L$36;
-                                                                                                                          }
-                                                                                                                          case 34: {
-                                                                                                                            const _EditDescChanged = msg$2;
-                                                                                                                            const _v$8 = _EditDescChanged._0;
-                                                                                                                            v$7 = _v$8;
-                                                                                                                            break _L$35;
-                                                                                                                          }
-                                                                                                                          case 35: {
-                                                                                                                            const _EditPriorityChanged = msg$2;
-                                                                                                                            const _v$9 = _EditPriorityChanged._0;
-                                                                                                                            v$6 = _v$9;
-                                                                                                                            break _L$34;
-                                                                                                                          }
-                                                                                                                          case 36: {
-                                                                                                                            const _EditAssigneeChanged = msg$2;
-                                                                                                                            const _id$4 = _EditAssigneeChanged._0;
-                                                                                                                            id$5 = _id$4;
-                                                                                                                            break _L$33;
-                                                                                                                          }
-                                                                                                                          case 37: {
-                                                                                                                            const _EditDueDateChanged = msg$2;
-                                                                                                                            const _v$10 = _EditDueDateChanged._0;
-                                                                                                                            v$5 = _v$10;
-                                                                                                                            break _L$32;
-                                                                                                                          }
-                                                                                                                          case 38: {
-                                                                                                                            const id$9 = model$2.editing_task;
-                                                                                                                            if (id$9 === 0 || !_M0FP38bobzhang8taskflow6shared21validate__task__title(model$2.edit_title)) {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                                                                                            }
-                                                                                                                            const title$2 = model$2.edit_title;
-                                                                                                                            const desc$2 = model$2.edit_desc;
-                                                                                                                            const priority$2 = model$2.edit_priority;
-                                                                                                                            const assignee$2 = model$2.edit_assignee;
-                                                                                                                            const due$2 = model$2.edit_due_date;
-                                                                                                                            const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg11TaskUpdated__));
-                                                                                                                            const _tmp$4 = _M0FP38bobzhang8taskflow6shared9api__task(id$9);
-                                                                                                                            const _bind$5 = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(title$2) }, { _0: "description", _1: _M0IPC16string6StringPB6ToJson8to__json(desc$2) }, { _0: "priority", _1: _M0IPC16string6StringPB6ToJson8to__json(priority$2) }, { _0: "assignee_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(assignee$2 + 0) }, { _0: "due_date", _1: _M0IPC16string6StringPB6ToJson8to__json(due$2) }];
-                                                                                                                            const cmd$5 = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$4, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$5, 0, 5)))), expect);
-                                                                                                                            const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id === id$9 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, title$2, desc$2, t.status, priority$2, assignee$2, due$2, t.created_at) : t);
-                                                                                                                            return { _0: cmd$5, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, 0, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 39: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 40: {
-                                                                                                                            const _ChangeStatus = msg$2;
-                                                                                                                            const _id$5 = _ChangeStatus._0;
-                                                                                                                            const _new_status = _ChangeStatus._1;
-                                                                                                                            id$4 = _id$5;
-                                                                                                                            new_status$2 = _new_status;
-                                                                                                                            break _L$31;
-                                                                                                                          }
-                                                                                                                          case 41: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 42: {
-                                                                                                                            const _RequestDelete = msg$2;
-                                                                                                                            const _id$6 = _RequestDelete._0;
-                                                                                                                            id$3 = _id$6;
-                                                                                                                            break _L$30;
-                                                                                                                          }
-                                                                                                                          case 43: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, 0, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 44: {
-                                                                                                                            const id$10 = model$2.confirm_delete;
-                                                                                                                            if (id$10 === 0) {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                                                                                            }
-                                                                                                                            const expect$2 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg11TaskDeleted__));
-                                                                                                                            const cmd$6 = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang8taskflow6shared9api__task(id$10), expect$2);
-                                                                                                                            const tasks$2 = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id !== id$10);
-                                                                                                                            return { _0: cmd$6, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks$2, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, 0, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 45: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 46: {
-                                                                                                                            const _AddDep = msg$2;
-                                                                                                                            const _task_id = _AddDep._0;
-                                                                                                                            const _depends_on_id = _AddDep._1;
-                                                                                                                            task_id$9 = _task_id;
-                                                                                                                            depends_on_id$2 = _depends_on_id;
-                                                                                                                            break _L$29;
-                                                                                                                          }
-                                                                                                                          case 47: {
-                                                                                                                            const _RemoveDep = msg$2;
-                                                                                                                            const _task_id$2 = _RemoveDep._0;
-                                                                                                                            const _depends_on_id$2 = _RemoveDep._1;
-                                                                                                                            task_id$8 = _task_id$2;
-                                                                                                                            depends_on_id = _depends_on_id$2;
-                                                                                                                            break _L$28;
-                                                                                                                          }
-                                                                                                                          case 48: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 58: {
-                                                                                                                            const csv = _M0FP38bobzhang8taskflow6shared14tasks__to__csv(model$2.tasks, model$2.members);
-                                                                                                                            _M0FP38bobzhang8taskflow8frontend14download__file(csv, "tasks.csv", "text/csv");
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 59: {
-                                                                                                                            const _AddTaskLabel = msg$2;
-                                                                                                                            const _task_id$3 = _AddTaskLabel._0;
-                                                                                                                            const _label_id = _AddTaskLabel._1;
-                                                                                                                            task_id$7 = _task_id$3;
-                                                                                                                            label_id$2 = _label_id;
-                                                                                                                            break _L$27;
-                                                                                                                          }
-                                                                                                                          case 60: {
-                                                                                                                            const _RemoveTaskLabel = msg$2;
-                                                                                                                            const _task_id$4 = _RemoveTaskLabel._0;
-                                                                                                                            const _label_id$2 = _RemoveTaskLabel._1;
-                                                                                                                            task_id$6 = _task_id$4;
-                                                                                                                            label_id = _label_id$2;
-                                                                                                                            break _L$26;
-                                                                                                                          }
-                                                                                                                          case 61: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 62: {
-                                                                                                                            const _NewSubtaskChanged = msg$2;
-                                                                                                                            const _v$11 = _NewSubtaskChanged._0;
-                                                                                                                            v$4 = _v$11;
-                                                                                                                            break _L$25;
-                                                                                                                          }
-                                                                                                                          case 63: {
-                                                                                                                            const _AddSubtask = msg$2;
-                                                                                                                            const _task_id$5 = _AddSubtask._0;
-                                                                                                                            task_id$5 = _task_id$5;
-                                                                                                                            break _L$24;
-                                                                                                                          }
-                                                                                                                          case 64: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 65: {
-                                                                                                                            const _ToggleSubtask = msg$2;
-                                                                                                                            const _sub_id = _ToggleSubtask._0;
-                                                                                                                            sub_id$2 = _sub_id;
-                                                                                                                            break _L$23;
-                                                                                                                          }
-                                                                                                                          case 66: {
-                                                                                                                            const _DeleteSubtask = msg$2;
-                                                                                                                            const _sub_id$2 = _DeleteSubtask._0;
-                                                                                                                            sub_id = _sub_id$2;
-                                                                                                                            break _L$22;
-                                                                                                                          }
-                                                                                                                          case 67: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 68: {
-                                                                                                                            const _SetRecurrence = msg$2;
-                                                                                                                            const _task_id$6 = _SetRecurrence._0;
-                                                                                                                            const _interval = _SetRecurrence._1;
-                                                                                                                            task_id$4 = _task_id$6;
-                                                                                                                            interval = _interval;
-                                                                                                                            break _L$21;
-                                                                                                                          }
-                                                                                                                          case 69: {
-                                                                                                                            const _RemoveRecurrence = msg$2;
-                                                                                                                            const _task_id$7 = _RemoveRecurrence._0;
-                                                                                                                            task_id$3 = _task_id$7;
-                                                                                                                            break _L$20;
-                                                                                                                          }
-                                                                                                                          case 70: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 71: {
-                                                                                                                            const _NewTimeMinutesChanged = msg$2;
-                                                                                                                            const _v$12 = _NewTimeMinutesChanged._0;
-                                                                                                                            v$3 = _v$12;
-                                                                                                                            break _L$19;
-                                                                                                                          }
-                                                                                                                          case 72: {
-                                                                                                                            const _NewTimeNoteChanged = msg$2;
-                                                                                                                            const _v$13 = _NewTimeNoteChanged._0;
-                                                                                                                            v$2 = _v$13;
-                                                                                                                            break _L$18;
-                                                                                                                          }
-                                                                                                                          case 73: {
-                                                                                                                            const _LogTime = msg$2;
-                                                                                                                            const _task_id$8 = _LogTime._0;
-                                                                                                                            task_id$2 = _task_id$8;
-                                                                                                                            break _L$17;
-                                                                                                                          }
-                                                                                                                          case 74: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 75: {
-                                                                                                                            const _DeleteTimeEntry = msg$2;
-                                                                                                                            const _entry_id = _DeleteTimeEntry._0;
-                                                                                                                            entry_id = _entry_id;
-                                                                                                                            break _L$16;
-                                                                                                                          }
-                                                                                                                          case 76: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
-                                                                                                                          case 49: {
-                                                                                                                            const _ShowComments = msg$2;
-                                                                                                                            const _task_id$9 = _ShowComments._0;
-                                                                                                                            task_id = _task_id$9;
-                                                                                                                            break _L$15;
-                                                                                                                          }
-                                                                                                                          case 50: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, 0, [], model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 51: {
-                                                                                                                            const _GotComments = msg$2;
-                                                                                                                            const _x$5 = _GotComments._0;
-                                                                                                                            if (_x$5.$tag === 1) {
-                                                                                                                              const _Ok = _x$5;
-                                                                                                                              const _comments = _Ok._0;
-                                                                                                                              comments = _comments;
-                                                                                                                              break _L$14;
-                                                                                                                            } else {
-                                                                                                                              const _Err = _x$5;
-                                                                                                                              const _e = _Err._0;
-                                                                                                                              e$2 = _e;
-                                                                                                                              break _L$13;
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                          case 52: {
-                                                                                                                            const _NewCommentChanged = msg$2;
-                                                                                                                            const _v$14 = _NewCommentChanged._0;
-                                                                                                                            v = _v$14;
-                                                                                                                            break _L$12;
-                                                                                                                          }
-                                                                                                                          case 53: {
-                                                                                                                            const task_id$10 = model$2.viewing_comments;
-                                                                                                                            if (task_id$10 === 0 || !_M0FP38bobzhang8taskflow6shared23validate__comment__text(model$2.new_comment)) {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                                                                                            }
-                                                                                                                            const text = model$2.new_comment;
-                                                                                                                            const url = _M0FP38bobzhang8taskflow6shared19api__task__comments(task_id$10);
-                                                                                                                            const _bind$6 = [{ _0: "text", _1: _M0IPC16string6StringPB6ToJson8to__json(text) }];
-                                                                                                                            const cmd$7 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang8taskflow6shared12AuthResponseE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$6, 0, 1)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang8taskflow6shared7CommentE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg12CommentAdded(result)), (json) => {
-                                                                                                                              let _try_err;
-                                                                                                                              _L$60: {
-                                                                                                                                const _bind$7 = _M0FPC14json10from__jsonGRP38bobzhang8taskflow6shared7CommentE(json, undefined);
-                                                                                                                                let _tmp$5;
-                                                                                                                                if (_bind$7.$tag === 1) {
-                                                                                                                                  const _ok = _bind$7;
-                                                                                                                                  _tmp$5 = _ok._0;
-                                                                                                                                } else {
-                                                                                                                                  const _err = _bind$7;
-                                                                                                                                  _try_err = _err._0;
-                                                                                                                                  break _L$60;
-                                                                                                                                }
-                                                                                                                                return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentsE2Ok(_tmp$5);
-                                                                                                                              }
-                                                                                                                              return new _M0DTPC16result6ResultGRP38bobzhang8taskflow6shared7CommentsE3Err("Failed to decode comment");
-                                                                                                                            }));
-                                                                                                                            return { _0: cmd$7, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, "", model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 54: {
-                                                                                                                            const _CommentAdded = msg$2;
-                                                                                                                            const _x$6 = _CommentAdded._0;
-                                                                                                                            if (_x$6.$tag === 1) {
-                                                                                                                              const _Ok = _x$6;
-                                                                                                                              const _comment = _Ok._0;
-                                                                                                                              comment = _comment;
-                                                                                                                              break _L$11;
-                                                                                                                            } else {
-                                                                                                                              const _Err = _x$6;
-                                                                                                                              const _e = _Err._0;
-                                                                                                                              e = _e;
-                                                                                                                              break _L$10;
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                          case 55: {
-                                                                                                                            const _KeyPressed = msg$2;
-                                                                                                                            const _key = _KeyPressed._0;
-                                                                                                                            const _ctrl = _KeyPressed._1;
-                                                                                                                            key = _key;
-                                                                                                                            ctrl = _ctrl;
-                                                                                                                            break _L$9;
-                                                                                                                          }
-                                                                                                                          case 56: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, "", model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 57: {
-                                                                                                                            const _SetLang = msg$2;
-                                                                                                                            const _l = _SetLang._0;
-                                                                                                                            l = _l;
-                                                                                                                            break _L$8;
-                                                                                                                          }
-                                                                                                                          case 77: {
-                                                                                                                            const _ToggleSelectTask = msg$2;
-                                                                                                                            const _id$7 = _ToggleSelectTask._0;
-                                                                                                                            id$2 = _id$7;
-                                                                                                                            break _L$7;
-                                                                                                                          }
-                                                                                                                          case 78: {
-                                                                                                                            const _SelectAllVisible = msg$2;
-                                                                                                                            const _ids = _SelectAllVisible._0;
-                                                                                                                            ids = _ids;
-                                                                                                                            break _L$6;
-                                                                                                                          }
-                                                                                                                          case 79: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 80: {
-                                                                                                                            const _BulkChangeStatus = msg$2;
-                                                                                                                            const _target = _BulkChangeStatus._0;
-                                                                                                                            target = _target;
-                                                                                                                            break _L$5;
-                                                                                                                          }
-                                                                                                                          case 81: {
-                                                                                                                            const cmd$8 = new _M0TPC13ref3RefGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdE(_M0FP319moonbit_2dcommunity7rabbita3cmd4none);
-                                                                                                                            const _bind$7 = model$2.selected_tasks;
-                                                                                                                            const _bind$8 = _bind$7.length;
-                                                                                                                            let _tmp$5 = 0;
-                                                                                                                            while (true) {
-                                                                                                                              const _ = _tmp$5;
-                                                                                                                              if (_ < _bind$8) {
-                                                                                                                                const id$11 = _bind$7[_];
-                                                                                                                                const expect$3 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone__));
-                                                                                                                                cmd$8.val = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang8taskflow6shared9api__task(id$11), expect$3);
-                                                                                                                                _tmp$5 = _ + 1 | 0;
-                                                                                                                                continue;
-                                                                                                                              } else {
-                                                                                                                                break;
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                            const sel = model$2.selected_tasks;
-                                                                                                                            const tasks$3 = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => !_M0MPC15array5Array8containsGiE(sel, t.id));
-                                                                                                                            return { _0: cmd$8.val, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks$3, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 82: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 83: {
-                                                                                                                            const _DragStartTask = msg$2;
-                                                                                                                            const _id$8 = _DragStartTask._0;
-                                                                                                                            id = _id$8;
-                                                                                                                            break _L$4;
-                                                                                                                          }
-                                                                                                                          case 84: {
-                                                                                                                            const _DragOverColumn = msg$2;
-                                                                                                                            const _status = _DragOverColumn._0;
-                                                                                                                            status = _status;
-                                                                                                                            break _L$3;
-                                                                                                                          }
-                                                                                                                          case 85: {
-                                                                                                                            const _DropOnColumn = msg$2;
-                                                                                                                            const _new_status$2 = _DropOnColumn._0;
-                                                                                                                            new_status = _new_status$2;
-                                                                                                                            break _L$2;
-                                                                                                                          }
-                                                                                                                          case 86: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, 0, "", model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                                                                                                                          }
-                                                                                                                          case 87: {
-                                                                                                                            if (model$2.undo_task_id > 0 && _M0IP016_24default__implPB2Eq10not__equalGsE(model$2.undo_old_status, "")) {
-                                                                                                                              const id$11 = model$2.undo_task_id;
-                                                                                                                              const old_status = model$2.undo_old_status;
-                                                                                                                              const expect$3 = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12UndoComplete__));
-                                                                                                                              const _tmp$6 = _M0FP38bobzhang8taskflow6shared17api__task__status(id$11);
-                                                                                                                              const _bind$9 = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(old_status) }];
-                                                                                                                              const cmd$9 = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$6, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$9, 0, 1)))), expect$3);
-                                                                                                                              const tasks$4 = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id === id$11 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, old_status, t.priority, t.assignee_id, t.due_date, t.created_at) : t);
-                                                                                                                              return { _0: cmd$9, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks$4, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, "", 0, "") };
-                                                                                                                            } else {
-                                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, "", 0, "") };
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                          case 88: {
-                                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, "", 0, "") };
-                                                                                                                          }
-                                                                                                                          default: {
-                                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: model$2 };
-                                                                                                                          }
+                                                                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e$5, false, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                         }
+                                                                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, v$16, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                       }
-                                                                                                                      return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(user, "", model$2.auth_username, model$2.auth_password, model$2.auth_error, false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, v$15, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                     }
-                                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, board.tasks, board.members, board.activities, board.dependencies, board.labels, board.task_labels, board.subtasks, board.time_entries, board.recurrence_rules, board.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, false, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                    return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(resp.user, "", "", "", "", false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                   }
-                                                                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e$5, false, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                  const msg$3 = _M0FP38bobzhang8taskflow6shared16t__server__error(model$2.lang, e$4);
+                                                                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, msg$3, false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                                 }
-                                                                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, v$14, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, s$2, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                               }
-                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, v$13, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, id$8, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                             }
-                                                                                                            return { _0: _M0FP38bobzhang8taskflow8frontend12fetch__board(dispatch$2), _1: new _M0TP38bobzhang8taskflow8frontend5Model(resp.user, "", "", "", "", false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, p, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                           }
-                                                                                                          const msg$3 = _M0FP38bobzhang8taskflow6shared16t__server__error(model$2.lang, e$4);
-                                                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, msg$3, false, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, q, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                         }
-                                                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, s$2, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, u, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                       }
-                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, id$8, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, id$7, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                     }
-                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, p, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, m, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                   }
-                                                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, q, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, s, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                                 }
-                                                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, u, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, v$14, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                               }
-                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, id$7, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, v$13, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                             }
-                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, m, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, v$12, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                           }
-                                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, s, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, id$6, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                         }
-                                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, v$12, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, v$11, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                       }
-                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, v$11, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                      const tasks = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.tasks);
+                                                                                      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(tasks, task$2);
+                                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                     }
-                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, v$10, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e$3, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                   }
-                                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, id$6, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, task.id, task.title, task.description, task.priority, task.assignee_id, task.due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                                 }
-                                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, v$9, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, v$10, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                               }
-                                                                              const tasks = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.tasks);
-                                                                              _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(tasks, task$2);
-                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, v$9, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                             }
-                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e$3, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, v$8, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                           }
-                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, task.id, task.title, task.description, task.priority, task.assignee_id, task.due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, id$5, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                         }
-                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, v$8, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, v$7, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                       }
-                                                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, v$7, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                      const current_status = new _M0TPC13ref3RefGsE("");
+                                                                      const _bind = model$2.tasks;
+                                                                      const _bind$2 = _bind.length;
+                                                                      let _tmp$4 = 0;
+                                                                      while (true) {
+                                                                        const _ = _tmp$4;
+                                                                        if (_ < _bind$2) {
+                                                                          const t = _bind[_];
+                                                                          if (t.id === id$4) {
+                                                                            current_status.val = t.status;
+                                                                            break;
+                                                                          }
+                                                                          _tmp$4 = _ + 1 | 0;
+                                                                          continue;
+                                                                        } else {
+                                                                          break;
+                                                                        }
+                                                                      }
+                                                                      if (!_M0FP38bobzhang8taskflow6shared21is__valid__transition(current_status.val, new_status$2)) {
+                                                                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                                      }
+                                                                      const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg13StatusChanged__));
+                                                                      const _tmp$5 = _M0FP38bobzhang8taskflow6shared17api__task__status(id$4);
+                                                                      const _bind$3 = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(new_status$2) }];
+                                                                      const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$5, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 1)))), expect);
+                                                                      const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id === id$4 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, new_status$2, t.priority, t.assignee_id, t.due_date, t.created_at) : t);
+                                                                      const undo_msg = _M0FP38bobzhang8taskflow6shared15t__undo__status(model$2.lang, current_status.val, new_status$2);
+                                                                      return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, undo_msg, id$4, current_status.val) };
                                                                     }
-                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, v$6, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, id$3, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                   }
-                                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, id$5, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                  const url = _M0FP38bobzhang8taskflow6shared15api__task__deps(task_id$10);
+                                                                  const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg10DepChanged__));
+                                                                  const _bind = [{ _0: "depends_on_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(depends_on_id$2 + 0) }];
+                                                                  const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
+                                                                  const deps = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.dependencies);
+                                                                  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(deps, new _M0TP38bobzhang8taskflow6shared10Dependency(task_id$10, depends_on_id$2));
+                                                                  return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, deps, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                                 }
-                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, v$5, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                                const url = _M0FP38bobzhang8taskflow6shared23api__task__deps__remove(task_id$9);
+                                                                const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg10DepChanged__));
+                                                                const _bind = [{ _0: "depends_on_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(depends_on_id + 0) }];
+                                                                const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
+                                                                const deps = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared10DependencyE(model$2.dependencies, (d) => !(d.task_id === task_id$9 && d.depends_on_id === depends_on_id));
+                                                                return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, deps, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                               }
-                                                              const current_status = new _M0TPC13ref3RefGsE("");
-                                                              const _bind = model$2.tasks;
-                                                              const _bind$2 = _bind.length;
-                                                              let _tmp$4 = 0;
-                                                              while (true) {
-                                                                const _ = _tmp$4;
-                                                                if (_ < _bind$2) {
-                                                                  const t = _bind[_];
-                                                                  if (t.id === id$4) {
-                                                                    current_status.val = t.status;
-                                                                    break;
-                                                                  }
-                                                                  _tmp$4 = _ + 1 | 0;
-                                                                  continue;
-                                                                } else {
-                                                                  break;
-                                                                }
-                                                              }
-                                                              if (!_M0FP38bobzhang8taskflow6shared21is__valid__transition(current_status.val, new_status$2)) {
-                                                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                              }
-                                                              const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg13StatusChanged__));
-                                                              const _tmp$5 = _M0FP38bobzhang8taskflow6shared17api__task__status(id$4);
-                                                              const _bind$3 = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(new_status$2) }];
-                                                              const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$5, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 1)))), expect);
-                                                              const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => t.id === id$4 ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, new_status$2, t.priority, t.assignee_id, t.due_date, t.created_at) : t);
-                                                              const undo_msg = _M0FP38bobzhang8taskflow6shared15t__undo__status(model$2.lang, current_status.val, new_status$2);
-                                                              return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, undo_msg, id$4, current_status.val) };
+                                                              const url = _M0FP38bobzhang8taskflow6shared17api__task__labels(task_id$8);
+                                                              const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12LabelChanged__));
+                                                              const _bind = [{ _0: "label_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(label_id$2 + 0) }];
+                                                              const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
+                                                              const tls = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.task_labels);
+                                                              _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(tls, new _M0TP38bobzhang8taskflow6shared9TaskLabel(task_id$8, label_id$2));
+                                                              return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, tls, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                             }
-                                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, id$3, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                            const url = _M0FP38bobzhang8taskflow6shared25api__task__labels__remove(task_id$7);
+                                                            const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12LabelChanged__));
+                                                            const _bind = [{ _0: "label_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(label_id + 0) }];
+                                                            const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
+                                                            const tls = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared9TaskLabelE(model$2.task_labels, (tl) => !(tl.task_id === task_id$7 && tl.label_id === label_id));
+                                                            return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, tls, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                           }
-                                                          const url = _M0FP38bobzhang8taskflow6shared15api__task__deps(task_id$9);
-                                                          const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg10DepChanged__));
-                                                          const _bind = [{ _0: "depends_on_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(depends_on_id$2 + 0) }];
-                                                          const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-                                                          const deps = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.dependencies);
-                                                          _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(deps, new _M0TP38bobzhang8taskflow6shared10Dependency(task_id$9, depends_on_id$2));
-                                                          return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, deps, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, v$6, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                         }
-                                                        const url = _M0FP38bobzhang8taskflow6shared23api__task__deps__remove(task_id$8);
-                                                        const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg10DepChanged__));
-                                                        const _bind = [{ _0: "depends_on_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(depends_on_id + 0) }];
+                                                        if (model$2.new_subtask === "") {
+                                                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                                        }
+                                                        const url = _M0FP38bobzhang8taskflow6shared19api__task__subtasks(task_id$6);
+                                                        const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12SubtaskAdded__));
+                                                        const _bind = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(model$2.new_subtask) }];
                                                         const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-                                                        const deps = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared10DependencyE(model$2.dependencies, (d) => !(d.task_id === task_id$8 && d.depends_on_id === depends_on_id));
-                                                        return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, deps, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                        return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, "", model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                       }
-                                                      const url = _M0FP38bobzhang8taskflow6shared17api__task__labels(task_id$7);
-                                                      const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12LabelChanged__));
-                                                      const _bind = [{ _0: "label_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(label_id$2 + 0) }];
-                                                      const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-                                                      const tls = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.task_labels);
-                                                      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(tls, new _M0TP38bobzhang8taskflow6shared9TaskLabel(task_id$7, label_id$2));
-                                                      return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, tls, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                      const url = _M0FP38bobzhang8taskflow6shared20api__subtask__toggle(sub_id$2);
+                                                      const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg14SubtaskChanged__));
+                                                      const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, _M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty__, expect);
+                                                      const subs = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared7SubtaskRP38bobzhang8taskflow6shared7SubtaskE(model$2.subtasks, (s) => s.id === sub_id$2 ? new _M0TP38bobzhang8taskflow6shared7Subtask(s.id, s.task_id, s.title, !s.done) : s);
+                                                      return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, subs, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                     }
-                                                    const url = _M0FP38bobzhang8taskflow6shared25api__task__labels__remove(task_id$6);
-                                                    const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12LabelChanged__));
-                                                    const _bind = [{ _0: "label_id", _1: _M0IPC16double6DoublePB6ToJson8to__json(label_id + 0) }];
-                                                    const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-                                                    const tls = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared9TaskLabelE(model$2.task_labels, (tl) => !(tl.task_id === task_id$6 && tl.label_id === label_id));
-                                                    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, tls, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                    const url = _M0FP38bobzhang8taskflow6shared12api__subtask(sub_id);
+                                                    const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg14SubtaskChanged__));
+                                                    const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(url, expect);
+                                                    const subs = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared7SubtaskE(model$2.subtasks, (s) => s.id !== sub_id);
+                                                    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, subs, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                   }
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, v$4, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                  const url = _M0FP38bobzhang8taskflow6shared21api__task__recurrence(task_id$5);
+                                                  const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg17RecurrenceChanged__));
+                                                  const _bind = [{ _0: "interval", _1: _M0IPC16string6StringPB6ToJson8to__json(interval) }];
+                                                  const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
+                                                  const rules = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.recurrence_rules, (r) => r.task_id !== task_id$5);
+                                                  const r = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(rules);
+                                                  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(r, new _M0TP38bobzhang8taskflow6shared14RecurrenceRule(task_id$5, interval));
+                                                  const rules$2 = r;
+                                                  return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, rules$2, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                                 }
-                                                if (model$2.new_subtask === "") {
-                                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                                }
-                                                const url = _M0FP38bobzhang8taskflow6shared19api__task__subtasks(task_id$5);
-                                                const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg12SubtaskAdded__));
-                                                const _bind = [{ _0: "title", _1: _M0IPC16string6StringPB6ToJson8to__json(model$2.new_subtask) }];
-                                                const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-                                                return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, "", model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                                const url = _M0FP38bobzhang8taskflow6shared21api__task__recurrence(task_id$4);
+                                                const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg17RecurrenceChanged__));
+                                                const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(url, expect);
+                                                const rules = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.recurrence_rules, (r) => r.task_id !== task_id$4);
+                                                return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                               }
-                                              const url = _M0FP38bobzhang8taskflow6shared20api__subtask__toggle(sub_id$2);
-                                              const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg14SubtaskChanged__));
-                                              const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, _M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty__, expect);
-                                              const subs = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared7SubtaskRP38bobzhang8taskflow6shared7SubtaskE(model$2.subtasks, (s) => s.id === sub_id$2 ? new _M0TP38bobzhang8taskflow6shared7Subtask(s.id, s.task_id, s.title, !s.done) : s);
-                                              return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, subs, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, v$5, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                             }
-                                            const url = _M0FP38bobzhang8taskflow6shared12api__subtask(sub_id);
-                                            const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg14SubtaskChanged__));
-                                            const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(url, expect);
-                                            const subs = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared7SubtaskE(model$2.subtasks, (s) => s.id !== sub_id);
-                                            return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, subs, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, v$4, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                           }
-                                          const url = _M0FP38bobzhang8taskflow6shared21api__task__recurrence(task_id$4);
-                                          const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg17RecurrenceChanged__));
-                                          const _bind = [{ _0: "interval", _1: _M0IPC16string6StringPB6ToJson8to__json(interval) }];
-                                          const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-                                          const rules = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.recurrence_rules, (r) => r.task_id !== task_id$4);
-                                          const r = _M0MPC15array5Array4copyGRP38bobzhang8taskflow6shared14RecurrenceRuleE(rules);
-                                          _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(r, new _M0TP38bobzhang8taskflow6shared14RecurrenceRule(task_id$4, interval));
-                                          const rules$2 = r;
-                                          return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, rules$2, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                          let minutes;
+                                          let _try_err;
+                                          _L$22: {
+                                            _L$23: {
+                                              const _bind = model$2.new_time_minutes;
+                                              const _bind$2 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(_bind, 0, _bind.length), 0);
+                                              if (_bind$2.$tag === 1) {
+                                                const _ok = _bind$2;
+                                                minutes = _ok._0;
+                                              } else {
+                                                const _err = _bind$2;
+                                                _try_err = _err._0;
+                                                break _L$23;
+                                              }
+                                              break _L$22;
+                                            }
+                                            minutes = 0;
+                                          }
+                                          if (minutes <= 0) {
+                                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                                          }
+                                          const url = _M0FP38bobzhang8taskflow6shared15api__task__time(task_id$3);
+                                          const _bind = [{ _0: "minutes", _1: _M0IPC16double6DoublePB6ToJson8to__json(minutes + 0) }, { _0: "note", _1: _M0IPC16string6StringPB6ToJson8to__json(model$2.new_time_note) }];
+                                          const body = _M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 2)));
+                                          const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg10TimeLogged__));
+                                          const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(body), expect);
+                                          return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, "", "", model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                         }
-                                        const url = _M0FP38bobzhang8taskflow6shared21api__task__recurrence(task_id$3);
-                                        const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg17RecurrenceChanged__));
+                                        const url = _M0FP38bobzhang8taskflow6shared16api__time__entry(entry_id);
+                                        const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg16TimeEntryDeleted__));
                                         const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(url, expect);
-                                        const rules = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared14RecurrenceRuleE(model$2.recurrence_rules, (r) => r.task_id !== task_id$3);
-                                        return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                        const entries = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared9TimeEntryE(model$2.time_entries, (e$3) => e$3.id !== entry_id);
+                                        return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                       }
-                                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, v$3, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                      const url = _M0FP38bobzhang8taskflow6shared19api__task__comments(task_id$2);
+                                      const cmd = _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg11GotComments(result)), (json) => {
+                                        let _try_err;
+                                        _L$20: {
+                                          const _bind = _M0FPC14json10from__jsonGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE(json, undefined);
+                                          let _tmp$4;
+                                          if (_bind.$tag === 1) {
+                                            const _ok = _bind;
+                                            _tmp$4 = _ok._0;
+                                          } else {
+                                            const _err = _bind;
+                                            _try_err = _err._0;
+                                            break _L$20;
+                                          }
+                                          return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEsE2Ok(_tmp$4);
+                                        }
+                                        return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEsE3Err("Failed to decode comments");
+                                      }));
+                                      return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, task_id$2, [], "", "", "", "", model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                     }
-                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, v$2, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                   }
-                                  let minutes;
-                                  let _try_err;
-                                  _L$18: {
-                                    _L$19: {
-                                      const _bind = model$2.new_time_minutes;
-                                      const _bind$2 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(_bind, 0, _bind.length), 0);
-                                      if (_bind$2.$tag === 1) {
-                                        const _ok = _bind$2;
-                                        minutes = _ok._0;
-                                      } else {
-                                        const _err = _bind$2;
-                                        _try_err = _err._0;
-                                        break _L$19;
-                                      }
-                                      break _L$18;
-                                    }
-                                    minutes = 0;
-                                  }
-                                  if (minutes <= 0) {
-                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                                  }
-                                  const url = _M0FP38bobzhang8taskflow6shared15api__task__time(task_id$2);
-                                  const _bind = [{ _0: "minutes", _1: _M0IPC16double6DoublePB6ToJson8to__json(minutes + 0) }, { _0: "note", _1: _M0IPC16string6StringPB6ToJson8to__json(model$2.new_time_note) }];
-                                  const body = _M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 2)));
-                                  const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg10TimeLogged__));
-                                  const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(body), expect);
-                                  return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, "", "", model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e$2, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                                 }
-                                const url = _M0FP38bobzhang8taskflow6shared16api__time__entry(entry_id);
-                                const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg16TimeEntryDeleted__));
-                                const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(url, expect);
-                                const entries = _M0MPC15array5Array6filterGRP38bobzhang8taskflow6shared9TimeEntryE(model$2.time_entries, (e$3) => e$3.id !== entry_id);
-                                return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, v$3, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                               }
-                              const url = _M0FP38bobzhang8taskflow6shared19api__task__comments(task_id);
-                              const cmd = _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE(url, new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE4Json((result) => dispatch$2(new _M0DTP38bobzhang8taskflow8frontend3Msg11GotComments(result)), (json) => {
-                                let _try_err;
-                                _L$16: {
-                                  const _bind = _M0FPC14json10from__jsonGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEE(json, undefined);
-                                  let _tmp$4;
-                                  if (_bind.$tag === 1) {
-                                    const _ok = _bind;
-                                    _tmp$4 = _ok._0;
-                                  } else {
-                                    const _err = _bind;
-                                    _try_err = _err._0;
-                                    break _L$16;
-                                  }
-                                  return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEsE2Ok(_tmp$4);
-                                }
-                                return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8taskflow6shared7CommentEsE3Err("Failed to decode comments");
-                              }));
-                              return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, task_id, [], "", "", "", "", model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                              const _self = [];
+                              _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(_self, comment);
+                              _M0MPC15array5Array10push__iterGRP38bobzhang8taskflow6shared7CommentE(_self, _M0MPC15array5Array4iterGRP38bobzhang8taskflow6shared7CommentE(model$2.comments));
+                              const comments = _self;
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                             }
-                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                           }
-                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e$2, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                          if (ctrl && (key === "z" && _M0IP016_24default__implPB2Eq10not__equalGsE(model$2.undo_msg, ""))) {
+                            _tmp$2 = _M0DTP38bobzhang8taskflow8frontend3Msg4Undo__;
+                            continue;
+                          }
+                          if (model$2.adding_task || (model$2.editing_task !== 0 || model$2.viewing_comments !== 0)) {
+                            if (key === "Escape") {
+                              if (model$2.adding_task) {
+                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, false, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                              }
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, 0, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                          }
+                          if (key === "Escape") {
+                            if (model$2.viewing_comments !== 0) {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, 0, [], model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            if (model$2.confirm_delete !== 0) {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, 0, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            if (_M0IP016_24default__implPB2Eq10not__equalGsE(model$2.error_msg, "")) {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, "", model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                          }
+                          switch (key) {
+                            case "n": {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, true, "", "", "medium", 0, "", model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            case "l": {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, "list", model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            case "b": {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, "kanban", model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            case "d": {
+                              const new_dark = !model$2.dark_mode;
+                              _M0FP38bobzhang8taskflow8frontend10save__pref("taskflow_dark", new_dark ? "1" : "0");
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, new_dark, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                            }
+                            case "/": {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                            }
+                            default: {
+                              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                            }
+                          }
                         }
-                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, v, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, "", model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, l, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                       }
-                      const _self = [];
-                      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(_self, comment);
-                      _M0MPC15array5Array10push__iterGRP38bobzhang8taskflow6shared7CommentE(_self, _M0MPC15array5Array4iterGRP38bobzhang8taskflow6shared7CommentE(model$2.comments));
-                      const comments = _self;
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, e, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                  }
-                  if (ctrl && (key === "z" && _M0IP016_24default__implPB2Eq10not__equalGsE(model$2.undo_msg, ""))) {
-                    _tmp$2 = _M0DTP38bobzhang8taskflow8frontend3Msg4Undo__;
-                    continue;
-                  }
-                  if (model$2.adding_task || (model$2.editing_task !== 0 || model$2.viewing_comments !== 0)) {
-                    if (key === "Escape") {
-                      if (model$2.adding_task) {
-                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, false, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                      const sel = _M0MPC15array5Array4copyGiE(model$2.selected_tasks);
+                      if (_M0MPC15array5Array8containsGiE(sel, id$2)) {
+                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, _M0MPC15array5Array6filterGiE(sel, (x) => x !== id$2), model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                      } else {
+                        _M0MPC15array5Array4pushGiE(sel, id$2);
+                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, sel, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                       }
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, 0, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                     }
-                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, ids, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                   }
-                  if (key === "Escape") {
-                    if (model$2.viewing_comments !== 0) {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, 0, [], model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                  const cmd = new _M0TPC13ref3RefGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdE(_M0FP319moonbit_2dcommunity7rabbita3cmd4none);
+                  const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => {
+                    if (_M0MPC15array5Array8containsGiE(model$2.selected_tasks, t.id) && _M0FP38bobzhang8taskflow6shared21is__valid__transition(t.status, target)) {
+                      const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone__));
+                      const _tmp$4 = _M0FP38bobzhang8taskflow6shared17api__task__status(t.id);
+                      const _bind = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(target) }];
+                      cmd.val = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$4, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
+                      return new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, target, t.priority, t.assignee_id, t.due_date, t.created_at);
+                    } else {
+                      return t;
                     }
-                    if (model$2.confirm_delete !== 0) {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, 0, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    if (_M0IP016_24default__implPB2Eq10not__equalGsE(model$2.error_msg, "")) {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, "", model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                  }
-                  switch (key) {
-                    case "n": {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, true, "", "", "medium", 0, "", model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    case "l": {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, "list", model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    case "b": {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, "kanban", model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    case "d": {
-                      const new_dark = !model$2.dark_mode;
-                      _M0FP38bobzhang8taskflow8frontend10save__pref("taskflow_dark", new_dark ? "1" : "0");
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, new_dark, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-                    }
-                    case "/": {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                    }
-                    default: {
-                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
-                    }
-                  }
+                  });
+                  return { _0: cmd.val, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
                 }
-                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, "", model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, l, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, v$2, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
               }
-              const sel = _M0MPC15array5Array4copyGiE(model$2.selected_tasks);
-              if (_M0MPC15array5Array8containsGiE(sel, id$2)) {
-                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, _M0MPC15array5Array6filterGiE(sel, (x) => x !== id$2), model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-              } else {
-                _M0MPC15array5Array4pushGiE(sel, id$2);
-                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, sel, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
-              }
+              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, v, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
             }
-            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, ids, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+            if (model$2.new_attach_url === "") {
+              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$2 };
+            }
+            const url_val = model$2.new_attach_url;
+            const label_val = model$2.new_attach_label;
+            const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg15AttachmentAdded__));
+            const _tmp$4 = _M0FP38bobzhang8taskflow6shared22api__task__attachments(task_id);
+            const _bind = [{ _0: "url", _1: _M0IPC16string6StringPB6ToJson8to__json(url_val) }, { _0: "label", _1: _M0IPC16string6StringPB6ToJson8to__json(label_val) }];
+            const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$4, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 2)))), expect);
+            return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, "", "", model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
           }
-          const cmd = new _M0TPC13ref3RefGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdE(_M0FP319moonbit_2dcommunity7rabbita3cmd4none);
-          const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$2.tasks, (t) => {
-            if (_M0MPC15array5Array8containsGiE(model$2.selected_tasks, t.id) && _M0FP38bobzhang8taskflow6shared21is__valid__transition(t.status, target)) {
-              const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg8BulkDone__));
-              const _tmp$4 = _M0FP38bobzhang8taskflow6shared17api__task__status(t.id);
-              const _bind = [{ _0: "status", _1: _M0IPC16string6StringPB6ToJson8to__json(target) }];
-              cmd.val = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$4, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), expect);
-              return new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, target, t.priority, t.assignee_id, t.due_date, t.created_at);
-            } else {
-              return t;
-            }
-          });
-          return { _0: cmd.val, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, [], model$2.dragging_task_id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+          const expect = new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch$2(_M0DTP38bobzhang8taskflow8frontend3Msg17AttachmentDeleted__));
+          const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang8taskflow6shared15api__attachment(att_id), expect);
+          return { _0: cmd, _1: model$2 };
         }
-        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, id, model$2.drag_over_status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
       }
-      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, model$2.dragging_task_id, status, model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
     }
     const id = model$2.dragging_task_id;
     if (id === 0) {
-      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, 0, "", model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
+      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, 0, "", model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status) };
     }
-    const model$3 = new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.today, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, 0, "", model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status);
+    const model$3 = new _M0TP38bobzhang8taskflow8frontend5Model(model$2.current_user, model$2.auth_screen, model$2.auth_username, model$2.auth_password, model$2.auth_error, model$2.auth_loading, model$2.tasks, model$2.members, model$2.activities, model$2.dependencies, model$2.labels, model$2.task_labels, model$2.subtasks, model$2.time_entries, model$2.recurrence_rules, model$2.attachments, model$2.today, model$2.new_attach_url, model$2.new_attach_label, model$2.filter_status, model$2.filter_assignee, model$2.filter_priority, model$2.search_query, model$2.filter_urgency, model$2.filter_label, model$2.view_mode, model$2.sort_by, model$2.sort_asc, model$2.dark_mode, model$2.adding_task, model$2.new_title, model$2.new_desc, model$2.new_priority, model$2.new_assignee, model$2.new_due_date, model$2.editing_task, model$2.edit_title, model$2.edit_desc, model$2.edit_priority, model$2.edit_assignee, model$2.edit_due_date, model$2.viewing_comments, model$2.comments, model$2.new_comment, model$2.new_subtask, model$2.new_time_minutes, model$2.new_time_note, model$2.confirm_delete, model$2.error_msg, model$2.loading, model$2.lang, model$2.selected_tasks, 0, "", model$2.undo_msg, model$2.undo_task_id, model$2.undo_old_status);
     const current_status = new _M0TPC13ref3RefGsE("");
     const _bind = model$3.tasks;
     const _bind$2 = _bind.length;
@@ -20399,7 +20816,7 @@ function _M0FP38bobzhang8taskflow8frontend6update(dispatch, msg, model) {
     const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_tmp$5, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 1)))), expect);
     const tasks = _M0MPC15array5Array3mapGRP38bobzhang8taskflow6shared4TaskRP38bobzhang8taskflow6shared4TaskE(model$3.tasks, (t) => t.id === id ? new _M0TP38bobzhang8taskflow6shared4Task(t.id, t.title, t.description, new_status, t.priority, t.assignee_id, t.due_date, t.created_at) : t);
     const undo_msg = _M0FP38bobzhang8taskflow6shared15t__undo__status(model$3.lang, current_status.val, new_status);
-    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$3.current_user, model$3.auth_screen, model$3.auth_username, model$3.auth_password, model$3.auth_error, model$3.auth_loading, tasks, model$3.members, model$3.activities, model$3.dependencies, model$3.labels, model$3.task_labels, model$3.subtasks, model$3.time_entries, model$3.recurrence_rules, model$3.today, model$3.filter_status, model$3.filter_assignee, model$3.filter_priority, model$3.search_query, model$3.filter_urgency, model$3.filter_label, model$3.view_mode, model$3.sort_by, model$3.sort_asc, model$3.dark_mode, model$3.adding_task, model$3.new_title, model$3.new_desc, model$3.new_priority, model$3.new_assignee, model$3.new_due_date, model$3.editing_task, model$3.edit_title, model$3.edit_desc, model$3.edit_priority, model$3.edit_assignee, model$3.edit_due_date, model$3.viewing_comments, model$3.comments, model$3.new_comment, model$3.new_subtask, model$3.new_time_minutes, model$3.new_time_note, model$3.confirm_delete, model$3.error_msg, model$3.loading, model$3.lang, model$3.selected_tasks, model$3.dragging_task_id, model$3.drag_over_status, undo_msg, id, current_status.val) };
+    return { _0: cmd, _1: new _M0TP38bobzhang8taskflow8frontend5Model(model$3.current_user, model$3.auth_screen, model$3.auth_username, model$3.auth_password, model$3.auth_error, model$3.auth_loading, tasks, model$3.members, model$3.activities, model$3.dependencies, model$3.labels, model$3.task_labels, model$3.subtasks, model$3.time_entries, model$3.recurrence_rules, model$3.attachments, model$3.today, model$3.new_attach_url, model$3.new_attach_label, model$3.filter_status, model$3.filter_assignee, model$3.filter_priority, model$3.search_query, model$3.filter_urgency, model$3.filter_label, model$3.view_mode, model$3.sort_by, model$3.sort_asc, model$3.dark_mode, model$3.adding_task, model$3.new_title, model$3.new_desc, model$3.new_priority, model$3.new_assignee, model$3.new_due_date, model$3.editing_task, model$3.edit_title, model$3.edit_desc, model$3.edit_priority, model$3.edit_assignee, model$3.edit_due_date, model$3.viewing_comments, model$3.comments, model$3.new_comment, model$3.new_subtask, model$3.new_time_minutes, model$3.new_time_note, model$3.confirm_delete, model$3.error_msg, model$3.loading, model$3.lang, model$3.selected_tasks, model$3.dragging_task_id, model$3.drag_over_status, undo_msg, id, current_status.val) };
   }
 }
 function _M0FP38bobzhang8taskflow8frontend10view__auth(dispatch, model, theme) {
@@ -20968,15 +21385,17 @@ function _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, ta
   } else {
     _tmp$12 = _M0FP319moonbit_2dcommunity7rabbita4html4text("");
   }
-  const _tmp$13 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$2, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$4, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$5, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$6, _tmp$7, dep_html, _tmp$8, _tmp$10, _tmp$11, _tmp$12])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "align-items: center", "margin-left: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [assignee_html, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 2px 8px", "border-radius: 10px", "font-size: 11px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(status_bg)}`], undefined, undefined, undefined, -1, undefined, _M0FP38bobzhang8taskflow6shared9t__status(model.lang, task.status)), due_html])]);
-  const _tmp$14 = ["display: flex", "gap: 4px", "justify-content: space-between", "align-items: center"];
-  const _tmp$15 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGsRP319moonbit_2dcommunity7rabbita4html4HtmlE(transitions, (target) => {
+  const _tmp$13 = _tmp$12;
+  const att_count = _M0FP38bobzhang8taskflow6shared17attachment__count(model.attachments, task.id);
+  const _tmp$14 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$2, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$4, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$5, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$6, _tmp$7, dep_html, _tmp$8, _tmp$10, _tmp$11, _tmp$13, att_count > 0 ? _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 9px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "margin-top: 3px"], undefined, undefined, undefined, -1, undefined, `📎 ${_M0IP016_24default__implPB4Show10to__stringGiE(att_count)}`) : _M0FP319moonbit_2dcommunity7rabbita4html4text("")])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "align-items: center", "margin-left: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [assignee_html, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 2px 8px", "border-radius: 10px", "font-size: 11px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(status_bg)}`], undefined, undefined, undefined, -1, undefined, _M0FP38bobzhang8taskflow6shared9t__status(model.lang, task.status)), due_html])]);
+  const _tmp$15 = ["display: flex", "gap: 4px", "justify-content: space-between", "align-items: center"];
+  const _tmp$16 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGsRP319moonbit_2dcommunity7rabbita4html4HtmlE(transitions, (target) => {
     const label = _M0FP38bobzhang8taskflow6shared13t__transition(model.lang, task.status, target);
     const bg = _M0FP38bobzhang8taskflow6shared13status__color(target);
     return _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "border-radius: 4px", "border: none", "cursor: pointer", "font-size: 10px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(bg)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ChangeStatus(task.id, target)), undefined, label);
   }));
-  const _tmp$16 = ["display: flex", "gap: 3px"];
-  const _tmp$17 = _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ShowComments(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "notes"));
+  const _tmp$17 = ["display: flex", "gap: 3px"];
+  const _tmp$18 = _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg12ShowComments(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "notes"));
   let user_role;
   let u;
   _L$3: {
@@ -20994,7 +21413,7 @@ function _M0FP38bobzhang8taskflow8frontend16view__task__item(dispatch, model, ta
     }
     user_role = u.role;
   }
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$13, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$14, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$15, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$16, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$17, _M0FP38bobzhang8taskflow6shared9can__edit(user_role) ? _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: contents"], undefined, undefined, undefined, -1, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13StartEditTask(task)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "edit")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13RequestDelete(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "del"))]) : _M0FP319moonbit_2dcommunity7rabbita4html4text("")])])]);
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$14, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$15, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$16, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$17, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$18, _M0FP38bobzhang8taskflow6shared9can__edit(user_role) ? _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: contents"], undefined, undefined, undefined, -1, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, `background: ${_M0IPC16string6StringPB4Show10to__string(theme.filter_inactive)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_secondary)}`], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13StartEditTask(task)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "edit")), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px", "border: 1px solid #fecaca", "background: #fef2f2", "color: #dc2626"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13RequestDelete(task.id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "del"))]) : _M0FP319moonbit_2dcommunity7rabbita4html4text("")])])]);
 }
 function _M0FP38bobzhang8taskflow8frontend18view__kanban__card(dispatch, model, task) {
   if (model.editing_task === task.id) {
@@ -21438,32 +21857,55 @@ function _M0FP38bobzhang8taskflow8frontend21view__comments__panel(dispatch, mode
     }
   }
   _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$15, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$16, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$17, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, btns)]));
-  const task_acts = _M0FP38bobzhang8taskflow6shared21activities__for__task(model.activities, task_id);
+  const task_attachments = _M0FP38bobzhang8taskflow6shared22attachments__for__task(model.attachments, task_id);
   const _tmp$19 = ["margin-top: 16px", "padding-top: 12px", `border-top: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.card_border)}`];
-  const hist_items = [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", "font-weight: 600", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`, "margin-bottom: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "history"))])];
-  if (task_acts.length === 0) {
-    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(hist_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 12px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "padding: 4px 0"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "no_history"))]));
+  const att_items = [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", "font-weight: 600", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`, "margin-bottom: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "attachments"))])];
+  if (_M0MPC15array5Array9is__emptyGRP38bobzhang8taskflow6shared10AttachmentE(task_attachments)) {
+    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(att_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 12px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "padding: 4px 0"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "no_attachments"))]));
   }
-  const _bind$10 = task_acts.length;
+  const _bind$10 = task_attachments.length;
   let _tmp$20 = 0;
   while (true) {
     const _ = _tmp$20;
     if (_ < _bind$10) {
-      const act = task_acts[_];
-      const to_color = _M0FP38bobzhang8taskflow6shared13status__color(act.to_status);
-      const label = act.from_status === "" ? _M0FP38bobzhang8taskflow6shared1t(model.lang, "created") : _M0FP38bobzhang8taskflow6shared13t__transition(model.lang, act.from_status, act.to_status);
-      const _tmp$21 = ["display: flex", "align-items: center", "gap: 8px", "padding: 3px 0"];
-      const _tmp$22 = _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 1px 6px", "border-radius: 4px", "font-size: 10px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(to_color)}`, "white-space: nowrap"], undefined, undefined, undefined, -1, undefined, label);
-      const _tmp$23 = ["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "flex: 1"];
-      const name = _M0IP016_24default__implPB2Eq10not__equalGsE(act.user_name, "") ? `${act.user_name} · ` : "";
-      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(hist_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$21, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$22, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(_tmp$23, undefined, undefined, undefined, -1, undefined, `${_M0IPC16string6StringPB4Show10to__string(name)}${_M0IPC16string6StringPB4Show10to__string(act.timestamp)}`)]));
+      const a = task_attachments[_];
+      const display = _M0IP016_24default__implPB2Eq10not__equalGsE(a.label, "") ? a.label : a.url;
+      const att_id = a.id;
+      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(att_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 6px", "padding: 3px 0"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 12px"], undefined, undefined, undefined, -1, undefined, "📎"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 12px", "color: #6366f1", "text-decoration: underline", "cursor: pointer", "flex: 1", "overflow: hidden", "text-overflow: ellipsis", "white-space: nowrap"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(display)]), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["background: none", "border: none", "color: #dc2626", "cursor: pointer", "font-size: 12px", "padding: 0 2px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg16DeleteAttachment(att_id)), undefined, "×")]));
       _tmp$20 = _ + 1 | 0;
       continue;
     } else {
       break;
     }
   }
-  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$19, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, hist_items));
+  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(att_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 4px", "margin-top: 6px", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, model.new_attach_url, -1, -1, -1, undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "url_placeholder"), undefined, ["flex: 2", "padding: 4px 8px", "font-size: 12px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, "border-radius: 4px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.input_bg)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, undefined, (v) => dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg19NewAttachUrlChanged(v)), undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, model.new_attach_label, -1, -1, -1, undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "link_label_placeholder"), undefined, ["flex: 1", "padding: 4px 8px", "font-size: 12px", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.input_border)}`, "border-radius: 4px", `background: ${_M0IPC16string6StringPB4Show10to__string(theme.input_bg)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, undefined, (v) => dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg21NewAttachLabelChanged(v)), undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 4px 10px", "background: #4f46e5", "color: white", "border: none", "border-radius: 4px", "cursor: pointer", "font-size: 11px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP38bobzhang8taskflow8frontend3Msg13AddAttachment(task_id)), undefined, _M0FP38bobzhang8taskflow6shared1t(model.lang, "add"))]));
+  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$19, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, att_items));
+  const task_acts = _M0FP38bobzhang8taskflow6shared21activities__for__task(model.activities, task_id);
+  const _tmp$21 = ["margin-top: 16px", "padding-top: 12px", `border-top: 1px solid ${_M0IPC16string6StringPB4Show10to__string(theme.card_border)}`];
+  const hist_items = [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 13px", "font-weight: 600", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text)}`, "margin-bottom: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "history"))])];
+  if (task_acts.length === 0) {
+    _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(hist_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-size: 12px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "padding: 4px 0"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4text(_M0FP38bobzhang8taskflow6shared1t(model.lang, "no_history"))]));
+  }
+  const _bind$11 = task_acts.length;
+  let _tmp$22 = 0;
+  while (true) {
+    const _ = _tmp$22;
+    if (_ < _bind$11) {
+      const act = task_acts[_];
+      const to_color = _M0FP38bobzhang8taskflow6shared13status__color(act.to_status);
+      const label = act.from_status === "" ? _M0FP38bobzhang8taskflow6shared1t(model.lang, "created") : _M0FP38bobzhang8taskflow6shared13t__transition(model.lang, act.from_status, act.to_status);
+      const _tmp$23 = ["display: flex", "align-items: center", "gap: 8px", "padding: 3px 0"];
+      const _tmp$24 = _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["padding: 1px 6px", "border-radius: 4px", "font-size: 10px", "color: white", `background: ${_M0IPC16string6StringPB4Show10to__string(to_color)}`, "white-space: nowrap"], undefined, undefined, undefined, -1, undefined, label);
+      const _tmp$25 = ["font-size: 11px", `color: ${_M0IPC16string6StringPB4Show10to__string(theme.text_muted)}`, "flex: 1"];
+      const name = _M0IP016_24default__implPB2Eq10not__equalGsE(act.user_name, "") ? `${act.user_name} · ` : "";
+      _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(hist_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$23, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$24, _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(_tmp$25, undefined, undefined, undefined, -1, undefined, `${_M0IPC16string6StringPB4Show10to__string(name)}${_M0IPC16string6StringPB4Show10to__string(act.timestamp)}`)]));
+      _tmp$22 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  _M0MPC15array5Array4pushGRP38bobzhang8taskflow6shared7CommentE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$21, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, hist_items));
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$2, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, items)]);
 }
 function _M0FP38bobzhang8taskflow8frontend18view__error__toast(dispatch, model) {
@@ -21545,47 +21987,50 @@ function _M0FP38bobzhang8taskflow8frontend4view(dispatch, model) {
     const _bind$13 = [];
     const _bind$14 = [];
     const _bind$15 = [];
-    const _bind$16 = "";
+    const _bind$16 = [];
     const _bind$17 = "";
-    const _bind$18 = 0;
+    const _bind$18 = "";
     const _bind$19 = "";
     const _bind$20 = "";
-    const _bind$21 = "";
-    const _bind$22 = 0;
-    const _bind$23 = "list";
-    const _bind$24 = "priority";
-    const _bind$25 = true;
-    const _bind$26 = false;
-    const _bind$27 = "";
-    const _bind$28 = "";
-    const _bind$29 = "medium";
-    const _bind$30 = 0;
+    const _bind$21 = 0;
+    const _bind$22 = "";
+    const _bind$23 = "";
+    const _bind$24 = "";
+    const _bind$25 = 0;
+    const _bind$26 = "list";
+    const _bind$27 = "priority";
+    const _bind$28 = true;
+    const _bind$29 = false;
+    const _bind$30 = "";
     const _bind$31 = "";
-    const _bind$32 = 0;
-    const _bind$33 = "";
+    const _bind$32 = "medium";
+    const _bind$33 = 0;
     const _bind$34 = "";
-    const _bind$35 = "";
-    const _bind$36 = 0;
+    const _bind$35 = 0;
+    const _bind$36 = "";
     const _bind$37 = "";
-    const _bind$38 = 0;
-    const _bind$39 = [];
+    const _bind$38 = "";
+    const _bind$39 = 0;
     const _bind$40 = "";
-    const _bind$41 = "";
-    const _bind$42 = "";
+    const _bind$41 = 0;
+    const _bind$42 = [];
     const _bind$43 = "";
-    const _bind$44 = 0;
+    const _bind$44 = "";
     const _bind$45 = "";
-    const _bind$46 = false;
+    const _bind$46 = "";
     const _bind$47 = 0;
-    const _bind$48 = [];
-    const _bind$49 = 0;
-    const _bind$50 = "";
-    const _bind$51 = "";
+    const _bind$48 = "";
+    const _bind$49 = false;
+    const _bind$50 = 0;
+    const _bind$51 = [];
     const _bind$52 = 0;
     const _bind$53 = "";
-    const _bind$54 = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP38bobzhang8taskflow8frontend5ModelRP38bobzhang8taskflow8frontend3MsgE(new _M0TP38bobzhang8taskflow8frontend5Model(_bind, _bind$2, _bind$3, _bind$4, _bind$5, _bind$6, _bind$7, _bind$8, _bind$9, _bind$10, _bind$11, _bind$12, _bind$13, _bind$14, _bind$15, _bind$16, _bind$17, _bind$18, _bind$19, _bind$20, _bind$21, _bind$22, _bind$23, _bind$24, _bind$25, saved_dark, _bind$26, _bind$27, _bind$28, _bind$29, _bind$30, _bind$31, _bind$32, _bind$33, _bind$34, _bind$35, _bind$36, _bind$37, _bind$38, _bind$39, _bind$40, _bind$41, _bind$42, _bind$43, _bind$44, _bind$45, _bind$46, _bind$47, _bind$48, _bind$49, _bind$50, _bind$51, _bind$52, _bind$53), _M0FP38bobzhang8taskflow8frontend6update, _M0FP38bobzhang8taskflow8frontend4view);
-    const _dispatch = _bind$54._0;
-    const _app_cell = _bind$54._1;
+    const _bind$54 = "";
+    const _bind$55 = 0;
+    const _bind$56 = "";
+    const _bind$57 = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP38bobzhang8taskflow8frontend5ModelRP38bobzhang8taskflow8frontend3MsgE(new _M0TP38bobzhang8taskflow8frontend5Model(_bind, _bind$2, _bind$3, _bind$4, _bind$5, _bind$6, _bind$7, _bind$8, _bind$9, _bind$10, _bind$11, _bind$12, _bind$13, _bind$14, _bind$15, _bind$16, _bind$17, _bind$18, _bind$19, _bind$20, _bind$21, _bind$22, _bind$23, _bind$24, _bind$25, _bind$26, _bind$27, _bind$28, saved_dark, _bind$29, _bind$30, _bind$31, _bind$32, _bind$33, _bind$34, _bind$35, _bind$36, _bind$37, _bind$38, _bind$39, _bind$40, _bind$41, _bind$42, _bind$43, _bind$44, _bind$45, _bind$46, _bind$47, _bind$48, _bind$49, _bind$50, _bind$51, _bind$52, _bind$53, _bind$54, _bind$55, _bind$56), _M0FP38bobzhang8taskflow8frontend6update, _M0FP38bobzhang8taskflow8frontend4view);
+    const _dispatch = _bind$57._0;
+    const _app_cell = _bind$57._1;
     dispatch = _dispatch;
     app_cell = _app_cell;
     break _L;
