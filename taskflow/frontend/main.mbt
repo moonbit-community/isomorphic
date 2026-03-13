@@ -66,6 +66,10 @@ struct Model {
   // Drag-and-drop
   dragging_task_id : Int
   drag_over_status : String
+  // Undo
+  undo_msg : String
+  undo_task_id : Int
+  undo_old_status : String
 }
 
 ///|
@@ -176,6 +180,10 @@ enum Msg {
   DragOverColumn(String)
   DropOnColumn(String)
   DragEnd
+  // Undo
+  Undo
+  DismissUndo
+  UndoComplete
 }
 
 ///|
@@ -595,7 +603,21 @@ fn update(
           t
         }
       })
-      (cmd, { ..model, tasks, })
+      let undo_msg = @shared.t_undo_status(
+        model.lang,
+        current_status,
+        new_status,
+      )
+      (
+        cmd,
+        {
+          ..model,
+          tasks,
+          undo_msg,
+          undo_task_id: id,
+          undo_old_status: current_status,
+        },
+      )
     }
     StatusChanged => (fetch_board(dispatch), model)
     // ---- Delete ----
@@ -978,10 +1000,68 @@ fn update(
       let tasks = model.tasks.map(fn(t) {
         if t.id == id { { ..t, status: new_status } } else { t }
       })
-      (cmd, { ..model, tasks })
+      let undo_msg = @shared.t_undo_status(
+        model.lang,
+        current_status,
+        new_status,
+      )
+      (
+        cmd,
+        {
+          ..model,
+          tasks,
+          undo_msg,
+          undo_task_id: id,
+          undo_old_status: current_status,
+        },
+      )
     }
     DragEnd =>
       (@rabbita.none, { ..model, dragging_task_id: 0, drag_over_status: "" })
+    // ---- Undo ----
+    Undo => {
+      if model.undo_task_id > 0 && model.undo_old_status != "" {
+        let id = model.undo_task_id
+        let old_status = model.undo_old_status
+        let expect : @http.Expecting[_, Unit] = Text(fn(_result) {
+          dispatch(UndoComplete)
+        })
+        let cmd = @http.post(
+          @shared.api_task_status(id),
+          Json(({ "status": old_status } : Json)),
+          expect~,
+        )
+        // Optimistic revert
+        let tasks = model.tasks.map(fn(t) {
+          if t.id == id {
+            { ..t, status: old_status }
+          } else {
+            t
+          }
+        })
+        (
+          cmd,
+          {
+            ..model,
+            tasks,
+            undo_msg: "",
+            undo_task_id: 0,
+            undo_old_status: "",
+          },
+        )
+      } else {
+        (
+          @rabbita.none,
+          { ..model, undo_msg: "", undo_task_id: 0, undo_old_status: "" },
+        )
+      }
+    }
+    DismissUndo =>
+      (
+        @rabbita.none,
+        { ..model, undo_msg: "", undo_task_id: 0, undo_old_status: "" },
+      )
+    UndoComplete => (fetch_board(dispatch), model)
   }
 }
 
@@ -4055,6 +4135,46 @@ fn view_error_toast(
 }
 
 ///|
+/// Render the undo toast/snackbar at the bottom of the screen.
+fn view_undo_toast(
+  dispatch : @rabbita.Dispatch[Msg],
+  model : Model,
+) -> @rabbita.Html {
+  if model.undo_msg == "" {
+    return @html.text("")
+  }
+  let lang = model.lang
+  @html.div(
+    style=[
+      "position: fixed", "bottom: 24px", "left: 50%", "transform: translateX(-50%)",
+      "z-index: 1002", "background: #1e293b", "color: white", "border-radius: 8px",
+      "padding: 10px 16px", "display: flex", "align-items: center", "gap: 12px",
+      "box-shadow: 0 4px 16px rgba(0,0,0,0.25)", "max-width: 420px",
+      "font-size: 13px",
+    ],
+    [
+      @html.div(style=["flex: 1"], [@html.text(model.undo_msg)]),
+      @html.button(
+        on_click=dispatch(Undo),
+        style=[
+          "background: #6366f1", "color: white", "border: none", "border-radius: 4px",
+          "padding: 4px 12px", "cursor: pointer", "font-weight: 600", "font-size: 13px",
+        ],
+        @shared.t(lang, "undo"),
+      ),
+      @html.button(
+        on_click=dispatch(DismissUndo),
+        style=[
+          "background: none", "border: none", "color: #94a3b8", "cursor: pointer",
+          "font-size: 16px", "padding: 0 4px",
+        ],
+        "×",
+      ),
+    ],
+  )
+}
+
+///|
 /// MVU view: render the full task management interface.
 fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
   let theme = get_theme(model.dark_mode)
@@ -4096,6 +4216,7 @@ fn view(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
     attrs=@html.Attrs::build().tabindex(0),
     [
       view_error_toast(dispatch, model),
+      view_undo_toast(dispatch, model),
       view_comments_panel(dispatch, model),
       view_delete_confirm(dispatch, model),
       view_header(dispatch, model),
@@ -4301,6 +4422,9 @@ fn main {
       selected_tasks: [],
       dragging_task_id: 0,
       drag_over_status: "",
+      undo_msg: "",
+      undo_task_id: 0,
+      undo_old_status: "",
     },
     update~,
     view~,

@@ -216,6 +216,13 @@ pub fn t(lang : Lang, key : String) -> String {
     (_, "no_matches") => "No tasks match your filters"
     (Zh, "not_logged_in") => "未登录"
     (_, "not_logged_in") => "Not logged in"
+    // Undo
+    (Zh, "undo") => "撤销"
+    (_, "undo") => "Undo"
+    (Zh, "status_changed") => "状态已更改"
+    (_, "status_changed") => "Status changed"
+    (Zh, "dismiss") => "关闭"
+    (_, "dismiss") => "Dismiss"
     // Keyboard hints
     (Zh, "keyboard_hints") => "n: 新建 | l: 列表 | b: 看板 | d: 主题 | Esc: 关闭"
     (_, "keyboard_hints") =>
@@ -316,6 +323,21 @@ pub fn t_activity(lang : Lang, act : Activity) -> String {
     "\{act.user_name}: \{act.task_title}: \{from} → \{to}"
   } else {
     "\{act.task_title}: \{from} → \{to}"
+  }
+}
+
+///|
+/// Format undo status change message.
+pub fn t_undo_status(
+  lang : Lang,
+  from_status : String,
+  to_status : String,
+) -> String {
+  let from = t_status(lang, from_status)
+  let to = t_status(lang, to_status)
+  match lang {
+    Zh => "\{from} → \{to}，点击撤销"
+    En => "\{from} → \{to}. Click Undo to revert."
   }
 }
 

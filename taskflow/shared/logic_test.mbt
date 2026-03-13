@@ -1463,3 +1463,15 @@ test "subtask_progress counts done vs total" {
   inspect(@shared.subtask_progress(subs, 20), content="(0, 1)")
   inspect(@shared.subtask_progress(subs, 99), content="(0, 0)")
 }
+
+///|
+test "t_undo_status formats undo message" {
+  inspect(
+    @shared.t_undo_status(@shared.Lang::En, "todo", "in_progress"),
+    content="To Do → In Progress. Click Undo to revert.",
+  )
+  inspect(
+    @shared.t_undo_status(@shared.Lang::Zh, "todo", "done"),
+    content="待办 → 完成，点击撤销",
+  )
+}
