@@ -1696,8 +1696,8 @@ fn main raise {
         { "minutes": Number(n, ..), .. } => n.to_int()
         _ => return @mocket.HttpResponse::new(BadRequest).body("Missing minutes")
       }
-      if minutes <= 0 {
-        return @mocket.HttpResponse::new(BadRequest).body("Minutes must be positive")
+      if not(@shared.validate_time_minutes(minutes)) {
+        return @mocket.HttpResponse::new(BadRequest).body("Minutes must be 1-1440")
       }
       let note = match json {
         { "note": String(s), .. } => s
@@ -1814,6 +1814,11 @@ fn main raise {
       let label = match json {
         { "label": String(l), .. } => l
         _ => ""
+      }
+      if not(@shared.validate_attachment_url(url)) {
+        return @mocket.HttpResponse::new(BadRequest).body(
+          "Invalid URL (must start with http:// or https://)",
+        )
       }
       let att = create_attachment(conn, task_id, url, label)
       println("  -> 201 attachment \{att.id}")

@@ -163,3 +163,56 @@ pub fn validate_due_date(date : String) -> Bool {
   let day = d1 * 10 + d2
   day >= 1 && day <= 31
 }
+
+///|
+/// Validate a recurrence interval: must be one of the valid intervals.
+///
+/// # Example
+///
+/// ```
+/// assert_true(@shared.validate_recurrence("daily"))
+/// assert_true(@shared.validate_recurrence("weekly"))
+/// assert_true(@shared.validate_recurrence("monthly"))
+/// assert_false(@shared.validate_recurrence("yearly"))
+/// assert_false(@shared.validate_recurrence(""))
+/// ```
+pub fn validate_recurrence(interval : String) -> Bool {
+  for r in recurrence_intervals {
+    if r == interval {
+      return true
+    }
+  }
+  false
+}
+
+///|
+/// Validate time entry minutes: must be a positive integer (1–1440).
+///
+/// # Example
+///
+/// ```
+/// assert_true(@shared.validate_time_minutes(30))
+/// assert_true(@shared.validate_time_minutes(1))
+/// assert_false(@shared.validate_time_minutes(0))
+/// assert_false(@shared.validate_time_minutes(-5))
+/// assert_false(@shared.validate_time_minutes(1441))
+/// ```
+pub fn validate_time_minutes(minutes : Int) -> Bool {
+  minutes >= 1 && minutes <= 1440
+}
+
+///|
+/// Validate an attachment URL: non-empty, starts with http:// or https://.
+///
+/// # Example
+///
+/// ```
+/// assert_true(@shared.validate_attachment_url("https://example.com"))
+/// assert_true(@shared.validate_attachment_url("http://localhost:4000"))
+/// assert_false(@shared.validate_attachment_url(""))
+/// assert_false(@shared.validate_attachment_url("ftp://bad.com"))
+/// assert_false(@shared.validate_attachment_url("not-a-url"))
+/// ```
+pub fn validate_attachment_url(url : String) -> Bool {
+  url.has_prefix("https://") || url.has_prefix("http://")
+}

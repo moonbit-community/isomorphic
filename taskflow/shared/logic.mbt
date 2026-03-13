@@ -167,6 +167,17 @@ pub fn count_overdue(tasks : Array[Task], today : String) -> Int {
 
 ///|
 /// Count tasks due today (not done).
+///
+/// # Example
+///
+/// ```
+/// let tasks : Array[@shared.Task] = [
+///   { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
+///   { id: 2, title: "B", description: "", status: "done", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
+/// ]
+/// assert_eq(@shared.count_due_today(tasks, "2024-03-01"), 1)
+/// assert_eq(@shared.count_due_today(tasks, "2024-03-02"), 0)
+/// ```
 pub fn count_due_today(tasks : Array[Task], today : String) -> Int {
   let mut count = 0
   for t in tasks {
@@ -254,6 +265,14 @@ pub let sort_options : Array[String] = [
 
 ///|
 /// Human-readable label for a sort option.
+///
+/// # Example
+///
+/// ```
+/// assert_eq(@shared.sort_label("priority"), "Priority")
+/// assert_eq(@shared.sort_label("title"), "Title")
+/// assert_eq(@shared.sort_label("unknown"), "unknown")
+/// ```
 pub fn sort_label(sort_by : String) -> String {
   match sort_by {
     "priority" => "Priority"
@@ -736,6 +755,17 @@ pub fn total_time(entries : Array[TimeEntry], task_id : Int) -> Int {
 
 ///|
 /// Get attachments for a specific task.
+///
+/// # Example
+///
+/// ```
+/// let atts : Array[@shared.Attachment] = [
+///   { id: 1, task_id: 10, url: "https://a.com", label: "A" },
+///   { id: 2, task_id: 20, url: "https://b.com", label: "" },
+/// ]
+/// assert_eq(@shared.attachments_for_task(atts, 10).length(), 1)
+/// assert_eq(@shared.attachments_for_task(atts, 99).length(), 0)
+/// ```
 pub fn attachments_for_task(
   attachments : Array[Attachment],
   task_id : Int,
@@ -745,6 +775,17 @@ pub fn attachments_for_task(
 
 ///|
 /// Count attachments for a task.
+///
+/// # Example
+///
+/// ```
+/// let atts : Array[@shared.Attachment] = [
+///   { id: 1, task_id: 10, url: "https://a.com", label: "" },
+///   { id: 2, task_id: 10, url: "https://b.com", label: "" },
+/// ]
+/// assert_eq(@shared.attachment_count(atts, 10), 2)
+/// assert_eq(@shared.attachment_count(atts, 99), 0)
+/// ```
 pub fn attachment_count(
   attachments : Array[Attachment],
   task_id : Int,

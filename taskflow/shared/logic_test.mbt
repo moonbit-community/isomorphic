@@ -312,6 +312,40 @@ test "sort_tasks does not mutate original" {
 }
 
 ///|
+test "sort_label returns human-readable labels" {
+  inspect(@shared.sort_label("priority"), content="Priority")
+  inspect(@shared.sort_label("due_date"), content="Due Date")
+  inspect(@shared.sort_label("title"), content="Title")
+  inspect(@shared.sort_label("created_at"), content="Created")
+  inspect(@shared.sort_label("unknown"), content="unknown")
+}
+
+///|
+test "sort_tasks_by sorts ascending and descending" {
+  let tasks : Array[@shared.Task] = [
+    { id: 1, title: "Banana", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-06-01", created_at: "2024-01-01" },
+    { id: 2, title: "Apple", description: "", status: "todo", priority: "high", assignee_id: 0, due_date: "2024-03-01", created_at: "2024-02-01" },
+    { id: 3, title: "Cherry", description: "", status: "todo", priority: "medium", assignee_id: 0, due_date: "", created_at: "2024-01-15" },
+  ]
+  // Sort by title ascending
+  let by_title = @shared.sort_tasks_by(tasks, "title", true)
+  inspect(by_title[0].title, content="Apple")
+  inspect(by_title[2].title, content="Cherry")
+  // Sort by title descending
+  let by_title_desc = @shared.sort_tasks_by(tasks, "title", false)
+  inspect(by_title_desc[0].title, content="Cherry")
+  // Sort by priority ascending (urgent first)
+  let by_prio = @shared.sort_tasks_by(tasks, "priority", true)
+  inspect(by_prio[0].priority, content="high")
+  // Sort by due_date ascending (empty dates last)
+  let by_due = @shared.sort_tasks_by(tasks, "due_date", true)
+  inspect(by_due[0].due_date, content="2024-03-01")
+  // Sort by created_at descending
+  let by_created = @shared.sort_tasks_by(tasks, "created_at", false)
+  inspect(by_created[0].created_at, content="2024-02-01")
+}
+
+///|
 test "filter_tasks by status" {
   let tasks : Array[@shared.Task] = [
     {

@@ -267,3 +267,33 @@ test "validate_username leading trailing underscore" {
   inspect(@shared.validate_username("abc_"), content="true")
   inspect(@shared.validate_username("__a"), content="true")
 }
+
+///|
+test "validate_recurrence" {
+  inspect(@shared.validate_recurrence("daily"), content="true")
+  inspect(@shared.validate_recurrence("weekly"), content="true")
+  inspect(@shared.validate_recurrence("monthly"), content="true")
+  inspect(@shared.validate_recurrence("yearly"), content="false")
+  inspect(@shared.validate_recurrence(""), content="false")
+}
+
+///|
+test "validate_time_minutes" {
+  inspect(@shared.validate_time_minutes(1), content="true")
+  inspect(@shared.validate_time_minutes(30), content="true")
+  inspect(@shared.validate_time_minutes(1440), content="true")
+  inspect(@shared.validate_time_minutes(0), content="false")
+  inspect(@shared.validate_time_minutes(-1), content="false")
+  inspect(@shared.validate_time_minutes(1441), content="false")
+}
+
+///|
+test "validate_attachment_url" {
+  inspect(@shared.validate_attachment_url("https://example.com"), content="true")
+  inspect(@shared.validate_attachment_url("http://localhost:4000"), content="true")
+  inspect(@shared.validate_attachment_url("https://a.com/path?q=1"), content="true")
+  inspect(@shared.validate_attachment_url(""), content="false")
+  inspect(@shared.validate_attachment_url("ftp://bad.com"), content="false")
+  inspect(@shared.validate_attachment_url("not-a-url"), content="false")
+  inspect(@shared.validate_attachment_url("javascript:alert(1)"), content="false")
+}
