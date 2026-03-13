@@ -93,7 +93,8 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
     alter.finalize()
     println("Migrated activities table: added user_name column")
   } catch {
-    _ => () // Column already exists — expected for new databases
+    @sqlite3.SqliteError((1, _)) => () // SQLITE_ERROR(1) = column already exists — expected for new databases
+    e => raise e // Re-raise unexpected errors (readonly, locked, etc.)
   }
 }
 
