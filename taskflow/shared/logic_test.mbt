@@ -840,6 +840,320 @@ test "get_dependencies" {
 }
 
 ///|
+test "priority_label unknown fallback" {
+  inspect(@shared.priority_label("critical"), content="critical")
+  inspect(@shared.priority_label(""), content="")
+}
+
+///|
+test "priority_color unknown fallback" {
+  inspect(@shared.priority_color("critical"), content="#94a3b8")
+  inspect(@shared.priority_color(""), content="#94a3b8")
+}
+
+///|
+test "member_color all named colors" {
+  inspect(@shared.member_color("red"), content="#ef4444")
+  inspect(@shared.member_color("orange"), content="#f97316")
+  inspect(@shared.member_color("yellow"), content="#eab308")
+  inspect(@shared.member_color("green"), content="#22c55e")
+  inspect(@shared.member_color("blue"), content="#3b82f6")
+  inspect(@shared.member_color("purple"), content="#a855f7")
+}
+
+///|
+test "member_initial with unicode" {
+  inspect(@shared.member_initial("中文"), content="中")
+  inspect(@shared.member_initial("Ü"), content="Ü")
+}
+
+///|
+test "sort_tasks stable by ID when all else equal" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 3,
+      title: "Third",
+      description: "",
+      status: "todo",
+      priority: "medium",
+      assignee_id: 0,
+      due_date: "2026-03-15",
+      created_at: "",
+    },
+    {
+      id: 1,
+      title: "First",
+      description: "",
+      status: "todo",
+      priority: "medium",
+      assignee_id: 0,
+      due_date: "2026-03-15",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "Second",
+      description: "",
+      status: "todo",
+      priority: "medium",
+      assignee_id: 0,
+      due_date: "2026-03-15",
+      created_at: "",
+    },
+  ]
+  let sorted = @shared.sort_tasks(tasks)
+  inspect(sorted[0].title, content="First")
+  inspect(sorted[1].title, content="Second")
+  inspect(sorted[2].title, content="Third")
+}
+
+///|
+test "sort_tasks mixed priorities and dates" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "Low+soon",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2026-03-01",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "High+late",
+      description: "",
+      status: "todo",
+      priority: "high",
+      assignee_id: 0,
+      due_date: "2026-03-30",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "High+soon",
+      description: "",
+      status: "todo",
+      priority: "high",
+      assignee_id: 0,
+      due_date: "2026-03-01",
+      created_at: "",
+    },
+  ]
+  let sorted = @shared.sort_tasks(tasks)
+  // High priority first, sorted by date within
+  inspect(sorted[0].title, content="High+soon")
+  inspect(sorted[1].title, content="High+late")
+  inspect(sorted[2].title, content="Low+soon")
+}
+
+///|
+test "sort_tasks single task" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "Only",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  let sorted = @shared.sort_tasks(tasks)
+  inspect(sorted.length(), content="1")
+  inspect(sorted[0].title, content="Only")
+}
+
+///|
+test "recent_activities limit exceeds count" {
+  let acts : Array[@shared.Activity] = [
+    {
+      id: 1,
+      task_id: 1,
+      task_title: "A",
+      from_status: "todo",
+      to_status: "done",
+      timestamp: "",
+      user_name: "",
+    },
+    {
+      id: 2,
+      task_id: 2,
+      task_title: "B",
+      from_status: "todo",
+      to_status: "done",
+      timestamp: "",
+      user_name: "",
+    },
+  ]
+  // Requesting more than available returns all
+  let recent = @shared.recent_activities(acts, 10)
+  inspect(recent.length(), content="2")
+}
+
+///|
+test "recent_activities limit zero" {
+  let acts : Array[@shared.Activity] = [
+    {
+      id: 1,
+      task_id: 1,
+      task_title: "A",
+      from_status: "todo",
+      to_status: "done",
+      timestamp: "",
+      user_name: "",
+    },
+  ]
+  inspect(@shared.recent_activities(acts, 0).length(), content="0")
+}
+
+///|
+test "completion_percent rounding" {
+  // 1 of 3 done = 33% (integer truncation)
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "done",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "B",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "C",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  inspect(@shared.completion_percent(tasks), content="33")
+}
+
+///|
+test "tasks_for_member with zero assignee" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "Unassigned",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "Assigned",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 1,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  let unassigned = @shared.tasks_for_member(tasks, 0)
+  inspect(unassigned.length(), content="1")
+  inspect(unassigned[0].title, content="Unassigned")
+}
+
+///|
+test "find_member first and last" {
+  let members : Array[@shared.Member] = [
+    { id: 1, name: "First", color: "red" },
+    { id: 2, name: "Middle", color: "green" },
+    { id: 3, name: "Last", color: "blue" },
+  ]
+  inspect(@shared.find_member(members, 1).unwrap().name, content="First")
+  inspect(@shared.find_member(members, 3).unwrap().name, content="Last")
+  assert_true(@shared.find_member(members, 0) is None)
+}
+
+///|
+test "matches_urgency unknown filter passes" {
+  let task : @shared.Task = {
+    id: 1,
+    title: "A",
+    description: "",
+    status: "todo",
+    priority: "low",
+    assignee_id: 0,
+    due_date: "2026-03-15",
+    created_at: "",
+  }
+  // Unknown urgency filter matches everything
+  inspect(@shared.matches_urgency(task, "custom", "2026-03-12"), content="true")
+}
+
+///|
+test "filter_tasks combined urgency and search" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "Fix login",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2026-03-01",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "Fix signup",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "Add dashboard",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2026-03-01",
+      created_at: "",
+    },
+  ]
+  // Overdue AND matches "fix"
+  let f = @shared.filter_tasks(
+    tasks,
+    "",
+    0,
+    "",
+    query="fix",
+    urgency="overdue",
+    today="2026-03-12",
+  )
+  inspect(f.length(), content="1")
+  inspect(f[0].title, content="Fix login")
+}
+
+///|
 test "has_unresolved_deps" {
   let tasks : Array[@shared.Task] = [
     {
@@ -884,4 +1198,93 @@ test "has_unresolved_deps" {
   // Task with only done deps
   let deps2 : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 2 }]
   inspect(@shared.has_unresolved_deps(deps2, tasks, 1), content="false")
+}
+
+///|
+test "has_unresolved_deps empty deps" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  inspect(@shared.has_unresolved_deps([], tasks, 1), content="false")
+}
+
+///|
+test "has_unresolved_deps dep on nonexistent task" {
+  let tasks : Array[@shared.Task] = [
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+  ]
+  // Depends on task 99 which doesn't exist in task list
+  let deps : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 99 }]
+  // Nonexistent dep is not found in tasks, so loop never finds a match -> false
+  inspect(@shared.has_unresolved_deps(deps, tasks, 1), content="false")
+}
+
+///|
+test "get_dependencies empty" {
+  inspect(@shared.get_dependencies([], 1), content="[]")
+}
+
+///|
+test "count_by_status empty" {
+  let tasks : Array[@shared.Task] = []
+  inspect(@shared.count_by_status(tasks, "todo"), content="0")
+}
+
+///|
+test "search_matches description only" {
+  let task : @shared.Task = {
+    id: 1,
+    title: "Generic task",
+    description: "OAuth2 flow is broken",
+    status: "todo",
+    priority: "low",
+    assignee_id: 0,
+    due_date: "",
+    created_at: "",
+  }
+  // Matches description but not title
+  inspect(@shared.search_matches(task, "oauth"), content="true")
+  inspect(@shared.search_matches(task, "generic"), content="true")
+  inspect(@shared.search_matches(task, "BROKEN"), content="true")
+  inspect(@shared.search_matches(task, "xyz"), content="false")
+}
+
+///|
+test "urgency_label boundary: day after today" {
+  inspect(@shared.urgency_label("2026-03-13", "2026-03-12"), content="Upcoming")
+}
+
+///|
+test "is_overdue empty string" {
+  inspect(@shared.is_overdue("", ""), content="false")
+}
+
+///|
+test "find_member empty list" {
+  let members : Array[@shared.Member] = []
+  assert_true(@shared.find_member(members, 1) is None)
+}
+
+///|
+test "tasks_for_member empty list" {
+  let tasks : Array[@shared.Task] = []
+  inspect(@shared.tasks_for_member(tasks, 1).length(), content="0")
 }

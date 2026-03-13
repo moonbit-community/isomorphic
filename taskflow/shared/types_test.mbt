@@ -185,3 +185,96 @@ test "Comment JSON round-trip" {
   let decoded : @shared.Comment = @json.from_json(c.to_json())
   assert_eq(decoded, c)
 }
+
+///|
+test "Comment JSON structure" {
+  let c : @shared.Comment = {
+    id: 1,
+    task_id: 2,
+    author: "Alice",
+    text: "LGTM",
+    created_at: "2026-03-12",
+  }
+  json_inspect(c.to_json(), content={
+    "id": 1,
+    "task_id": 2,
+    "author": "Alice",
+    "text": "LGTM",
+    "created_at": "2026-03-12",
+  })
+}
+
+///|
+test "Dependency JSON structure" {
+  let d : @shared.Dependency = { task_id: 3, depends_on_id: 7 }
+  json_inspect(d.to_json(), content={ "task_id": 3, "depends_on_id": 7 })
+}
+
+///|
+test "Board JSON round-trip with empty arrays" {
+  let board : @shared.Board = {
+    tasks: [],
+    members: [],
+    activities: [],
+    dependencies: [],
+    today: "2026-03-13",
+  }
+  let decoded : @shared.Board = @json.from_json(board.to_json())
+  assert_eq(decoded, board)
+}
+
+///|
+test "Task default values round-trip" {
+  let task : @shared.Task = {
+    id: 0,
+    title: "x",
+    description: "",
+    status: "todo",
+    priority: "low",
+    assignee_id: 0,
+    due_date: "",
+    created_at: "",
+  }
+  let decoded : @shared.Task = @json.from_json(task.to_json())
+  assert_eq(decoded, task)
+}
+
+///|
+test "Board with multiple tasks and deps" {
+  let board : @shared.Board = {
+    tasks: [
+      {
+        id: 1,
+        title: "A",
+        description: "",
+        status: "todo",
+        priority: "high",
+        assignee_id: 1,
+        due_date: "2026-03-15",
+        created_at: "2026-03-12",
+      },
+      {
+        id: 2,
+        title: "B",
+        description: "depends on A",
+        status: "blocked",
+        priority: "medium",
+        assignee_id: 2,
+        due_date: "",
+        created_at: "2026-03-12",
+      },
+    ],
+    members: [
+      { id: 1, name: "Alice", color: "blue" },
+      { id: 2, name: "Bob", color: "green" },
+    ],
+    activities: [],
+    dependencies: [{ task_id: 2, depends_on_id: 1 }],
+    today: "2026-03-13",
+  }
+  let decoded : @shared.Board = @json.from_json(board.to_json())
+  assert_eq(decoded, board)
+  assert_eq(decoded.tasks.length(), 2)
+  assert_eq(decoded.dependencies.length(), 1)
+  assert_eq(decoded.dependencies[0].task_id, 2)
+}

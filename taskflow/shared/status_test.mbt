@@ -106,3 +106,72 @@ test "transition completeness: every allowed transition has a label" {
     }
   }
 }
+
+///|
+test "status_color review" {
+  inspect(@shared.status_color("review"), content="#eab308")
+}
+
+///|
+test "status_color unknown fallback" {
+  inspect(@shared.status_color("invalid"), content="#94a3b8")
+  inspect(@shared.status_color(""), content="#94a3b8")
+}
+
+///|
+test "transition_label unknown fallback uses status_label" {
+  // Invalid transition falls back to status_label(to)
+  inspect(@shared.transition_label("todo", "done"), content="Done")
+  inspect(@shared.transition_label("", "todo"), content="To Do")
+}
+
+///|
+test "is_valid_transition self-transition always invalid" {
+  for s in @shared.valid_statuses {
+    inspect(@shared.is_valid_transition(s, s), content="false")
+  }
+}
+
+///|
+test "is_terminal exhaustive" {
+  inspect(@shared.is_terminal("todo"), content="false")
+  inspect(@shared.is_terminal("in_progress"), content="false")
+  inspect(@shared.is_terminal("review"), content="false")
+  inspect(@shared.is_terminal("blocked"), content="false")
+  inspect(@shared.is_terminal("done"), content="true")
+  inspect(@shared.is_terminal("unknown"), content="false")
+}
+
+///|
+test "allowed_transitions empty string" {
+  inspect(@shared.allowed_transitions(""), content="[]")
+}
+
+///|
+test "valid_statuses count" {
+  inspect(@shared.valid_statuses.length(), content="5")
+}
+
+///|
+test "transition graph: no status can reach itself in one step" {
+  for s in @shared.valid_statuses {
+    let targets = @shared.allowed_transitions(s)
+    for t in targets {
+      assert_true(t != s)
+    }
+  }
+}
+
+///|
+test "transition graph: every non-terminal status has at least one forward transition" {
+  for s in @shared.valid_statuses {
+    if not(@shared.is_terminal(s)) {
+      assert_true(@shared.allowed_transitions(s).length() > 0)
+    }
+  }
+}
+
+///|
+test "transition_label in_progress to blocked" {
+  inspect(@shared.transition_label("in_progress", "blocked"), content="Block")
+}
