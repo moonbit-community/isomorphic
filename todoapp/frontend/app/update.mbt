@@ -49,44 +49,44 @@ pub fn Model::update(
   self : Model,
   msg~ : Msg,
   dispatch~ : @rabbita.Dispatch[Msg],
-) -> (@rabbita.Cmd, Model) {
+) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => (fetch_todos(dispatch), { ..self, loading: true })
-    GotTodos(Ok(todos)) => (@rabbita.none, { ..self, todos, loading: false })
-    GotTodos(Err(_)) => (@rabbita.none, { ..self, loading: false })
-    InputChanged(value) => (@rabbita.none, { ..self, input: value })
+    Init => ({ ..self, loading: true }, fetch_todos(dispatch))
+    GotTodos(Ok(todos)) => ({ ..self, todos, loading: false }, @rabbita.none)
+    GotTodos(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+    InputChanged(value) => ({ ..self, input: value }, @rabbita.none)
     AddTodo => {
       if not(@shared.validate_text(self.input)) {
-        return (@rabbita.none, self)
+        return (self, @rabbita.none)
       }
       let cmd = @http.post(
         @shared.api_todos,
         Json(({ "text": self.input } : Json)),
         expect=expect_todo(dispatch, fn(r) { TodoAdded(r) }),
       )
-      (cmd, { ..self, input: "" })
+      ({ ..self, input: "" }, cmd)
     }
     TodoAdded(Ok(todo)) => {
       let todos = self.todos.copy()
       todos.push(todo)
-      (@rabbita.none, { ..self, todos })
+      ({ ..self, todos }, @rabbita.none)
     }
-    TodoAdded(Err(_)) => (@rabbita.none, self)
+    TodoAdded(Err(_)) => (self, @rabbita.none)
     ToggleTodo(id) => {
       let cmd = @http.post(
         @shared.api_todo_toggle(id),
         Json(({} : Json)),
         expect=expect_todo(dispatch, fn(r) { TodoToggled(r) }),
       )
-      (cmd, self)
+      (self, cmd)
     }
     TodoToggled(Ok(updated)) => {
       let todos = self.todos.map(
         fn(t) { if t.id == updated.id { updated } else { t } },
       )
-      (@rabbita.none, { ..self, todos })
+      ({ ..self, todos }, @rabbita.none)
     }
-    TodoToggled(Err(_)) => (@rabbita.none, self)
+    TodoToggled(Err(_)) => (self, @rabbita.none)
     DeleteTodo(id) => {
       let cmd = @http.delete(
         @shared.api_todo(id),
@@ -95,12 +95,12 @@ pub fn Model::update(
           dispatch(TodoDeleted(mapped))
         }),
       )
-      (cmd, self)
+      (self, cmd)
     }
     TodoDeleted(Ok(id)) => {
       let todos = self.todos.filter(fn(t) { t.id != id })
-      (@rabbita.none, { ..self, todos })
+      ({ ..self, todos }, @rabbita.none)
     }
-    TodoDeleted(Err(_)) => (@rabbita.none, self)
+    TodoDeleted(Err(_)) => (self, @rabbita.none)
   }
 }

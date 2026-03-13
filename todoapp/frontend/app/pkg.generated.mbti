@@ -18,7 +18,7 @@ pub(all) struct Model {
   input : String
   loading : Bool
 }
-pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (@runtime.Cmd, Self)
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
 pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
 pub impl @debug.Debug for Model
 

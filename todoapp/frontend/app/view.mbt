@@ -43,19 +43,19 @@ let muted_style : Array[String] = ["text-align: center", "color: #999"]
 pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Html {
   @html.div(style=card_style, [
     @html.h1(style=heading_style, "Todo List"),
-    view_form(dispatch, self),
-    view_todos(dispatch, self),
+    self.view_form(dispatch),
+    self.view_todos(dispatch),
   ])
 }
 
 ///|
 /// The add-todo form with a text input and submit button.
-fn view_form(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html {
+fn Model::view_form(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Html {
   @html.form(on_submit=dispatch(AddTodo), style=form_style, [
     @html.input(
       input_type=Text,
       placeholder="What needs to be done?",
-      value=model.input,
+      value=self.input,
       on_input=fn(value) { dispatch(InputChanged(value)) },
       style=input_style,
       "",
@@ -66,14 +66,14 @@ fn view_form(dispatch : @rabbita.Dispatch[Msg], model : Model) -> @rabbita.Html 
 
 ///|
 /// Loading indicator, empty state, or the todo list.
-fn view_todos(
+fn Model::view_todos(
+  self : Model,
   dispatch : @rabbita.Dispatch[Msg],
-  model : Model,
 ) -> @rabbita.Html {
-  if model.loading {
+  if self.loading {
     return @html.p(style=muted_style, "Loading...")
   }
-  if model.todos.length() == 0 {
+  if self.todos.length() == 0 {
     return @html.p(
       style=["text-align: center", "color: #999", "padding: 20px"],
       "No todos yet. Add one above!",
@@ -81,7 +81,7 @@ fn view_todos(
   }
   @html.ul(
     style=["list-style: none"],
-    model.todos.map(fn(todo) { view_todo_item(dispatch, todo) }),
+    self.todos.map(fn(todo) { view_todo_item(dispatch, todo) }),
   )
 }
 
