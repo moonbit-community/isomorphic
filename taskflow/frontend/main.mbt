@@ -1327,6 +1327,44 @@ fn view_header(
             ),
           ],
         ),
+        // Due date notification badges
+        {
+          let overdue = @shared.count_overdue(model.tasks, model.today)
+          let due_today = @shared.count_due_today(model.tasks, model.today)
+          let badges : Array[@rabbita.Html] = []
+          if overdue > 0 {
+            let label = @shared.t(model.lang, "overdue_tasks")
+            badges.push(
+              @html.span(
+                style=[
+                  "font-size: 11px", "padding: 2px 8px", "border-radius: 10px",
+                  "background: #ef4444", "color: white", "font-weight: 600",
+                ],
+                "\{overdue} \{label}",
+              ),
+            )
+          }
+          if due_today > 0 {
+            let label = @shared.t(model.lang, "due_today_tasks")
+            badges.push(
+              @html.span(
+                style=[
+                  "font-size: 11px", "padding: 2px 8px", "border-radius: 10px",
+                  "background: #f59e0b", "color: white", "font-weight: 600",
+                ],
+                "\{due_today} \{label}",
+              ),
+            )
+          }
+          if badges.length() > 0 {
+            @html.div(
+              style=["display: flex", "gap: 4px", "align-items: center"],
+              badges,
+            )
+          } else {
+            @html.text("")
+          }
+        },
         // View mode toggle
         @html.div(style=["display: flex", "gap: 2px"], [
           {

@@ -143,6 +143,41 @@ pub fn urgency_label(due_date : String, today : String) -> String {
 }
 
 ///|
+/// Count tasks that are overdue (not done).
+///
+/// # Example
+///
+/// ```
+/// let tasks : Array[@shared.Task] = [
+///   { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },
+///   { id: 2, title: "B", description: "", status: "done", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },
+///   { id: 3, title: "C", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-06-01", created_at: "" },
+/// ]
+/// assert_eq(@shared.count_overdue(tasks, "2024-03-01"), 1)
+/// ```
+pub fn count_overdue(tasks : Array[Task], today : String) -> Int {
+  let mut count = 0
+  for t in tasks {
+    if t.status != "done" && t.due_date != "" && t.due_date < today {
+      count += 1
+    }
+  }
+  count
+}
+
+///|
+/// Count tasks due today (not done).
+pub fn count_due_today(tasks : Array[Task], today : String) -> Int {
+  let mut count = 0
+  for t in tasks {
+    if t.status != "done" && t.due_date == today {
+      count += 1
+    }
+  }
+  count
+}
+
+///|
 /// Percentage of tasks in "done" status. Returns 0 for an empty list.
 ///
 /// # Example

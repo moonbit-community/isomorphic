@@ -1465,6 +1465,29 @@ test "subtask_progress counts done vs total" {
 }
 
 ///|
+test "count_overdue counts incomplete overdue tasks" {
+  let tasks : Array[@shared.Task] = [
+    { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },
+    { id: 2, title: "B", description: "", status: "done", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },
+    { id: 3, title: "C", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-06-01", created_at: "" },
+    { id: 4, title: "D", description: "", status: "in_progress", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+  ]
+  inspect(@shared.count_overdue(tasks, "2024-03-01"), content="1")
+  inspect(@shared.count_overdue(tasks, "2020-01-01"), content="0")
+}
+
+///|
+test "count_due_today counts today's incomplete tasks" {
+  let tasks : Array[@shared.Task] = [
+    { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
+    { id: 2, title: "B", description: "", status: "done", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
+    { id: 3, title: "C", description: "", status: "in_progress", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
+  ]
+  inspect(@shared.count_due_today(tasks, "2024-03-01"), content="2")
+  inspect(@shared.count_due_today(tasks, "2024-03-02"), content="0")
+}
+
+///|
 test "can_edit checks role permissions" {
   assert_true(@shared.can_edit("admin"))
   assert_true(@shared.can_edit("member"))

@@ -216,6 +216,11 @@ pub fn t(lang : Lang, key : String) -> String {
     (_, "no_matches") => "No tasks match your filters"
     (Zh, "not_logged_in") => "未登录"
     (_, "not_logged_in") => "Not logged in"
+    // Notifications
+    (Zh, "overdue_tasks") => "逾期任务"
+    (_, "overdue_tasks") => "overdue"
+    (Zh, "due_today_tasks") => "今日到期"
+    (_, "due_today_tasks") => "due today"
     // Roles
     (Zh, "role_admin") => "管理员"
     (_, "role_admin") => "Admin"
