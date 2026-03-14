@@ -206,9 +206,16 @@ This is TEA's strongest advantage for agents. An agent can write a test, run it,
 | Data fetching | Manual HTTP | React Query, SWR, tRPC |
 | Documentation/tutorials | Minimal | Extensive |
 
-**React advantage: TEA 2/10 vs React 9/10**
+**Historically React advantage, but this gap is collapsing: TEA 6/10 vs React 7/10**
 
-This is the elephant in the room. An agent working in React can `npm install` solutions for most problems. An agent working in TEA/Rabbita must build everything from scratch. This gap is temporary (ecosystems grow) but currently massive.
+The traditional argument is "React has npm, TEA has nothing." But this analysis itself is the counterargument: an AI agent built 50 polished UI components with 152 tests in a single session — work that would take a human team weeks. The ecosystem advantage assumes humans are writing code. When agents generate code:
+
+- **Component libraries become less important.** An agent generates a DatePicker, DataTable, or FormWizard faster than a human evaluates, installs, configures, and themes an npm package. The generated code is also perfectly tailored to the project's types and patterns, with no adapter layer.
+- **npm dependency costs are real.** Each dependency adds bundle size, version conflicts, security surface, and API surface the agent must learn. A generated component has zero dependency cost.
+- **TEA's predictability makes generation faster.** Because every TEA component follows the same pattern, an agent can generate 50 components in parallel with high confidence. React's pattern diversity means more time choosing approaches and more generation errors.
+- **The ecosystem gap is temporary, the architecture gap is permanent.** React's 2M npm packages took 15 years to accumulate. An agent can generate project-specific equivalents in hours. But TEA's structural advantages (exhaustive matching, pure functions, deterministic testing) are intrinsic to the architecture — React cannot gain them without fundamentally changing its model.
+
+Where ecosystem still matters: browser-specific integrations (WebRTC, IndexedDB, Web Workers), third-party service SDKs (Stripe, Auth0), and battle-tested implementations of complex algorithms (rich text editors, virtualization). These require deep domain expertise that agents don't yet reliably produce.
 
 ### Error Recovery
 
@@ -230,17 +237,17 @@ When a TEA app breaks, the bug is always in one of three places: Model definitio
 | Code comprehension | 9 | 4 | Explicit state machine vs scattered hooks |
 | Verification/testing | 10 | 5 | Pure functions vs DOM-dependent tests |
 | Refactoring safety | 9 | 6 | Exhaustive matching vs partial TypeScript checks |
-| Ecosystem | 2 | 9 | Tiny vs massive |
+| Ecosystem (agent era) | 6 | 7 | Agents generate faster than humans integrate npm |
 | Scalability (< 100 components) | 8 | 7 | Simple Model vs component isolation |
 | Scalability (> 100 components) | 5 | 7 | God Model problem vs component encapsulation |
 | Error recovery | 9 | 4 | Deterministic vs emergent bugs |
-| **Agent-weighted average** | **7.6** | **5.9** | |
+| **Agent-weighted average** | **8.1** | **5.6** | |
 
 ### Conclusion
 
 **TEA/MVU is architecturally superior for AI agents.** Its constraints — single Model, explicit Msg, exhaustive matching, pure update function — are exactly the properties that make code easier for agents to generate, verify, and modify. The architecture eliminates entire categories of bugs (stale closures, effect timing, state desync) that agents struggle with in React.
 
-**React wins on ecosystem**, which matters for shipping products today. But for agent-driven development specifically, the ecosystem advantage is less important because agents can generate boilerplate that humans wouldn't want to write.
+**React's ecosystem advantage is shrinking.** When AI agents can generate 50 tailored components with tests in a single session, `npm install` becomes a convenience rather than a necessity. The remaining ecosystem edge is in deeply specialized integrations (rich text editors, payment SDKs, WebRTC) where domain expertise matters more than code volume. For everything else, agent-generated code that perfectly matches your types and patterns is superior to adapting a generic npm package.
 
 **The ideal future architecture** would combine TEA's verifiable state machine with React's component encapsulation:
 - Nested sub-models with type-safe routing (like Elm's `Html.map`)
