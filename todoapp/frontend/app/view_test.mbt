@@ -30,24 +30,33 @@ fn render(html : @rabbita.Html) -> String {
 ///|
 test "view shows loading indicator" {
   let model = { ..empty_model(), loading: true }
-  inspect(render(model.view(noop_dispatch)), content=(
-    #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><p style="text-align: center;color: #999">Loading...</p></div>
-  ))
+  inspect(
+    render(model.view(noop_dispatch)),
+    content=(
+      #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><p style="text-align: center;color: #999">Loading...</p></div>
+    ),
+  )
 }
 
 ///|
 test "view shows empty state" {
-  inspect(render(empty_model().view(noop_dispatch)), content=(
-    #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><p style="text-align: center;color: #999;padding: 20px">No todos yet. Add one above!</p></div>
-  ))
+  inspect(
+    render(empty_model().view(noop_dispatch)),
+    content=(
+      #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><p style="text-align: center;color: #999;padding: 20px">No todos yet. Add one above!</p></div>
+    ),
+  )
 }
 
 ///|
 test "view renders todo items" {
   let model = { ..empty_model(), todos: sample_todos() }
-  inspect(render(model.view(noop_dispatch)), content=(
-    #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><ul style="list-style: none"><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer"></input><span style="flex: 1">Buy milk</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer" checked></input><span style="flex: 1;text-decoration: line-through;color: #999">Write tests</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer"></input><span style="flex: 1">Ship feature</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li></ul></div>
-  ))
+  inspect(
+    render(model.view(noop_dispatch)),
+    content=(
+      #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><ul style="list-style: none"><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer"></input><span style="flex: 1">Buy milk</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer" checked></input><span style="flex: 1;text-decoration: line-through;color: #999">Write tests</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer"></input><span style="flex: 1">Ship feature</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li></ul></div>
+    ),
+  )
 }
 
 // ── Todo item (tested via full view) ────────────────────────────────
@@ -58,9 +67,12 @@ test "done todo has strikethrough" {
     ..empty_model(),
     todos: [{ id: 1, text: "Done task", done: true }],
   }
-  inspect(render(model.view(noop_dispatch)), content=(
-    #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><ul style="list-style: none"><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer" checked></input><span style="flex: 1;text-decoration: line-through;color: #999">Done task</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li></ul></div>
-  ))
+  inspect(
+    render(model.view(noop_dispatch)),
+    content=(
+      #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><ul style="list-style: none"><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer" checked></input><span style="flex: 1;text-decoration: line-through;color: #999">Done task</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li></ul></div>
+    ),
+  )
 }
 
 ///|
@@ -69,9 +81,12 @@ test "undone todo has no strikethrough" {
     ..empty_model(),
     todos: [{ id: 1, text: "Open task", done: false }],
   }
-  inspect(render(model.view(noop_dispatch)), content=(
-    #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><ul style="list-style: none"><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer"></input><span style="flex: 1">Open task</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li></ul></div>
-  ))
+  inspect(
+    render(model.view(noop_dispatch)),
+    content=(
+      #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value=""></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><ul style="list-style: none"><li style="display: flex;align-items: center;padding: 10px 0;border-bottom: 1px solid #eee"><input type="checkbox" autocomplete="off" style="margin-right: 12px;cursor: pointer"></input><span style="flex: 1">Open task</span><button style="padding: 4px 8px;background: #e74c3c;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 12px">Delete</button></li></ul></div>
+    ),
+  )
 }
 
 // ── Form ────────────────────────────────────────────────────────────
@@ -79,7 +94,10 @@ test "undone todo has no strikethrough" {
 ///|
 test "form preserves input value" {
   let model = { ..empty_model(), input: "draft text" }
-  inspect(render(model.view(noop_dispatch)), content=(
-    #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value="draft text"></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><p style="text-align: center;color: #999;padding: 20px">No todos yet. Add one above!</p></div>
-  ))
+  inspect(
+    render(model.view(noop_dispatch)),
+    content=(
+      #|<div style="max-width: 500px;margin: 40px auto;padding: 20px;background: white;border-radius: 8px;box-shadow: 0 2px 8px rgba(0,0,0,0.1)"><h1 style="text-align: center;margin-bottom: 20px;color: #2c3e50">Todo List</h1><form style="display: flex;gap: 8px;margin-bottom: 20px"><input type="text" autocomplete="off" placeholder="What needs to be done?" style="flex: 1;padding: 8px 12px;border: 1px solid #ddd;border-radius: 4px;font-size: 14px;outline: none" value="draft text"></input><button type="submit" style="padding: 8px 16px;background: #3498db;color: white;border: none;border-radius: 4px;cursor: pointer;font-size: 14px">Add</button></form><p style="text-align: center;color: #999;padding: 20px">No todos yet. Add one above!</p></div>
+    ),
+  )
 }

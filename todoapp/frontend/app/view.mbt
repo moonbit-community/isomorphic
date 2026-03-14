@@ -68,7 +68,7 @@ fn Model::view_form(
       input_type=Text,
       placeholder="What needs to be done?",
       value=self.input,
-      on_input=fn(value) { dispatch(InputChanged(value)) },
+      on_input=value => dispatch(InputChanged(value)),
       style=input_style,
       "",
     ),
@@ -112,7 +112,7 @@ fn @shared.Todo::view_todo_item(
     @html.input(
       input_type=Checkbox,
       checked=todo.done,
-      on_change=fn(_) { dispatch(ToggleTodo(todo.id)) },
+      on_change=_ => dispatch(ToggleTodo(todo.id)),
       style=["margin-right: 12px", "cursor: pointer"],
       "",
     ),
