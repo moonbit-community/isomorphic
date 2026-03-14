@@ -39,19 +39,10 @@ fn view_card(
   children : Array[@rabbita.Html],
 ) -> @rabbita.Html {
   @html.div(
-    style=[
-      "background: white", "border-radius: 14px", "padding: 18px 20px", "margin-bottom: 14px",
-      "box-shadow: 0 1px 8px rgba(0,0,0,0.06)",
-    ],
+    style=card_style,
     {
       let all : Array[@rabbita.Html] = [
-        @html.h2(
-          style=[
-            "font-size: 13px", "font-weight: 700", "color: #999", "margin-bottom: 14px",
-            "text-transform: uppercase", "letter-spacing: 0.5px",
-          ],
-          title,
-        ),
+        @html.h2(style=card_title_style, title),
       ]
       for child in children {
         all.push(child)
@@ -65,28 +56,16 @@ fn view_card(
 /// Render the entire UI: header, new-note form or detail view, and notes list.
 pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Html {
   @html.div(
-    style=[
-      "max-width: 520px", "margin: 0 auto", "padding: 24px 16px",
-      "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    ],
+    style=container_style,
     {
       let sections : Array[@rabbita.Html] = []
       // Header
       sections.push(
         @html.div(
-          style=["text-align: center", "margin-bottom: 24px", "padding-top: 12px"],
+          style=header_style,
           [
-            @html.h1(
-              style=[
-                "color: white", "font-size: 26px", "font-weight: 800",
-                "margin-bottom: 4px", "letter-spacing: -0.5px",
-              ],
-              "Notes",
-            ),
-            @html.p(
-              style=["color: rgba(255,255,255,0.75)", "font-size: 13px"],
-              "Quick thoughts, organized",
-            ),
+            @html.h1(style=header_title_style, "Notes"),
+            @html.p(style=header_subtitle_style, "Quick thoughts, organized"),
           ],
         ),
       )
@@ -102,49 +81,22 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
                   // Back button
                   @html.button(
                     on_click=dispatch(DeselectNote),
-                    style=[
-                      "padding: 6px 14px", "background: #f0f0f5", "color: #667eea",
-                      "border: none", "border-radius: 8px", "cursor: pointer",
-                      "font-size: 13px", "font-weight: 600", "margin-bottom: 14px",
-                    ],
+                    style=back_btn_style,
                     "Back",
                   ),
                   // Title
-                  @html.h1(
-                    style=[
-                      "font-size: 20px", "font-weight: 700", "color: #333",
-                      "margin-bottom: 8px",
-                    ],
-                    note.title,
-                  ),
+                  @html.h1(style=detail_title_style, note.title),
                   // Pinned badge
                   if note.pinned {
-                    @html.div(
-                      style=[
-                        "display: inline-block", "padding: 3px 10px",
-                        "background: #fff3e0", "color: #f57c00",
-                        "border-radius: 12px", "font-size: 11px", "font-weight: 600",
-                        "margin-bottom: 12px",
-                      ],
-                      "Pinned",
-                    )
+                    @html.div(style=pinned_badge_style, "Pinned")
                   } else {
                     @html.nothing
                   },
                   // Content
-                  @html.div(
-                    style=[
-                      "font-size: 14px", "line-height: 1.7", "color: #555",
-                      "margin-bottom: 16px", "white-space: pre-wrap",
-                    ],
-                    note.content,
-                  ),
+                  @html.div(style=detail_content_style, note.content),
                   // Stats bar
                   @html.div(
-                    style=[
-                      "display: flex", "gap: 16px", "padding: 12px 0",
-                      "border-top: 1px solid #f0f0f0",
-                    ],
+                    style=stats_bar_style,
                     [
                       view_stat_badge(
                         "\{stats.word_count} words",
@@ -177,17 +129,14 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
             [
               @html.form(
                 on_submit=dispatch(SaveNote),
-                style=["display: flex", "flex-direction: column", "gap: 10px"],
+                style=form_style,
                 [
                   @html.input(
                     input_type=Text,
                     placeholder="Note title...",
                     value=self.title_input,
                     on_input=fn(v) { dispatch(TitleInputChanged(v)) },
-                    style=[
-                      "padding: 10px 14px", "border: 2px solid #eee", "border-radius: 10px",
-                      "font-size: 14px", "outline: none",
-                    ],
+                    style=input_style,
                     "",
                   ),
                   @html.textarea(
@@ -195,20 +144,12 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
                     value=self.content_input,
                     on_input=fn(v) { dispatch(ContentInputChanged(v)) },
                     rows=5,
-                    style=[
-                      "padding: 10px 14px", "border: 2px solid #eee", "border-radius: 10px",
-                      "font-size: 14px", "outline: none", "resize: vertical",
-                      "font-family: inherit",
-                    ],
+                    style=textarea_style,
                     "",
                   ),
                   @html.button(
                     type_="submit",
-                    style=[
-                      "padding: 12px", "background: linear-gradient(135deg, #667eea, #764ba2)", "color: white",
-                      "border: none", "border-radius: 10px", "cursor: pointer", "font-size: 15px",
-                      "font-weight: 600", "margin-top: 2px",
-                    ],
+                    style=submit_btn_style,
                     "Save Note",
                   ),
                 ],
@@ -230,12 +171,10 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
                   "background: white"
                 }
                 @html.div(
-                  style=[
-                    "padding: 12px 0", "border-bottom: 1px solid #f5f5f5",
-                  ],
+                  style=note_item_style,
                   [
                     @html.div(
-                      style=["display: flex", "align-items: flex-start", "gap: 10px"],
+                      style=note_row_style,
                       [
                         // Main content area (clickable)
                         @html.div(
@@ -246,11 +185,11 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
                           [
                             // Title row
                             @html.div(
-                              style=["display: flex", "align-items: center", "gap: 8px", "margin-bottom: 4px"],
+                              style=title_row_style,
                               [
                                 if note.pinned {
                                   @html.span(
-                                    style=["color: #f57c00", "font-size: 14px"],
+                                    style=pin_indicator_style,
                                     "* ",
                                   )
                                 } else {
@@ -258,64 +197,38 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
                                 },
                                 @html.button(
                                   on_click=dispatch(SelectNote(note.id)),
-                                  style=[
-                                    "font-weight: 700", "font-size: 15px", "color: #333",
-                                    "background: none", "border: none", "cursor: pointer",
-                                    "text-align: left", "padding: 0",
-                                  ],
+                                  style=note_title_btn_style,
                                   note.title,
                                 ),
                               ],
                             ),
                             // Preview
-                            @html.div(
-                              style=["font-size: 13px", "color: #888", "margin-bottom: 6px", "line-height: 1.4"],
-                              preview,
-                            ),
+                            @html.div(style=preview_style, preview),
                             // Word count badge
                             @html.span(
-                              style=[
-                                "font-size: 11px", "color: #667eea", "background: #f0f0ff",
-                                "padding: 2px 8px", "border-radius: 10px", "font-weight: 600",
-                              ],
+                              style=word_badge_style,
                               "\{stats.word_count} words",
                             ),
                           ],
                         ),
                         // Action buttons
                         @html.div(
-                          style=["display: flex", "flex-direction: column", "gap: 6px", "padding-top: 8px"],
+                          style=action_col_style,
                           [
                             // Pin button
                             @html.button(
                               on_click=dispatch(TogglePin(note.id)),
-                              style=[
-                                "width: 32px", "height: 32px",
-                                if note.pinned {
-                                  "background: #fff3e0"
-                                } else {
-                                  "background: #f5f5f5"
-                                },
-                                if note.pinned {
-                                  "color: #f57c00"
-                                } else {
-                                  "color: #bbb"
-                                },
-                                "border: none", "border-radius: 8px", "cursor: pointer",
-                                "font-size: 14px", "font-weight: 700",
-                                "display: flex", "align-items: center", "justify-content: center",
-                              ],
+                              style=if note.pinned {
+                                pin_btn_active_style
+                              } else {
+                                pin_btn_inactive_style
+                              },
                               if note.pinned { "*" } else { "o" },
                             ),
                             // Delete button
                             @html.button(
                               on_click=dispatch(DeleteNote(note.id)),
-                              style=[
-                                "width: 32px", "height: 32px", "background: #fee", "color: #e53935",
-                                "border: none", "border-radius: 8px", "cursor: pointer",
-                                "font-size: 13px", "font-weight: 700",
-                                "display: flex", "align-items: center", "justify-content: center",
-                              ],
+                              style=delete_btn_style,
                               "X",
                             ),
                           ],
