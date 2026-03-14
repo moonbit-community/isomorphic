@@ -20,24 +20,24 @@ test "StopwatchToggle starts and stops" {
 
 ///|
 test "StopwatchReset clears elapsed" {
-  let m0 = { ..im(), stopwatch: { elapsed_ms: 5000, running: true } }
+  let m0 = { ..im(), stopwatch: { elapsed_ms: 5000, running: true, gen: 1 } }
   let (m1, _) = m0.update(msg=StopwatchReset, dispatch=nd)
   inspect!(m1.stopwatch.elapsed_ms, content="0")
   inspect!(m1.stopwatch.running, content="false")
 }
 
 ///|
-test "StopwatchTick increments when running" {
-  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true } }
-  let (m1, _) = m0.update(msg=StopwatchTick, dispatch=nd)
+test "StopwatchTick increments when running with matching gen" {
+  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true, gen: 1 } }
+  let (m1, _) = m0.update(msg=StopwatchTick(1), dispatch=nd)
   inspect!(m1.stopwatch.elapsed_ms, content="200")
 }
 
 ///|
-test "StopwatchTick does nothing when stopped" {
-  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: false } }
-  let (m1, _) = m0.update(msg=StopwatchTick, dispatch=nd)
-  inspect!(m1.stopwatch.elapsed_ms, content="100")
+test "StopwatchTick ignores stale gen" {
+  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true, gen: 2 } }
+  let (m1, _) = m0.update(msg=StopwatchTick(1), dispatch=nd) // old gen
+  inspect!(m1.stopwatch.elapsed_ms, content="100") // unchanged
 }
 
 // ── Countdown ────────────────────────────────────────────────────────
@@ -53,8 +53,8 @@ test "CountdownSet clamps value" {
 
 ///|
 test "CountdownTick decrements and finishes at zero" {
-  let m0 = { ..im(), countdown: { target_seconds: 5, remaining: 1, running: true, finished: false } }
-  let (m1, _) = m0.update(msg=CountdownTick, dispatch=nd)
+  let m0 = { ..im(), countdown: { target_seconds: 5, remaining: 1, running: true, finished: false, gen: 1 } }
+  let (m1, _) = m0.update(msg=CountdownTick(1), dispatch=nd)
   inspect!(m1.countdown.remaining, content="0")
   inspect!(m1.countdown.finished, content="true")
   inspect!(m1.countdown.running, content="false")
@@ -62,7 +62,7 @@ test "CountdownTick decrements and finishes at zero" {
 
 ///|
 test "CountdownReset restores target" {
-  let m0 = { ..im(), countdown: { target_seconds: 30, remaining: 5, running: true, finished: false } }
+  let m0 = { ..im(), countdown: { target_seconds: 30, remaining: 5, running: true, finished: false, gen: 1 } }
   let (m1, _) = m0.update(msg=CountdownReset, dispatch=nd)
   inspect!(m1.countdown.remaining, content="30")
   inspect!(m1.countdown.running, content="false")
@@ -97,14 +97,14 @@ test "TypewriterTick stops at end" {
 
 ///|
 test "CarouselNext wraps around" {
-  let m0 = { ..im(), carousel: { items: ["A", "B", "C"], current: 2, auto_playing: false } }
+  let m0 = { ..im(), carousel: { items: ["A", "B", "C"], current: 2, auto_playing: false, gen: 0 } }
   let (m1, _) = m0.update(msg=CarouselNext, dispatch=nd)
   inspect!(m1.carousel.current, content="0") // wraps
 }
 
 ///|
 test "CarouselPrev wraps around" {
-  let m0 = { ..im(), carousel: { items: ["A", "B", "C"], current: 0, auto_playing: false } }
+  let m0 = { ..im(), carousel: { items: ["A", "B", "C"], current: 0, auto_playing: false, gen: 0 } }
   let (m1, _) = m0.update(msg=CarouselPrev, dispatch=nd)
   inspect!(m1.carousel.current, content="2") // wraps
 }
@@ -309,9 +309,9 @@ test "CopyClick sets copied" {
 }
 
 ///|
-test "CopyReset clears copied" {
-  let m0 = { ..im(), copy_clipboard: { text: "hi", copied: true } }
-  let (m1, _) = m0.update(msg=CopyReset, dispatch=nd)
+test "CopyReset clears copied with matching gen" {
+  let m0 = { ..im(), copy_clipboard: { text: "hi", copied: true, gen: 1 } }
+  let (m1, _) = m0.update(msg=CopyReset(1), dispatch=nd)
   inspect!(m1.copy_clipboard.copied, content="false")
 }
 

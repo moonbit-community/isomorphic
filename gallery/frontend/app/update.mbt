@@ -352,10 +352,10 @@ pub fn initial_model() -> Model {
       current: 0,
       completed: false,
     },
-    stopwatch: { elapsed_ms: 0, running: false },
-    countdown: { target_seconds: 30, remaining: 30, running: false, finished: false },
+    stopwatch: { elapsed_ms: 0, running: false, gen: 0 },
+    countdown: { target_seconds: 30, remaining: 30, running: false, finished: false, gen: 0 },
     typewriter: { full_text: "The quick brown fox jumps over the lazy dog. MoonBit makes web development elegant and fun!", visible_chars: 0, running: false },
-    carousel: { items: ["Welcome to Gallery", "30+ UI Components", "Built with MoonBit", "Elm Architecture (MVU)", "Pure Frontend"], current: 0, auto_playing: false },
+    carousel: { items: ["Welcome to Gallery", "30+ UI Components", "Built with MoonBit", "Elm Architecture (MVU)", "Pure Frontend"], current: 0, auto_playing: false, gen: 0 },
     animated_counter: { value: 42, display_value: 42 },
     star_rating: { rating: 0, hover: 0 },
     pin_input: { digits: ["", "", "", ""], focus_index: 0, verified: false },
@@ -376,7 +376,7 @@ pub fn initial_model() -> Model {
       { id: 8, title: "River Flow", height: 130, color: "#ec4899" },
     ], columns: 3 },
     confirm_button: { confirming: false, executed: false },
-    copy_clipboard: { text: "Hello from MoonBit Gallery! 🌙", copied: false },
+    copy_clipboard: { text: "Hello from MoonBit Gallery! 🌙", copied: false, gen: 0 },
     undo_snackbar: { message: "", visible: false, items: ["Item Alpha", "Item Beta", "Item Gamma", "Item Delta"], last_removed: "", last_removed_index: -1 },
     markdown: { source: "# Hello MoonBit\n\nThis is **bold** and *italic* text.\n\n- List item one\n- List item two\n\n`inline code` and a [link](https://moonbitlang.com)\n\n> A blockquote about MoonBit." },
     spreadsheet: { cells: [
@@ -910,14 +910,19 @@ pub fn Model::update(
     // ── Stopwatch ────────────────────────────
     StopwatchToggle => {
       let sw = self.stopwatch
-      let cmd = if !sw.running { @rabbita.delay(dispatch(StopwatchTick), 100) } else { @rabbita.none }
-      ({ ..self, stopwatch: { ..sw, running: !sw.running } }, cmd)
+      if !sw.running {
+        let g = sw.gen + 1
+        let cmd = @rabbita.delay(dispatch(StopwatchTick(g)), 100)
+        ({ ..self, stopwatch: { ..sw, running: true, gen: g } }, cmd)
+      } else {
+        ({ ..self, stopwatch: { ..sw, running: false } }, @rabbita.none)
+      }
     }
-    StopwatchReset => ({ ..self, stopwatch: { elapsed_ms: 0, running: false } }, @rabbita.none)
-    StopwatchTick => {
-      if !self.stopwatch.running { return (self, @rabbita.none) }
+    StopwatchReset => ({ ..self, stopwatch: { elapsed_ms: 0, running: false, gen: self.stopwatch.gen } }, @rabbita.none)
+    StopwatchTick(g) => {
+      if !self.stopwatch.running || g != self.stopwatch.gen { return (self, @rabbita.none) }
       let elapsed = self.stopwatch.elapsed_ms + 100
-      let cmd = @rabbita.delay(dispatch(StopwatchTick), 100)
+      let cmd = @rabbita.delay(dispatch(StopwatchTick(g)), 100)
       ({ ..self, stopwatch: { ..self.stopwatch, elapsed_ms: elapsed } }, cmd)
     }
 
@@ -925,26 +930,32 @@ pub fn Model::update(
     CountdownSet(v) => {
       let n = @strconv.parse_int(v) catch { _ => self.countdown.target_seconds }
       let clamped = if n < 1 { 1 } else if n > 3600 { 3600 } else { n }
-      ({ ..self, countdown: { target_seconds: clamped, remaining: clamped, running: false, finished: false } }, @rabbita.none)
+      ({ ..self, countdown: { target_seconds: clamped, remaining: clamped, running: false, finished: false, gen: self.countdown.gen } }, @rabbita.none)
     }
     CountdownToggle => {
       let cd = self.countdown
-      let cmd = if !cd.running && cd.remaining > 0 { @rabbita.delay(dispatch(CountdownTick), 1000) } else { @rabbita.none }
-      ({ ..self, countdown: { ..cd, running: !cd.running } }, cmd)
+      if !cd.running && cd.remaining > 0 {
+        let g = cd.gen + 1
+        let cmd = @rabbita.delay(dispatch(CountdownTick(g)), 1000)
+        ({ ..self, countdown: { ..cd, running: true, gen: g } }, cmd)
+      } else {
+        ({ ..self, countdown: { ..cd, running: false } }, @rabbita.none)
+      }
     }
     CountdownReset => ({ ..self, countdown: { ..self.countdown, remaining: self.countdown.target_seconds, running: false, finished: false } }, @rabbita.none)
-    CountdownTick => {
-      if !self.countdown.running { return (self, @rabbita.none) }
+    CountdownTick(g) => {
+      if !self.countdown.running || g != self.countdown.gen { return (self, @rabbita.none) }
       let r = self.countdown.remaining - 1
       if r <= 0 {
         ({ ..self, countdown: { ..self.countdown, remaining: 0, running: false, finished: true } }, @rabbita.none)
       } else {
-        let cmd = @rabbita.delay(dispatch(CountdownTick), 1000)
+        let cmd = @rabbita.delay(dispatch(CountdownTick(g)), 1000)
         ({ ..self, countdown: { ..self.countdown, remaining: r } }, cmd)
       }
     }
 
     // ── Typewriter ───────────────────────────
+    TypewriterPause => ({ ..self, typewriter: { ..self.typewriter, running: false } }, @rabbita.none)
     TypewriterStart => {
       let cmd = @rabbita.delay(dispatch(TypewriterTick), 50)
       ({ ..self, typewriter: { ..self.typewriter, visible_chars: 0, running: true } }, cmd)
@@ -975,15 +986,19 @@ pub fn Model::update(
     }
     CarouselAutoToggle => {
       let c = self.carousel
-      let auto = !c.auto_playing
-      let cmd = if auto { @rabbita.delay(dispatch(CarouselAutoTick), 2000) } else { @rabbita.none }
-      ({ ..self, carousel: { ..c, auto_playing: auto } }, cmd)
+      if !c.auto_playing {
+        let g = c.gen + 1
+        let cmd = @rabbita.delay(dispatch(CarouselAutoTick(g)), 2000)
+        ({ ..self, carousel: { ..c, auto_playing: true, gen: g } }, cmd)
+      } else {
+        ({ ..self, carousel: { ..c, auto_playing: false } }, @rabbita.none)
+      }
     }
-    CarouselAutoTick => {
-      if !self.carousel.auto_playing { return (self, @rabbita.none) }
+    CarouselAutoTick(g) => {
+      if !self.carousel.auto_playing || g != self.carousel.gen { return (self, @rabbita.none) }
       let c = self.carousel
       let next = if c.current >= c.items.length() - 1 { 0 } else { c.current + 1 }
-      let cmd = @rabbita.delay(dispatch(CarouselAutoTick), 2000)
+      let cmd = @rabbita.delay(dispatch(CarouselAutoTick(g)), 2000)
       ({ ..self, carousel: { ..c, current: next } }, cmd)
     }
 
@@ -1092,10 +1107,15 @@ pub fn Model::update(
 
     // ── CopyToClipboard ──────────────────────
     CopyClick => {
-      let cmd = @rabbita.delay(dispatch(CopyReset), 2000)
-      ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: true } }, cmd)
+      clipboard_write(self.copy_clipboard.text)
+      let g = self.copy_clipboard.gen + 1
+      let cmd = @rabbita.delay(dispatch(CopyReset(g)), 2000)
+      ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: true, gen: g } }, cmd)
     }
-    CopyReset => ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: false } }, @rabbita.none)
+    CopyReset(g) => {
+      if g != self.copy_clipboard.gen { return (self, @rabbita.none) }
+      ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: false } }, @rabbita.none)
+    }
 
     // ── UndoSnackbar ─────────────────────────
     UndoRemoveItem(i) => {

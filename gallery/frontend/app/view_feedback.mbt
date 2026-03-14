@@ -546,9 +546,13 @@ fn Model::view_spreadsheet(
             "cursor:pointer",
             "position:relative",
           ],
-          attrs=@html.Attrs::build().on_click(fn(_) {
-            dispatch(SpreadsheetSelectCell(rc.0, rc.1))
-          }),
+          attrs=if s.editing && rc.0 == s.selected_row && rc.1 == s.selected_col {
+            @html.Attrs::build()
+          } else {
+            @html.Attrs::build().on_click(fn(_) {
+              dispatch(SpreadsheetSelectCell(rc.0, rc.1))
+            })
+          },
           [cell_content],
         ),
       )

@@ -287,6 +287,7 @@ pub(all) struct FormWizardState {
 pub(all) struct StopwatchState {
   elapsed_ms : Int
   running : Bool
+  gen : Int
 } derive(Debug)
 
 ///|
@@ -295,6 +296,7 @@ pub(all) struct CountdownState {
   remaining : Int
   running : Bool
   finished : Bool
+  gen : Int
 } derive(Debug)
 
 ///|
@@ -309,6 +311,7 @@ pub(all) struct CarouselState {
   items : Array[String]
   current : Int
   auto_playing : Bool
+  gen : Int
 } derive(Debug)
 
 ///|
@@ -402,6 +405,7 @@ pub(all) struct ConfirmButtonState {
 pub(all) struct CopyState {
   text : String
   copied : Bool
+  gen : Int
 } derive(Debug)
 
 ///|
@@ -593,21 +597,22 @@ pub(all) enum Msg {
   // Stopwatch
   StopwatchToggle
   StopwatchReset
-  StopwatchTick
+  StopwatchTick(Int)
   // Countdown
   CountdownSet(String)
   CountdownToggle
   CountdownReset
-  CountdownTick
+  CountdownTick(Int)
   // Typewriter
   TypewriterStart
+  TypewriterPause
   TypewriterTick
   TypewriterReset
   // Carousel
   CarouselPrev
   CarouselNext
   CarouselAutoToggle
-  CarouselAutoTick
+  CarouselAutoTick(Int)
   // AnimatedCounter
   CounterIncrement
   CounterDecrement
@@ -645,7 +650,7 @@ pub(all) enum Msg {
   ConfirmButtonCancel
   // CopyToClipboard
   CopyClick
-  CopyReset
+  CopyReset(Int)
   // UndoSnackbar
   UndoRemoveItem(Int)
   UndoUndo

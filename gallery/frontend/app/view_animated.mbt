@@ -170,7 +170,7 @@ fn Model::view_typewriter(
       @html.div(style=["display:flex", "gap:12px"], [
         @html.button(
           style=btn_style,
-          on_click=dispatch(TypewriterStart),
+          on_click=if running { dispatch(TypewriterPause) } else { dispatch(TypewriterStart) },
           if running { "Pause" } else { "Start" },
         ),
         @html.button(
