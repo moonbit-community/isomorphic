@@ -126,7 +126,7 @@ fn component_description(section : Section, index : Int) -> String {
 }
 
 ///|
-fn Model::render_component(
+pub fn Model::render_component(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
