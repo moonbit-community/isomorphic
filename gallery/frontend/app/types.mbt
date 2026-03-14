@@ -8,6 +8,10 @@ pub(all) enum Section {
   Data
   Overlay
   Composite
+  Animated
+  RichInputs
+  Layout
+  Feedback
 } derive(Debug, Eq, Show)
 
 // ── Sub-model structs ────────────────────────────────────────────────
@@ -277,6 +281,164 @@ pub(all) struct FormWizardState {
   completed : Bool
 } derive(Debug)
 
+// ── Animated component states ────────────────────────────────────────
+
+///|
+pub(all) struct StopwatchState {
+  elapsed_ms : Int
+  running : Bool
+} derive(Debug)
+
+///|
+pub(all) struct CountdownState {
+  target_seconds : Int
+  remaining : Int
+  running : Bool
+  finished : Bool
+} derive(Debug)
+
+///|
+pub(all) struct TypewriterState {
+  full_text : String
+  visible_chars : Int
+  running : Bool
+} derive(Debug)
+
+///|
+pub(all) struct CarouselState {
+  items : Array[String]
+  current : Int
+  auto_playing : Bool
+} derive(Debug)
+
+///|
+pub(all) struct AnimatedCounterState {
+  value : Int
+  display_value : Int
+} derive(Debug)
+
+// ── Rich input component states ─────────────────────────────────────
+
+///|
+pub(all) struct StarRatingState {
+  rating : Int
+  hover : Int
+} derive(Debug)
+
+///|
+pub(all) struct PinInputState {
+  digits : Array[String]
+  focus_index : Int
+  verified : Bool
+} derive(Debug)
+
+///|
+pub(all) struct PasswordStrengthState {
+  password : String
+  visible : Bool
+} derive(Debug)
+
+///|
+pub(all) struct TagAutoState {
+  tags : Array[String]
+  input : String
+  suggestions : Array[String]
+  show_suggestions : Bool
+  focus_index : Int
+} derive(Debug)
+
+///|
+pub(all) struct InlineEditState {
+  items : Array[(String, Bool)]
+  edit_value : String
+} derive(Debug)
+
+// ── Layout component states ─────────────────────────────────────────
+
+///|
+pub(all) struct StepperState {
+  value : Int
+  min : Int
+  max : Int
+  step : Int
+} derive(Debug)
+
+///|
+pub(all) struct SplitPaneState {
+  left_percent : Int
+} derive(Debug)
+
+///|
+pub(all) struct VirtualListState {
+  total_items : Int
+  scroll_top : Int
+  item_height : Int
+  visible_count : Int
+} derive(Debug)
+
+///|
+pub(all) struct MasonryItem {
+  id : Int
+  title : String
+  height : Int
+  color : String
+} derive(Debug, Eq, Show)
+
+///|
+pub(all) struct MasonryState {
+  items : Array[MasonryItem]
+  columns : Int
+} derive(Debug)
+
+// ── Feedback component states ───────────────────────────────────────
+
+///|
+pub(all) struct ConfirmButtonState {
+  confirming : Bool
+  executed : Bool
+} derive(Debug)
+
+///|
+pub(all) struct CopyState {
+  text : String
+  copied : Bool
+} derive(Debug)
+
+///|
+pub(all) struct UndoSnackbarState {
+  message : String
+  visible : Bool
+  items : Array[String]
+  last_removed : String
+  last_removed_index : Int
+} derive(Debug)
+
+// ── Additional composite states ─────────────────────────────────────
+
+///|
+pub(all) struct MarkdownState {
+  source : String
+} derive(Debug)
+
+///|
+pub(all) struct SpreadsheetCell {
+  value : String
+} derive(Debug, Eq, Show)
+
+///|
+pub(all) struct SpreadsheetState {
+  cells : Array[Array[SpreadsheetCell]]
+  selected_row : Int
+  selected_col : Int
+  editing : Bool
+  edit_value : String
+} derive(Debug)
+
+///|
+pub(all) struct DragSortState {
+  items : Array[String]
+} derive(Debug)
+
 // ── Top-level Model ──────────────────────────────────────────────────
 
 ///|
@@ -319,6 +481,31 @@ pub(all) struct Model {
   searchable_select : SearchableSelectState
   date_range : DateRangeState
   form_wizard : FormWizardState
+  // Animated components
+  stopwatch : StopwatchState
+  countdown : CountdownState
+  typewriter : TypewriterState
+  carousel : CarouselState
+  animated_counter : AnimatedCounterState
+  // Rich input components
+  star_rating : StarRatingState
+  pin_input : PinInputState
+  password_strength : PasswordStrengthState
+  tag_auto : TagAutoState
+  inline_edit : InlineEditState
+  // Layout components
+  stepper : StepperState
+  split_pane : SplitPaneState
+  virtual_list : VirtualListState
+  masonry : MasonryState
+  // Feedback components
+  confirm_button : ConfirmButtonState
+  copy_clipboard : CopyState
+  undo_snackbar : UndoSnackbarState
+  // Additional composites
+  markdown : MarkdownState
+  spreadsheet : SpreadsheetState
+  drag_sort : DragSortState
 } derive(Debug)
 
 // ── Messages ─────────────────────────────────────────────────────────
@@ -403,6 +590,77 @@ pub(all) enum Msg {
   WizardNext
   WizardPrev
   WizardFieldChanged(Int, String)
+  // Stopwatch
+  StopwatchToggle
+  StopwatchReset
+  StopwatchTick
+  // Countdown
+  CountdownSet(String)
+  CountdownToggle
+  CountdownReset
+  CountdownTick
+  // Typewriter
+  TypewriterStart
+  TypewriterTick
+  TypewriterReset
+  // Carousel
+  CarouselPrev
+  CarouselNext
+  CarouselAutoToggle
+  CarouselAutoTick
+  // AnimatedCounter
+  CounterIncrement
+  CounterDecrement
+  CounterAnimTick
+  // StarRating
+  StarClick(Int)
+  StarHover(Int)
+  StarLeave
+  // PinInput
+  PinDigitChanged(Int, String)
+  PinClear
+  // PasswordStrength
+  PasswordChanged(String)
+  PasswordToggleVisible
+  // TagAutocomplete
+  TagAutoInputChanged(String)
+  TagAutoAdd(String)
+  TagAutoRemove(Int)
+  TagAutoFocus(Int)
+  // InlineEdit
+  InlineStartEdit(Int)
+  InlineEditChanged(String)
+  InlineSaveEdit(Int)
+  InlineCancelEdit(Int)
+  // Stepper
+  StepperIncrement
+  StepperDecrement
+  // SplitPane
+  SplitPaneResize(String)
+  // VirtualList
+  VirtualScroll(String)
+  // ConfirmButton
+  ConfirmButtonClick
+  ConfirmButtonConfirm
+  ConfirmButtonCancel
+  // CopyToClipboard
+  CopyClick
+  CopyReset
+  // UndoSnackbar
+  UndoRemoveItem(Int)
+  UndoUndo
+  UndoDismiss
+  // Markdown
+  MarkdownChanged(String)
+  // Spreadsheet
+  SpreadsheetSelectCell(Int, Int)
+  SpreadsheetStartEdit
+  SpreadsheetEditChanged(String)
+  SpreadsheetSaveEdit
+  SpreadsheetCancelEdit
+  // DragSort
+  DragSortMoveUp(Int)
+  DragSortMoveDown(Int)
 } derive(Debug)
 
 // ── Component metadata ───────────────────────────────────────────────
@@ -423,13 +681,20 @@ pub fn section_components(section : Section) -> Array[String] {
     Data => ["DataTable", "Calendar", "Timeline", "Chart"]
     Overlay => ["Toast", "Modal", "CommandPalette"]
     Composite =>
-      ["KanbanBoard", "SearchableSelect", "DateRangePicker", "FormWizard"]
+      [
+        "KanbanBoard", "SearchableSelect", "DateRangePicker", "FormWizard",
+        "MarkdownPreview", "SpreadsheetGrid", "DragSortList",
+      ]
+    Animated => ["Stopwatch", "Countdown", "Typewriter", "Carousel", "AnimatedCounter"]
+    RichInputs => ["StarRating", "PinInput", "PasswordStrength", "TagAutocomplete", "InlineEdit"]
+    Layout => ["Stepper", "SplitPane", "VirtualList", "MasonryGrid"]
+    Feedback => ["ConfirmButton", "CopyToClipboard", "UndoSnackbar"]
   }
 }
 
 ///|
 pub fn all_sections() -> Array[Section] {
-  [Inputs, Display, Navigation, Data, Overlay, Composite]
+  [Inputs, Display, Navigation, Data, Overlay, Composite, Animated, RichInputs, Layout, Feedback]
 }
 
 ///|
@@ -441,5 +706,9 @@ pub fn section_label(section : Section) -> String {
     Data => "Data"
     Overlay => "Overlay"
     Composite => "Composite"
+    Animated => "Animated"
+    RichInputs => "Rich Inputs"
+    Layout => "Layout"
+    Feedback => "Feedback"
   }
 }

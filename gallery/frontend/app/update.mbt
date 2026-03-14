@@ -352,6 +352,40 @@ pub fn initial_model() -> Model {
       current: 0,
       completed: false,
     },
+    stopwatch: { elapsed_ms: 0, running: false },
+    countdown: { target_seconds: 30, remaining: 30, running: false, finished: false },
+    typewriter: { full_text: "The quick brown fox jumps over the lazy dog. MoonBit makes web development elegant and fun!", visible_chars: 0, running: false },
+    carousel: { items: ["Welcome to Gallery", "30+ UI Components", "Built with MoonBit", "Elm Architecture (MVU)", "Pure Frontend"], current: 0, auto_playing: false },
+    animated_counter: { value: 42, display_value: 42 },
+    star_rating: { rating: 0, hover: 0 },
+    pin_input: { digits: ["", "", "", ""], focus_index: 0, verified: false },
+    password_strength: { password: "", visible: false },
+    tag_auto: { tags: ["MoonBit", "Rabbita"], input: "", suggestions: ["JavaScript", "TypeScript", "Rust", "Go", "Python", "MoonBit", "Elm", "Haskell", "OCaml", "Zig"], show_suggestions: false, focus_index: -1 },
+    inline_edit: { items: [("Click to edit this text", false), ("Double-click me too", false), ("I am also editable", false)], edit_value: "" },
+    stepper: { value: 1, min: 0, max: 20, step: 1 },
+    split_pane: { left_percent: 50 },
+    virtual_list: { total_items: 10000, scroll_top: 0, item_height: 40, visible_count: 10 },
+    masonry: { items: [
+      { id: 1, title: "Mountain View", height: 180, color: "#6366f1" },
+      { id: 2, title: "Ocean Breeze", height: 120, color: "#22c55e" },
+      { id: 3, title: "Sunset Glow", height: 200, color: "#f59e0b" },
+      { id: 4, title: "Forest Path", height: 140, color: "#ef4444" },
+      { id: 5, title: "City Lights", height: 160, color: "#a855f7" },
+      { id: 6, title: "Desert Sand", height: 110, color: "#14b8a6" },
+      { id: 7, title: "Snow Peak", height: 190, color: "#3b82f6" },
+      { id: 8, title: "River Flow", height: 130, color: "#ec4899" },
+    ], columns: 3 },
+    confirm_button: { confirming: false, executed: false },
+    copy_clipboard: { text: "Hello from MoonBit Gallery! 🌙", copied: false },
+    undo_snackbar: { message: "", visible: false, items: ["Item Alpha", "Item Beta", "Item Gamma", "Item Delta"], last_removed: "", last_removed_index: -1 },
+    markdown: { source: "# Hello MoonBit\n\nThis is **bold** and *italic* text.\n\n- List item one\n- List item two\n\n`inline code` and a [link](https://moonbitlang.com)\n\n> A blockquote about MoonBit." },
+    spreadsheet: { cells: [
+      [{ value: "Name" }, { value: "Score" }, { value: "Grade" }],
+      [{ value: "Alice" }, { value: "95" }, { value: "A" }],
+      [{ value: "Bob" }, { value: "82" }, { value: "B" }],
+      [{ value: "Carol" }, { value: "91" }, { value: "A" }],
+    ], selected_row: -1, selected_col: -1, editing: false, edit_value: "" },
+    drag_sort: { items: ["First item", "Second item", "Third item", "Fourth item", "Fifth item"] },
   }
 }
 
@@ -871,6 +905,257 @@ pub fn Model::update(
       } else {
         (self, @rabbita.none)
       }
+    }
+
+    // ── Stopwatch ────────────────────────────
+    StopwatchToggle => {
+      let sw = self.stopwatch
+      let cmd = if !sw.running { @rabbita.delay(dispatch(StopwatchTick), 100) } else { @rabbita.none }
+      ({ ..self, stopwatch: { ..sw, running: !sw.running } }, cmd)
+    }
+    StopwatchReset => ({ ..self, stopwatch: { elapsed_ms: 0, running: false } }, @rabbita.none)
+    StopwatchTick => {
+      if !self.stopwatch.running { return (self, @rabbita.none) }
+      let elapsed = self.stopwatch.elapsed_ms + 100
+      let cmd = @rabbita.delay(dispatch(StopwatchTick), 100)
+      ({ ..self, stopwatch: { ..self.stopwatch, elapsed_ms: elapsed } }, cmd)
+    }
+
+    // ── Countdown ────────────────────────────
+    CountdownSet(v) => {
+      let n = @strconv.parse_int(v) catch { _ => self.countdown.target_seconds }
+      let clamped = if n < 1 { 1 } else if n > 3600 { 3600 } else { n }
+      ({ ..self, countdown: { target_seconds: clamped, remaining: clamped, running: false, finished: false } }, @rabbita.none)
+    }
+    CountdownToggle => {
+      let cd = self.countdown
+      let cmd = if !cd.running && cd.remaining > 0 { @rabbita.delay(dispatch(CountdownTick), 1000) } else { @rabbita.none }
+      ({ ..self, countdown: { ..cd, running: !cd.running } }, cmd)
+    }
+    CountdownReset => ({ ..self, countdown: { ..self.countdown, remaining: self.countdown.target_seconds, running: false, finished: false } }, @rabbita.none)
+    CountdownTick => {
+      if !self.countdown.running { return (self, @rabbita.none) }
+      let r = self.countdown.remaining - 1
+      if r <= 0 {
+        ({ ..self, countdown: { ..self.countdown, remaining: 0, running: false, finished: true } }, @rabbita.none)
+      } else {
+        let cmd = @rabbita.delay(dispatch(CountdownTick), 1000)
+        ({ ..self, countdown: { ..self.countdown, remaining: r } }, cmd)
+      }
+    }
+
+    // ── Typewriter ───────────────────────────
+    TypewriterStart => {
+      let cmd = @rabbita.delay(dispatch(TypewriterTick), 50)
+      ({ ..self, typewriter: { ..self.typewriter, visible_chars: 0, running: true } }, cmd)
+    }
+    TypewriterTick => {
+      let tw = self.typewriter
+      if !tw.running { return (self, @rabbita.none) }
+      let next = tw.visible_chars + 1
+      if next > tw.full_text.char_length() {
+        ({ ..self, typewriter: { ..tw, visible_chars: tw.full_text.char_length(), running: false } }, @rabbita.none)
+      } else {
+        let cmd = @rabbita.delay(dispatch(TypewriterTick), 50)
+        ({ ..self, typewriter: { ..tw, visible_chars: next } }, cmd)
+      }
+    }
+    TypewriterReset => ({ ..self, typewriter: { ..self.typewriter, visible_chars: 0, running: false } }, @rabbita.none)
+
+    // ── Carousel ─────────────────────────────
+    CarouselPrev => {
+      let c = self.carousel
+      let prev = if c.current <= 0 { c.items.length() - 1 } else { c.current - 1 }
+      ({ ..self, carousel: { ..c, current: prev } }, @rabbita.none)
+    }
+    CarouselNext => {
+      let c = self.carousel
+      let next = if c.current >= c.items.length() - 1 { 0 } else { c.current + 1 }
+      ({ ..self, carousel: { ..c, current: next } }, @rabbita.none)
+    }
+    CarouselAutoToggle => {
+      let c = self.carousel
+      let auto = !c.auto_playing
+      let cmd = if auto { @rabbita.delay(dispatch(CarouselAutoTick), 2000) } else { @rabbita.none }
+      ({ ..self, carousel: { ..c, auto_playing: auto } }, cmd)
+    }
+    CarouselAutoTick => {
+      if !self.carousel.auto_playing { return (self, @rabbita.none) }
+      let c = self.carousel
+      let next = if c.current >= c.items.length() - 1 { 0 } else { c.current + 1 }
+      let cmd = @rabbita.delay(dispatch(CarouselAutoTick), 2000)
+      ({ ..self, carousel: { ..c, current: next } }, cmd)
+    }
+
+    // ── AnimatedCounter ──────────────────────
+    CounterIncrement => {
+      let v = self.animated_counter.value + 1
+      let cmd = @rabbita.delay(dispatch(CounterAnimTick), 30)
+      ({ ..self, animated_counter: { ..self.animated_counter, value: v } }, cmd)
+    }
+    CounterDecrement => {
+      let v = self.animated_counter.value - 1
+      let cmd = @rabbita.delay(dispatch(CounterAnimTick), 30)
+      ({ ..self, animated_counter: { ..self.animated_counter, value: v } }, cmd)
+    }
+    CounterAnimTick => {
+      let ac = self.animated_counter
+      if ac.display_value == ac.value { return (self, @rabbita.none) }
+      let step = if ac.display_value < ac.value { 1 } else { -1 }
+      let cmd = @rabbita.delay(dispatch(CounterAnimTick), 30)
+      ({ ..self, animated_counter: { ..ac, display_value: ac.display_value + step } }, cmd)
+    }
+
+    // ── StarRating ───────────────────────────
+    StarClick(n) => ({ ..self, star_rating: { ..self.star_rating, rating: n } }, @rabbita.none)
+    StarHover(n) => ({ ..self, star_rating: { ..self.star_rating, hover: n } }, @rabbita.none)
+    StarLeave => ({ ..self, star_rating: { ..self.star_rating, hover: 0 } }, @rabbita.none)
+
+    // ── PinInput ─────────────────────────────
+    PinDigitChanged(idx, val) => {
+      let digits = self.pin_input.digits.copy()
+      let d = if val.char_length() > 1 { val.substring(start=val.char_length() - 1) } else { val }
+      digits[idx] = d
+      let next_focus = if d != "" && idx < digits.length() - 1 { idx + 1 } else { idx }
+      let all_filled = digits.iter().all(fn(s) { s != "" })
+      let verified = if all_filled { digits.iter().fold(init="", fn(acc, s) { acc + s }) == "1234" } else { false }
+      ({ ..self, pin_input: { digits, focus_index: next_focus, verified } }, @rabbita.none)
+    }
+    PinClear => ({ ..self, pin_input: { digits: ["", "", "", ""], focus_index: 0, verified: false } }, @rabbita.none)
+
+    // ── PasswordStrength ─────────────────────
+    PasswordChanged(v) => ({ ..self, password_strength: { ..self.password_strength, password: v } }, @rabbita.none)
+    PasswordToggleVisible => ({ ..self, password_strength: { ..self.password_strength, visible: !self.password_strength.visible } }, @rabbita.none)
+
+    // ── TagAutocomplete ──────────────────────
+    TagAutoInputChanged(v) => {
+      let show = v != ""
+      ({ ..self, tag_auto: { ..self.tag_auto, input: v, show_suggestions: show, focus_index: -1 } }, @rabbita.none)
+    }
+    TagAutoAdd(v) => {
+      if v == "" { return (self, @rabbita.none) }
+      let tags = self.tag_auto.tags.copy()
+      if !tags.contains(v) { tags.push(v) }
+      ({ ..self, tag_auto: { ..self.tag_auto, tags, input: "", show_suggestions: false } }, @rabbita.none)
+    }
+    TagAutoRemove(i) => {
+      let tags = self.tag_auto.tags.copy()
+      ignore(tags.remove(i))
+      ({ ..self, tag_auto: { ..self.tag_auto, tags } }, @rabbita.none)
+    }
+    TagAutoFocus(i) => ({ ..self, tag_auto: { ..self.tag_auto, focus_index: i } }, @rabbita.none)
+
+    // ── InlineEdit ───────────────────────────
+    InlineStartEdit(i) => {
+      let items = self.inline_edit.items.mapi(fn(idx, pair) { if idx == i { (pair.0, true) } else { (pair.0, false) } })
+      ({ ..self, inline_edit: { items, edit_value: self.inline_edit.items[i].0 } }, @rabbita.none)
+    }
+    InlineEditChanged(v) => ({ ..self, inline_edit: { ..self.inline_edit, edit_value: v } }, @rabbita.none)
+    InlineSaveEdit(i) => {
+      let items = self.inline_edit.items.mapi(fn(idx, pair) { if idx == i { (self.inline_edit.edit_value, false) } else { pair } })
+      ({ ..self, inline_edit: { items, edit_value: "" } }, @rabbita.none)
+    }
+    InlineCancelEdit(i) => {
+      let items = self.inline_edit.items.mapi(fn(idx, pair) { if idx == i { (pair.0, false) } else { pair } })
+      ({ ..self, inline_edit: { items, edit_value: "" } }, @rabbita.none)
+    }
+
+    // ── Stepper ──────────────────────────────
+    StepperIncrement => {
+      let v = self.stepper.value + self.stepper.step
+      let clamped = if v > self.stepper.max { self.stepper.max } else { v }
+      ({ ..self, stepper: { ..self.stepper, value: clamped } }, @rabbita.none)
+    }
+    StepperDecrement => {
+      let v = self.stepper.value - self.stepper.step
+      let clamped = if v < self.stepper.min { self.stepper.min } else { v }
+      ({ ..self, stepper: { ..self.stepper, value: clamped } }, @rabbita.none)
+    }
+
+    // ── SplitPane ────────────────────────────
+    SplitPaneResize(v) => {
+      let n = @strconv.parse_int(v) catch { _ => self.split_pane.left_percent }
+      let clamped = if n < 10 { 10 } else if n > 90 { 90 } else { n }
+      ({ ..self, split_pane: { left_percent: clamped } }, @rabbita.none)
+    }
+
+    // ── VirtualList ──────────────────────────
+    VirtualScroll(v) => {
+      let n = @strconv.parse_int(v) catch { _ => self.virtual_list.scroll_top }
+      ({ ..self, virtual_list: { ..self.virtual_list, scroll_top: n } }, @rabbita.none)
+    }
+
+    // ── ConfirmButton ────────────────────────
+    ConfirmButtonClick => ({ ..self, confirm_button: { confirming: true, executed: false } }, @rabbita.none)
+    ConfirmButtonConfirm => ({ ..self, confirm_button: { confirming: false, executed: true } }, @rabbita.none)
+    ConfirmButtonCancel => ({ ..self, confirm_button: { confirming: false, executed: false } }, @rabbita.none)
+
+    // ── CopyToClipboard ──────────────────────
+    CopyClick => {
+      let cmd = @rabbita.delay(dispatch(CopyReset), 2000)
+      ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: true } }, cmd)
+    }
+    CopyReset => ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: false } }, @rabbita.none)
+
+    // ── UndoSnackbar ─────────────────────────
+    UndoRemoveItem(i) => {
+      let items = self.undo_snackbar.items.copy()
+      let removed = items[i]
+      ignore(items.remove(i))
+      let cmd = @rabbita.delay(dispatch(UndoDismiss), 5000)
+      ({ ..self, undo_snackbar: { ..self.undo_snackbar, items, last_removed: removed, last_removed_index: i, visible: true, message: "Removed \"\{removed}\"" } }, cmd)
+    }
+    UndoUndo => {
+      let us = self.undo_snackbar
+      if us.last_removed == "" { return (self, @rabbita.none) }
+      let items = us.items.copy()
+      let idx = if us.last_removed_index > items.length() { items.length() } else { us.last_removed_index }
+      items.insert(idx, us.last_removed)
+      ({ ..self, undo_snackbar: { ..us, items, visible: false, last_removed: "", last_removed_index: -1 } }, @rabbita.none)
+    }
+    UndoDismiss => ({ ..self, undo_snackbar: { ..self.undo_snackbar, visible: false } }, @rabbita.none)
+
+    // ── Markdown ─────────────────────────────
+    MarkdownChanged(v) => ({ ..self, markdown: { source: v } }, @rabbita.none)
+
+    // ── Spreadsheet ──────────────────────────
+    SpreadsheetSelectCell(r, c) => ({ ..self, spreadsheet: { ..self.spreadsheet, selected_row: r, selected_col: c, editing: false, edit_value: "" } }, @rabbita.none)
+    SpreadsheetStartEdit => {
+      let ss = self.spreadsheet
+      if ss.selected_row < 0 || ss.selected_col < 0 { return (self, @rabbita.none) }
+      let v = ss.cells[ss.selected_row][ss.selected_col].value
+      ({ ..self, spreadsheet: { ..ss, editing: true, edit_value: v } }, @rabbita.none)
+    }
+    SpreadsheetEditChanged(v) => ({ ..self, spreadsheet: { ..self.spreadsheet, edit_value: v } }, @rabbita.none)
+    SpreadsheetSaveEdit => {
+      let ss = self.spreadsheet
+      let cells = ss.cells.mapi(fn(ri, row) {
+        if ri == ss.selected_row {
+          row.mapi(fn(ci, cell) { if ci == ss.selected_col { { value: ss.edit_value } } else { cell } })
+        } else {
+          row
+        }
+      })
+      ({ ..self, spreadsheet: { ..ss, cells, editing: false, edit_value: "" } }, @rabbita.none)
+    }
+    SpreadsheetCancelEdit => ({ ..self, spreadsheet: { ..self.spreadsheet, editing: false, edit_value: "" } }, @rabbita.none)
+
+    // ── DragSort ─────────────────────────────
+    DragSortMoveUp(i) => {
+      if i <= 0 { return (self, @rabbita.none) }
+      let items = self.drag_sort.items.copy()
+      let tmp = items[i]
+      items[i] = items[i - 1]
+      items[i - 1] = tmp
+      ({ ..self, drag_sort: { items } }, @rabbita.none)
+    }
+    DragSortMoveDown(i) => {
+      if i >= self.drag_sort.items.length() - 1 { return (self, @rabbita.none) }
+      let items = self.drag_sort.items.copy()
+      let tmp = items[i]
+      items[i] = items[i + 1]
+      items[i + 1] = tmp
+      ({ ..self, drag_sort: { items } }, @rabbita.none)
     }
   }
 }

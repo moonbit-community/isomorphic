@@ -129,6 +129,26 @@ fn component_description(section : Section, index : Int) -> String {
       "A searchable select with filtering and keyboard navigation."
     (Composite, 2) => "A date range picker with start and end date selection."
     (Composite, 3) => "A multi-step form wizard with validation per step."
+    (Composite, 4) => "Live markdown preview with bold, italic, links and code rendering."
+    (Composite, 5) => "An editable spreadsheet grid with cell selection and inline editing."
+    (Composite, 6) => "A reorderable list using up/down buttons."
+    (Animated, 0) => "A stopwatch with start, stop, and reset controls."
+    (Animated, 1) => "A countdown timer with configurable duration."
+    (Animated, 2) => "Text revealed character by character with typewriter effect."
+    (Animated, 3) => "An image/card carousel with prev/next and auto-advance."
+    (Animated, 4) => "A number that animates up and down on change."
+    (RichInputs, 0) => "A clickable 1-5 star rating component."
+    (RichInputs, 1) => "A PIN code entry with auto-focus between digits."
+    (RichInputs, 2) => "Password input with real-time strength meter."
+    (RichInputs, 3) => "Tag input with autocomplete suggestions."
+    (RichInputs, 4) => "Click text to edit in-place with Enter to save."
+    (Layout, 0) => "A numeric stepper with configurable step, min, and max."
+    (Layout, 1) => "Two resizable panels with a draggable divider."
+    (Layout, 2) => "Renders only visible items from a large list (scroll windowing)."
+    (Layout, 3) => "Cards of varying heights laid out in columns."
+    (Feedback, 0) => "Click once to arm, click again to execute."
+    (Feedback, 1) => "Copy text to clipboard with visual feedback."
+    (Feedback, 2) => "Delete with undo that auto-expires."
     _ => ""
   }
 }
@@ -169,6 +189,26 @@ pub fn Model::render_component(
     (Composite, 1) => self.view_searchable_select(dispatch)
     (Composite, 2) => self.view_date_range(dispatch)
     (Composite, 3) => self.view_form_wizard(dispatch)
+    (Composite, 4) => self.view_markdown(dispatch)
+    (Composite, 5) => self.view_spreadsheet(dispatch)
+    (Composite, 6) => self.view_drag_sort(dispatch)
+    (Animated, 0) => self.view_stopwatch(dispatch)
+    (Animated, 1) => self.view_countdown(dispatch)
+    (Animated, 2) => self.view_typewriter(dispatch)
+    (Animated, 3) => self.view_carousel(dispatch)
+    (Animated, 4) => self.view_animated_counter(dispatch)
+    (RichInputs, 0) => self.view_star_rating(dispatch)
+    (RichInputs, 1) => self.view_pin_input(dispatch)
+    (RichInputs, 2) => self.view_password_strength(dispatch)
+    (RichInputs, 3) => self.view_tag_auto(dispatch)
+    (RichInputs, 4) => self.view_inline_edit(dispatch)
+    (Layout, 0) => self.view_stepper(dispatch)
+    (Layout, 1) => self.view_split_pane(dispatch)
+    (Layout, 2) => self.view_virtual_list(dispatch)
+    (Layout, 3) => self.view_masonry(dispatch)
+    (Feedback, 0) => self.view_confirm_button(dispatch)
+    (Feedback, 1) => self.view_copy_clipboard(dispatch)
+    (Feedback, 2) => self.view_undo_snackbar(dispatch)
     _ => @html.p("Component not found")
   }
 }
