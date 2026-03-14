@@ -256,3 +256,44 @@ When a TEA app breaks, the bug is always in one of three places: Model definitio
 - A growing package ecosystem for common UI patterns
 
 MoonBit's type system (algebraic data types, pattern matching, traits) is well-positioned to achieve this. The missing pieces are framework-level composition primitives in Rabbita, not language limitations.
+
+## Part 3: Investment Recommendations
+
+### Is TEA Worth Investing In?
+
+**Yes — specifically for the MoonBit/Rabbita ecosystem and agent-driven development.**
+
+TEA + MoonBit's type system is a natural fit. Algebraic data types, exhaustive pattern matching, and `derive(ToJson, FromJson)` were designed for exactly this pattern. The language and the architecture reinforce each other. Agents amplify TEA's strengths (predictable patterns → reliable generation) and neutralize its weaknesses (boilerplate → agents don't mind, no ecosystem → agents generate components directly).
+
+The testability advantage is permanent. No future React innovation will make `useEffect` as testable as a pure function. This is a structural property of the architecture, not a tooling gap.
+
+### Concrete Investment Priorities
+
+| Priority | Investment | Rationale |
+|----------|-----------|-----------|
+| **High** | Nested TEA / `Html.map` in Rabbita | Solves the god-Model scaling problem. Let components own sub-models with type-safe message routing. Elm proved this works. Without it, TEA hits a wall at ~100 components. |
+| **High** | Reusable component trait/interface | Define a `Component` trait with associated `Model`, `Msg`, `update`, `view` types. Makes the gallery's 50 components into a shareable library rather than copy-paste patterns. |
+| **Medium** | Agent-friendly code generation | A `moon generate component <name>` tool that scaffolds the sub-model struct + Msg variants + update handler + view function + test file. Codifies the pattern we repeated 50 times. |
+| **Medium** | Async effect helpers | `@rabbita.attempt` for Promise-based browser APIs (clipboard, fetch, geolocation). Fixes the sync/async gap we hit with `clipboard_write`. |
+| **Medium** | Component composition examples | A reference implementation showing how to compose multiple instances of the same component (e.g., two DatePickers on one page) with proper Msg routing. This is TEA's hardest composition problem. |
+| **Low** | SSR support | `render_to_string` already works on the JS target. Needs only a `#cfg` guard fix in Rabbita to work on native. Enables server-side rendering from the backend — the isomorphic dream. |
+| **Low** | Dev tooling (time-travel debugger) | TEA's deterministic state machine enables a time-travel debugger that logs every Msg and lets you step back/forward through state history. Elm DevTools proved this is extremely valuable for debugging. |
+
+### The Strategic Bet
+
+TEA in MoonBit will not replace React for human developers — React's ecosystem lead is too large, and humans prefer component-local state for ergonomic reasons. But for **agent-driven development**, TEA is better by every structural measure:
+
+- **Predictable patterns** → higher generation reliability
+- **Exhaustive matching** → compiler catches agent mistakes
+- **Pure functions** → trivial testing without browser infrastructure
+- **Explicit state machines** → easier comprehension and debugging
+- **Deterministic behavior** → reproducible bug reports
+
+If the future of software development is agents writing most code with humans reviewing, then architectures optimized for machine-verifiability (TEA) will outperform architectures optimized for human ergonomics (React hooks).
+
+### What Could Change This Assessment
+
+- **React adding exhaustive pattern matching** on state transitions (unlikely — fundamental design difference)
+- **TEA frameworks solving component encapsulation** elegantly (likely — Elm showed the way, Rabbita just needs to implement it)
+- **Agents getting much better at reasoning about effects** and hook dependencies (possible but doesn't eliminate the structural advantage)
+- **A new architecture** that combines TEA's verifiability with React's encapsulation natively (the ideal outcome — MoonBit is well-positioned to pioneer this)
