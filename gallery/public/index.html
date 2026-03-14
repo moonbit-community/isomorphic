@@ -39,7 +39,7 @@
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
     input:focus, textarea:focus, select:focus {
-      border-color: #6366f1 !important;
+      border-color: #6366f1;
       box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
     }
 
@@ -122,8 +122,8 @@
       cursor: pointer;
     }
 
-    /* Table hover */
-    table tr:hover td { background: #f1f5f9 !important; }
+    /* Table hover — only apply to unselected rows */
+    table tr:hover td { background: #f1f5f9; }
 
     /* Selection color */
     ::selection { background: #c7d2fe; color: #312e81; }
