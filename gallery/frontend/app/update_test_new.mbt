@@ -303,9 +303,10 @@ test "ConfirmButton cancel" {
 // ── CopyToClipboard ──────────────────────────────────────────────────
 
 ///|
-test "CopyClick sets copied" {
+test "CopyClick in test env (no clipboard API) does not set copied" {
+  // clipboard_write returns false in test env (no browser), so copied stays false
   let (m1, _) = im().update(msg=CopyClick, dispatch=nd)
-  inspect!(m1.copy_clipboard.copied, content="true")
+  inspect!(m1.copy_clipboard.copied, content="false")
 }
 
 ///|

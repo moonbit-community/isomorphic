@@ -1034,7 +1034,9 @@ pub fn Model::update(
       let next_focus = if d != "" && idx < digits.length() - 1 { idx + 1 } else { idx }
       let all_filled = digits.iter().all(fn(s) { s != "" })
       let verified = if all_filled { digits.iter().fold(init="", fn(acc, s) { acc + s }) == "1234" } else { false }
-      ({ ..self, pin_input: { digits, focus_index: next_focus, verified } }, @rabbita.none)
+      let focus_id = "pin-\{next_focus}"
+      let cmd = @rabbita.effect(async fn() noraise { focus_element(focus_id) })
+      ({ ..self, pin_input: { digits, focus_index: next_focus, verified } }, cmd)
     }
     PinClear => ({ ..self, pin_input: { digits: ["", "", "", ""], focus_index: 0, verified: false } }, @rabbita.none)
 
@@ -1107,7 +1109,10 @@ pub fn Model::update(
 
     // ── CopyToClipboard ──────────────────────
     CopyClick => {
-      clipboard_write(self.copy_clipboard.text)
+      let ok = clipboard_write(self.copy_clipboard.text)
+      if !ok {
+        return (self, @rabbita.none)
+      }
       let g = self.copy_clipboard.gen + 1
       let cmd = @rabbita.delay(dispatch(CopyReset(g)), 2000)
       ({ ..self, copy_clipboard: { ..self.copy_clipboard, copied: true, gen: g } }, cmd)

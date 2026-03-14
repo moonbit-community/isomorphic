@@ -73,15 +73,14 @@ fn Model::view_pin_input(
     ],
     "Enter PIN: 1234",
   )
-  let focus = self.pin_input.focus_index
   let pin_inputs : Array[@rabbita.Html] = []
   for i, _d in digits {
     let index = i
     pin_inputs.push(
       @html.input(
         input_type=Text,
+        id="pin-\{index}",
         value=digits[index],
-        autofocus=index == focus,
         maxlength=1,
         style=[
           "width:48px",
