@@ -279,6 +279,14 @@ fn Model::view_undo_snackbar(
   )
 }
 
+// TODO(P2): parse_markdown only handles block-level syntax (headings, lists,
+// blockquotes, paragraphs). Inline markdown (**bold**, *italic*, `code`,
+// [links](url)) is rendered as literal text. To fix:
+//   1. Add an inline parser that scans each text line for patterns
+//   2. Split text into segments: plain, Bold(text), Italic(text), Code(text), Link(text, url)
+//   3. Render segments as @html.strong, @html.em, @html.code, @html.a respectively
+//   4. Handle nested inline patterns (e.g. **bold *and italic***)
+
 ///|
 fn parse_markdown(source : String) -> @rabbita.Html {
   let lines = source.split("\n")
