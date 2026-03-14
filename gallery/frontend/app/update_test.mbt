@@ -234,9 +234,16 @@ test "TableSort same column toggles direction" {
 }
 
 ///|
-test "TablePage updates page" {
-  let (model, _) = m().update(msg=TablePage(2), dispatch=noop_dispatch)
-  inspect!(model.data_table.page, content="2")
+test "TablePage clamps to valid range" {
+  // 8 rows, page_size=5, so max page is 1
+  let (model, _) = m().update(msg=TablePage(1), dispatch=noop_dispatch)
+  inspect!(model.data_table.page, content="1")
+  // Page 5 gets clamped to 1
+  let (model2, _) = m().update(msg=TablePage(5), dispatch=noop_dispatch)
+  inspect!(model2.data_table.page, content="1")
+  // Negative gets clamped to 0
+  let (model3, _) = m().update(msg=TablePage(-1), dispatch=noop_dispatch)
+  inspect!(model3.data_table.page, content="0")
 }
 
 ///|

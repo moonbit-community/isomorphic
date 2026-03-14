@@ -15,12 +15,14 @@ fn days_in_month(year : Int, month : Int) -> Int {
 
 ///|
 fn day_of_week(year : Int, month : Int, day : Int) -> Int {
+  // Zeller's congruence: h=0 is Saturday. Convert to 0=Sunday.
   let m = if month < 3 { month + 12 } else { month }
   let y = if month < 3 { year - 1 } else { year }
   let k = y % 100
   let j = y / 100
   let h = (day + (13 * (m + 1)) / 5 + k + k / 4 + j / 4 - 2 * j) % 7
-  (h + 5) % 7
+  let h2 = if h < 0 { h + 7 } else { h }
+  (h2 + 6) % 7
 }
 
 ///|
@@ -44,20 +46,21 @@ fn Model::view_data_table(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let dt = self.data_table
-  let sorted = dt.rows.copy()
-  sorted.sort_by(fn(a, b) {
-    let cmp = compare_row_by_col(a, b, dt.sort_col)
+  // Pair each row with its original index for stable selection
+  let indexed : Array[(Int, TableRow)] = dt.rows.mapi(fn(i, r) { (i, r) })
+  indexed.sort_by(fn(a, b) {
+    let cmp = compare_row_by_col(a.1, b.1, dt.sort_col)
     if dt.sort_asc { cmp } else { -cmp }
   })
-  let total = sorted.length()
-  let total_pages = (total + dt.page_size - 1) / dt.page_size
+  let total = indexed.length()
+  let total_pages = if total == 0 { 1 } else { (total + dt.page_size - 1) / dt.page_size }
   let page_start = dt.page * dt.page_size
   let page_end = if page_start + dt.page_size < total {
     page_start + dt.page_size
   } else {
     total
   }
-  let page_rows = sorted[page_start:page_end]
+  let page_indexed = indexed[page_start:page_end]
   let cols = [("name", "Name"), ("email", "Email"), ("role", "Role"), ("status", "Status")]
   let th_style = [
     "padding: 10px 14px", "text-align: left", "font-size: 12px",
@@ -119,8 +122,9 @@ fn Model::view_data_table(
                 style=[],
                 {
                   let rows_el : Array[@rabbita.Html] = []
-                  for i, row in page_rows {
-                    let idx = page_start + i
+                  for pair in page_indexed {
+                    let idx = pair.0
+                    let row = pair.1
                     let is_sel = dt.selected.contains(idx)
                     let row_bg = if is_sel { primary_light } else { surface }
                     let status_color = if row.status == "Active" { success } else { danger }

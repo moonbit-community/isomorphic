@@ -443,10 +443,19 @@ pub fn Model::update(
         @rabbita.none,
       )
     }
-    TablePage(p) => (
-      { ..self, data_table: { ..self.data_table, page: p } },
-      @rabbita.none,
-    )
+    TablePage(p) => {
+      let total = self.data_table.rows.length()
+      let max_page = if total == 0 {
+        0
+      } else {
+        (total - 1) / self.data_table.page_size
+      }
+      let clamped = if p < 0 { 0 } else if p > max_page { max_page } else { p }
+      (
+        { ..self, data_table: { ..self.data_table, page: clamped } },
+        @rabbita.none,
+      )
+    }
     TableToggleRow(i) => {
       let selected = if self.data_table.selected.contains(i) {
         self.data_table.selected.filter(fn(x) { x != i })
@@ -657,6 +666,7 @@ pub fn Model::update(
     }
     DateRangePrevMonth => {
       let dr = self.date_range
+      // Navigate the viewing month without touching start/end dates
       let mut m = dr.start_month - 1
       let mut y = dr.start_year
       if m < 1 {
@@ -666,13 +676,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          date_range: {
-            ..dr,
-            start_year: y,
-            start_month: m,
-            end_year: y,
-            end_month: m,
-          },
+          date_range: { ..dr, start_year: y, start_month: m },
         },
         @rabbita.none,
       )
@@ -688,13 +692,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          date_range: {
-            ..dr,
-            start_year: y,
-            start_month: m,
-            end_year: y,
-            end_month: m,
-          },
+          date_range: { ..dr, start_year: y, start_month: m },
         },
         @rabbita.none,
       )
@@ -727,13 +725,26 @@ pub fn Model::update(
       },
       @rabbita.none,
     )
-    CommandPaletteSelect(_) => (
-      {
+    CommandPaletteSelect(id) => {
+      let closed = {
         ..self,
         command_palette: { ..self.command_palette, open: false, query: "" },
-      },
-      @rabbita.none,
-    )
+      }
+      // Execute the selected action
+      match id {
+        1 => ({ ..closed, section: Inputs, component: 0 }, @rabbita.none)
+        2 => ({ ..closed, section: Display, component: 0 }, @rabbita.none)
+        3 => ({ ..closed, section: Data, component: 0 }, @rabbita.none)
+        5 =>
+          closed.update(
+            msg=ShowToast("Command", "Triggered from palette", "info"),
+            dispatch~,
+          )
+        6 => ({ ..closed, modal: { ..closed.modal, open: true, confirmed: false } }, @rabbita.none)
+        8 => ({ ..closed, section: Overlay, component: 0 }, @rabbita.none)
+        _ => (closed, @rabbita.none)
+      }
+    }
 
     // ── FormWizard ───────────────────────────
     WizardFieldChanged(field_idx, val) => {
