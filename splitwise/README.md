@@ -63,9 +63,131 @@ shared/              # Isomorphic code (both js and native)
   routes.mbt         #   API path constants and builders
   validation.mbt     #   Name, description, amount validation
   logic.mbt          #   Balance computation, greedy settlement algorithm, formatting
-backend/main.mbt     # Mocket HTTP server + SQLite3 CRUD (people, expenses, expense_splits)
-frontend/main.mbt    # Rabbita MVU app (model, update, view)
+backend/
+  main.mbt           # Mocket HTTP server entry point
+  routes.mbt         # Route registration and handlers
+  db.mbt             # SQLite3 CRUD (people, expenses, expense_splits)
+frontend/
+  main.mbt           # Rabbita app entry point
+  app/
+    types.mbt         # Model, Msg types
+    update.mbt        # Update logic and HTTP commands
+    view.mbt          # HTML view functions
+    styles.mbt        # CSS-in-MoonBit styles
+    update_test.mbt   # Update function tests
+    view_test.mbt     # View function tests
 public/              # Build output for frontend JS
 moon.mod.json        # Module config and dependencies
 Makefile             # Build and run commands
+```
+
+## Architecture
+
+### System Architecture
+
+```mermaid
+graph TB
+    subgraph Browser
+        FE["Frontend (JS)<br/>main.mbt + app/"]
+    end
+
+    subgraph Server
+        BE["Backend (Native)<br/>main.mbt, routes.mbt, db.mbt"]
+        DB[("splitwise.db<br/>SQLite")]
+    end
+
+    subgraph "Shared Package"
+        T["types.mbt<br/>Person, Expense,<br/>Settlement, AppState"]
+        R["routes.mbt<br/>API path constants"]
+        V["validation.mbt<br/>Name, description,<br/>amount validation"]
+        L["logic.mbt<br/>Settlement algorithm"]
+    end
+
+    FE -- "GET /api/state" --> BE
+    FE -- "POST /api/people" --> BE
+    FE -- "POST /api/expenses" --> BE
+    FE -- "DELETE /api/expenses/:id" --> BE
+    BE -- "JSON (AppState)" --> FE
+    BE --> DB
+
+    FE -.-> T
+    FE -.-> R
+    FE -.-> V
+    FE -.-> L
+    BE -.-> T
+    BE -.-> R
+    BE -.-> V
+    BE -.-> L
+```
+
+### MVU Data Flow
+
+```mermaid
+graph LR
+    Model["Model<br/>(AppState, form fields,<br/>UI state)"]
+    View["View<br/>(HTML rendering)"]
+    Msg["Msg<br/>(User actions,<br/>HTTP responses)"]
+    Update["Update<br/>(State transitions,<br/>HTTP commands)"]
+
+    Model --> View
+    View -- "User interaction" --> Msg
+    Msg --> Update
+    Update -- "New model +<br/>side effects" --> Model
+```
+
+### Data Model
+
+```mermaid
+erDiagram
+    Person {
+        int id PK
+        string name
+    }
+
+    Expense {
+        int id PK
+        string description
+        int amount "cents"
+        int paid_by FK
+    }
+
+    Settlement {
+        int from_id FK
+        int to_id FK
+        string from_name
+        string to_name
+        int amount "cents"
+    }
+
+    AppState {
+        Array people
+        Array expenses
+        Array settlements
+    }
+
+    Person ||--o{ Expense : "paid_by"
+    Person }o--o{ Expense : "split_among"
+    Person ||--o{ Settlement : "from"
+    Person ||--o{ Settlement : "to"
+    AppState ||--o{ Person : "aggregates"
+    AppState ||--o{ Expense : "aggregates"
+    AppState ||--o{ Settlement : "aggregates"
+```
+
+### Settlement Algorithm
+
+```mermaid
+flowchart TD
+    A["Start: List of Expenses"] --> B["Calculate net balance<br/>for each person"]
+    B --> C{"Any non-zero<br/>balances?"}
+    C -- "No" --> D["Done: No settlements needed"]
+    C -- "Yes" --> E["Separate into<br/>creditors (+) and debtors (-)"]
+    E --> F["Sort creditors descending,<br/>debtors ascending"]
+    F --> G["Match largest creditor<br/>with largest debtor"]
+    G --> H["Transfer min(credit, |debt|)<br/>between the pair"]
+    H --> I["Record settlement:<br/>from debtor to creditor"]
+    I --> J["Update remaining balances"]
+    J --> K{"All balances<br/>settled?"}
+    K -- "No" --> G
+    K -- "Yes" --> L["Done: Minimal set<br/>of transactions"]
 ```

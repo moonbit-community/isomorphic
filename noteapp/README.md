@@ -65,3 +65,72 @@ public/              # Build output for frontend JS
 moon.mod.json        # Module config and dependencies
 Makefile             # Build and run commands
 ```
+
+## Architecture
+
+### System Architecture
+
+```mermaid
+graph LR
+    Browser["Browser"]
+    Frontend["Frontend (JS)<br/>main.mbt<br/>app/{types,update,view,styles}.mbt"]
+    API["REST API"]
+    Backend["Backend (Native)<br/>main.mbt, db.mbt"]
+    DB["SQLite<br/>notes.db"]
+    Shared["Shared Code<br/>types.mbt, routes.mbt<br/>validation.mbt, logic.mbt"]
+
+    Browser <-->|HTML + JS| Frontend
+    Frontend <-->|JSON| API
+    API <-->|Routes| Backend
+    Backend <-->|SQL| DB
+
+    Shared -.-|compiled for JS target| Frontend
+    Shared -.-|compiled for native target| Backend
+```
+
+### MVU Data Flow
+
+```mermaid
+graph TD
+    View["View<br/>view.mbt, styles.mbt"]
+    Model["Model<br/>types.mbt"]
+    Update["Update<br/>update.mbt"]
+    Cmd["HTTP Commands<br/>GET /api/notes<br/>POST /api/notes<br/>POST /api/notes/:id/pin<br/>DELETE /api/notes/:id"]
+    Server["Backend Server"]
+
+    View -->|user interaction| Msg
+    Msg -->|dispatch| Update
+    Update -->|new model| Model
+    Model -->|render| View
+    Update -->|side effects| Cmd
+    Cmd -->|request| Server
+    Server -->|response| Msg
+```
+
+### Data Model
+
+```mermaid
+classDiagram
+    class Note {
+        id : Int
+        title : String
+        content : String
+        pinned : Bool
+    }
+
+    class NoteStats {
+        word_count : Int
+        char_count : Int
+        reading_time_secs : Int
+    }
+
+    Note --> NoteStats : compute_stats()
+
+    class API {
+        GET /api/notes
+        POST /api/notes
+        POST /api/notes/:id
+        POST /api/notes/:id/pin
+        DELETE /api/notes/:id
+    }
+```

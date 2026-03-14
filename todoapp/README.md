@@ -67,6 +67,83 @@ moon.mod.json        # Module config and dependencies
 Makefile             # Build and run commands
 ```
 
+## Architecture Diagrams
+
+### System Architecture
+
+```mermaid
+graph LR
+    subgraph Browser
+        FE["Frontend (JS)<br/>Rabbita MVU"]
+    end
+
+    subgraph Server
+        BE["Backend (Native)<br/>Mocket HTTP"]
+        DB[(SQLite<br/>todos.db)]
+    end
+
+    subgraph Shared
+        S["shared/<br/>Types, Routes,<br/>Validation"]
+    end
+
+    FE <-->|REST API<br/>JSON| BE
+    BE <--> DB
+    S -.->|compiled to js| FE
+    S -.->|compiled to native| BE
+```
+
+### MVU Data Flow
+
+```mermaid
+graph TD
+    UA["User Action<br/>(click, input)"] --> Msg
+    Msg --> Update["Model::update()<br/>returns (Model, Cmd)"]
+    Update --> Model
+    Update --> Cmd
+
+    Model --> View["view()<br/>returns HTML"]
+    View --> HTML["Virtual DOM"]
+    HTML --> UA
+
+    Cmd -->|"@http.get, post, delete"| API["REST API<br/>GET/POST /api/todos<br/>POST /api/todos/:id/toggle<br/>DELETE /api/todos/:id"]
+    API -->|"JSON response"| RMsg["Response Msg<br/>(GotTodos, TodoAdded,<br/>TodoToggled, TodoDeleted)"]
+    RMsg --> Msg
+```
+
+### Module Dependency Graph
+
+```mermaid
+graph TD
+    subgraph "frontend/ (target: js)"
+        FM["frontend/main.mbt"]
+        FA["frontend/app/<br/>types, update, view"]
+    end
+
+    subgraph "backend/ (target: native)"
+        BM["backend/main.mbt"]
+        BD["backend/db.mbt"]
+    end
+
+    subgraph "shared/ (target: js + native)"
+        ST["types.mbt<br/>Todo { id, text, done }"]
+        SR["routes.mbt"]
+        SV["validation.mbt"]
+    end
+
+    FM --> FA
+    FA --> ST
+    FA --> SR
+    FA --> SV
+    FA --> Rabbita["rabbita<br/>(MVU + HTML + HTTP)"]
+
+    BM --> BD
+    BM --> ST
+    BM --> SR
+    BM --> SV
+    BM --> Mocket["mocket<br/>(HTTP server)"]
+    BD --> SQLite3["sqlite3<br/>(persistence)"]
+```
+
 ## Todos
 
 TODO: ghost warning about `options("supported-targets": ...)` deprecation when running `moon check --target js`:

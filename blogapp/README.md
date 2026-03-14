@@ -65,9 +65,103 @@ shared/              # Isomorphic code (both js and native)
   types.mbt          #   Post and Comment structs with ToJson/FromJson
   routes.mbt         #   API path constants and builders
   validation.mbt     #   Title validation, author normalization, unicode truncation
-backend/main.mbt     # Mocket HTTP server + SQLite3 CRUD
-frontend/main.mbt    # Rabbita MVU app (model, update, view)
+backend/
+  main.mbt           # Mocket HTTP server entry point
+  routes.mbt         # Route registration and handlers
+  db.mbt             # SQLite3 CRUD operations
+frontend/
+  main.mbt           # Rabbita app entry point and wiring
+  app/
+    types.mbt         # Model, Msg, and Page definitions
+    update.mbt        # Update logic and command dispatch
+    view.mbt          # Top-level view routing
+    view_post_list.mbt # Post list page
+    view_post.mbt     # Single post detail page
+    view_form.mbt     # Create/edit post form
+    view_comments.mbt # Comment list and form
+    update_test.mbt   # Update function tests
+    view_test.mbt     # View rendering tests
 public/              # Build output for frontend JS
 moon.mod.json        # Module config and dependencies
 Makefile             # Build and run commands
+```
+
+## Architecture
+
+### System Architecture
+
+```mermaid
+graph TD
+    subgraph Browser
+        FE["Frontend (JS)<br/>frontend/main.mbt<br/>frontend/app/*.mbt"]
+    end
+
+    subgraph Server
+        BE["Backend (Native)<br/>backend/main.mbt<br/>backend/routes.mbt<br/>backend/db.mbt"]
+        DB[(SQLite3<br/>blog.db)]
+    end
+
+    subgraph "Shared (js + native)"
+        SH["shared/<br/>types.mbt &middot; routes.mbt &middot; validation.mbt"]
+    end
+
+    FE -- "JSON REST API<br/>/api/posts, /api/comments" --> BE
+    BE -- "JSON responses" --> FE
+    BE -- "SQL queries" --> DB
+    FE -.-> SH
+    BE -.-> SH
+```
+
+### Page Navigation
+
+```mermaid
+stateDiagram-v2
+    [*] --> PostList
+
+    PostList --> ViewPost : click post
+    ViewPost --> PostList : back to list
+
+    PostList --> NewPost : click "New Post"
+    NewPost --> PostList : save / cancel
+
+    ViewPost --> EditPost : click "Edit"
+    EditPost --> ViewPost : save / cancel
+```
+
+### Data Model
+
+```mermaid
+erDiagram
+    Post {
+        Int id PK
+        String title
+        String content
+        String created_at
+        String updated_at
+    }
+    Comment {
+        Int id PK
+        Int post_id FK
+        String author
+        String content
+        String created_at
+    }
+    Post ||--o{ Comment : "has many"
+```
+
+### MVU Data Flow
+
+```mermaid
+graph LR
+    View -- "user action" --> Msg
+    Msg -- "dispatch" --> Update
+    Update -- "new Model + Cmd" --> Model
+    Model -- "render" --> View
+    Update -- "HTTP Cmd" --> API["REST API<br/>/api/posts<br/>/api/posts/:id<br/>/api/comments"]
+    API -- "response Msg" --> Msg
+
+    subgraph "Page Routing"
+        Model -- "page field" --> Page["Page enum:<br/>PostList<br/>ViewPost(Int)<br/>NewPost<br/>EditPost(Int)"]
+        Page --> View
+    end
 ```
