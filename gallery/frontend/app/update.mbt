@@ -34,8 +34,8 @@ pub fn initial_model() -> Model {
       selected: "#6366f1",
       hex_input: "#6366f1",
       swatches: [
-        "#ef4444", "#f59e0b", "#22c55e", "#3b82f6", "#6366f1",
-        "#a855f7", "#ec4899", "#14b8a6", "#f97316", "#64748b",
+        "#ef4444", "#f59e0b", "#22c55e", "#3b82f6", "#6366f1", "#a855f7", "#ec4899",
+        "#14b8a6", "#f97316", "#64748b",
       ],
     },
     avatar: {
@@ -48,29 +48,43 @@ pub fn initial_model() -> Model {
       ],
     },
     badge: {
-      counts: [("Messages", 3), ("Notifications", 12), ("Tasks", 0), ("Alerts", 99)],
+      counts: [
+        ("Messages", 3),
+        ("Notifications", 12),
+        ("Tasks", 0),
+        ("Alerts", 99),
+      ],
     },
     progress: { value: 65, animating: false },
     tooltip: { active_index: -1 },
-    tag: {
-      tags: ["MoonBit", "Rabbita", "MVU", "Frontend"],
-      input: "",
-    },
+    tag: { tags: ["MoonBit", "Rabbita", "MVU", "Frontend"], input: "" },
     skeleton: { loading: true },
     empty_state: { has_data: false },
     accordion: {
       items: [
-        ("What is MoonBit?", "MoonBit is a modern programming language designed for cloud and edge computing with a focus on performance and developer experience."),
-        ("What is the Elm Architecture?", "The Elm Architecture (MVU) is a pattern for building web apps with three parts: Model (state), View (render), and Update (state transitions)."),
-        ("How does Rabbita work?", "Rabbita is a MoonBit framework that implements the Elm Architecture with virtual DOM diffing for efficient browser rendering."),
+        (
+          "What is MoonBit?", "MoonBit is a modern programming language designed for cloud and edge computing with a focus on performance and developer experience.",
+        ),
+        (
+          "What is the Elm Architecture?", "The Elm Architecture (MVU) is a pattern for building web apps with three parts: Model (state), View (render), and Update (state transitions).",
+        ),
+        (
+          "How does Rabbita work?", "Rabbita is a MoonBit framework that implements the Elm Architecture with virtual DOM diffing for efficient browser rendering.",
+        ),
       ],
       open_index: -1,
     },
     tabs: {
       tabs: [
-        ("Overview", "This component gallery showcases 30 UI components built with the Rabbita MVU framework in MoonBit."),
-        ("Usage", "Each component demonstrates a specific MVU pattern: pure state updates, command side effects, or component composition."),
-        ("API", "Components are functions that take (Model, Dispatch[Msg]) -> Html. State lives in the Model, events dispatch Msg values."),
+        (
+          "Overview", "This component gallery showcases 30 UI components built with the Rabbita MVU framework in MoonBit.",
+        ),
+        (
+          "Usage", "Each component demonstrates a specific MVU pattern: pure state updates, command side effects, or component composition.",
+        ),
+        (
+          "API", "Components are functions that take (Model, Dispatch[Msg]) -> Html. State lives in the Model, events dispatch Msg values.",
+        ),
       ],
       active: 0,
     },
@@ -117,14 +131,54 @@ pub fn initial_model() -> Model {
     },
     data_table: {
       rows: [
-        { name: "Alice Johnson", email: "alice@example.com", role: "Admin", status: "Active" },
-        { name: "Bob Smith", email: "bob@example.com", role: "Editor", status: "Active" },
-        { name: "Carol White", email: "carol@example.com", role: "Viewer", status: "Inactive" },
-        { name: "Dave Brown", email: "dave@example.com", role: "Editor", status: "Active" },
-        { name: "Eve Davis", email: "eve@example.com", role: "Admin", status: "Active" },
-        { name: "Frank Miller", email: "frank@example.com", role: "Viewer", status: "Inactive" },
-        { name: "Grace Lee", email: "grace@example.com", role: "Editor", status: "Active" },
-        { name: "Hank Wilson", email: "hank@example.com", role: "Viewer", status: "Active" },
+        {
+          name: "Alice Johnson",
+          email: "alice@example.com",
+          role: "Admin",
+          status: "Active",
+        },
+        {
+          name: "Bob Smith",
+          email: "bob@example.com",
+          role: "Editor",
+          status: "Active",
+        },
+        {
+          name: "Carol White",
+          email: "carol@example.com",
+          role: "Viewer",
+          status: "Inactive",
+        },
+        {
+          name: "Dave Brown",
+          email: "dave@example.com",
+          role: "Editor",
+          status: "Active",
+        },
+        {
+          name: "Eve Davis",
+          email: "eve@example.com",
+          role: "Admin",
+          status: "Active",
+        },
+        {
+          name: "Frank Miller",
+          email: "frank@example.com",
+          role: "Viewer",
+          status: "Inactive",
+        },
+        {
+          name: "Grace Lee",
+          email: "grace@example.com",
+          role: "Editor",
+          status: "Active",
+        },
+        {
+          name: "Hank Wilson",
+          email: "hank@example.com",
+          role: "Viewer",
+          status: "Active",
+        },
       ],
       sort_col: "name",
       sort_asc: true,
@@ -142,10 +196,30 @@ pub fn initial_model() -> Model {
     },
     timeline: {
       events: [
-        { title: "Project Started", description: "Initial commit and project setup", time: "Jan 2026", color: "#6366f1" },
-        { title: "MVP Released", description: "First working version with core features", time: "Feb 2026", color: "#22c55e" },
-        { title: "Component Gallery", description: "30 UI components showcasing MVU patterns", time: "Mar 2026", color: "#f59e0b" },
-        { title: "v1.0 Launch", description: "Production-ready release with full docs", time: "Apr 2026", color: "#ef4444" },
+        {
+          title: "Project Started",
+          description: "Initial commit and project setup",
+          time: "Jan 2026",
+          color: "#6366f1",
+        },
+        {
+          title: "MVP Released",
+          description: "First working version with core features",
+          time: "Feb 2026",
+          color: "#22c55e",
+        },
+        {
+          title: "Component Gallery",
+          description: "30 UI components showcasing MVU patterns",
+          time: "Mar 2026",
+          color: "#f59e0b",
+        },
+        {
+          title: "v1.0 Launch",
+          description: "Production-ready release with full docs",
+          time: "Apr 2026",
+          color: "#ef4444",
+        },
       ],
     },
     chart: {
@@ -161,35 +235,67 @@ pub fn initial_model() -> Model {
       max_value: 100,
     },
     toast: { items: [], next_id: 1 },
-    modal: { open: false, title: "Confirm Action", message: "Are you sure you want to proceed? This action cannot be undone.", confirmed: false },
+    modal: {
+      open: false,
+      title: "Confirm Action",
+      message: "Are you sure you want to proceed? This action cannot be undone.",
+      confirmed: false,
+    },
     command_palette: {
       open: false,
       query: "",
       actions: [
-        { id: 1, label: "Go to Inputs", shortcut: "G I", category: "Navigation" },
-        { id: 2, label: "Go to Display", shortcut: "G D", category: "Navigation" },
+        {
+          id: 1,
+          label: "Go to Inputs",
+          shortcut: "G I",
+          category: "Navigation",
+        },
+        {
+          id: 2,
+          label: "Go to Display",
+          shortcut: "G D",
+          category: "Navigation",
+        },
         { id: 3, label: "Go to Data", shortcut: "G A", category: "Navigation" },
-        { id: 4, label: "Toggle Dark Mode", shortcut: "Ctrl+D", category: "Settings" },
+        {
+          id: 4,
+          label: "Toggle Dark Mode",
+          shortcut: "Ctrl+D",
+          category: "Settings",
+        },
         { id: 5, label: "Show Toast", shortcut: "Ctrl+T", category: "Actions" },
         { id: 6, label: "Open Modal", shortcut: "Ctrl+M", category: "Actions" },
         { id: 7, label: "Reset All", shortcut: "Ctrl+R", category: "Actions" },
-        { id: 8, label: "Go to Overlay", shortcut: "G O", category: "Navigation" },
+        {
+          id: 8,
+          label: "Go to Overlay",
+          shortcut: "G O",
+          category: "Navigation",
+        },
       ],
       focus_index: 0,
     },
     kanban: {
       columns: [
-        ("To Do", [
-          { id: 1, title: "Design system tokens", color: "#6366f1" },
-          { id: 2, title: "Write unit tests", color: "#22c55e" },
-        ]),
-        ("In Progress", [
-          { id: 3, title: "Build gallery layout", color: "#f59e0b" },
-        ]),
-        ("Done", [
-          { id: 4, title: "Set up project", color: "#94a3b8" },
-          { id: 5, title: "Choose framework", color: "#94a3b8" },
-        ]),
+        (
+          "To Do",
+          [
+            { id: 1, title: "Design system tokens", color: "#6366f1" },
+            { id: 2, title: "Write unit tests", color: "#22c55e" },
+          ],
+        ),
+        (
+          "In Progress",
+          [{ id: 3, title: "Build gallery layout", color: "#f59e0b" }],
+        ),
+        (
+          "Done",
+          [
+            { id: 4, title: "Set up project", color: "#94a3b8" },
+            { id: 5, title: "Choose framework", color: "#94a3b8" },
+          ],
+        ),
       ],
     },
     searchable_select: {
@@ -298,16 +404,12 @@ pub fn Model::update(
     }
 
     // ── Radio ────────────────────────────────
-    RadioSelected(v) => (
-      { ..self, radio: { ..self.radio, selected: v } },
-      @rabbita.none,
-    )
+    RadioSelected(v) =>
+      ({ ..self, radio: { ..self.radio, selected: v } }, @rabbita.none)
 
     // ── Select ───────────────────────────────
-    SelectChanged(v) => (
-      { ..self, select: { ..self.select, selected: v } },
-      @rabbita.none,
-    )
+    SelectChanged(v) =>
+      ({ ..self, select: { ..self.select, selected: v } }, @rabbita.none)
 
     // ── Toggle ───────────────────────────────
     ToggleSwitched(i) => {
@@ -323,22 +425,19 @@ pub fn Model::update(
 
     // ── Slider ───────────────────────────────
     SliderChanged(v) => {
-      let n = try {
-        @strconv.parse_int(v)
-      } catch {
-        _ => self.slider.value
-      }
+      let n = @strconv.parse_int(v) catch { _ => self.slider.value }
       ({ ..self, slider: { ..self.slider, value: n } }, @rabbita.none)
     }
 
     // ── ColorPicker ──────────────────────────
-    ColorSwatchClicked(c) => (
-      {
-        ..self,
-        color_picker: { ..self.color_picker, selected: c, hex_input: c },
-      },
-      @rabbita.none,
-    )
+    ColorSwatchClicked(c) =>
+      (
+        {
+          ..self,
+          color_picker: { ..self.color_picker, selected: c, hex_input: c },
+        },
+        @rabbita.none,
+      )
     ColorHexChanged(v) => {
       let selected = if v.has_prefix("#") && v.char_length() == 7 {
         v
@@ -346,37 +445,28 @@ pub fn Model::update(
         self.color_picker.selected
       }
       (
-        { ..self, color_picker: { ..self.color_picker, hex_input: v, selected } },
+        {
+          ..self,
+          color_picker: { ..self.color_picker, hex_input: v, selected },
+        },
         @rabbita.none,
       )
     }
 
     // ── Progress ─────────────────────────────
     ProgressChanged(v) => {
-      let n = try {
-        @strconv.parse_int(v)
-      } catch {
-        _ => self.progress.value
-      }
+      let n = @strconv.parse_int(v) catch { _ => self.progress.value }
       let clamped = if n < 0 { 0 } else if n > 100 { 100 } else { n }
-      (
-        { ..self, progress: { ..self.progress, value: clamped } },
-        @rabbita.none,
-      )
+      ({ ..self, progress: { ..self.progress, value: clamped } }, @rabbita.none)
     }
 
     // ── Tooltip ──────────────────────────────
-    TooltipShow(i) => (
-      { ..self, tooltip: { active_index: i } },
-      @rabbita.none,
-    )
+    TooltipShow(i) => ({ ..self, tooltip: { active_index: i } }, @rabbita.none)
     TooltipHide => ({ ..self, tooltip: { active_index: -1 } }, @rabbita.none)
 
     // ── Tag ──────────────────────────────────
-    TagInputChanged(v) => (
-      { ..self, tag: { ..self.tag, input: v } },
-      @rabbita.none,
-    )
+    TagInputChanged(v) =>
+      ({ ..self, tag: { ..self.tag, input: v } }, @rabbita.none)
     TagAdd => {
       let t = self.tag.input
       if t == "" {
@@ -389,7 +479,7 @@ pub fn Model::update(
     TagRemove(i) => {
       let tags = self.tag.tags.copy()
       ignore(tags.remove(i))
-      ({ ..self, tag: { ..self.tag, tags } }, @rabbita.none)
+      ({ ..self, tag: { ..self.tag, tags, } }, @rabbita.none)
     }
 
     // ── Accordion ────────────────────────────
@@ -402,10 +492,8 @@ pub fn Model::update(
     }
 
     // ── Tabs ─────────────────────────────────
-    TabSelected(i) => (
-      { ..self, tabs: { ..self.tabs, active: i } },
-      @rabbita.none,
-    )
+    TabSelected(i) =>
+      ({ ..self, tabs: { ..self.tabs, active: i } }, @rabbita.none)
 
     // ── Breadcrumb ───────────────────────────
     BreadcrumbNavigate(i) => {
@@ -422,10 +510,7 @@ pub fn Model::update(
         e.push(id)
         e
       }
-      (
-        { ..self, tree_view: { ..self.tree_view, expanded } },
-        @rabbita.none,
-      )
+      ({ ..self, tree_view: { ..self.tree_view, expanded, } }, @rabbita.none)
     }
 
     // ── DataTable ────────────────────────────
@@ -438,7 +523,12 @@ pub fn Model::update(
       (
         {
           ..self,
-          data_table: { ..self.data_table, sort_col: col, sort_asc: asc, page: 0 },
+          data_table: {
+            ..self.data_table,
+            sort_col: col,
+            sort_asc: asc,
+            page: 0,
+          },
         },
         @rabbita.none,
       )
@@ -464,10 +554,7 @@ pub fn Model::update(
         s.push(i)
         s
       }
-      (
-        { ..self, data_table: { ..self.data_table, selected } },
-        @rabbita.none,
-      )
+      ({ ..self, data_table: { ..self.data_table, selected, } }, @rabbita.none)
     }
     TableSelectAll => {
       let total = self.data_table.rows.length()
@@ -476,10 +563,7 @@ pub fn Model::update(
       } else {
         Array::makei(total, fn(i) { i })
       }
-      (
-        { ..self, data_table: { ..self.data_table, selected } },
-        @rabbita.none,
-      )
+      ({ ..self, data_table: { ..self.data_table, selected, } }, @rabbita.none)
     }
 
     // ── Calendar ─────────────────────────────
@@ -507,10 +591,11 @@ pub fn Model::update(
         @rabbita.none,
       )
     }
-    CalendarSelectDay(d) => (
-      { ..self, calendar: { ..self.calendar, selected_day: d } },
-      @rabbita.none,
-    )
+    CalendarSelectDay(d) =>
+      (
+        { ..self, calendar: { ..self.calendar, selected_day: d } },
+        @rabbita.none,
+      )
 
     // ── Kanban ───────────────────────────────
     KanbanMoveCard(card_id, _from_col, to_col) => {
@@ -550,114 +635,104 @@ pub fn Model::update(
       let items = self.toast.items.copy()
       items.push(item)
       let cmd = @rabbita.delay(dispatch(DismissToast(id)), 3000)
-      (
-        { ..self, toast: { items, next_id: id + 1 } },
-        cmd,
-      )
+      ({ ..self, toast: { items, next_id: id + 1 } }, cmd)
     }
     DismissToast(id) => {
       let items = self.toast.items.filter(fn(t) { t.id != id })
-      ({ ..self, toast: { ..self.toast, items } }, @rabbita.none)
+      ({ ..self, toast: { ..self.toast, items, } }, @rabbita.none)
     }
 
     // ── Modal ────────────────────────────────
-    ModalOpen => (
-      {
-        ..self,
-        modal: { ..self.modal, open: true, confirmed: false },
-      },
-      @rabbita.none,
-    )
-    ModalClose => (
-      { ..self, modal: { ..self.modal, open: false } },
-      @rabbita.none,
-    )
-    ModalConfirm => (
-      {
-        ..self,
-        modal: { ..self.modal, open: false, confirmed: true },
-      },
-      @rabbita.none,
-    )
+    ModalOpen =>
+      (
+        { ..self, modal: { ..self.modal, open: true, confirmed: false } },
+        @rabbita.none,
+      )
+    ModalClose =>
+      ({ ..self, modal: { ..self.modal, open: false } }, @rabbita.none)
+    ModalConfirm =>
+      (
+        { ..self, modal: { ..self.modal, open: false, confirmed: true } },
+        @rabbita.none,
+      )
 
     // ── Skeleton ─────────────────────────────
-    SkeletonToggle => (
-      {
-        ..self,
-        skeleton: { loading: not(self.skeleton.loading) },
-      },
-      @rabbita.none,
-    )
+    SkeletonToggle =>
+      (
+        { ..self, skeleton: { loading: not(self.skeleton.loading) } },
+        @rabbita.none,
+      )
 
     // ── EmptyState ───────────────────────────
-    EmptyStateToggle => (
-      {
-        ..self,
-        empty_state: { has_data: not(self.empty_state.has_data) },
-      },
-      @rabbita.none,
-    )
+    EmptyStateToggle =>
+      (
+        { ..self, empty_state: { has_data: not(self.empty_state.has_data) } },
+        @rabbita.none,
+      )
 
     // ── SearchableSelect ─────────────────────
-    SearchableQueryChanged(v) => (
-      {
-        ..self,
-        searchable_select: { ..self.searchable_select, query: v, focus_index: 0 },
-      },
-      @rabbita.none,
-    )
-    SearchableSelect_(v) => (
-      {
-        ..self,
-        searchable_select: {
-          ..self.searchable_select,
-          selected: v,
-          open: false,
-          query: "",
+    SearchableQueryChanged(v) =>
+      (
+        {
+          ..self,
+          searchable_select: {
+            ..self.searchable_select,
+            query: v,
+            focus_index: 0,
+          },
         },
-      },
-      @rabbita.none,
-    )
-    SearchableToggleOpen => (
-      {
-        ..self,
-        searchable_select: {
-          ..self.searchable_select,
-          open: not(self.searchable_select.open),
-          query: "",
+        @rabbita.none,
+      )
+    SearchableSelect_(v) =>
+      (
+        {
+          ..self,
+          searchable_select: {
+            ..self.searchable_select,
+            selected: v,
+            open: false,
+            query: "",
+          },
         },
-      },
-      @rabbita.none,
-    )
-    SearchableFocus(i) => (
-      {
-        ..self,
-        searchable_select: { ..self.searchable_select, focus_index: i },
-      },
-      @rabbita.none,
-    )
+        @rabbita.none,
+      )
+    SearchableToggleOpen =>
+      (
+        {
+          ..self,
+          searchable_select: {
+            ..self.searchable_select,
+            open: not(self.searchable_select.open),
+            query: "",
+          },
+        },
+        @rabbita.none,
+      )
+    SearchableFocus(i) =>
+      (
+        {
+          ..self,
+          searchable_select: { ..self.searchable_select, focus_index: i },
+        },
+        @rabbita.none,
+      )
 
     // ── DateRange ────────────────────────────
-    DateRangeSetPicking(which) => (
-      { ..self, date_range: { ..self.date_range, picking: which } },
-      @rabbita.none,
-    )
+    DateRangeSetPicking(which) =>
+      (
+        { ..self, date_range: { ..self.date_range, picking: which } },
+        @rabbita.none,
+      )
     DateRangeSelectDay(d) => {
       let dr = self.date_range
       if dr.picking == "start" {
         (
-          {
-            ..self,
-            date_range: { ..dr, start_day: d, picking: "" },
-          },
+          { ..self, date_range: { ..dr, start_day: d, picking: "" } },
           @rabbita.none,
         )
       } else if dr.picking == "end" {
         (
-          {
-            ..self,
-            date_range: { ..dr, end_day: d, picking: "" },
-          },
+          { ..self, date_range: { ..dr, end_day: d, picking: "" } },
           @rabbita.none,
         )
       } else {
@@ -674,10 +749,7 @@ pub fn Model::update(
         y = y - 1
       }
       (
-        {
-          ..self,
-          date_range: { ..dr, start_year: y, start_month: m },
-        },
+        { ..self, date_range: { ..dr, start_year: y, start_month: m } },
         @rabbita.none,
       )
     }
@@ -690,41 +762,38 @@ pub fn Model::update(
         y = y + 1
       }
       (
-        {
-          ..self,
-          date_range: { ..dr, start_year: y, start_month: m },
-        },
+        { ..self, date_range: { ..dr, start_year: y, start_month: m } },
         @rabbita.none,
       )
     }
 
     // ── CommandPalette ───────────────────────
-    CommandPaletteToggle => (
-      {
-        ..self,
-        command_palette: {
-          ..self.command_palette,
-          open: not(self.command_palette.open),
-          query: "",
-          focus_index: 0,
+    CommandPaletteToggle =>
+      (
+        {
+          ..self,
+          command_palette: {
+            ..self.command_palette,
+            open: not(self.command_palette.open),
+            query: "",
+            focus_index: 0,
+          },
         },
-      },
-      @rabbita.none,
-    )
-    CommandPaletteSearch(q) => (
-      {
-        ..self,
-        command_palette: { ..self.command_palette, query: q, focus_index: 0 },
-      },
-      @rabbita.none,
-    )
-    CommandPaletteFocus(i) => (
-      {
-        ..self,
-        command_palette: { ..self.command_palette, focus_index: i },
-      },
-      @rabbita.none,
-    )
+        @rabbita.none,
+      )
+    CommandPaletteSearch(q) =>
+      (
+        {
+          ..self,
+          command_palette: { ..self.command_palette, query: q, focus_index: 0 },
+        },
+        @rabbita.none,
+      )
+    CommandPaletteFocus(i) =>
+      (
+        { ..self, command_palette: { ..self.command_palette, focus_index: i } },
+        @rabbita.none,
+      )
     CommandPaletteSelect(id) => {
       let closed = {
         ..self,
@@ -740,7 +809,14 @@ pub fn Model::update(
             msg=ShowToast("Command", "Triggered from palette", "info"),
             dispatch~,
           )
-        6 => ({ ..closed, modal: { ..closed.modal, open: true, confirmed: false } }, @rabbita.none)
+        6 =>
+          (
+            {
+              ..closed,
+              modal: { ..closed.modal, open: true, confirmed: false },
+            },
+            @rabbita.none,
+          )
         8 => ({ ..closed, section: Overlay, component: 0 }, @rabbita.none)
         _ => (closed, @rabbita.none)
       }
@@ -753,11 +829,8 @@ pub fn Model::update(
       let fields = step.fields.copy()
       let f = fields[field_idx]
       fields[field_idx] = { ..f, value: val, error: "" }
-      steps[self.form_wizard.current] = { ..step, fields }
-      (
-        { ..self, form_wizard: { ..self.form_wizard, steps } },
-        @rabbita.none,
-      )
+      steps[self.form_wizard.current] = { ..step, fields, }
+      ({ ..self, form_wizard: { ..self.form_wizard, steps, } }, @rabbita.none)
     }
     WizardNext => {
       let fw = self.form_wizard
@@ -774,11 +847,8 @@ pub fn Model::update(
       })
       if has_error {
         let steps = fw.steps.copy()
-        steps[fw.current] = { ..step, fields }
-        return (
-          { ..self, form_wizard: { ..fw, steps } },
-          @rabbita.none,
-        )
+        steps[fw.current] = { ..step, fields, }
+        return ({ ..self, form_wizard: { ..fw, steps, } }, @rabbita.none)
       }
       if fw.current >= fw.steps.length() - 1 {
         return (

@@ -410,12 +410,20 @@ pub(all) enum Msg {
 ///|
 pub fn section_components(section : Section) -> Array[String] {
   match section {
-    Inputs => ["TextInput", "TextArea", "Checkbox", "RadioGroup", "Select", "Toggle", "Slider", "ColorPicker"]
-    Display => ["Avatar", "Badge", "ProgressBar", "Tooltip", "Tag", "Skeleton", "EmptyState"]
+    Inputs =>
+      [
+        "TextInput", "TextArea", "Checkbox", "RadioGroup", "Select", "Toggle", "Slider",
+        "ColorPicker",
+      ]
+    Display =>
+      [
+        "Avatar", "Badge", "ProgressBar", "Tooltip", "Tag", "Skeleton", "EmptyState",
+      ]
     Navigation => ["Tabs", "Accordion", "Breadcrumb", "TreeView"]
     Data => ["DataTable", "Calendar", "Timeline", "Chart"]
     Overlay => ["Toast", "Modal", "CommandPalette"]
-    Composite => ["KanbanBoard", "SearchableSelect", "DateRangePicker", "FormWizard"]
+    Composite =>
+      ["KanbanBoard", "SearchableSelect", "DateRangePicker", "FormWizard"]
   }
 }
 

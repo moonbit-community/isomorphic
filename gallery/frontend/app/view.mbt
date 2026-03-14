@@ -7,7 +7,11 @@ pub fn Model::view(
     self.view_sidebar(dispatch),
     self.view_content(dispatch),
     self.view_toast_container(dispatch),
-    if self.modal.open { self.view_modal_overlay(dispatch) } else { @html.nothing },
+    if self.modal.open {
+      self.view_modal_overlay(dispatch)
+    } else {
+      @html.nothing
+    },
     if self.command_palette.open {
       self.view_command_palette_overlay(dispatch)
     } else {
@@ -21,46 +25,47 @@ fn Model::view_sidebar(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.nav(style=sidebar_style, {
-    let items : Array[@rabbita.Html] = [
-      @html.div(style=sidebar_header_style, "Gallery"),
-    ]
-    for section in all_sections() {
-      let components = section_components(section)
-      items.push(
-        @html.div(style=sidebar_section_style, section_label(section)),
-      )
-      for i, comp in components {
-        let is_active = self.section == section && self.component == i
-        let item_style : Array[String] = if is_active {
-          [
-            "display: block", "padding: 8px 16px", "cursor: pointer",
-            "font-size: 13px", "color: white", "background: #6366f1",
-            "border: none", "width: 100%", "text-align: left",
-            "border-left: 3px solid #818cf8",
-          ]
-        } else {
-          [
-            "display: block", "padding: 8px 16px", "cursor: pointer",
-            "font-size: 13px", "color: #cbd5e1", "background: transparent",
-            "border: none", "width: 100%", "text-align: left",
-            "border-left: 3px solid transparent",
-          ]
-        }
+  @html.nav(
+    style=sidebar_style,
+    {
+      let items : Array[@rabbita.Html] = [
+        @html.div(style=sidebar_header_style, "Gallery"),
+      ]
+      for section in all_sections() {
+        let components = section_components(section)
         items.push(
-          @html.button(
-            style=item_style,
-            on_click=@rabbita.batch([
-              dispatch(ChangeSection(section)),
-              dispatch(ChangeComponent(i)),
-            ]),
-            comp,
-          ),
+          @html.div(style=sidebar_section_style, section_label(section)),
         )
+        for i, comp in components {
+          let is_active = self.section == section && self.component == i
+          let item_style : Array[String] = if is_active {
+            [
+              "display: block", "padding: 8px 16px", "cursor: pointer", "font-size: 13px",
+              "color: white", "background: #6366f1", "border: none", "width: 100%",
+              "text-align: left", "border-left: 3px solid #818cf8",
+            ]
+          } else {
+            [
+              "display: block", "padding: 8px 16px", "cursor: pointer", "font-size: 13px",
+              "color: #cbd5e1", "background: transparent", "border: none", "width: 100%",
+              "text-align: left", "border-left: 3px solid transparent",
+            ]
+          }
+          items.push(
+            @html.button(
+              style=item_style,
+              on_click=@rabbita.batch([
+                dispatch(ChangeSection(section)),
+                dispatch(ChangeComponent(i)),
+              ]),
+              comp,
+            ),
+          )
+        }
       }
-    }
-    items
-  })
+      items
+    },
+  )
 }
 
 ///|
@@ -81,9 +86,7 @@ fn Model::view_content(
         style=component_desc_style,
         component_description(self.section, self.component),
       ),
-      @html.div(style=demo_section_style, [
-        self.render_component(dispatch),
-      ]),
+      @html.div(style=demo_section_style, [self.render_component(dispatch)]),
     ]),
   ])
 }
@@ -91,7 +94,8 @@ fn Model::view_content(
 ///|
 fn component_description(section : Section, index : Int) -> String {
   match (section, index) {
-    (Inputs, 0) => "A single-line text input with real-time validation feedback."
+    (Inputs, 0) =>
+      "A single-line text input with real-time validation feedback."
     (Inputs, 1) => "A multi-line text area with character count and limit."
     (Inputs, 2) => "Checkboxes for toggling multiple independent options."
     (Inputs, 3) => "Radio buttons for selecting one option from a group."
@@ -99,7 +103,8 @@ fn component_description(section : Section, index : Int) -> String {
     (Inputs, 5) => "Toggle switches for binary on/off settings."
     (Inputs, 6) => "A range slider for selecting a numeric value."
     (Inputs, 7) => "A color picker with preset swatches and hex input."
-    (Display, 0) => "User avatars with initials and online/offline status indicators."
+    (Display, 0) =>
+      "User avatars with initials and online/offline status indicators."
     (Display, 1) => "Notification badges showing count bubbles."
     (Display, 2) => "A progress bar showing completion percentage."
     (Display, 3) => "Tooltips that appear on hover with additional information."
@@ -110,15 +115,18 @@ fn component_description(section : Section, index : Int) -> String {
     (Navigation, 1) => "Collapsible accordion sections for organizing content."
     (Navigation, 2) => "Breadcrumb navigation showing the current path."
     (Navigation, 3) => "A tree view for hierarchical data with expand/collapse."
-    (Data, 0) => "A data table with sortable columns, pagination, and row selection."
+    (Data, 0) =>
+      "A data table with sortable columns, pagination, and row selection."
     (Data, 1) => "A calendar with month navigation and day selection."
     (Data, 2) => "A vertical timeline showing events in chronological order."
     (Data, 3) => "A bar chart visualized with SVG."
     (Overlay, 0) => "Toast notifications that auto-dismiss after 3 seconds."
     (Overlay, 1) => "A modal dialog with confirm and cancel actions."
-    (Overlay, 2) => "A command palette for keyboard-driven navigation (Cmd+K style)."
+    (Overlay, 2) =>
+      "A command palette for keyboard-driven navigation (Cmd+K style)."
     (Composite, 0) => "A kanban board with cards movable between columns."
-    (Composite, 1) => "A searchable select with filtering and keyboard navigation."
+    (Composite, 1) =>
+      "A searchable select with filtering and keyboard navigation."
     (Composite, 2) => "A date range picker with start and end date selection."
     (Composite, 3) => "A multi-step form wizard with validation per step."
     _ => ""
