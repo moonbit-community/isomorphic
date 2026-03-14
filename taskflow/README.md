@@ -132,10 +132,17 @@ taskflow/
 │   ├── *_test.mbt             # Unit tests for each module
 │   └── integration_test.mbt   # Cross-module integration tests
 ├── backend/                   # Native target
-│   ├── main.mbt               # HTTP server, DB schema, route handlers
+│   ├── main.mbt               # HTTP server setup, starts Mocket on :4006
+│   ├── db.mbt                 # SQLite schema init + CRUD queries (15 tables)
+│   ├── routes.mbt             # REST API route handlers (30+ endpoints)
 │   └── auth.mbt               # Password hashing, sessions, user management
 ├── frontend/                  # JS target
-│   └── main.mbt               # Full MVU app (~2900 lines)
+│   ├── main.mbt               # Rabbita bootstrap, JS externs (drag-drop, localStorage)
+│   └── app/                   # MVU sub-package
+│       ├── types.mbt          # Model, Msg (50+ variants), Theme
+│       ├── update.mbt         # Model::update — state transitions + HTTP commands
+│       ├── view.mbt           # Model::view — root view dispatcher
+│       └── update_test.mbt    # Snapshot tests for update logic
 ├── cli/                       # Native target
 │   └── main.mbt               # 17-suite integration test client
 └── public/
@@ -405,6 +412,336 @@ Adding a new language: add a variant to `Lang`, then add match arms in each `t_*
 | `myfreess/sqlite3` | 0.1.1 | native | SQLite3 bindings |
 | `moonbitlang/x` | 0.4.40 | native | Filesystem (`@fs`) |
 | `moonbitlang/async` | 0.16.8 | native | Async runtime for CLI tests |
+
+## Architecture
+
+### System Architecture
+
+```mermaid
+graph LR
+    Browser["Browser"]
+
+    subgraph "Frontend (target: js)"
+        FE["Rabbita MVU App<br/>Model-Update-View<br/>Virtual DOM diffing"]
+    end
+
+    subgraph "Backend (target: native)"
+        API["REST API<br/>30+ endpoints"]
+        Auth["Auth Layer<br/>SHA256 hashing<br/>Session cookies"]
+        Server["Mocket HTTP Server<br/>CORS middleware"]
+    end
+
+    subgraph "Shared (js + native)"
+        Types["types.mbt<br/>14 structs + Board"]
+        I18n["i18n.mbt<br/>En | Zh, 70+ keys"]
+        Validation["validation.mbt<br/>Input validation"]
+        Status["status.mbt<br/>FSM transitions"]
+        Logic["logic.mbt<br/>Filter, sort, search"]
+        Routes["routes.mbt<br/>API route constants"]
+    end
+
+    subgraph "Storage"
+        DB["SQLite<br/>taskflow.db<br/>15 tables"]
+    end
+
+    Browser <-->|"DOM events /<br/>Virtual DOM"| FE
+    FE <-->|"JSON REST API<br/>GET, POST, DELETE"| API
+    API --> Auth
+    API --> Server
+    Server <--> DB
+
+    Types -.->|"compile-time<br/>shared"| FE
+    Types -.->|"compile-time<br/>shared"| API
+    I18n -.-> FE
+    Validation -.-> FE
+    Validation -.-> API
+    Status -.-> FE
+    Status -.-> API
+    Logic -.-> FE
+    Routes -.-> FE
+    Routes -.-> API
+```
+
+### Data Model
+
+```mermaid
+erDiagram
+    User {
+        Int id PK
+        String username UK
+        String password_hash
+        String salt
+        String color
+        String role "admin | member | viewer"
+    }
+
+    Member {
+        Int id PK
+        String name
+        String color
+    }
+
+    Task {
+        Int id PK
+        String title
+        String description
+        String status "todo | in_progress | review | done | blocked"
+        String priority "low | medium | high | urgent"
+        Int assignee_id FK
+        String due_date
+        String created_at
+    }
+
+    Activity {
+        Int id PK
+        Int task_id FK
+        String task_title
+        String from_status
+        String to_status
+        String timestamp
+        String user_name
+    }
+
+    Comment {
+        Int id PK
+        Int task_id FK
+        String author
+        String text
+        String created_at
+    }
+
+    Dependency {
+        Int task_id PK_FK
+        Int depends_on_id PK_FK
+    }
+
+    Label {
+        Int id PK
+        String name
+        String color
+    }
+
+    TaskLabel {
+        Int task_id PK_FK
+        Int label_id PK_FK
+    }
+
+    Subtask {
+        Int id PK
+        Int task_id FK
+        String title
+        Bool done
+    }
+
+    TimeEntry {
+        Int id PK
+        Int task_id FK
+        Int minutes
+        String note
+        String created_at
+    }
+
+    RecurrenceRule {
+        Int task_id PK_FK
+        String interval "daily | weekly | monthly"
+    }
+
+    Attachment {
+        Int id PK
+        Int task_id FK
+        String url
+        String label
+    }
+
+    Project {
+        Int id PK
+        String name
+        String color
+    }
+
+    TaskProject {
+        Int task_id PK_FK
+        Int project_id PK_FK
+    }
+
+    Board {
+        Array tasks
+        Array members
+        Array activities
+        Array dependencies
+        Array labels
+        Array task_labels
+        Array subtasks
+        Array time_entries
+        Array recurrence_rules
+        Array attachments
+        Array projects
+        Array task_projects
+        String today
+    }
+
+    User ||--o{ Task : "assigned via assignee_id"
+    Task ||--o{ Comment : "has"
+    Task ||--o{ Activity : "logs status changes"
+    Task ||--o{ Dependency : "depends on"
+    Dependency }o--|| Task : "target task"
+    Task ||--o{ TaskLabel : "tagged with"
+    TaskLabel }o--|| Label : "references"
+    Task ||--o{ Subtask : "has checklist items"
+    Task ||--o{ TimeEntry : "tracks time"
+    Task ||--o{ Attachment : "has files"
+    Task ||--o| RecurrenceRule : "recurs on"
+    Task ||--o{ TaskProject : "belongs to"
+    TaskProject }o--|| Project : "references"
+    Member ||--o{ Task : "mirrors User for board"
+
+    Board ||--|{ Task : "aggregates"
+    Board ||--|{ Member : "aggregates"
+    Board ||--|{ Activity : "aggregates"
+    Board ||--|{ Dependency : "aggregates"
+```
+
+### Task Status State Machine
+
+Valid transitions are defined in `shared/status.mbt` and enforced on both frontend (only valid buttons render) and backend (invalid transitions return 400). Five statuses with ten directed transitions:
+
+```mermaid
+stateDiagram-v2
+    [*] --> todo: Create task
+
+    todo --> in_progress: Start
+    todo --> blocked: Block
+
+    in_progress --> review: Review
+    in_progress --> blocked: Block
+    in_progress --> todo: Pause
+
+    review --> done: Approve
+    review --> in_progress: Rework
+
+    blocked --> todo: Unblock
+    blocked --> in_progress: Resume
+
+    done --> todo: Reopen
+    done --> [*]: Terminal
+
+    state todo {
+        [*] --> [*]
+    }
+    note right of todo: Default for new tasks
+
+    state blocked {
+        [*] --> [*]
+    }
+    note right of blocked
+        Reachable from todo
+        and in_progress
+    end note
+
+    state done {
+        [*] --> [*]
+    }
+    note left of done
+        Only terminal status.
+        Can reopen back to todo.
+    end note
+```
+
+### Auth Flow
+
+```mermaid
+sequenceDiagram
+    participant U as User (Browser)
+    participant F as Frontend (JS)
+    participant B as Backend (Native)
+    participant DB as SQLite
+
+    Note over U,DB: Registration
+    U->>F: Fill username + password
+    F->>B: POST /api/auth/register {username, password}
+    B->>B: validate_username (3-30 alphanum)
+    B->>B: validate_password (4-100 chars)
+    B->>B: Generate salt, SHA256 hash
+    B->>DB: INSERT INTO users
+    B->>DB: INSERT INTO members (mirror)
+    B->>B: Generate session token
+    B->>DB: INSERT INTO sessions
+    B-->>F: 201 {user, message} + Set-Cookie: session=token
+    F->>F: Store current_user, show board
+
+    Note over U,DB: Login
+    U->>F: Enter credentials
+    F->>B: POST /api/auth/login {username, password}
+    B->>DB: SELECT user by username
+    B->>B: Hash password, compare
+    alt Credentials valid
+        B->>DB: INSERT INTO sessions
+        B-->>F: 200 {user, message} + Set-Cookie
+        F->>F: Store current_user, fetch board
+    else Invalid
+        B-->>F: 401 {error: "Invalid credentials"}
+        F->>F: Show auth_error
+    end
+
+    Note over U,DB: Session check on page load
+    F->>B: GET /api/auth/me (Cookie: session=token)
+    B->>DB: SELECT user JOIN sessions WHERE token=?
+    alt Session valid
+        B-->>F: 200 {id, username, color, role}
+        F->>B: GET /api/board
+        B->>DB: Query all 13 data tables
+        B-->>F: Board JSON (tasks, members, activities, ...)
+        F->>F: Render board
+    else No session / expired
+        B-->>F: 401
+        F->>F: Show login screen
+    end
+
+    Note over U,DB: Logout
+    U->>F: Click logout
+    F->>B: POST /api/auth/logout
+    B->>DB: DELETE FROM sessions WHERE token=?
+    B-->>F: 200 + Clear cookie
+    F->>F: Reset to login screen
+```
+
+### Frontend Module Map
+
+```mermaid
+graph TD
+    Main["main.mbt<br/>cell_with_dispatch boot<br/>Init → GET /api/auth/me"]
+
+    subgraph "app/ package"
+        Types["types.mbt<br/>Model, Msg (50+ variants), Theme"]
+        Update["update.mbt<br/>Model::update(msg, dispatch)<br/>State transitions + HTTP commands"]
+        View["view.mbt<br/>Model::view(dispatch)<br/>Root dispatcher"]
+
+        View --> ViewAuth["view_auth.mbt<br/>Login / register screen<br/>Language toggle"]
+        View --> ViewHeader["view_header.mbt<br/>Top bar: user, nav tabs,<br/>dark mode, lang, logout"]
+        View --> ViewFilters["view_filters.mbt<br/>Status, priority, assignee,<br/>urgency, text search"]
+        View --> ViewBoard["view_board.mbt<br/>Kanban columns per status<br/>Drag-and-drop cards"]
+        View --> ViewTaskItem["view_task_item.mbt<br/>Task card: transitions,<br/>deps, edit/delete"]
+        View --> ViewTaskForm["view_task_form.mbt<br/>Add / edit task modal<br/>Priority, assignee, due date"]
+        View --> ViewComments["view_comments.mbt<br/>Slide-in panel<br/>Comment thread + input"]
+        View --> ViewActivity["view_activity.mbt<br/>Recent status changes<br/>User attribution"]
+        View --> ViewDialogs["view_dialogs.mbt<br/>Delete confirmation,<br/>error toast, undo"]
+        View --> ViewPickers["view_pickers.mbt<br/>Label picker, project picker,<br/>subtask list, time log"]
+        View --> ViewTheme["view_theme.mbt<br/>get_theme(dark_mode)<br/>11 color tokens"]
+
+        UpdateTest["update_test.mbt"]
+        ViewTest["view_test.mbt"]
+    end
+
+    subgraph "shared/ package"
+        Shared["types, status, logic,<br/>validation, routes, i18n"]
+    end
+
+    Main --> Types
+    Main --> Update
+    Main --> View
+    Update --> Shared
+    View --> Shared
+```
 
 ## License
 
