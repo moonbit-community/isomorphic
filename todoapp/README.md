@@ -1,5 +1,7 @@
 # Todo List
 
+## Works only on nightly release
+
 A full-stack todo list application written entirely in [MoonBit](https://www.moonbitlang.com/), with isomorphic code shared between frontend and backend.
 
 - **Frontend**: [Rabbita](https://github.com/moonbit-community/rabbita) (Elm-architecture UI framework, compiles to JS)
@@ -63,4 +65,12 @@ frontend/main.mbt    # Rabbita MVU app (model, update, view)
 public/              # Build output for frontend JS
 moon.mod.json        # Module config and dependencies
 Makefile             # Build and run commands
+```
+
+## Todos
+
+TODO: ghost warning about `options("supported-targets": ...)` deprecation when running `moon check --target js`:
+```
+isomorphic/todoapp$moon check --target js
+Warning: `options("supported-targets": ...)` in `moon.pkg` is deprecated. Please use `supported_targets = ...` instead.
 ```
