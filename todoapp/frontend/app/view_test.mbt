@@ -4,6 +4,19 @@
 //
 // TODO: Write an html beautify/pretty-print function so rendered snapshots are
 // human-readable (indented, one-tag-per-line) instead of single-line blobs.
+//
+// TODO(upstream): `App::with_init` missing `#cfg(target="js")` blocks native
+// SSR — see https://github.com/moonbit-community/rabbita/issues/110
+// Once fixed, `render_to_string(static_cell(html))` works on native target,
+// enabling server-side rendering from the backend. The Html DSL, Cell,
+// static_cell, and render_to_string are all already target-agnostic.
+// To do native SSR:
+//   1. Patch or wait for rabbita fix (one-line `#cfg` guard)
+//   2. Change frontend/app `supported_targets` from "js" to "all"
+//   3. Guard `update.mbt` HTTP imports with `#cfg(target="js")`
+//   4. Backend imports frontend/app, calls `model.view(noop_dispatch)`
+//   5. Use `render_to_string(static_cell(html))` to produce the HTML string
+//   6. Inject into the HTML shell instead of empty `<div id="app"></div>`
 
 ///|
 /// Render an `Html` node to its HTML string representation for test assertions.
