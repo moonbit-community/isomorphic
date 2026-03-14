@@ -133,9 +133,9 @@ taskflow/
 │   └── integration_test.mbt   # Cross-module integration tests
 ├── backend/                   # Native target
 │   ├── main.mbt               # HTTP server setup, starts Mocket on :4006
-│   ├── db.mbt                 # SQLite schema init + CRUD queries (15 tables)
+│   ├── db.mbt                 # SQLite schema init (13 tables) + CRUD queries
 │   ├── routes.mbt             # REST API route handlers (30+ endpoints)
-│   └── auth.mbt               # Password hashing, sessions, user management
+│   └── auth.mbt               # Password hashing, sessions, user mgmt (users + sessions tables)
 ├── frontend/                  # JS target
 │   ├── main.mbt               # Rabbita bootstrap, JS externs (drag-drop, localStorage)
 │   └── app/                   # MVU sub-package
@@ -560,8 +560,8 @@ erDiagram
     }
 
     TaskProject {
-        Int task_id PK_FK
-        Int project_id PK_FK
+        Int task_id PK
+        Int project_id FK
     }
 
     Board {
@@ -580,7 +580,7 @@ erDiagram
         String today
     }
 
-    User ||--o{ Task : "assigned via assignee_id"
+    Member ||--o{ Task : "assigned via assignee_id"
     Task ||--o{ Comment : "has"
     Task ||--o{ Activity : "logs status changes"
     Task ||--o{ Dependency : "depends on"
@@ -591,7 +591,7 @@ erDiagram
     Task ||--o{ TimeEntry : "tracks time"
     Task ||--o{ Attachment : "has files"
     Task ||--o| RecurrenceRule : "recurs on"
-    Task ||--o{ TaskProject : "belongs to"
+    Task ||--o| TaskProject : "belongs to (at most one)"
     TaskProject }o--|| Project : "references"
     Member ||--o{ Task : "mirrors User for board"
 
@@ -725,7 +725,7 @@ graph TD
         View --> ViewComments["view_comments.mbt<br/>Slide-in panel<br/>Comment thread + input"]
         View --> ViewActivity["view_activity.mbt<br/>Recent status changes<br/>User attribution"]
         View --> ViewDialogs["view_dialogs.mbt<br/>Delete confirmation,<br/>error toast, undo"]
-        View --> ViewPickers["view_pickers.mbt<br/>Label picker, project picker,<br/>subtask list, time log"]
+        View --> ViewPickers["view_pickers.mbt<br/>Assignee picker,<br/>priority picker"]
         View --> ViewTheme["view_theme.mbt<br/>get_theme(dark_mode)<br/>11 color tokens"]
 
         UpdateTest["update_test.mbt"]
