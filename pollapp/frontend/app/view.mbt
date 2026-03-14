@@ -12,28 +12,16 @@ fn Model::has_voted(self : Model, poll_id : Int) -> Bool {
 /// Top-level view: renders the header, create-poll form, and all poll cards.
 pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Html {
   @html.div(
-    style=[
-      "max-width: 520px", "margin: 0 auto", "padding: 24px 16px",
-      "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    ],
+    style=container_style,
     {
       let sections : Array[@rabbita.Html] = []
       // Header
       sections.push(
         @html.div(
-          style=["text-align: center", "margin-bottom: 24px", "padding-top: 12px"],
+          style=header_style,
           [
-            @html.h1(
-              style=[
-                "color: white", "font-size: 26px", "font-weight: 800",
-                "margin-bottom: 4px", "letter-spacing: -0.5px",
-              ],
-              "Poll App",
-            ),
-            @html.p(
-              style=["color: rgba(255,255,255,0.75)", "font-size: 13px"],
-              "Create polls and vote",
-            ),
+            @html.h1(style=header_title_style, "Poll App"),
+            @html.p(style=header_subtitle_style, "Create polls and vote"),
           ],
         ),
       )
@@ -50,7 +38,7 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
             "Polls",
             [
               @html.p(
-                style=["color: #aaa", "font-size: 13px", "text-align: center", "padding: 12px 0"],
+                style=empty_polls_style,
                 "No polls yet. Create one above!",
               ),
             ],
@@ -72,29 +60,21 @@ fn Model::view_create_poll(
     let idx = i
     option_fields.push(
       @html.div(
-        style=["display: flex", "gap: 8px", "align-items: center"],
+        style=option_row_style,
         [
           @html.input(
             input_type=Text,
             placeholder="Option \{idx + 1}",
             value=self.option_inputs[idx],
             on_input=fn(v) { dispatch(OptionInputChanged(idx, v)) },
-            style=[
-              "flex: 1", "padding: 10px 14px", "border: 2px solid #eee", "border-radius: 10px",
-              "font-size: 14px", "outline: none",
-            ],
+            style=option_input_style,
             "",
           ),
           if self.option_inputs.length() > @shared.min_options {
             @html.button(
               on_click=dispatch(RemoveOptionInput(idx)),
               type_="button",
-              style=[
-                "width: 32px", "height: 32px", "background: #fee", "color: #e53935",
-                "border: none", "border-radius: 8px", "cursor: pointer",
-                "font-size: 16px", "font-weight: 700", "flex-shrink: 0",
-                "display: flex", "align-items: center", "justify-content: center",
-              ],
+              style=remove_option_btn_style,
               "-",
             )
           } else {
@@ -109,7 +89,7 @@ fn Model::view_create_poll(
     [
       @html.form(
         on_submit=dispatch(CreatePoll),
-        style=["display: flex", "flex-direction: column", "gap: 10px"],
+        style=form_style,
         {
           let children : Array[@rabbita.Html] = []
           children.push(
@@ -118,18 +98,12 @@ fn Model::view_create_poll(
               placeholder="What's your question?",
               value=self.question_input,
               on_input=fn(v) { dispatch(QuestionInputChanged(v)) },
-              style=[
-                "padding: 10px 14px", "border: 2px solid #eee", "border-radius: 10px",
-                "font-size: 14px", "outline: none",
-              ],
+              style=input_style,
               "",
             ),
           )
           children.push(
-            @html.div(
-              style=["font-size: 12px", "font-weight: 700", "color: #999", "text-transform: uppercase", "letter-spacing: 0.5px", "margin-top: 4px"],
-              "Options",
-            ),
+            @html.div(style=options_label_style, "Options"),
           )
           for field in option_fields {
             children.push(field)
@@ -139,11 +113,7 @@ fn Model::view_create_poll(
               @html.button(
                 on_click=dispatch(AddOptionInput),
                 type_="button",
-                style=[
-                  "padding: 8px", "background: #f0f0ff", "color: #667eea",
-                  "border: 2px dashed #ccc", "border-radius: 10px", "cursor: pointer",
-                  "font-size: 13px", "font-weight: 600",
-                ],
+                style=add_option_btn_style,
                 "+ Add Option",
               ),
             )
@@ -151,11 +121,7 @@ fn Model::view_create_poll(
           children.push(
             @html.button(
               type_="submit",
-              style=[
-                "padding: 12px", "background: linear-gradient(135deg, #667eea, #764ba2)", "color: white",
-                "border: none", "border-radius: 10px", "cursor: pointer", "font-size: 15px",
-                "font-weight: 600", "margin-top: 2px",
-              ],
+              style=submit_btn_style,
               "Create Poll",
             ),
           )
@@ -183,10 +149,7 @@ fn Model::view_poll_card(
       // Show results bar (non-clickable)
       option_bars.push(
         @html.div(
-          style=[
-            "position: relative", "padding: 12px 14px", "border-radius: 10px",
-            "background: #f5f5f8", "overflow: hidden", "margin-bottom: 6px",
-          ],
+          style=result_bar_style,
           [
             // Fill bar
             @html.div(
@@ -200,14 +163,11 @@ fn Model::view_poll_card(
             ),
             // Text content
             @html.div(
-              style=["position: relative", "display: flex", "justify-content: space-between", "align-items: center"],
+              style=result_content_style,
               [
+                @html.span(style=option_text_style, opt.text),
                 @html.span(
-                  style=["font-size: 14px", "font-weight: 500", "color: #333"],
-                  opt.text,
-                ),
-                @html.span(
-                  style=["font-size: 13px", "font-weight: 600", "color: #667eea"],
+                  style=vote_count_style,
                   "\{opt.votes} votes (\{pct}%)",
                 ),
               ],
@@ -220,16 +180,9 @@ fn Model::view_poll_card(
       option_bars.push(
         @html.div(
           on_click=dispatch(Vote(poll_id, option_id)),
-          style=[
-            "position: relative", "padding: 12px 14px", "border-radius: 10px",
-            "background: #f5f5f8", "overflow: hidden", "margin-bottom: 6px",
-            "cursor: pointer", "transition: background 0.2s ease",
-          ],
+          style=vote_bar_style,
           [
-            @html.span(
-              style=["font-size: 14px", "font-weight: 500", "color: #333"],
-              opt.text,
-            ),
+            @html.span(style=option_text_style, opt.text),
           ],
         ),
       )
@@ -242,24 +195,12 @@ fn Model::view_poll_card(
       // Poll question as title
       children.push(
         @html.div(
-          style=[
-            "display: flex", "justify-content: space-between", "align-items: flex-start",
-            "margin-bottom: 14px",
-          ],
+          style=poll_header_style,
           [
-            @html.h3(
-              style=["font-size: 16px", "font-weight: 700", "color: #333", "flex: 1"],
-              poll.question,
-            ),
+            @html.h3(style=poll_question_style, poll.question),
             @html.button(
               on_click=dispatch(DeletePoll(poll.id)),
-              style=[
-                "width: 28px", "height: 28px", "background: #fee", "color: #e53935",
-                "border: none", "border-radius: 8px", "cursor: pointer",
-                "font-size: 13px", "font-weight: 700", "flex-shrink: 0",
-                "display: flex", "align-items: center", "justify-content: center",
-                "margin-left: 12px",
-              ],
+              style=delete_btn_style,
               "X",
             ),
           ],
@@ -272,17 +213,14 @@ fn Model::view_poll_card(
       if total > 0 {
         children.push(
           @html.div(
-            style=["font-size: 12px", "color: #999", "margin-top: 8px", "text-align: right"],
+            style=total_votes_style,
             "\{total} total votes",
           ),
         )
       }
       if !voted && total == 0 {
         children.push(
-          @html.div(
-            style=["font-size: 12px", "color: #999", "margin-top: 8px", "text-align: center"],
-            "Click an option to vote",
-          ),
+          @html.div(style=vote_hint_style, "Click an option to vote"),
         )
       }
       children
@@ -296,21 +234,12 @@ fn view_card(
   children : Array[@rabbita.Html],
 ) -> @rabbita.Html {
   @html.div(
-    style=[
-      "background: white", "border-radius: 14px", "padding: 18px 20px", "margin-bottom: 14px",
-      "box-shadow: 0 1px 8px rgba(0,0,0,0.06)",
-    ],
+    style=card_style,
     {
       let all : Array[@rabbita.Html] = []
       if title != "" {
         all.push(
-          @html.h2(
-            style=[
-              "font-size: 13px", "font-weight: 700", "color: #999", "margin-bottom: 14px",
-              "text-transform: uppercase", "letter-spacing: 0.5px",
-            ],
-            title,
-          ),
+          @html.h2(style=card_title_style, title),
         )
       }
       for child in children {
