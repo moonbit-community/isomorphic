@@ -1,0 +1,10 @@
+import {
+  "bobzhang/gallery/frontend/app",
+  "moonbit-community/rabbita",
+}
+
+supported_targets = "-all+js"
+
+options(
+  "is-main": true,
+)

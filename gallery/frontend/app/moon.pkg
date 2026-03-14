@@ -1,0 +1,8 @@
+import {
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/svg",
+  "moonbitlang/core/strconv",
+}
+
+supported_targets = "js"
