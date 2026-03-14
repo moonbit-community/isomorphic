@@ -13,14 +13,28 @@ pub(all) struct Model {
   members : Array[@shared.Member]
   activities : Array[@shared.Activity]
   dependencies : Array[@shared.Dependency]
+  labels : Array[@shared.Label]
+  task_labels : Array[@shared.TaskLabel]
+  subtasks : Array[@shared.Subtask]
+  time_entries : Array[@shared.TimeEntry]
+  recurrence_rules : Array[@shared.RecurrenceRule]
+  attachments : Array[@shared.Attachment]
+  projects : Array[@shared.Project]
+  task_projects : Array[@shared.TaskProject]
   today : String
+  new_attach_url : String
+  new_attach_label : String
   // Filters
   filter_status : String
   filter_assignee : Int
   filter_priority : String
   search_query : String
   filter_urgency : String
+  filter_label : Int
+  filter_project : Int
   view_mode : String
+  sort_by : String
+  sort_asc : Bool
   dark_mode : Bool
   // Task creation
   adding_task : Bool
@@ -40,6 +54,9 @@ pub(all) struct Model {
   viewing_comments : Int
   comments : Array[@shared.Comment]
   new_comment : String
+  new_subtask : String
+  new_time_minutes : String
+  new_time_note : String
   // Delete confirmation
   confirm_delete : Int
   // Error notification
@@ -48,6 +65,15 @@ pub(all) struct Model {
   loading : Bool
   // Language
   lang : @shared.Lang
+  // Bulk actions
+  selected_tasks : Array[Int]
+  // Drag and drop
+  dragging_task_id : Int
+  drag_over_status : String
+  // Undo
+  undo_msg : String
+  undo_task_id : Int
+  undo_old_status : String
 } derive(Debug)
 
 ///|

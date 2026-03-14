@@ -16,13 +16,27 @@ fn empty_model() -> Model {
     members: [],
     activities: [],
     dependencies: [],
+    labels: [],
+    task_labels: [],
+    subtasks: [],
+    time_entries: [],
+    recurrence_rules: [],
+    attachments: [],
+    projects: [],
+    task_projects: [],
     today: "2026-03-14",
+    new_attach_url: "",
+    new_attach_label: "",
     filter_status: "",
     filter_assignee: 0,
     filter_priority: "",
     search_query: "",
     filter_urgency: "",
+    filter_label: 0,
+    filter_project: 0,
     view_mode: "kanban",
+    sort_by: "priority",
+    sort_asc: true,
     dark_mode: false,
     adding_task: false,
     new_title: "",
@@ -39,16 +53,25 @@ fn empty_model() -> Model {
     viewing_comments: 0,
     comments: [],
     new_comment: "",
+    new_subtask: "",
+    new_time_minutes: "",
+    new_time_note: "",
     confirm_delete: 0,
     error_msg: "",
     loading: false,
     lang: En,
+    selected_tasks: [],
+    dragging_task_id: 0,
+    drag_over_status: "",
+    undo_msg: "",
+    undo_task_id: 0,
+    undo_old_status: "",
   }
 }
 
 ///|
 fn sample_user() -> @shared.User {
-  { id: 1, username: "alice", color: "blue" }
+  { id: 1, username: "alice", color: "blue", role: "member" }
 }
 
 ///|
@@ -122,6 +145,14 @@ fn sample_board() -> @shared.Board {
     members: sample_members(),
     activities: sample_activities(),
     dependencies: sample_dependencies(),
+    labels: [],
+    task_labels: [],
+    subtasks: [],
+    time_entries: [],
+    recurrence_rules: [],
+    attachments: [],
+    projects: [],
+    task_projects: [],
     today: "2026-03-14",
   }
 }
@@ -149,7 +180,7 @@ test "GotMe/Ok sets current_user and clears auth_screen" {
     dispatch=noop_dispatch,
   )
   inspect(model.current_user, content=(
-    #|Some({id: 1, username: "alice", color: "blue"})
+    #|Some({id: 1, username: "alice", color: "blue", role: "member"})
   ))
   inspect(model.auth_screen, content="")
   inspect(model.auth_loading, content="false")
@@ -307,7 +338,7 @@ test "AuthResult/Ok logs in user" {
     dispatch=noop_dispatch,
   )
   inspect(model.current_user, content=(
-    #|Some({id: 1, username: "alice", color: "blue"})
+    #|Some({id: 1, username: "alice", color: "blue", role: "member"})
   ))
   inspect(model.auth_screen, content="")
   inspect(model.auth_loading, content="false")
