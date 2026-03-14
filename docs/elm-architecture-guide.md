@@ -365,7 +365,8 @@ fn main {
   let (dispatch, app_cell) = @rabbita.cell_with_dispatch(
     model={ todos: [], input: "", loading: false },  // initial state
     update=fn(dispatch, msg, model) {
-      model.update(msg~, dispatch~)                  // the update function
+      let (model, cmd) = model.update(msg~, dispatch~)
+      (cmd, model)   // Rabbita expects (Cmd, Model), update returns (Model, Cmd)
     },
     view=fn(dispatch, model) {
       model.view(dispatch)                           // the view function
@@ -449,7 +450,7 @@ test "TodoDeleted/Ok removes the todo" {
 }
 ```
 
-The todoapp has **16 tests** covering every Msg variant, including error cases. You can run them with:
+The todoapp has **21 tests** (15 update + 6 view) covering most Msg variants and UI states. You can run them with:
 
 ```bash
 cd todoapp && moon test --target js
@@ -562,9 +563,9 @@ frontend/
 
 ## Next Steps
 
-1. **Read the todoapp code** — All four files total ~250 lines. It's the complete, working implementation of everything in this guide.
+1. **Read the todoapp code** — The core three files (types, update, view) total ~255 lines. It's the complete, working implementation of everything in this guide.
 
-2. **Run the tests** — `cd todoapp && moon test --target js` runs all 16 tests in under a second.
+2. **Run the tests** — `cd todoapp && moon test --target js` runs all 21 tests in under a second.
 
 3. **Try modifying it** — Add a new Msg variant (e.g., `ClearCompleted`). The compiler will tell you exactly where to add handling.
 
