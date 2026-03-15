@@ -297,3 +297,153 @@ If the future of software development is agents writing most code with humans re
 - **TEA frameworks solving component encapsulation** elegantly (likely — Elm showed the way, Rabbita just needs to implement it)
 - **Agents getting much better at reasoning about effects** and hook dependencies (possible but doesn't eliminate the structural advantage)
 - **A new architecture** that combines TEA's verifiability with React's encapsulation natively (the ideal outcome — MoonBit is well-positioned to pioneer this)
+
+## Part 4: Can MoonBit Traits Solve TEA's Composition Problem?
+
+### The Problem
+
+TEA's biggest scaling pain is the god-Model: all 50 components' state lives in one struct, all 80 Msg variants live in one enum, and `update()` is one massive match. We want component encapsulation — each component owns its own Model/Msg/update/view — but TEA's architecture requires centralized state.
+
+Elm solves this with `Html.map` and `Cmd.map`:
+
+```elm
+-- Elm: Html is parameterized by Msg type
+view : Model -> Html Msg
+
+-- Map child messages into parent messages
+Html.map : (childMsg -> parentMsg) -> Html childMsg -> Html parentMsg
+```
+
+This requires `Html` to be a generic type `Html[Msg]`. Could MoonBit traits help?
+
+### The Key Insight: Rabbita's Html Is NOT Parameterized
+
+Unlike Elm, Rabbita's `Html` is a monomorphic type:
+
+```moonbit
+pub(all) struct Html(@runtime.VNode)     // NOT Html[Msg]
+pub type Dispatch[Msg] = (Msg) -> Cmd    // The Msg type lives here instead
+```
+
+The message type is NOT encoded in `Html` — it's in the `Dispatch` function that gets passed around. This is actually a significant design advantage for composition because:
+
+1. You don't need `Html.map` — there's nothing to map over
+2. You don't need higher-kinded types — `Html` is just `Html`
+3. Composition is just **wrapping the dispatch function**
+
+```moonbit
+// To embed a child component in a parent:
+let child_dispatch : Dispatch[ChildMsg] = fn(child_msg) {
+  parent_dispatch(ParentMsg::ChildAction(child_msg))
+}
+// child.view(child_dispatch) returns Html — same type as parent!
+```
+
+### What MoonBit Traits Can Do Today
+
+MoonBit supports traits with `Self` but not generic traits (no `trait Foo[A, B]`). However, because `Html` is monomorphic, we don't need generic traits for component composition. Here's a design that works with MoonBit's current trait system:
+
+```moonbit
+// Each component is a struct that implements the Component trait
+trait Component {
+  // Return initial state as a JSON-serializable value
+  initial(Self) -> Self
+
+  // Update: takes self (the state), a dispatch wrapper, and returns new state + Cmd
+  // Note: Msg is baked into Self's implementation, not a trait parameter
+  update(Self, (Self) -> Unit, Json) -> (Self, Cmd)
+
+  // View: render using a dispatch wrapper
+  view(Self, (Json) -> Cmd) -> Html
+}
+```
+
+But this loses type safety on `Msg` — using `Json` as the message type defeats the purpose of exhaustive matching. This is where the trait system limitation hurts.
+
+### What Would Actually Work: Module-Level Encapsulation
+
+MoonBit's package system already provides encapsulation. The pattern that works today without any language changes:
+
+```
+gallery/frontend/
+  app/
+    components/
+      datepicker/
+        moon.pkg           # imports rabbita
+        types.mbt           # DatePickerModel, DatePickerMsg (package-private)
+        update.mbt          # DatePickerModel::update
+        view.mbt            # DatePickerModel::view(dispatch_wrapper)
+      stepper/
+        moon.pkg
+        types.mbt           # StepperModel, StepperMsg
+        update.mbt
+        view.mbt
+    types.mbt               # Parent Model embeds DatePickerModel, StepperModel
+    update.mbt              # Routes ParentMsg::DatePicker(DatePickerMsg) → child update
+    view.mbt                # Calls child.view(wrapped_dispatch)
+```
+
+Each component package exports:
+- `Model` type (opaque or public)
+- `initial() -> Model`
+- `update(Model, Msg, Dispatch[Msg]) -> (Model, Cmd)`
+- `view(Model, Dispatch[Msg]) -> Html`
+
+The parent manually routes messages:
+
+```moonbit
+// Parent update
+DatePickerAction(child_msg) => {
+  let (child_model, child_cmd) = child_model.update(
+    msg=child_msg,
+    dispatch=fn(m) { dispatch(DatePickerAction(m)) },
+  )
+  ({ ..self, datepicker: child_model }, child_cmd)
+}
+```
+
+This is verbose but fully type-safe. Each component has its own exhaustive Msg match. The parent only needs one match arm per child component.
+
+### What Generic Traits Would Add
+
+If MoonBit had generic traits (`trait Component[Model, Msg]`), you could automate the routing boilerplate:
+
+```moonbit
+// Hypothetical generic trait
+trait Component[Model, Msg] {
+  initial() -> Model
+  update(Model, Msg, Dispatch[Msg]) -> (Model, Cmd)
+  view(Model, Dispatch[Msg]) -> Html
+}
+
+// Generic embedder — one function works for any child component
+fn embed[M, ChildModel, ChildMsg : Component](
+  parent_model : M,
+  get_child : (M) -> ChildModel,
+  set_child : (M, ChildModel) -> M,
+  wrap_msg : (ChildMsg) -> ParentMsg,
+  child_msg : ChildMsg,
+  dispatch : Dispatch[ParentMsg],
+) -> (M, Cmd) {
+  let child_dispatch = fn(m) { dispatch(wrap_msg(m)) }
+  let (new_child, cmd) = ChildModel::update(get_child(parent_model), child_msg, child_dispatch)
+  (set_child(parent_model, new_child), cmd)
+}
+```
+
+This eliminates per-component routing boilerplate. But it's not essential — the package-level approach works today, just with more manual wiring.
+
+### Verdict: Traits Help, but Packages Are Enough
+
+| Approach | Type safety | Boilerplate | Requires |
+|----------|------------|-------------|----------|
+| Current flat Model | Full | High (grows linearly) | Nothing new |
+| Package-level components | Full | Medium (one routing arm per child) | Nothing new |
+| MoonBit traits (current) | Partial (loses Msg type safety) | Low | Nothing new |
+| Generic traits (hypothetical) | Full | Very low | Language feature |
+
+**The practical recommendation:** Use MoonBit's package system today to split components into sub-packages. This gives encapsulation and keeps type safety. The routing boilerplate is ~5 lines per child component, which is acceptable and easily agent-generated.
+
+**The language investment:** Generic traits would be nice for eliminating the routing boilerplate, but they're not a blocker. The bigger win would be a Rabbita-level `embed` helper that standardizes the parent-child wiring pattern, even without generic traits. Since `Html` is monomorphic, the framework can provide composition helpers that Elm needed language-level support for.
+
+**Bottom line:** MoonBit can scale TEA today using packages. Traits (even without generics) could formalize the component contract. Generic traits would make it ergonomic. But none of these are blockers — the path is clear and incremental.
