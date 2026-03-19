@@ -2,7 +2,7 @@
 
 build-frontend:
 	moon build --target js
-	cp _build/js/debug/build/frontend/frontend.js public/frontend.js
+	cp ../_build/js/debug/build/bobzhang/splitwise/frontend/frontend.js public/frontend.js
 
 build-backend:
 	moon build --target native

@@ -2,7 +2,7 @@
 
 build:
 	moon build --target js
-	cp _build/js/debug/build/frontend/frontend.js public/frontend.js
+	cp ../_build/js/debug/build/bobzhang/gallery/frontend/frontend.js public/frontend.js
 
 serve: build
 	cd public && python3 -m http.server 4010

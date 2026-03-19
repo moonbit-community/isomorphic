@@ -1,0 +1,13 @@
+{
+  "use": [
+    "./blogapp",
+    "./contacts",
+    "./gallery",
+    "./kanban",
+    "./noteapp",
+    "./pollapp",
+    "./splitwise",
+    "./taskflow",
+    "./todoapp"
+  ]
+}

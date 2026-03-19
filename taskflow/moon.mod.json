@@ -1,6 +1,6 @@
 {
   "name": "bobzhang/taskflow",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "deps": {
     "moonbit-community/rabbita": "0.11.5",
     "oboard/mocket": "0.6.10",

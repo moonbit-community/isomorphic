@@ -3,7 +3,7 @@
 build-frontend:
 	moon build --target js
 	mkdir -p public
-	cp _build/js/debug/build/frontend/frontend.js public/frontend.js
+	cp ../_build/js/debug/build/bobzhang/taskflow/frontend/frontend.js public/frontend.js
 
 build-backend:
 	moon build --target native

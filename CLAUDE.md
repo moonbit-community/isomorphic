@@ -4,22 +4,31 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Ask `codex` CLI to review for each commit and adjust its feedback when it makes sense.
 
-## Build & Run
+## Workspace
+
+This is a `moon work` workspace (`moon.work.json`) containing multiple full-stack MoonBit apps. Dependencies are shared via a single root `.mooncakes/` and builds go to root `_build/`.
 
 ```bash
-make serve          # Build frontend (js) + backend (native), then run server on :4000
+moon check           # Type-check all workspace members
+moon build --target js      # Build all frontends
+moon build --target native  # Build all backends
+```
+
+Per-app commands (run from app subdirectory, e.g. `cd todoapp`):
+
+```bash
+make serve          # Build frontend (js) + backend (native), then run server
 make build          # Build both targets without running
 make build-frontend # moon build --target js, copy JS to public/
 make build-backend  # moon build --target native
-make clean          # Remove public/frontend.js, todos.db, and _build/
-moon check --target native,js  # Type-check both targets without building — fast feedback during dev
+make clean          # Remove public/frontend.js, *.db
 ```
 
-The server runs at http://localhost:4000. Data persists in `todos.db` (SQLite).
+Each app runs on a different port (todoapp: 4000, blogapp: 4001, pollapp: 4002, noteapp: 4003, contacts: 4004, kanban: 4005, taskflow: 4006, gallery: 4010).
 
 ## Architecture
 
-Full-stack MoonBit todo app with two separate compilation targets in one module:
+Full-stack MoonBit apps with two separate compilation targets per module:
 
 - **Frontend** (`frontend/main.mbt`, target: `js`) — Rabbita framework using Model-Update-View (Elm architecture). Compiles to JS, served by backend at `/frontend.js`.
 - **Backend** (`backend/main.mbt`, target: `native`) — Mocket HTTP server with SQLite3 persistence. Serves HTML inline, the compiled frontend JS from `public/frontend.js`, and a REST API.
