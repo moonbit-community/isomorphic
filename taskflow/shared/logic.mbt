@@ -935,7 +935,7 @@ pub fn extract_mentions(text : String) -> Array[String] {
       }
       if end > start {
         let name = text[start:end].to_string()
-        if not(mentions.contains(name)) {
+        if !(mentions.contains(name)) {
           mentions.push(name)
         }
       }

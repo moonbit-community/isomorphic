@@ -429,7 +429,7 @@ pub fn Model::update(
     CheckboxToggled(i) => {
       let items = self.checkbox.items.mapi(fn(idx, pair) {
         if idx == i {
-          (pair.0, not(pair.1))
+          (pair.0, !(pair.1))
         } else {
           pair
         }
@@ -449,7 +449,7 @@ pub fn Model::update(
     ToggleSwitched(i) => {
       let items = self.toggle.items.mapi(fn(idx, pair) {
         if idx == i {
-          (pair.0, not(pair.1))
+          (pair.0, !(pair.1))
         } else {
           pair
         }
@@ -550,7 +550,7 @@ pub fn Model::update(
     // ── DataTable ────────────────────────────
     TableSort(col) => {
       let asc = if self.data_table.sort_col == col {
-        not(self.data_table.sort_asc)
+        !(self.data_table.sort_asc)
       } else {
         true
       }
@@ -693,14 +693,14 @@ pub fn Model::update(
     // ── Skeleton ─────────────────────────────
     SkeletonToggle =>
       (
-        { ..self, skeleton: { loading: not(self.skeleton.loading) } },
+        { ..self, skeleton: { loading: !(self.skeleton.loading) } },
         @rabbita.none,
       )
 
     // ── EmptyState ───────────────────────────
     EmptyStateToggle =>
       (
-        { ..self, empty_state: { has_data: not(self.empty_state.has_data) } },
+        { ..self, empty_state: { has_data: !(self.empty_state.has_data) } },
         @rabbita.none,
       )
 
@@ -736,7 +736,7 @@ pub fn Model::update(
           ..self,
           searchable_select: {
             ..self.searchable_select,
-            open: not(self.searchable_select.open),
+            open: !(self.searchable_select.open),
             query: "",
           },
         },
@@ -808,7 +808,7 @@ pub fn Model::update(
           ..self,
           command_palette: {
             ..self.command_palette,
-            open: not(self.command_palette.open),
+            open: !(self.command_palette.open),
             query: "",
             focus_index: 0,
           },

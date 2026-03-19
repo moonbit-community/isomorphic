@@ -84,7 +84,7 @@ fn handle_create_column(
       { "title": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
     }
-    if not(@shared.validate_column_title(title)) {
+    if !(@shared.validate_column_title(title)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
     }
     if column_count(conn) >= @shared.max_columns {
@@ -116,7 +116,7 @@ fn handle_rename_column(
       { "title": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
     }
-    if not(@shared.validate_column_title(title)) {
+    if !(@shared.validate_column_title(title)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
     }
     match rename_column(conn, id, title) {
@@ -214,14 +214,14 @@ fn handle_create_card(
       { "title": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
     }
-    if not(@shared.validate_card_title(title)) {
+    if !(@shared.validate_card_title(title)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
     }
     let description = match json {
       { "description": String(d), .. } => d
       _ => ""
     }
-    if not(@shared.validate_card_description(description)) {
+    if !(@shared.validate_card_description(description)) {
       return @mocket.HttpResponse::new(BadRequest).body(
         "Description too long",
       )
@@ -230,7 +230,7 @@ fn handle_create_card(
       { "color": String(c), .. } => c
       _ => ""
     }
-    if not(@shared.validate_color(color)) {
+    if !(@shared.validate_color(color)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid color")
     }
     if card_count_in_column(conn, column_id) >= @shared.max_cards_per_column {
@@ -264,7 +264,7 @@ fn handle_update_card(
       { "title": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
     }
-    if not(@shared.validate_card_title(title)) {
+    if !(@shared.validate_card_title(title)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
     }
     let description = match json {

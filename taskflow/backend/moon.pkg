@@ -11,7 +11,8 @@ import {
   "moonbitlang/x/crypto",
 }
 
+supported_targets = "native"
+
 options(
-  "is-main": true,
-  "supported-targets": "-all+native",
+  is_main: true,
 )

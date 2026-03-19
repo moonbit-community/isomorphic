@@ -165,7 +165,7 @@ test "transition graph: no status can reach itself in one step" {
 ///|
 test "transition graph: every non-terminal status has at least one forward transition" {
   for s in @shared.valid_statuses {
-    if not(@shared.is_terminal(s)) {
+    if !(@shared.is_terminal(s)) {
       assert_true(@shared.allowed_transitions(s).length() > 0)
     }
   }

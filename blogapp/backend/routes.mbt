@@ -80,7 +80,7 @@ fn handle_create_post(
         )
       }
     }
-    if not(@shared.validate_title(title)) {
+    if !(@shared.validate_title(title)) {
       println("  -> 400 Empty title")
       return @mocket.HttpResponse::new(BadRequest).body(
         "Title cannot be empty",
@@ -120,7 +120,7 @@ fn handle_update_post(
         )
       }
     }
-    if not(@shared.validate_title(title)) {
+    if !(@shared.validate_title(title)) {
       println("  -> 400 Empty title")
       return @mocket.HttpResponse::new(BadRequest).body(
         "Title cannot be empty",

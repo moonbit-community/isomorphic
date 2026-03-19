@@ -21,14 +21,14 @@ fn handle_register(
           ({ "error": "Missing password" } : Json),
         )
     }
-    if not(@shared.validate_username(username)) {
+    if !(@shared.validate_username(username)) {
       return @mocket.HttpResponse::new(BadRequest).json(
         ({
           "error": "Username must be 3-30 alphanumeric characters or underscores",
         } : Json),
       )
     }
-    if not(@shared.validate_password(password)) {
+    if !(@shared.validate_password(password)) {
       return @mocket.HttpResponse::new(BadRequest).json(
         ({ "error": "Password must be 4-100 characters" } : Json),
       )
@@ -265,7 +265,7 @@ fn handle_create_task(
 ) -> @mocket.HttpResponse {
   println("POST \{@shared.api_tasks}")
   try {
-    if not(require_editor(conn, event.req)) {
+    if !(require_editor(conn, event.req)) {
       return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot create tasks")
     }
     let user_name = match get_request_user(conn, event.req) {
@@ -277,14 +277,14 @@ fn handle_create_task(
       { "title": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
     }
-    if not(@shared.validate_task_title(title)) {
+    if !(@shared.validate_task_title(title)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
     }
     let description = match json {
       { "description": String(d), .. } => d
       _ => ""
     }
-    if not(@shared.validate_task_description(description)) {
+    if !(@shared.validate_task_description(description)) {
       return @mocket.HttpResponse::new(BadRequest).body(
         "Description too long",
       )
@@ -293,7 +293,7 @@ fn handle_create_task(
       { "priority": String(p), .. } => p
       _ => "medium"
     }
-    if not(@shared.validate_priority(priority)) {
+    if !(@shared.validate_priority(priority)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid priority")
     }
     let assignee_id = match json {
@@ -304,7 +304,7 @@ fn handle_create_task(
       { "due_date": String(d), .. } => d
       _ => ""
     }
-    if not(@shared.validate_due_date(due_date)) {
+    if !(@shared.validate_due_date(due_date)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid due date")
     }
     if task_count(conn) >= @shared.max_tasks {
@@ -339,14 +339,14 @@ fn handle_update_task(
       { "title": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
     }
-    if not(@shared.validate_task_title(title)) {
+    if !(@shared.validate_task_title(title)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
     }
     let description = match json {
       { "description": String(d), .. } => d
       _ => ""
     }
-    if not(@shared.validate_task_description(description)) {
+    if !(@shared.validate_task_description(description)) {
       return @mocket.HttpResponse::new(BadRequest).body(
         "Description too long",
       )
@@ -355,7 +355,7 @@ fn handle_update_task(
       { "priority": String(p), .. } => p
       _ => "medium"
     }
-    if not(@shared.validate_priority(priority)) {
+    if !(@shared.validate_priority(priority)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid priority")
     }
     let assignee_id = match json {
@@ -403,14 +403,14 @@ fn handle_update_task_status(
       { "status": String(s), .. } => s
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing status")
     }
-    if not(@shared.validate_status(new_status)) {
+    if !(@shared.validate_status(new_status)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid status")
     }
     // Get current task to validate transition
     match get_task(conn, id) {
       None => @mocket.HttpResponse::new(NotFound).body("Task not found")
       Some(task) => {
-        if not(@shared.is_valid_transition(task.status, new_status)) {
+        if !(@shared.is_valid_transition(task.status, new_status)) {
           let current = @shared.status_label(task.status)
           let target = @shared.status_label(new_status)
           return @mocket.HttpResponse::new(BadRequest).body(
@@ -575,7 +575,7 @@ fn handle_add_comment(
       { "text": String(t), .. } => t
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing text")
     }
-    if not(@shared.validate_comment_text(text)) {
+    if !(@shared.validate_comment_text(text)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid comment")
     }
     let comment = add_comment(conn, id, author, text)
@@ -813,7 +813,7 @@ fn handle_log_time(
       { "minutes": Number(n, ..), .. } => n.to_int()
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing minutes")
     }
-    if not(@shared.validate_time_minutes(minutes)) {
+    if !(@shared.validate_time_minutes(minutes)) {
       return @mocket.HttpResponse::new(BadRequest).body("Minutes must be 1-1440")
     }
     let note = match json {
@@ -867,7 +867,7 @@ fn handle_set_recurrence(
       { "interval": String(s), .. } => s
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing interval")
     }
-    if not(@shared.validate_recurrence(interval)) {
+    if !(@shared.validate_recurrence(interval)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid interval")
     }
     set_recurrence(conn, id, interval)
@@ -911,7 +911,7 @@ fn handle_delete_task(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/tasks/\{id_str}")
   try {
-    if not(require_editor(conn, event.req)) {
+    if !(require_editor(conn, event.req)) {
       return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot delete tasks")
     }
     let id = @strconv.parse_int(id_str)
@@ -953,7 +953,7 @@ fn handle_create_attachment(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/attachments")
   try {
-    if not(require_editor(conn, event.req)) {
+    if !(require_editor(conn, event.req)) {
       return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot add attachments")
     }
     let task_id = @strconv.parse_int(id_str)
@@ -966,7 +966,7 @@ fn handle_create_attachment(
       { "label": String(l), .. } => l
       _ => ""
     }
-    if not(@shared.validate_attachment_url(url)) {
+    if !(@shared.validate_attachment_url(url)) {
       return @mocket.HttpResponse::new(BadRequest).body(
         "Invalid URL (must start with http:// or https://)",
       )
@@ -991,7 +991,7 @@ fn handle_delete_attachment(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/attachments/\{id_str}")
   try {
-    if not(require_editor(conn, event.req)) {
+    if !(require_editor(conn, event.req)) {
       return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot delete attachments")
     }
     let id = @strconv.parse_int(id_str)
@@ -1030,7 +1030,7 @@ fn handle_create_project(
 ) -> @mocket.HttpResponse {
   println("POST \{@shared.api_projects}")
   try {
-    if not(require_editor(conn, event.req)) {
+    if !(require_editor(conn, event.req)) {
       return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot create projects")
     }
     let json : Json = event.req.body()
@@ -1038,7 +1038,7 @@ fn handle_create_project(
       { "name": String(n), .. } => n
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing name")
     }
-    if not(@shared.validate_project_name(name)) {
+    if !(@shared.validate_project_name(name)) {
       return @mocket.HttpResponse::new(BadRequest).body("Invalid project name")
     }
     let color = match json {
@@ -1065,7 +1065,7 @@ fn handle_delete_project(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/projects/\{id_str}")
   try {
-    if not(require_editor(conn, event.req)) {
+    if !(require_editor(conn, event.req)) {
       return @mocket.HttpResponse::new(Forbidden).body("Viewers cannot delete projects")
     }
     let id = @strconv.parse_int(id_str)
@@ -1127,7 +1127,7 @@ fn handle_set_user_role(
           "Not logged in",
         )
     }
-    if not(@shared.is_admin(admin.role)) {
+    if !(@shared.is_admin(admin.role)) {
       return @mocket.HttpResponse::new(Forbidden).body(
         "Only admins can change roles",
       )
