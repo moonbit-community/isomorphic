@@ -1,0 +1,13 @@
+import {
+  "bobzhang/compose-demo/frontend/independent",
+  "bobzhang/compose-demo/frontend/parent_child",
+  "bobzhang/compose-demo/frontend/nested",
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+}
+
+supported_targets = "js"
+
+options(
+  is_main: true,
+)

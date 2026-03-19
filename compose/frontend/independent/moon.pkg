@@ -1,0 +1,6 @@
+import {
+  "bobzhang/compose-demo/frontend/counter",
+  "moonbit-community/rabbita",
+}
+
+supported_targets = "js"

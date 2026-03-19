@@ -8,6 +8,7 @@
     "./pollapp",
     "./splitwise",
     "./taskflow",
-    "./todoapp"
+    "./todoapp",
+    "./compose"
   ]
 }
