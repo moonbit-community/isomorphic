@@ -10,6 +10,9 @@ fn main {
   // Pattern 3: Nested model — single cell, parent model embeds child models
   let nested = @nested.make()
 
+  // Pattern 5: Stress test — 6-level deep nesting, ~78 state values, music studio dashboard
+  let studio = @stress_test.make()
+
   // Pattern 4: Reusable complex component — two calendars as date range picker
   let date_range = @date_range.make()
 
@@ -42,6 +45,12 @@ fn main {
           "Single Cell. Parent Model wraps child Models. Parent Msg wraps child Msgs. Toggle sync to link both counters.",
         ),
         @html.div(style=["margin-bottom: 32px"], nested.view()),
+        // --- Pattern 5 ---
+        @html.h2("5. Stress Test: Studio Control"),
+        @html.p(
+          "6 nesting levels, ~78 state values, 7 message wrapping layers. Dashboard \u{2192} Mixer \u{2192} Channel \u{2192} EffectRack \u{2192} Effect \u{2192} Knob.",
+        ),
+        @html.div(style=["margin-bottom: 32px"], studio.view()),
         // --- Pattern 4 ---
         @html.h2("4. Reusable Complex Component"),
         @html.p(

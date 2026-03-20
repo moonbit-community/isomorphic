@@ -679,9 +679,30 @@ function _M0TP219moonbit_2dcommunity7rabbita9TypedCellGRP48bobzhang14compose_2dd
   this.view = param4;
   this.flags = param5;
 }
-function _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(param0) {
-  this.count = param0;
+function _M0TP48bobzhang14compose_2ddemo8frontend8calendar5Model(param0, param1, param2, param3) {
+  this.view_year = param0;
+  this.view_month = param1;
+  this.selected = param2;
+  this.today = param3;
 }
+function _M0TP48bobzhang14compose_2ddemo8frontend8calendar4Date(param0, param1, param2) {
+  this.year = param0;
+  this.month = param1;
+  this.day = param2;
+}
+function _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9PrevMonth() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9PrevMonth.prototype.$tag = 0;
+const _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9PrevMonth__ = new _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9PrevMonth();
+function _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9NextMonth() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9NextMonth.prototype.$tag = 1;
+const _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9NextMonth__ = new _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9NextMonth();
+function _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9SelectDay(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9SelectDay.prototype.$tag = 2;
+function _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg5Clear() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg5Clear.prototype.$tag = 3;
+const _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg5Clear__ = new _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg5Clear();
 function _M0DTPC16option6OptionGRPB5ArrayGsEE4None() {}
 _M0DTPC16option6OptionGRPB5ArrayGsEE4None.prototype.$tag = 0;
 const _M0DTPC16option6OptionGRPB5ArrayGsEE4None__ = new _M0DTPC16option6OptionGRPB5ArrayGsEE4None();
@@ -689,6 +710,21 @@ function _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(param0) {
   this._0 = param0;
 }
 _M0DTPC16option6OptionGRPB5ArrayGsEE4Some.prototype.$tag = 1;
+function _M0TP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel(param0, param1) {
+  this.start_cal = param0;
+  this.end_cal = param1;
+}
+function _M0DTP48bobzhang14compose_2ddemo8frontend11date__range8RangeMsg5Start(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend11date__range8RangeMsg5Start.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend11date__range8RangeMsg3End(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend11date__range8RangeMsg3End.prototype.$tag = 1;
+function _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(param0) {
+  this.count = param0;
+}
 function _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(param0, param1, param2) {
   this.left = param0;
   this.right = param1;
@@ -708,6 +744,142 @@ const _M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg10ToggleSync__ = n
 function _M0TP48bobzhang14compose_2ddemo8frontend13parent__child11ParentModel(param0) {
   this.total_resets = param0;
 }
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel(param0, param1, param2, param3) {
+  this.value = param0;
+  this.min_val = param1;
+  this.max_val = param2;
+  this.step = param3;
+}
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel(param0) {
+  this.steps = param0;
+}
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test7StepMsg6Toggle(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test7StepMsg6Toggle.prototype.$tag = 0;
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel(param0, param1, param2) {
+  this.intensity = param0;
+  this.enabled = param1;
+  this.name = param2;
+}
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel(param0, param1, param2) {
+  this.fx1 = param0;
+  this.fx2 = param1;
+  this.fx3 = param2;
+}
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(param0, param1, param2, param3, param4, param5) {
+  this.volume = param0;
+  this.pan = param1;
+  this.mute = param2;
+  this.solo = param3;
+  this.steps = param4;
+  this.effects = param5;
+}
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(param0, param1, param2, param3, param4, param5) {
+  this.ch1 = param0;
+  this.ch2 = param1;
+  this.ch3 = param2;
+  this.ch4 = param3;
+  this.master = param4;
+  this.link = param5;
+}
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg9Intensity(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg9Intensity.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg13ToggleEnabled() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg13ToggleEnabled.prototype.$tag = 1;
+const _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg13ToggleEnabled__ = new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg13ToggleEnabled();
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx1(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx1.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx2(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx2.prototype.$tag = 1;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx3(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx3.prototype.$tag = 2;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg6Volume(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg6Volume.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg3Pan(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg3Pan.prototype.$tag = 1;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleMute() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleMute.prototype.$tag = 2;
+const _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleMute__ = new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleMute();
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleSolo() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleSolo.prototype.$tag = 3;
+const _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleSolo__ = new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleSolo();
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg5Steps(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg5Steps.prototype.$tag = 4;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg7Effects(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg7Effects.prototype.$tag = 5;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch1(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch1.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch2(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch2.prototype.$tag = 1;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch3(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch3.prototype.$tag = 2;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch4(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch4.prototype.$tag = 3;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg6Master(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg6Master.prototype.$tag = 4;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg10ToggleLink() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg10ToggleLink.prototype.$tag = 5;
+const _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg10ToggleLink__ = new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg10ToggleLink();
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel(param0, param1, param2) {
+  this.red = param0;
+  this.green = param1;
+  this.blue = param2;
+}
+function _M0TP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel(param0, param1, param2) {
+  this.mixer = param0;
+  this.color = param1;
+  this.dark_mode = param2;
+}
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg3Red(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg3Red.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg5Green(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg5Green.prototype.$tag = 1;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg4Blue(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg4Blue.prototype.$tag = 2;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg5Mixer(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg5Mixer.prototype.$tag = 0;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg5Color(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg5Color.prototype.$tag = 1;
+function _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg14ToggleDarkMode() {}
+_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg14ToggleDarkMode.prototype.$tag = 2;
+const _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg14ToggleDarkMode__ = new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg14ToggleDarkMode();
 const _M0FP0235moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fcompose_2ddemo_2ffrontend_2fnested_2fPairModel_2c_20bobzhang_2fcompose_2ddemo_2ffrontend_2fnested_2fPairMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell = { method_0: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4stepGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE, method_1: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4viewGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE, method_2: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell5flagsGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE };
 const _M0FP0133moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2fSandbox_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eScheduler = { method_0: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler3add, method_1: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler17add__url__changed, method_2: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler17add__url__request };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char };
@@ -720,9 +892,9 @@ const _M0FPC17strconv15range__err__str = "value out of range";
 const _M0FPC17strconv16syntax__err__str = "invalid syntax";
 const _M0FPC17strconv20parse__int64_2einnerN7_2abindS543 = "";
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none = _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Empty__;
-const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime17global__id__count = _M0FPC13ref3newGiE(0);
 const _M0FP319moonbit_2dcommunity7rabbita3cmd4none = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none;
+const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FPB33brute__force__find_2econstr_2f342 = 0;
 const _M0FPB43boyer__moore__horspool__find_2econstr_2f328 = 0;
 function _M0FPC15abort5abortGuE(msg) {
@@ -1676,10 +1848,10 @@ function _M0MPC16string10StringView4find(self, str) {
 function _M0MPC15array5Array11new_2einnerGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(capacity) {
   return [];
 }
-function _M0MPC15array5Array4pushGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(self, value) {
+function _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
-function _M0MPC15array5Array4pushGRPC16string10StringViewE(self, value) {
+function _M0MPC15array5Array4pushGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
 function _M0MPC16string10StringView9is__empty(self) {
@@ -1750,7 +1922,7 @@ function _M0MPB4Iter9to__arrayGRPC16string10StringViewE(self) {
     } else {
       const _Some = _bind;
       const _x = _Some;
-      _M0MPC15array5Array4pushGRPC16string10StringViewE(result, _x);
+      _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(result, _x);
       continue;
     }
   }
@@ -1792,6 +1964,21 @@ function _M0IPC16option6OptionPB2Eq5equalGiE(self, other) {
       const _Some$2 = other;
       const _y = _Some$2;
       return _x === _y;
+    }
+  }
+}
+function _M0IPC16option6OptionPB2Eq5equalGRP48bobzhang14compose_2ddemo8frontend8calendar4DateE(self, other) {
+  if (self === undefined) {
+    return other === undefined;
+  } else {
+    const _Some = self;
+    const _x = _Some;
+    if (other === undefined) {
+      return false;
+    } else {
+      const _Some$2 = other;
+      const _y = _Some$2;
+      return _M0IP48bobzhang14compose_2ddemo8frontend8calendar4DatePB2Eq5equal(_x, _y);
     }
   }
 }
@@ -3567,6 +3754,23 @@ function _M0MPB3Map3mapGsRP419moonbit_2dcommunity7rabbita8internal7runtime5VNode
     return other;
   }
 }
+function _M0MPC15array5Array3mapGsRP319moonbit_2dcommunity7rabbita4html4HtmlE(self, f) {
+  const arr = new Array(self.length);
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const v = self[i];
+      arr[i] = f(v);
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}
 function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita4html4HtmlRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE(self, f) {
   const arr = new Array(self.length);
   const _bind = self.length;
@@ -4005,7 +4209,7 @@ function _M0MPC15array5Array10push__iterGRP419moonbit_2dcommunity7rabbita8intern
     } else {
       const _Some = _bind;
       const _x = _Some;
-      _M0MPC15array5Array4pushGRPC16string10StringViewE(self, _x);
+      _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(self, _x);
       continue;
     }
   }
@@ -5929,7 +6133,7 @@ function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5INode20scan__direc
         }
         break _L$2;
       }
-      _M0MPC15array5Array4pushGRPC16string10StringViewE(result, inst.link);
+      _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(result, inst.link);
     }
     continue;
   }
@@ -6079,7 +6283,7 @@ function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime7Sandbox19drop__liv
           }
           break _L$4;
         }
-        _M0MPC15array5Array4pushGRPC16string10StringViewE(stack, c);
+        _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(stack, c);
       }
       continue;
     }
@@ -6111,7 +6315,7 @@ function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime7Sandbox19drop__liv
           }
           break _L$4;
         }
-        _M0MPC15array5Array4pushGRPC16string10StringViewE(stack, c);
+        _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(stack, c);
       }
       continue;
     }
@@ -7287,7 +7491,7 @@ function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime14diff__children(ol
           const i = _tmp;
           if (i >= len1) {
             const inode = _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5VNode6insert(_M0MPC15array5Array2atGUsRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeEE(new$3, i), sandbox, parent_inst, parent, before.val);
-            _M0MPC15array5Array4pushGRPC16string10StringViewE(acc, inode);
+            _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(acc, inode);
             before.val = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime8nullableGRP319moonbit_2dcommunity7rabbita3dom4NodeE(_M0MP419moonbit_2dcommunity7rabbita8internal7runtime5INode5start(inode));
             _tmp = i - 1 | 0;
             continue;
@@ -7303,7 +7507,7 @@ function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime14diff__children(ol
         const i = _tmp;
         if (i >= _bind) {
           const inode = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime10diff__node(_M0MPC15array5Array2atGUsRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeEE(old$3, i), _M0MPC15array5Array2atGUsRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeEE(new$3, i), sandbox, parent, before.val, parent_inst);
-          _M0MPC15array5Array4pushGRPC16string10StringViewE(acc, inode);
+          _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(acc, inode);
           before.val = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime8nullableGRP319moonbit_2dcommunity7rabbita3dom4NodeE(_M0MP419moonbit_2dcommunity7rabbita8internal7runtime5INode5start(inode));
           _tmp = i - 1 | 0;
           continue;
@@ -7374,7 +7578,7 @@ function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime14diff__children(ol
           _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5INode8relocate(inode$2, parent, before.val);
           inode = inode$2;
         }
-        _M0MPC15array5Array4pushGRPC16string10StringViewE(reversed, { _0: k, _1: inode });
+        _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(reversed, { _0: k, _1: inode });
         before.val = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime8nullableGRP319moonbit_2dcommunity7rabbita3dom4NodeE(_M0MP419moonbit_2dcommunity7rabbita8internal7runtime5INode5start(inode));
         _tmp = i - 1 | 0;
         continue;
@@ -8211,6 +8415,25 @@ function _M0FP319moonbit_2dcommunity7rabbita4html2h3GsE(style$46$opt, id, class_
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html10h3_2einnerGsE(style, id, class_, title, hidden, attrs, children);
 }
+function _M0FP319moonbit_2dcommunity7rabbita4html10h4_2einnerGsE(style, id, class_, title, hidden, attrs, children) {
+  const attrs$2 = _M0FP319moonbit_2dcommunity7rabbita4html14resolve__attrs(attrs);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__title(title, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html12push__hidden(hidden, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__style(style, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__class(class_, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html8push__id(id, attrs$2);
+  return _M0FP319moonbit_2dcommunity7rabbita4html4nodeGsE("h4", attrs$2, children);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4html2h4GsE(style$46$opt, id, class_, title, hidden, attrs, children) {
+  let style;
+  if (style$46$opt.$tag === 1) {
+    const _Some = style$46$opt;
+    style = _Some._0;
+  } else {
+    style = [];
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html10h4_2einnerGsE(style, id, class_, title, hidden, attrs, children);
+}
 function _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(style, id, class_, title, hidden, on_click, on_mousedown, on_mouseup, on_scroll, on_keydown, on_keyup, attrs, children) {
   const attrs$2 = _M0FP319moonbit_2dcommunity7rabbita4html14resolve__attrs(attrs);
   _M0FP319moonbit_2dcommunity7rabbita4html11push__title(title, attrs$2);
@@ -8284,6 +8507,25 @@ function _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(style$46$opt, id, class_,
     style = [];
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html9p_2einnerGsE(style, id, class_, title, hidden, attrs, children);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(style, id, class_, title, hidden, attrs, children) {
+  const attrs$2 = _M0FP319moonbit_2dcommunity7rabbita4html14resolve__attrs(attrs);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__title(title, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html12push__hidden(hidden, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__style(style, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html11push__class(class_, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita4html8push__id(id, attrs$2);
+  return _M0FP319moonbit_2dcommunity7rabbita4html4nodeGsE("span", attrs$2, children);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(style$46$opt, id, class_, title, hidden, attrs, children) {
+  let style;
+  if (style$46$opt.$tag === 1) {
+    const _Some = style$46$opt;
+    style = _Some._0;
+  } else {
+    style = [];
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(style, id, class_, title, hidden, attrs, children);
 }
 function _M0FP319moonbit_2dcommunity7rabbita4html4text(str) {
   return _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5VNode4text(str);
@@ -8572,31 +8814,335 @@ function _M0FP219moonbit_2dcommunity7rabbita28simple__cell__with__dispatchGRP48b
 function _M0FP219moonbit_2dcommunity7rabbita12static__cell(html) {
   return _M0FP219moonbit_2dcommunity7rabbita4cellGuuE(undefined, (_discard_, _discard_$2, _discard_$3) => ({ _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: undefined }), (_discard_, _discard_$2) => html);
 }
-function _M0FP48bobzhang14compose_2ddemo8frontend7counter7initial() {
+function _M0IP48bobzhang14compose_2ddemo8frontend8calendar4DatePB2Eq5equal(_x_42, _x_43) {
+  return _x_42.year === _x_43.year && _x_42.month === _x_43.month && _x_42.day === _x_43.day;
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend8calendar4Date10to__string(self) {
+  const m = self.month < 10 ? `0${_M0IP016_24default__implPB4Show10to__stringGiE(self.month)}` : _M0MPC13int3Int18to__string_2einner(self.month, 10);
+  const d = self.day < 10 ? `0${_M0IP016_24default__implPB4Show10to__stringGiE(self.day)}` : _M0MPC13int3Int18to__string_2einner(self.day, 10);
+  return `${_M0IP016_24default__implPB4Show10to__stringGiE(self.year)}-${_M0IPC16string6StringPB4Show10to__string(m)}-${_M0IPC16string6StringPB4Show10to__string(d)}`;
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model3new(today) {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend8calendar5Model(today.year, today.month, undefined, today);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model6update(self, msg) {
+  let day;
+  _L: {
+    switch (msg.$tag) {
+      case 0: {
+        let y;
+        let m;
+        _L$2: {
+          if (self.view_month === 1) {
+            y = self.view_year - 1 | 0;
+            m = 12;
+            break _L$2;
+          } else {
+            y = self.view_year;
+            m = self.view_month - 1 | 0;
+            break _L$2;
+          }
+        }
+        return new _M0TP48bobzhang14compose_2ddemo8frontend8calendar5Model(y, m, self.selected, self.today);
+      }
+      case 1: {
+        let y$2;
+        let m$2;
+        _L$3: {
+          if (self.view_month === 12) {
+            y$2 = self.view_year + 1 | 0;
+            m$2 = 1;
+            break _L$3;
+          } else {
+            y$2 = self.view_year;
+            m$2 = self.view_month + 1 | 0;
+            break _L$3;
+          }
+        }
+        return new _M0TP48bobzhang14compose_2ddemo8frontend8calendar5Model(y$2, m$2, self.selected, self.today);
+      }
+      case 2: {
+        const _SelectDay = msg;
+        const _day = _SelectDay._0;
+        day = _day;
+        break _L;
+      }
+      default: {
+        return new _M0TP48bobzhang14compose_2ddemo8frontend8calendar5Model(self.view_year, self.view_month, undefined, self.today);
+      }
+    }
+  }
+  const date = new _M0TP48bobzhang14compose_2ddemo8frontend8calendar4Date(self.view_year, self.view_month, day);
+  return new _M0TP48bobzhang14compose_2ddemo8frontend8calendar5Model(self.view_year, self.view_month, date, self.today);
+}
+function _M0FP48bobzhang14compose_2ddemo8frontend8calendar15days__in__month(year, month) {
+  switch (month) {
+    case 2: {
+      let _tmp;
+      if (4 === 0) {
+        $panic();
+      }
+      if ((year % 4 | 0) === 0) {
+        let _tmp$2;
+        if (100 === 0) {
+          $panic();
+        }
+        if ((year % 100 | 0) !== 0) {
+          _tmp$2 = true;
+        } else {
+          if (400 === 0) {
+            $panic();
+          }
+          _tmp$2 = (year % 400 | 0) === 0;
+        }
+        _tmp = _tmp$2;
+      } else {
+        _tmp = false;
+      }
+      if (_tmp) {
+        return 29;
+      } else {
+        return 28;
+      }
+    }
+    case 4: {
+      return 30;
+    }
+    case 6: {
+      return 30;
+    }
+    case 9: {
+      return 30;
+    }
+    case 11: {
+      return 30;
+    }
+    default: {
+      return 31;
+    }
+  }
+}
+function _M0FP48bobzhang14compose_2ddemo8frontend8calendar13day__of__week(year, month, day) {
+  const y = new _M0TPB8MutLocalGiE(year);
+  const m = new _M0TPB8MutLocalGiE(month);
+  if (m.val < 3) {
+    m.val = m.val + 12 | 0;
+    y.val = y.val - 1 | 0;
+  }
+  const q = day;
+  if (100 === 0) {
+    $panic();
+  }
+  const k = y.val % 100 | 0;
+  if (100 === 0) {
+    $panic();
+  }
+  const j = y.val / 100 | 0;
+  if (5 === 0) {
+    $panic();
+  }
+  const _tmp = (q + ((Math.imul(13, m.val + 1 | 0) | 0) / 5 | 0) | 0) + k | 0;
+  if (4 === 0) {
+    $panic();
+  }
+  const _tmp$2 = _tmp + (k / 4 | 0) | 0;
+  if (4 === 0) {
+    $panic();
+  }
+  if (7 === 0) {
+    $panic();
+  }
+  const h = ((_tmp$2 + (j / 4 | 0) | 0) - (Math.imul(2, j) | 0) | 0) % 7 | 0;
+  if (7 === 0) {
+    $panic();
+  }
+  if (7 === 0) {
+    $panic();
+  }
+  return (((h + 6 | 0) % 7 | 0) + 7 | 0) % 7 | 0;
+}
+function _M0FP48bobzhang14compose_2ddemo8frontend8calendar11month__name(m) {
+  switch (m) {
+    case 1: {
+      return "January";
+    }
+    case 2: {
+      return "February";
+    }
+    case 3: {
+      return "March";
+    }
+    case 4: {
+      return "April";
+    }
+    case 5: {
+      return "May";
+    }
+    case 6: {
+      return "June";
+    }
+    case 7: {
+      return "July";
+    }
+    case 8: {
+      return "August";
+    }
+    case 9: {
+      return "September";
+    }
+    case 10: {
+      return "October";
+    }
+    case 11: {
+      return "November";
+    }
+    case 12: {
+      return "December";
+    }
+    default: {
+      return "?";
+    }
+  }
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model4view(self, dispatch) {
+  const total_days = _M0FP48bobzhang14compose_2ddemo8frontend8calendar15days__in__month(self.view_year, self.view_month);
+  const first_dow = _M0FP48bobzhang14compose_2ddemo8frontend8calendar13day__of__week(self.view_year, self.view_month, 1);
+  const cells = [];
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < first_dow) {
+      _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(cells, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["padding: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ""));
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  let _tmp$2 = 1;
+  while (true) {
+    const d = _tmp$2;
+    if (d <= total_days) {
+      const date = new _M0TP48bobzhang14compose_2ddemo8frontend8calendar4Date(self.view_year, self.view_month, d);
+      const is_selected = _M0IPC16option6OptionPB2Eq5equalGRP48bobzhang14compose_2ddemo8frontend8calendar4DateE(self.selected, date);
+      const is_today = _M0IP48bobzhang14compose_2ddemo8frontend8calendar4DatePB2Eq5equal(self.today, date);
+      const bg = is_selected ? "#4f46e5" : is_today ? "#e0e7ff" : "transparent";
+      const color = is_selected ? "#fff" : "#333";
+      const weight = is_today || is_selected ? "bold" : "normal";
+      const day = d;
+      _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(cells, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["padding: 8px", "text-align: center", "cursor: pointer", "border-radius: 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(bg)}`, `color: ${_M0IPC16string6StringPB4Show10to__string(color)}`, `font-weight: ${_M0IPC16string6StringPB4Show10to__string(weight)}`, "transition: background 0.15s"], undefined, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9SelectDay(day)), undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC13int3Int18to__string_2einner(day, 10)));
+      _tmp$2 = d + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  let selected_text;
+  let d;
+  _L: {
+    _L$2: {
+      const _bind = self.selected;
+      if (_bind === undefined) {
+        selected_text = "None";
+      } else {
+        const _Some = _bind;
+        const _d = _Some;
+        d = _d;
+        break _L$2;
+      }
+      break _L;
+    }
+    selected_text = _M0MP48bobzhang14compose_2ddemo8frontend8calendar4Date10to__string(d);
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["border: 1px solid #ccc", "border-radius: 8px", "padding: 16px", "min-width: 280px", "max-width: 320px", "font-family: system-ui, sans-serif"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: space-between", "align-items: center", "margin-bottom: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9PrevMonth__), undefined, "◀"), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: bold"], undefined, undefined, undefined, -1, undefined, `${_M0IPC16string6StringPB4Show10to__string(_M0FP48bobzhang14compose_2ddemo8frontend8calendar11month__name(self.view_month))} ${_M0IP016_24default__implPB4Show10to__stringGiE(self.view_year)}`), _M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg9NextMonth__), undefined, "▶")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: grid", "grid-template-columns: repeat(7, 1fr)", "text-align: center", "font-size: 0.85em", "color: #888", "margin-bottom: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC15array5Array3mapGsRP319moonbit_2dcommunity7rabbita4html4HtmlE(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], (d$2) => _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["padding: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, d$2))), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, cells), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 12px", "text-align: center", "font-size: 0.9em", "color: #555"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, `Selected: ${_M0IPC16string6StringPB4Show10to__string(selected_text)}`), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["margin-left: 8px", "font-size: 0.85em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend8calendar3Msg5Clear__), undefined, "Clear")])]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel6update(self, msg) {
+  let cal_msg;
+  _L: {
+    let cal_msg$2;
+    _L$2: {
+      if (msg.$tag === 0) {
+        const _Start = msg;
+        const _cal_msg = _Start._0;
+        cal_msg$2 = _cal_msg;
+        break _L$2;
+      } else {
+        const _End = msg;
+        const _cal_msg = _End._0;
+        cal_msg = _cal_msg;
+        break _L;
+      }
+    }
+    return new _M0TP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel(_M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model6update(self.start_cal, cal_msg$2), self.end_cal);
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel(self.start_cal, _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model6update(self.end_cal, cal_msg));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel4view(self, dispatch) {
+  let start_str;
+  let d;
+  _L: {
+    _L$2: {
+      const _bind = self.start_cal.selected;
+      if (_bind === undefined) {
+        start_str = "...";
+      } else {
+        const _Some = _bind;
+        const _d = _Some;
+        d = _d;
+        break _L$2;
+      }
+      break _L;
+    }
+    start_str = _M0MP48bobzhang14compose_2ddemo8frontend8calendar4Date10to__string(d);
+  }
+  let end_str;
+  let d$2;
+  _L$2: {
+    _L$3: {
+      const _bind = self.end_cal.selected;
+      if (_bind === undefined) {
+        end_str = "...";
+      } else {
+        const _Some = _bind;
+        const _d = _Some;
+        d$2 = _d;
+        break _L$3;
+      }
+      break _L$2;
+    }
+    end_str = _M0MP48bobzhang14compose_2ddemo8frontend8calendar4Date10to__string(d$2);
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 24px", "flex-wrap: wrap"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html2h4GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "Start Date"), _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model4view(self.start_cal, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend11date__range8RangeMsg5Start(msg)))]), _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html2h4GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "End Date"), _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model4view(self.end_cal, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend11date__range8RangeMsg3End(msg)))])]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["margin-top: 16px", "padding: 12px", "background: #f0f0f0", "border-radius: 8px", "text-align: center", "font-size: 1.1em"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, `Range: ${_M0IPC16string6StringPB4Show10to__string(start_str)} → ${_M0IPC16string6StringPB4Show10to__string(end_str)}`)]);
+}
+function _M0FP48bobzhang14compose_2ddemo8frontend11date__range4make() {
+  const today = new _M0TP48bobzhang14compose_2ddemo8frontend8calendar4Date(2026, 3, 20);
+  return _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE(new _M0TP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel(_M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model3new(today), _M0MP48bobzhang14compose_2ddemo8frontend8calendar5Model3new(today)), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend11date__range10RangeModel4view(model, dispatch));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new() {
   return new _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(0);
 }
-function _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(msg, model) {
+function _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(self, msg) {
   switch (msg) {
     case 0: {
-      return new _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(model.count + 1 | 0);
+      return new _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(self.count + 1 | 0);
     }
     case 1: {
-      return new _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(model.count - 1 | 0);
+      return new _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(self.count - 1 | 0);
     }
     default: {
       return new _M0TP48bobzhang14compose_2ddemo8frontend7counter5Model(0);
     }
   }
 }
-function _M0FP48bobzhang14compose_2ddemo8frontend7counter4view(dispatch, model, label) {
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["border: 1px solid #ccc", "padding: 16px", "border-radius: 8px", "text-align: center", "min-width: 150px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html2h3GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, label), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 2em", "margin: 8px 0"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC13int3Int18to__string_2einner(model.count, 10)), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "justify-content: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(1), undefined, "−"), _M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(2), undefined, "0"), _M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(0), undefined, "+")])]);
+function _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(self, dispatch, label) {
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["border: 1px solid #ccc", "padding: 16px", "border-radius: 8px", "text-align: center", "min-width: 150px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html2h3GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, label), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 2em", "margin: 8px 0"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC13int3Int18to__string_2einner(self.count, 10)), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "justify-content: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(1), undefined, "−"), _M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(2), undefined, "0"), _M0FP319moonbit_2dcommunity7rabbita4html6buttonGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(0), undefined, "+")])]);
 }
 function _M0FP48bobzhang14compose_2ddemo8frontend11independent4make() {
-  const cell_a = _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0FP48bobzhang14compose_2ddemo8frontend7counter7initial(), (msg, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(msg, model), (dispatch, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter4view(dispatch, model, "Counter A"));
-  const cell_b = _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0FP48bobzhang14compose_2ddemo8frontend7counter7initial(), (msg, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(msg, model), (dispatch, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter4view(dispatch, model, "Counter B"));
+  const cell_a = _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new(), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(model, dispatch, "Counter A"));
+  const cell_b = _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new(), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(model, dispatch, "Counter B"));
   return { _0: cell_a, _1: cell_b };
 }
-function _M0FP48bobzhang14compose_2ddemo8frontend6nested12pair__update(msg, model) {
+function _M0MP48bobzhang14compose_2ddemo8frontend6nested9PairModel6update(self, msg) {
   let child_msg;
   _L: {
     let child_msg$2;
@@ -8615,26 +9161,29 @@ function _M0FP48bobzhang14compose_2ddemo8frontend6nested12pair__update(msg, mode
           break _L;
         }
         default: {
-          return new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(model.left, model.right, !model.sync_mode);
+          return new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(self.left, self.right, !self.sync_mode);
         }
       }
     }
-    const new_left = _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(child_msg$2, model.left);
-    const new_right = model.sync_mode ? _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(child_msg$2, model.right) : model.right;
-    return new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(new_left, new_right, model.sync_mode);
+    const new_left = _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(self.left, child_msg$2);
+    const new_right = self.sync_mode ? _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(self.right, child_msg$2) : self.right;
+    return new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(new_left, new_right, self.sync_mode);
   }
-  const new_right = _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(child_msg, model.right);
-  const new_left = model.sync_mode ? _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(child_msg, model.left) : model.left;
-  return new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(new_left, new_right, model.sync_mode);
+  const new_right = _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(self.right, child_msg);
+  const new_left = self.sync_mode ? _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(self.left, child_msg) : self.left;
+  return new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(new_left, new_right, self.sync_mode);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend6nested9PairModel4view(self, dispatch) {
+  return _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 16px", "margin-bottom: 16px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(self.left, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg4Left(msg)), "Left"), _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(self.right, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg5Right(msg)), "Right")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 24px", "font-size: 1.1em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg10ToggleSync__), undefined, self.sync_mode ? "Sync: ON (click to turn off)" : "Sync: OFF (click to turn on)"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, self.sync_mode ? "Both counters move together — any button affects both" : "Counters are independent")])]);
 }
 function _M0FP48bobzhang14compose_2ddemo8frontend6nested4make() {
-  return _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE(new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(_M0FP48bobzhang14compose_2ddemo8frontend7counter7initial(), _M0FP48bobzhang14compose_2ddemo8frontend7counter7initial(), false), (msg, model) => _M0FP48bobzhang14compose_2ddemo8frontend6nested12pair__update(msg, model), (dispatch, model) => _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 16px", "margin-bottom: 16px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP48bobzhang14compose_2ddemo8frontend7counter4view((msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg4Left(msg)), model.left, "Left"), _M0FP48bobzhang14compose_2ddemo8frontend7counter4view((msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg5Right(msg)), model.right, "Right")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 24px", "font-size: 1.1em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend6nested7PairMsg10ToggleSync__), undefined, model.sync_mode ? "Sync: ON (click to turn off)" : "Sync: OFF (click to turn on)"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, model.sync_mode ? "Both counters move together — any button affects both" : "Counters are independent")])]));
+  return _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE(new _M0TP48bobzhang14compose_2ddemo8frontend6nested9PairModel(_M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new(), _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new(), false), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend6nested9PairModel6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend6nested9PairModel4view(model, dispatch));
 }
 function _M0FP48bobzhang14compose_2ddemo8frontend13parent__child4make() {
   let dispatch_a;
   let cell_a;
   _L: {
-    const _bind = _M0FP219moonbit_2dcommunity7rabbita28simple__cell__with__dispatchGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0FP48bobzhang14compose_2ddemo8frontend7counter7initial(), (msg, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(msg, model), (dispatch, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter4view(dispatch, model, "Child A"));
+    const _bind = _M0FP219moonbit_2dcommunity7rabbita28simple__cell__with__dispatchGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new(), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(model, dispatch, "Child A"));
     const _dispatch_a = _bind._0;
     const _cell_a = _bind._1;
     dispatch_a = _dispatch_a;
@@ -8644,7 +9193,7 @@ function _M0FP48bobzhang14compose_2ddemo8frontend13parent__child4make() {
   let dispatch_b;
   let cell_b;
   _L$2: {
-    const _bind = _M0FP219moonbit_2dcommunity7rabbita28simple__cell__with__dispatchGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0FP48bobzhang14compose_2ddemo8frontend7counter7initial(), (msg, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter6update(msg, model), (dispatch, model) => _M0FP48bobzhang14compose_2ddemo8frontend7counter4view(dispatch, model, "Child B"));
+    const _bind = _M0FP219moonbit_2dcommunity7rabbita28simple__cell__with__dispatchGRP48bobzhang14compose_2ddemo8frontend7counter5ModelRP48bobzhang14compose_2ddemo8frontend7counter3MsgE(_M0MP48bobzhang14compose_2ddemo8frontend7counter5Model3new(), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend7counter5Model4view(model, dispatch, "Child B"));
     const _dispatch_b = _bind._0;
     const _cell_b = _bind._1;
     dispatch_b = _dispatch_b;
@@ -8655,6 +9204,352 @@ function _M0FP48bobzhang14compose_2ddemo8frontend13parent__child4make() {
     const cmd = _M0FP319moonbit_2dcommunity7rabbita3cmd5batch([dispatch_a(2), dispatch_b(2)]);
     return { _0: cmd, _1: new _M0TP48bobzhang14compose_2ddemo8frontend13parent__child11ParentModel(model.total_resets + 1 | 0) };
   }, (dispatch, model) => _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 16px", "margin-bottom: 16px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP219moonbit_2dcommunity7rabbita4Cell4view(cell_a), _M0MP219moonbit_2dcommunity7rabbita4Cell4view(cell_b)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 8px 24px", "font-size: 1.1em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(0), undefined, "Reset Both (parent → children)"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, `Parent tracked ${_M0IP016_24default__implPB4Show10to__stringGiE(model.total_resets)} resets`)])]));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(value, min, max, step) {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel(value, min, max, step);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self, msg) {
+  switch (msg) {
+    case 0: {
+      const v = self.value + self.step | 0;
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel(v > self.max_val ? self.max_val : v, self.min_val, self.max_val, self.step);
+    }
+    case 1: {
+      const v$2 = self.value - self.step | 0;
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel(v$2 < self.min_val ? self.min_val : v$2, self.min_val, self.max_val, self.step);
+    }
+    default: {
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel(self.min_val, self.min_val, self.max_val, self.step);
+    }
+  }
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self, dispatch, label, color) {
+  const range = self.max_val - self.min_val | 0;
+  let pct;
+  if (range > 0) {
+    if (range === 0) {
+      $panic();
+    }
+    pct = (Math.imul(self.value - self.min_val | 0, 100) | 0) / range | 0;
+  } else {
+    pct = 0;
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["min-width: 80px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.7em", "color: #999", "margin-bottom: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, label), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["width: 22px", "height: 22px", "font-size: 0.75em", "border: 1px solid #555", "background: #2a2a2a", "color: #fff", "cursor: pointer", "border-radius: 3px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(1), undefined, "−"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["flex: 1", "height: 8px", "background: #333", "border-radius: 4px", "overflow: hidden"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["height: 100%", `width: ${_M0MPC13int3Int18to__string_2einner(pct, 10)}%`, `background: ${color}`, "border-radius: 4px", "transition: width 0.1s"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "")]), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["width: 22px", "height: 22px", "font-size: 0.75em", "border: 1px solid #555", "background: #2a2a2a", "color: #fff", "cursor: pointer", "border-radius: 3px"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(0), undefined, "+")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["text-align: center", "font-size: 0.8em", "font-weight: bold", "color: #ccc"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC13int3Int18to__string_2einner(self.value, 10))]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel3new() {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel($make_array_len_and_init(8, false));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel6update(self, msg) {
+  let i;
+  _L: {
+    const _Toggle = msg;
+    const _i = _Toggle._0;
+    i = _i;
+    break _L;
+  }
+  const new_steps = $make_array_len_and_init(8, false);
+  let _tmp = 0;
+  while (true) {
+    const j = _tmp;
+    if (j < 8) {
+      let _tmp$2;
+      if (j === i) {
+        const _tmp$3 = self.steps;
+        $bound_check(_tmp$3, j);
+        _tmp$2 = !_tmp$3[j];
+      } else {
+        const _tmp$3 = self.steps;
+        $bound_check(_tmp$3, j);
+        _tmp$2 = _tmp$3[j];
+      }
+      $bound_check(new_steps, j);
+      new_steps[j] = _tmp$2;
+      _tmp = j + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel(new_steps);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel12view_2einner(self, dispatch, color) {
+  const buttons = [];
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < 8) {
+      const _tmp$2 = self.steps;
+      $bound_check(_tmp$2, i);
+      const active = _tmp$2[i];
+      const inactive_bg = i < 4 ? "#3a3a3a" : "#444";
+      _M0MPC15array5Array4pushGRP319moonbit_2dcommunity7rabbita4html4HtmlE(buttons, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 18px", "height: 18px", "border-radius: 2px", "cursor: pointer", active ? `background: ${color}` : `background: ${inactive_bg}`], undefined, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test7StepMsg6Toggle(i)), undefined, undefined, undefined, undefined, undefined, undefined, ""));
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, buttons);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel11new_2einner(name, intensity) {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(intensity, 0, 100, 5), false, name);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel3new() {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel11new_2einner("REV", 50), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel11new_2einner("DLY", 30), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel11new_2einner("CHR", 60));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel11new_2einner(volume) {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(volume, 0, 100, 5), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(0, -50, 50, 5), false, false, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel3new(), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel3new());
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel3new() {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel11new_2einner(75), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel11new_2einner(60), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel11new_2einner(85), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel11new_2einner(50), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(80, 0, 100, 5), false);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel6update(self, msg) {
+  let m;
+  _L: {
+    if (msg.$tag === 0) {
+      const _Intensity = msg;
+      const _m = _Intensity._0;
+      m = _m;
+      break _L;
+    } else {
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel(self.intensity, !self.enabled, self.name);
+    }
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.intensity, m), self.enabled, self.name);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel6update(self, msg) {
+  let m;
+  _L: {
+    let m$2;
+    _L$2: {
+      let m$3;
+      _L$3: {
+        switch (msg.$tag) {
+          case 0: {
+            const _Fx1 = msg;
+            const _m = _Fx1._0;
+            m$3 = _m;
+            break _L$3;
+          }
+          case 1: {
+            const _Fx2 = msg;
+            const _m$2 = _Fx2._0;
+            m$2 = _m$2;
+            break _L$2;
+          }
+          default: {
+            const _Fx3 = msg;
+            const _m$3 = _Fx3._0;
+            m = _m$3;
+            break _L;
+          }
+        }
+      }
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel6update(self.fx1, m$3), self.fx2, self.fx3);
+    }
+    return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel(self.fx1, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel6update(self.fx2, m$2), self.fx3);
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel(self.fx1, self.fx2, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel6update(self.fx3, m));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self, msg) {
+  let m;
+  _L: {
+    let m$2;
+    _L$2: {
+      let m$3;
+      _L$3: {
+        let m$4;
+        _L$4: {
+          switch (msg.$tag) {
+            case 0: {
+              const _Volume = msg;
+              const _m = _Volume._0;
+              m$4 = _m;
+              break _L$4;
+            }
+            case 1: {
+              const _Pan = msg;
+              const _m$2 = _Pan._0;
+              m$3 = _m$2;
+              break _L$3;
+            }
+            case 2: {
+              return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(self.volume, self.pan, !self.mute, self.solo, self.steps, self.effects);
+            }
+            case 3: {
+              return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(self.volume, self.pan, self.mute, !self.solo, self.steps, self.effects);
+            }
+            case 4: {
+              const _Steps = msg;
+              const _m$3 = _Steps._0;
+              m$2 = _m$3;
+              break _L$2;
+            }
+            default: {
+              const _Effects = msg;
+              const _m$4 = _Effects._0;
+              m = _m$4;
+              break _L;
+            }
+          }
+        }
+        return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.volume, m$4), self.pan, self.mute, self.solo, self.steps, self.effects);
+      }
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(self.volume, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.pan, m$3), self.mute, self.solo, self.steps, self.effects);
+    }
+    return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(self.volume, self.pan, self.mute, self.solo, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel6update(self.steps, m$2), self.effects);
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel(self.volume, self.pan, self.mute, self.solo, self.steps, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel6update(self.effects, m));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel6update(self, msg) {
+  let m;
+  _L: {
+    let m$2;
+    _L$2: {
+      let m$3;
+      _L$3: {
+        let m$4;
+        _L$4: {
+          let m$5;
+          _L$5: {
+            switch (msg.$tag) {
+              case 0: {
+                const _Ch1 = msg;
+                const _m = _Ch1._0;
+                m$5 = _m;
+                break _L$5;
+              }
+              case 1: {
+                const _Ch2 = msg;
+                const _m$2 = _Ch2._0;
+                m$4 = _m$2;
+                break _L$4;
+              }
+              case 2: {
+                const _Ch3 = msg;
+                const _m$3 = _Ch3._0;
+                m$3 = _m$3;
+                break _L$3;
+              }
+              case 3: {
+                const _Ch4 = msg;
+                const _m$4 = _Ch4._0;
+                m$2 = _m$4;
+                break _L$2;
+              }
+              case 4: {
+                const _Master = msg;
+                const _m$5 = _Master._0;
+                m = _m$5;
+                break _L;
+              }
+              default: {
+                return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(self.ch1, self.ch2, self.ch3, self.ch4, self.master, !self.link);
+              }
+            }
+          }
+          return self.link ? new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch1, m$5), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch2, m$5), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch3, m$5), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch4, m$5), self.master, self.link) : new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch1, m$5), self.ch2, self.ch3, self.ch4, self.master, self.link);
+        }
+        return self.link ? new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch1, m$4), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch2, m$4), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch3, m$4), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch4, m$4), self.master, self.link) : new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(self.ch1, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch2, m$4), self.ch3, self.ch4, self.master, self.link);
+      }
+      return self.link ? new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch1, m$3), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch2, m$3), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch3, m$3), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch4, m$3), self.master, self.link) : new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(self.ch1, self.ch2, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch3, m$3), self.ch4, self.master, self.link);
+    }
+    return self.link ? new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch1, m$2), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch2, m$2), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch3, m$2), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch4, m$2), self.master, self.link) : new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(self.ch1, self.ch2, self.ch3, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel6update(self.ch4, m$2), self.master, self.link);
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel(self.ch1, self.ch2, self.ch3, self.ch4, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.master, m), self.link);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel4view(self, dispatch) {
+  const opacity = self.enabled ? "1" : "0.4";
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 4px", `opacity: ${opacity}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["width: 16px", "height: 16px", "border-radius: 50%", "border: none", "cursor: pointer", "font-size: 0.55em", "line-height: 1", self.enabled ? "background: #FF9800" : "background: #555"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg13ToggleEnabled__), undefined, self.enabled ? "●" : "○"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.intensity, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test9EffectMsg9Intensity(msg)), self.name, "#FF9800")]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel4view(self, dispatch) {
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-direction: column", "gap: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel4view(self.fx1, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx1(msg))), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel4view(self.fx2, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx2(msg))), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test11EffectModel4view(self.fx3, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test13EffectRackMsg3Fx3(msg)))]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel12view_2einner(self, dispatch, label, color) {
+  const dim = self.mute ? "0.3" : "1";
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["border: 1px solid #444", "padding: 10px", "border-radius: 6px", "background: #1e1e1e", "min-width: 130px", `opacity: ${dim}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["text-align: center", "font-weight: bold", "font-size: 0.8em", `color: ${color}`, "margin-bottom: 6px", "border-bottom: 1px solid #333", "padding-bottom: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, label), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.volume, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg6Volume(msg)), "VOL", color), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.pan, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg3Pan(msg)), "PAN", "#2196F3")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 4px", "margin-top: 6px", "justify-content: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["flex: 1", "padding: 2px", "font-size: 0.65em", "font-weight: bold", "border: none", "border-radius: 3px", "cursor: pointer", self.mute ? "background: #F44336; color: #fff" : "background: #333; color: #888"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleMute__), undefined, "M"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["flex: 1", "padding: 2px", "font-size: 0.65em", "font-weight: bold", "border: none", "border-radius: 3px", "cursor: pointer", self.solo ? "background: #FFEB3B; color: #000" : "background: #333; color: #888"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg10ToggleSolo__), undefined, "S")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 6px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.6em", "color: #666", "margin-bottom: 2px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "PATTERN"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9StepModel12view_2einner(self.steps, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg5Steps(msg)), color)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 6px", "border-top: 1px solid #333", "padding-top: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.6em", "color: #666", "margin-bottom: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "FX"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test15EffectRackModel4view(self.effects, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test10ChannelMsg7Effects(msg)))])]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel4view(self, dispatch) {
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["background: #121212", "padding: 16px", "border-radius: 8px", "border: 1px solid #333"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 8px", "margin-bottom: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-weight: bold", "color: #fff", "font-size: 0.95em", "letter-spacing: 1px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "MIXER"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 3px 10px", "font-size: 0.7em", "border: none", "border-radius: 3px", "cursor: pointer", "letter-spacing: 0.5px", self.link ? "background: #FF5722; color: #fff" : "background: #333; color: #888"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg10ToggleLink__), undefined, self.link ? "LINK: ON" : "LINK: OFF")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 8px", "align-items: flex-start", "overflow-x: auto"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel12view_2einner(self.ch1, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch1(msg)), "CH 1", "#4CAF50"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel12view_2einner(self.ch2, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch2(msg)), "CH 2", "#2196F3"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel12view_2einner(self.ch3, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch3(msg)), "CH 3", "#FF9800"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test12ChannelModel12view_2einner(self.ch4, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg3Ch4(msg)), "CH 4", "#E91E63"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["border: 2px solid #FFD700", "padding: 10px", "border-radius: 6px", "background: #1a1a1a", "min-width: 100px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["text-align: center", "font-weight: bold", "color: #FFD700", "font-size: 0.8em", "margin-bottom: 6px", "border-bottom: 1px solid #444", "padding-bottom: 4px", "letter-spacing: 1px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "MASTER"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.master, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8MixerMsg6Master(msg)), "VOL", "#FFD700")])])]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel6update(self, msg) {
+  let m;
+  _L: {
+    let m$2;
+    _L$2: {
+      let m$3;
+      _L$3: {
+        switch (msg.$tag) {
+          case 0: {
+            const _Red = msg;
+            const _m = _Red._0;
+            m$3 = _m;
+            break _L$3;
+          }
+          case 1: {
+            const _Green = msg;
+            const _m$2 = _Green._0;
+            m$2 = _m$2;
+            break _L$2;
+          }
+          default: {
+            const _Blue = msg;
+            const _m$3 = _Blue._0;
+            m = _m$3;
+            break _L;
+          }
+        }
+      }
+      return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.red, m$3), self.green, self.blue);
+    }
+    return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel(self.red, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.green, m$2), self.blue);
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel(self.red, self.green, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel6update(self.blue, m));
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel6update(self, msg) {
+  let m;
+  _L: {
+    let m$2;
+    _L$2: {
+      switch (msg.$tag) {
+        case 0: {
+          const _Mixer = msg;
+          const _m = _Mixer._0;
+          m$2 = _m;
+          break _L$2;
+        }
+        case 1: {
+          const _Color = msg;
+          const _m$2 = _Color._0;
+          m = _m$2;
+          break _L;
+        }
+        default: {
+          return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel(self.mixer, self.color, !self.dark_mode);
+        }
+      }
+    }
+    return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel6update(self.mixer, m$2), self.color, self.dark_mode);
+  }
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel(self.mixer, _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel6update(self.color, m), self.dark_mode);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel4view(self, dispatch) {
+  const r = _M0MPC13int3Int18to__string_2einner(self.red.value, 10);
+  const g = _M0MPC13int3Int18to__string_2einner(self.green.value, 10);
+  const b = _M0MPC13int3Int18to__string_2einner(self.blue.value, 10);
+  const rgb_str = `rgb(${r},${g},${b})`;
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["background: #121212", "padding: 16px", "border-radius: 8px", "border: 1px solid #333"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-weight: bold", "color: #fff", "font-size: 0.95em", "margin-bottom: 12px", "letter-spacing: 1px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "COLOR MIXER"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 16px", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-direction: column", "gap: 6px", "flex: 1"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.red, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg3Red(msg)), "RED", "#F44336"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.green, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg5Green(msg)), "GREEN", "#4CAF50"), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel12view_2einner(self.blue, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test8ColorMsg4Blue(msg)), "BLUE", "#2196F3")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["text-align: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 80px", "height: 80px", "border-radius: 8px", "border: 2px solid #555", `background: ${rgb_str}`, "margin-bottom: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.7em", "color: #999", "font-family: monospace"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, rgb_str)])])]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel4view(self, dispatch) {
+  const bg = self.dark_mode ? "#0a0a0a" : "#f0f0f0";
+  const fg = self.dark_mode ? "#eee" : "#111";
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: ${bg}`, `color: ${fg}`, "padding: 20px", "border-radius: 12px", "font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: space-between", "align-items: center", "margin-bottom: 16px", "border-bottom: 1px solid #333", "padding-bottom: 10px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 1.2em", "font-weight: bold", "letter-spacing: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "STUDIO CONTROL"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 5px 14px", "border: 1px solid #555", "border-radius: 4px", "cursor: pointer", "font-size: 0.75em", "letter-spacing: 0.5px", self.dark_mode ? "background: #333; color: #fff" : "background: #ddd; color: #000"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg14ToggleDarkMode__), undefined, self.dark_mode ? "LIGHT MODE" : "DARK MODE")]), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel4view(self.mixer, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg5Mixer(msg))), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel4view(self.color, (msg) => dispatch(new _M0DTP48bobzhang14compose_2ddemo8frontend12stress__test12DashboardMsg5Color(msg)))]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["margin-top: 12px", "padding-top: 10px", "border-top: 1px solid #333", "font-size: 0.65em", "color: #666", "text-align: center", "letter-spacing: 0.5px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "6 nesting levels · 7 message layers · ~78 state values · TEA all the way down")]);
+}
+function _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel3new() {
+  return new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(100, 0, 255, 5), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(150, 0, 255, 5), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test9KnobModel11new_2einner(200, 0, 255, 5));
+}
+function _M0FP48bobzhang14compose_2ddemo8frontend12stress__test4make() {
+  return _M0FP219moonbit_2dcommunity7rabbita12simple__cellGRP48bobzhang14compose_2ddemo8frontend6nested9PairModelRP48bobzhang14compose_2ddemo8frontend6nested7PairMsgE(new _M0TP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel(_M0MP48bobzhang14compose_2ddemo8frontend12stress__test10MixerModel3new(), _M0MP48bobzhang14compose_2ddemo8frontend12stress__test10ColorModel3new(), true), (msg, model) => _M0MP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel6update(model, msg), (dispatch, model) => _M0MP48bobzhang14compose_2ddemo8frontend12stress__test14DashboardModel4view(model, dispatch));
 }
 (() => {
   let cell_a;
@@ -8669,7 +9564,9 @@ function _M0FP48bobzhang14compose_2ddemo8frontend13parent__child4make() {
   }
   const parent_child = _M0FP48bobzhang14compose_2ddemo8frontend13parent__child4make();
   const nested = _M0FP48bobzhang14compose_2ddemo8frontend6nested4make();
-  const layout = _M0FP219moonbit_2dcommunity7rabbita12static__cell(_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["max-width: 800px", "margin: 0 auto", "padding: 24px", "font-family: system-ui, sans-serif"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html2h1GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, "TEA Composition Patterns"), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "1. Independent Cells"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "Two separate Cells, each with its own Model/Msg/update/view loop. They share no state."), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "simple_cell(...) creates each one. The parent just calls .view() to render them."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 16px", "margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP219moonbit_2dcommunity7rabbita4Cell4view(cell_a), _M0MP219moonbit_2dcommunity7rabbita4Cell4view(cell_b)]), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "2. Parent-Child with Dispatch"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "simple_cell_with_dispatch(...) returns a Dispatch handle. The parent stores these handles and sends messages to children."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRP319moonbit_2dcommunity7rabbita4html4HtmlE(["margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MP219moonbit_2dcommunity7rabbita4Cell4view(parent_child)), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "3. Nested Model (Classic Elm)"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "Single Cell. Parent Model contains child Models. Parent Msg wraps child Msgs. View maps dispatch: fn(msg) { dispatch(Left(msg)) }."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRP319moonbit_2dcommunity7rabbita4html4HtmlE(["margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MP219moonbit_2dcommunity7rabbita4Cell4view(nested))]));
+  const studio = _M0FP48bobzhang14compose_2ddemo8frontend12stress__test4make();
+  const date_range = _M0FP48bobzhang14compose_2ddemo8frontend11date__range4make();
+  const layout = _M0FP219moonbit_2dcommunity7rabbita12static__cell(_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["max-width: 800px", "margin: 0 auto", "padding: 24px", "font-family: system-ui, sans-serif"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html2h1GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, "TEA Composition Patterns"), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "1. Independent Cells"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "Two separate Cells, each with its own Model/Msg/update/view loop. They share no state."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 16px", "margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP219moonbit_2dcommunity7rabbita4Cell4view(cell_a), _M0MP219moonbit_2dcommunity7rabbita4Cell4view(cell_b)]), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "2. Parent-Child with Dispatch"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "Parent holds Dispatch handles to children. Clicking \"Reset Both\" sends Reset to both child cells."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRP319moonbit_2dcommunity7rabbita4html4HtmlE(["margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MP219moonbit_2dcommunity7rabbita4Cell4view(parent_child)), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "3. Nested Model (Classic Elm)"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "Single Cell. Parent Model wraps child Models. Parent Msg wraps child Msgs. Toggle sync to link both counters."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRP319moonbit_2dcommunity7rabbita4html4HtmlE(["margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MP219moonbit_2dcommunity7rabbita4Cell4view(nested)), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "5. Stress Test: Studio Control"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "6 nesting levels, ~78 state values, 7 message wrapping layers. Dashboard → Mixer → Channel → EffectRack → Effect → Knob."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRP319moonbit_2dcommunity7rabbita4html4HtmlE(["margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MP219moonbit_2dcommunity7rabbita4Cell4view(studio)), _M0FP319moonbit_2dcommunity7rabbita4html2h2GsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "4. Reusable Complex Component"), _M0FP319moonbit_2dcommunity7rabbita4html1pGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "A calendar component reused twice to build a date-range picker. Same Model/Msg/update/view, two instances, routed via Start(...) / End(...)."), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRP319moonbit_2dcommunity7rabbita4html4HtmlE(["margin-bottom: 32px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MP219moonbit_2dcommunity7rabbita4Cell4view(date_range))]));
   _M0MP219moonbit_2dcommunity7rabbita3App5mount(_M0FP219moonbit_2dcommunity7rabbita3new(layout), "app");
 })();
 //# sourceMappingURL=frontend.js.map
