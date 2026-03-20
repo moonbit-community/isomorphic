@@ -1,9 +1,6 @@
 ///|
-let api_base : String = "http://localhost:4009"
-
-///|
 fn api(path : String) -> String {
-  api_base + path
+  path
 }
 
 ///|

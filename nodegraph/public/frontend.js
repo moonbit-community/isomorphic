@@ -1617,7 +1617,6 @@ const _M0FP48bobzhang9nodegraph8frontend3app15node__stride__x = 280;
 const _M0FP48bobzhang9nodegraph8frontend3app6pad__y = 20;
 const _M0FP48bobzhang9nodegraph8frontend3app9header__h = 35;
 const _M0FP48bobzhang9nodegraph8frontend3app12port__stride = 28;
-const _M0FP48bobzhang9nodegraph8frontend3app9api__base = "http://localhost:4009";
 const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FPC16double13neg__infinity = _M0MPC15int645Int6423reinterpret__as__double($_4503599627370496L);
 const _M0FPC16double8infinity = _M0MPC15int645Int6423reinterpret__as__double($9218868437227405312L);
@@ -17121,7 +17120,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model4view(self, dispatch) {
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$2, _tmp$3]);
 }
 function _M0FP48bobzhang9nodegraph8frontend3app3api(path) {
-  return `${_M0FP48bobzhang9nodegraph8frontend3app9api__base}${path}`;
+  return path;
 }
 function _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) {
   return _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared11api__graphs), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg9GotGraphs(r)), (json) => {

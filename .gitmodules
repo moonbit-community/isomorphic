@@ -1,0 +1,3 @@
+[submodule "lib/mocket"]
+	path = lib/mocket
+	url = https://github.com/oboard/mocket.git
