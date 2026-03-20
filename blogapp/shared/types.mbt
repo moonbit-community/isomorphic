@@ -1,5 +1,6 @@
 ///|
 /// A blog post with title, content, and timestamps.
+#warnings("-unnecessary_annotation")
 pub(all) struct Post {
   id : Int
   title : String
@@ -10,6 +11,7 @@ pub(all) struct Post {
 
 ///|
 /// A comment on a blog post, attributed to an author.
+#warnings("-unnecessary_annotation")
 pub(all) struct Comment {
   id : Int
   post_id : Int
