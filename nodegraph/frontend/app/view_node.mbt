@@ -70,12 +70,14 @@ fn Model::view_nodes(
         },
         on_mousedown=fn(_m) { @rabbita.none },
         attrs=@html.Attrs::build().on_mousemove(fn(ev) {
-          let mx = ev.get_offset_x()
-          let my = ev.get_offset_y()
+          // Use clientX/clientY — viewport-relative, never changes
+          // reference element when mouse passes over child nodes
+          let cx = ev.get_client_x()
+          let cy = ev.get_client_y()
           if self.dragging_node != 0 {
-            dispatch(Drag(mx, my))
+            dispatch(Drag(cx, cy))
           } else if self.connecting_from_node != 0 {
-            dispatch(WireMove(mx, my))
+            dispatch(WireMove(cx, cy))
           } else {
             @rabbita.none
           }
@@ -274,7 +276,7 @@ fn Model::view_single_node(
           "cursor: grab", "user-select: none",
         ],
         on_mousedown=fn(m) {
-          let pos = m.offset_pos()
+          let pos = m.client_pos()
           dispatch(StartDrag(node.id, pos.x, pos.y))
         },
         [

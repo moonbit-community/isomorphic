@@ -191,8 +191,8 @@ pub fn Model::update(
     }
     NodeDeleted(Err(_)) => (self, @rabbita.none)
     // ── Node dragging ────────────────────────────────────────────
-    StartDrag(node_id, mx, my) => {
-      // Find node position to compute offset
+    StartDrag(node_id, client_x, client_y) => {
+      // Store offset = clientPos - nodePos (so nodePos = clientPos - offset)
       let mut nx = 0
       let mut ny = 0
       for n in self.nodes {
@@ -205,18 +205,19 @@ pub fn Model::update(
         {
           ..self,
           dragging_node: node_id,
-          drag_offset_x: mx - nx,
-          drag_offset_y: my - ny,
+          drag_offset_x: client_x - nx,
+          drag_offset_y: client_y - ny,
         },
         @rabbita.none,
       )
     }
-    Drag(mx, my) => {
+    Drag(client_x, client_y) => {
       if self.dragging_node == 0 {
         return (self, @rabbita.none)
       }
-      let new_x = mx - self.drag_offset_x
-      let new_y = my - self.drag_offset_y
+      // clientX/clientY never changes reference element → no flickering
+      let new_x = client_x - self.drag_offset_x
+      let new_y = client_y - self.drag_offset_y
       let nodes = self.nodes.map(fn(n) {
         if n.id == self.dragging_node {
           { ..n, x: new_x, y: new_y }
@@ -306,11 +307,51 @@ pub fn Model::update(
           connecting_from_port: port,
           wire_mouse_x: 0,
           wire_mouse_y: 0,
+          wire_start_cx: 0,
+          wire_start_cy: 0,
+          wire_origin_x: 0,
+          wire_origin_y: 0,
         },
         @rabbita.none,
       )
-    WireMove(mx, my) =>
-      ({ ..self, wire_mouse_x: mx, wire_mouse_y: my }, @rabbita.none)
+    WireMove(client_x, client_y) => {
+      // On first move, calibrate: record clientX and compute port canvas pos
+      if self.wire_start_cx == 0 && self.wire_start_cy == 0 {
+        // Compute the output port's canvas position
+        let mut ox = 0
+        let mut oy = 0
+        for n in self.nodes {
+          if n.id == self.connecting_from_node {
+            ox = n.x + node_w
+            let in_count = @shared.input_ports(n.kind).length()
+            let has_cfg = match n.kind {
+              ConstNumber | ConstString | ConstBool | ConstColor => true
+              _ => false
+            }
+            let cfg_h = if has_cfg { 32 } else { 0 }
+            let ins_h = if in_count > 0 { 16 + in_count * port_stride } else { 0 }
+            oy = n.y + header_h + cfg_h + ins_h + 16 + self.connecting_from_port * port_stride + 8
+          }
+        }
+        (
+          {
+            ..self,
+            wire_start_cx: client_x,
+            wire_start_cy: client_y,
+            wire_origin_x: ox,
+            wire_origin_y: oy,
+            wire_mouse_x: ox,
+            wire_mouse_y: oy,
+          },
+          @rabbita.none,
+        )
+      } else {
+        // Delta from start client position → canvas position
+        let wx = self.wire_origin_x + (client_x - self.wire_start_cx)
+        let wy = self.wire_origin_y + (client_y - self.wire_start_cy)
+        ({ ..self, wire_mouse_x: wx, wire_mouse_y: wy }, @rabbita.none)
+      }
+    }
     CancelConnect =>
       (
         {

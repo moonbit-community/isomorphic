@@ -983,10 +983,10 @@ const _M0FP319moonbit_2dcommunity7rabbita3dom18ffi__remove__child = (p,c) => p.r
 const _M0FP319moonbit_2dcommunity7rabbita3dom14insert__before = (p,value,before) => p.insertBefore(value,before);
 const _M0FP319moonbit_2dcommunity7rabbita3dom19ffi__is__same__node = (x, other) => x === other;
 const _M0FP319moonbit_2dcommunity7rabbita3dom21ffi__to__mouse__event = (e) => e instanceof MouseEvent ? e : null;
+const _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__client__x = (e) => e.clientX;
+const _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__client__y = (e) => e.clientY;
 const _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__ctrl__key = (e) => e.ctrlKey;
 const _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__meta__key = (e) => e.metaKey;
-const _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__offset__x = (e) => e.offsetX;
-const _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__offset__y = (e) => e.offsetY;
 const _M0FP319moonbit_2dcommunity7rabbita3dom24ffi__to__keyboard__event = (e) => e instanceof KeyboardEvent ? e : null;
 const _M0MP319moonbit_2dcommunity7rabbita3dom17HTMLSelectElement5value = (self) => self.value;
 const _M0FP319moonbit_2dcommunity7rabbita3dom29ffi__to__html__input__element = (x) => x instanceof HTMLInputElement ? x : null;
@@ -1471,7 +1471,7 @@ function _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10EvalResultsE2Ok(p
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10EvalResultsE2Ok.prototype.$tag = 1;
-function _M0TP48bobzhang9nodegraph8frontend3app5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21) {
+function _M0TP48bobzhang9nodegraph8frontend3app5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21, param22, param23, param24, param25) {
   this.page = param0;
   this.graphs = param1;
   this.current_graph_id = param2;
@@ -1486,14 +1486,18 @@ function _M0TP48bobzhang9nodegraph8frontend3app5Model(param0, param1, param2, pa
   this.connecting_from_port = param11;
   this.wire_mouse_x = param12;
   this.wire_mouse_y = param13;
-  this.editing_node = param14;
-  this.config_value = param15;
-  this.new_graph_name = param16;
-  this.show_palette = param17;
-  this.palette_cat = param18;
-  this.first_load = param19;
-  this.loading = param20;
-  this.error = param21;
+  this.wire_start_cx = param14;
+  this.wire_start_cy = param15;
+  this.wire_origin_x = param16;
+  this.wire_origin_y = param17;
+  this.editing_node = param18;
+  this.config_value = param19;
+  this.new_graph_name = param20;
+  this.show_palette = param21;
+  this.palette_cat = param22;
+  this.first_load = param23;
+  this.loading = param24;
+  this.error = param25;
 }
 function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared10SavedGraphE4Json(param0, param1) {
   this._0 = param0;
@@ -12211,17 +12215,17 @@ function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom6IsNode14ins
 function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom6IsNode14is__same__nodeGRP319moonbit_2dcommunity7rabbita3dom4NodeE(s, other) {
   return _M0FP319moonbit_2dcommunity7rabbita3dom19ffi__is__same__node(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s), other);
 }
+function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__client__xGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(s) {
+  return _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__client__x(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s));
+}
+function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__client__yGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(s) {
+  return _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__client__y(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s));
+}
 function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__ctrl__keyGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(s) {
   return _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__ctrl__key(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s));
 }
 function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__meta__keyGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(s) {
   return _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__meta__key(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s));
-}
-function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__offset__xGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(s) {
-  return _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__offset__x(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s));
-}
-function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__offset__yGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(s) {
-  return _M0FP319moonbit_2dcommunity7rabbita3dom28ffi__mouse__event__offset__y(_M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s));
 }
 function _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom13IsHtmlElement17as__html__elementGRP319moonbit_2dcommunity7rabbita3dom11HTMLElementE(s) {
   return _M0FP319moonbit_2dcommunity7rabbita3dom12js__identityGRP319moonbit_2dcommunity7rabbita3dom7ElementRP319moonbit_2dcommunity7rabbita2js5ValueE(s);
@@ -15828,8 +15832,8 @@ function _M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(input_type, 
   _M0FP319moonbit_2dcommunity7rabbita4html8push__id(id, attrs$2);
   return _M0FP319moonbit_2dcommunity7rabbita4html4nodeGsE("input", attrs$2, children);
 }
-function _M0MP319moonbit_2dcommunity7rabbita4html5Mouse11offset__pos(self) {
-  return new _M0TP319moonbit_2dcommunity7rabbita4html3Pos(_M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__offset__xGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(self), _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__offset__yGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(self));
+function _M0MP319moonbit_2dcommunity7rabbita4html5Mouse11client__pos(self) {
+  return new _M0TP319moonbit_2dcommunity7rabbita4html3Pos(_M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__client__xGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(self), _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__client__yGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(self));
 }
 function _M0IPC16string6StringP319moonbit_2dcommunity7rabbita4html10IsChildren12to__children(str) {
   return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime8ChildrenGRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE5Array([_M0FP319moonbit_2dcommunity7rabbita4html4text(str)]);
@@ -16840,7 +16844,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model18view__single__node(self, 
   }
   const has_output = node_vals.length > 0;
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["min-width: 190px", "max-width: 250px", "background: #16213e", `border: 2px solid ${_M0IPC16string6StringPB4Show10to__string(cat_color)}`, "border-radius: 10px", "overflow: hidden", "animation: fadeIn 0.3s ease", has_output ? `box-shadow: 0 0 12px ${_M0IPC16string6StringPB4Show10to__string(cat_color)}40` : "box-shadow: 0 2px 8px rgba(0,0,0,0.4)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: linear-gradient(135deg, ${_M0IPC16string6StringPB4Show10to__string(cat_color)}, ${_M0IPC16string6StringPB4Show10to__string(cat_color)}bb)`, "padding: 7px 12px", "display: flex", "justify-content: space-between", "align-items: center", "cursor: grab", "user-select: none"], undefined, undefined, undefined, -1, undefined, (m) => {
-    const pos = _M0MP319moonbit_2dcommunity7rabbita4html5Mouse11offset__pos(m);
+    const pos = _M0MP319moonbit_2dcommunity7rabbita4html5Mouse11client__pos(m);
     return dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg9StartDrag(node.id, pos.x, pos.y));
   }, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)", "pointer-events: none"], undefined, undefined, undefined, -1, undefined, node.label), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["background: rgba(0,0,0,0.2)", "border: none", "color: rgba(255,255,255,0.8)", "cursor: pointer", "font-size: 0.75em", "width: 20px", "height: 20px", "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg10DeleteNode(node.id)), undefined, "✕")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [is_const ? _M0MP48bobzhang9nodegraph8frontend3app5Model19view__const__config(self, node, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__input__ports(self, node, in_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model19view__output__ports(self, node, out_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__node__values(self, node, node_vals)])]);
 }
@@ -17127,9 +17131,9 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model11view__nodes(self, dispatc
     }
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["overflow: auto", "margin-bottom: 16px", "border-radius: 8px", "border: 1px solid #1b2838", "max-height: 600px", self.dragging_node !== 0 ? "cursor: grabbing" : ""], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: relative", `min-height: ${_M0IP016_24default__implPB4Show10to__stringGiE(ch)}px`, `min-width: ${_M0IP016_24default__implPB4Show10to__stringGiE(cw)}px`, "background: #0a0a1a"], undefined, undefined, undefined, -1, undefined, (_m) => _M0FP319moonbit_2dcommunity7rabbita3cmd4none, (_m) => self.dragging_node !== 0 ? dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg7EndDrag__) : self.connecting_from_node !== 0 ? dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg13CancelConnect__) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none, undefined, undefined, undefined, _M0MP319moonbit_2dcommunity7rabbita4html5Attrs13on__mousemove(_M0MP319moonbit_2dcommunity7rabbita4html5Attrs5build(), (ev) => {
-    const mx = _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__offset__xGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(ev);
-    const my = _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__offset__yGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(ev);
-    return self.dragging_node !== 0 ? dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg4Drag(mx, my)) : self.connecting_from_node !== 0 ? dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg8WireMove(mx, my)) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
+    const cx = _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__client__xGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(ev);
+    const cy = _M0IP016_24default__implP319moonbit_2dcommunity7rabbita3dom12IsMouseEvent14get__client__yGRP319moonbit_2dcommunity7rabbita3dom10MouseEventE(ev);
+    return self.dragging_node !== 0 ? dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg4Drag(cx, cy)) : self.connecting_from_node !== 0 ? dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg8WireMove(cx, cy)) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
   }), children)]);
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model21view__connect__banner(self, dispatch) {
@@ -17363,8 +17367,8 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
               let to_node;
               let to_port;
               _L$7: {
-                let mx;
-                let my;
+                let client_x;
+                let client_y;
                 _L$8: {
                   let node_id;
                   let port;
@@ -17374,12 +17378,12 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                       let node_id$2;
                       let current;
                       _L$11: {
-                        let mx$2;
-                        let my$2;
+                        let client_x$2;
+                        let client_y$2;
                         _L$12: {
-                          let mx$3;
+                          let client_x$3;
                           let node_id$3;
-                          let my$3;
+                          let client_y$3;
                           _L$13: {
                             let id$3;
                             _L$14: {
@@ -17415,10 +17419,10 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                           _L$29: {
                                                             switch (msg.$tag) {
                                                               case 0: {
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, true, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, true, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) };
                                                               }
                                                               case 1: {
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(0, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, 0, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(0, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, 0, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) };
                                                               }
                                                               case 2: {
                                                                 const _GoToEditor = msg;
@@ -17449,7 +17453,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                               }
                                                               case 5: {
                                                                 if (!_M0FP38bobzhang9nodegraph6shared21validate__graph__name(self.new_graph_name)) {
-                                                                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, "Name required"), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, "Name required"), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                                 }
                                                                 const _tmp = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared11api__graphs);
                                                                 const _bind = [{ _0: "name", _1: _M0IPC16string6StringPB6ToJson8to__json(self.new_graph_name) }];
@@ -17470,7 +17474,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                                   }
                                                                   return new _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10SavedGraphsE3Err("decode error");
                                                                 }));
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, ""), _1: cmd };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, ""), _1: cmd };
                                                               }
                                                               case 6: {
                                                                 const _GraphCreated = msg;
@@ -17521,7 +17525,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                                 }
                                                               }
                                                               case 10: {
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, !self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, !self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                               }
                                                               case 11: {
                                                                 const _SetPaletteCat = msg;
@@ -17571,24 +17575,24 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                               case 21: {
                                                                 const _StartDrag = msg;
                                                                 const _node_id = _StartDrag._0;
-                                                                const _mx = _StartDrag._1;
-                                                                const _my = _StartDrag._2;
-                                                                mx$3 = _mx;
+                                                                const _client_x = _StartDrag._1;
+                                                                const _client_y = _StartDrag._2;
+                                                                client_x$3 = _client_x;
                                                                 node_id$3 = _node_id;
-                                                                my$3 = _my;
+                                                                client_y$3 = _client_y;
                                                                 break _L$13;
                                                               }
                                                               case 22: {
                                                                 const _Drag = msg;
-                                                                const _mx$2 = _Drag._0;
-                                                                const _my$2 = _Drag._1;
-                                                                mx$2 = _mx$2;
-                                                                my$2 = _my$2;
+                                                                const _client_x$2 = _Drag._0;
+                                                                const _client_y$2 = _Drag._1;
+                                                                client_x$2 = _client_x$2;
+                                                                client_y$2 = _client_y$2;
                                                                 break _L$12;
                                                               }
                                                               case 23: {
                                                                 if (self.dragging_node === 0) {
-                                                                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, 0, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, 0, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                                 }
                                                                 const node_id$4 = self.dragging_node;
                                                                 const nx = new _M0TPB8MutLocalGiE(0);
@@ -17614,7 +17618,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                                 const _bind$4 = [{ _0: "config", _1: _M0IPC16string6StringPB6ToJson8to__json("") }, { _0: "label", _1: _M0IPC16string6StringPB6ToJson8to__json("") }, { _0: "x", _1: _M0IPC13int3IntPB6ToJson8to__json(nx.val) }, { _0: "y", _1: _M0IPC13int3IntPB6ToJson8to__json(ny.val) }];
                                                                 const cmd$2 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp$3, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$4, 0, 4)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB4JsonE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg17NodePositionSaved(_M0MPC16result6Result3mapGRPB4JsonsuE(r, (_j) => {
                                                                 }))), (json) => new _M0DTPC16result6ResultGRPB4JsonsE2Ok(json)));
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, 0, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: cmd$2 };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, 0, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: cmd$2 };
                                                               }
                                                               case 24: {
                                                                 return { _0: self, _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
@@ -17634,7 +17638,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                                 break _L$10;
                                                               }
                                                               case 19: {
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, 0, "", self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, 0, "", self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                               }
                                                               case 18: {
                                                                 if (self.editing_node === 0) {
@@ -17653,7 +17657,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                                     return n;
                                                                   }
                                                                 });
-                                                                const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, 0, "", self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
+                                                                const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, 0, "", self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
                                                                 return { _0: m, _1: _M0FP319moonbit_2dcommunity7rabbita3cmd5batch([cmd$3, _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m, dispatch)]) };
                                                               }
                                                               case 20: {
@@ -17669,14 +17673,14 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                               }
                                                               case 26: {
                                                                 const _WireMove = msg;
-                                                                const _mx$3 = _WireMove._0;
-                                                                const _my$3 = _WireMove._1;
-                                                                mx = _mx$3;
-                                                                my = _my$3;
+                                                                const _client_x$3 = _WireMove._0;
+                                                                const _client_y$3 = _WireMove._1;
+                                                                client_x = _client_x$3;
+                                                                client_y = _client_y$3;
                                                                 break _L$8;
                                                               }
                                                               case 28: {
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, 0, 0, 0, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, 0, 0, 0, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                               }
                                                               case 27: {
                                                                 const _CompleteConnect = msg;
@@ -17738,40 +17742,40 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                                 }
                                                               }
                                                               case 34: {
-                                                                const m$2 = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, !self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
+                                                                const m$2 = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, !self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
                                                                 return { _0: m$2, _1: m$2.auto_eval ? _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m$2, dispatch) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                               }
                                                               default: {
-                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, ""), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, ""), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                               }
                                                             }
                                                           }
-                                                          return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(1, self.graphs, id$7, self.nodes, self.connections, undefined, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, true, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app12fetch__graph(dispatch, id$7) };
+                                                          return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(1, self.graphs, id$7, self.nodes, self.connections, undefined, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, true, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app12fetch__graph(dispatch, id$7) };
                                                         }
-                                                        return self.first_load && graphs.length > 0 ? { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(1, graphs, _M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared10SavedGraphE(graphs, 0).id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, false, true, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app12fetch__graph(dispatch, _M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared10SavedGraphE(graphs, 0).id) } : { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, false, false, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                        return self.first_load && graphs.length > 0 ? { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(1, graphs, _M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared10SavedGraphE(graphs, 0).id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, false, true, self.error), _1: _M0FP48bobzhang9nodegraph8frontend3app12fetch__graph(dispatch, _M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared10SavedGraphE(graphs, 0).id) } : { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, false, false, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                       }
-                                                      return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, false, e$6), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                      return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, false, e$6), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                     }
-                                                    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, v$2, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, v$2, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                   }
                                                   const graphs = _M0MPC15array5Array4copyGRP38bobzhang9nodegraph6shared10ConnectionE(self.graphs);
                                                   _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(graphs, g);
-                                                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, "", self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, "", self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                 }
-                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$5), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$5), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                               }
                                               const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared10api__graph(id$6)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12GraphDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$6)))));
                                               return { _0: self, _1: cmd };
                                             }
                                             const graphs = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared10SavedGraphE(self.graphs, (g) => g.id !== id$5);
-                                            return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                            return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                           }
-                                          const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, graph.nodes, graph.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, false, self.error);
+                                          const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, graph.nodes, graph.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, false, self.error);
                                           return { _0: m, _1: _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m, dispatch) };
                                         }
-                                        return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, false, e$4), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                        return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, false, e$4), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                       }
-                                      return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, c$2, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                      return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, c$2, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                     }
                                     const label = _M0FP38bobzhang9nodegraph6shared11node__label(kind);
                                     let config;
@@ -17815,21 +17819,21 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                       }
                                       return new _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared4NodesE3Err("decode error");
                                     }));
-                                    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, false, self.palette_cat, self.first_load, self.loading, ""), _1: cmd };
+                                    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, false, self.palette_cat, self.first_load, self.loading, ""), _1: cmd };
                                   }
                                   const nodes = _M0MPC15array5Array4copyGRP38bobzhang9nodegraph6shared10ConnectionE(self.nodes);
                                   _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(nodes, node);
-                                  const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
+                                  const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
                                   return { _0: m, _1: _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m, dispatch) };
                                 }
-                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$3), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$3), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                               }
                               const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared16api__graph__node(self.current_graph_id, id$4)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg11NodeDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$4)))));
                               return { _0: self, _1: cmd };
                             }
                             const nodes = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared4NodeE(self.nodes, (n) => n.id !== id$3);
                             const connections = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared10ConnectionE(self.connections, (c$2) => c$2.from_node_id !== id$3 && c$2.to_node_id !== id$3);
-                            const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
+                            const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
                             return { _0: m, _1: _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m, dispatch) };
                           }
                           const nx = new _M0TPB8MutLocalGiE(0);
@@ -17851,23 +17855,74 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                               break;
                             }
                           }
-                          return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, node_id$3, mx$3 - nx.val | 0, my$3 - ny.val | 0, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                          return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, node_id$3, client_x$3 - nx.val | 0, client_y$3 - ny.val | 0, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                         }
                         if (self.dragging_node === 0) {
                           return { _0: self, _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                         }
-                        const new_x = mx$2 - self.drag_offset_x | 0;
-                        const new_y = my$2 - self.drag_offset_y | 0;
+                        const new_x = client_x$2 - self.drag_offset_x | 0;
+                        const new_y = client_y$2 - self.drag_offset_y | 0;
                         const nodes = _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared4NodeRP38bobzhang9nodegraph6shared4NodeE(self.nodes, (n) => n.id === self.dragging_node ? new _M0TP38bobzhang9nodegraph6shared4Node(n.id, n.kind, new_x, new_y, n.label, n.config) : n);
-                        return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                        return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                       }
-                      return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, node_id$2, current, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                      return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, node_id$2, current, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                     }
-                    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, v, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, v, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                   }
-                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, node_id, port, 0, 0, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, node_id, port, 0, 0, 0, 0, 0, 0, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                 }
-                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, mx, my, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                if (self.wire_start_cx === 0 && self.wire_start_cy === 0) {
+                  const ox = new _M0TPB8MutLocalGiE(0);
+                  const oy = new _M0TPB8MutLocalGiE(0);
+                  const _bind = self.nodes;
+                  const _bind$2 = _bind.length;
+                  let _tmp = 0;
+                  while (true) {
+                    const _ = _tmp;
+                    if (_ < _bind$2) {
+                      const n = _bind[_];
+                      if (n.id === self.connecting_from_node) {
+                        ox.val = n.x + _M0FP48bobzhang9nodegraph8frontend3app7node__w | 0;
+                        const in_count = _M0FP38bobzhang9nodegraph6shared12input__ports(n.kind).length;
+                        const _bind$3 = n.kind;
+                        let has_cfg;
+                        switch (_bind$3) {
+                          case 17: {
+                            has_cfg = true;
+                            break;
+                          }
+                          case 18: {
+                            has_cfg = true;
+                            break;
+                          }
+                          case 19: {
+                            has_cfg = true;
+                            break;
+                          }
+                          case 20: {
+                            has_cfg = true;
+                            break;
+                          }
+                          default: {
+                            has_cfg = false;
+                          }
+                        }
+                        const cfg_h = has_cfg ? 32 : 0;
+                        const ins_h = in_count > 0 ? 16 + (Math.imul(in_count, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0 : 0;
+                        oy.val = (((((n.y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + cfg_h | 0) + ins_h | 0) + 16 | 0) + (Math.imul(self.connecting_from_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 8 | 0;
+                      }
+                      _tmp = _ + 1 | 0;
+                      continue;
+                    } else {
+                      break;
+                    }
+                  }
+                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, ox.val, oy.val, client_x, client_y, ox.val, oy.val, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                } else {
+                  const wx = self.wire_origin_x + (client_x - self.wire_start_cx | 0) | 0;
+                  const wy = self.wire_origin_y + (client_y - self.wire_start_cy | 0) | 0;
+                  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, wx, wy, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                }
               }
               const from_node = self.connecting_from_node;
               const from_port = self.connecting_from_port;
@@ -17885,7 +17940,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                   }
                   break _L$8;
                 }
-                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, 0, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, err), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+                return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, 0, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, err), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
               }
               const _tmp = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared23api__graph__connections(self.current_graph_id));
               const _bind = [{ _0: "from_node_id", _1: _M0IPC13int3IntPB6ToJson8to__json(from_node) }, { _0: "from_port", _1: _M0IPC13int3IntPB6ToJson8to__json(from_port) }, { _0: "to_node_id", _1: _M0IPC13int3IntPB6ToJson8to__json(to_node) }, { _0: "to_port", _1: _M0IPC13int3IntPB6ToJson8to__json(to_port) }];
@@ -17906,31 +17961,31 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                 }
                 return new _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10ConnectionsE3Err("decode error");
               }));
-              return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, 0, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, ""), _1: cmd };
+              return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, 0, 0, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, ""), _1: cmd };
             }
             const connections = _M0MPC15array5Array4copyGRP38bobzhang9nodegraph6shared10ConnectionE(self.connections);
             _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(connections, c);
-            const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
+            const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
             return { _0: m, _1: _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m, dispatch) };
           }
-          return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$2), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+          return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$2), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
         }
         const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared22api__graph__connection(self.current_graph_id, id$2)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg17ConnectionDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$2)))));
         return { _0: self, _1: cmd };
       }
       const connections = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared10ConnectionE(self.connections, (c) => c.id !== id);
-      const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
+      const m = new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error);
       return { _0: m, _1: _M0FP48bobzhang9nodegraph8frontend3app15auto__eval__cmd(m, dispatch) };
     }
-    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+    return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, self.error), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
   }
-  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
+  return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.dragging_node, self.drag_offset_x, self.drag_offset_y, self.connecting_from_node, self.connecting_from_port, self.wire_mouse_x, self.wire_mouse_y, self.wire_start_cx, self.wire_start_cy, self.wire_origin_x, self.wire_origin_y, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
 }
 (() => {
   let dispatch;
   let app_cell;
   _L: {
-    const _bind = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP48bobzhang9nodegraph8frontend3app5ModelRP48bobzhang9nodegraph8frontend3app3MsgE(new _M0TP48bobzhang9nodegraph8frontend3app5Model(0, [], 0, [], [], undefined, true, 0, 0, 0, 0, 0, 0, 0, 0, "", "", false, "", true, false, ""), (dispatch$2, msg, model) => {
+    const _bind = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP48bobzhang9nodegraph8frontend3app5ModelRP48bobzhang9nodegraph8frontend3app3MsgE(new _M0TP48bobzhang9nodegraph8frontend3app5Model(0, [], 0, [], [], undefined, true, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", false, "", true, false, ""), (dispatch$2, msg, model) => {
       let model$2;
       let cmd;
       _L$2: {

@@ -13,7 +13,7 @@ pub(all) struct Model {
   connections : Array[@shared.Connection]
   eval_result : @shared.EvalResult?
   auto_eval : Bool
-  // Node dragging
+  // Node dragging (all coords in client/viewport space)
   dragging_node : Int
   drag_offset_x : Int
   drag_offset_y : Int
@@ -22,6 +22,11 @@ pub(all) struct Model {
   connecting_from_port : Int
   wire_mouse_x : Int
   wire_mouse_y : Int
+  // Client coords at wire start for delta computation
+  wire_start_cx : Int
+  wire_start_cy : Int
+  wire_origin_x : Int
+  wire_origin_y : Int
   // Node config editing
   editing_node : Int
   config_value : String
