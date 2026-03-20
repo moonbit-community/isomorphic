@@ -56,6 +56,11 @@ pub(all) enum Msg {
   DeleteSheet(Int)
   // Cell operations
   ToggleBold
+  ToggleItalic
+  SetAlign(@cell.Align)
+  SetFormat(@cell.NumFormat)
+  SetBgColor(String)
+  SetTextColor(String)
   ClearCell
 }
 
@@ -85,13 +90,19 @@ pub fn Model::new() -> Model {
 ///|
 fn set_cell(sheet : Sheet, key : String, raw : String) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
-  sheet.cells[key] = { raw, value, bold: false }
+  sheet.cells[key] = {
+    raw, value, bold: false, italic: false,
+    align: Auto, format: General, bg_color: "", text_color: "",
+  }
 }
 
 ///|
 fn set_cell_bold(sheet : Sheet, key : String, raw : String) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
-  sheet.cells[key] = { raw, value, bold: true }
+  sheet.cells[key] = {
+    raw, value, bold: true, italic: false,
+    align: Auto, format: General, bg_color: "", text_color: "",
+  }
 }
 
 ///|

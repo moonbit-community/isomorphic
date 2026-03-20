@@ -92,17 +92,15 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       }
       { ..self, sheets, active_sheet: active }
     }
-    ToggleBold => {
-      let key = @cell.make_key(self.sel_col, self.sel_row)
-      let sheet = self.current_sheet()
-      let cell = sheet.get(key)
-      let new_cell = { ..cell, bold: !cell.bold }
-      let new_cells = sheet.cells
-      new_cells[key] = new_cell
-      let sheets = self.sheets.copy()
-      sheets[self.active_sheet] = { ..sheet, cells: new_cells }
-      { ..self, sheets }
-    }
+    ToggleBold => self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } })
+    ToggleItalic =>
+      self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } })
+    SetAlign(a) => self.update_selected_cell(fn(c) { { ..c, align: a } })
+    SetFormat(f) => self.update_selected_cell(fn(c) { { ..c, format: f } })
+    SetBgColor(color) =>
+      self.update_selected_cell(fn(c) { { ..c, bg_color: color } })
+    SetTextColor(color) =>
+      self.update_selected_cell(fn(c) { { ..c, text_color: color } })
     ClearCell => {
       let key = @cell.make_key(self.sel_col, self.sel_row)
       let sheet = self.current_sheet()
@@ -113,6 +111,21 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       { ..self, sheets }
     }
   }
+}
+
+///|
+fn Model::update_selected_cell(
+  self : Model,
+  f : (@cell.Cell) -> @cell.Cell,
+) -> Model {
+  let key = @cell.make_key(self.sel_col, self.sel_row)
+  let sheet = self.current_sheet()
+  let cell = sheet.get(key)
+  let new_cells = sheet.cells
+  new_cells[key] = f(cell)
+  let sheets = self.sheets.copy()
+  sheets[self.active_sheet] = { ..sheet, cells: new_cells }
+  { ..self, sheets }
 }
 
 ///|
