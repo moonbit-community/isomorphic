@@ -294,11 +294,7 @@ fn export_xlsx(model : Model) -> Unit {
     }
     export_sheet_cells(wb, ws, sheet)
   }
-  // Remove the default empty "Sheet1" if it wasn't one of ours
-  let has_sheet1 = model.sheets.iter().any(fn(s) { s.name == "Sheet1" })
-  if !has_sheet1 {
-    try { wb.delete_sheet("Sheet1") } catch { _ => () }
-  }
+  // Workbook::new() creates no default sheets, so no cleanup needed
   // Write to bytes and trigger download
   let bytes = try {
     @xlsx.write(wb)
@@ -403,10 +399,15 @@ fn normalize_formula(formula : String) -> String {
   let chars = formula.to_array()
   let len = chars.length()
   let mut i = 0
+  let mut in_string = false
   while i < len {
-    // Check for "AVG(" — must not be preceded by letter (to avoid matching AVERAGE)
-    if i + 4 <= len && chars[i] == 'A' && chars[i + 1] == 'V' && chars[i + 2] == 'G' &&
-      chars[i + 3] == '(' {
+    // Track string literal state
+    if chars[i] == '"' {
+      in_string = !in_string
+    }
+    // Only replace AVG( outside string literals
+    if !in_string && i + 4 <= len && chars[i] == 'A' && chars[i + 1] == 'V' &&
+      chars[i + 2] == 'G' && chars[i + 3] == '(' {
       let preceded_by_letter = i > 0 && chars[i - 1] >= 'A' && chars[i - 1] <= 'Z'
       if !preceded_by_letter {
         sb.write_string("AVERAGE(")
