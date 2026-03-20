@@ -3,7 +3,8 @@
 /// Reads rows 2-6, columns A (label) and B-E (Q1-Q4 values).
 
 fn Model::view_chart(self : Model) -> @rabbita.Html {
-  let sheet = self.current_sheet()
+  // Always read from Sales Dashboard (sheet 0) regardless of active sheet
+  let sheet = self.sheets[0]
   // Collect product data from rows 2-6
   let products : Array[String] = []
   let q1 : Array[Double] = []
