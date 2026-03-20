@@ -22,8 +22,8 @@ jobs:
 
       - run: moon version --all
 
-      - name: Install dependencies
-        run: moon update && moon install
+      - name: Update registry index
+        run: moon update
 
       - name: Check
         run: moon check
