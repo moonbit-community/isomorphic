@@ -1,8 +1,10 @@
 import {
   "bobzhang/spreadsheet/frontend/cell",
   "bobzhang/spreadsheet/frontend/formula",
+  "bobzhang/mbtexcel/xlsx",
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/js" @js,
   "moonbit-community/rabbita/svg",
 }
 

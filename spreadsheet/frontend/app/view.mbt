@@ -116,6 +116,8 @@ fn Model::view_toolbar(
       // --- Chart toggle ---
       toolbar_button("\u{2584}", self.show_chart, "font-size:14px", dispatch(ToggleChart)),
       view_separator(),
+      // --- Import ---
+      toolbar_button_text("Import", false, dispatch(RequestImport)),
       // --- Clear ---
       toolbar_button_text("Clear", false, dispatch(ClearCell)),
     ],

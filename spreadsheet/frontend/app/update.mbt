@@ -25,7 +25,11 @@ fn recalc(sheet : Sheet) -> Sheet {
 }
 
 ///|
-pub fn Model::update(self : Model, msg : Msg) -> Model {
+pub fn Model::update(
+  self : Model,
+  dispatch : @rabbita.Dispatch[Msg],
+  msg : Msg,
+) -> (@rabbita.Cmd, Model) {
   match msg {
     SelectCell(col, row) => {
       let model = if self.editing {
@@ -33,12 +37,12 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       } else {
         self
       }
-      {
+      (@rabbita.none, {
         ..model,
         sel_col: clamp(col, 0, num_cols - 1),
         sel_row: clamp(row, 0, num_rows - 1),
         editing: false,
-      }
+      })
     }
     MoveSelection(dc, dr) => {
       let model = if self.editing {
@@ -46,38 +50,40 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       } else {
         self
       }
-      {
+      (@rabbita.none, {
         ..model,
         sel_col: clamp(model.sel_col + dc, 0, num_cols - 1),
         sel_row: clamp(model.sel_row + dr, 0, num_rows - 1),
         editing: false,
-      }
+      })
     }
     StartEdit => {
       let cell = self.selected_cell()
-      { ..self, editing: true, edit_value: cell.raw }
+      (@rabbita.none, { ..self, editing: true, edit_value: cell.raw })
     }
-    StartEditWith(ch) => { ..self, editing: true, edit_value: ch }
-    UpdateEdit(v) => { ..self, edit_value: v }
-    CommitEdit => self.commit_edit()
-    CancelEdit => { ..self, editing: false, edit_value: "" }
+    StartEditWith(ch) =>
+      (@rabbita.none, { ..self, editing: true, edit_value: ch })
+    UpdateEdit(v) => (@rabbita.none, { ..self, edit_value: v })
+    CommitEdit => (@rabbita.none, self.commit_edit())
+    CancelEdit =>
+      (@rabbita.none, { ..self, editing: false, edit_value: "" })
     SelectSheet(i) => {
       let model = if self.editing {
         self.commit_edit()
       } else {
         self
       }
-      { ..model, active_sheet: i }
+      (@rabbita.none, { ..model, active_sheet: i })
     }
     AddSheet => {
       let name = "Sheet \{self.sheets.length() + 1}"
       let sheets = self.sheets.copy()
       sheets.push(Sheet::new(name))
-      { ..self, sheets }
+      (@rabbita.none, { ..self, sheets })
     }
     DeleteSheet(i) => {
       if self.sheets.length() <= 1 {
-        return self
+        return (@rabbita.none, self)
       }
       let sheets = []
       for j = 0; j < self.sheets.length(); j = j + 1 {
@@ -90,19 +96,22 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       } else {
         self.active_sheet
       }
-      { ..self, sheets, active_sheet: active }
+      (@rabbita.none, { ..self, sheets, active_sheet: active })
     }
-    ToggleBold => self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } })
+    ToggleBold =>
+      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }))
     ToggleItalic =>
-      self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } })
-    SetAlign(a) => self.update_selected_cell(fn(c) { { ..c, align: a } })
-    SetFormat(f) => self.update_selected_cell(fn(c) { { ..c, format: f } })
+      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }))
+    SetAlign(a) =>
+      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, align: a } }))
+    SetFormat(f) =>
+      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, format: f } }))
     SetBgColor(color) =>
-      self.update_selected_cell(fn(c) { { ..c, bg_color: color } })
+      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, bg_color: color } }))
     SetTextColor(color) =>
-      self.update_selected_cell(fn(c) { { ..c, text_color: color } })
-    ToggleChart => { ..self, show_chart: !self.show_chart }
-    ToggleHeatMap => { ..self, heat_map: !self.heat_map }
+      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, text_color: color } }))
+    ToggleChart => (@rabbita.none, { ..self, show_chart: !self.show_chart })
+    ToggleHeatMap => (@rabbita.none, { ..self, heat_map: !self.heat_map })
     ClearCell => {
       let key = @cell.make_key(self.sel_col, self.sel_row)
       let sheet = self.current_sheet()
@@ -110,8 +119,10 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       new_cells[key] = @cell.Cell::empty()
       let sheets = self.sheets.copy()
       sheets[self.active_sheet] = recalc({ ..sheet, cells: new_cells })
-      { ..self, sheets }
+      (@rabbita.none, { ..self, sheets })
     }
+    RequestImport => (import_xlsx_cmd(dispatch), self)
+    ImportExcel(bytes) => (@rabbita.none, load_xlsx(self, bytes))
   }
 }
 
