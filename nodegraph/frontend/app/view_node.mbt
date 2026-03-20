@@ -9,14 +9,95 @@ fn Model::view_nodes(
       "No nodes yet. Open the palette to add some!",
     )
   }
+  let layout = compute_layout(self.nodes, self.connections)
+  let (cw, ch) = canvas_size(layout)
+  // Build node cards with absolute positions
   let cards : Array[@rabbita.Html] = self.nodes.map(fn(n) {
-    self.view_single_node(n, dispatch)
+    let (x, y) = get_pos(layout, n.id)
+    @html.div(
+      style=[
+        "position: absolute",
+        "left: \{x}px",
+        "top: \{y}px",
+        "width: \{node_w}px",
+      ],
+      [self.view_single_node(n, dispatch)],
+    )
   })
+  // Build SVG wires
+  let wires = self.view_svg_wires(layout, cw, ch)
+  // Canvas container
+  let children : Array[@rabbita.Html] = [wires]
+  for card in cards {
+    children.push(card)
+  }
   @html.div(
     style=[
-      "display: flex", "flex-wrap: wrap", "gap: 12px", "margin-bottom: 16px",
+      "position: relative",
+      "min-height: \{ch}px",
+      "min-width: \{cw}px",
+      "margin-bottom: 16px",
+      "background: #0a0a1a",
+      "border-radius: 8px",
+      "border: 1px solid #1b2838",
+      "overflow: auto",
     ],
-    cards,
+    children,
+  )
+}
+
+///|
+fn Model::view_svg_wires(
+  self : Model,
+  layout : Array[(Int, Int, Int)],
+  w : Int,
+  h : Int,
+) -> @rabbita.Html {
+  let paths : Array[@svg.Svg] = []
+  for c in self.connections {
+    // Compute start/end positions
+    let (from_x, from_y) = get_pos(layout, c.from_node_id)
+    let (to_x, to_y) = get_pos(layout, c.to_node_id)
+    // Output port: right side of source node
+    let x1 = from_x + node_w
+    let y1 = from_y + header_h + c.from_port * port_stride + 14
+    // Input port: left side of target node
+    let x2 = to_x
+    let y2 = to_y + header_h + c.to_port * port_stride + 14
+    // Determine color from output port type
+    let mut color = "#888"
+    for n in self.nodes {
+      if n.id == c.from_node_id {
+        let ports = @shared.output_ports(n.kind)
+        if c.from_port < ports.length() {
+          color = @shared.port_type_color(ports[c.from_port].port_type)
+        }
+      }
+    }
+    // Bezier control offset
+    let dx = if (x2 - x1).abs() < 100 { 60 } else { (x2 - x1).abs() / 2 }
+    let path_d = "M \{x1} \{y1} C \{x1 + dx} \{y1}, \{x2 - dx} \{y2}, \{x2} \{y2}"
+    // Shadow path
+    paths.push(
+      @svg.path(d=path_d, fill="none", stroke="\{color}30", stroke_width=6),
+    )
+    // Main path with animated dash
+    paths.push(
+      @svg.path(
+        d=path_d,
+        fill="none",
+        stroke=color,
+        stroke_width=2,
+        attrs=@svg.Attrs::build().stroke_dasharray("6 4"),
+        style=["animation: flowDash 1s linear infinite"],
+      ),
+    )
+  }
+  @svg.svg(
+    width=w,
+    height=h,
+    style=["position: absolute", "top: 0", "left: 0", "pointer-events: none"],
+    paths,
   )
 }
 

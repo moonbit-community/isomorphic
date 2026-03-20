@@ -1532,68 +1532,68 @@ const _M0FPC17strconv17parse__scientificN8exp__numS244 = $0L;
 const _M0FPC17strconv13parse__numberN11exp__numberS225 = $0L;
 const _M0FPC17strconv12double__info = new _M0TPC17strconv9FloatInfo(52, 11, -1023);
 const _M0FPC17strconv6powtab = [1, 3, 6, 9, 13, 16, 19, 23, 26, 29, 33, 36, 39, 43, 46, 49, 53, 56, 59];
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2009 = { _0: 0, _1: "" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2010 = { _0: 1, _1: "5" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2011 = { _0: 1, _1: "25" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2012 = { _0: 1, _1: "125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2013 = { _0: 2, _1: "625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2014 = { _0: 2, _1: "3125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2015 = { _0: 2, _1: "15625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2016 = { _0: 3, _1: "78125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2017 = { _0: 3, _1: "390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2018 = { _0: 3, _1: "1953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2019 = { _0: 4, _1: "9765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2020 = { _0: 4, _1: "48828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2021 = { _0: 4, _1: "244140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2022 = { _0: 4, _1: "1220703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2023 = { _0: 5, _1: "6103515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2024 = { _0: 5, _1: "30517578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2025 = { _0: 5, _1: "152587890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2026 = { _0: 6, _1: "762939453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2027 = { _0: 6, _1: "3814697265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2028 = { _0: 6, _1: "19073486328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2029 = { _0: 7, _1: "95367431640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2030 = { _0: 7, _1: "476837158203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2031 = { _0: 7, _1: "2384185791015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2032 = { _0: 7, _1: "11920928955078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2033 = { _0: 8, _1: "59604644775390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2034 = { _0: 8, _1: "298023223876953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2035 = { _0: 8, _1: "1490116119384765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2036 = { _0: 9, _1: "7450580596923828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2037 = { _0: 9, _1: "37252902984619140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2038 = { _0: 9, _1: "186264514923095703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2039 = { _0: 10, _1: "931322574615478515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2040 = { _0: 10, _1: "4656612873077392578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2041 = { _0: 10, _1: "23283064365386962890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2042 = { _0: 10, _1: "116415321826934814453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2043 = { _0: 11, _1: "582076609134674072265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2044 = { _0: 11, _1: "2910383045673370361328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2045 = { _0: 11, _1: "14551915228366851806640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2046 = { _0: 12, _1: "72759576141834259033203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2047 = { _0: 12, _1: "363797880709171295166015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2048 = { _0: 12, _1: "1818989403545856475830078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2049 = { _0: 13, _1: "9094947017729282379150390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2050 = { _0: 13, _1: "45474735088646411895751953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2051 = { _0: 13, _1: "227373675443232059478759765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2052 = { _0: 13, _1: "1136868377216160297393798828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2053 = { _0: 14, _1: "5684341886080801486968994140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2054 = { _0: 14, _1: "28421709430404007434844970703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2055 = { _0: 14, _1: "142108547152020037174224853515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2056 = { _0: 15, _1: "710542735760100185871124267578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2057 = { _0: 15, _1: "3552713678800500929355621337890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2058 = { _0: 15, _1: "17763568394002504646778106689453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2059 = { _0: 16, _1: "88817841970012523233890533447265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2060 = { _0: 16, _1: "444089209850062616169452667236328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2061 = { _0: 16, _1: "2220446049250313080847263336181640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2062 = { _0: 16, _1: "11102230246251565404236316680908203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2063 = { _0: 17, _1: "55511151231257827021181583404541015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2064 = { _0: 17, _1: "277555756156289135105907917022705078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2065 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2066 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2067 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2068 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f2069 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
-const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f2009, _M0FPC17strconv34left__shift__cheats_2etuple_2f2010, _M0FPC17strconv34left__shift__cheats_2etuple_2f2011, _M0FPC17strconv34left__shift__cheats_2etuple_2f2012, _M0FPC17strconv34left__shift__cheats_2etuple_2f2013, _M0FPC17strconv34left__shift__cheats_2etuple_2f2014, _M0FPC17strconv34left__shift__cheats_2etuple_2f2015, _M0FPC17strconv34left__shift__cheats_2etuple_2f2016, _M0FPC17strconv34left__shift__cheats_2etuple_2f2017, _M0FPC17strconv34left__shift__cheats_2etuple_2f2018, _M0FPC17strconv34left__shift__cheats_2etuple_2f2019, _M0FPC17strconv34left__shift__cheats_2etuple_2f2020, _M0FPC17strconv34left__shift__cheats_2etuple_2f2021, _M0FPC17strconv34left__shift__cheats_2etuple_2f2022, _M0FPC17strconv34left__shift__cheats_2etuple_2f2023, _M0FPC17strconv34left__shift__cheats_2etuple_2f2024, _M0FPC17strconv34left__shift__cheats_2etuple_2f2025, _M0FPC17strconv34left__shift__cheats_2etuple_2f2026, _M0FPC17strconv34left__shift__cheats_2etuple_2f2027, _M0FPC17strconv34left__shift__cheats_2etuple_2f2028, _M0FPC17strconv34left__shift__cheats_2etuple_2f2029, _M0FPC17strconv34left__shift__cheats_2etuple_2f2030, _M0FPC17strconv34left__shift__cheats_2etuple_2f2031, _M0FPC17strconv34left__shift__cheats_2etuple_2f2032, _M0FPC17strconv34left__shift__cheats_2etuple_2f2033, _M0FPC17strconv34left__shift__cheats_2etuple_2f2034, _M0FPC17strconv34left__shift__cheats_2etuple_2f2035, _M0FPC17strconv34left__shift__cheats_2etuple_2f2036, _M0FPC17strconv34left__shift__cheats_2etuple_2f2037, _M0FPC17strconv34left__shift__cheats_2etuple_2f2038, _M0FPC17strconv34left__shift__cheats_2etuple_2f2039, _M0FPC17strconv34left__shift__cheats_2etuple_2f2040, _M0FPC17strconv34left__shift__cheats_2etuple_2f2041, _M0FPC17strconv34left__shift__cheats_2etuple_2f2042, _M0FPC17strconv34left__shift__cheats_2etuple_2f2043, _M0FPC17strconv34left__shift__cheats_2etuple_2f2044, _M0FPC17strconv34left__shift__cheats_2etuple_2f2045, _M0FPC17strconv34left__shift__cheats_2etuple_2f2046, _M0FPC17strconv34left__shift__cheats_2etuple_2f2047, _M0FPC17strconv34left__shift__cheats_2etuple_2f2048, _M0FPC17strconv34left__shift__cheats_2etuple_2f2049, _M0FPC17strconv34left__shift__cheats_2etuple_2f2050, _M0FPC17strconv34left__shift__cheats_2etuple_2f2051, _M0FPC17strconv34left__shift__cheats_2etuple_2f2052, _M0FPC17strconv34left__shift__cheats_2etuple_2f2053, _M0FPC17strconv34left__shift__cheats_2etuple_2f2054, _M0FPC17strconv34left__shift__cheats_2etuple_2f2055, _M0FPC17strconv34left__shift__cheats_2etuple_2f2056, _M0FPC17strconv34left__shift__cheats_2etuple_2f2057, _M0FPC17strconv34left__shift__cheats_2etuple_2f2058, _M0FPC17strconv34left__shift__cheats_2etuple_2f2059, _M0FPC17strconv34left__shift__cheats_2etuple_2f2060, _M0FPC17strconv34left__shift__cheats_2etuple_2f2061, _M0FPC17strconv34left__shift__cheats_2etuple_2f2062, _M0FPC17strconv34left__shift__cheats_2etuple_2f2063, _M0FPC17strconv34left__shift__cheats_2etuple_2f2064, _M0FPC17strconv34left__shift__cheats_2etuple_2f2065, _M0FPC17strconv34left__shift__cheats_2etuple_2f2066, _M0FPC17strconv34left__shift__cheats_2etuple_2f2067, _M0FPC17strconv34left__shift__cheats_2etuple_2f2068, _M0FPC17strconv34left__shift__cheats_2etuple_2f2069];
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2044 = { _0: 0, _1: "" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2045 = { _0: 1, _1: "5" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2046 = { _0: 1, _1: "25" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2047 = { _0: 1, _1: "125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2048 = { _0: 2, _1: "625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2049 = { _0: 2, _1: "3125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2050 = { _0: 2, _1: "15625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2051 = { _0: 3, _1: "78125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2052 = { _0: 3, _1: "390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2053 = { _0: 3, _1: "1953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2054 = { _0: 4, _1: "9765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2055 = { _0: 4, _1: "48828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2056 = { _0: 4, _1: "244140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2057 = { _0: 4, _1: "1220703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2058 = { _0: 5, _1: "6103515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2059 = { _0: 5, _1: "30517578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2060 = { _0: 5, _1: "152587890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2061 = { _0: 6, _1: "762939453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2062 = { _0: 6, _1: "3814697265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2063 = { _0: 6, _1: "19073486328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2064 = { _0: 7, _1: "95367431640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2065 = { _0: 7, _1: "476837158203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2066 = { _0: 7, _1: "2384185791015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2067 = { _0: 7, _1: "11920928955078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2068 = { _0: 8, _1: "59604644775390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2069 = { _0: 8, _1: "298023223876953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2070 = { _0: 8, _1: "1490116119384765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2071 = { _0: 9, _1: "7450580596923828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2072 = { _0: 9, _1: "37252902984619140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2073 = { _0: 9, _1: "186264514923095703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2074 = { _0: 10, _1: "931322574615478515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2075 = { _0: 10, _1: "4656612873077392578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2076 = { _0: 10, _1: "23283064365386962890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2077 = { _0: 10, _1: "116415321826934814453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2078 = { _0: 11, _1: "582076609134674072265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2079 = { _0: 11, _1: "2910383045673370361328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2080 = { _0: 11, _1: "14551915228366851806640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2081 = { _0: 12, _1: "72759576141834259033203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2082 = { _0: 12, _1: "363797880709171295166015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2083 = { _0: 12, _1: "1818989403545856475830078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2084 = { _0: 13, _1: "9094947017729282379150390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2085 = { _0: 13, _1: "45474735088646411895751953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2086 = { _0: 13, _1: "227373675443232059478759765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2087 = { _0: 13, _1: "1136868377216160297393798828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2088 = { _0: 14, _1: "5684341886080801486968994140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2089 = { _0: 14, _1: "28421709430404007434844970703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2090 = { _0: 14, _1: "142108547152020037174224853515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2091 = { _0: 15, _1: "710542735760100185871124267578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2092 = { _0: 15, _1: "3552713678800500929355621337890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2093 = { _0: 15, _1: "17763568394002504646778106689453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2094 = { _0: 16, _1: "88817841970012523233890533447265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2095 = { _0: 16, _1: "444089209850062616169452667236328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2096 = { _0: 16, _1: "2220446049250313080847263336181640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2097 = { _0: 16, _1: "11102230246251565404236316680908203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2098 = { _0: 17, _1: "55511151231257827021181583404541015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2099 = { _0: 17, _1: "277555756156289135105907917022705078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2100 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2101 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2102 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2103 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f2104 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
+const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f2044, _M0FPC17strconv34left__shift__cheats_2etuple_2f2045, _M0FPC17strconv34left__shift__cheats_2etuple_2f2046, _M0FPC17strconv34left__shift__cheats_2etuple_2f2047, _M0FPC17strconv34left__shift__cheats_2etuple_2f2048, _M0FPC17strconv34left__shift__cheats_2etuple_2f2049, _M0FPC17strconv34left__shift__cheats_2etuple_2f2050, _M0FPC17strconv34left__shift__cheats_2etuple_2f2051, _M0FPC17strconv34left__shift__cheats_2etuple_2f2052, _M0FPC17strconv34left__shift__cheats_2etuple_2f2053, _M0FPC17strconv34left__shift__cheats_2etuple_2f2054, _M0FPC17strconv34left__shift__cheats_2etuple_2f2055, _M0FPC17strconv34left__shift__cheats_2etuple_2f2056, _M0FPC17strconv34left__shift__cheats_2etuple_2f2057, _M0FPC17strconv34left__shift__cheats_2etuple_2f2058, _M0FPC17strconv34left__shift__cheats_2etuple_2f2059, _M0FPC17strconv34left__shift__cheats_2etuple_2f2060, _M0FPC17strconv34left__shift__cheats_2etuple_2f2061, _M0FPC17strconv34left__shift__cheats_2etuple_2f2062, _M0FPC17strconv34left__shift__cheats_2etuple_2f2063, _M0FPC17strconv34left__shift__cheats_2etuple_2f2064, _M0FPC17strconv34left__shift__cheats_2etuple_2f2065, _M0FPC17strconv34left__shift__cheats_2etuple_2f2066, _M0FPC17strconv34left__shift__cheats_2etuple_2f2067, _M0FPC17strconv34left__shift__cheats_2etuple_2f2068, _M0FPC17strconv34left__shift__cheats_2etuple_2f2069, _M0FPC17strconv34left__shift__cheats_2etuple_2f2070, _M0FPC17strconv34left__shift__cheats_2etuple_2f2071, _M0FPC17strconv34left__shift__cheats_2etuple_2f2072, _M0FPC17strconv34left__shift__cheats_2etuple_2f2073, _M0FPC17strconv34left__shift__cheats_2etuple_2f2074, _M0FPC17strconv34left__shift__cheats_2etuple_2f2075, _M0FPC17strconv34left__shift__cheats_2etuple_2f2076, _M0FPC17strconv34left__shift__cheats_2etuple_2f2077, _M0FPC17strconv34left__shift__cheats_2etuple_2f2078, _M0FPC17strconv34left__shift__cheats_2etuple_2f2079, _M0FPC17strconv34left__shift__cheats_2etuple_2f2080, _M0FPC17strconv34left__shift__cheats_2etuple_2f2081, _M0FPC17strconv34left__shift__cheats_2etuple_2f2082, _M0FPC17strconv34left__shift__cheats_2etuple_2f2083, _M0FPC17strconv34left__shift__cheats_2etuple_2f2084, _M0FPC17strconv34left__shift__cheats_2etuple_2f2085, _M0FPC17strconv34left__shift__cheats_2etuple_2f2086, _M0FPC17strconv34left__shift__cheats_2etuple_2f2087, _M0FPC17strconv34left__shift__cheats_2etuple_2f2088, _M0FPC17strconv34left__shift__cheats_2etuple_2f2089, _M0FPC17strconv34left__shift__cheats_2etuple_2f2090, _M0FPC17strconv34left__shift__cheats_2etuple_2f2091, _M0FPC17strconv34left__shift__cheats_2etuple_2f2092, _M0FPC17strconv34left__shift__cheats_2etuple_2f2093, _M0FPC17strconv34left__shift__cheats_2etuple_2f2094, _M0FPC17strconv34left__shift__cheats_2etuple_2f2095, _M0FPC17strconv34left__shift__cheats_2etuple_2f2096, _M0FPC17strconv34left__shift__cheats_2etuple_2f2097, _M0FPC17strconv34left__shift__cheats_2etuple_2f2098, _M0FPC17strconv34left__shift__cheats_2etuple_2f2099, _M0FPC17strconv34left__shift__cheats_2etuple_2f2100, _M0FPC17strconv34left__shift__cheats_2etuple_2f2101, _M0FPC17strconv34left__shift__cheats_2etuple_2f2102, _M0FPC17strconv34left__shift__cheats_2etuple_2f2103, _M0FPC17strconv34left__shift__cheats_2etuple_2f2104];
 const _M0FPC17strconv10int__pow10 = [$1L, $10L, $100L, $1000L, $10000L, $100000L, $1000000L, $10000000L, $100000000L, $1000000000L, $10000000000L, $100000000000L, $1000000000000L, $10000000000000L, $100000000000000L, $1000000000000000L];
 const _M0FPC17strconv25max__exponent__fast__path = $22L;
 const _M0FPC17strconv5table = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1e+12, 1e+13, 1e+14, 1e+15, 1e+16, 1e+17, 1e+18, 1e+19, 1e+20, 1e+21, 1e+22, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1604,7 +1604,15 @@ const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1060 = "e";
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1061 = "E";
 const _M0FP38bobzhang9nodegraph6shared11api__graphs = "/api/graphs";
 const _M0FP38bobzhang9nodegraph6shared10all__kinds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+const _M0FP319moonbit_2dcommunity7rabbita3dom14namespace__svg = "http://www.w3.org/2000/svg";
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none = _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Empty__;
+const _M0FP48bobzhang9nodegraph8frontend3app15node__stride__y = 210;
+const _M0FP48bobzhang9nodegraph8frontend3app7node__w = 220;
+const _M0FP48bobzhang9nodegraph8frontend3app6pad__x = 20;
+const _M0FP48bobzhang9nodegraph8frontend3app15node__stride__x = 280;
+const _M0FP48bobzhang9nodegraph8frontend3app6pad__y = 20;
+const _M0FP48bobzhang9nodegraph8frontend3app9header__h = 35;
+const _M0FP48bobzhang9nodegraph8frontend3app12port__stride = 28;
 const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FPC16double13neg__infinity = _M0MPC15int645Int6423reinterpret__as__double($_4503599627370496L);
 const _M0FPC16double8infinity = _M0MPC15int645Int6423reinterpret__as__double($9218868437227405312L);
@@ -1612,7 +1620,7 @@ const _M0FPB33brute__force__find_2econstr_2f385 = 0;
 const _M0FPB43boyer__moore__horspool__find_2econstr_2f371 = 0;
 const _M0FPC16double14not__a__number = _M0MPC15int645Int6423reinterpret__as__double($9221120237041090561L);
 const _M0FPC17strconv25max__mantissa__fast__path = _M0IPC16uint646UInt64PB3Shl3shl($2L, 52);
-const _M0FPC17strconv28checked__mul_2econstr_2f2495 = $0L;
+const _M0FPC17strconv28checked__mul_2econstr_2f2530 = $0L;
 const _M0FP319moonbit_2dcommunity7rabbita3cmd4none = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none;
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime17global__id__count = _M0FPC13ref3newGiE(0);
 function _M0FPC15abort5abortGuE(msg) {
@@ -2993,6 +3001,32 @@ function _M0MPC16option6Option3mapGRPC16string10StringViewsE(self, f) {
     const _Some = self;
     const _t = _Some;
     return f(_t);
+  }
+}
+function _M0MPC15array5Array4makeGiE(len, elem) {
+  const arr = new Array(len);
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < len) {
+      arr[i] = elem;
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}
+function _M0MPC15array5Array3setGiE(self, index, value) {
+  const len = self.length;
+  if (index >= 0 && index < len) {
+    $bound_check(self, index);
+    self[index] = value;
+    return;
+  } else {
+    $panic();
+    return;
   }
 }
 function _M0FPB21calc__grow__threshold(capacity) {
@@ -4986,7 +5020,41 @@ function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita4html4HtmlRP419
   }
   return arr;
 }
+function _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared4NodeiE(self, f) {
+  const arr = new Array(self.length);
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const v = self[i];
+      arr[i] = f(v);
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}
 function _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared5ValueRP319moonbit_2dcommunity7rabbita4html4HtmlE(self, f) {
+  const arr = new Array(self.length);
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const v = self[i];
+      arr[i] = f(v);
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}
+function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita3svg3SvgRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE(self, f) {
   const arr = new Array(self.length);
   const _bind = self.length;
   let _tmp = 0;
@@ -5270,6 +5338,9 @@ function _M0IPC16uint646UInt64PB3Shr3shr(self, shift) {
 function _M0MPC16uint646UInt643clz(self) {
   return _M0MPB7MyInt643clz(self);
 }
+function _M0MPC13int3Int3abs(self) {
+  return self < 0 ? -self | 0 : self;
+}
 function _M0MPB6Hasher15combine__string(self, value) {
   const _bind = value.length;
   let _tmp = 0;
@@ -5495,6 +5566,15 @@ function _M0MPC15array5Array4copyGRP38bobzhang9nodegraph6shared10ConnectionE(sel
   return _M0MPB7JSArray4copy(self);
 }
 function _M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared7PortDefE(self, index) {
+  const len = self.length;
+  if (index >= 0 && index < len) {
+    $bound_check(self, index);
+    return self[index];
+  } else {
+    return $panic();
+  }
+}
+function _M0MPC15array5Array2atGiE(self, index) {
   const len = self.length;
   if (index >= 0 && index < len) {
     $bound_check(self, index);
@@ -8100,7 +8180,7 @@ function _M0MPC17strconv7Decimal16to__double__priv(self) {
 }
 function _M0FPC17strconv12checked__mul(a, b) {
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $0L) || _M0IPC16uint646UInt64PB2Eq5equal(b, $0L)) {
-    return _M0FPC17strconv28checked__mul_2econstr_2f2495;
+    return _M0FPC17strconv28checked__mul_2econstr_2f2530;
   }
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $1L)) {
     return b;
@@ -15391,6 +15471,9 @@ function _M0FP319moonbit_2dcommunity7rabbita4html10push__cite(value, attrs) {
   }
   _M0MP319moonbit_2dcommunity7rabbita4html5Attrs9attribute(attrs, "cite", v);
 }
+function _M0MP319moonbit_2dcommunity7rabbita4html4Html11from__vnode(vdom) {
+  return vdom;
+}
 function _M0MP319moonbit_2dcommunity7rabbita4html5Attrs9to__props(self) {
   return self;
 }
@@ -16046,6 +16129,160 @@ function _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(url, expect) {
 function _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(url, body, expect) {
   return _M0FP319moonbit_2dcommunity7rabbita4http7requestGRP38bobzhang9nodegraph6shared10ConnectionE(url, "POST", expect, body);
 }
+function _M0MP319moonbit_2dcommunity7rabbita3svg3Svg8to__html(self) {
+  return _M0MP319moonbit_2dcommunity7rabbita4html4Html11from__vnode(self);
+}
+function _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs9to__props(self) {
+  return self;
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg12node_2einner(tag, attrs, children, ns) {
+  const vnode = _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5VNode4elem(tag, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs9to__props(attrs), new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime8ChildrenGRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE5Array(_M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita3svg3SvgRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE(children, (x) => x)), ns);
+  return vnode;
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg4node(tag, attrs, children, ns$46$opt) {
+  let ns;
+  if (ns$46$opt === undefined) {
+    ns = _M0FP319moonbit_2dcommunity7rabbita3dom14namespace__svg;
+  } else {
+    const _Some = ns$46$opt;
+    ns = _Some;
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita3svg12node_2einner(tag, attrs, children, ns);
+}
+function _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build() {
+  const _bind = [];
+  const _tmp = _M0MPB3Map11from__arrayGssE(new _M0TPB9ArrayViewGUssEE(_bind, 0, 0));
+  const _bind$2 = [];
+  const _tmp$2 = _M0MPB3Map11from__arrayGsRP319moonbit_2dcommunity7rabbita7variant7VariantE(new _M0TPB9ArrayViewGUsRP319moonbit_2dcommunity7rabbita7variant7VariantEE(_bind$2, 0, 0));
+  const _bind$3 = [];
+  const _tmp$3 = _M0MPB3Map11from__arrayGssE(new _M0TPB9ArrayViewGUssEE(_bind$3, 0, 0));
+  const _bind$4 = [];
+  return _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Props3new(_tmp, _tmp$2, _tmp$3, _M0MPB3Map11from__arrayGsWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuE(new _M0TPB9ArrayViewGUsWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuEE(_bind$4, 0, 0)));
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg14resolve__attrs(attrs) {
+  if (attrs === undefined) {
+    return _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build();
+  } else {
+    const _Some = attrs;
+    const _a = _Some;
+    return _a;
+  }
+}
+function _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs9attribute(self, key, value) {
+  _M0MPB3Map3setGssE(self.attrs, key, value);
+  return self;
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string(name, value, attrs) {
+  let v;
+  _L: {
+    if (value === undefined) {
+      return;
+    } else {
+      const _Some = value;
+      const _v = _Some;
+      v = _v;
+      break _L;
+    }
+  }
+  _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs9attribute(attrs, name, v);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg11push__class(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("class", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg15push__attr__int(name, value, attrs) {
+  let v;
+  _L: {
+    if (value === undefined) {
+      return;
+    } else {
+      const _Some = value;
+      const _v = _Some;
+      v = _v;
+      break _L;
+    }
+  }
+  _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs9attribute(attrs, name, _M0MPC13int3Int18to__string_2einner(v, 10));
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg12push__height(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg15push__attr__int("height", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg8push__id(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("id", value, attrs);
+}
+function _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs11style__attr(self, value) {
+  _M0MPB3Map3setGssE(self.attrs, "style", value);
+  return self;
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg11push__style(value, attrs) {
+  let v;
+  _L: {
+    if (value.$tag === 1) {
+      const _Some = value;
+      const _v = _Some._0;
+      v = _v;
+      break _L;
+    } else {
+      return;
+    }
+  }
+  const _bind = ";";
+  _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs11style__attr(attrs, _M0MPC15array5Array4joinGsE(v, new _M0TPC16string10StringView(_bind, 0, _bind.length)));
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg15push__view__box(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("viewBox", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg11push__width(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg15push__attr__int("width", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg11push__xmlns(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("xmlns", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg3svg(id, class_, style, width, height, view_box, xmlns, attrs, children) {
+  const attrs$2 = _M0FP319moonbit_2dcommunity7rabbita3svg14resolve__attrs(attrs);
+  _M0FP319moonbit_2dcommunity7rabbita3svg11push__width(width, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg12push__height(height, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg15push__view__box(view_box, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg11push__xmlns(xmlns, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg8push__id(id, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg11push__class(class_, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg11push__style(style, attrs$2);
+  return _M0MP319moonbit_2dcommunity7rabbita3svg3Svg8to__html(_M0FP319moonbit_2dcommunity7rabbita3svg4node("svg", attrs$2, children, undefined));
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg10push__fill(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("fill", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg12push__stroke(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("stroke", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg19push__stroke__width(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg15push__attr__int("stroke-width", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg7push__d(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("d", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg15push__transform(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("transform", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg13push__opacity(value, attrs) {
+  _M0FP319moonbit_2dcommunity7rabbita3svg18push__attr__string("opacity", value, attrs);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3svg4path(id, class_, style, d, fill, stroke, stroke_width, transform, opacity, attrs) {
+  const attrs$2 = _M0FP319moonbit_2dcommunity7rabbita3svg14resolve__attrs(attrs);
+  _M0FP319moonbit_2dcommunity7rabbita3svg7push__d(d, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg10push__fill(fill, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg12push__stroke(stroke, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg19push__stroke__width(stroke_width, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg15push__transform(transform, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg13push__opacity(opacity, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg8push__id(id, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg11push__class(class_, attrs$2);
+  _M0FP319moonbit_2dcommunity7rabbita3svg11push__style(style, attrs$2);
+  return _M0FP319moonbit_2dcommunity7rabbita3svg4node("path", attrs$2, [], undefined);
+}
+function _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs17stroke__dasharray(self, value) {
+  _M0MPB3Map3setGssE(self.attrs, "stroke-dasharray", value);
+  return self;
+}
 function _M0MP48bobzhang9nodegraph8frontend3app5Model13view__palette(self, dispatch) {
   const categories = ["math", "string", "logic", "color", "constant", "display"];
   const cat_labels = ["Math", "String", "Logic", "Color", "Const", "Display"];
@@ -16111,6 +16348,167 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model13view__palette(self, dispa
     }
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["background: #0d1b2a", "padding: 12px", "border-radius: 8px", "margin-bottom: 12px", "border: 1px solid #1b2838"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 4px", "margin-bottom: 8px", "flex-wrap: wrap"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, tabs), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 6px", "flex-wrap: wrap"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, node_buttons)]);
+}
+function _M0FP48bobzhang9nodegraph8frontend3app12canvas__size(layout) {
+  const max_x = new _M0TPB8MutLocalGiE(600);
+  const max_y = new _M0TPB8MutLocalGiE(400);
+  const _bind = layout.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const entry = layout[_];
+      let x;
+      let y;
+      _L: {
+        const _x = entry._1;
+        const _y = entry._2;
+        x = _x;
+        y = _y;
+        break _L;
+      }
+      if (((x + _M0FP48bobzhang9nodegraph8frontend3app7node__w | 0) + _M0FP48bobzhang9nodegraph8frontend3app6pad__x | 0) > max_x.val) {
+        max_x.val = (x + _M0FP48bobzhang9nodegraph8frontend3app7node__w | 0) + _M0FP48bobzhang9nodegraph8frontend3app6pad__x | 0;
+      }
+      if ((y + _M0FP48bobzhang9nodegraph8frontend3app15node__stride__y | 0) > max_y.val) {
+        max_y.val = y + _M0FP48bobzhang9nodegraph8frontend3app15node__stride__y | 0;
+      }
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return { _0: max_x.val, _1: max_y.val };
+}
+function _M0FP48bobzhang9nodegraph8frontend3app9find__idx(ids, id) {
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < ids.length) {
+      if (_M0MPC15array5Array2atGiE(ids, i) === id) {
+        return i;
+      }
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return -1;
+}
+function _M0FP48bobzhang9nodegraph8frontend3app15compute__layout(nodes, connections) {
+  if (_M0MPC15array5Array9is__emptyGRP38bobzhang9nodegraph6shared10SavedGraphE(nodes)) {
+    return [];
+  }
+  const n = nodes.length;
+  const ids = _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared4NodeiE(nodes, (nd) => nd.id);
+  const layers = _M0MPC15array5Array4makeGiE(n, 0);
+  let _tmp = 0;
+  while (true) {
+    const _pass = _tmp;
+    if (_pass < n) {
+      const _bind = connections.length;
+      let _tmp$2 = 0;
+      while (true) {
+        const _ = _tmp$2;
+        if (_ < _bind) {
+          const c = connections[_];
+          const from_idx = _M0FP48bobzhang9nodegraph8frontend3app9find__idx(ids, c.from_node_id);
+          const to_idx = _M0FP48bobzhang9nodegraph8frontend3app9find__idx(ids, c.to_node_id);
+          if (from_idx >= 0 && to_idx >= 0) {
+            const new_layer = _M0MPC15array5Array2atGiE(layers, from_idx) + 1 | 0;
+            if (new_layer > _M0MPC15array5Array2atGiE(layers, to_idx)) {
+              _M0MPC15array5Array3setGiE(layers, to_idx, new_layer);
+            }
+          }
+          _tmp$2 = _ + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      _tmp = _pass + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const max_layer = new _M0TPB8MutLocalGiE(0);
+  const _bind = layers.length;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind) {
+      const l = layers[_];
+      if (l > max_layer.val) {
+        max_layer.val = l;
+      }
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const positions = [];
+  let _tmp$3 = 0;
+  while (true) {
+    const layer = _tmp$3;
+    if (layer <= max_layer.val) {
+      const row = new _M0TPB8MutLocalGiE(0);
+      let _tmp$4 = 0;
+      while (true) {
+        const i = _tmp$4;
+        if (i < n) {
+          if (_M0MPC15array5Array2atGiE(layers, i) === layer) {
+            const x = _M0FP48bobzhang9nodegraph8frontend3app6pad__x + (Math.imul(layer, _M0FP48bobzhang9nodegraph8frontend3app15node__stride__x) | 0) | 0;
+            const y = _M0FP48bobzhang9nodegraph8frontend3app6pad__y + (Math.imul(row.val, _M0FP48bobzhang9nodegraph8frontend3app15node__stride__y) | 0) | 0;
+            _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(positions, { _0: _M0MPC15array5Array2atGiE(ids, i), _1: x, _2: y });
+            row.val = row.val + 1 | 0;
+          }
+          _tmp$4 = i + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      _tmp$3 = layer + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return positions;
+}
+function _M0FP48bobzhang9nodegraph8frontend3app8get__pos(layout, node_id) {
+  const _bind = layout.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const entry = layout[_];
+      let x;
+      let id;
+      let y;
+      _L: {
+        const _id = entry._0;
+        const _x = entry._1;
+        const _y = entry._2;
+        x = _x;
+        id = _id;
+        y = _y;
+        break _L;
+      }
+      if (id === node_id) {
+        return { _0: x, _1: y };
+      }
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return { _0: 0, _1: 0 };
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model19view__const__config(self, node, dispatch) {
   return self.editing_node === node.id ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 4px", "margin-bottom: 6px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, self.config_value, -1, -1, -1, undefined, undefined, undefined, ["flex: 1", "padding: 4px 6px", "background: #0d1b2a", "border: 1px solid #e94560", "border-radius: 3px", "color: #eee", "font-family: inherit", "font-size: 0.8em"], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, undefined, (v) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg14SetConfigValue(v)), undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 4px 8px", "background: #4CAF50", "color: #fff", "border: none", "border-radius: 3px", "cursor: pointer", "font-size: 0.7em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg10SaveConfig__), undefined, "✓"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 4px 8px", "background: #555", "color: #ccc", "border: none", "border-radius: 3px", "cursor: pointer", "font-size: 0.7em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg16CancelEditConfig__), undefined, "✕")]) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-bottom: 6px", "cursor: pointer", "padding: 4px 6px", "background: #0d1b2a", "border-radius: 3px", "font-size: 0.8em", "color: #ccc", "text-align: center"], undefined, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg15StartEditConfig(node.id, node.config)), undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, node.config.length > 0 ? node.config : "(click to set)")]);
@@ -16377,12 +16775,123 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model18view__single__node(self, 
   const has_output = node_vals.length > 0;
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["min-width: 190px", "max-width: 250px", "background: #16213e", `border: 2px solid ${_M0IPC16string6StringPB4Show10to__string(cat_color)}`, "border-radius: 10px", "overflow: hidden", "animation: fadeIn 0.3s ease", has_output ? `box-shadow: 0 0 12px ${_M0IPC16string6StringPB4Show10to__string(cat_color)}40` : "box-shadow: 0 2px 8px rgba(0,0,0,0.4)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: linear-gradient(135deg, ${_M0IPC16string6StringPB4Show10to__string(cat_color)}, ${_M0IPC16string6StringPB4Show10to__string(cat_color)}bb)`, "padding: 7px 12px", "display: flex", "justify-content: space-between", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)"], undefined, undefined, undefined, -1, undefined, node.label), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["background: rgba(0,0,0,0.2)", "border: none", "color: rgba(255,255,255,0.8)", "cursor: pointer", "font-size: 0.75em", "width: 20px", "height: 20px", "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg10DeleteNode(node.id)), undefined, "✕")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [is_const ? _M0MP48bobzhang9nodegraph8frontend3app5Model19view__const__config(self, node, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__input__ports(self, node, in_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model19view__output__ports(self, node, out_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__node__values(self, node, node_vals)])]);
 }
+function _M0MP48bobzhang9nodegraph8frontend3app5Model16view__svg__wires(self, layout, w, h) {
+  const paths = [];
+  const _bind = self.connections;
+  const _bind$2 = _bind.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind$2) {
+      const c = _bind[_];
+      let from_x;
+      let from_y;
+      _L: {
+        const _bind$3 = _M0FP48bobzhang9nodegraph8frontend3app8get__pos(layout, c.from_node_id);
+        const _from_x = _bind$3._0;
+        const _from_y = _bind$3._1;
+        from_x = _from_x;
+        from_y = _from_y;
+        break _L;
+      }
+      let to_x;
+      let to_y;
+      _L$2: {
+        const _bind$3 = _M0FP48bobzhang9nodegraph8frontend3app8get__pos(layout, c.to_node_id);
+        const _to_x = _bind$3._0;
+        const _to_y = _bind$3._1;
+        to_x = _to_x;
+        to_y = _to_y;
+        break _L$2;
+      }
+      const x1 = from_x + _M0FP48bobzhang9nodegraph8frontend3app7node__w | 0;
+      const y1 = ((from_y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + (Math.imul(c.from_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 14 | 0;
+      const x2 = to_x;
+      const y2 = ((to_y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + (Math.imul(c.to_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 14 | 0;
+      const color = new _M0TPB8MutLocalGsE("#888");
+      const _bind$3 = self.nodes;
+      const _bind$4 = _bind$3.length;
+      let _tmp$2 = 0;
+      while (true) {
+        const _$2 = _tmp$2;
+        if (_$2 < _bind$4) {
+          const n = _bind$3[_$2];
+          if (n.id === c.from_node_id) {
+            const ports = _M0FP38bobzhang9nodegraph6shared13output__ports(n.kind);
+            if (c.from_port < ports.length) {
+              color.val = _M0FP38bobzhang9nodegraph6shared17port__type__color(_M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared7PortDefE(ports, c.from_port).port_type);
+            }
+          }
+          _tmp$2 = _$2 + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      let dx;
+      if (_M0MPC13int3Int3abs(x2 - x1 | 0) < 100) {
+        dx = 60;
+      } else {
+        if (2 === 0) {
+          $panic();
+        }
+        dx = _M0MPC13int3Int3abs(x2 - x1 | 0) / 2 | 0;
+      }
+      const path_d = `M ${_M0IP016_24default__implPB4Show10to__stringGiE(x1)} ${_M0IP016_24default__implPB4Show10to__stringGiE(y1)} C ${_M0IP016_24default__implPB4Show10to__stringGiE(x1 + dx | 0)} ${_M0IP016_24default__implPB4Show10to__stringGiE(y1)}, ${_M0IP016_24default__implPB4Show10to__stringGiE(x2 - dx | 0)} ${_M0IP016_24default__implPB4Show10to__stringGiE(y2)}, ${_M0IP016_24default__implPB4Show10to__stringGiE(x2)} ${_M0IP016_24default__implPB4Show10to__stringGiE(y2)}`;
+      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(paths, _M0FP319moonbit_2dcommunity7rabbita3svg4path(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, path_d, "none", `${_M0IPC16string6StringPB4Show10to__string(color.val)}30`, 6, undefined, undefined, undefined));
+      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(paths, _M0FP319moonbit_2dcommunity7rabbita3svg4path(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["animation: flowDash 1s linear infinite"]), path_d, "none", color.val, 2, undefined, undefined, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs17stroke__dasharray(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "6 4")));
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita3svg3svg(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["position: absolute", "top: 0", "left: 0", "pointer-events: none"]), w, h, undefined, undefined, undefined, paths);
+}
 function _M0MP48bobzhang9nodegraph8frontend3app5Model11view__nodes(self, dispatch) {
   if (_M0MPC15array5Array9is__emptyGRP38bobzhang9nodegraph6shared10SavedGraphE(self.nodes)) {
     return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["text-align: center", "color: #555", "padding: 40px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "No nodes yet. Open the palette to add some!");
   }
-  const cards = _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared4NodeRP319moonbit_2dcommunity7rabbita4html4HtmlE(self.nodes, (n) => _M0MP48bobzhang9nodegraph8frontend3app5Model18view__single__node(self, n, dispatch));
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-wrap: wrap", "gap: 12px", "margin-bottom: 16px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, cards);
+  const layout = _M0FP48bobzhang9nodegraph8frontend3app15compute__layout(self.nodes, self.connections);
+  let cw;
+  let ch;
+  _L: {
+    const _bind = _M0FP48bobzhang9nodegraph8frontend3app12canvas__size(layout);
+    const _cw = _bind._0;
+    const _ch = _bind._1;
+    cw = _cw;
+    ch = _ch;
+    break _L;
+  }
+  const cards = _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared4NodeRP319moonbit_2dcommunity7rabbita4html4HtmlE(self.nodes, (n) => {
+    let x;
+    let y;
+    _L$2: {
+      const _bind = _M0FP48bobzhang9nodegraph8frontend3app8get__pos(layout, n.id);
+      const _x = _bind._0;
+      const _y = _bind._1;
+      x = _x;
+      y = _y;
+      break _L$2;
+    }
+    return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: absolute", `left: ${_M0IP016_24default__implPB4Show10to__stringGiE(x)}px`, `top: ${_M0IP016_24default__implPB4Show10to__stringGiE(y)}px`, `width: ${_M0IP016_24default__implPB4Show10to__stringGiE(_M0FP48bobzhang9nodegraph8frontend3app7node__w)}px`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang9nodegraph8frontend3app5Model18view__single__node(self, n, dispatch)]);
+  });
+  const wires = _M0MP48bobzhang9nodegraph8frontend3app5Model16view__svg__wires(self, layout, cw, ch);
+  const children = [wires];
+  const _bind = cards.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const card = cards[_];
+      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(children, card);
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: relative", `min-height: ${_M0IP016_24default__implPB4Show10to__stringGiE(ch)}px`, `min-width: ${_M0IP016_24default__implPB4Show10to__stringGiE(cw)}px`, "margin-bottom: 16px", "background: #0a0a1a", "border-radius: 8px", "border: 1px solid #1b2838", "overflow: auto"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, children);
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model21view__connect__banner(self, dispatch) {
   const from_label = new _M0TPB8MutLocalGsE("?");
