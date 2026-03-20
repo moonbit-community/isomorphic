@@ -1,0 +1,10 @@
+import {
+  "bobzhang/finapp/shared",
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/http",
+  "moonbitlang/core/json",
+  "moonbitlang/core/strconv",
+}
+
+supported_targets = "js"
