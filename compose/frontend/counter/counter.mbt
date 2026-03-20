@@ -15,24 +15,24 @@ pub(all) enum Msg {
 }
 
 ///|
-pub fn initial() -> Model {
+pub fn Model::new() -> Model {
   { count: 0 }
 }
 
 ///|
-pub fn update(msg : Msg, model : Model) -> Model {
+pub fn Model::update(self : Model, msg : Msg) -> Model {
   match msg {
-    Increment => { count: model.count + 1 }
-    Decrement => { count: model.count - 1 }
+    Increment => { count: self.count + 1 }
+    Decrement => { count: self.count - 1 }
     Reset => { count: 0 }
   }
 }
 
 ///|
 /// Render a counter with a label. The `dispatch` converts counter Msg to Cmd.
-pub fn view(
+pub fn Model::view(
+  self : Model,
   dispatch : @rabbita.Dispatch[Msg],
-  model : Model,
   label~ : String,
 ) -> @rabbita.Html {
   @html.div(
@@ -44,7 +44,7 @@ pub fn view(
       @html.h3(label),
       @html.div(
         style=["font-size: 2em", "margin: 8px 0"],
-        model.count.to_string(),
+        self.count.to_string(),
       ),
       @html.div(
         style=["display: flex", "gap: 8px", "justify-content: center"],

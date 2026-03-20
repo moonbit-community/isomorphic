@@ -2,6 +2,7 @@ import {
   "bobzhang/compose-demo/frontend/independent",
   "bobzhang/compose-demo/frontend/parent_child",
   "bobzhang/compose-demo/frontend/nested",
+  "bobzhang/compose-demo/frontend/date_range",
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",
 }

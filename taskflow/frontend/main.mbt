@@ -11,7 +11,7 @@ extern "js" fn enable_drag_drop() = "() => { const h = e => e.preventDefault(); 
 
 ///|
 /// Save a preference to localStorage.
-extern "js" fn save_pref(key : String, value : String) = "(k, v) => { try { localStorage.setItem(k, v); } catch(e) {} }"
+extern "js" fn _save_pref(key : String, value : String) = "(k, v) => { try { localStorage.setItem(k, v); } catch(e) {} }"
 
 ///|
 /// Load a preference from localStorage. Returns empty string if not found.

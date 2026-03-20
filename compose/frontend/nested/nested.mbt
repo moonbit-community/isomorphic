@@ -5,9 +5,6 @@
 /// and parent Msg wraps child Msgs. One update function routes messages
 /// to the right child.
 ///
-/// This is how Elm's official guide recommends composition:
-///   https://guide.elm-lang.org/webapps/structure
-///
 /// ```
 ///   PairModel
 ///     ├── left  : Counter.Model
@@ -20,9 +17,8 @@
 ///     └── ToggleSync
 ///
 ///   view:
-///     counter.view(
+///     model.left.view(
 ///       fn(msg) { dispatch(Left(msg)) },   ← map child dispatch
-///       model.left,                         ← pass child model
 ///     )
 /// ```
 ///
@@ -43,74 +39,67 @@ priv enum PairMsg {
 }
 
 ///|
-fn pair_update(msg : PairMsg, model : PairModel) -> PairModel {
+fn PairModel::update(self : PairModel, msg : PairMsg) -> PairModel {
   match msg {
     Left(child_msg) => {
-      let new_left = @counter.update(child_msg, model.left)
-      // When sync is on, apply the same msg to both sides
-      let new_right = if model.sync_mode {
-        @counter.update(child_msg, model.right)
+      let new_left = self.left.update(child_msg)
+      let new_right = if self.sync_mode {
+        self.right.update(child_msg)
       } else {
-        model.right
+        self.right
       }
-      { ..model, left: new_left, right: new_right }
+      { ..self, left: new_left, right: new_right }
     }
     Right(child_msg) => {
-      let new_right = @counter.update(child_msg, model.right)
-      let new_left = if model.sync_mode {
-        @counter.update(child_msg, model.left)
+      let new_right = self.right.update(child_msg)
+      let new_left = if self.sync_mode {
+        self.left.update(child_msg)
       } else {
-        model.left
+        self.left
       }
-      { ..model, left: new_left, right: new_right }
+      { ..self, left: new_left, right: new_right }
     }
-    ToggleSync => { ..model, sync_mode: !model.sync_mode }
+    ToggleSync => { ..self, sync_mode: !self.sync_mode }
   }
+}
+
+///|
+fn PairModel::view(
+  self : PairModel,
+  dispatch : @rabbita.Dispatch[PairMsg],
+) -> @rabbita.Html {
+  @html.div([
+    @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
+      // Map child dispatch: Counter.Msg → PairMsg via Left/Right
+      self.left.view((msg) => dispatch(Left(msg)), label="Left"),
+      self.right.view((msg) => dispatch(Right(msg)), label="Right"),
+    ]),
+    @html.div(style=["text-align: center"], [
+      @html.button(
+        style=["padding: 8px 24px", "font-size: 1.1em"],
+        on_click=dispatch(ToggleSync),
+        if self.sync_mode {
+          "Sync: ON (click to turn off)"
+        } else {
+          "Sync: OFF (click to turn on)"
+        },
+      ),
+      @html.p(
+        if self.sync_mode {
+          "Both counters move together \u{2014} any button affects both"
+        } else {
+          "Counters are independent"
+        },
+      ),
+    ]),
+  ])
 }
 
 ///|
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
-    model={
-      left: @counter.initial(),
-      right: @counter.initial(),
-      sync_mode: false,
-    },
-    update=fn(msg, model) { pair_update(msg, model) },
-    view=fn(dispatch, model : PairModel) {
-      @html.div([
-        @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
-          // Map child dispatch: Counter.Msg → PairMsg via Left/Right
-          @counter.view(
-            fn(msg) { dispatch(Left(msg)) },
-            model.left,
-            label="Left",
-          ),
-          @counter.view(
-            fn(msg) { dispatch(Right(msg)) },
-            model.right,
-            label="Right",
-          ),
-        ]),
-        @html.div(style=["text-align: center"], [
-          @html.button(
-            style=["padding: 8px 24px", "font-size: 1.1em"],
-            on_click=dispatch(ToggleSync),
-            if model.sync_mode {
-              "Sync: ON (click to turn off)"
-            } else {
-              "Sync: OFF (click to turn on)"
-            },
-          ),
-          @html.p(
-            if model.sync_mode {
-              "Both counters move together \u{2014} any button affects both"
-            } else {
-              "Counters are independent"
-            },
-          ),
-        ]),
-      ])
-    },
+    model={ left: @counter.Model::new(), right: @counter.Model::new(), sync_mode: false },
+    update=(msg, model) => model.update(msg),
+    view=(dispatch, model) => model.view(dispatch),
   )
 }

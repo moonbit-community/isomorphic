@@ -138,7 +138,7 @@ fn Model::view_typewriter(
   let full = self.typewriter.full_text
   let visible = self.typewriter.visible_chars
   let running = self.typewriter.running
-  let shown = full.substring(end=visible)
+  let shown = full[:visible].to_string()
   let cursor = if running { "▋" } else { "" }
   @html.div(
     style=[

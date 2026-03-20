@@ -1,7 +1,7 @@
 ///|
 fn Model::view_avatar(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg],
+  _dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   @html.div(style=["display: flex", "flex-direction: column", "gap: 16px"], [
     @html.label(style=label_style, "Avatars"),
@@ -15,7 +15,7 @@ fn Model::view_avatar(
           let name = user.0
           let color = user.1
           let online = user.2
-          let initial = name.substring(end=1)
+          let initial = name[:1].to_string()
           let status_color = if online { success } else { "#9ca3af" }
           avatars.push(
             @html.div(
@@ -74,7 +74,7 @@ fn Model::view_avatar(
 ///|
 fn Model::view_badge(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg],
+  _dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   @html.div(style=["display: flex", "flex-direction: column", "gap: 16px"], [
     @html.label(style=label_style, "Badges"),

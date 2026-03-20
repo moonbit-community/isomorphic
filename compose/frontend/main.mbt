@@ -10,7 +10,10 @@ fn main {
   // Pattern 3: Nested model — single cell, parent model embeds child models
   let nested = @nested.make()
 
-  // Layout: a static cell that composes all three demos
+  // Pattern 4: Reusable complex component — two calendars as date range picker
+  let date_range = @date_range.make()
+
+  // Layout: a static cell that composes all demos
   let layout = @rabbita.static_cell(
     @html.div(
       style=[
@@ -23,9 +26,6 @@ fn main {
         @html.p(
           "Two separate Cells, each with its own Model/Msg/update/view loop. They share no state.",
         ),
-        @html.p(
-          "simple_cell(...) creates each one. The parent just calls .view() to render them.",
-        ),
         @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 32px"], [
           cell_a.view(),
           cell_b.view(),
@@ -33,15 +33,21 @@ fn main {
         // --- Pattern 2 ---
         @html.h2("2. Parent-Child with Dispatch"),
         @html.p(
-          "simple_cell_with_dispatch(...) returns a Dispatch handle. The parent stores these handles and sends messages to children.",
+          "Parent holds Dispatch handles to children. Clicking \"Reset Both\" sends Reset to both child cells.",
         ),
         @html.div(style=["margin-bottom: 32px"], parent_child.view()),
         // --- Pattern 3 ---
         @html.h2("3. Nested Model (Classic Elm)"),
         @html.p(
-          "Single Cell. Parent Model contains child Models. Parent Msg wraps child Msgs. View maps dispatch: fn(msg) { dispatch(Left(msg)) }.",
+          "Single Cell. Parent Model wraps child Models. Parent Msg wraps child Msgs. Toggle sync to link both counters.",
         ),
         @html.div(style=["margin-bottom: 32px"], nested.view()),
+        // --- Pattern 4 ---
+        @html.h2("4. Reusable Complex Component"),
+        @html.p(
+          "A calendar component reused twice to build a date-range picker. Same Model/Msg/update/view, two instances, routed via Start(...) / End(...).",
+        ),
+        @html.div(style=["margin-bottom: 32px"], date_range.view()),
       ],
     ),
   )

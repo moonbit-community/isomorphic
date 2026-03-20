@@ -15,18 +15,14 @@
 /// ```
 pub fn make() -> (@rabbita.Cell, @rabbita.Cell) {
   let cell_a = @rabbita.simple_cell(
-    model=@counter.initial(),
-    update=fn(msg, model) { @counter.update(msg, model) },
-    view=fn(dispatch, model) {
-      @counter.view(dispatch, model, label="Counter A")
-    },
+    model=@counter.Model::new(),
+    update=(msg, model) => model.update(msg),
+    view=(dispatch, model) => model.view(dispatch, label="Counter A"),
   )
   let cell_b = @rabbita.simple_cell(
-    model=@counter.initial(),
-    update=fn(msg, model) { @counter.update(msg, model) },
-    view=fn(dispatch, model) {
-      @counter.view(dispatch, model, label="Counter B")
-    },
+    model=@counter.Model::new(),
+    update=(msg, model) => model.update(msg),
+    view=(dispatch, model) => model.view(dispatch, label="Counter B"),
   )
   (cell_a, cell_b)
 }

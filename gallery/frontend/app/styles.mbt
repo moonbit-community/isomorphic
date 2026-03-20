@@ -4,7 +4,7 @@
 let primary : String = "#6366f1"
 
 ///|
-let primary_hover : String = "#4f46e5"
+let _primary_hover : String = "#4f46e5"
 
 ///|
 let primary_light : String = "#e0e7ff"

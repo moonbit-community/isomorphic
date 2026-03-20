@@ -373,7 +373,7 @@ fn Model::view_calendar(
 ///|
 fn Model::view_timeline(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg],
+  _dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   @html.div(
     style=["display: flex", "flex-direction: column", "gap: 0"],
@@ -458,7 +458,7 @@ fn Model::view_timeline(
 ///|
 fn Model::view_chart(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg],
+  _dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let chart = self.chart
   let w = 400

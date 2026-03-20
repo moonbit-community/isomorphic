@@ -236,7 +236,7 @@ fn Model::view_modal_overlay(
 
 ///|
 fn Model::view_command_palette(
-  self : Model,
+  _self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   @html.div(style=["display: flex", "flex-direction: column", "gap: 12px"], [

@@ -31,20 +31,20 @@ priv enum ParentMsg {
 pub fn make() -> @rabbita.Cell {
   // Create children — get back Dispatch handles
   let (dispatch_a, cell_a) = @rabbita.simple_cell_with_dispatch(
-    model=@counter.initial(),
-    update=fn(msg, model) { @counter.update(msg, model) },
-    view=fn(dispatch, model) { @counter.view(dispatch, model, label="Child A") },
+    model=@counter.Model::new(),
+    update=(msg, model) => model.update(msg),
+    view=(dispatch, model) => model.view(dispatch, label="Child A"),
   )
   let (dispatch_b, cell_b) = @rabbita.simple_cell_with_dispatch(
-    model=@counter.initial(),
-    update=fn(msg, model) { @counter.update(msg, model) },
-    view=fn(dispatch, model) { @counter.view(dispatch, model, label="Child B") },
+    model=@counter.Model::new(),
+    update=(msg, model) => model.update(msg),
+    view=(dispatch, model) => model.view(dispatch, label="Child B"),
   )
 
   // Parent cell — owns the "Reset Both" logic
   @rabbita.cell(
     model={ total_resets: 0 },
-    update=fn(_dispatch, msg : ParentMsg, model : ParentModel) {
+    update=(_dispatch, msg : ParentMsg, model : ParentModel) => {
       match msg {
         ResetAll => {
           // Send Reset to both children via their dispatch handles
@@ -56,7 +56,7 @@ pub fn make() -> @rabbita.Cell {
         }
       }
     },
-    view=fn(dispatch, model) {
+    view=(dispatch, model) =>
       @html.div([
         @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
           cell_a.view(),
@@ -70,7 +70,6 @@ pub fn make() -> @rabbita.Cell {
           ),
           @html.p("Parent tracked \{model.total_resets} resets"),
         ]),
-      ])
-    },
+      ]),
   )
 }

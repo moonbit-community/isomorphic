@@ -479,7 +479,7 @@ pub fn Model::update(
     // ── TextArea ─────────────────────────────
     TextAreaChanged(v) => {
       let trimmed = if v.char_length() > self.text_area.max_chars {
-        v.substring(end=self.text_area.max_chars)
+        v[:self.text_area.max_chars].to_string()
       } else {
         v
       }
@@ -1194,7 +1194,7 @@ pub fn Model::update(
     PinDigitChanged(idx, val) => {
       let digits = self.pin_input.digits.copy()
       let d = if val.char_length() > 1 {
-        val.substring(start=val.char_length() - 1)
+        val[val.char_length() - 1:].to_string()
       } else {
         val
       }
@@ -1211,7 +1211,7 @@ pub fn Model::update(
         false
       }
       let focus_id = "pin-\{next_focus}"
-      let cmd = @rabbita.effect(async fn() noraise { focus_element(focus_id) })
+      let cmd = @rabbita.effect(fn() noraise { focus_element(focus_id) })
       (
         { ..self, pin_input: { digits, focus_index: next_focus, verified } },
         cmd,
@@ -1417,7 +1417,6 @@ pub fn Model::update(
         {
           ..self,
           undo_snackbar: {
-            ..self.undo_snackbar,
             items,
             last_removed: removed,
             last_removed_index: i,
