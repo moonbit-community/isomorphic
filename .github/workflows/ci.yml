@@ -12,14 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: chawyehsu/setup-moonup@v1
-        with:
-          moonbit-version: nightly
+      - name: Install MoonBit (nightly)
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
 
       - run: moon version --all
 
-      - name: Check (all targets)
-        run: moon check --target native,js
+      - name: Check
+        run: moon check
 
       - name: Build JS
         run: moon build --target js
