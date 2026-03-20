@@ -168,6 +168,95 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
 }
 
 ///|
+/// Renders a tiny sparkline SVG for a single row's Q1-Q4 data.
+fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
+  let vals : Array[Double] = []
+  for c = 1; c <= 4; c = c + 1 {
+    vals.push(get_num(sheet, c, row))
+  }
+  let w = 80
+  let h = 22
+  let pad = 3
+  let pw = w - pad * 2
+  let ph = h - pad * 2
+  let mut min_v = vals[0]
+  let mut max_v = vals[0]
+  for v in vals {
+    if v < min_v { min_v = v }
+    if v > max_v { max_v = v }
+  }
+  let range = if max_v > min_v { max_v - min_v } else { 1.0 }
+  // Compute polyline points
+  let points : Array[(Int, Int)] = []
+  let mut min_idx = 0
+  let mut max_idx = 0
+  for i = 0; i < vals.length(); i = i + 1 {
+    let x = pad + pw * i / 3
+    let y = pad + ph - (((vals[i] - min_v) / range) * ph.to_double()).to_int()
+    points.push((x, y))
+    if vals[i] <= vals[min_idx] { min_idx = i }
+    if vals[i] >= vals[max_idx] { max_idx = i }
+  }
+  // Build area fill path (polygon under the line)
+  let area_points : Array[(Int, Int)] = []
+  area_points.push((points[0].0, h - pad))
+  for p in points {
+    area_points.push(p)
+  }
+  area_points.push((points[points.length() - 1].0, h - pad))
+  let elements : Array[@svg.Svg] = []
+  // Gradient definition
+  elements.push(
+    @svg.defs(
+      [
+        @svg.linear_gradient(
+          id="sparkGrad",
+          attrs=@svg.Attrs::build().x1("0").y1("0").x2("0").y2("1"),
+          [
+            @svg.stop(attrs=@svg.Attrs::build().offset("0%").stop_color("#34a853").stop_opacity("0.3")),
+            @svg.stop(attrs=@svg.Attrs::build().offset("100%").stop_color("#34a853").stop_opacity("0.05")),
+          ],
+        ),
+      ],
+    ),
+  )
+  // Area fill
+  elements.push(
+    @svg.polyline(
+      points=area_points,
+      fill="url(#sparkGrad)",
+    ),
+  )
+  // Line
+  elements.push(
+    @svg.polyline(
+      points=points,
+      fill="none",
+      stroke="#34a853",
+      stroke_width=2,
+      attrs=@svg.Attrs::build().stroke_linejoin("round"),
+    ),
+  )
+  // Min dot (red)
+  let (min_x, min_y) = points[min_idx]
+  elements.push(
+    @svg.circle(cx=min_x, cy=min_y, r=2, fill="#ea4335"),
+  )
+  // Max dot (green)
+  let (max_x, max_y) = points[max_idx]
+  elements.push(
+    @svg.circle(cx=max_x, cy=max_y, r=2, fill="#34a853"),
+  )
+  @svg.svg(
+    width=w,
+    height=h,
+    view_box="0 0 \{w} \{h}",
+    style=["display: block"],
+    elements,
+  )
+}
+
+///|
 fn get_num(sheet : Sheet, col : Int, row : Int) -> Double {
   let key = @cell.make_key(col, row)
   match sheet.get(key).value {

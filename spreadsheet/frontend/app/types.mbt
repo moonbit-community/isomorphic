@@ -161,6 +161,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_header(sheet, "F1", "Annual Total", hdr)
   set_header(sheet, "G1", "Avg Quarter", hdr)
   set_header(sheet, "H1", "Growth", hdr)
+  set_header(sheet, "I1", "Trend", hdr)
 
   // Product data — revenue in currency format
   set_cell(sheet, "A2", "Widget Pro")
