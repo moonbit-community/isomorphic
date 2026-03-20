@@ -389,6 +389,15 @@ fn Model::view_grid(
   } else {
     None
   }
+  // Formula highlighting: get referenced cells when selected cell has a formula
+  let sel_cell = self.selected_cell()
+  let highlighted_refs : Map[String, Bool] = {}
+  if sel_cell.raw.length() > 0 && sel_cell.raw[0] == '=' {
+    let refs = @formula.extract_references(sel_cell.raw)
+    for cell_ref in refs {
+      highlighted_refs[cell_ref] = true
+    }
+  }
   let col_w = "100px"
   let row_h = "28px"
   let header_w = "46px"
@@ -500,7 +509,13 @@ fn Model::view_grid(
             }
           None => ""
         }
-        let cell_bg = if heat_bg != "" {
+        let is_ref_highlighted = match highlighted_refs.get(key) {
+          Some(_) => true
+          None => false
+        }
+        let cell_bg = if is_ref_highlighted {
+          "#e8f5e920" // subtle green tint for formula references
+        } else if heat_bg != "" {
           heat_bg
         } else if cell.bg_color != "" {
           cell.bg_color
@@ -511,6 +526,8 @@ fn Model::view_grid(
         }
         let border = if is_selected {
           "2px solid #1a73e8"
+        } else if is_ref_highlighted {
+          "2px solid #34a853"
         } else {
           "1px solid #e0e0e0"
         }
