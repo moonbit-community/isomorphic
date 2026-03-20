@@ -139,6 +139,7 @@ pub fn spent_in_category(
 }
 
 ///|
+/// Validate transaction fields, returning an error message if invalid.
 pub fn validate_transaction(
   amount : Int,
   description : String,
@@ -157,6 +158,7 @@ pub fn validate_transaction(
 }
 
 ///|
+/// Validate an account name, returning an error message if invalid.
 pub fn validate_account_name(name : String) -> String? {
   if name.length() == 0 {
     return Some("Account name is required")
