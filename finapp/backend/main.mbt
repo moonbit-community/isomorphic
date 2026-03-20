@@ -122,9 +122,9 @@ fn main raise {
       let (account_id, category_id, amount, txn_type, description, date) = match
         json {
         {
-          "account_id": Number(a),
-          "category_id": Number(c),
-          "amount": Number(amt),
+          "account_id": Number(a, ..),
+          "category_id": Number(c, ..),
+          "amount": Number(amt, ..),
           "txn_type": String(t),
           "description": String(d),
           "date": String(dt),
@@ -167,8 +167,8 @@ fn main raise {
       let json : Json = event.req.body()
       let (category_id, amount_limit, month) = match json {
         {
-          "category_id": Number(c),
-          "amount_limit": Number(a),
+          "category_id": Number(c, ..),
+          "amount_limit": Number(a, ..),
           "month": String(m),
           ..
         } => (c.to_int(), a.to_int(), m)

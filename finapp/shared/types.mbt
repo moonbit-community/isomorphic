@@ -1,4 +1,5 @@
 ///|
+/// Account type classification for financial accounts.
 pub(all) enum AccountType {
   Checking
   Savings
@@ -6,6 +7,7 @@ pub(all) enum AccountType {
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// Return a human-readable label for the account type.
 pub fn AccountType::to_label(self : AccountType) -> String {
   match self {
     Checking => "Checking"
@@ -15,6 +17,7 @@ pub fn AccountType::to_label(self : AccountType) -> String {
 }
 
 ///|
+/// Parse an account type from its database string representation.
 pub fn AccountType::from_string(s : String) -> AccountType {
   match s {
     "savings" => Savings
@@ -24,6 +27,7 @@ pub fn AccountType::from_string(s : String) -> AccountType {
 }
 
 ///|
+/// Convert the account type to its database string representation.
 pub fn AccountType::to_db_string(self : AccountType) -> String {
   match self {
     Checking => "checking"
@@ -33,6 +37,7 @@ pub fn AccountType::to_db_string(self : AccountType) -> String {
 }
 
 ///|
+/// A financial account (checking, savings, or credit card).
 pub(all) struct Account {
   id : Int
   name : String
@@ -40,12 +45,14 @@ pub(all) struct Account {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// Direction of a financial transaction.
 pub(all) enum TransactionType {
   Income
   Expense
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// Return a human-readable label for the transaction type.
 pub fn TransactionType::to_label(self : TransactionType) -> String {
   match self {
     Income => "Income"
@@ -54,6 +61,7 @@ pub fn TransactionType::to_label(self : TransactionType) -> String {
 }
 
 ///|
+/// Parse a transaction type from its database string representation.
 pub fn TransactionType::from_string(s : String) -> TransactionType {
   match s {
     "income" => Income
@@ -62,6 +70,7 @@ pub fn TransactionType::from_string(s : String) -> TransactionType {
 }
 
 ///|
+/// Convert the transaction type to its database string representation.
 pub fn TransactionType::to_db_string(self : TransactionType) -> String {
   match self {
     Income => "income"
@@ -70,6 +79,7 @@ pub fn TransactionType::to_db_string(self : TransactionType) -> String {
 }
 
 ///|
+/// A spending or income category with display metadata.
 pub(all) struct Category {
   id : Int
   name : String
@@ -79,6 +89,7 @@ pub(all) struct Category {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// A single financial transaction tied to an account and category.
 pub(all) struct Transaction {
   id : Int
   account_id : Int
@@ -90,6 +101,7 @@ pub(all) struct Transaction {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// A monthly spending limit for a particular category.
 pub(all) struct Budget {
   id : Int
   category_id : Int
@@ -98,6 +110,7 @@ pub(all) struct Budget {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// A budget combined with its category info and current spending.
 pub(all) struct BudgetStatus {
   budget : Budget
   category_name : String
@@ -107,12 +120,14 @@ pub(all) struct BudgetStatus {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// An account paired with its computed balance in cents.
 pub(all) struct AccountBalance {
   account : Account
   balance : Int
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// Aggregated income and expense totals for a single month.
 pub(all) struct MonthSummary {
   month : String
   income : Int
@@ -120,6 +135,7 @@ pub(all) struct MonthSummary {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// All data needed to render the financial dashboard view.
 pub(all) struct DashboardData {
   account_balances : Array[AccountBalance]
   month_summary : MonthSummary
