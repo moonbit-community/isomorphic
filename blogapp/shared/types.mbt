@@ -1,4 +1,5 @@
 ///|
+/// A blog post with title, content, and timestamps.
 pub(all) struct Post {
   id : Int
   title : String
@@ -8,6 +9,7 @@ pub(all) struct Post {
 } derive(FromJson, ToJson, Show, Debug)
 
 ///|
+/// A comment on a blog post, attributed to an author.
 pub(all) struct Comment {
   id : Int
   post_id : Int
