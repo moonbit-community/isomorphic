@@ -12,6 +12,60 @@
 ///   - Comparison: >, <, >=, <=, = (within IF conditions)
 ///   - String: CONCAT, LEN, UPPER, LOWER
 
+/// Extract all cell references from a formula string.
+/// Returns individual cell keys like ["B2", "C2", "D2", "E2"] with ranges expanded.
+pub fn extract_references(raw : String) -> Array[String] {
+  let trimmed = raw.trim().to_string()
+  if trimmed.is_empty() || trimmed[0] != '=' {
+    return []
+  }
+  let expr = trimmed[1:].to_string().trim().to_string()
+  let tokens = tokenize(expr)
+  let refs : Array[String] = []
+  let len = tokens.length()
+  let mut i = 0
+  while i < len {
+    match tokens[i] {
+      TRef(r1) =>
+        // Check for range: TRef TColon TRef
+        if i + 2 < len {
+          match (tokens[i + 1], tokens[i + 2]) {
+            (TColon, TRef(r2)) => {
+              // Expand range into individual refs
+              let ref1 = @cell.parse_ref(r1)
+              let ref2 = @cell.parse_ref(r2)
+              match (ref1, ref2) {
+                (Some((c1, row1)), Some((c2, row2))) => {
+                  let min_c = if c1 < c2 { c1 } else { c2 }
+                  let max_c = if c1 > c2 { c1 } else { c2 }
+                  let min_r = if row1 < row2 { row1 } else { row2 }
+                  let max_r = if row1 > row2 { row1 } else { row2 }
+                  for c = min_c; c <= max_c; c = c + 1 {
+                    for r = min_r; r <= max_r; r = r + 1 {
+                      refs.push(@cell.make_key(c, r))
+                    }
+                  }
+                }
+                _ => {
+                  refs.push(r1)
+                  refs.push(r2)
+                }
+              }
+              i = i + 3
+              continue
+            }
+            _ => refs.push(r1)
+          }
+        } else {
+          refs.push(r1)
+        }
+      _ => ()
+    }
+    i = i + 1
+  }
+  refs
+}
+
 /// Evaluate a raw cell string. If it starts with '=', parse as formula.
 /// Otherwise try to parse as number, or treat as text.
 pub fn evaluate(
