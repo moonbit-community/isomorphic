@@ -164,7 +164,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E2", "58900")
   set_currency_bold(sheet, "F2", "=SUM(B2:E2)", "")
   set_currency(sheet, "G2", "=AVG(B2:E2)")
-  set_styled(sheet, "H2", "=IF(E2>B2, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
+  set_styled(sheet, "H2", "=IF(E2>B2, \"Up\", \"Down\")", false, Center, General, "", "")
 
   set_cell(sheet, "A3", "Gadget X")
   set_currency(sheet, "B3", "32100")
@@ -173,7 +173,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E3", "44800")
   set_currency_bold(sheet, "F3", "=SUM(B3:E3)", "")
   set_currency(sheet, "G3", "=AVG(B3:E3)")
-  set_styled(sheet, "H3", "=IF(E3>B3, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
+  set_styled(sheet, "H3", "=IF(E3>B3, \"Up\", \"Down\")", false, Center, General, "", "")
 
   set_cell(sheet, "A4", "Device Z")
   set_currency(sheet, "B4", "67800")
@@ -182,7 +182,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E4", "85200")
   set_currency_bold(sheet, "F4", "=SUM(B4:E4)", "")
   set_currency(sheet, "G4", "=AVG(B4:E4)")
-  set_styled(sheet, "H4", "=IF(E4>B4, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
+  set_styled(sheet, "H4", "=IF(E4>B4, \"Up\", \"Down\")", false, Center, General, "", "")
 
   set_cell(sheet, "A5", "Service Plus")
   set_currency(sheet, "B5", "28900")
@@ -191,7 +191,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E5", "39100")
   set_currency_bold(sheet, "F5", "=SUM(B5:E5)", "")
   set_currency(sheet, "G5", "=AVG(B5:E5)")
-  set_styled(sheet, "H5", "=IF(E5>B5, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
+  set_styled(sheet, "H5", "=IF(E5>B5, \"Up\", \"Down\")", false, Center, General, "", "")
 
   set_cell(sheet, "A6", "Cloud Suite")
   set_currency(sheet, "B6", "89500")
@@ -200,7 +200,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E6", "115600")
   set_currency_bold(sheet, "F6", "=SUM(B6:E6)", "")
   set_currency(sheet, "G6", "=AVG(B6:E6)")
-  set_styled(sheet, "H6", "=IF(E6>B6, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
+  set_styled(sheet, "H6", "=IF(E6>B6, \"Up\", \"Down\")", false, Center, General, "", "")
 
   // Totals row — highlighted with green background
   let tot = "#e8f5e9"
