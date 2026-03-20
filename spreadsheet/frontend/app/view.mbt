@@ -211,6 +211,7 @@ fn Model::view_grid(
         "background: #f8f9fa", "border-bottom: 1px solid #c7c7c7",
         "border-right: 1px solid #c7c7c7", "display: flex",
         "align-items: center", "justify-content: center",
+        "position: sticky", "left: 0", "z-index: 3",
       ],
       "",
     ),
