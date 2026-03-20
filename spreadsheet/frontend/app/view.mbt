@@ -17,6 +17,7 @@ pub fn Model::view(
           style=[
             "display: flex", "justify-content: center", "padding: 12px 16px",
             "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
+            "animation: chartSlideIn 0.4s ease-out",
           ],
           [self.view_chart()],
         )
@@ -421,7 +422,7 @@ fn Model::view_grid(
         }
         let justify = resolve_align(cell)
         let shadow = if is_selected {
-          "box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2)"
+          "animation: cellPulse 2s ease-in-out infinite"
         } else {
           ""
         }

@@ -18,6 +18,19 @@
     ::-webkit-scrollbar-corner { background: #f1f3f4; }
     /* Selection highlight */
     ::selection { background: #d2e3fc; }
+    /* Micro-animations */
+    @keyframes barGrow {
+      from { transform: scaleY(0); opacity: 0.3; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+    @keyframes chartSlideIn {
+      from { transform: translateY(-12px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes cellPulse {
+      0%, 100% { box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2); }
+      50%      { box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.4); }
+    }
   </style>
 </head>
 <body>

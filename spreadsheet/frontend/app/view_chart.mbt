@@ -102,6 +102,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
       let bh = bar_h_val.to_int()
       let bx = group_x + bar_w * j
       let by = pad_top + plot_h - bh
+      let delay = (i * 4 + j) * 40
       elements.push(
         @svg.rect(
           x=bx,
@@ -110,6 +111,11 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
           height=bh,
           fill=colors[j],
           rx=2, ry=2,
+          style=[
+            "transform-box: fill-box",
+            "transform-origin: bottom center",
+            "animation: barGrow 0.6s ease-out \{delay}ms both",
+          ],
         ),
       )
     }
