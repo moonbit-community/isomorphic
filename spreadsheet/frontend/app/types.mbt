@@ -104,6 +104,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_cell_bold(sheet, "E1", "Q4 Revenue")
   set_cell_bold(sheet, "F1", "Annual Total")
   set_cell_bold(sheet, "G1", "Avg Quarter")
+  set_cell_bold(sheet, "H1", "Growth")
 
   // Product data
   set_cell(sheet, "A2", "Widget Pro")
@@ -113,6 +114,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_cell(sheet, "E2", "58900")
   set_cell(sheet, "F2", "=SUM(B2:E2)")
   set_cell(sheet, "G2", "=AVG(B2:E2)")
+  set_cell(sheet, "H2", "=IF(E2>B2, \"Up\", \"Down\")")
 
   set_cell(sheet, "A3", "Gadget X")
   set_cell(sheet, "B3", "32100")
@@ -121,6 +123,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_cell(sheet, "E3", "44800")
   set_cell(sheet, "F3", "=SUM(B3:E3)")
   set_cell(sheet, "G3", "=AVG(B3:E3)")
+  set_cell(sheet, "H3", "=IF(E3>B3, \"Up\", \"Down\")")
 
   set_cell(sheet, "A4", "Device Z")
   set_cell(sheet, "B4", "67800")
@@ -129,6 +132,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_cell(sheet, "E4", "85200")
   set_cell(sheet, "F4", "=SUM(B4:E4)")
   set_cell(sheet, "G4", "=AVG(B4:E4)")
+  set_cell(sheet, "H4", "=IF(E4>B4, \"Up\", \"Down\")")
 
   set_cell(sheet, "A5", "Service Plus")
   set_cell(sheet, "B5", "28900")
@@ -137,6 +141,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_cell(sheet, "E5", "39100")
   set_cell(sheet, "F5", "=SUM(B5:E5)")
   set_cell(sheet, "G5", "=AVG(B5:E5)")
+  set_cell(sheet, "H5", "=IF(E5>B5, \"Up\", \"Down\")")
 
   set_cell(sheet, "A6", "Cloud Suite")
   set_cell(sheet, "B6", "89500")
@@ -145,6 +150,7 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_cell(sheet, "E6", "115600")
   set_cell(sheet, "F6", "=SUM(B6:E6)")
   set_cell(sheet, "G6", "=AVG(B6:E6)")
+  set_cell(sheet, "H6", "=IF(E6>B6, \"Up\", \"Down\")")
 
   // Totals row
   set_cell_bold(sheet, "A8", "Totals")
@@ -174,37 +180,44 @@ fn populate_team_metrics(sheet : Sheet) -> Unit {
   set_cell_bold(sheet, "B1", "Tasks Done")
   set_cell_bold(sheet, "C1", "Hours")
   set_cell_bold(sheet, "D1", "Efficiency")
+  set_cell_bold(sheet, "E1", "Rating")
 
   set_cell(sheet, "A2", "Alice Chen")
   set_cell(sheet, "B2", "47")
   set_cell(sheet, "C2", "160")
-  set_cell(sheet, "D2", "=B2/C2*100")
+  set_cell(sheet, "D2", "=ROUND(B2/C2*100, 1)")
+  set_cell(sheet, "E2", "=IF(D2>30, \"Star\", \"OK\")")
 
   set_cell(sheet, "A3", "Bob Kim")
   set_cell(sheet, "B3", "52")
   set_cell(sheet, "C3", "168")
-  set_cell(sheet, "D3", "=B3/C3*100")
+  set_cell(sheet, "D3", "=ROUND(B3/C3*100, 1)")
+  set_cell(sheet, "E3", "=IF(D3>30, \"Star\", \"OK\")")
 
   set_cell(sheet, "A4", "Carol Liu")
   set_cell(sheet, "B4", "39")
   set_cell(sheet, "C4", "152")
-  set_cell(sheet, "D4", "=B4/C4*100")
+  set_cell(sheet, "D4", "=ROUND(B4/C4*100, 1)")
+  set_cell(sheet, "E4", "=IF(D4>30, \"Star\", \"OK\")")
 
   set_cell(sheet, "A5", "Dave Patel")
   set_cell(sheet, "B5", "61")
   set_cell(sheet, "C5", "175")
-  set_cell(sheet, "D5", "=B5/C5*100")
+  set_cell(sheet, "D5", "=ROUND(B5/C5*100, 1)")
+  set_cell(sheet, "E5", "=IF(D5>30, \"Star\", \"OK\")")
 
   // Team totals
   set_cell_bold(sheet, "A7", "Team Total")
   set_cell_bold(sheet, "B7", "=SUM(B2:B5)")
   set_cell_bold(sheet, "C7", "=SUM(C2:C5)")
-  set_cell_bold(sheet, "D7", "=AVG(D2:D5)")
+  set_cell_bold(sheet, "D7", "=ROUND(AVG(D2:D5), 1)")
 
   set_cell(sheet, "A9", "Top Performer")
   set_cell(sheet, "B9", "=MAX(B2:B5)")
   set_cell(sheet, "A10", "Avg Tasks")
-  set_cell(sheet, "B10", "=AVG(B2:B5)")
+  set_cell(sheet, "B10", "=ROUND(AVG(B2:B5), 1)")
+  set_cell(sheet, "A11", "Power Check")
+  set_cell(sheet, "B11", "=POWER(2, 10)")
 }
 
 ///|
