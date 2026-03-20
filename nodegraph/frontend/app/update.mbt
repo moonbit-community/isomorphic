@@ -70,7 +70,22 @@ pub fn Model::update(
     )
     // ── Graph list ────────────────────────────────────────────────
     GotGraphs(Ok(graphs)) =>
-      ({ ..self, graphs, loading: false }, @rabbita.none)
+      if self.first_load && graphs.length() > 0 {
+        // Auto-open first graph on initial load
+        (
+          {
+            ..self,
+            graphs,
+            loading: true,
+            first_load: false,
+            page: Editor,
+            current_graph_id: graphs[0].id,
+          },
+          fetch_graph(dispatch, graphs[0].id),
+        )
+      } else {
+        ({ ..self, graphs, loading: false, first_load: false }, @rabbita.none)
+      }
     GotGraphs(Err(e)) =>
       ({ ..self, error: e, loading: false }, @rabbita.none)
     SetGraphName(v) => ({ ..self, new_graph_name: v }, @rabbita.none)

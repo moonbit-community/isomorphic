@@ -17,6 +17,7 @@ fn main {
       new_graph_name: "",
       show_palette: false,
       palette_cat: "",
+      first_load: true,
       loading: false,
       error: "",
     },

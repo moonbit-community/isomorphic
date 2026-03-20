@@ -91,15 +91,38 @@ fn Model::view_graph_list(
     )
   })
   @html.div([
+    // Hero header
     @html.div(
       style=[
-        "display: flex", "justify-content: space-between", "align-items: center",
-        "margin-bottom: 20px",
+        "text-align: center", "padding: 32px 20px 24px",
+        "background: linear-gradient(135deg, #16213e, #0f3460, #1a1a2e)",
+        "border-radius: 12px", "margin-bottom: 20px",
+        "border: 1px solid #e9456030",
       ],
       [
         @html.h1(
-          style=["font-size: 1.5em", "letter-spacing: 2px"],
+          style=[
+            "font-size: 1.8em", "letter-spacing: 4px", "color: #e94560",
+            "margin-bottom: 6px",
+          ],
           "NODE GRAPH",
+        ),
+        @html.p(
+          style=["color: #888", "font-size: 0.85em", "letter-spacing: 1px"],
+          "Type-safe visual dataflow \u{00B7} Powered by MoonBit",
+        ),
+        // Port type legend
+        @html.div(
+          style=[
+            "display: flex", "gap: 16px", "justify-content: center",
+            "margin-top: 14px",
+          ],
+          [
+            port_legend_dot("#4CAF50", "Number"),
+            port_legend_dot("#FF9800", "String"),
+            port_legend_dot("#2196F3", "Bool"),
+            port_legend_dot("#E91E63", "Color"),
+          ],
         ),
       ],
     ),
@@ -142,4 +165,24 @@ fn Model::view_graph_list(
       @html.div(cards)
     },
   ])
+}
+
+///|
+fn port_legend_dot(color : String, label : String) -> @rabbita.Html {
+  @html.div(
+    style=["display: flex", "align-items: center", "gap: 4px"],
+    [
+      @html.div(
+        style=[
+          "width: 8px", "height: 8px", "border-radius: 50%",
+          "background: \{color}", "box-shadow: 0 0 6px \{color}60",
+        ],
+        "",
+      ),
+      @html.span(
+        style=["font-size: 0.7em", "color: \{color}"],
+        label,
+      ),
+    ],
+  )
 }

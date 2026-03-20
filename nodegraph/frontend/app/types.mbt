@@ -24,6 +24,7 @@ pub(all) struct Model {
   show_palette : Bool
   palette_cat : String
   // UI
+  first_load : Bool
   loading : Bool
   error : String
 } derive(Debug)
