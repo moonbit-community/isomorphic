@@ -1,0 +1,6 @@
+import {
+  "moonbitlang/core/json",
+  "moonbitlang/core/strconv",
+}
+
+supported_targets = "all"

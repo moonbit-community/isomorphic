@@ -11,6 +11,7 @@
     "./todoapp",
     "./compose",
     "./spreadsheet",
-    "./finapp"
+    "./finapp",
+    "./nodegraph"
   ]
 }
