@@ -66,9 +66,10 @@ pub(all) enum Msg {
   ClearCell
   ToggleChart
   ToggleHeatMap
-  // Import
+  // Import / Export
   RequestImport
   ImportExcel(Bytes)
+  ExportExcel
 }
 
 ///|

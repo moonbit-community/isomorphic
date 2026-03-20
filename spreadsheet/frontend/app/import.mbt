@@ -1,6 +1,6 @@
 ///|
-/// Import Excel (.xlsx) files using mbtexcel library.
-/// JS FFI handles file picking; parsing runs synchronously in the browser.
+/// Import/Export Excel (.xlsx) files using mbtexcel library.
+/// JS FFI handles file picking and downloads; parsing runs in the browser.
 
 ///|
 /// JavaScript FFI: opens a file picker dialog and reads the selected .xlsx file
@@ -241,6 +241,143 @@ fn get_xlsx_style(
       (bold, italic, align, bg_color)
     }
   }
+}
+
+// --- Export ---
+
+///|
+/// JavaScript FFI: trigger a file download in the browser.
+extern "js" fn download_bytes(bytes : Bytes, filename : String) =
+  #| (bytes, filename) => {
+  #|   const blob = new Blob([bytes], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  #|   const url = URL.createObjectURL(blob);
+  #|   const a = document.createElement('a');
+  #|   a.href = url;
+  #|   a.download = filename;
+  #|   a.click();
+  #|   URL.revokeObjectURL(url);
+  #| }
+
+///|
+/// Export the current spreadsheet as an .xlsx file download.
+fn export_xlsx(model : Model) -> Unit {
+  let wb = @xlsx.Workbook::new()
+  // Remove default "Sheet1" — we'll add our own sheets
+  let first_sheet = model.sheets[0]
+  // Rename the default sheet to match our first sheet
+  try {
+    wb.set_sheet_name("Sheet1", first_sheet.name)
+  } catch {
+    _ => ()
+  }
+  // Populate the first sheet
+  let ws = match wb.sheet(first_sheet.name) {
+    Some(ws) => ws
+    None => return
+  }
+  export_sheet_cells(wb, ws, first_sheet)
+  // Add remaining sheets
+  for i = 1; i < model.sheets.length(); i = i + 1 {
+    let sheet = model.sheets[i]
+    let ws = try {
+      wb.new_sheet(sheet.name)
+    } catch {
+      _ => continue
+    }
+    export_sheet_cells(wb, ws, sheet)
+  }
+  // Write to bytes and trigger download
+  let bytes = try {
+    @xlsx.write(wb)
+  } catch {
+    _ => return
+  }
+  download_bytes(bytes, "spreadsheet.xlsx")
+}
+
+///|
+/// Populate an xlsx worksheet from our Sheet model.
+fn export_sheet_cells(
+  wb : @xlsx.Workbook,
+  ws : @xlsx.Worksheet,
+  sheet : Sheet,
+) -> Unit {
+  sheet.cells.each(fn(key, cell) {
+    if cell.raw == "" {
+      return
+    }
+    // Set cell value
+    let value : @xlsx.CellValue = match cell.value {
+      Num(n) => Numeric(n)
+      Text(s) => String(s)
+      Error(e) => Error(e)
+      Empty => String(cell.raw)
+    }
+    try {
+      ws.set_cell_value(key, value)
+    } catch {
+      _ => ()
+    }
+    // Set formula (strip leading '=')
+    if cell.raw.length() > 0 && cell.raw[0] == '=' {
+      let formula = cell.raw.substring(start=1)
+      try {
+        ws.set_cell_formula(key, formula)
+      } catch {
+        _ => ()
+      }
+    }
+    // Apply style
+    let has_align = match cell.align {
+      Auto => false
+      _ => true
+    }
+    let has_style = cell.bold || cell.italic || cell.bg_color != "" || has_align
+    if has_style {
+      let style = build_xlsx_style(cell)
+      let style_id = wb.new_style(style)
+      try {
+        ws.set_cell_style(key, style_id)
+      } catch {
+        _ => ()
+      }
+    }
+  })
+}
+
+///|
+/// Build an xlsx Style from our Cell formatting.
+fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
+  let mut style = @xlsx.Style::new()
+  // Font
+  if cell.bold || cell.italic {
+    let font = @xlsx.Font::with_values(
+      bold=cell.bold,
+      italic=cell.italic,
+    )
+    style = style.with_font(font)
+  }
+  // Alignment
+  match cell.align {
+    Left =>
+      style = style.with_alignment(@xlsx.Alignment::with_values(horizontal="left"))
+    Center =>
+      style = style.with_alignment(@xlsx.Alignment::with_values(horizontal="center"))
+    Right =>
+      style = style.with_alignment(@xlsx.Alignment::with_values(horizontal="right"))
+    Auto => ()
+  }
+  // Fill color
+  if cell.bg_color != "" {
+    // Convert "#RRGGBB" to "FFRRGGBB"
+    let color = if cell.bg_color.length() == 7 && cell.bg_color[0] == '#' {
+      "FF\{cell.bg_color.substring(start=1)}"
+    } else {
+      cell.bg_color
+    }
+    style = style.with_fill(@xlsx.Fill::pattern(color=color))
+  }
+  style
 }
 
 ///|
