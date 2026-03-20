@@ -124,8 +124,9 @@ pub fn Model::update(
     RequestImport => (import_xlsx_cmd(dispatch), self)
     ImportExcel(bytes) => (@rabbita.none, load_xlsx(self, bytes))
     ExportExcel => {
-      export_xlsx(self)
-      (@rabbita.none, self)
+      let model = if self.editing { self.commit_edit() } else { self }
+      export_xlsx(model)
+      (@rabbita.none, model)
     }
   }
 }
