@@ -125,10 +125,10 @@ pub fn evaluate_graph(
       Ok(vals) => outputs.push((node_id, vals))
       Err(msg) => {
         errors.push((node_id, msg))
-        // Propagate error downstream instead of empty/defaults
+        // Propagate error downstream so failures don't silently become defaults
         let out_count = output_ports(n.kind).length()
         outputs.push(
-          (node_id, Array::make(out_count, VError("upstream: \{msg}"))),
+          (node_id, Array::make(out_count, VError(msg))),
         )
       }
     }

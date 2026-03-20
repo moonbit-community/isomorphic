@@ -132,7 +132,7 @@ fn Model::view_eval_status(self : Model) -> @rabbita.Html {
             "background: #ff5252", "color: #fff", "padding: 8px 14px",
             "border-radius: 6px", "margin-bottom: 10px", "font-size: 0.85em",
           ],
-          "\u{26A0} Cycle detected! Evaluation stopped. Remove connections to break the cycle.",
+          "\u{26A0} Cycle detected! Acyclic nodes evaluated, but cyclic nodes are skipped.",
         )
       } else if result.errors.length() > 0 {
         let msg = result.errors.map(fn(e) {
