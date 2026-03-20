@@ -75,7 +75,9 @@ fn Model::view_svg_wires(
       }
     }
     // Bezier control offset
-    let dx = if (x2 - x1).abs() < 100 { 60 } else { (x2 - x1).abs() / 2 }
+    let diff = x2 - x1
+    let abs_diff = if diff < 0 { -diff } else { diff }
+    let dx = if abs_diff < 100 { 60 } else { abs_diff / 2 }
     let path_d = "M \{x1} \{y1} C \{x1 + dx} \{y1}, \{x2 - dx} \{y2}, \{x2} \{y2}"
     // Shadow path
     paths.push(
