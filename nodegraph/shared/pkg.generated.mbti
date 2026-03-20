@@ -1,0 +1,182 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/nodegraph/shared"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub let all_kinds : Array[NodeKind]
+
+pub fn api_graph(Int) -> String
+
+pub fn api_graph_connection(Int, Int) -> String
+
+pub fn api_graph_connections(Int) -> String
+
+pub fn api_graph_evaluate(Int) -> String
+
+pub fn api_graph_node(Int, Int) -> String
+
+pub fn api_graph_nodes(Int) -> String
+
+pub let api_graphs : String
+
+pub fn evaluate_graph(Array[Node], Array[Connection]) -> EvalResult
+
+pub fn format_value(Value) -> String
+
+pub fn get_node_outputs(EvalResult, Int) -> Array[Value]
+
+pub fn input_ports(NodeKind) -> Array[PortDef]
+
+pub fn kind_from_string(String) -> NodeKind
+
+pub fn kind_to_string(NodeKind) -> String
+
+pub let max_connections : Int
+
+pub let max_nodes : Int
+
+pub fn node_category(NodeKind) -> String
+
+pub fn node_label(NodeKind) -> String
+
+pub fn output_ports(NodeKind) -> Array[PortDef]
+
+pub fn port_type_color(PortType) -> String
+
+pub fn port_type_label(PortType) -> String
+
+pub fn topological_sort(Array[Node], Array[Connection]) -> (Array[Int], Bool)
+
+pub fn types_compatible(PortType, PortType) -> Bool
+
+pub fn validate_connection(Graph, Int, Int, Int, Int) -> String?
+
+pub fn validate_graph_name(String) -> Bool
+
+pub fn would_create_cycle(Array[Connection], Int, Int) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct Connection {
+  id : Int
+  from_node_id : Int
+  from_port : Int
+  to_node_id : Int
+  to_port : Int
+}
+pub impl Eq for Connection
+pub impl ToJson for Connection
+pub impl @debug.Debug for Connection
+pub impl @json.FromJson for Connection
+
+pub(all) struct EvalResult {
+  node_outputs : Array[(Int, Array[Value])]
+  errors : Array[(Int, String)]
+  eval_order : Array[Int]
+  has_cycle : Bool
+}
+pub impl ToJson for EvalResult
+pub impl @debug.Debug for EvalResult
+pub impl @json.FromJson for EvalResult
+
+pub(all) struct Graph {
+  nodes : Array[Node]
+  connections : Array[Connection]
+}
+pub impl ToJson for Graph
+pub impl @debug.Debug for Graph
+pub impl @json.FromJson for Graph
+
+pub(all) struct Node {
+  id : Int
+  kind : NodeKind
+  x : Int
+  y : Int
+  label : String
+  config : String
+}
+pub impl Eq for Node
+pub impl ToJson for Node
+pub impl @debug.Debug for Node
+pub impl @json.FromJson for Node
+
+pub(all) enum NodeKind {
+  MathAdd
+  MathSubtract
+  MathMultiply
+  MathDivide
+  MathAbs
+  StringConcat
+  StringLength
+  StringUpper
+  StringLower
+  LogicAnd
+  LogicOr
+  LogicNot
+  LogicGreaterThan
+  LogicEquals
+  ColorRGB
+  ColorMix
+  ColorBrightness
+  ConstNumber
+  ConstString
+  ConstBool
+  ConstColor
+  DisplayNumber
+  DisplayText
+}
+pub impl Eq for NodeKind
+pub impl ToJson for NodeKind
+pub impl @debug.Debug for NodeKind
+pub impl @json.FromJson for NodeKind
+
+pub(all) struct PortDef {
+  name : String
+  port_type : PortType
+}
+pub impl Eq for PortDef
+pub impl ToJson for PortDef
+pub impl @debug.Debug for PortDef
+pub impl @json.FromJson for PortDef
+
+pub(all) enum PortType {
+  TNumber
+  TString
+  TBool
+  TColor
+}
+pub impl Eq for PortType
+pub impl ToJson for PortType
+pub impl @debug.Debug for PortType
+pub impl @json.FromJson for PortType
+
+pub(all) struct SavedGraph {
+  id : Int
+  name : String
+}
+pub impl ToJson for SavedGraph
+pub impl @debug.Debug for SavedGraph
+pub impl @json.FromJson for SavedGraph
+
+pub(all) enum Value {
+  VNumber(Int)
+  VString(String)
+  VBool(Bool)
+  VColor(String)
+  VError(String)
+  VNone
+}
+pub impl Eq for Value
+pub impl ToJson for Value
+pub impl @debug.Debug for Value
+pub impl @json.FromJson for Value
+
+// Type aliases
+
+// Traits
+
