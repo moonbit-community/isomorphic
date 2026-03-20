@@ -1,9 +1,9 @@
 ///|
 #warnings("-alert_unstable")
 fn main {
-  let app_cell = @rabbita.simple_cell(
+  let (_, app_cell) = @rabbita.cell_with_dispatch(
     model=@app.Model::new(),
-    update=(msg, model) => model.update(msg),
+    update=(dispatch, msg, model) => model.update(dispatch, msg),
     view=(dispatch, model) => model.view(dispatch),
   )
   @rabbita.new(app_cell).mount("app")
