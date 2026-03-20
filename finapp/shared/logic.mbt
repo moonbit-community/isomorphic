@@ -33,21 +33,24 @@ pub fn parse_amount(s : String) -> Int {
     }
   }
   if dollar_str.length() > 0 {
-    dollars = try { @strconv.parse_int(dollar_str) } catch { _ => 0 }
+    dollars = @strconv.parse_int(dollar_str) catch { _ => 0 }
   }
   if after_dot.length() == 1 {
-    let v = try { @strconv.parse_int(after_dot) } catch { _ => 0 }
+    let v = @strconv.parse_int(after_dot) catch { _ => 0 }
     cents = v * 10
   } else if after_dot.length() >= 2 {
     let two = after_dot[0:2].to_string()
-    cents = try { @strconv.parse_int(two) } catch { _ => 0 }
+    cents = @strconv.parse_int(two) catch { _ => 0 }
   }
   dollars * 100 + cents
 }
 
 ///|
 /// Compute account balance from a list of transactions.
-pub fn compute_balance(transactions : Array[Transaction], account_id : Int) -> Int {
+pub fn compute_balance(
+  transactions : Array[Transaction],
+  account_id : Int,
+) -> Int {
   let mut balance = 0
   for t in transactions {
     if t.account_id == account_id {

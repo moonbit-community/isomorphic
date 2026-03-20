@@ -71,8 +71,8 @@ fn PairModel::view(
   @html.div([
     @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
       // Map child dispatch: Counter.Msg → PairMsg via Left/Right
-      self.left.view((msg) => dispatch(Left(msg)), label="Left"),
-      self.right.view((msg) => dispatch(Right(msg)), label="Right"),
+      self.left.view(msg => dispatch(Left(msg)), label="Left"),
+      self.right.view(msg => dispatch(Right(msg)), label="Right"),
     ]),
     @html.div(style=["text-align: center"], [
       @html.button(
@@ -98,7 +98,11 @@ fn PairModel::view(
 ///|
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
-    model={ left: @counter.Model::new(), right: @counter.Model::new(), sync_mode: false },
+    model={
+      left: @counter.Model::new(),
+      right: @counter.Model::new(),
+      sync_mode: false,
+    },
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch),
   )

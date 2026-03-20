@@ -15,10 +15,7 @@ fn fetch_graphs(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
-fn fetch_graph(
-  dispatch : @rabbita.Dispatch[Msg],
-  id : Int,
-) -> @rabbita.Cmd {
+fn fetch_graph(dispatch : @rabbita.Dispatch[Msg], id : Int) -> @rabbita.Cmd {
   @http.get(
     api(@shared.api_graph(id)),
     expect=Json(
@@ -36,10 +33,11 @@ fn do_evaluate(
   @http.post(
     api(@shared.api_graph_evaluate(graph_id)),
     Json({}),
-    expect=Json(
-      fn(r) { dispatch(GotEvalResult(r)) },
-      fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
-    ),
+    expect=Json(fn(r) { dispatch(GotEvalResult(r)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("decode error")
+      }
+    }),
   )
 }
 
@@ -65,14 +63,22 @@ pub fn Model::update(
   match msg {
     Init => ({ ..self, loading: true }, fetch_graphs(dispatch))
     // ── Navigation ────────────────────────────────────────────────
-    GoToList => (
-      { ..self, page: GraphList, connecting_from_node: 0, editing_node: 0 },
-      fetch_graphs(dispatch),
-    )
-    GoToEditor(id) => (
-      { ..self, page: Editor, current_graph_id: id, loading: true, eval_result: None },
-      fetch_graph(dispatch, id),
-    )
+    GoToList =>
+      (
+        { ..self, page: GraphList, connecting_from_node: 0, editing_node: 0 },
+        fetch_graphs(dispatch),
+      )
+    GoToEditor(id) =>
+      (
+        {
+          ..self,
+          page: Editor,
+          current_graph_id: id,
+          loading: true,
+          eval_result: None,
+        },
+        fetch_graph(dispatch, id),
+      )
     // ── Graph list ────────────────────────────────────────────────
     GotGraphs(Ok(graphs)) =>
       if self.first_load && graphs.length() > 0 {
@@ -101,10 +107,11 @@ pub fn Model::update(
       let cmd = @http.post(
         api(@shared.api_graphs),
         Json({ "name": self.new_graph_name.to_json() }),
-        expect=Json(
-          fn(r) { dispatch(GraphCreated(r)) },
-          fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
-        ),
+        expect=Json(fn(r) { dispatch(GraphCreated(r)) }, fn(json) {
+          Ok(@json.from_json(json)) catch {
+            _ => Err("decode error")
+          }
+        }),
       )
       ({ ..self, error: "" }, cmd)
     }
@@ -123,7 +130,7 @@ pub fn Model::update(
     }
     GraphDeleted(Ok(id)) => {
       let graphs = self.graphs.filter(fn(g) { g.id != id })
-      ({ ..self, graphs }, @rabbita.none)
+      ({ ..self, graphs, }, @rabbita.none)
     }
     GraphDeleted(Err(_)) => (self, @rabbita.none)
     // ── Graph loaded ──────────────────────────────────────────────
@@ -136,8 +143,7 @@ pub fn Model::update(
       }
       (m, auto_eval_cmd(m, dispatch))
     }
-    GotGraph(Err(e)) =>
-      ({ ..self, error: e, loading: false }, @rabbita.none)
+    GotGraph(Err(e)) => ({ ..self, error: e, loading: false }, @rabbita.none)
     // ── Node ops ──────────────────────────────────────────────────
     TogglePalette =>
       ({ ..self, show_palette: !self.show_palette }, @rabbita.none)
@@ -170,7 +176,7 @@ pub fn Model::update(
     NodeAdded(Ok(node)) => {
       let nodes = self.nodes.copy()
       nodes.push(node)
-      let m = { ..self, nodes }
+      let m = { ..self, nodes, }
       (m, auto_eval_cmd(m, dispatch))
     }
     NodeAdded(Err(e)) => ({ ..self, error: e }, @rabbita.none)
@@ -280,9 +286,7 @@ pub fn Model::update(
           },
         ),
         expect=Json(
-          fn(r) {
-            dispatch(ConfigSaved(r.map(fn(_json : Json) { () })))
-          },
+          fn(r) { dispatch(ConfigSaved(r.map(fn(_json : Json) { () }))) },
           fn(json) { Ok(json) },
         ),
       )
@@ -371,10 +375,17 @@ pub fn Model::update(
         nodes: self.nodes,
         connections: self.connections,
       }
-      if @shared.validate_connection(graph, from_node, from_port, to_node, to_port)
+      if @shared.validate_connection(
+          graph, from_node, from_port, to_node, to_port,
+        )
         is Some(err) {
         return (
-          { ..self, error: err, connecting_from_node: 0, connecting_from_port: 0 },
+          {
+            ..self,
+            error: err,
+            connecting_from_node: 0,
+            connecting_from_port: 0,
+          },
           @rabbita.none,
         )
       }
@@ -393,12 +404,11 @@ pub fn Model::update(
           fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
         ),
       )
-      ({ ..self, connecting_from_node: 0, connecting_from_port: 0, error: "" }, cmd)
     }
     ConnectionAdded(Ok(c)) => {
       let connections = self.connections.copy()
       connections.push(c)
-      let m = { ..self, connections }
+      let m = { ..self, connections, }
       (m, auto_eval_cmd(m, dispatch))
     }
     ConnectionAdded(Err(e)) => ({ ..self, error: e }, @rabbita.none)
@@ -413,7 +423,7 @@ pub fn Model::update(
     }
     ConnectionDeleted(Ok(id)) => {
       let connections = self.connections.filter(fn(c) { c.id != id })
-      let m = { ..self, connections }
+      let m = { ..self, connections, }
       (m, auto_eval_cmd(m, dispatch))
     }
     ConnectionDeleted(Err(_)) => (self, @rabbita.none)

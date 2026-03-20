@@ -127,9 +127,7 @@ pub fn evaluate_graph(
         errors.push((node_id, msg))
         // Propagate error downstream so failures don't silently become defaults
         let out_count = output_ports(n.kind).length()
-        outputs.push(
-          (node_id, Array::make(out_count, VError(msg))),
-        )
+        outputs.push((node_id, Array::make(out_count, VError(msg))))
       }
     }
   }
@@ -232,7 +230,7 @@ fn evaluate_node(
         Err(e) => Err(e)
       }
     ConstNumber => {
-      let v = try { @strconv.parse_int(config) } catch { _ => 0 }
+      let v = @strconv.parse_int(config) catch { _ => 0 }
       Ok([VNumber(v)])
     }
     ConstString => Ok([VString(config)])
@@ -410,10 +408,7 @@ pub fn format_value(v : Value) -> String {
 
 ///|
 /// Get output values for a node from eval result.
-pub fn get_node_outputs(
-  result : EvalResult,
-  node_id : Int,
-) -> Array[Value] {
+pub fn get_node_outputs(result : EvalResult, node_id : Int) -> Array[Value] {
   for out in result.node_outputs {
     let (id, vals) = out
     if id == node_id {

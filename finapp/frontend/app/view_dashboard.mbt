@@ -8,13 +8,16 @@ fn Model::view_dashboard(
     None =>
       return @html.div(
         style=["padding: 40px", "text-align: center", "color: #999"],
-        if self.loading { "Loading..." } else { "No data yet" },
+        if self.loading {
+          "Loading..."
+        } else {
+          "No data yet"
+        },
       )
   }
   @html.div(
     style=[
-      "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px",
-      "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+      "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
     ],
     [
       // ── Account balances ────────────────────────────────────────
@@ -25,9 +28,7 @@ fn Model::view_dashboard(
       self.view_balance_cards(data),
       // ── Monthly summary ─────────────────────────────────────────
       @html.h2(
-        style=[
-          "font-size: 1.1em", "color: #333", "margin: 20px 0 12px",
-        ],
+        style=["font-size: 1.1em", "color: #333", "margin: 20px 0 12px"],
         "This Month (\{self.current_month})",
       ),
       self.view_month_summary(data),
@@ -57,8 +58,11 @@ fn Model::view_balance_cards(
     let color = if ab.balance >= 0 { "#2e7d32" } else { "#c62828" }
     @html.div(
       style=[
-        "flex: 1", "min-width: 150px", "background: #f8f9fa",
-        "padding: 14px", "border-radius: 8px",
+        "flex: 1",
+        "min-width: 150px",
+        "background: #f8f9fa",
+        "padding: 14px",
+        "border-radius: 8px",
         "border-left: 4px solid \{color}",
       ],
       [
@@ -67,9 +71,7 @@ fn Model::view_balance_cards(
           ab.account.name,
         ),
         @html.div(
-          style=[
-            "font-size: 1.3em", "font-weight: 700", "color: \{color}",
-          ],
+          style=["font-size: 1.3em", "font-weight: 700", "color: \{color}"],
           @shared.format_amount(ab.balance),
         ),
         @html.div(
@@ -79,10 +81,7 @@ fn Model::view_balance_cards(
       ],
     )
   })
-  @html.div(
-    style=["display: flex", "gap: 12px", "flex-wrap: wrap"],
-    cards,
-  )
+  @html.div(style=["display: flex", "gap: 12px", "flex-wrap: wrap"], cards)
 }
 
 ///|
@@ -101,14 +100,11 @@ fn Model::view_month_summary(
     [
       @html.div(
         style=[
-          "flex: 1", "min-width: 120px", "text-align: center",
-          "padding: 12px", "background: #e8f5e9", "border-radius: 8px",
+          "flex: 1", "min-width: 120px", "text-align: center", "padding: 12px", "background: #e8f5e9",
+          "border-radius: 8px",
         ],
         [
-          @html.div(
-            style=["font-size: 0.75em", "color: #2e7d32"],
-            "INCOME",
-          ),
+          @html.div(style=["font-size: 0.75em", "color: #2e7d32"], "INCOME"),
           @html.div(
             style=["font-size: 1.2em", "font-weight: 700", "color: #2e7d32"],
             @shared.format_amount(s.income),
@@ -117,14 +113,11 @@ fn Model::view_month_summary(
       ),
       @html.div(
         style=[
-          "flex: 1", "min-width: 120px", "text-align: center",
-          "padding: 12px", "background: #fce4ec", "border-radius: 8px",
+          "flex: 1", "min-width: 120px", "text-align: center", "padding: 12px", "background: #fce4ec",
+          "border-radius: 8px",
         ],
         [
-          @html.div(
-            style=["font-size: 0.75em", "color: #c62828"],
-            "EXPENSES",
-          ),
+          @html.div(style=["font-size: 0.75em", "color: #c62828"], "EXPENSES"),
           @html.div(
             style=["font-size: 1.2em", "font-weight: 700", "color: #c62828"],
             @shared.format_amount(s.expenses),
@@ -133,14 +126,15 @@ fn Model::view_month_summary(
       ),
       @html.div(
         style=[
-          "flex: 1", "min-width: 120px", "text-align: center",
-          "padding: 12px", "background: #f5f5f5", "border-radius: 8px",
+          "flex: 1", "min-width: 120px", "text-align: center", "padding: 12px", "background: #f5f5f5",
+          "border-radius: 8px",
         ],
         [
           @html.div(style=["font-size: 0.75em", "color: #666"], "NET"),
           @html.div(
             style=[
-              "font-size: 1.2em", "font-weight: 700",
+              "font-size: 1.2em",
+              "font-weight: 700",
               "color: \{net_color}",
             ],
             @shared.format_amount(net),
@@ -167,16 +161,18 @@ fn Model::view_budget_progress(
     @html.div(style=["margin-bottom: 8px"], [
       @html.div(
         style=[
-          "display: flex", "justify-content: space-between",
-          "font-size: 0.8em", "margin-bottom: 2px",
+          "display: flex", "justify-content: space-between", "font-size: 0.8em",
+          "margin-bottom: 2px",
         ],
         [
-          @html.span(
-            "\{bs.category_icon} \{bs.category_name}",
-          ),
+          @html.span("\{bs.category_icon} \{bs.category_name}"),
           @html.span(
             style=[
-              if over { "color: #c62828; font-weight: 700" } else { "color: #666" },
+              if over {
+                "color: #c62828; font-weight: 700"
+              } else {
+                "color: #666"
+              },
             ],
             "\{@shared.format_amount(bs.spent)} / \{@shared.format_amount(bs.budget.amount_limit)}",
           ),
@@ -184,8 +180,7 @@ fn Model::view_budget_progress(
       ),
       @html.div(
         style=[
-          "height: 8px", "background: #e0e0e0", "border-radius: 4px",
-          "overflow: hidden",
+          "height: 8px", "background: #e0e0e0", "border-radius: 4px", "overflow: hidden",
         ],
         [
           @html.div(
@@ -204,9 +199,7 @@ fn Model::view_budget_progress(
   })
   let children : Array[@rabbita.Html] = [
     @html.h2(
-      style=[
-        "font-size: 1.1em", "color: #333", "margin-bottom: 12px",
-      ],
+      style=["font-size: 1.1em", "color: #333", "margin-bottom: 12px"],
       "Budget Progress",
     ),
   ]
@@ -237,25 +230,36 @@ fn Model::view_spending_breakdown(
     let pct = if max_amount > 0 { amount * 100 / max_amount } else { 0 }
     @html.div(
       style=[
-        "display: flex", "align-items: center", "gap: 8px",
-        "margin-bottom: 6px",
+        "display: flex", "align-items: center", "gap: 8px", "margin-bottom: 6px",
       ],
       [
         @html.div(
-          style=["width: 90px", "font-size: 0.8em", "color: #555", "text-align: right"],
+          style=[
+            "width: 90px", "font-size: 0.8em", "color: #555", "text-align: right",
+          ],
           name,
         ),
-        @html.div(style=["flex: 1", "height: 12px", "background: #f0f0f0", "border-radius: 6px", "overflow: hidden"], [
-          @html.div(
-            style=[
-              "height: 100%", "width: \{pct}%",
-              "background: \{color}", "border-radius: 6px",
-            ],
-            "",
-          ),
-        ]),
         @html.div(
-          style=["width: 70px", "font-size: 0.8em", "color: #333", "font-weight: 600"],
+          style=[
+            "flex: 1", "height: 12px", "background: #f0f0f0", "border-radius: 6px",
+            "overflow: hidden",
+          ],
+          [
+            @html.div(
+              style=[
+                "height: 100%",
+                "width: \{pct}%",
+                "background: \{color}",
+                "border-radius: 6px",
+              ],
+              "",
+            ),
+          ],
+        ),
+        @html.div(
+          style=[
+            "width: 70px", "font-size: 0.8em", "color: #333", "font-weight: 600",
+          ],
           @shared.format_amount(amount),
         ),
       ],
@@ -280,19 +284,16 @@ fn Model::view_recent_transactions(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   if data.recent_transactions.is_empty() {
-    return @html.div(
-      style=["margin-top: 16px"],
-      [
-        @html.h2(
-          style=["font-size: 1.1em", "color: #333", "margin-bottom: 8px"],
-          "Recent Transactions",
-        ),
-        @html.p(
-          style=["color: #999", "font-style: italic"],
-          "No transactions yet.",
-        ),
-      ],
-    )
+    return @html.div(style=["margin-top: 16px"], [
+      @html.h2(
+        style=["font-size: 1.1em", "color: #333", "margin-bottom: 8px"],
+        "Recent Transactions",
+      ),
+      @html.p(
+        style=["color: #999", "font-style: italic"],
+        "No transactions yet.",
+      ),
+    ])
   }
   let rows : Array[@rabbita.Html] = data.recent_transactions.map(fn(t) {
     let cat = find_category(self.categories, t.category_id)
@@ -310,15 +311,19 @@ fn Model::view_recent_transactions(
     }
     @html.div(
       style=[
-        "display: flex", "align-items: center", "padding: 8px 0",
-        "border-bottom: 1px solid #f0f0f0", "gap: 10px",
+        "display: flex", "align-items: center", "padding: 8px 0", "border-bottom: 1px solid #f0f0f0",
+        "gap: 10px",
       ],
       [
         @html.div(
           style=[
-            "width: 32px", "height: 32px", "border-radius: 50%",
-            "background: \{color}20", "display: flex",
-            "align-items: center", "justify-content: center",
+            "width: 32px",
+            "height: 32px",
+            "border-radius: 50%",
+            "background: \{color}20",
+            "display: flex",
+            "align-items: center",
+            "justify-content: center",
             "font-size: 0.9em",
           ],
           icon,
@@ -328,14 +333,12 @@ fn Model::view_recent_transactions(
             style=["font-size: 0.85em", "font-weight: 500"],
             t.description,
           ),
-          @html.div(
-            style=["font-size: 0.7em", "color: #999"],
-            t.date,
-          ),
+          @html.div(style=["font-size: 0.7em", "color: #999"], t.date),
         ]),
         @html.div(
           style=[
-            "font-weight: 700", "font-size: 0.9em",
+            "font-weight: 700",
+            "font-size: 0.9em",
             "color: \{amount_color}",
           ],
           "\{sign}\{@shared.format_amount(t.amount)}",

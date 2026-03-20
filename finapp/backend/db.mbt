@@ -112,7 +112,9 @@ fn read_account(stmt : @sqlite3.Statement) -> @shared.Account {
 fn get_all_accounts(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Account] raise @sqlite3.SqliteError {
-  let stmt = conn.prepare("SELECT id, name, account_type FROM accounts ORDER BY id")
+  let stmt = conn.prepare(
+    "SELECT id, name, account_type FROM accounts ORDER BY id",
+  )
   let result : Array[@shared.Account] = []
   while stmt.step() {
     result.push(read_account(stmt))
@@ -336,9 +338,9 @@ fn get_dashboard(
   let transactions = get_all_transactions(conn)
   let budgets = get_budgets_for_month(conn, month)
   // Account balances
-  let account_balances : Array[@shared.AccountBalance] = accounts.map(
-    fn(a) { { account: a, balance: @shared.compute_balance(transactions, a.id) } },
-  )
+  let account_balances : Array[@shared.AccountBalance] = accounts.map(fn(a) {
+    { account: a, balance: @shared.compute_balance(transactions, a.id) }
+  })
   // Monthly summary
   let month_summary = @shared.monthly_totals(transactions, month)
   // Budget statuses
@@ -355,19 +357,21 @@ fn get_dashboard(
         cat_icon = c.icon
       }
     }
-    budget_statuses.push(
-      {
-        budget: b,
-        category_name: cat_name,
-        category_color: cat_color,
-        category_icon: cat_icon,
-        spent,
-      },
-    )
+    budget_statuses.push({
+      budget: b,
+      category_name: cat_name,
+      category_color: cat_color,
+      category_icon: cat_icon,
+      spent,
+    })
   }
   // Recent transactions (first 10)
   let recent : Array[@shared.Transaction] = []
-  let limit = if transactions.length() < 10 { transactions.length() } else { 10 }
+  let limit = if transactions.length() < 10 {
+    transactions.length()
+  } else {
+    10
+  }
   for i = 0; i < limit; i = i + 1 {
     recent.push(transactions[i])
   }

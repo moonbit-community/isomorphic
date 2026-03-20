@@ -47,7 +47,9 @@ fn DashboardModel::view(
   let fg = if self.dark_mode { "#eee" } else { "#111" }
   @html.div(
     style=[
-      "background: " + bg, "color: " + fg, "padding: 20px",
+      "background: " + bg,
+      "color: " + fg,
+      "padding: 20px",
       "border-radius: 12px",
       "font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace",
     ],
@@ -55,9 +57,8 @@ fn DashboardModel::view(
       // Header
       @html.div(
         style=[
-          "display: flex", "justify-content: space-between",
-          "align-items: center", "margin-bottom: 16px",
-          "border-bottom: 1px solid #333", "padding-bottom: 10px",
+          "display: flex", "justify-content: space-between", "align-items: center",
+          "margin-bottom: 16px", "border-bottom: 1px solid #333", "padding-bottom: 10px",
         ],
         [
           @html.div(
@@ -68,8 +69,11 @@ fn DashboardModel::view(
           ),
           @html.button(
             style=[
-              "padding: 5px 14px", "border: 1px solid #555",
-              "border-radius: 4px", "cursor: pointer", "font-size: 0.75em",
+              "padding: 5px 14px",
+              "border: 1px solid #555",
+              "border-radius: 4px",
+              "cursor: pointer",
+              "font-size: 0.75em",
               "letter-spacing: 0.5px",
               if self.dark_mode {
                 "background: #333; color: #fff"
@@ -78,7 +82,11 @@ fn DashboardModel::view(
               },
             ],
             on_click=dispatch(ToggleDarkMode),
-            if self.dark_mode { "LIGHT MODE" } else { "DARK MODE" },
+            if self.dark_mode {
+              "LIGHT MODE"
+            } else {
+              "DARK MODE"
+            },
           ),
         ],
       ),
@@ -92,8 +100,7 @@ fn DashboardModel::view(
       @html.div(
         style=[
           "margin-top: 12px", "padding-top: 10px", "border-top: 1px solid #333",
-          "font-size: 0.65em", "color: #666", "text-align: center",
-          "letter-spacing: 0.5px",
+          "font-size: 0.65em", "color: #666", "text-align: center", "letter-spacing: 0.5px",
         ],
         "6 nesting levels \u{00B7} 7 message layers \u{00B7} ~78 state values \u{00B7} TEA all the way down",
       ),
@@ -104,11 +111,9 @@ fn DashboardModel::view(
 ///|
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
-    model=({
-      mixer: MixerModel::new(),
-      color: ColorModel::new(),
-      dark_mode: true,
-    } : DashboardModel),
+    model=(
+      { mixer: MixerModel::new(), color: ColorModel::new(), dark_mode: true } :
+      DashboardModel),
     update=fn(msg, model) { model.update(msg) },
     view=fn(dispatch, model) { model.view(dispatch) },
   )

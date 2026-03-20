@@ -7,9 +7,8 @@ fn Model::view_editor(
     // Header bar
     @html.div(
       style=[
-        "display: flex", "align-items: center", "gap: 10px",
-        "margin-bottom: 12px", "padding: 10px 14px",
-        "background: linear-gradient(135deg, #16213e, #0f3460)",
+        "display: flex", "align-items: center", "gap: 10px", "margin-bottom: 12px",
+        "padding: 10px 14px", "background: linear-gradient(135deg, #16213e, #0f3460)",
         "border-radius: 8px", "border: 1px solid #1b2838",
       ],
       [
@@ -22,13 +21,19 @@ fn Model::view_editor(
           "\u{2190} Back",
         ),
         @html.div(
-          style=["flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 2px", "color: #e94560"],
+          style=[
+            "flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 2px",
+            "color: #e94560",
+          ],
           "EDITOR",
         ),
         @html.button(
           style=[
-            "padding: 6px 14px", "border: none", "border-radius: 4px",
-            "cursor: pointer", "font-weight: 600",
+            "padding: 6px 14px",
+            "border: none",
+            "border-radius: 4px",
+            "cursor: pointer",
+            "font-weight: 600",
             if self.auto_eval {
               "background: #4CAF50; color: #fff"
             } else {
@@ -36,13 +41,16 @@ fn Model::view_editor(
             },
           ],
           on_click=dispatch(ToggleAutoEval),
-          if self.auto_eval { "Auto: ON" } else { "Auto: OFF" },
+          if self.auto_eval {
+            "Auto: ON"
+          } else {
+            "Auto: OFF"
+          },
         ),
         @html.button(
           style=[
-            "padding: 6px 14px", "background: #e94560", "color: #fff",
-            "border: none", "border-radius: 4px", "cursor: pointer",
-            "font-weight: 600",
+            "padding: 6px 14px", "background: #e94560", "color: #fff", "border: none",
+            "border-radius: 4px", "cursor: pointer", "font-weight: 600",
           ],
           on_click=dispatch(Evaluate),
           "\u{25B6} Evaluate",
@@ -50,7 +58,9 @@ fn Model::view_editor(
         @html.button(
           style=[
             "padding: 6px 14px",
-            "border: none", "border-radius: 4px", "cursor: pointer",
+            "border: none",
+            "border-radius: 4px",
+            "cursor: pointer",
             if self.show_palette {
               "background: #0f3460; color: #e94560"
             } else {
@@ -58,7 +68,11 @@ fn Model::view_editor(
             },
           ],
           on_click=dispatch(TogglePalette),
-          if self.show_palette { "Close Palette" } else { "+ Add Node" },
+          if self.show_palette {
+            "Close Palette"
+          } else {
+            "+ Add Node"
+          },
         ),
       ],
     ),
@@ -142,8 +156,8 @@ fn Model::view_connect_banner(
       ),
       @html.button(
         style=[
-          "padding: 4px 12px", "background: #e94560", "color: #fff",
-          "border: none", "border-radius: 4px", "cursor: pointer",
+          "padding: 4px 12px", "background: #e94560", "color: #fff", "border: none",
+          "border-radius: 4px", "cursor: pointer",
         ],
         on_click=dispatch(CancelConnect),
         "Cancel",
@@ -160,8 +174,8 @@ fn Model::view_eval_status(self : Model) -> @rabbita.Html {
       if result.has_cycle {
         @html.div(
           style=[
-            "background: #ff5252", "color: #fff", "padding: 8px 14px",
-            "border-radius: 6px", "margin-bottom: 10px", "font-size: 0.85em",
+            "background: #ff5252", "color: #fff", "padding: 8px 14px", "border-radius: 6px",
+            "margin-bottom: 10px", "font-size: 0.85em",
           ],
           "\u{26A0} Cycle detected! Acyclic nodes evaluated, but cyclic nodes are skipped.",
         )
@@ -172,8 +186,8 @@ fn Model::view_eval_status(self : Model) -> @rabbita.Html {
         })
         @html.div(
           style=[
-            "background: #ff9800", "color: #000", "padding: 8px 14px",
-            "border-radius: 6px", "margin-bottom: 10px", "font-size: 0.85em",
+            "background: #ff9800", "color: #000", "padding: 8px 14px", "border-radius: 6px",
+            "margin-bottom: 10px", "font-size: 0.85em",
           ],
           "\u{26A0} \{msg.length()} error(s) during evaluation",
         )

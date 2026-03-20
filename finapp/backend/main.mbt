@@ -1,22 +1,13 @@
 ///|
 fn main raise {
   guard @argparse.parse(
-      Command(
-        "finapp-server",
-        about="Personal Finance Tracker backend",
-        options=[
-          OptionArg(
-            "port",
-            short='p',
-            long="port",
-            about="Port to listen on",
-            default_values=["4007"],
-          ),
-        ],
-      ),
+      Command("finapp-server", about="Personal Finance Tracker backend", options=[
+        OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
+          "4007",
+        ]),
+      ]),
     )
-    is { values: { "port": [port], .. }, .. }
-  else {
+    is { values: { "port": [port], .. }, .. } else {
     println("Failed to parse arguments")
     return
   }
@@ -100,9 +91,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_accounts}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(
-        event.params.get("id").unwrap().to_string(),
-      )
+      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
       delete_account(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -141,8 +130,7 @@ fn main raise {
           "date": String(dt),
           ..
         } => (a.to_int(), c.to_int(), amt.to_int(), t, d, dt)
-        _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
       }
       if @shared.validate_transaction(amount, description, date) is Some(err) {
         return @mocket.HttpResponse::new(BadRequest).body(err)
@@ -157,9 +145,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_transactions}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(
-        event.params.get("id").unwrap().to_string(),
-      )
+      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
       delete_transaction(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -186,8 +172,7 @@ fn main raise {
           "month": String(m),
           ..
         } => (c.to_int(), a.to_int(), m)
-        _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
       }
       let budget = upsert_budget(conn, category_id, amount_limit, month)
       @mocket.HttpResponse::new(Created).json(budget)
@@ -197,9 +182,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_budgets}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(
-        event.params.get("id").unwrap().to_string(),
-      )
+      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
       delete_budget(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {

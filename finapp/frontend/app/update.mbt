@@ -5,14 +5,11 @@ fn fetch_dashboard(
 ) -> @rabbita.Cmd {
   @http.get(
     "\{@shared.api_dashboard}/\{month}",
-    expect=Json(
-      fn(result) { dispatch(GotDashboard(result)) },
-      fn(json) {
-        Ok(@json.from_json(json)) catch {
-          _ => Err("Failed to decode dashboard")
-        }
-      },
-    ),
+    expect=Json(fn(result) { dispatch(GotDashboard(result)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("Failed to decode dashboard")
+      }
+    }),
   )
 }
 
@@ -20,14 +17,11 @@ fn fetch_dashboard(
 fn fetch_accounts(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_accounts,
-    expect=Json(
-      fn(result) { dispatch(GotAccounts(result)) },
-      fn(json) {
-        Ok(@json.from_json(json)) catch {
-          _ => Err("Failed to decode accounts")
-        }
-      },
-    ),
+    expect=Json(fn(result) { dispatch(GotAccounts(result)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("Failed to decode accounts")
+      }
+    }),
   )
 }
 
@@ -35,14 +29,11 @@ fn fetch_accounts(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 fn fetch_transactions(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_transactions,
-    expect=Json(
-      fn(result) { dispatch(GotTransactions(result)) },
-      fn(json) {
-        Ok(@json.from_json(json)) catch {
-          _ => Err("Failed to decode transactions")
-        }
-      },
-    ),
+    expect=Json(fn(result) { dispatch(GotTransactions(result)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("Failed to decode transactions")
+      }
+    }),
   )
 }
 
@@ -50,14 +41,11 @@ fn fetch_transactions(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 fn fetch_categories(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_categories,
-    expect=Json(
-      fn(result) { dispatch(GotCategories(result)) },
-      fn(json) {
-        Ok(@json.from_json(json)) catch {
-          _ => Err("Failed to decode categories")
-        }
-      },
-    ),
+    expect=Json(fn(result) { dispatch(GotCategories(result)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("Failed to decode categories")
+      }
+    }),
   )
 }
 
@@ -68,22 +56,16 @@ fn fetch_budgets(
 ) -> @rabbita.Cmd {
   @http.get(
     "\{@shared.api_budgets}/\{month}",
-    expect=Json(
-      fn(result) { dispatch(GotBudgets(result)) },
-      fn(json) {
-        Ok(@json.from_json(json)) catch {
-          _ => Err("Failed to decode budgets")
-        }
-      },
-    ),
+    expect=Json(fn(result) { dispatch(GotBudgets(result)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("Failed to decode budgets")
+      }
+    }),
   )
 }
 
 ///|
-fn fetch_all(
-  dispatch : @rabbita.Dispatch[Msg],
-  month : String,
-) -> @rabbita.Cmd {
+fn fetch_all(dispatch : @rabbita.Dispatch[Msg], month : String) -> @rabbita.Cmd {
   @rabbita.batch([
     fetch_dashboard(dispatch, month),
     fetch_accounts(dispatch),
@@ -95,9 +77,7 @@ fn fetch_all(
 
 ///|
 fn parse_int_or(s : String, default : Int) -> Int {
-  try {
-    @strconv.parse_int(s)
-  } catch {
+  @strconv.parse_int(s) catch {
     _ => default
   }
 }
@@ -127,8 +107,7 @@ pub fn Model::update(
       ({ ..self, error: e, loading: false }, @rabbita.none)
     GotAccounts(Ok(accounts)) =>
       ({ ..self, accounts, loading: false }, @rabbita.none)
-    GotAccounts(Err(e)) =>
-      ({ ..self, error: e, loading: false }, @rabbita.none)
+    GotAccounts(Err(e)) => ({ ..self, error: e, loading: false }, @rabbita.none)
     GotTransactions(Ok(transactions)) =>
       ({ ..self, transactions, loading: false }, @rabbita.none)
     GotTransactions(Err(e)) =>
@@ -166,24 +145,21 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         @shared.api_transactions,
-        Json(
-          {
-            "account_id": self.form_account_id.to_json(),
-            "category_id": self.form_category_id.to_json(),
-            "amount": amount.to_json(),
-            "txn_type": self.form_type.to_db_string().to_json(),
-            "description": self.form_desc.to_json(),
-            "date": self.form_date.to_json(),
-          },
-        ),
-        expect=Json(
-          fn(result) { dispatch(TransactionCreated(result)) },
-          fn(json) {
-            Ok(@json.from_json(json)) catch {
-              _ => Err("Failed to decode transaction")
-            }
-          },
-        ),
+        Json({
+          "account_id": self.form_account_id.to_json(),
+          "category_id": self.form_category_id.to_json(),
+          "amount": amount.to_json(),
+          "txn_type": self.form_type.to_db_string().to_json(),
+          "description": self.form_desc.to_json(),
+          "date": self.form_date.to_json(),
+        }),
+        expect=Json(fn(result) { dispatch(TransactionCreated(result)) }, fn(
+          json,
+        ) {
+          Ok(@json.from_json(json)) catch {
+            _ => Err("Failed to decode transaction")
+          }
+        }),
       )
       ({ ..self, error: "" }, cmd)
     }
@@ -201,8 +177,7 @@ pub fn Model::update(
         fetch_dashboard(dispatch, self.current_month),
       )
     }
-    TransactionCreated(Err(e)) =>
-      ({ ..self, error: e }, @rabbita.none)
+    TransactionCreated(Err(e)) => ({ ..self, error: e }, @rabbita.none)
     DeleteTransaction(id) => {
       let cmd = @http.delete(
         @shared.api_transaction(id),
@@ -214,10 +189,7 @@ pub fn Model::update(
     }
     TransactionDeleted(Ok(id)) => {
       let transactions = self.transactions.filter(fn(t) { t.id != id })
-      (
-        { ..self, transactions },
-        fetch_dashboard(dispatch, self.current_month),
-      )
+      ({ ..self, transactions, }, fetch_dashboard(dispatch, self.current_month))
     }
     TransactionDeleted(Err(_)) => (self, @rabbita.none)
     // ── Account form ──────────────────────────────────────────────
@@ -233,20 +205,15 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         @shared.api_accounts,
-        Json(
-          {
-            "name": self.acct_name.to_json(),
-            "account_type": self.acct_type.to_db_string().to_json(),
-          },
-        ),
-        expect=Json(
-          fn(result) { dispatch(AccountCreated(result)) },
-          fn(json) {
-            Ok(@json.from_json(json)) catch {
-              _ => Err("Failed to decode account")
-            }
-          },
-        ),
+        Json({
+          "name": self.acct_name.to_json(),
+          "account_type": self.acct_type.to_db_string().to_json(),
+        }),
+        expect=Json(fn(result) { dispatch(AccountCreated(result)) }, fn(json) {
+          Ok(@json.from_json(json)) catch {
+            _ => Err("Failed to decode account")
+          }
+        }),
       )
       ({ ..self, error: "" }, cmd)
     }
@@ -267,9 +234,7 @@ pub fn Model::update(
     }
     AccountDeleted(Ok(id)) => {
       let accounts = self.accounts.filter(fn(a) { a.id != id })
-      let transactions = self.transactions.filter(fn(t) {
-        t.account_id != id
-      })
+      let transactions = self.transactions.filter(fn(t) { t.account_id != id })
       (
         { ..self, accounts, transactions },
         fetch_dashboard(dispatch, self.current_month),
@@ -299,21 +264,16 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         @shared.api_budgets,
-        Json(
-          {
-            "category_id": self.budget_cat_id.to_json(),
-            "amount_limit": amount.to_json(),
-            "month": month.to_json(),
-          },
-        ),
-        expect=Json(
-          fn(result) { dispatch(BudgetCreated(result)) },
-          fn(json) {
-            Ok(@json.from_json(json)) catch {
-              _ => Err("Failed to decode budget")
-            }
-          },
-        ),
+        Json({
+          "category_id": self.budget_cat_id.to_json(),
+          "amount_limit": amount.to_json(),
+          "month": month.to_json(),
+        }),
+        expect=Json(fn(result) { dispatch(BudgetCreated(result)) }, fn(json) {
+          Ok(@json.from_json(json)) catch {
+            _ => Err("Failed to decode budget")
+          }
+        }),
       )
       ({ ..self, error: "" }, cmd)
     }
@@ -339,10 +299,7 @@ pub fn Model::update(
     }
     BudgetDeleted(Ok(id)) => {
       let budgets = self.budgets.filter(fn(b) { b.id != id })
-      (
-        { ..self, budgets },
-        fetch_dashboard(dispatch, self.current_month),
-      )
+      ({ ..self, budgets, }, fetch_dashboard(dispatch, self.current_month))
     }
     BudgetDeleted(Err(_)) => (self, @rabbita.none)
     // ── Filters ───────────────────────────────────────────────────
@@ -350,7 +307,8 @@ pub fn Model::update(
       ({ ..self, filter_account: parse_int_or(v, 0) }, @rabbita.none)
     SetFilterType(v) => ({ ..self, filter_type: v }, @rabbita.none)
     // ── UI ────────────────────────────────────────────────────────
-    ToggleForm => ({ ..self, show_form: !self.show_form, error: "" }, @rabbita.none)
+    ToggleForm =>
+      ({ ..self, show_form: !self.show_form, error: "" }, @rabbita.none)
     ClearError => ({ ..self, error: "" }, @rabbita.none)
   }
 }

@@ -6,8 +6,7 @@ pub fn Model::view(
 ) -> @rabbita.Html {
   @html.div(
     style=[
-      "max-width: 960px", "margin: 0 auto", "padding: 16px",
-      "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "max-width: 960px", "margin: 0 auto", "padding: 16px", "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     ],
     [
       self.view_nav(dispatch),
@@ -46,8 +45,12 @@ fn Model::view_nav(
     items.push(
       @html.button(
         style=[
-          "padding: 10px 20px", "border: none", "cursor: pointer",
-          "font-size: 0.9em", "font-weight: 600", "border-radius: 6px 6px 0 0",
+          "padding: 10px 20px",
+          "border: none",
+          "cursor: pointer",
+          "font-size: 0.9em",
+          "font-weight: 600",
+          "border-radius: 6px 6px 0 0",
           "transition: background 0.2s",
           if active {
             "background: #fff; color: #1a73e8"
@@ -62,8 +65,7 @@ fn Model::view_nav(
   }
   @html.div(
     style=[
-      "display: flex", "gap: 4px", "background: #e8eaed",
-      "padding: 4px 4px 0", "border-radius: 8px 8px 0 0",
+      "display: flex", "gap: 4px", "background: #e8eaed", "padding: 4px 4px 0", "border-radius: 8px 8px 0 0",
       "margin-bottom: 0",
     ],
     items,
@@ -80,16 +82,15 @@ fn Model::view_error(
   }
   @html.div(
     style=[
-      "background: #fce4ec", "color: #c62828", "padding: 10px 16px",
-      "border-radius: 0 0 6px 6px", "margin-bottom: 12px",
-      "display: flex", "justify-content: space-between", "align-items: center",
+      "background: #fce4ec", "color: #c62828", "padding: 10px 16px", "border-radius: 0 0 6px 6px",
+      "margin-bottom: 12px", "display: flex", "justify-content: space-between", "align-items: center",
     ],
     [
       @html.span(self.error),
       @html.button(
         style=[
-          "background: none", "border: none", "color: #c62828",
-          "cursor: pointer", "font-size: 1.1em",
+          "background: none", "border: none", "color: #c62828", "cursor: pointer",
+          "font-size: 1.1em",
         ],
         on_click=dispatch(ClearError),
         "\u{2715}",

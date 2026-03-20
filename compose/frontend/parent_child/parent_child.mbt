@@ -56,7 +56,7 @@ pub fn make() -> @rabbita.Cell {
         }
       }
     },
-    view=(dispatch, model) =>
+    view=(dispatch, model) => {
       @html.div([
         @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
           cell_a.view(),
@@ -70,6 +70,7 @@ pub fn make() -> @rabbita.Cell {
           ),
           @html.p("Parent tracked \{model.total_resets} resets"),
         ]),
-      ]),
+      ])
+    },
   )
 }

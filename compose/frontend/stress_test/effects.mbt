@@ -18,11 +18,11 @@ priv enum EffectMsg {
 }
 
 ///|
-fn EffectModel::new(name~ : String, intensity~ : Int = 50) -> EffectModel {
+fn EffectModel::new(name~ : String, intensity? : Int = 50) -> EffectModel {
   {
     intensity: KnobModel::new(value=intensity, max=100, step=5),
     enabled: false,
-    name: name,
+    name,
   }
 }
 
@@ -42,14 +42,21 @@ fn EffectModel::view(
   let opacity = if self.enabled { "1" } else { "0.4" }
   @html.div(
     style=[
-      "display: flex", "align-items: center", "gap: 4px",
+      "display: flex",
+      "align-items: center",
+      "gap: 4px",
       "opacity: " + opacity,
     ],
     [
       @html.button(
         style=[
-          "width: 16px", "height: 16px", "border-radius: 50%", "border: none",
-          "cursor: pointer", "font-size: 0.55em", "line-height: 1",
+          "width: 16px",
+          "height: 16px",
+          "border-radius: 50%",
+          "border: none",
+          "cursor: pointer",
+          "font-size: 0.55em",
+          "line-height: 1",
           if self.enabled {
             "background: #FF9800"
           } else {
@@ -57,7 +64,11 @@ fn EffectModel::view(
           },
         ],
         on_click=dispatch(ToggleEnabled),
-        if self.enabled { "\u{25CF}" } else { "\u{25CB}" },
+        if self.enabled {
+          "\u{25CF}"
+        } else {
+          "\u{25CB}"
+        },
       ),
       self.intensity.view(
         fn(msg) { dispatch(Intensity(msg)) },
@@ -110,12 +121,9 @@ fn EffectRackModel::view(
   self : EffectRackModel,
   dispatch : @rabbita.Dispatch[EffectRackMsg],
 ) -> @rabbita.Html {
-  @html.div(
-    style=["display: flex", "flex-direction: column", "gap: 3px"],
-    [
-      self.fx1.view(fn(msg) { dispatch(Fx1(msg)) }),
-      self.fx2.view(fn(msg) { dispatch(Fx2(msg)) }),
-      self.fx3.view(fn(msg) { dispatch(Fx3(msg)) }),
-    ],
-  )
+  @html.div(style=["display: flex", "flex-direction: column", "gap: 3px"], [
+    self.fx1.view(fn(msg) { dispatch(Fx1(msg)) }),
+    self.fx2.view(fn(msg) { dispatch(Fx2(msg)) }),
+    self.fx3.view(fn(msg) { dispatch(Fx3(msg)) }),
+  ])
 }

@@ -2,26 +2,37 @@
 /// Input port definitions for each node kind. Compiler-enforced exhaustive match.
 pub fn input_ports(kind : NodeKind) -> Array[PortDef] {
   match kind {
-    MathAdd => [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
-    MathSubtract => [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
-    MathMultiply => [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
-    MathDivide => [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
+    MathAdd =>
+      [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
+    MathSubtract =>
+      [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
+    MathMultiply =>
+      [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
+    MathDivide =>
+      [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
     MathAbs => [{ name: "Value", port_type: TNumber }]
-    StringConcat => [{ name: "A", port_type: TString }, { name: "B", port_type: TString }]
+    StringConcat =>
+      [{ name: "A", port_type: TString }, { name: "B", port_type: TString }]
     StringLength => [{ name: "Text", port_type: TString }]
     StringUpper => [{ name: "Text", port_type: TString }]
     StringLower => [{ name: "Text", port_type: TString }]
-    LogicAnd => [{ name: "A", port_type: TBool }, { name: "B", port_type: TBool }]
-    LogicOr => [{ name: "A", port_type: TBool }, { name: "B", port_type: TBool }]
+    LogicAnd =>
+      [{ name: "A", port_type: TBool }, { name: "B", port_type: TBool }]
+    LogicOr =>
+      [{ name: "A", port_type: TBool }, { name: "B", port_type: TBool }]
     LogicNot => [{ name: "Value", port_type: TBool }]
-    LogicGreaterThan => [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
-    LogicEquals => [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
-    ColorRGB => [
-      { name: "R", port_type: TNumber },
-      { name: "G", port_type: TNumber },
-      { name: "B", port_type: TNumber },
-    ]
-    ColorMix => [{ name: "A", port_type: TColor }, { name: "B", port_type: TColor }]
+    LogicGreaterThan =>
+      [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
+    LogicEquals =>
+      [{ name: "A", port_type: TNumber }, { name: "B", port_type: TNumber }]
+    ColorRGB =>
+      [
+        { name: "R", port_type: TNumber },
+        { name: "G", port_type: TNumber },
+        { name: "B", port_type: TNumber },
+      ]
+    ColorMix =>
+      [{ name: "A", port_type: TColor }, { name: "B", port_type: TColor }]
     ColorBrightness => [{ name: "Color", port_type: TColor }]
     ConstNumber | ConstString | ConstBool | ConstColor => []
     DisplayNumber => [{ name: "Value", port_type: TNumber }]
@@ -177,10 +188,27 @@ pub fn kind_from_string(s : String) -> NodeKind {
 
 ///|
 pub let all_kinds : Array[NodeKind] = [
-  MathAdd, MathSubtract, MathMultiply, MathDivide, MathAbs,
-  StringConcat, StringLength, StringUpper, StringLower,
-  LogicAnd, LogicOr, LogicNot, LogicGreaterThan, LogicEquals,
-  ColorRGB, ColorMix, ColorBrightness,
-  ConstNumber, ConstString, ConstBool, ConstColor,
-  DisplayNumber, DisplayText,
+  MathAdd,
+  MathSubtract,
+  MathMultiply,
+  MathDivide,
+  MathAbs,
+  StringConcat,
+  StringLength,
+  StringUpper,
+  StringLower,
+  LogicAnd,
+  LogicOr,
+  LogicNot,
+  LogicGreaterThan,
+  LogicEquals,
+  ColorRGB,
+  ColorMix,
+  ColorBrightness,
+  ConstNumber,
+  ConstString,
+  ConstBool,
+  ConstColor,
+  DisplayNumber,
+  DisplayText,
 ]

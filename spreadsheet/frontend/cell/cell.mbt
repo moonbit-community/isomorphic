@@ -26,7 +26,7 @@ pub fn Value::to_display(self : Value) -> String {
 
 ///|
 pub(all) enum Align {
-  Auto   // left for text, right for numbers
+  Auto // left for text, right for numbers
   Left
   Center
   Right
@@ -34,21 +34,21 @@ pub(all) enum Align {
 
 ///|
 pub(all) enum NumFormat {
-  General    // auto display
-  Currency   // $1,234.56
-  Percent    // 45.2%
-  Fixed      // 1234.56 (2 decimal places)
+  General // auto display
+  Currency // $1,234.56
+  Percent // 45.2%
+  Fixed // 1234.56 (2 decimal places)
 }
 
 ///|
 pub(all) struct Cell {
-  raw : String   // what the user typed
-  value : Value  // computed result
+  raw : String // what the user typed
+  value : Value // computed result
   bold : Bool
   italic : Bool
   align : Align
   format : NumFormat
-  bg_color : String  // "" = default, otherwise hex like "#fce4ec"
+  bg_color : String // "" = default, otherwise hex like "#fce4ec"
   text_color : String // "" = default, otherwise hex
 }
 
@@ -111,11 +111,7 @@ pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
           let abs_i = if is_neg { 0 - i } else { i }
           let whole = abs_i / 100
           let frac = abs_i % 100
-          let frac_str = if frac < 10 {
-            "0\{frac}"
-          } else {
-            frac.to_string()
-          }
+          let frac_str = if frac < 10 { "0\{frac}" } else { frac.to_string() }
           let sign = if is_neg { "-" } else { "" }
           "\{sign}\{whole}.\{frac_str}"
         }

@@ -36,11 +36,12 @@ fn import_xlsx_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
       }
     },
     async fn() {
-      @js.suspend(
-        fn(resolve : (Bytes) -> Unit, _reject : (@js.Error_) -> Unit) {
-          pick_xlsx_file(resolve, fn(_err) {})
-        },
-      )
+      @js.suspend(fn(
+        resolve : (Bytes) -> Unit,
+        _reject : (@js.Error_) -> Unit,
+      ) {
+        pick_xlsx_file(resolve, fn(_err) {  })
+      })
     },
   )
 }
@@ -49,11 +50,7 @@ fn import_xlsx_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 /// Parse an XLSX file and replace the current model's sheets with imported data.
 fn load_xlsx(model : Model, bytes : Bytes) -> Model {
   // Try parsing — on failure, return model unchanged
-  let wb = try {
-    @xlsx.read(bytes[:])
-  } catch {
-    _ => return model
-  }
+  let wb = @xlsx.read(bytes[:]) catch { _ => return model }
   let sheet_names = wb.get_sheet_list()
   if sheet_names.is_empty() {
     return model
@@ -62,11 +59,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
   for name in sheet_names {
     let sheet = Sheet::new(name)
     // Get the used range dimension (e.g. "A1:H14")
-    let dim = try {
-      wb.get_sheet_dimension(name)
-    } catch {
-      _ => ""
-    }
+    let dim = wb.get_sheet_dimension(name) catch { _ => "" }
     if dim != "" {
       import_sheet_cells(wb, name, sheet, dim)
     }
@@ -109,12 +102,11 @@ fn import_sheet_cells(
         _ => (0, 0, num_cols - 1, num_rows - 1)
       }
     }
-    None => {
+    None =>
       match @cell.parse_ref(dim) {
         Some((c, r)) => (c, r, c, r)
         None => (0, 0, num_cols - 1, num_rows - 1)
       }
-    }
   }
   // Clamp to our grid size
   let end_col = if max_col < num_cols { max_col } else { num_cols - 1 }
@@ -126,15 +118,9 @@ fn import_sheet_cells(
       let xlsx_row = r + 1
       let xlsx_col = c + 1
       // Get formula first
-      let formula = try {
-        wb.get_cell_formula(sheet_name, key)
-      } catch {
-        _ => None
-      }
+      let formula = wb.get_cell_formula(sheet_name, key) catch { _ => None }
       // Get raw cell value
-      let raw_value = try {
-        wb.get_cell_value_raw_rc(sheet_name, xlsx_row, xlsx_col)
-      } catch {
+      let raw_value = wb.get_cell_value_raw_rc(sheet_name, xlsx_row, xlsx_col) catch {
         _ => None
       }
       // Get style info (even for empty cells that may have formatting)
@@ -144,7 +130,10 @@ fn import_sheet_cells(
         Some(f) => if f != "" { "=\{f}" } else { cell_value_to_raw(raw_value) }
         None => cell_value_to_raw(raw_value)
       }
-      let has_align = match align { Auto => false; _ => true }
+      let has_align = match align {
+        Auto => false
+        _ => true
+      }
       let has_style = bold || italic || bg_color != "" || has_align
       if raw == "" && !has_style {
         continue
@@ -160,8 +149,14 @@ fn import_sheet_cells(
         @formula.evaluate(raw, fn(r) { sheet.get(r).value })
       }
       sheet.cells[key] = {
-        raw, value, bold, italic, align,
-        format: General, bg_color, text_color: "",
+        raw,
+        value,
+        bold,
+        italic,
+        align,
+        format: General,
+        bg_color,
+        text_color: "",
       }
     }
   }
@@ -205,26 +200,28 @@ fn get_xlsx_style(
   sheet_name : String,
   cell_ref : String,
 ) -> (Bool, Bool, @cell.Align, String) {
-  let style_id = try {
-    wb.get_cell_style(sheet_name, cell_ref)
-  } catch {
-    _ => None
-  }
+  let style_id = wb.get_cell_style(sheet_name, cell_ref) catch { _ => None }
   match style_id {
     None => (false, false, Auto, "")
     Some(sid) => {
-      let style = try {
-        wb.get_style(sid)
-      } catch {
+      let style = wb.get_style(sid) catch {
         _ => return (false, false, Auto, "")
       }
       // Font: bold, italic
       let bold = match style.font {
-        Some(f) => match f.bold { Some(b) => b; None => false }
+        Some(f) =>
+          match f.bold {
+            Some(b) => b
+            None => false
+          }
         None => false
       }
       let italic = match style.font {
-        Some(f) => match f.italic { Some(i) => i; None => false }
+        Some(f) =>
+          match f.italic {
+            Some(i) => i
+            None => false
+          }
         None => false
       }
       // Alignment
@@ -287,20 +284,12 @@ fn export_xlsx(model : Model) -> Unit {
   // Create all sheets
   for i = 0; i < model.sheets.length(); i = i + 1 {
     let sheet = model.sheets[i]
-    let ws = try {
-      wb.new_sheet(sheet.name)
-    } catch {
-      _ => continue
-    }
+    let ws = wb.new_sheet(sheet.name) catch { _ => continue }
     export_sheet_cells(wb, ws, sheet)
   }
   // Workbook::new() creates no default sheets, so no cleanup needed
   // Write to bytes and trigger download
-  let bytes = try {
-    @xlsx.write(wb)
-  } catch {
-    _ => return
-  }
+  let bytes = @xlsx.write(wb) catch { _ => return }
   download_bytes(bytes, "spreadsheet.xlsx")
 }
 
@@ -312,9 +301,15 @@ fn export_sheet_cells(
   sheet : Sheet,
 ) -> Unit {
   sheet.cells.each(fn(key, cell) {
-    let has_align = match cell.align { Auto => false; _ => true }
-    let has_any = cell.raw != "" || cell.bold || cell.italic ||
-      cell.bg_color != "" || has_align
+    let has_align = match cell.align {
+      Auto => false
+      _ => true
+    }
+    let has_any = cell.raw != "" ||
+      cell.bold ||
+      cell.italic ||
+      cell.bg_color != "" ||
+      has_align
     if !has_any {
       return
     }
@@ -325,17 +320,13 @@ fn export_sheet_cells(
       Error(e) => Error(e)
       Empty => String(cell.raw)
     }
-    try {
-      ws.set_cell_value(key, value)
-    } catch {
+    ws.set_cell_value(key, value) catch {
       _ => ()
     }
     // Set formula (strip leading '=', normalize AVG→AVERAGE for Excel)
     if cell.raw.length() > 0 && cell.raw[0] == '=' {
       let formula = normalize_formula(cell.raw.substring(start=1))
-      try {
-        ws.set_cell_formula(key, formula)
-      } catch {
+      ws.set_cell_formula(key, formula) catch {
         _ => ()
       }
     }
@@ -348,9 +339,7 @@ fn export_sheet_cells(
     if has_style {
       let style = build_xlsx_style(cell)
       let style_id = wb.new_style(style)
-      try {
-        ws.set_cell_style(key, style_id)
-      } catch {
+      ws.set_cell_style(key, style_id) catch {
         _ => ()
       }
     }
@@ -363,20 +352,23 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
   let mut style = @xlsx.Style::new()
   // Font
   if cell.bold || cell.italic {
-    let font = @xlsx.Font::with_values(
-      bold=cell.bold,
-      italic=cell.italic,
-    )
+    let font = @xlsx.Font::with_values(bold=cell.bold, italic=cell.italic)
     style = style.with_font(font)
   }
   // Alignment
   match cell.align {
     Left =>
-      style = style.with_alignment(@xlsx.Alignment::with_values(horizontal="left"))
+      style = style.with_alignment(
+        @xlsx.Alignment::with_values(horizontal="left"),
+      )
     Center =>
-      style = style.with_alignment(@xlsx.Alignment::with_values(horizontal="center"))
+      style = style.with_alignment(
+        @xlsx.Alignment::with_values(horizontal="center"),
+      )
     Right =>
-      style = style.with_alignment(@xlsx.Alignment::with_values(horizontal="right"))
+      style = style.with_alignment(
+        @xlsx.Alignment::with_values(horizontal="right"),
+      )
     Auto => ()
   }
   // Fill color
@@ -387,7 +379,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
     } else {
       cell.bg_color
     }
-    style = style.with_fill(@xlsx.Fill::pattern(color=color))
+    style = style.with_fill(@xlsx.Fill::pattern(color~))
   }
   style
 }
@@ -406,9 +398,15 @@ fn normalize_formula(formula : String) -> String {
       in_string = !in_string
     }
     // Only replace AVG( outside string literals
-    if !in_string && i + 4 <= len && chars[i] == 'A' && chars[i + 1] == 'V' &&
-      chars[i + 2] == 'G' && chars[i + 3] == '(' {
-      let preceded_by_letter = i > 0 && chars[i - 1] >= 'A' && chars[i - 1] <= 'Z'
+    if !in_string &&
+      i + 4 <= len &&
+      chars[i] == 'A' &&
+      chars[i + 1] == 'V' &&
+      chars[i + 2] == 'G' &&
+      chars[i + 3] == '(' {
+      let preceded_by_letter = i > 0 &&
+        chars[i - 1] >= 'A' &&
+        chars[i - 1] <= 'Z'
       if !preceded_by_letter {
         sb.write_string("AVERAGE(")
         i = i + 4
