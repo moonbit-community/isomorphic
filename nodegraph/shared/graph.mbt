@@ -87,14 +87,7 @@ pub fn evaluate_graph(
   connections : Array[Connection],
 ) -> EvalResult {
   let (order, has_cycle) = topological_sort(nodes, connections)
-  if has_cycle {
-    return {
-      node_outputs: [],
-      errors: [],
-      eval_order: order,
-      has_cycle: true,
-    }
-  }
+  // Even with cycles, evaluate the acyclic nodes that topo-sort resolved
   // node_id → output values
   let outputs : Array[(Int, Array[Value])] = []
   let errors : Array[(Int, String)] = []
@@ -132,11 +125,15 @@ pub fn evaluate_graph(
       Ok(vals) => outputs.push((node_id, vals))
       Err(msg) => {
         errors.push((node_id, msg))
-        outputs.push((node_id, []))
+        // Propagate error downstream instead of empty/defaults
+        let out_count = output_ports(n.kind).length()
+        outputs.push(
+          (node_id, Array::make(out_count, VError("upstream: \{msg}"))),
+        )
       }
     }
   }
-  { node_outputs: outputs, errors, eval_order: order, has_cycle: false }
+  { node_outputs: outputs, errors, eval_order: order, has_cycle }
 }
 
 ///|
