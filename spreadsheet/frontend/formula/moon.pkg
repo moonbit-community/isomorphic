@@ -1,0 +1,6 @@
+import {
+  "bobzhang/spreadsheet/frontend/cell",
+  "moonbitlang/core/strconv",
+}
+
+supported_targets = "js"

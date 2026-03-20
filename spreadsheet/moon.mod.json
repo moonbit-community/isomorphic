@@ -1,0 +1,9 @@
+{
+  "name": "bobzhang/spreadsheet",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/moonbit-community/isomorphic",
+  "deps": {
+    "moonbit-community/rabbita": "0.11.5"
+  }
+}

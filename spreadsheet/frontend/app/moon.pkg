@@ -1,0 +1,8 @@
+import {
+  "bobzhang/spreadsheet/frontend/cell",
+  "bobzhang/spreadsheet/frontend/formula",
+  "moonbit-community/rabbita",
+  "moonbit-community/rabbita/html",
+}
+
+supported_targets = "js"

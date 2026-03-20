@@ -9,6 +9,7 @@
     "./splitwise",
     "./taskflow",
     "./todoapp",
-    "./compose"
+    "./compose",
+    "./spreadsheet"
   ]
 }
