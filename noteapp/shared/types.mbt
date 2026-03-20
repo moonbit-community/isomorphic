@@ -1,5 +1,6 @@
 ///|
 /// A note with a title, content, and pinned status.
+#warnings("-unnecessary_annotation")
 pub(all) struct Note {
   id : Int
   title : String
@@ -9,6 +10,7 @@ pub(all) struct Note {
 
 ///|
 /// Statistics about a note's content.
+#warnings("-unnecessary_annotation")
 pub(all) struct NoteStats {
   word_count : Int
   char_count : Int

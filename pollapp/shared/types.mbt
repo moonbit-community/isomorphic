@@ -1,5 +1,6 @@
 ///|
 /// An option within a poll that users can vote on.
+#warnings("-unnecessary_annotation")
 pub(all) struct PollOption {
   id : Int
   text : String
@@ -8,6 +9,7 @@ pub(all) struct PollOption {
 
 ///|
 /// A poll with a question and its options.
+#warnings("-unnecessary_annotation")
 pub(all) struct Poll {
   id : Int
   question : String
@@ -16,6 +18,7 @@ pub(all) struct Poll {
 
 ///|
 /// Poll results with computed totals and percentages.
+#warnings("-unnecessary_annotation")
 pub(all) struct PollResults {
   poll : Poll
   total_votes : Int
