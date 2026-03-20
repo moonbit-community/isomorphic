@@ -51,28 +51,87 @@ fn seed_demo(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   if count > 0 {
     return
   }
-  // Create demo graph: "5 + 3 = 8"
+  // ── Graph 1: Color Mixer ─────────────────────────────────────
+  seed_graph(conn, "Color Mixer")
+  let gid = last_id(conn)
+  insert_node(conn, gid, "ConstNumber", 0, 0, "255", "255")
+  let r = last_id(conn)
+  insert_node(conn, gid, "ConstNumber", 0, 1, "128", "128")
+  let g_ = last_id(conn)
+  insert_node(conn, gid, "ConstNumber", 0, 2, "0", "0")
+  let b = last_id(conn)
+  insert_node(conn, gid, "ColorRGB", 1, 0, "RGB", "")
+  let rgb = last_id(conn)
+  insert_node(conn, gid, "ConstColor", 0, 3, "#0066ff", "#0066ff")
+  let c2 = last_id(conn)
+  insert_node(conn, gid, "ColorMix", 2, 0, "Mix", "")
+  let mix = last_id(conn)
+  insert_node(conn, gid, "ColorBrightness", 3, 0, "Brightness", "")
+  let bright = last_id(conn)
+  insert_conn(conn, gid, r, 0, rgb, 0)
+  insert_conn(conn, gid, g_, 0, rgb, 1)
+  insert_conn(conn, gid, b, 0, rgb, 2)
+  insert_conn(conn, gid, rgb, 0, mix, 0)
+  insert_conn(conn, gid, c2, 0, mix, 1)
+  insert_conn(conn, gid, mix, 0, bright, 0)
+  // ── Graph 2: String Pipeline ────────────────────────────────
+  seed_graph(conn, "String Pipeline")
+  let gid2 = last_id(conn)
+  insert_node(conn, gid2, "ConstString", 0, 0, "hello", "hello")
+  let s1 = last_id(conn)
+  insert_node(conn, gid2, "ConstString", 0, 1, " world", " world")
+  let s2 = last_id(conn)
+  insert_node(conn, gid2, "StringUpper", 1, 0, "Upper", "")
+  let up = last_id(conn)
+  insert_node(conn, gid2, "StringConcat", 2, 0, "Join", "")
+  let cat = last_id(conn)
+  insert_node(conn, gid2, "StringLength", 3, 0, "Length", "")
+  let len = last_id(conn)
+  insert_node(conn, gid2, "DisplayText", 3, 1, "Output", "")
+  let dt = last_id(conn)
+  insert_conn(conn, gid2, s1, 0, up, 0)
+  insert_conn(conn, gid2, up, 0, cat, 0)
+  insert_conn(conn, gid2, s2, 0, cat, 1)
+  insert_conn(conn, gid2, cat, 0, len, 0)
+  insert_conn(conn, gid2, cat, 0, dt, 0)
+  // ── Graph 3: Math & Logic ──────────────────────────────────
+  seed_graph(conn, "Math & Logic")
+  let gid3 = last_id(conn)
+  insert_node(conn, gid3, "ConstNumber", 0, 0, "10", "10")
+  let a = last_id(conn)
+  insert_node(conn, gid3, "ConstNumber", 0, 1, "3", "3")
+  let b2 = last_id(conn)
+  insert_node(conn, gid3, "MathMultiply", 1, 0, "Multiply", "")
+  let mul = last_id(conn)
+  insert_node(conn, gid3, "ConstNumber", 0, 2, "25", "25")
+  let c25 = last_id(conn)
+  insert_node(conn, gid3, "LogicGreaterThan", 2, 0, "30 > 25?", "")
+  let gt = last_id(conn)
+  insert_node(conn, gid3, "ConstNumber", 1, 1, "5", "5")
+  let c5 = last_id(conn)
+  insert_node(conn, gid3, "MathSubtract", 2, 1, "Subtract", "")
+  let sub = last_id(conn)
+  insert_node(conn, gid3, "LogicEquals", 3, 0, "25 = 25?", "")
+  let eq = last_id(conn)
+  insert_conn(conn, gid3, a, 0, mul, 0)
+  insert_conn(conn, gid3, b2, 0, mul, 1)
+  insert_conn(conn, gid3, mul, 0, gt, 0)
+  insert_conn(conn, gid3, c25, 0, gt, 1)
+  insert_conn(conn, gid3, mul, 0, sub, 0)
+  insert_conn(conn, gid3, c5, 0, sub, 1)
+  insert_conn(conn, gid3, sub, 0, eq, 0)
+  insert_conn(conn, gid3, c25, 0, eq, 1)
+}
+
+///|
+fn seed_graph(
+  conn : @sqlite3.Connection,
+  name : String,
+) -> Unit raise @sqlite3.SqliteError {
   let g = conn.prepare("INSERT INTO graphs (name) VALUES (?)")
-  g.bind_string_as_blob(index=1, val="Demo: 5 + 3")
+  g.bind_string_as_blob(index=1, val=name)
   g.step_once()
   g.finalize()
-  let gid = last_id(conn)
-  // ConstNumber(5)
-  insert_node(conn, gid, "ConstNumber", 0, 0, "5", "5")
-  let n1 = last_id(conn)
-  // ConstNumber(3)
-  insert_node(conn, gid, "ConstNumber", 0, 1, "3", "3")
-  let n2 = last_id(conn)
-  // MathAdd
-  insert_node(conn, gid, "MathAdd", 1, 0, "Add", "")
-  let n3 = last_id(conn)
-  // DisplayNumber
-  insert_node(conn, gid, "DisplayNumber", 2, 0, "Result", "")
-  let n4 = last_id(conn)
-  // Connections: n1.out0 → n3.in0, n2.out0 → n3.in1, n3.out0 → n4.in0
-  insert_conn(conn, gid, n1, 0, n3, 0)
-  insert_conn(conn, gid, n2, 0, n3, 1)
-  insert_conn(conn, gid, n3, 0, n4, 0)
 }
 
 ///|
