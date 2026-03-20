@@ -1,5 +1,6 @@
 ///|
 /// Account type classification for financial accounts.
+#warnings("-unnecessary_annotation")
 pub(all) enum AccountType {
   Checking
   Savings
@@ -38,6 +39,7 @@ pub fn AccountType::to_db_string(self : AccountType) -> String {
 
 ///|
 /// A financial account (checking, savings, or credit card).
+#warnings("-unnecessary_annotation")
 pub(all) struct Account {
   id : Int
   name : String
@@ -46,6 +48,7 @@ pub(all) struct Account {
 
 ///|
 /// Direction of a financial transaction.
+#warnings("-unnecessary_annotation")
 pub(all) enum TransactionType {
   Income
   Expense
@@ -80,6 +83,7 @@ pub fn TransactionType::to_db_string(self : TransactionType) -> String {
 
 ///|
 /// A spending or income category with display metadata.
+#warnings("-unnecessary_annotation")
 pub(all) struct Category {
   id : Int
   name : String
@@ -90,6 +94,7 @@ pub(all) struct Category {
 
 ///|
 /// A single financial transaction tied to an account and category.
+#warnings("-unnecessary_annotation")
 pub(all) struct Transaction {
   id : Int
   account_id : Int
@@ -102,6 +107,7 @@ pub(all) struct Transaction {
 
 ///|
 /// A monthly spending limit for a particular category.
+#warnings("-unnecessary_annotation")
 pub(all) struct Budget {
   id : Int
   category_id : Int
@@ -111,6 +117,7 @@ pub(all) struct Budget {
 
 ///|
 /// A budget combined with its category info and current spending.
+#warnings("-unnecessary_annotation")
 pub(all) struct BudgetStatus {
   budget : Budget
   category_name : String
@@ -121,6 +128,7 @@ pub(all) struct BudgetStatus {
 
 ///|
 /// An account paired with its computed balance in cents.
+#warnings("-unnecessary_annotation")
 pub(all) struct AccountBalance {
   account : Account
   balance : Int
@@ -128,6 +136,7 @@ pub(all) struct AccountBalance {
 
 ///|
 /// Aggregated income and expense totals for a single month.
+#warnings("-unnecessary_annotation")
 pub(all) struct MonthSummary {
   month : String
   income : Int
@@ -136,6 +145,7 @@ pub(all) struct MonthSummary {
 
 ///|
 /// All data needed to render the financial dashboard view.
+#warnings("-unnecessary_annotation")
 pub(all) struct DashboardData {
   account_balances : Array[AccountBalance]
   month_summary : MonthSummary
