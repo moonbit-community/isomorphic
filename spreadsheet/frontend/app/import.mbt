@@ -284,22 +284,8 @@ extern "js" fn download_bytes(bytes : Bytes, filename : String) =
 /// Export the current spreadsheet as an .xlsx file download.
 fn export_xlsx(model : Model) -> Unit {
   let wb = @xlsx.Workbook::new()
-  // Remove default "Sheet1" — we'll add our own sheets
-  let first_sheet = model.sheets[0]
-  // Rename the default sheet to match our first sheet
-  try {
-    wb.set_sheet_name("Sheet1", first_sheet.name)
-  } catch {
-    _ => ()
-  }
-  // Populate the first sheet
-  let ws = match wb.sheet(first_sheet.name) {
-    Some(ws) => ws
-    None => return
-  }
-  export_sheet_cells(wb, ws, first_sheet)
-  // Add remaining sheets
-  for i = 1; i < model.sheets.length(); i = i + 1 {
+  // Create all sheets
+  for i = 0; i < model.sheets.length(); i = i + 1 {
     let sheet = model.sheets[i]
     let ws = try {
       wb.new_sheet(sheet.name)
@@ -307,6 +293,11 @@ fn export_xlsx(model : Model) -> Unit {
       _ => continue
     }
     export_sheet_cells(wb, ws, sheet)
+  }
+  // Remove the default empty "Sheet1" if it wasn't one of ours
+  let has_sheet1 = model.sheets.iter().any(fn(s) { s.name == "Sheet1" })
+  if !has_sheet1 {
+    try { wb.delete_sheet("Sheet1") } catch { _ => () }
   }
   // Write to bytes and trigger download
   let bytes = try {
@@ -325,7 +316,10 @@ fn export_sheet_cells(
   sheet : Sheet,
 ) -> Unit {
   sheet.cells.each(fn(key, cell) {
-    if cell.raw == "" {
+    let has_align = match cell.align { Auto => false; _ => true }
+    let has_any = cell.raw != "" || cell.bold || cell.italic ||
+      cell.bg_color != "" || has_align
+    if !has_any {
       return
     }
     // Set cell value
@@ -340,9 +334,9 @@ fn export_sheet_cells(
     } catch {
       _ => ()
     }
-    // Set formula (strip leading '=')
+    // Set formula (strip leading '=', normalize AVG→AVERAGE for Excel)
     if cell.raw.length() > 0 && cell.raw[0] == '=' {
-      let formula = cell.raw.substring(start=1)
+      let formula = normalize_formula(cell.raw.substring(start=1))
       try {
         ws.set_cell_formula(key, formula)
       } catch {
@@ -400,6 +394,30 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
     style = style.with_fill(@xlsx.Fill::pattern(color=color))
   }
   style
+}
+
+///|
+/// Normalize formula aliases for Excel compatibility (e.g. AVG→AVERAGE).
+fn normalize_formula(formula : String) -> String {
+  let sb = StringBuilder::new()
+  let chars = formula.to_array()
+  let len = chars.length()
+  let mut i = 0
+  while i < len {
+    // Check for "AVG(" — must not be preceded by letter (to avoid matching AVERAGE)
+    if i + 4 <= len && chars[i] == 'A' && chars[i + 1] == 'V' && chars[i + 2] == 'G' &&
+      chars[i + 3] == '(' {
+      let preceded_by_letter = i > 0 && chars[i - 1] >= 'A' && chars[i - 1] <= 'Z'
+      if !preceded_by_letter {
+        sb.write_string("AVERAGE(")
+        i = i + 4
+        continue
+      }
+    }
+    sb.write_char(chars[i])
+    i = i + 1
+  }
+  sb.to_string()
 }
 
 ///|
