@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install MoonBit (nightly via moonup)
+      - name: Install moonup
+        uses: chawyehsu/setup-moonup@v1
+
+      - name: Install nightly toolchain
         run: |
-          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
-          echo "$HOME/.moon/bin" >> $GITHUB_PATH
-          export PATH="$HOME/.moon/bin:$PATH"
           moonup install nightly
           moonup default nightly
 
