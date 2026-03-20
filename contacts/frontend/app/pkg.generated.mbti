@@ -1,0 +1,48 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/contacts/frontend/app"
+
+import {
+  "bobzhang/contacts/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  contacts : Array[@shared.Contact]
+  search_query : String
+  name_input : String
+  email_input : String
+  phone_input : String
+  show_form : Bool
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  Init
+  GotContacts(Result[Array[@shared.Contact], String])
+  SearchChanged(String)
+  ToggleForm
+  NameInputChanged(String)
+  EmailInputChanged(String)
+  PhoneInputChanged(String)
+  AddContact
+  ContactAdded(Result[@shared.Contact, String])
+  ToggleFavorite(Int)
+  FavoriteToggled(Result[@shared.Contact, String])
+  DeleteContact(Int)
+  ContactDeleted(Result[Int, String])
+}
+pub impl @debug.Debug for Msg
+
+// Type aliases
+
+// Traits
+

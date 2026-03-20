@@ -65,9 +65,15 @@ fn main raise {
     }
   })
   ..get(@shared.api_polls, fn(event) noraise { handle_get_polls(conn, event) })
-  ..post(@shared.api_polls, fn(event) noraise { handle_create_poll(conn, event) })
-  ..post("\{@shared.api_polls}/:id/vote", fn(event) noraise { handle_vote(conn, event) })
-  .delete("\{@shared.api_polls}/:id", fn(event) noraise { handle_delete_poll(conn, event) })
+  ..post(@shared.api_polls, fn(event) noraise {
+    handle_create_poll(conn, event)
+  })
+  ..post("\{@shared.api_polls}/:id/vote", fn(event) noraise {
+    handle_vote(conn, event)
+  })
+  .delete("\{@shared.api_polls}/:id", fn(event) noraise {
+    handle_delete_poll(conn, event)
+  })
   println("Server running at http://localhost:\{port}")
   app.serve(port~)
 }

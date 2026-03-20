@@ -1,0 +1,45 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/noteapp/frontend/app"
+
+import {
+  "bobzhang/noteapp/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  notes : Array[@shared.Note]
+  title_input : String
+  content_input : String
+  selected_note_id : Int
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  Init
+  GotNotes(Result[Array[@shared.Note], String])
+  TitleInputChanged(String)
+  ContentInputChanged(String)
+  SaveNote
+  NoteSaved(Result[@shared.Note, String])
+  SelectNote(Int)
+  DeselectNote
+  TogglePin(Int)
+  NotePinToggled(Result[@shared.Note, String])
+  DeleteNote(Int)
+  NoteDeleted(Result[Int, String])
+}
+pub impl @debug.Debug for Msg
+
+// Type aliases
+
+// Traits
+

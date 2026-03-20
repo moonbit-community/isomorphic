@@ -161,10 +161,7 @@ test "GotPost/Ok sets current_post and populates title/content inputs" {
     created_at: "2024-01-01",
     updated_at: "2024-01-01",
   }
-  let (model, _) = initial.update(
-    msg=GotPost(Ok(post)),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=GotPost(Ok(post)), dispatch=noop_dispatch)
   debug_inspect(
     model,
     content=(
@@ -187,7 +184,6 @@ test "GotPost/Ok sets current_post and populates title/content inputs" {
       #|  comment_content: "",
       #|  loading: false,
       #|}
-
     ),
   )
 }
@@ -572,7 +568,6 @@ test "PostCreated/Ok navigates to ViewPost and clears form" {
       #|  comment_content: "",
       #|  loading: false,
       #|}
-
     ),
   )
 }
@@ -690,7 +685,6 @@ test "PostUpdated/Ok navigates to ViewPost" {
       #|  comment_content: "",
       #|  loading: false,
       #|}
-
     ),
   )
 }
@@ -762,9 +756,12 @@ test "PostDeleted/Ok with nonexistent id is no-op on posts" {
     msg=PostDeleted(Ok(999)),
     dispatch=noop_dispatch,
   )
-  inspect(model.posts.length(), content=(
-    #|2
-  ))
+  inspect(
+    model.posts.length(),
+    content=(
+      #|2
+    ),
+  )
   debug_inspect(model.page, content="PostList")
 }
 

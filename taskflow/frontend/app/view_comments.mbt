@@ -247,7 +247,7 @@ fn view_comments_panel(
                 }
                 // Add dependency: show other tasks as clickable items
                 let other_tasks = model.tasks.filter(fn(t) {
-                  t.id != task_id && !(dep_ids.contains(t.id))
+                  t.id != task_id && !dep_ids.contains(t.id)
                 })
                 if other_tasks.length() > 0 {
                   dep_items.push(

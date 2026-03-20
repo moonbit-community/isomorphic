@@ -13,8 +13,9 @@ fn main {
   // Layout: a static cell that composes all three demos
   let layout = @rabbita.static_cell(
     @html.div(
-      style=["max-width: 800px", "margin: 0 auto", "padding: 24px",
-        "font-family: system-ui, sans-serif"],
+      style=[
+        "max-width: 800px", "margin: 0 auto", "padding: 24px", "font-family: system-ui, sans-serif",
+      ],
       [
         @html.h1("TEA Composition Patterns"),
         // --- Pattern 1 ---
@@ -25,10 +26,10 @@ fn main {
         @html.p(
           "simple_cell(...) creates each one. The parent just calls .view() to render them.",
         ),
-        @html.div(
-          style=["display: flex", "gap: 16px", "margin-bottom: 32px"],
-          [cell_a.view(), cell_b.view()],
-        ),
+        @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 32px"], [
+          cell_a.view(),
+          cell_b.view(),
+        ]),
         // --- Pattern 2 ---
         @html.h2("2. Parent-Child with Dispatch"),
         @html.p(

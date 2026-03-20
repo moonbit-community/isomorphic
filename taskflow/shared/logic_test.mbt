@@ -323,9 +323,36 @@ test "sort_label returns human-readable labels" {
 ///|
 test "sort_tasks_by sorts ascending and descending" {
   let tasks : Array[@shared.Task] = [
-    { id: 1, title: "Banana", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-06-01", created_at: "2024-01-01" },
-    { id: 2, title: "Apple", description: "", status: "todo", priority: "high", assignee_id: 0, due_date: "2024-03-01", created_at: "2024-02-01" },
-    { id: 3, title: "Cherry", description: "", status: "todo", priority: "medium", assignee_id: 0, due_date: "", created_at: "2024-01-15" },
+    {
+      id: 1,
+      title: "Banana",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-06-01",
+      created_at: "2024-01-01",
+    },
+    {
+      id: 2,
+      title: "Apple",
+      description: "",
+      status: "todo",
+      priority: "high",
+      assignee_id: 0,
+      due_date: "2024-03-01",
+      created_at: "2024-02-01",
+    },
+    {
+      id: 3,
+      title: "Cherry",
+      description: "",
+      status: "todo",
+      priority: "medium",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "2024-01-15",
+    },
   ]
   // Sort by title ascending
   let by_title = @shared.sort_tasks_by(tasks, "title", true)
@@ -1327,14 +1354,24 @@ test "tasks_for_member empty list" {
 test "tasks_to_csv basic output" {
   let tasks : Array[@shared.Task] = [
     {
-      id: 1, title: "Fix bug", description: "Critical issue",
-      status: "todo", priority: "high", assignee_id: 1,
-      due_date: "2026-03-15", created_at: "2026-03-12",
+      id: 1,
+      title: "Fix bug",
+      description: "Critical issue",
+      status: "todo",
+      priority: "high",
+      assignee_id: 1,
+      due_date: "2026-03-15",
+      created_at: "2026-03-12",
     },
     {
-      id: 2, title: "Add, feature", description: "Has \"quotes\"",
-      status: "done", priority: "low", assignee_id: 0,
-      due_date: "", created_at: "2026-03-13",
+      id: 2,
+      title: "Add, feature",
+      description: "Has \"quotes\"",
+      status: "done",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "2026-03-13",
     },
   ]
   let members : Array[@shared.Member] = [
@@ -1342,7 +1379,11 @@ test "tasks_to_csv basic output" {
   ]
   let csv = @shared.tasks_to_csv(tasks, members)
   // Header
-  assert_true(csv.contains("id,title,description,status,priority,assignee,due_date,created_at"))
+  assert_true(
+    csv.contains(
+      "id,title,description,status,priority,assignee,due_date,created_at",
+    ),
+  )
   // First task with assignee
   assert_true(csv.contains("Fix bug"))
   assert_true(csv.contains("Alice"))
@@ -1358,7 +1399,10 @@ test "tasks_to_csv empty tasks" {
   let members : Array[@shared.Member] = []
   let csv = @shared.tasks_to_csv(tasks, members)
   // Should only have header
-  inspect(csv, content="id,title,description,status,priority,assignee,due_date,created_at")
+  inspect(
+    csv,
+    content="id,title,description,status,priority,assignee,due_date,created_at",
+  )
 }
 
 ///|
@@ -1378,7 +1422,10 @@ test "labels_for_task returns matching labels" {
   inspect(result[0].name, content="bug")
   inspect(result[1].name, content="docs")
   // Task with no labels
-  inspect(@shared.labels_for_task(labels, task_labels, 99).length(), content="0")
+  inspect(
+    @shared.labels_for_task(labels, task_labels, 99).length(),
+    content="0",
+  )
   // Empty inputs
   let empty_tl : Array[@shared.TaskLabel] = []
   inspect(@shared.labels_for_task(labels, empty_tl, 10).length(), content="0")
@@ -1388,16 +1435,31 @@ test "labels_for_task returns matching labels" {
 test "activities_for_task filters by task_id" {
   let acts : Array[@shared.Activity] = [
     {
-      id: 1, task_id: 10, task_title: "A", from_status: "todo",
-      to_status: "in_progress", timestamp: "2026-03-12", user_name: "Alice",
+      id: 1,
+      task_id: 10,
+      task_title: "A",
+      from_status: "todo",
+      to_status: "in_progress",
+      timestamp: "2026-03-12",
+      user_name: "Alice",
     },
     {
-      id: 2, task_id: 20, task_title: "B", from_status: "todo",
-      to_status: "done", timestamp: "2026-03-12", user_name: "Bob",
+      id: 2,
+      task_id: 20,
+      task_title: "B",
+      from_status: "todo",
+      to_status: "done",
+      timestamp: "2026-03-12",
+      user_name: "Bob",
     },
     {
-      id: 3, task_id: 10, task_title: "A", from_status: "in_progress",
-      to_status: "review", timestamp: "2026-03-13", user_name: "Alice",
+      id: 3,
+      task_id: 10,
+      task_title: "A",
+      from_status: "in_progress",
+      to_status: "review",
+      timestamp: "2026-03-13",
+      user_name: "Alice",
     },
   ]
   let result = @shared.activities_for_task(acts, 10)
@@ -1515,10 +1577,46 @@ test "attachments_for_task filters by task_id" {
 ///|
 test "count_overdue counts incomplete overdue tasks" {
   let tasks : Array[@shared.Task] = [
-    { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },
-    { id: 2, title: "B", description: "", status: "done", priority: "low", assignee_id: 0, due_date: "2024-01-01", created_at: "" },
-    { id: 3, title: "C", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-06-01", created_at: "" },
-    { id: 4, title: "D", description: "", status: "in_progress", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-01-01",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "B",
+      description: "",
+      status: "done",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-01-01",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "C",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-06-01",
+      created_at: "",
+    },
+    {
+      id: 4,
+      title: "D",
+      description: "",
+      status: "in_progress",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
   ]
   inspect(@shared.count_overdue(tasks, "2024-03-01"), content="1")
   inspect(@shared.count_overdue(tasks, "2020-01-01"), content="0")
@@ -1527,9 +1625,36 @@ test "count_overdue counts incomplete overdue tasks" {
 ///|
 test "count_due_today counts today's incomplete tasks" {
   let tasks : Array[@shared.Task] = [
-    { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
-    { id: 2, title: "B", description: "", status: "done", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
-    { id: 3, title: "C", description: "", status: "in_progress", priority: "low", assignee_id: 0, due_date: "2024-03-01", created_at: "" },
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-03-01",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "B",
+      description: "",
+      status: "done",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-03-01",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "C",
+      description: "",
+      status: "in_progress",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "2024-03-01",
+      created_at: "",
+    },
   ]
   inspect(@shared.count_due_today(tasks, "2024-03-01"), content="2")
   inspect(@shared.count_due_today(tasks, "2024-03-02"), content="0")
@@ -1587,9 +1712,36 @@ test "find_project by ID" {
 ///|
 test "tasks_in_project filters by project" {
   let tasks : Array[@shared.Task] = [
-    { id: 1, title: "A", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
-    { id: 2, title: "B", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
-    { id: 3, title: "C", description: "", status: "todo", priority: "low", assignee_id: 0, due_date: "", created_at: "" },
+    {
+      id: 1,
+      title: "A",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 2,
+      title: "B",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
+    {
+      id: 3,
+      title: "C",
+      description: "",
+      status: "todo",
+      priority: "low",
+      assignee_id: 0,
+      due_date: "",
+      created_at: "",
+    },
   ]
   let tps : Array[@shared.TaskProject] = [
     { task_id: 1, project_id: 10 },
@@ -1653,7 +1805,10 @@ test "t_tasks_done formats done count" {
 ///|
 test "t_status translates status labels" {
   inspect(@shared.t_status(@shared.Lang::En, "todo"), content="To Do")
-  inspect(@shared.t_status(@shared.Lang::En, "in_progress"), content="In Progress")
+  inspect(
+    @shared.t_status(@shared.Lang::En, "in_progress"),
+    content="In Progress",
+  )
   inspect(@shared.t_status(@shared.Lang::Zh, "todo"), content="待办")
   inspect(@shared.t_status(@shared.Lang::Zh, "done"), content="完成")
 }
@@ -1709,9 +1864,13 @@ test "t_urgency translates urgency labels" {
 ///|
 test "t_activity formats activity with translation" {
   let act : @shared.Activity = {
-    id: 1, task_id: 1, task_title: "Fix bug",
-    from_status: "todo", to_status: "done",
-    timestamp: "2026-03-12", user_name: "Alice",
+    id: 1,
+    task_id: 1,
+    task_title: "Fix bug",
+    from_status: "todo",
+    to_status: "done",
+    timestamp: "2026-03-12",
+    user_name: "Alice",
   }
   inspect(
     @shared.t_activity(@shared.Lang::En, act),

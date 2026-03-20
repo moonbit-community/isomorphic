@@ -11,6 +11,7 @@ fn fetch_state(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   )
 }
 
+///|
 /// Parse a string of digits into an integer.
 fn parse_int(input : String) -> Int {
   let mut result = 0
@@ -22,6 +23,7 @@ fn parse_int(input : String) -> Int {
   result
 }
 
+///|
 /// Parse a dollar string like "12.50" or "7" into cents.
 fn parse_dollars_to_cents(input : String) -> Int {
   // Split on '.'
@@ -63,19 +65,17 @@ pub fn Model::update(
   match msg {
     Init => (self, fetch_state(dispatch))
     GotState(Ok(state)) => {
-      let settlements = @shared.compute_settlements(state.people, state.expenses)
+      let settlements = @shared.compute_settlements(
+        state.people,
+        state.expenses,
+      )
       (
-        {
-          ..self,
-          people: state.people,
-          expenses: state.expenses,
-          settlements,
-        },
+        { ..self, people: state.people, expenses: state.expenses, settlements },
         @rabbita.none,
       )
     }
     GotState(Err(_)) => (self, @rabbita.none)
-    PersonInputChanged(v) => ({ ..self, person_input: v, }, @rabbita.none)
+    PersonInputChanged(v) => ({ ..self, person_input: v }, @rabbita.none)
     AddPerson => {
       if !@shared.validate_name(self.person_input) {
         return (self, @rabbita.none)
@@ -90,7 +90,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, person_input: "", }, cmd)
+      ({ ..self, person_input: "" }, cmd)
     }
     PersonAdded(Ok(person)) => {
       let people = self.people.copy()
@@ -98,9 +98,9 @@ pub fn Model::update(
       ({ ..self, people, }, @rabbita.none)
     }
     PersonAdded(Err(_)) => (self, @rabbita.none)
-    DescInputChanged(v) => ({ ..self, desc_input: v, }, @rabbita.none)
-    AmountInputChanged(v) => ({ ..self, amount_input: v, }, @rabbita.none)
-    PaidByChanged(id) => ({ ..self, paid_by_input: id, }, @rabbita.none)
+    DescInputChanged(v) => ({ ..self, desc_input: v }, @rabbita.none)
+    AmountInputChanged(v) => ({ ..self, amount_input: v }, @rabbita.none)
+    PaidByChanged(id) => ({ ..self, paid_by_input: id }, @rabbita.none)
     AddExpense => {
       if !@shared.validate_description(self.desc_input) {
         return (self, @rabbita.none)
@@ -134,13 +134,13 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, desc_input: "", amount_input: "", }, cmd)
+      ({ ..self, desc_input: "", amount_input: "" }, cmd)
     }
     ExpenseAdded(Ok(expense)) => {
       let expenses = self.expenses.copy()
       expenses.push(expense)
       let settlements = @shared.compute_settlements(self.people, expenses)
-      ({ ..self, expenses, settlements, }, @rabbita.none)
+      ({ ..self, expenses, settlements }, @rabbita.none)
     }
     ExpenseAdded(Err(_)) => (self, @rabbita.none)
     DeleteExpense(id) => {
@@ -162,7 +162,7 @@ pub fn Model::update(
     ExpenseDeleted(Ok(id)) => {
       let expenses = self.expenses.filter(fn(e) { e.id != id })
       let settlements = @shared.compute_settlements(self.people, expenses)
-      ({ ..self, expenses, settlements, }, @rabbita.none)
+      ({ ..self, expenses, settlements }, @rabbita.none)
     }
     ExpenseDeleted(Err(_)) => (self, @rabbita.none)
   }

@@ -249,11 +249,7 @@ test "AddColumn with valid title clears adding_column" {
 ///|
 test "AddColumn with too-long title does nothing" {
   let long = "a".repeat(@shared.max_column_title + 1)
-  let initial = {
-    ..empty_model(),
-    adding_column: true,
-    new_column_title: long,
-  }
+  let initial = { ..empty_model(), adding_column: true, new_column_title: long }
   let (model, _) = initial.update(msg=AddColumn, dispatch=noop_dispatch)
   inspect(model.adding_column, content="true")
 }
@@ -450,7 +446,10 @@ test "DeleteColumn removes column and its cards" {
 
 ///|
 test "ColumnDeleted is passthrough" {
-  let (model, _) = empty_model().update(msg=ColumnDeleted, dispatch=noop_dispatch)
+  let (model, _) = empty_model().update(
+    msg=ColumnDeleted,
+    dispatch=noop_dispatch,
+  )
   debug_inspect(
     model.loading,
     content=(
@@ -464,10 +463,7 @@ test "ColumnDeleted is passthrough" {
 ///|
 test "MoveColumnLeft at first position does nothing" {
   let initial = { ..empty_model(), columns: sample_columns() }
-  let (model, _) = initial.update(
-    msg=MoveColumnLeft(1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=MoveColumnLeft(1), dispatch=noop_dispatch)
   // Positions unchanged since column 1 is already first
   debug_inspect(
     model.columns[0].position,
@@ -536,7 +532,12 @@ test "ShowAddCard sets adding_to_column and clears card fields" {
     dispatch=noop_dispatch,
   )
   debug_inspect(
-    (model.adding_to_column, model.new_card_title, model.new_card_desc, model.new_card_color),
+    (
+      model.adding_to_column,
+      model.new_card_title,
+      model.new_card_desc,
+      model.new_card_color,
+    ),
     content=(
       #|(2, "", "", "")
     ),
@@ -599,11 +600,7 @@ test "NewCardColorChanged updates new_card_color" {
 
 ///|
 test "AddCard with empty title does nothing" {
-  let initial = {
-    ..empty_model(),
-    adding_to_column: 1,
-    new_card_title: "",
-  }
+  let initial = { ..empty_model(), adding_to_column: 1, new_card_title: "" }
   let (model, _) = initial.update(msg=AddCard, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_to_column,
@@ -615,11 +612,7 @@ test "AddCard with empty title does nothing" {
 
 ///|
 test "AddCard with no column does nothing" {
-  let initial = {
-    ..empty_model(),
-    adding_to_column: 0,
-    new_card_title: "Task",
-  }
+  let initial = { ..empty_model(), adding_to_column: 0, new_card_title: "Task" }
   let (model, _) = initial.update(msg=AddCard, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_to_column,
@@ -650,11 +643,7 @@ test "AddCard with valid input clears adding_to_column" {
 ///|
 test "AddCard with too-long title does nothing" {
   let long = "a".repeat(@shared.max_card_title + 1)
-  let initial = {
-    ..empty_model(),
-    adding_to_column: 1,
-    new_card_title: long,
-  }
+  let initial = { ..empty_model(), adding_to_column: 1, new_card_title: long }
   let (model, _) = initial.update(msg=AddCard, dispatch=noop_dispatch)
   inspect(model.adding_to_column, content="1")
 }
@@ -783,11 +772,7 @@ test "EditColorChanged updates edit_color" {
 
 ///|
 test "SaveEditCard with id 0 does nothing" {
-  let initial = {
-    ..empty_model(),
-    editing_card: 0,
-    edit_title: "Title",
-  }
+  let initial = { ..empty_model(), editing_card: 0, edit_title: "Title" }
   let (model, _) = initial.update(msg=SaveEditCard, dispatch=noop_dispatch)
   debug_inspect(
     model.editing_card,
@@ -928,10 +913,7 @@ test "CancelMove clears moving_card" {
 ///|
 test "MoveCardTo with no moving card does nothing" {
   let initial = { ..empty_model(), moving_card: 0 }
-  let (model, _) = initial.update(
-    msg=MoveCardTo(2, 0),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=MoveCardTo(2, 0), dispatch=noop_dispatch)
   debug_inspect(
     model.moving_card,
     content=(
@@ -948,10 +930,7 @@ test "MoveCardTo moves card to target column" {
     cards: sample_cards(),
     columns: sample_columns(),
   }
-  let (model, _) = initial.update(
-    msg=MoveCardTo(2, 0),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=MoveCardTo(2, 0), dispatch=noop_dispatch)
   debug_inspect(
     model.moving_card,
     content=(

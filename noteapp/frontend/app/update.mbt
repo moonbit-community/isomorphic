@@ -36,11 +36,11 @@ pub fn Model::update(
     Init => (self, fetch_notes(dispatch))
     GotNotes(Ok(notes)) => {
       let sorted = @shared.sort_notes(notes)
-      ({ ..self, notes: sorted, }, @rabbita.none)
+      ({ ..self, notes: sorted }, @rabbita.none)
     }
     GotNotes(Err(_)) => (self, @rabbita.none)
-    TitleInputChanged(v) => ({ ..self, title_input: v, }, @rabbita.none)
-    ContentInputChanged(v) => ({ ..self, content_input: v, }, @rabbita.none)
+    TitleInputChanged(v) => ({ ..self, title_input: v }, @rabbita.none)
+    ContentInputChanged(v) => ({ ..self, content_input: v }, @rabbita.none)
     SaveNote => {
       if !@shared.validate_title(self.title_input) {
         return (self, @rabbita.none)
@@ -60,17 +60,17 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, title_input: "", content_input: "", }, cmd)
+      ({ ..self, title_input: "", content_input: "" }, cmd)
     }
     NoteSaved(Ok(note)) => {
       let notes = self.notes.copy()
       notes.push(note)
       let sorted = @shared.sort_notes(notes)
-      ({ ..self, notes: sorted, }, @rabbita.none)
+      ({ ..self, notes: sorted }, @rabbita.none)
     }
     NoteSaved(Err(_)) => (self, @rabbita.none)
-    SelectNote(id) => ({ ..self, selected_note_id: id, }, @rabbita.none)
-    DeselectNote => ({ ..self, selected_note_id: 0, }, @rabbita.none)
+    SelectNote(id) => ({ ..self, selected_note_id: id }, @rabbita.none)
+    DeselectNote => ({ ..self, selected_note_id: 0 }, @rabbita.none)
     TogglePin(id) => {
       let cmd = @http.post(
         @shared.api_note_pin(id),
@@ -92,7 +92,7 @@ pub fn Model::update(
         }
       })
       let sorted = @shared.sort_notes(notes)
-      ({ ..self, notes: sorted, }, @rabbita.none)
+      ({ ..self, notes: sorted }, @rabbita.none)
     }
     NotePinToggled(Err(_)) => (self, @rabbita.none)
     DeleteNote(id) => {
@@ -118,7 +118,7 @@ pub fn Model::update(
       } else {
         self.selected_note_id
       }
-      ({ ..self, notes, selected_note_id: selected, }, @rabbita.none)
+      ({ ..self, notes, selected_note_id: selected }, @rabbita.none)
     }
     NoteDeleted(Err(_)) => (self, @rabbita.none)
   }

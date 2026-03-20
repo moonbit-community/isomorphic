@@ -1,0 +1,67 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/blog-app/frontend/app"
+
+import {
+  "bobzhang/blog-app/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  posts : Array[@shared.Post]
+  current_post : @shared.Post?
+  comments : Array[@shared.Comment]
+  page : Page
+  title_input : String
+  content_input : String
+  comment_author : String
+  comment_content : String
+  loading : Bool
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  GoToList
+  GoToNewPost
+  GoToViewPost(Int)
+  GoToEditPost(Int)
+  Init
+  GotPosts(Result[Array[@shared.Post], String])
+  GotPost(Result[@shared.Post, String])
+  GotComments(Result[Array[@shared.Comment], String])
+  TitleChanged(String)
+  ContentChanged(String)
+  CommentAuthorChanged(String)
+  CommentContentChanged(String)
+  CreatePost
+  PostCreated(Result[@shared.Post, String])
+  UpdatePost(Int)
+  PostUpdated(Result[@shared.Post, String])
+  DeletePost(Int)
+  PostDeleted(Result[Int, String])
+  AddComment(Int)
+  CommentAdded(Result[@shared.Comment, String])
+  DeleteComment(Int, Int)
+  CommentDeleted(Result[Int, String])
+}
+
+pub(all) enum Page {
+  PostList
+  ViewPost(Int)
+  NewPost
+  EditPost(Int)
+}
+pub impl @debug.Debug for Page
+
+// Type aliases
+
+// Traits
+

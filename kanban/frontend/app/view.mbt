@@ -51,7 +51,10 @@ fn Model::view_header(
 
 ///|
 /// MVU view: render the full board from current model state.
-pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Html {
+pub fn Model::view(
+  self : Model,
+  dispatch : @rabbita.Dispatch[Msg],
+) -> @rabbita.Html {
   let sorted_columns = @shared.sort_by_position(self.columns, fn(c) {
     c.position
   })

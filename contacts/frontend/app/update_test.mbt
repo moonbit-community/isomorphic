@@ -18,9 +18,27 @@ fn empty_model() -> Model {
 ///|
 fn sample_contacts() -> Array[@shared.Contact] {
   [
-    { id: 1, name: "Alice Smith", email: "alice@example.com", phone: "555-1234", favorite: false },
-    { id: 2, name: "Bob Jones", email: "bob@example.com", phone: "555-5678", favorite: true },
-    { id: 3, name: "Carol Lee", email: "carol@example.com", phone: "555-9012", favorite: false },
+    {
+      id: 1,
+      name: "Alice Smith",
+      email: "alice@example.com",
+      phone: "555-1234",
+      favorite: false,
+    },
+    {
+      id: 2,
+      name: "Bob Jones",
+      email: "bob@example.com",
+      phone: "555-5678",
+      favorite: true,
+    },
+    {
+      id: 3,
+      name: "Carol Lee",
+      email: "carol@example.com",
+      phone: "555-9012",
+      favorite: false,
+    },
   ]
 }
 
@@ -86,7 +104,6 @@ test "GotContacts/Ok populates contacts" {
       #|  phone_input: "",
       #|  show_form: false,
       #|}
-
     ),
   )
 }
@@ -175,7 +192,6 @@ test "SearchChanged preserves contacts" {
       #|  phone_input: "",
       #|  show_form: false,
       #|}
-
     ),
   )
 }
@@ -184,10 +200,7 @@ test "SearchChanged preserves contacts" {
 
 ///|
 test "ToggleForm opens form" {
-  let (model, _) = empty_model().update(
-    msg=ToggleForm,
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = empty_model().update(msg=ToggleForm, dispatch=noop_dispatch)
   debug_inspect(
     model,
     content=(

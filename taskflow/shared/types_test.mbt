@@ -122,7 +122,12 @@ test "Dependency JSON round-trip" {
 
 ///|
 test "User JSON round-trip" {
-  let user : @shared.User = { id: 1, username: "alice", color: "blue", role: "member" }
+  let user : @shared.User = {
+    id: 1,
+    username: "alice",
+    color: "blue",
+    role: "member",
+  }
   let decoded : @shared.User = @json.from_json(user.to_json())
   assert_eq(decoded, user)
 }
@@ -139,7 +144,12 @@ test "AuthResponse JSON round-trip" {
 
 ///|
 test "User JSON structure" {
-  let user : @shared.User = { id: 1, username: "alice", color: "blue", role: "member" }
+  let user : @shared.User = {
+    id: 1,
+    username: "alice",
+    color: "blue",
+    role: "member",
+  }
   json_inspect(user.to_json(), content={
     "id": 1,
     "username": "alice",

@@ -1,3 +1,4 @@
+///|
 /// Compute the total number of votes across all options in a poll.
 pub fn compute_total_votes(options : Array[PollOption]) -> Int {
   let mut total = 0
@@ -7,6 +8,7 @@ pub fn compute_total_votes(options : Array[PollOption]) -> Int {
   total
 }
 
+///|
 /// Compute the percentage of votes for a given count out of total.
 /// Returns an integer 0-100. Returns 0 if total is 0.
 pub fn compute_percentage(votes : Int, total : Int) -> Int {

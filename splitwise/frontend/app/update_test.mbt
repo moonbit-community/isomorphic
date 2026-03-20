@@ -18,11 +18,7 @@ fn empty_model() -> Model {
 
 ///|
 fn sample_people() -> Array[@shared.Person] {
-  [
-    { id: 1, name: "Alice" },
-    { id: 2, name: "Bob" },
-    { id: 3, name: "Carol" },
-  ]
+  [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }, { id: 3, name: "Carol" }]
 }
 
 ///|
@@ -124,7 +120,6 @@ test "GotState/Ok populates people, expenses, and settlements" {
       #|  amount_input: "",
       #|  paid_by_input: 0,
       #|}
-
     ),
   )
 }
@@ -229,10 +224,7 @@ test "AddPerson with too-long name does nothing" {
 
 ///|
 test "PersonAdded/Ok appends to people list" {
-  let initial = {
-    ..empty_model(),
-    people: [{ id: 1, name: "Alice" }],
-  }
+  let initial = { ..empty_model(), people: [{ id: 1, name: "Alice" }] }
   let new_person : @shared.Person = { id: 2, name: "Bob" }
   let (model, _) = initial.update(
     msg=PersonAdded(Ok(new_person)),
@@ -378,11 +370,7 @@ test "AddExpense with zero amount does nothing" {
 
 ///|
 test "AddExpense with no people does nothing" {
-  let initial = {
-    ..empty_model(),
-    desc_input: "Lunch",
-    amount_input: "10.00",
-  }
+  let initial = { ..empty_model(), desc_input: "Lunch", amount_input: "10.00" }
   let (model, _) = initial.update(msg=AddExpense, dispatch=noop_dispatch)
   inspect(model.desc_input, content="Lunch")
 }
@@ -503,10 +491,7 @@ test "DeleteExpense leaves model unchanged (issues command)" {
     people: sample_people(),
     expenses: sample_expenses(),
   }
-  let (model, _) = initial.update(
-    msg=DeleteExpense(1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=DeleteExpense(1), dispatch=noop_dispatch)
   // Model is unchanged; only a command is issued
   inspect(model.expenses.length(), content="2")
 }

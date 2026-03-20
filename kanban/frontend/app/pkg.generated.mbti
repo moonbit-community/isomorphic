@@ -1,0 +1,82 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/kanban/frontend/app"
+
+import {
+  "bobzhang/kanban/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  columns : Array[@shared.Column]
+  cards : Array[@shared.Card]
+  adding_to_column : Int
+  new_card_title : String
+  new_card_desc : String
+  new_card_color : String
+  editing_card : Int
+  edit_title : String
+  edit_desc : String
+  edit_color : String
+  adding_column : Bool
+  new_column_title : String
+  renaming_column : Int
+  rename_column_title : String
+  moving_card : Int
+  loading : Bool
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  Init
+  GotBoard(Result[@shared.Board, String])
+  ShowAddColumn
+  HideAddColumn
+  NewColumnTitleChanged(String)
+  AddColumn
+  ColumnAdded(Result[@shared.Column, String])
+  StartRenameColumn(Int, String)
+  CancelRenameColumn
+  RenameColumnTitleChanged(String)
+  ConfirmRenameColumn
+  ColumnRenamed
+  DeleteColumn(Int)
+  ColumnDeleted
+  MoveColumnLeft(Int)
+  MoveColumnRight(Int)
+  ColumnMoved
+  ShowAddCard(Int)
+  HideAddCard
+  NewCardTitleChanged(String)
+  NewCardDescChanged(String)
+  NewCardColorChanged(String)
+  AddCard
+  CardAdded(Result[@shared.Card, String])
+  StartEditCard(@shared.Card)
+  CancelEditCard
+  EditTitleChanged(String)
+  EditDescChanged(String)
+  EditColorChanged(String)
+  SaveEditCard
+  CardUpdated
+  DeleteCard(Int)
+  CardDeleted
+  SelectCardToMove(Int)
+  CancelMove
+  MoveCardTo(Int, Int)
+  CardMoved
+}
+pub impl @debug.Debug for Msg
+
+// Type aliases
+
+// Traits
+

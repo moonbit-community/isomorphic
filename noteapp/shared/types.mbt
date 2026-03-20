@@ -1,3 +1,4 @@
+///|
 /// A note with a title, content, and pinned status.
 pub(all) struct Note {
   id : Int
@@ -6,6 +7,7 @@ pub(all) struct Note {
   pinned : Bool
 } derive(ToJson, FromJson, Debug)
 
+///|
 /// Statistics about a note's content.
 pub(all) struct NoteStats {
   word_count : Int

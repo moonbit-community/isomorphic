@@ -1,0 +1,79 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/splitwise/shared"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_expense(Int) -> String
+
+pub let api_expenses : String
+
+pub let api_people : String
+
+pub let api_state : String
+
+pub fn compute_balances(Array[Person], Array[Expense]) -> Array[(Int, Int)]
+
+pub fn compute_settlements(Array[Person], Array[Expense]) -> Array[Settlement]
+
+pub fn format_amount(Int) -> String
+
+pub let max_description_length : Int
+
+pub let max_name_length : Int
+
+pub fn validate_amount(Int) -> Bool
+
+pub fn validate_description(String) -> Bool
+
+pub fn validate_name(String) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct AppState {
+  people : Array[Person]
+  expenses : Array[Expense]
+  settlements : Array[Settlement]
+}
+pub impl ToJson for AppState
+pub impl @debug.Debug for AppState
+pub impl @json.FromJson for AppState
+
+pub(all) struct Expense {
+  id : Int
+  description : String
+  amount : Int
+  paid_by : Int
+  split_among : Array[Int]
+}
+pub impl ToJson for Expense
+pub impl @debug.Debug for Expense
+pub impl @json.FromJson for Expense
+
+pub(all) struct Person {
+  id : Int
+  name : String
+}
+pub impl ToJson for Person
+pub impl @debug.Debug for Person
+pub impl @json.FromJson for Person
+
+pub(all) struct Settlement {
+  from_id : Int
+  from_name : String
+  to_id : Int
+  to_name : String
+  amount : Int
+}
+pub impl ToJson for Settlement
+pub impl @debug.Debug for Settlement
+pub impl @json.FromJson for Settlement
+
+// Type aliases
+
+// Traits
+

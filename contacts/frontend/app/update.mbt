@@ -25,15 +25,13 @@ pub fn Model::update(
 ) -> (Model, @rabbita.Cmd) {
   match msg {
     Init => (self, fetch_contacts(dispatch))
-    GotContacts(Ok(contacts)) =>
-      ({ ..self, contacts, }, @rabbita.none)
+    GotContacts(Ok(contacts)) => ({ ..self, contacts, }, @rabbita.none)
     GotContacts(Err(_)) => (self, @rabbita.none)
-    SearchChanged(v) => ({ ..self, search_query: v, }, @rabbita.none)
-    ToggleForm =>
-      ({ ..self, show_form: !self.show_form, }, @rabbita.none)
-    NameInputChanged(v) => ({ ..self, name_input: v, }, @rabbita.none)
-    EmailInputChanged(v) => ({ ..self, email_input: v, }, @rabbita.none)
-    PhoneInputChanged(v) => ({ ..self, phone_input: v, }, @rabbita.none)
+    SearchChanged(v) => ({ ..self, search_query: v }, @rabbita.none)
+    ToggleForm => ({ ..self, show_form: !self.show_form }, @rabbita.none)
+    NameInputChanged(v) => ({ ..self, name_input: v }, @rabbita.none)
+    EmailInputChanged(v) => ({ ..self, email_input: v }, @rabbita.none)
+    PhoneInputChanged(v) => ({ ..self, phone_input: v }, @rabbita.none)
     AddContact => {
       if !@shared.validate_name(self.name_input) {
         return (self, @rabbita.none)

@@ -1,3 +1,4 @@
+///|
 /// Convert a character to its ASCII lowercase equivalent.
 fn to_lower_char(ch : Char) -> Char {
   if ch >= 'A' && ch <= 'Z' {
@@ -7,6 +8,7 @@ fn to_lower_char(ch : Char) -> Char {
   }
 }
 
+///|
 /// Convert a string to lowercase (ASCII).
 pub fn to_lower(s : String) -> String {
   let buf = StringBuilder::new()
@@ -16,6 +18,7 @@ pub fn to_lower(s : String) -> String {
   buf.to_string()
 }
 
+///|
 /// Format a 10-digit phone number as (XXX) XXX-XXXX, pass through otherwise.
 pub fn format_phone(phone : String) -> String {
   // Extract only digits
@@ -46,6 +49,7 @@ pub fn format_phone(phone : String) -> String {
   }
 }
 
+///|
 /// Check if a contact matches a search query (case-insensitive across name, email, phone).
 pub fn match_search(contact : Contact, query : String) -> Bool {
   if query == "" {
@@ -58,6 +62,7 @@ pub fn match_search(contact : Contact, query : String) -> Bool {
   name.contains(q) || email.contains(q) || phone.contains(q)
 }
 
+///|
 /// Filter contacts by search query.
 pub fn filter_contacts(
   contacts : Array[Contact],
@@ -66,6 +71,7 @@ pub fn filter_contacts(
   contacts.filter(fn(c) { match_search(c, query) })
 }
 
+///|
 /// Sort contacts: favorites first, then alphabetical by name.
 pub fn sort_contacts(contacts : Array[Contact]) -> Array[Contact] {
   let result = contacts.copy()
@@ -85,6 +91,7 @@ pub fn sort_contacts(contacts : Array[Contact]) -> Array[Contact] {
   result
 }
 
+///|
 /// Get the initials from a name (first letter of first and last name, uppercase).
 pub fn get_initials(name : String) -> String {
   if name == "" {
@@ -107,6 +114,7 @@ pub fn get_initials(name : String) -> String {
   buf.to_string()
 }
 
+///|
 /// Convert a character to its ASCII uppercase equivalent.
 fn to_upper_char(ch : Char) -> Char {
   if ch >= 'a' && ch <= 'z' {

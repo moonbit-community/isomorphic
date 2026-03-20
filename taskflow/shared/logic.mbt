@@ -345,12 +345,24 @@ pub fn sort_label(sort_by : String) -> String {
 /// test {
 ///   let tasks : Array[@shared.Task] = [
 ///     {
-///       id: 1, title: "B", description: "", status: "todo",
-///       priority: "low", assignee_id: 0, due_date: "", created_at: "2026-03-01",
+///       id: 1,
+///       title: "B",
+///       description: "",
+///       status: "todo",
+///       priority: "low",
+///       assignee_id: 0,
+///       due_date: "",
+///       created_at: "2026-03-01",
 ///     },
 ///     {
-///       id: 2, title: "A", description: "", status: "todo",
-///       priority: "high", assignee_id: 0, due_date: "", created_at: "2026-03-02",
+///       id: 2,
+///       title: "A",
+///       description: "",
+///       status: "todo",
+///       priority: "high",
+///       assignee_id: 0,
+///       due_date: "",
+///       created_at: "2026-03-02",
 ///     },
 ///   ]
 ///   let by_title = @shared.sort_tasks_by(tasks, "title", true)
@@ -370,7 +382,7 @@ pub fn sort_tasks_by(
   result.sort_by(fn(a, b) {
     let cmp = match sort_by {
       "title" => a.title.to_lower().compare(b.title.to_lower())
-      "due_date" => {
+      "due_date" =>
         if a.due_date == "" && b.due_date == "" {
           0
         } else if a.due_date == "" {
@@ -380,7 +392,6 @@ pub fn sort_tasks_by(
         } else {
           a.due_date.compare(b.due_date)
         }
-      }
       "created_at" => a.created_at.compare(b.created_at)
       _ => {
         // Default: priority
@@ -400,7 +411,11 @@ pub fn sort_tasks_by(
       }
     }
     let directed = if ascending { cmp } else { -cmp }
-    if directed != 0 { directed } else { a.id - b.id }
+    if directed != 0 {
+      directed
+    } else {
+      a.id - b.id
+    }
   })
   result
 }
@@ -504,16 +519,31 @@ pub fn recent_activities(
 /// test {
 ///   let acts : Array[@shared.Activity] = [
 ///     {
-///       id: 1, task_id: 1, task_title: "A", from_status: "todo",
-///       to_status: "in_progress", timestamp: "2026-03-12", user_name: "Alice",
+///       id: 1,
+///       task_id: 1,
+///       task_title: "A",
+///       from_status: "todo",
+///       to_status: "in_progress",
+///       timestamp: "2026-03-12",
+///       user_name: "Alice",
 ///     },
 ///     {
-///       id: 2, task_id: 2, task_title: "B", from_status: "todo",
-///       to_status: "done", timestamp: "2026-03-12", user_name: "Bob",
+///       id: 2,
+///       task_id: 2,
+///       task_title: "B",
+///       from_status: "todo",
+///       to_status: "done",
+///       timestamp: "2026-03-12",
+///       user_name: "Bob",
 ///     },
 ///     {
-///       id: 3, task_id: 1, task_title: "A", from_status: "in_progress",
-///       to_status: "review", timestamp: "2026-03-13", user_name: "Alice",
+///       id: 3,
+///       task_id: 1,
+///       task_title: "A",
+///       from_status: "in_progress",
+///       to_status: "review",
+///       timestamp: "2026-03-13",
+///       user_name: "Alice",
 ///     },
 ///   ]
 ///   let result = @shared.activities_for_task(acts, 1)
@@ -739,9 +769,14 @@ fn csv_escape(s : String) -> String {
 /// test {
 ///   let tasks : Array[@shared.Task] = [
 ///     {
-///       id: 1, title: "Fix bug", description: "desc",
-///       status: "todo", priority: "high", assignee_id: 1,
-///       due_date: "2026-03-15", created_at: "2026-03-12",
+///       id: 1,
+///       title: "Fix bug",
+///       description: "desc",
+///       status: "todo",
+///       priority: "high",
+///       assignee_id: 1,
+///       due_date: "2026-03-15",
+///       created_at: "2026-03-12",
 ///     },
 ///   ]
 ///   let members : Array[@shared.Member] = [
@@ -752,10 +787,7 @@ fn csv_escape(s : String) -> String {
 ///   assert_true(csv.contains("Alice"))
 /// }
 /// ```
-pub fn tasks_to_csv(
-  tasks : Array[Task],
-  members : Array[Member],
-) -> String {
+pub fn tasks_to_csv(tasks : Array[Task], members : Array[Member]) -> String {
   let lines : Array[String] = [
     "id,title,description,status,priority,assignee,due_date,created_at",
   ]
@@ -874,10 +906,7 @@ pub fn attachments_for_task(
 /// assert_eq(@shared.attachment_count(atts, 10), 2)
 /// assert_eq(@shared.attachment_count(atts, 99), 0)
 /// ```
-pub fn attachment_count(
-  attachments : Array[Attachment],
-  task_id : Int,
-) -> Int {
+pub fn attachment_count(attachments : Array[Attachment], task_id : Int) -> Int {
   let mut count = 0
   for a in attachments {
     if a.task_id == task_id {
@@ -924,18 +953,31 @@ pub fn extract_mentions(text : String) -> Array[String] {
   let len = chars.length()
   let mut i = 0
   while i < len {
-    if chars[i] == '@' && (i == 0 || chars[i - 1] == ' ' || chars[i - 1] == '\n') {
+    if chars[i] == '@' &&
+      (i == 0 || chars[i - 1] == ' ' || chars[i - 1] == '\n') {
       let start = i + 1
       let mut end = start
-      while end < len && ((chars[end].to_int() >= 'a'.to_int() && chars[end].to_int() <= 'z'.to_int()) ||
-        (chars[end].to_int() >= 'A'.to_int() && chars[end].to_int() <= 'Z'.to_int()) ||
-        (chars[end].to_int() >= '0'.to_int() && chars[end].to_int() <= '9'.to_int()) ||
-        chars[end] == '_') {
+      while end < len &&
+            (
+              (
+                chars[end].to_int() >= 'a'.to_int() &&
+                chars[end].to_int() <= 'z'.to_int()
+              ) ||
+              (
+                chars[end].to_int() >= 'A'.to_int() &&
+                chars[end].to_int() <= 'Z'.to_int()
+              ) ||
+              (
+                chars[end].to_int() >= '0'.to_int() &&
+                chars[end].to_int() <= '9'.to_int()
+              ) ||
+              chars[end] == '_'
+            ) {
         end += 1
       }
       if end > start {
         let name = text[start:end].to_string()
-        if !(mentions.contains(name)) {
+        if !mentions.contains(name) {
           mentions.push(name)
         }
       }
@@ -963,10 +1005,7 @@ pub let recurrence_intervals : Array[String] = ["daily", "weekly", "monthly"]
 /// assert_eq(@shared.get_recurrence(rules, 10), "weekly")
 /// assert_eq(@shared.get_recurrence(rules, 99), "")
 /// ```
-pub fn get_recurrence(
-  rules : Array[RecurrenceRule],
-  task_id : Int,
-) -> String {
+pub fn get_recurrence(rules : Array[RecurrenceRule], task_id : Int) -> String {
   for r in rules {
     if r.task_id == task_id {
       return r.interval

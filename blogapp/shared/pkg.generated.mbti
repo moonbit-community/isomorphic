@@ -1,7 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "haoxiang/blog-app/shared"
+package "bobzhang/blog-app/shared"
 
 import {
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
@@ -34,6 +35,7 @@ pub(all) struct Comment {
 }
 pub impl Show for Comment
 pub impl ToJson for Comment
+pub impl @debug.Debug for Comment
 pub impl @json.FromJson for Comment
 
 pub(all) struct Post {
@@ -45,6 +47,7 @@ pub(all) struct Post {
 }
 pub impl Show for Post
 pub impl ToJson for Post
+pub impl @debug.Debug for Post
 pub impl @json.FromJson for Post
 
 // Type aliases

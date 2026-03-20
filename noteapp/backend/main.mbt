@@ -87,7 +87,9 @@ fn main raise {
         { "title": String(t), .. } => t
         _ => {
           println("  -> 400 Missing title")
-          return @mocket.HttpResponse::new(BadRequest).body("Missing title field")
+          return @mocket.HttpResponse::new(BadRequest).body(
+            "Missing title field",
+          )
         }
       }
       let content = match json {

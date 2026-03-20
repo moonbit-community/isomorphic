@@ -1,0 +1,65 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/pollapp/shared"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_poll(Int) -> String
+
+pub fn api_poll_vote(Int) -> String
+
+pub let api_polls : String
+
+pub fn compute_percentage(Int, Int) -> Int
+
+pub fn compute_total_votes(Array[PollOption]) -> Int
+
+pub let max_option_length : Int
+
+pub let max_options : Int
+
+pub let max_question_length : Int
+
+pub let min_options : Int
+
+pub fn validate_option(String) -> Bool
+
+pub fn validate_question(String) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct Poll {
+  id : Int
+  question : String
+  options : Array[PollOption]
+}
+pub impl ToJson for Poll
+pub impl @debug.Debug for Poll
+pub impl @json.FromJson for Poll
+
+pub(all) struct PollOption {
+  id : Int
+  text : String
+  votes : Int
+}
+pub impl ToJson for PollOption
+pub impl @debug.Debug for PollOption
+pub impl @json.FromJson for PollOption
+
+pub(all) struct PollResults {
+  poll : Poll
+  total_votes : Int
+  percentages : Array[(String, Int)]
+}
+pub impl ToJson for PollResults
+pub impl @debug.Debug for PollResults
+pub impl @json.FromJson for PollResults
+
+// Type aliases
+
+// Traits
+

@@ -30,9 +30,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
-fn read_post_from_stmt(
-  stmt : @sqlite3.Statement,
-) -> @shared.Post {
+fn read_post_from_stmt(stmt : @sqlite3.Statement) -> @shared.Post {
   let id : Int = stmt.column(index=0)
   let title : String = stmt.column_blob_as_string(index=1)
   let content : String = stmt.column_blob_as_string(index=2)
@@ -44,9 +42,7 @@ fn read_post_from_stmt(
 }
 
 ///|
-fn read_comment_from_stmt(
-  stmt : @sqlite3.Statement,
-) -> @shared.Comment {
+fn read_comment_from_stmt(stmt : @sqlite3.Statement) -> @shared.Comment {
   let id : Int = stmt.column(index=0)
   let post_id : Int = stmt.column(index=1)
   let author : String = stmt.column_blob_as_string(index=2)

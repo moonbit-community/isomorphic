@@ -1,0 +1,32 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/compose-demo/frontend/counter"
+
+import {
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+}
+
+// Values
+pub fn initial() -> Model
+
+pub fn update(Msg, Model) -> Model
+
+pub fn view((Msg) -> @runtime.Cmd, Model, label~ : String) -> @html.Html
+
+// Errors
+
+// Types and methods
+pub struct Model {
+  count : Int
+}
+
+pub(all) enum Msg {
+  Increment
+  Decrement
+  Reset
+}
+
+// Type aliases
+
+// Traits
+

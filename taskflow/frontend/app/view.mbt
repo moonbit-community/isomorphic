@@ -1,6 +1,9 @@
 ///|
 /// MVU view: render the full task management interface.
-pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Html {
+pub fn Model::view(
+  self : Model,
+  dispatch : @rabbita.Dispatch[Msg],
+) -> @rabbita.Html {
   let model = self
   let theme = get_theme(model.dark_mode)
   if model.auth_screen != "" {
@@ -79,11 +82,7 @@ pub fn Model::view(self : Model, dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.
               "font-size: 11px",
               "margin-top: 8px",
             ],
-            [
-              @html.text(
-                @shared.t(model.lang, "keyboard_hints"),
-              ),
-            ],
+            [@html.text(@shared.t(model.lang, "keyboard_hints"))],
           ),
         ])
       },

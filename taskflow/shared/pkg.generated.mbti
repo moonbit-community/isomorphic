@@ -2,13 +2,22 @@
 package "bobzhang/taskflow/shared"
 
 import {
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
 // Values
+pub fn activities_for_task(Array[Activity], Int) -> Array[Activity]
+
 pub fn allowed_transitions(String) -> Array[String]
 
+pub fn api_attachment(Int) -> String
+
 pub let api_board : String
+
+pub let api_export : String
+
+pub let api_labels : String
 
 pub let api_login : String
 
@@ -18,9 +27,19 @@ pub let api_me : String
 
 pub let api_members : String
 
+pub fn api_project(Int) -> String
+
+pub let api_projects : String
+
 pub let api_register : String
 
+pub fn api_subtask(Int) -> String
+
+pub fn api_subtask_toggle(Int) -> String
+
 pub fn api_task(Int) -> String
+
+pub fn api_task_attachments(Int) -> String
 
 pub fn api_task_comments(Int) -> String
 
@@ -28,23 +47,59 @@ pub fn api_task_deps(Int) -> String
 
 pub fn api_task_deps_remove(Int) -> String
 
+pub fn api_task_labels(Int) -> String
+
+pub fn api_task_labels_remove(Int) -> String
+
+pub fn api_task_project(Int) -> String
+
+pub fn api_task_recurrence(Int) -> String
+
 pub fn api_task_status(Int) -> String
 
+pub fn api_task_subtasks(Int) -> String
+
+pub fn api_task_time(Int) -> String
+
 pub let api_tasks : String
+
+pub fn api_time_entry(Int) -> String
+
+pub fn api_user_role(Int) -> String
+
+pub fn attachment_count(Array[Attachment], Int) -> Int
+
+pub fn attachments_for_task(Array[Attachment], Int) -> Array[Attachment]
+
+pub fn can_edit(String) -> Bool
 
 pub fn completion_percent(Array[Task]) -> Int
 
 pub fn count_by_status(Array[Task], String) -> Int
 
+pub fn count_due_today(Array[Task], String) -> Int
+
+pub fn count_overdue(Array[Task], String) -> Int
+
+pub fn extract_mentions(String) -> Array[String]
+
 pub fn filter_tasks(Array[Task], String, Int, String, query? : String, urgency? : String, today? : String) -> Array[Task]
 
 pub fn find_member(Array[Member], Int) -> Member?
 
+pub fn find_project(Array[Project], Int) -> Project?
+
 pub fn format_activity(Activity) -> String
+
+pub fn format_duration(Int) -> String
 
 pub fn get_dependencies(Array[Dependency], Int) -> Array[Int]
 
+pub fn get_recurrence(Array[RecurrenceRule], Int) -> String
+
 pub fn has_unresolved_deps(Array[Dependency], Array[Task], Int) -> Bool
+
+pub fn is_admin(String) -> Bool
 
 pub fn is_overdue(String, String) -> Bool
 
@@ -52,11 +107,17 @@ pub fn is_terminal(String) -> Bool
 
 pub fn is_valid_transition(String, String) -> Bool
 
+pub let label_colors : Array[String]
+
+pub fn labels_for_task(Array[Label], Array[TaskLabel], Int) -> Array[Label]
+
 pub fn matches_urgency(Task, String, String) -> Bool
 
 pub let max_comment_text : Int
 
 pub let max_password : Int
+
+pub let max_project_name : Int
 
 pub let max_task_description : Int
 
@@ -80,15 +141,31 @@ pub fn priority_label(String) -> String
 
 pub fn priority_weight(String) -> Int
 
+pub fn project_for_task(Array[TaskProject], Int) -> Int
+
 pub fn recent_activities(Array[Activity], Int) -> Array[Activity]
+
+pub let recurrence_intervals : Array[String]
+
+pub fn recurrence_label(String) -> String
 
 pub fn search_matches(Task, String) -> Bool
 
+pub fn sort_label(String) -> String
+
+pub let sort_options : Array[String]
+
 pub fn sort_tasks(Array[Task]) -> Array[Task]
+
+pub fn sort_tasks_by(Array[Task], String, Bool) -> Array[Task]
 
 pub fn status_color(String) -> String
 
 pub fn status_label(String) -> String
+
+pub fn subtask_progress(Array[Subtask], Int) -> (Int, Int)
+
+pub fn subtasks_for_task(Array[Subtask], Int) -> Array[Subtask]
 
 pub fn t(Lang, String) -> String
 
@@ -106,9 +183,17 @@ pub fn t_tasks_done(Lang, Int, Int) -> String
 
 pub fn t_transition(Lang, String, String) -> String
 
+pub fn t_undo_status(Lang, String, String) -> String
+
 pub fn t_urgency(Lang, String, String) -> String
 
 pub fn tasks_for_member(Array[Task], Int) -> Array[Task]
+
+pub fn tasks_in_project(Array[Task], Array[TaskProject], Int) -> Array[Task]
+
+pub fn tasks_to_csv(Array[Task], Array[Member]) -> String
+
+pub fn total_time(Array[TimeEntry], Int) -> Int
 
 pub fn transition_label(String, String) -> String
 
@@ -118,6 +203,8 @@ pub let valid_priorities : Array[String]
 
 pub let valid_statuses : Array[String]
 
+pub fn validate_attachment_url(String) -> Bool
+
 pub fn validate_comment_text(String) -> Bool
 
 pub fn validate_due_date(String) -> Bool
@@ -126,11 +213,17 @@ pub fn validate_password(String) -> Bool
 
 pub fn validate_priority(String) -> Bool
 
+pub fn validate_project_name(String) -> Bool
+
+pub fn validate_recurrence(String) -> Bool
+
 pub fn validate_status(String) -> Bool
 
 pub fn validate_task_description(String) -> Bool
 
 pub fn validate_task_title(String) -> Bool
+
+pub fn validate_time_minutes(Int) -> Bool
 
 pub fn validate_username(String) -> Bool
 
@@ -149,7 +242,20 @@ pub(all) struct Activity {
 pub impl Eq for Activity
 pub impl Show for Activity
 pub impl ToJson for Activity
+pub impl @debug.Debug for Activity
 pub impl @json.FromJson for Activity
+
+pub(all) struct Attachment {
+  id : Int
+  task_id : Int
+  url : String
+  label : String
+}
+pub impl Eq for Attachment
+pub impl Show for Attachment
+pub impl ToJson for Attachment
+pub impl @debug.Debug for Attachment
+pub impl @json.FromJson for Attachment
 
 pub(all) struct AuthResponse {
   user : User
@@ -158,6 +264,7 @@ pub(all) struct AuthResponse {
 pub impl Eq for AuthResponse
 pub impl Show for AuthResponse
 pub impl ToJson for AuthResponse
+pub impl @debug.Debug for AuthResponse
 pub impl @json.FromJson for AuthResponse
 
 pub(all) struct Board {
@@ -165,11 +272,20 @@ pub(all) struct Board {
   members : Array[Member]
   activities : Array[Activity]
   dependencies : Array[Dependency]
+  labels : Array[Label]
+  task_labels : Array[TaskLabel]
+  subtasks : Array[Subtask]
+  time_entries : Array[TimeEntry]
+  recurrence_rules : Array[RecurrenceRule]
+  attachments : Array[Attachment]
+  projects : Array[Project]
+  task_projects : Array[TaskProject]
   today : String
 }
 pub impl Eq for Board
 pub impl Show for Board
 pub impl ToJson for Board
+pub impl @debug.Debug for Board
 pub impl @json.FromJson for Board
 
 pub(all) struct Comment {
@@ -182,6 +298,7 @@ pub(all) struct Comment {
 pub impl Eq for Comment
 pub impl Show for Comment
 pub impl ToJson for Comment
+pub impl @debug.Debug for Comment
 pub impl @json.FromJson for Comment
 
 pub(all) struct Dependency {
@@ -191,7 +308,19 @@ pub(all) struct Dependency {
 pub impl Eq for Dependency
 pub impl Show for Dependency
 pub impl ToJson for Dependency
+pub impl @debug.Debug for Dependency
 pub impl @json.FromJson for Dependency
+
+pub(all) struct Label {
+  id : Int
+  name : String
+  color : String
+}
+pub impl Eq for Label
+pub impl Show for Label
+pub impl ToJson for Label
+pub impl @debug.Debug for Label
+pub impl @json.FromJson for Label
 
 pub(all) enum Lang {
   En
@@ -200,6 +329,7 @@ pub(all) enum Lang {
 pub impl Eq for Lang
 pub impl Show for Lang
 pub impl ToJson for Lang
+pub impl @debug.Debug for Lang
 pub impl @json.FromJson for Lang
 
 pub(all) struct Member {
@@ -210,7 +340,41 @@ pub(all) struct Member {
 pub impl Eq for Member
 pub impl Show for Member
 pub impl ToJson for Member
+pub impl @debug.Debug for Member
 pub impl @json.FromJson for Member
+
+pub(all) struct Project {
+  id : Int
+  name : String
+  color : String
+}
+pub impl Eq for Project
+pub impl Show for Project
+pub impl ToJson for Project
+pub impl @debug.Debug for Project
+pub impl @json.FromJson for Project
+
+pub(all) struct RecurrenceRule {
+  task_id : Int
+  interval : String
+}
+pub impl Eq for RecurrenceRule
+pub impl Show for RecurrenceRule
+pub impl ToJson for RecurrenceRule
+pub impl @debug.Debug for RecurrenceRule
+pub impl @json.FromJson for RecurrenceRule
+
+pub(all) struct Subtask {
+  id : Int
+  task_id : Int
+  title : String
+  done : Bool
+}
+pub impl Eq for Subtask
+pub impl Show for Subtask
+pub impl ToJson for Subtask
+pub impl @debug.Debug for Subtask
+pub impl @json.FromJson for Subtask
 
 pub(all) struct Task {
   id : Int
@@ -225,16 +389,52 @@ pub(all) struct Task {
 pub impl Eq for Task
 pub impl Show for Task
 pub impl ToJson for Task
+pub impl @debug.Debug for Task
 pub impl @json.FromJson for Task
+
+pub(all) struct TaskLabel {
+  task_id : Int
+  label_id : Int
+}
+pub impl Eq for TaskLabel
+pub impl Show for TaskLabel
+pub impl ToJson for TaskLabel
+pub impl @debug.Debug for TaskLabel
+pub impl @json.FromJson for TaskLabel
+
+pub(all) struct TaskProject {
+  task_id : Int
+  project_id : Int
+}
+pub impl Eq for TaskProject
+pub impl Show for TaskProject
+pub impl ToJson for TaskProject
+pub impl @debug.Debug for TaskProject
+pub impl @json.FromJson for TaskProject
+
+pub(all) struct TimeEntry {
+  id : Int
+  task_id : Int
+  minutes : Int
+  note : String
+  created_at : String
+}
+pub impl Eq for TimeEntry
+pub impl Show for TimeEntry
+pub impl ToJson for TimeEntry
+pub impl @debug.Debug for TimeEntry
+pub impl @json.FromJson for TimeEntry
 
 pub(all) struct User {
   id : Int
   username : String
   color : String
+  role : String
 }
 pub impl Eq for User
 pub impl Show for User
 pub impl ToJson for User
+pub impl @debug.Debug for User
 pub impl @json.FromJson for User
 
 // Type aliases

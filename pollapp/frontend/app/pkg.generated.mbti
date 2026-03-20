@@ -1,0 +1,45 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/pollapp/frontend/app"
+
+import {
+  "bobzhang/pollapp/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  polls : Array[@shared.Poll]
+  question_input : String
+  option_inputs : Array[String]
+  voted : Array[Int]
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  Init
+  GotPolls(Result[Array[@shared.Poll], String])
+  QuestionInputChanged(String)
+  OptionInputChanged(Int, String)
+  AddOptionInput
+  RemoveOptionInput(Int)
+  CreatePoll
+  PollCreated(Result[@shared.Poll, String])
+  Vote(Int, Int)
+  Voted(Result[@shared.Poll, String])
+  DeletePoll(Int)
+  PollDeleted(Result[Int, String])
+}
+pub impl @debug.Debug for Msg
+
+// Type aliases
+
+// Traits
+

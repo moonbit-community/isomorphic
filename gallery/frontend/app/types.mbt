@@ -687,11 +687,15 @@ pub fn section_components(section : Section) -> Array[String] {
     Overlay => ["Toast", "Modal", "CommandPalette"]
     Composite =>
       [
-        "KanbanBoard", "SearchableSelect", "DateRangePicker", "FormWizard",
-        "MarkdownPreview", "SpreadsheetGrid", "DragSortList",
+        "KanbanBoard", "SearchableSelect", "DateRangePicker", "FormWizard", "MarkdownPreview",
+        "SpreadsheetGrid", "DragSortList",
       ]
-    Animated => ["Stopwatch", "Countdown", "Typewriter", "Carousel", "AnimatedCounter"]
-    RichInputs => ["StarRating", "PinInput", "PasswordStrength", "TagAutocomplete", "InlineEdit"]
+    Animated =>
+      ["Stopwatch", "Countdown", "Typewriter", "Carousel", "AnimatedCounter"]
+    RichInputs =>
+      [
+        "StarRating", "PinInput", "PasswordStrength", "TagAutocomplete", "InlineEdit",
+      ]
     Layout => ["Stepper", "SplitPane", "VirtualList", "MasonryGrid"]
     Feedback => ["ConfirmButton", "CopyToClipboard", "UndoSnackbar"]
   }
@@ -699,7 +703,18 @@ pub fn section_components(section : Section) -> Array[String] {
 
 ///|
 pub fn all_sections() -> Array[Section] {
-  [Inputs, Display, Navigation, Data, Overlay, Composite, Animated, RichInputs, Layout, Feedback]
+  [
+    Inputs,
+    Display,
+    Navigation,
+    Data,
+    Overlay,
+    Composite,
+    Animated,
+    RichInputs,
+    Layout,
+    Feedback,
+  ]
 }
 
 ///|

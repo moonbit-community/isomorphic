@@ -2,8 +2,7 @@
 
 ///|
 let container_style : Array[String] = [
-  "max-width: 520px", "margin: 0 auto", "padding: 24px 16px",
-  "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "max-width: 520px", "margin: 0 auto", "padding: 24px 16px", "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
 ]
 
 ///|
@@ -13,8 +12,7 @@ let header_style : Array[String] = [
 
 ///|
 let header_title_style : Array[String] = [
-  "color: white", "font-size: 26px", "font-weight: 800",
-  "margin-bottom: 4px", "letter-spacing: -0.5px",
+  "color: white", "font-size: 26px", "font-weight: 800", "margin-bottom: 4px", "letter-spacing: -0.5px",
 ]
 
 ///|
@@ -24,15 +22,14 @@ let header_subtitle_style : Array[String] = [
 
 ///|
 let total_banner_style : Array[String] = [
-  "background: rgba(255,255,255,0.15)", "border-radius: 12px",
-  "padding: 16px 20px", "margin-bottom: 16px", "text-align: center",
-  "backdrop-filter: blur(10px)",
+  "background: rgba(255,255,255,0.15)", "border-radius: 12px", "padding: 16px 20px",
+  "margin-bottom: 16px", "text-align: center", "backdrop-filter: blur(10px)",
 ]
 
 ///|
 let total_label_style : Array[String] = [
-  "color: rgba(255,255,255,0.7)", "font-size: 12px", "margin-bottom: 4px",
-  "text-transform: uppercase", "letter-spacing: 1px",
+  "color: rgba(255,255,255,0.7)", "font-size: 12px", "margin-bottom: 4px", "text-transform: uppercase",
+  "letter-spacing: 1px",
 ]
 
 ///|
@@ -42,14 +39,14 @@ let total_amount_style : Array[String] = [
 
 ///|
 let card_style : Array[String] = [
-  "background: white", "border-radius: 14px", "padding: 18px 20px",
-  "margin-bottom: 14px", "box-shadow: 0 1px 8px rgba(0,0,0,0.06)",
+  "background: white", "border-radius: 14px", "padding: 18px 20px", "margin-bottom: 14px",
+  "box-shadow: 0 1px 8px rgba(0,0,0,0.06)",
 ]
 
 ///|
 let card_title_style : Array[String] = [
-  "font-size: 13px", "font-weight: 700", "color: #999", "margin-bottom: 14px",
-  "text-transform: uppercase", "letter-spacing: 0.5px",
+  "font-size: 13px", "font-weight: 700", "color: #999", "margin-bottom: 14px", "text-transform: uppercase",
+  "letter-spacing: 0.5px",
 ]
 
 ///|
@@ -65,8 +62,8 @@ let text_input_style : Array[String] = [
 
 ///|
 let add_btn_style : Array[String] = [
-  "padding: 10px 20px", "background: #667eea", "color: white", "border: none",
-  "border-radius: 10px", "cursor: pointer", "font-size: 14px", "font-weight: 600",
+  "padding: 10px 20px", "background: #667eea", "color: white", "border: none", "border-radius: 10px",
+  "cursor: pointer", "font-size: 14px", "font-weight: 600",
 ]
 
 ///|
@@ -76,9 +73,8 @@ let people_chips_style : Array[String] = [
 
 ///|
 let person_chip_style : Array[String] = [
-  "display: inline-flex", "align-items: center", "gap: 8px",
-  "padding: 6px 14px 6px 6px", "background: #f8f8ff",
-  "border-radius: 24px", "font-size: 13px", "color: #333",
+  "display: inline-flex", "align-items: center", "gap: 8px", "padding: 6px 14px 6px 6px",
+  "background: #f8f8ff", "border-radius: 24px", "font-size: 13px", "color: #333",
 ]
 
 ///|
@@ -96,8 +92,8 @@ let expense_form_style : Array[String] = [
 
 ///|
 let input_style : Array[String] = [
-  "padding: 10px 14px", "border: 2px solid #eee", "border-radius: 10px",
-  "font-size: 14px", "outline: none",
+  "padding: 10px 14px", "border: 2px solid #eee", "border-radius: 10px", "font-size: 14px",
+  "outline: none",
 ]
 
 ///|
@@ -122,15 +118,14 @@ let split_hint_style : Array[String] = [
 
 ///|
 let submit_btn_style : Array[String] = [
-  "padding: 12px", "background: linear-gradient(135deg, #667eea, #764ba2)",
-  "color: white", "border: none", "border-radius: 10px", "cursor: pointer",
-  "font-size: 15px", "font-weight: 600", "margin-top: 2px",
+  "padding: 12px", "background: linear-gradient(135deg, #667eea, #764ba2)", "color: white",
+  "border: none", "border-radius: 10px", "cursor: pointer", "font-size: 15px", "font-weight: 600",
+  "margin-top: 2px",
 ]
 
 ///|
 let expense_row_style : Array[String] = [
-  "display: flex", "align-items: center", "gap: 12px",
-  "padding: 10px 0", "border-bottom: 1px solid #f5f5f5",
+  "display: flex", "align-items: center", "gap: 12px", "padding: 10px 0", "border-bottom: 1px solid #f5f5f5",
 ]
 
 ///|
@@ -151,16 +146,14 @@ let expense_amount_style : Array[String] = [
 
 ///|
 let delete_btn_style : Array[String] = [
-  "width: 28px", "height: 28px", "background: #fee", "color: #e53935",
-  "border: none", "border-radius: 8px", "cursor: pointer",
-  "font-size: 13px", "font-weight: 700", "flex-shrink: 0",
-  "display: flex", "align-items: center", "justify-content: center",
+  "width: 28px", "height: 28px", "background: #fee", "color: #e53935", "border: none",
+  "border-radius: 8px", "cursor: pointer", "font-size: 13px", "font-weight: 700",
+  "flex-shrink: 0", "display: flex", "align-items: center", "justify-content: center",
 ]
 
 ///|
 let settlement_row_style : Array[String] = [
-  "display: flex", "align-items: center", "gap: 10px",
-  "padding: 12px 0", "border-bottom: 1px solid #f5f5f5",
+  "display: flex", "align-items: center", "gap: 10px", "padding: 12px 0", "border-bottom: 1px solid #f5f5f5",
 ]
 
 ///|
@@ -180,12 +173,12 @@ let settlement_arrow_style : Array[String] = [
 
 ///|
 let settlement_amount_style : Array[String] = [
-  "font-weight: 700", "font-size: 15px", "color: #43a047",
-  "background: #e8f5e9", "padding: 4px 10px", "border-radius: 8px",
+  "font-weight: 700", "font-size: 15px", "color: #43a047", "background: #e8f5e9",
+  "padding: 4px 10px", "border-radius: 8px",
 ]
 
 ///|
 let settled_up_style : Array[String] = [
-  "text-align: center", "color: #43a047", "padding: 20px 0",
-  "font-weight: 600", "font-size: 15px",
+  "text-align: center", "color: #43a047", "padding: 20px 0", "font-weight: 600",
+  "font-size: 15px",
 ]

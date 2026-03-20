@@ -1,0 +1,57 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/contacts/shared"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_contact(Int) -> String
+
+pub fn api_contact_favorite(Int) -> String
+
+pub let api_contacts : String
+
+pub fn filter_contacts(Array[Contact], String) -> Array[Contact]
+
+pub fn format_phone(String) -> String
+
+pub fn get_initials(String) -> String
+
+pub fn match_search(Contact, String) -> Bool
+
+pub let max_email_length : Int
+
+pub let max_name_length : Int
+
+pub let max_phone_length : Int
+
+pub fn sort_contacts(Array[Contact]) -> Array[Contact]
+
+pub fn to_lower(String) -> String
+
+pub fn validate_email(String) -> Bool
+
+pub fn validate_name(String) -> Bool
+
+pub fn validate_phone(String) -> Bool
+
+// Errors
+
+// Types and methods
+pub(all) struct Contact {
+  id : Int
+  name : String
+  email : String
+  phone : String
+  favorite : Bool
+}
+pub impl ToJson for Contact
+pub impl @debug.Debug for Contact
+pub impl @json.FromJson for Contact
+
+// Type aliases
+
+// Traits
+

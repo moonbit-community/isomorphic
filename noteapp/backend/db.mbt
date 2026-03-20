@@ -46,9 +46,7 @@ fn create_note(
   title : String,
   content : String,
 ) -> @shared.Note raise @sqlite3.SqliteError {
-  let stmt = conn.prepare(
-    "INSERT INTO notes (title, content) VALUES (?, ?)",
-  )
+  let stmt = conn.prepare("INSERT INTO notes (title, content) VALUES (?, ?)")
   stmt.bind_string_as_blob(index=1, val=title)
   stmt.bind_string_as_blob(index=2, val=content)
   stmt.step_once()

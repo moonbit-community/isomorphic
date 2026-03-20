@@ -1,7 +1,7 @@
 ///|
 fn Model::view_confirm_button(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.confirm_button
   let content = if s.executed {
@@ -38,21 +38,18 @@ fn Model::view_confirm_button(
           style=["margin:0", "font-weight:600", "color:\{danger}"],
           "Are you sure? This action cannot be undone.",
         ),
-        @html.div(
-          style=["display:flex", "gap:8px"],
-          [
-            @html.button(
-              style=btn_danger_style,
-              on_click=dispatch(ConfirmButtonConfirm),
-              "Confirm",
-            ),
-            @html.button(
-              style=btn_outline_style,
-              on_click=dispatch(ConfirmButtonCancel),
-              "Cancel",
-            ),
-          ],
-        ),
+        @html.div(style=["display:flex", "gap:8px"], [
+          @html.button(
+            style=btn_danger_style,
+            on_click=dispatch(ConfirmButtonConfirm),
+            "Confirm",
+          ),
+          @html.button(
+            style=btn_outline_style,
+            on_click=dispatch(ConfirmButtonCancel),
+            "Cancel",
+          ),
+        ]),
       ],
     )
   } else {
@@ -87,7 +84,7 @@ fn Model::view_confirm_button(
 ///|
 fn Model::view_copy_clipboard(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.copy_clipboard
   let btn_label = if s.copied { "Copied!" } else { "Copy" }
@@ -160,7 +157,7 @@ fn Model::view_copy_clipboard(
 ///|
 fn Model::view_undo_snackbar(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.undo_snackbar
   let item_views : Array[@rabbita.Html] = []
@@ -232,13 +229,8 @@ fn Model::view_undo_snackbar(
         ),
         @html.button(
           style=[
-            "background:none",
-            "border:none",
-            "color:#aaa",
-            "cursor:pointer",
-            "font-size:18px",
-            "padding:0",
-            "line-height:1",
+            "background:none", "border:none", "color:#aaa", "cursor:pointer", "font-size:18px",
+            "padding:0", "line-height:1",
           ],
           on_click=dispatch(UndoDismiss),
           "×",
@@ -308,10 +300,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
       nodes.push(
         @html.h1(
           style=[
-            "font-size:22px",
-            "font-weight:700",
-            "margin:12px 0 6px",
-            "color:#1a1a2e",
+            "font-size:22px", "font-weight:700", "margin:12px 0 6px", "color:#1a1a2e",
           ],
           text,
         ),
@@ -322,10 +311,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
       nodes.push(
         @html.h2(
           style=[
-            "font-size:18px",
-            "font-weight:600",
-            "margin:10px 0 4px",
-            "color:#1a1a2e",
+            "font-size:18px", "font-weight:600", "margin:10px 0 4px", "color:#1a1a2e",
           ],
           text,
         ),
@@ -336,12 +322,8 @@ fn parse_markdown(source : String) -> @rabbita.Html {
       nodes.push(
         @html.blockquote(
           style=[
-            "border-left:4px solid #aaa",
-            "margin:8px 0",
-            "padding:6px 12px",
-            "color:#555",
-            "background:#f7f7f7",
-            "border-radius:0 4px 4px 0",
+            "border-left:4px solid #aaa", "margin:8px 0", "padding:6px 12px", "color:#555",
+            "background:#f7f7f7", "border-radius:0 4px 4px 0",
           ],
           text,
         ),
@@ -355,10 +337,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
     } else {
       flush_list()
       nodes.push(
-        @html.p(
-          style=["margin:6px 0", "line-height:1.6", "color:#333"],
-          line,
-        ),
+        @html.p(style=["margin:6px 0", "line-height:1.6", "color:#333"], line),
       )
     }
   }
@@ -369,7 +348,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
 ///|
 fn Model::view_markdown(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.markdown
   @html.div(
@@ -391,19 +370,13 @@ fn Model::view_markdown(
       ),
       @html.div(
         style=[
-          "display:grid",
-          "grid-template-columns:1fr 1fr",
-          "gap:16px",
-          "min-height:280px",
+          "display:grid", "grid-template-columns:1fr 1fr", "gap:16px", "min-height:280px",
         ],
         [
           @html.div(
             style=["display:flex", "flex-direction:column", "gap:6px"],
             [
-              @html.label(
-                style=label_style,
-                "Source",
-              ),
+              @html.label(style=label_style, "Source"),
               @html.textarea(
                 style=[
                   "flex:1",
@@ -420,7 +393,7 @@ fn Model::view_markdown(
                 ],
                 value=s.source,
                 rows=12,
-                on_input=(src) => dispatch(MarkdownChanged(src)),
+                on_input=src => dispatch(MarkdownChanged(src)),
                 "",
               ),
             ],
@@ -428,10 +401,7 @@ fn Model::view_markdown(
           @html.div(
             style=["display:flex", "flex-direction:column", "gap:6px"],
             [
-              @html.label(
-                style=label_style,
-                "Preview",
-              ),
+              @html.label(style=label_style, "Preview"),
               @html.div(
                 style=[
                   "flex:1",
@@ -457,7 +427,7 @@ fn Model::view_markdown(
 ///|
 fn Model::view_spreadsheet(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.spreadsheet
   let col_headers = ["A", "B", "C"]
@@ -512,11 +482,7 @@ fn Model::view_spreadsheet(
     for c, cell in row {
       let is_selected = s.selected_row == r && s.selected_col == c
       let is_editing = is_selected && s.editing
-      let cell_bg = if is_selected {
-        "\{primary_light}22"
-      } else {
-        "#fff"
-      }
+      let cell_bg = if is_selected { "\{primary_light}22" } else { "#fff" }
       let cell_border = if is_selected {
         "2px solid \{primary}"
       } else {
@@ -535,7 +501,7 @@ fn Model::view_spreadsheet(
             "color:\{text_primary}",
             "padding:0",
           ],
-          on_input=(v) => dispatch(SpreadsheetEditChanged(v)),
+          on_input=v => dispatch(SpreadsheetEditChanged(v)),
           "",
         )
       } else {
@@ -568,41 +534,35 @@ fn Model::view_spreadsheet(
     body_rows.push(@html.tr(style=[], tds))
   }
   let edit_controls = if s.editing {
-    @html.div(
-      style=["display:flex", "gap:8px", "margin-top:12px"],
-      [
-        @html.button(
-          style=btn_sm_style,
-          on_click=dispatch(SpreadsheetSaveEdit),
-          "Save",
-        ),
-        @html.button(
-          style=btn_outline_style,
-          on_click=dispatch(SpreadsheetCancelEdit),
-          "Cancel",
-        ),
-      ],
-    )
+    @html.div(style=["display:flex", "gap:8px", "margin-top:12px"], [
+      @html.button(
+        style=btn_sm_style,
+        on_click=dispatch(SpreadsheetSaveEdit),
+        "Save",
+      ),
+      @html.button(
+        style=btn_outline_style,
+        on_click=dispatch(SpreadsheetCancelEdit),
+        "Cancel",
+      ),
+    ])
   } else {
-    @html.div(
-      style=["display:flex", "gap:8px", "margin-top:12px"],
-      [
-        @html.button(
-          style=btn_sm_style,
-          on_click=dispatch(SpreadsheetStartEdit),
-          disabled=s.selected_row < 0,
-          "Edit Cell",
-        ),
-        @html.span(
-          style=["font-size:12px", "color:\{text_muted}", "align-self:center"],
-          if s.selected_row >= 0 {
-            "Selected: \{col_headers[s.selected_col]}\{s.selected_row + 1}"
-          } else {
-            "Click a cell to select"
-          },
-        ),
-      ],
-    )
+    @html.div(style=["display:flex", "gap:8px", "margin-top:12px"], [
+      @html.button(
+        style=btn_sm_style,
+        on_click=dispatch(SpreadsheetStartEdit),
+        disabled=s.selected_row < 0,
+        "Edit Cell",
+      ),
+      @html.span(
+        style=["font-size:12px", "color:\{text_muted}", "align-self:center"],
+        if s.selected_row >= 0 {
+          "Selected: \{col_headers[s.selected_col]}\{s.selected_row + 1}"
+        } else {
+          "Click a cell to select"
+        },
+      ),
+    ])
   }
   @html.div(
     style=[
@@ -621,22 +581,17 @@ fn Model::view_spreadsheet(
         ],
         "Spreadsheet",
       ),
-      @html.div(
-        style=["overflow-x:auto"],
-        [
-          @html.table(
-            style=[
-              "border-collapse:collapse",
-              "width:100%",
-              "font-family:monospace",
-            ],
-            [
-              @html.thead(style=[], [@html.tr(style=[], header_cells)]),
-              @html.tbody(style=[], body_rows),
-            ],
-          ),
-        ],
-      ),
+      @html.div(style=["overflow-x:auto"], [
+        @html.table(
+          style=[
+            "border-collapse:collapse", "width:100%", "font-family:monospace",
+          ],
+          [
+            @html.thead(style=[], [@html.tr(style=[], header_cells)]),
+            @html.tbody(style=[], body_rows),
+          ],
+        ),
+      ]),
       edit_controls,
     ],
   )
@@ -645,7 +600,7 @@ fn Model::view_spreadsheet(
 ///|
 fn Model::view_drag_sort(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.drag_sort
   let n = s.items.length()
@@ -742,10 +697,9 @@ fn Model::view_drag_sort(
             ],
             item,
           ),
-          @html.div(
-            style=["display:flex", "gap:6px", "flex-shrink:0"],
-            [up_btn, down_btn],
-          ),
+          @html.div(style=["display:flex", "gap:6px", "flex-shrink:0"], [
+            up_btn, down_btn,
+          ]),
         ],
       ),
     )

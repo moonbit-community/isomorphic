@@ -67,7 +67,9 @@ fn main raise {
   ..get(@shared.api_state, fn(event) { handle_get_state(conn, event) })
   ..post(@shared.api_people, fn(event) { handle_post_people(conn, event) })
   ..post(@shared.api_expenses, fn(event) { handle_post_expenses(conn, event) })
-  .delete("\{@shared.api_expenses}/:id", fn(event) noraise { handle_delete_expense(conn, event) })
+  .delete("\{@shared.api_expenses}/:id", fn(event) noraise {
+    handle_delete_expense(conn, event)
+  })
   println("Server running at http://localhost:\{port}")
   app.serve(port~)
 }

@@ -1,0 +1,61 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/noteapp/shared"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_note(Int) -> String
+
+pub fn api_note_pin(Int) -> String
+
+pub let api_notes : String
+
+pub fn char_count(String) -> Int
+
+pub fn compute_stats(String) -> NoteStats
+
+pub let max_content_length : Int
+
+pub let max_title_length : Int
+
+pub fn reading_time_secs(String) -> Int
+
+pub fn sort_notes(Array[Note]) -> Array[Note]
+
+pub fn truncate(String, Int) -> String
+
+pub fn validate_content(String) -> Bool
+
+pub fn validate_title(String) -> Bool
+
+pub fn word_count(String) -> Int
+
+// Errors
+
+// Types and methods
+pub(all) struct Note {
+  id : Int
+  title : String
+  content : String
+  pinned : Bool
+}
+pub impl ToJson for Note
+pub impl @debug.Debug for Note
+pub impl @json.FromJson for Note
+
+pub(all) struct NoteStats {
+  word_count : Int
+  char_count : Int
+  reading_time_secs : Int
+}
+pub impl ToJson for NoteStats
+pub impl @debug.Debug for NoteStats
+pub impl @json.FromJson for NoteStats
+
+// Type aliases
+
+// Traits
+

@@ -1,0 +1,18 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/compose-demo/frontend/independent"
+
+import {
+  "moonbit-community/rabbita",
+}
+
+// Values
+pub fn make() -> (@rabbita.Cell, @rabbita.Cell)
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

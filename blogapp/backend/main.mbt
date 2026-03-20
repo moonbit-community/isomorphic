@@ -62,30 +62,22 @@ fn main raise {
   })
   ..get(@shared.api_posts, fn(event) noraise { handle_get_posts(conn, event) })
   ..get("/api/posts/:id", fn(event) noraise { handle_get_post(conn, event) })
-  ..get(
-    "/api/posts/:id/comments",
-    fn(event) noraise { handle_get_post_comments(conn, event) },
-  )
-  ..post(
-    @shared.api_posts,
-    fn(event) noraise { handle_create_post(conn, event) },
-  )
-  ..post(
-    "/api/posts/:id",
-    fn(event) noraise { handle_update_post(conn, event) },
-  )
-  ..post(
-    "/api/posts/:id/comments",
-    fn(event) noraise { handle_create_comment(conn, event) },
-  )
-  ..delete(
-    "/api/posts/:id",
-    fn(event) noraise { handle_delete_post(conn, event) },
-  )
-  .delete(
-    "/api/comments/:id",
-    fn(event) noraise { handle_delete_comment(conn, event) },
-  )
+  ..get("/api/posts/:id/comments", fn(event) noraise {
+    handle_get_post_comments(conn, event)
+  })
+  ..post(@shared.api_posts, fn(event) noraise {
+    handle_create_post(conn, event)
+  })
+  ..post("/api/posts/:id", fn(event) noraise { handle_update_post(conn, event) })
+  ..post("/api/posts/:id/comments", fn(event) noraise {
+    handle_create_comment(conn, event)
+  })
+  ..delete("/api/posts/:id", fn(event) noraise {
+    handle_delete_post(conn, event)
+  })
+  .delete("/api/comments/:id", fn(event) noraise {
+    handle_delete_comment(conn, event)
+  })
   println("Server running at http://localhost:\{port}")
   app.serve(port~)
 }

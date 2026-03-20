@@ -1,0 +1,48 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/splitwise/frontend/app"
+
+import {
+  "bobzhang/splitwise/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  people : Array[@shared.Person]
+  expenses : Array[@shared.Expense]
+  settlements : Array[@shared.Settlement]
+  person_input : String
+  desc_input : String
+  amount_input : String
+  paid_by_input : Int
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  Init
+  GotState(Result[@shared.AppState, String])
+  PersonInputChanged(String)
+  AddPerson
+  PersonAdded(Result[@shared.Person, String])
+  DescInputChanged(String)
+  AmountInputChanged(String)
+  PaidByChanged(Int)
+  AddExpense
+  ExpenseAdded(Result[@shared.Expense, String])
+  DeleteExpense(Int)
+  ExpenseDeleted(Result[Int, String])
+}
+pub impl @debug.Debug for Msg
+
+// Type aliases
+
+// Traits
+

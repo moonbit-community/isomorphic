@@ -179,9 +179,12 @@ test "GotMe/Ok sets current_user and clears auth_screen" {
     msg=GotMe(Ok(sample_user())),
     dispatch=noop_dispatch,
   )
-  inspect(model.current_user, content=(
-    #|Some({id: 1, username: "alice", color: "blue", role: "member"})
-  ))
+  inspect(
+    model.current_user,
+    content=(
+      #|Some({id: 1, username: "alice", color: "blue", role: "member"})
+    ),
+  )
   inspect(model.auth_screen, content="")
   inspect(model.auth_loading, content="false")
 }
@@ -240,7 +243,10 @@ test "ShowLogin sets auth_screen and clears fields" {
 
 ///|
 test "ShowRegister sets auth_screen and clears fields" {
-  let (model, _) = empty_model().update(msg=ShowRegister, dispatch=noop_dispatch)
+  let (model, _) = empty_model().update(
+    msg=ShowRegister,
+    dispatch=noop_dispatch,
+  )
   inspect(model.auth_screen, content="register")
   inspect(model.auth_username, content="")
   inspect(model.auth_password, content="")
@@ -303,11 +309,7 @@ test "SubmitRegister with invalid username sets error" {
 
 ///|
 test "SubmitRegister with invalid password sets error" {
-  let initial = {
-    ..empty_model(),
-    auth_username: "alice",
-    auth_password: "ab",
-  }
+  let initial = { ..empty_model(), auth_username: "alice", auth_password: "ab" }
   let (model, _) = initial.update(msg=SubmitRegister, dispatch=noop_dispatch)
   inspect(model.auth_error, content="Password: 4-100 characters")
 }
@@ -328,18 +330,18 @@ test "SubmitRegister with valid fields sets auth_loading" {
 
 ///|
 test "AuthResult/Ok logs in user" {
-  let resp : @shared.AuthResponse = {
-    user: sample_user(),
-    message: "Welcome",
-  }
+  let resp : @shared.AuthResponse = { user: sample_user(), message: "Welcome" }
   let initial = { ..empty_model(), auth_loading: true }
   let (model, _) = initial.update(
     msg=AuthResult(Ok(resp)),
     dispatch=noop_dispatch,
   )
-  inspect(model.current_user, content=(
-    #|Some({id: 1, username: "alice", color: "blue", role: "member"})
-  ))
+  inspect(
+    model.current_user,
+    content=(
+      #|Some({id: 1, username: "alice", color: "blue", role: "member"})
+    ),
+  )
   inspect(model.auth_screen, content="")
   inspect(model.auth_loading, content="false")
   inspect(model.auth_error, content="")
@@ -434,7 +436,10 @@ test "SetViewMode updates view_mode" {
 
 ///|
 test "ToggleDarkMode toggles dark_mode" {
-  let (model, _) = empty_model().update(msg=ToggleDarkMode, dispatch=noop_dispatch)
+  let (model, _) = empty_model().update(
+    msg=ToggleDarkMode,
+    dispatch=noop_dispatch,
+  )
   inspect(model.dark_mode, content="true")
   let (model2, _) = model.update(msg=ToggleDarkMode, dispatch=noop_dispatch)
   inspect(model2.dark_mode, content="false")
@@ -739,10 +744,7 @@ test "ConfirmDelete removes task optimistically" {
 ///|
 test "AddDep optimistically adds dependency" {
   let initial = { ..logged_in_model(), dependencies: [] }
-  let (model, _) = initial.update(
-    msg=AddDep(3, 1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=AddDep(3, 1), dispatch=noop_dispatch)
   inspect(model.dependencies.length(), content="1")
   inspect(model.dependencies[0].task_id, content="3")
   inspect(model.dependencies[0].depends_on_id, content="1")
@@ -750,14 +752,8 @@ test "AddDep optimistically adds dependency" {
 
 ///|
 test "RemoveDep optimistically removes dependency" {
-  let initial = {
-    ..logged_in_model(),
-    dependencies: sample_dependencies(),
-  }
-  let (model, _) = initial.update(
-    msg=RemoveDep(2, 1),
-    dispatch=noop_dispatch,
-  )
+  let initial = { ..logged_in_model(), dependencies: sample_dependencies() }
+  let (model, _) = initial.update(msg=RemoveDep(2, 1), dispatch=noop_dispatch)
   inspect(model.dependencies.length(), content="0")
 }
 
@@ -768,19 +764,10 @@ test "ShowComments sets viewing_comments and clears comments" {
   let initial = {
     ..logged_in_model(),
     comments: [
-      {
-        id: 99,
-        task_id: 5,
-        author: "x",
-        text: "old",
-        created_at: "2026-03-10",
-      },
+      { id: 99, task_id: 5, author: "x", text: "old", created_at: "2026-03-10" },
     ],
   }
-  let (model, _) = initial.update(
-    msg=ShowComments(1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=ShowComments(1), dispatch=noop_dispatch)
   inspect(model.viewing_comments, content="1")
   inspect(model.comments.length(), content="0")
   inspect(model.new_comment, content="")
@@ -797,7 +784,13 @@ test "HideComments clears viewing_comments and comments" {
 ///|
 test "GotComments/Ok sets comments" {
   let comments : Array[@shared.Comment] = [
-    { id: 1, task_id: 1, author: "alice", text: "Done!", created_at: "2026-03-14" },
+    {
+      id: 1,
+      task_id: 1,
+      author: "alice",
+      text: "Done!",
+      created_at: "2026-03-14",
+    },
   ]
   let (model, _) = empty_model().update(
     msg=GotComments(Ok(comments)),
@@ -841,7 +834,11 @@ test "AddComment with viewing_comments=0 does nothing" {
 
 ///|
 test "AddComment with valid text clears new_comment" {
-  let initial = { ..empty_model(), viewing_comments: 1, new_comment: "Looks good" }
+  let initial = {
+    ..empty_model(),
+    viewing_comments: 1,
+    new_comment: "Looks good",
+  }
   let (model, _) = initial.update(msg=AddComment, dispatch=noop_dispatch)
   inspect(model.new_comment, content="")
 }
@@ -849,7 +846,13 @@ test "AddComment with valid text clears new_comment" {
 ///|
 test "CommentAdded/Ok prepends comment" {
   let existing : Array[@shared.Comment] = [
-    { id: 1, task_id: 1, author: "bob", text: "First", created_at: "2026-03-13" },
+    {
+      id: 1,
+      task_id: 1,
+      author: "bob",
+      text: "First",
+      created_at: "2026-03-13",
+    },
   ]
   let new_comment : @shared.Comment = {
     id: 2,

@@ -1,7 +1,7 @@
 ///|
 fn Model::view_stopwatch(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let elapsed = self.stopwatch.elapsed_ms
   let total_tenths = elapsed / 100
@@ -37,7 +37,11 @@ fn Model::view_stopwatch(
         @html.button(
           style=btn_style,
           on_click=dispatch(StopwatchToggle),
-          if running { "Stop" } else { "Start" },
+          if running {
+            "Stop"
+          } else {
+            "Start"
+          },
         ),
         @html.button(
           style=btn_outline_style,
@@ -52,7 +56,7 @@ fn Model::view_stopwatch(
 ///|
 fn Model::view_countdown(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let remaining = self.countdown.remaining
   let seconds = remaining % 60
@@ -76,10 +80,7 @@ fn Model::view_countdown(
     [
       @html.div(
         style=[
-          "display:flex",
-          "flex-direction:column",
-          "align-items:center",
-          "gap:8px",
+          "display:flex", "flex-direction:column", "align-items:center", "gap:8px",
           "width:100%",
         ],
         [
@@ -89,10 +90,7 @@ fn Model::view_countdown(
             min=1,
             max=60,
             value="\{target}",
-            style=[
-              "width:200px",
-              "accent-color:\{primary}",
-            ],
+            style=["width:200px", "accent-color:\{primary}"],
             on_input=fn(v) { dispatch(CountdownSet(v)) },
             "",
           ),
@@ -106,13 +104,21 @@ fn Model::view_countdown(
           "color:\{countdown_color}",
           "letter-spacing:2px",
         ],
-        if finished { "Time's up!" } else { time_str },
+        if finished {
+          "Time's up!"
+        } else {
+          time_str
+        },
       ),
       @html.div(style=["display:flex", "gap:12px"], [
         @html.button(
           style=btn_style,
           on_click=dispatch(CountdownToggle),
-          if running { "Stop" } else { "Start" },
+          if running {
+            "Stop"
+          } else {
+            "Start"
+          },
         ),
         @html.button(
           style=btn_outline_style,
@@ -127,7 +133,7 @@ fn Model::view_countdown(
 ///|
 fn Model::view_typewriter(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let full = self.typewriter.full_text
   let visible = self.typewriter.visible_chars
@@ -148,30 +154,31 @@ fn Model::view_typewriter(
     [
       @html.div(
         style=[
-          "width:100%",
-          "min-height:80px",
-          "padding:16px",
-          "background:#0f172a",
-          "border-radius:8px",
-          "font-family:monospace",
-          "font-size:18px",
-          "color:#e2e8f0",
-          "line-height:1.6",
-          "word-break:break-word",
+          "width:100%", "min-height:80px", "padding:16px", "background:#0f172a",
+          "border-radius:8px", "font-family:monospace", "font-size:18px", "color:#e2e8f0",
+          "line-height:1.6", "word-break:break-word",
         ],
         "\{shown}\{cursor}",
       ),
-      @html.div(
-        style=["display:flex", "align-items:center", "gap:8px"],
-        [
-          @html.span(style=["font-size:13px", "color:\{text_muted}"], "\{visible}/\{full.length()} chars"),
-        ],
-      ),
+      @html.div(style=["display:flex", "align-items:center", "gap:8px"], [
+        @html.span(
+          style=["font-size:13px", "color:\{text_muted}"],
+          "\{visible}/\{full.length()} chars",
+        ),
+      ]),
       @html.div(style=["display:flex", "gap:12px"], [
         @html.button(
           style=btn_style,
-          on_click=if running { dispatch(TypewriterPause) } else { dispatch(TypewriterStart) },
-          if running { "Pause" } else { "Start" },
+          on_click=if running {
+            dispatch(TypewriterPause)
+          } else {
+            dispatch(TypewriterStart)
+          },
+          if running {
+            "Pause"
+          } else {
+            "Start"
+          },
         ),
         @html.button(
           style=btn_outline_style,
@@ -186,7 +193,7 @@ fn Model::view_typewriter(
 ///|
 fn Model::view_carousel(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let items = self.carousel.items
   let current = self.carousel.current
@@ -221,12 +228,7 @@ fn Model::view_carousel(
     ],
     [
       @html.div(
-        style=[
-          "display:flex",
-          "align-items:center",
-          "gap:16px",
-          "width:100%",
-        ],
+        style=["display:flex", "align-items:center", "gap:16px", "width:100%"],
         [
           @html.button(
             style=[
@@ -248,18 +250,9 @@ fn Model::view_carousel(
           ),
           @html.div(
             style=[
-              "flex:1",
-              "min-height:120px",
-              "padding:24px",
-              "background:linear-gradient(135deg, #4f46e5, #7c3aed)",
-              "border-radius:12px",
-              "display:flex",
-              "align-items:center",
-              "justify-content:center",
-              "font-size:22px",
-              "font-weight:600",
-              "color:white",
-              "text-align:center",
+              "flex:1", "min-height:120px", "padding:24px", "background:linear-gradient(135deg, #4f46e5, #7c3aed)",
+              "border-radius:12px", "display:flex", "align-items:center", "justify-content:center",
+              "font-size:22px", "font-weight:600", "color:white", "text-align:center",
             ],
             current_item,
           ),
@@ -283,21 +276,25 @@ fn Model::view_carousel(
           ),
         ],
       ),
-      @html.div(style=["display:flex", "gap:6px", "align-items:center"], dot_nodes),
       @html.div(
-        style=["display:flex", "align-items:center", "gap:8px"],
-        [
-          @html.span(
-            style=["font-size:13px", "color:\{text_muted}"],
-            "\{current + 1} / \{items.length()}",
-          ),
-          @html.button(
-            style=btn_outline_style,
-            on_click=dispatch(CarouselAutoToggle),
-            if auto_playing { "Pause Auto" } else { "Auto Play" },
-          ),
-        ],
+        style=["display:flex", "gap:6px", "align-items:center"],
+        dot_nodes,
       ),
+      @html.div(style=["display:flex", "align-items:center", "gap:8px"], [
+        @html.span(
+          style=["font-size:13px", "color:\{text_muted}"],
+          "\{current + 1} / \{items.length()}",
+        ),
+        @html.button(
+          style=btn_outline_style,
+          on_click=dispatch(CarouselAutoToggle),
+          if auto_playing {
+            "Pause Auto"
+          } else {
+            "Auto Play"
+          },
+        ),
+      ]),
     ],
   )
 }
@@ -305,7 +302,7 @@ fn Model::view_carousel(
 ///|
 fn Model::view_animated_counter(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let value = self.animated_counter.value
   let display_value = self.animated_counter.display_value
@@ -336,62 +333,63 @@ fn Model::view_animated_counter(
         ],
         "\{display_value}",
       ),
-      @html.div(
-        style=["display:flex", "gap:16px", "align-items:center"],
-        [
-          @html.button(
-            style=[
-              "width:52px",
-              "height:52px",
-              "border-radius:50%",
-              "background:\{primary}",
-              "color:white",
-              "border:none",
-              "font-size:28px",
-              "cursor:pointer",
-              "display:flex",
-              "align-items:center",
-              "justify-content:center",
-              "font-weight:300",
-            ],
-            on_click=dispatch(CounterDecrement),
-            "−",
-          ),
-          @html.div(
-            style=[
-              "display:flex",
-              "flex-direction:column",
-              "align-items:center",
-              "gap:2px",
-            ],
-            [
-              @html.span(style=["font-size:12px", "color:\{text_muted}"], "target"),
-              @html.span(
-                style=["font-size:20px", "font-weight:600", "color:\{text_secondary}"],
-                "\{value}",
-              ),
-            ],
-          ),
-          @html.button(
-            style=[
-              "width:52px",
-              "height:52px",
-              "border-radius:50%",
-              "background:\{primary}",
-              "color:white",
-              "border:none",
-              "font-size:28px",
-              "cursor:pointer",
-              "display:flex",
-              "align-items:center",
-              "justify-content:center",
-              "font-weight:300",
-            ],
-            on_click=dispatch(CounterIncrement),
-            "+",
-          ),
-        ],
-      ),
+      @html.div(style=["display:flex", "gap:16px", "align-items:center"], [
+        @html.button(
+          style=[
+            "width:52px",
+            "height:52px",
+            "border-radius:50%",
+            "background:\{primary}",
+            "color:white",
+            "border:none",
+            "font-size:28px",
+            "cursor:pointer",
+            "display:flex",
+            "align-items:center",
+            "justify-content:center",
+            "font-weight:300",
+          ],
+          on_click=dispatch(CounterDecrement),
+          "−",
+        ),
+        @html.div(
+          style=[
+            "display:flex", "flex-direction:column", "align-items:center", "gap:2px",
+          ],
+          [
+            @html.span(
+              style=["font-size:12px", "color:\{text_muted}"],
+              "target",
+            ),
+            @html.span(
+              style=[
+                "font-size:20px",
+                "font-weight:600",
+                "color:\{text_secondary}",
+              ],
+              "\{value}",
+            ),
+          ],
+        ),
+        @html.button(
+          style=[
+            "width:52px",
+            "height:52px",
+            "border-radius:50%",
+            "background:\{primary}",
+            "color:white",
+            "border:none",
+            "font-size:28px",
+            "cursor:pointer",
+            "display:flex",
+            "align-items:center",
+            "justify-content:center",
+            "font-weight:300",
+          ],
+          on_click=dispatch(CounterIncrement),
+          "+",
+        ),
+      ]),
       if is_animating {
         @html.div(
           style=["font-size:12px", "color:\{text_muted}"],

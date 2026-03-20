@@ -289,13 +289,25 @@ test "validate_time_minutes" {
 
 ///|
 test "validate_attachment_url" {
-  inspect(@shared.validate_attachment_url("https://example.com"), content="true")
-  inspect(@shared.validate_attachment_url("http://localhost:4000"), content="true")
-  inspect(@shared.validate_attachment_url("https://a.com/path?q=1"), content="true")
+  inspect(
+    @shared.validate_attachment_url("https://example.com"),
+    content="true",
+  )
+  inspect(
+    @shared.validate_attachment_url("http://localhost:4000"),
+    content="true",
+  )
+  inspect(
+    @shared.validate_attachment_url("https://a.com/path?q=1"),
+    content="true",
+  )
   inspect(@shared.validate_attachment_url(""), content="false")
   inspect(@shared.validate_attachment_url("ftp://bad.com"), content="false")
   inspect(@shared.validate_attachment_url("not-a-url"), content="false")
-  inspect(@shared.validate_attachment_url("javascript:alert(1)"), content="false")
+  inspect(
+    @shared.validate_attachment_url("javascript:alert(1)"),
+    content="false",
+  )
 }
 
 ///|

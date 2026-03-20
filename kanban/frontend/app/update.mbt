@@ -32,8 +32,7 @@ pub fn Model::update(
     ShowAddColumn =>
       ({ ..self, adding_column: true, new_column_title: "" }, @rabbita.none)
     HideAddColumn => ({ ..self, adding_column: false }, @rabbita.none)
-    NewColumnTitleChanged(v) =>
-      ({ ..self, new_column_title: v }, @rabbita.none)
+    NewColumnTitleChanged(v) => ({ ..self, new_column_title: v }, @rabbita.none)
     AddColumn => {
       if !@shared.validate_column_title(self.new_column_title) {
         return (self, @rabbita.none)
@@ -66,8 +65,7 @@ pub fn Model::update(
       ({ ..self, rename_column_title: v }, @rabbita.none)
     ConfirmRenameColumn => {
       let id = self.renaming_column
-      if id == 0 ||
-        !@shared.validate_column_title(self.rename_column_title) {
+      if id == 0 || !@shared.validate_column_title(self.rename_column_title) {
         return (self, @rabbita.none)
       }
       let title = self.rename_column_title
@@ -167,14 +165,12 @@ pub fn Model::update(
       let color = self.new_card_color
       let cmd = @http.post(
         @shared.api_cards,
-        Json(
-          {
-            "column_id": col_id.to_double(),
-            "title": title,
-            "description": desc,
-            "color": color,
-          },
-        ),
+        Json({
+          "column_id": col_id.to_double(),
+          "title": title,
+          "description": desc,
+          "color": color,
+        }),
         expect=Json(fn(result) { dispatch(CardAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode card")
@@ -265,12 +261,10 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         @shared.api_card_move(card_id),
-        Json(
-          {
-            "target_column_id": target_col.to_double(),
-            "new_position": new_position.to_double(),
-          },
-        ),
+        Json({
+          "target_column_id": target_col.to_double(),
+          "new_position": new_position.to_double(),
+        }),
         expect~,
       )
       // Optimistic move

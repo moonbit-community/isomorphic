@@ -195,8 +195,12 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   count_stmt.finalize()
   if label_count == 0 {
     let defaults = [
-      ("bug", "#ef4444"), ("feature", "#3b82f6"), ("docs", "#22c55e"),
-      ("urgent", "#f97316"), ("design", "#a855f7"), ("test", "#eab308"),
+      ("bug", "#ef4444"),
+      ("feature", "#3b82f6"),
+      ("docs", "#22c55e"),
+      ("urgent", "#f97316"),
+      ("design", "#a855f7"),
+      ("test", "#eab308"),
     ]
     for pair in defaults {
       let s = conn.prepare("INSERT INTO labels (name, color) VALUES (?, ?)")
@@ -537,9 +541,7 @@ fn create_label(
   name : String,
   color : String,
 ) -> @shared.Label raise @sqlite3.SqliteError {
-  let stmt = conn.prepare(
-    "INSERT INTO labels (name, color) VALUES (?, ?)",
-  )
+  let stmt = conn.prepare("INSERT INTO labels (name, color) VALUES (?, ?)")
   stmt.bind_string_as_blob(index=1, val=name)
   stmt.bind_string_as_blob(index=2, val=color)
   stmt.step_once()
@@ -688,9 +690,7 @@ fn remove_recurrence(
   conn : @sqlite3.Connection,
   task_id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
-  let stmt = conn.prepare(
-    "DELETE FROM recurrence_rules WHERE task_id = ?",
-  )
+  let stmt = conn.prepare("DELETE FROM recurrence_rules WHERE task_id = ?")
   stmt.bind(index=1, val=task_id)
   stmt.step_once()
   stmt.finalize()
@@ -722,7 +722,9 @@ fn handle_recurrence_on_done(
       set_recurrence(conn, new_task.id, interval)
       // Remove recurrence from the completed task
       remove_recurrence(conn, task_id)
-      println("  Recurring task: created new task \{new_task.id} from \{task_id}")
+      println(
+        "  Recurring task: created new task \{new_task.id} from \{task_id}",
+      )
     }
     None => ()
   }
@@ -844,7 +846,9 @@ fn delete_time_entry(
 fn get_all_projects(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Project] raise @sqlite3.SqliteError {
-  let stmt = conn.prepare("SELECT id, name, color FROM projects ORDER BY id ASC")
+  let stmt = conn.prepare(
+    "SELECT id, name, color FROM projects ORDER BY id ASC",
+  )
   let result : Array[@shared.Project] = []
   while stmt.step() {
     let id : Int = stmt.column(index=0)
@@ -953,7 +957,21 @@ fn get_board(
   let projects = get_all_projects(conn)
   let task_projects = get_all_task_projects(conn)
   let today = get_today(conn)
-  { tasks, members, activities, dependencies, labels, task_labels, subtasks, time_entries, recurrence_rules, attachments, projects, task_projects, today }
+  {
+    tasks,
+    members,
+    activities,
+    dependencies,
+    labels,
+    task_labels,
+    subtasks,
+    time_entries,
+    recurrence_rules,
+    attachments,
+    projects,
+    task_projects,
+    today,
+  }
 }
 
 ///|

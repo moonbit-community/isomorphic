@@ -199,10 +199,7 @@ test "AddOptionInput at max_options does nothing" {
 
 ///|
 test "RemoveOptionInput removes option at index" {
-  let initial = {
-    ..empty_model(),
-    option_inputs: ["A", "B", "C"],
-  }
+  let initial = { ..empty_model(), option_inputs: ["A", "B", "C"] }
   let (model, _) = initial.update(
     msg=RemoveOptionInput(1),
     dispatch=noop_dispatch,
@@ -342,10 +339,7 @@ test "PollCreated/Err leaves model unchanged" {
 ///|
 test "Vote adds poll_id to voted list" {
   let initial = { ..empty_model(), polls: [sample_poll()] }
-  let (model, _) = initial.update(
-    msg=Vote(1, 10),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=Vote(1, 10), dispatch=noop_dispatch)
   debug_inspect(
     model.voted,
     content=(
@@ -357,10 +351,7 @@ test "Vote adds poll_id to voted list" {
 ///|
 test "Vote on already-voted poll does nothing" {
   let initial = { ..empty_model(), polls: [sample_poll()], voted: [1] }
-  let (model, _) = initial.update(
-    msg=Vote(1, 10),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=Vote(1, 10), dispatch=noop_dispatch)
   debug_inspect(
     model.voted,
     content=(
@@ -404,10 +395,7 @@ test "Voted/Err leaves model unchanged" {
 ///|
 test "DeletePoll does not change model (only issues cmd)" {
   let initial = { ..empty_model(), polls: sample_polls() }
-  let (model, _) = initial.update(
-    msg=DeletePoll(1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=DeletePoll(1), dispatch=noop_dispatch)
   inspect(model.polls.length(), content="2")
 }
 

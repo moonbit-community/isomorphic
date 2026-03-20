@@ -1,3 +1,4 @@
+///|
 /// Pattern 2: Parent-Child with Dispatch
 ///
 /// Parent creates child cells using `simple_cell_with_dispatch`,
@@ -17,15 +18,16 @@
 ///           [ child_a.view() | child_b.view() ]
 ///           [ Reset Both button ]
 /// ```
-
 priv struct ParentModel {
   total_resets : Int
 }
 
+///|
 priv enum ParentMsg {
   ResetAll
 }
 
+///|
 pub fn make() -> @rabbita.Cell {
   // Create children — get back Dispatch handles
   let (dispatch_a, cell_a) = @rabbita.simple_cell_with_dispatch(
@@ -56,21 +58,18 @@ pub fn make() -> @rabbita.Cell {
     },
     view=fn(dispatch, model) {
       @html.div([
-        @html.div(
-          style=["display: flex", "gap: 16px", "margin-bottom: 16px"],
-          [cell_a.view(), cell_b.view()],
-        ),
-        @html.div(
-          style=["text-align: center"],
-          [
-            @html.button(
-              style=["padding: 8px 24px", "font-size: 1.1em"],
-              on_click=dispatch(ResetAll),
-              "Reset Both (parent \u{2192} children)",
-            ),
-            @html.p("Parent tracked \{model.total_resets} resets"),
-          ],
-        ),
+        @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
+          cell_a.view(),
+          cell_b.view(),
+        ]),
+        @html.div(style=["text-align: center"], [
+          @html.button(
+            style=["padding: 8px 24px", "font-size: 1.1em"],
+            on_click=dispatch(ResetAll),
+            "Reset Both (parent \u{2192} children)",
+          ),
+          @html.p("Parent tracked \{model.total_resets} resets"),
+        ]),
       ])
     },
   )

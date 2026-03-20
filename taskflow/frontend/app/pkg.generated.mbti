@@ -1,0 +1,159 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/taskflow/frontend/app"
+
+import {
+  "bobzhang/taskflow/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  current_user : @shared.User?
+  auth_screen : String
+  auth_username : String
+  auth_password : String
+  auth_error : String
+  auth_loading : Bool
+  tasks : Array[@shared.Task]
+  members : Array[@shared.Member]
+  activities : Array[@shared.Activity]
+  dependencies : Array[@shared.Dependency]
+  labels : Array[@shared.Label]
+  task_labels : Array[@shared.TaskLabel]
+  subtasks : Array[@shared.Subtask]
+  time_entries : Array[@shared.TimeEntry]
+  recurrence_rules : Array[@shared.RecurrenceRule]
+  attachments : Array[@shared.Attachment]
+  projects : Array[@shared.Project]
+  task_projects : Array[@shared.TaskProject]
+  today : String
+  new_attach_url : String
+  new_attach_label : String
+  filter_status : String
+  filter_assignee : Int
+  filter_priority : String
+  search_query : String
+  filter_urgency : String
+  filter_label : Int
+  filter_project : Int
+  view_mode : String
+  sort_by : String
+  sort_asc : Bool
+  dark_mode : Bool
+  adding_task : Bool
+  new_title : String
+  new_desc : String
+  new_priority : String
+  new_assignee : Int
+  new_due_date : String
+  editing_task : Int
+  edit_title : String
+  edit_desc : String
+  edit_priority : String
+  edit_assignee : Int
+  edit_due_date : String
+  viewing_comments : Int
+  comments : Array[@shared.Comment]
+  new_comment : String
+  new_subtask : String
+  new_time_minutes : String
+  new_time_note : String
+  confirm_delete : Int
+  error_msg : String
+  loading : Bool
+  lang : @shared.Lang
+  selected_tasks : Array[Int]
+  dragging_task_id : Int
+  drag_over_status : String
+  undo_msg : String
+  undo_task_id : Int
+  undo_old_status : String
+}
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  Init
+  GotMe(Result[@shared.User, String])
+  GotBoard(Result[@shared.Board, String])
+  ShowLogin
+  ShowRegister
+  AuthUsernameChanged(String)
+  AuthPasswordChanged(String)
+  SubmitLogin
+  SubmitRegister
+  AuthResult(Result[@shared.AuthResponse, String])
+  Logout
+  LoggedOut
+  SetFilterStatus(String)
+  SetFilterAssignee(Int)
+  SetFilterPriority(String)
+  SearchChanged(String)
+  SetFilterUrgency(String)
+  SetViewMode(String)
+  ToggleDarkMode
+  ShowAddTask
+  HideAddTask
+  NewTitleChanged(String)
+  NewDescChanged(String)
+  NewPriorityChanged(String)
+  NewAssigneeChanged(Int)
+  NewDueDateChanged(String)
+  AddTask
+  TaskAdded(Result[@shared.Task, String])
+  StartEditTask(@shared.Task)
+  CancelEditTask
+  EditTitleChanged(String)
+  EditDescChanged(String)
+  EditPriorityChanged(String)
+  EditAssigneeChanged(Int)
+  EditDueDateChanged(String)
+  SaveEditTask
+  TaskUpdated
+  ChangeStatus(Int, String)
+  StatusChanged
+  RequestDelete(Int)
+  CancelDelete
+  ConfirmDelete
+  TaskDeleted
+  AddDep(Int, Int)
+  RemoveDep(Int, Int)
+  DepChanged
+  ShowComments(Int)
+  HideComments
+  GotComments(Result[Array[@shared.Comment], String])
+  NewCommentChanged(String)
+  AddComment
+  CommentAdded(Result[@shared.Comment, String])
+  KeyPressed(String)
+  DismissError
+  SetLang(@shared.Lang)
+}
+pub impl @debug.Debug for Msg
+
+pub(all) struct Theme {
+  bg : String
+  card_bg : String
+  card_border : String
+  text : String
+  text_secondary : String
+  text_muted : String
+  input_bg : String
+  input_border : String
+  filter_bg : String
+  filter_inactive : String
+  column_bg : String
+}
+pub impl @debug.Debug for Theme
+
+// Type aliases
+
+// Traits
+

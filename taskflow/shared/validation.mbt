@@ -33,12 +33,10 @@ pub fn validate_username(name : String) -> Bool {
     return false
   }
   for c in name {
-    if !(
-        (c >= 'a' && c <= 'z') ||
-        (c >= 'A' && c <= 'Z') ||
-        (c >= '0' && c <= '9') ||
-        c == '_',
-      ) {
+    if !((c >= 'a' && c <= 'z') ||
+      (c >= 'A' && c <= 'Z') ||
+      (c >= '0' && c <= '9') ||
+      c == '_') {
       return false
     }
   }

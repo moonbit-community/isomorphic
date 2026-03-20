@@ -64,7 +64,9 @@ fn main raise {
     }
   })
   // ---- Auth ----
-  ..post(@shared.api_register, fn(event) noraise { handle_register(conn, event) })
+  ..post(@shared.api_register, fn(event) noraise {
+    handle_register(conn, event)
+  })
   ..post(@shared.api_login, fn(event) noraise { handle_login(conn, event) })
   ..post(@shared.api_logout, fn(event) noraise { handle_logout(conn, event) })
   ..get(@shared.api_me, fn(event) noraise { handle_me(conn, event) })
@@ -75,45 +77,97 @@ fn main raise {
   // ---- Members ----
   ..get(@shared.api_members, fn(_) noraise { handle_get_members(conn) })
   // ---- Tasks ----
-  ..post(@shared.api_tasks, fn(event) noraise { handle_create_task(conn, event) })
+  ..post(@shared.api_tasks, fn(event) noraise {
+    handle_create_task(conn, event)
+  })
   ..post("/api/tasks/:id", fn(event) noraise { handle_update_task(conn, event) })
-  ..post("/api/tasks/:id/status", fn(event) noraise { handle_update_task_status(conn, event) })
+  ..post("/api/tasks/:id/status", fn(event) noraise {
+    handle_update_task_status(conn, event)
+  })
   // ---- Dependencies ----
-  ..get("/api/tasks/:id/deps", fn(event) noraise { handle_get_deps(conn, event) })
-  ..post("/api/tasks/:id/deps", fn(event) noraise { handle_add_dep(conn, event) })
-  ..post("/api/tasks/:id/deps/remove", fn(event) noraise { handle_remove_dep(conn, event) })
+  ..get("/api/tasks/:id/deps", fn(event) noraise {
+    handle_get_deps(conn, event)
+  })
+  ..post("/api/tasks/:id/deps", fn(event) noraise {
+    handle_add_dep(conn, event)
+  })
+  ..post("/api/tasks/:id/deps/remove", fn(event) noraise {
+    handle_remove_dep(conn, event)
+  })
   // ---- Comments ----
-  ..get("/api/tasks/:id/comments", fn(event) noraise { handle_get_comments(conn, event) })
-  ..post("/api/tasks/:id/comments", fn(event) noraise { handle_add_comment(conn, event) })
+  ..get("/api/tasks/:id/comments", fn(event) noraise {
+    handle_get_comments(conn, event)
+  })
+  ..post("/api/tasks/:id/comments", fn(event) noraise {
+    handle_add_comment(conn, event)
+  })
   // ---- Labels ----
   ..get(@shared.api_labels, fn(_) noraise { handle_get_labels(conn) })
-  ..post(@shared.api_labels, fn(event) noraise { handle_create_label(conn, event) })
-  ..get("/api/tasks/:id/labels", fn(event) noraise { handle_get_task_labels(conn, event) })
-  ..post("/api/tasks/:id/labels", fn(event) noraise { handle_add_task_label(conn, event) })
-  ..post("/api/tasks/:id/labels/remove", fn(event) noraise { handle_remove_task_label(conn, event) })
+  ..post(@shared.api_labels, fn(event) noraise {
+    handle_create_label(conn, event)
+  })
+  ..get("/api/tasks/:id/labels", fn(event) noraise {
+    handle_get_task_labels(conn, event)
+  })
+  ..post("/api/tasks/:id/labels", fn(event) noraise {
+    handle_add_task_label(conn, event)
+  })
+  ..post("/api/tasks/:id/labels/remove", fn(event) noraise {
+    handle_remove_task_label(conn, event)
+  })
   // ---- Subtasks ----
-  ..get("/api/tasks/:id/subtasks", fn(event) noraise { handle_get_subtasks(conn, event) })
-  ..post("/api/tasks/:id/subtasks", fn(event) noraise { handle_create_subtask(conn, event) })
-  ..post("/api/subtasks/:id/toggle", fn(event) noraise { handle_toggle_subtask(conn, event) })
-  ..delete("/api/subtasks/:id", fn(event) noraise { handle_delete_subtask(conn, event) })
+  ..get("/api/tasks/:id/subtasks", fn(event) noraise {
+    handle_get_subtasks(conn, event)
+  })
+  ..post("/api/tasks/:id/subtasks", fn(event) noraise {
+    handle_create_subtask(conn, event)
+  })
+  ..post("/api/subtasks/:id/toggle", fn(event) noraise {
+    handle_toggle_subtask(conn, event)
+  })
+  ..delete("/api/subtasks/:id", fn(event) noraise {
+    handle_delete_subtask(conn, event)
+  })
   // ---- Time tracking ----
-  ..post("/api/tasks/:id/time", fn(event) noraise { handle_log_time(conn, event) })
-  ..delete("/api/time/:id", fn(event) noraise { handle_delete_time_entry(conn, event) })
+  ..post("/api/tasks/:id/time", fn(event) noraise {
+    handle_log_time(conn, event)
+  })
+  ..delete("/api/time/:id", fn(event) noraise {
+    handle_delete_time_entry(conn, event)
+  })
   // ---- Recurrence ----
-  ..post("/api/tasks/:id/recurrence", fn(event) noraise { handle_set_recurrence(conn, event) })
-  ..delete("/api/tasks/:id/recurrence", fn(event) noraise { handle_remove_recurrence(conn, event) })
-  ..delete("/api/tasks/:id", fn(event) noraise { handle_delete_task(conn, event) })
+  ..post("/api/tasks/:id/recurrence", fn(event) noraise {
+    handle_set_recurrence(conn, event)
+  })
+  ..delete("/api/tasks/:id/recurrence", fn(event) noraise {
+    handle_remove_recurrence(conn, event)
+  })
+  ..delete("/api/tasks/:id", fn(event) noraise {
+    handle_delete_task(conn, event)
+  })
   ..get("/api/tasks/:id", fn(event) noraise { handle_get_task(conn, event) })
   // ---- Attachments ----
-  ..post("/api/tasks/:id/attachments", fn(event) noraise { handle_create_attachment(conn, event) })
-  ..delete("/api/attachments/:id", fn(event) noraise { handle_delete_attachment(conn, event) })
+  ..post("/api/tasks/:id/attachments", fn(event) noraise {
+    handle_create_attachment(conn, event)
+  })
+  ..delete("/api/attachments/:id", fn(event) noraise {
+    handle_delete_attachment(conn, event)
+  })
   // ---- Projects ----
   ..get(@shared.api_projects, fn(_) noraise { handle_get_projects(conn) })
-  ..post(@shared.api_projects, fn(event) noraise { handle_create_project(conn, event) })
-  ..delete("/api/projects/:id", fn(event) noraise { handle_delete_project(conn, event) })
-  ..post("/api/tasks/:id/project", fn(event) noraise { handle_set_task_project(conn, event) })
+  ..post(@shared.api_projects, fn(event) noraise {
+    handle_create_project(conn, event)
+  })
+  ..delete("/api/projects/:id", fn(event) noraise {
+    handle_delete_project(conn, event)
+  })
+  ..post("/api/tasks/:id/project", fn(event) noraise {
+    handle_set_task_project(conn, event)
+  })
   // ---- Role management (admin only) ----
-  .post("/api/users/:id/role", fn(event) noraise { handle_set_user_role(conn, event) })
+  .post("/api/users/:id/role", fn(event) noraise {
+    handle_set_user_role(conn, event)
+  })
   println("Server running at http://localhost:\{port}")
   app.serve(port~)
 }

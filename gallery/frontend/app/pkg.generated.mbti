@@ -1,0 +1,649 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/gallery/frontend/app"
+
+import {
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn all_sections() -> Array[Section]
+
+pub fn initial_model() -> Model
+
+pub fn section_components(Section) -> Array[String]
+
+pub fn section_label(Section) -> String
+
+// Errors
+
+// Types and methods
+pub(all) struct AccordionState {
+  items : Array[(String, String)]
+  open_index : Int
+}
+pub impl @debug.Debug for AccordionState
+
+pub(all) struct AnimatedCounterState {
+  value : Int
+  display_value : Int
+}
+pub impl @debug.Debug for AnimatedCounterState
+
+pub(all) struct AvatarState {
+  users : Array[(String, String, Bool)]
+}
+pub impl @debug.Debug for AvatarState
+
+pub(all) struct BadgeState {
+  counts : Array[(String, Int)]
+}
+pub impl @debug.Debug for BadgeState
+
+pub(all) struct BreadcrumbState {
+  path : Array[String]
+}
+pub impl @debug.Debug for BreadcrumbState
+
+pub(all) struct CalendarState {
+  year : Int
+  month : Int
+  selected_day : Int
+  today_year : Int
+  today_month : Int
+  today_day : Int
+}
+pub impl @debug.Debug for CalendarState
+
+pub(all) struct CarouselState {
+  items : Array[String]
+  current : Int
+  auto_playing : Bool
+  gen : Int
+}
+pub impl @debug.Debug for CarouselState
+
+pub(all) struct ChartBar {
+  label : String
+  value : Int
+  color : String
+}
+pub impl Eq for ChartBar
+pub impl Show for ChartBar
+pub impl @debug.Debug for ChartBar
+
+pub(all) struct ChartState {
+  bars : Array[ChartBar]
+  max_value : Int
+}
+pub impl @debug.Debug for ChartState
+
+pub(all) struct CheckboxState {
+  items : Array[(String, Bool)]
+}
+pub impl @debug.Debug for CheckboxState
+
+pub(all) struct ColorPickerState {
+  selected : String
+  hex_input : String
+  swatches : Array[String]
+}
+pub impl @debug.Debug for ColorPickerState
+
+pub(all) struct CommandAction {
+  id : Int
+  label : String
+  shortcut : String
+  category : String
+}
+pub impl Eq for CommandAction
+pub impl Show for CommandAction
+pub impl @debug.Debug for CommandAction
+
+pub(all) struct CommandPaletteState {
+  open : Bool
+  query : String
+  actions : Array[CommandAction]
+  focus_index : Int
+}
+pub impl @debug.Debug for CommandPaletteState
+
+pub(all) struct ConfirmButtonState {
+  confirming : Bool
+  executed : Bool
+}
+pub impl @debug.Debug for ConfirmButtonState
+
+pub(all) struct CopyState {
+  text : String
+  copied : Bool
+  gen : Int
+}
+pub impl @debug.Debug for CopyState
+
+pub(all) struct CountdownState {
+  target_seconds : Int
+  remaining : Int
+  running : Bool
+  finished : Bool
+  gen : Int
+}
+pub impl @debug.Debug for CountdownState
+
+pub(all) struct DataTableState {
+  rows : Array[TableRow]
+  sort_col : String
+  sort_asc : Bool
+  page : Int
+  page_size : Int
+  selected : Array[Int]
+}
+pub impl @debug.Debug for DataTableState
+
+pub(all) struct DateRangeState {
+  start_year : Int
+  start_month : Int
+  start_day : Int
+  end_year : Int
+  end_month : Int
+  end_day : Int
+  picking : String
+}
+pub impl @debug.Debug for DateRangeState
+
+pub(all) struct DragSortState {
+  items : Array[String]
+}
+pub impl @debug.Debug for DragSortState
+
+pub(all) struct EmptyStateState {
+  has_data : Bool
+}
+pub impl @debug.Debug for EmptyStateState
+
+pub(all) struct FormWizardState {
+  steps : Array[WizardStep]
+  current : Int
+  completed : Bool
+}
+pub impl @debug.Debug for FormWizardState
+
+pub(all) struct InlineEditState {
+  items : Array[(String, Bool)]
+  edit_value : String
+}
+pub impl @debug.Debug for InlineEditState
+
+pub(all) struct KanbanCard {
+  id : Int
+  title : String
+  color : String
+}
+pub impl Eq for KanbanCard
+pub impl Show for KanbanCard
+pub impl @debug.Debug for KanbanCard
+
+pub(all) struct KanbanState {
+  columns : Array[(String, Array[KanbanCard])]
+}
+pub impl @debug.Debug for KanbanState
+
+pub(all) struct MarkdownState {
+  source : String
+}
+pub impl @debug.Debug for MarkdownState
+
+pub(all) struct MasonryItem {
+  id : Int
+  title : String
+  height : Int
+  color : String
+}
+pub impl Eq for MasonryItem
+pub impl Show for MasonryItem
+pub impl @debug.Debug for MasonryItem
+
+pub(all) struct MasonryState {
+  items : Array[MasonryItem]
+  columns : Int
+}
+pub impl @debug.Debug for MasonryState
+
+pub(all) struct ModalState {
+  open : Bool
+  title : String
+  message : String
+  confirmed : Bool
+}
+pub impl @debug.Debug for ModalState
+
+pub(all) struct Model {
+  section : Section
+  component : Int
+  text_input : TextInputState
+  text_area : TextAreaState
+  checkbox : CheckboxState
+  radio : RadioState
+  select : SelectState
+  toggle : ToggleState
+  slider : SliderState
+  color_picker : ColorPickerState
+  avatar : AvatarState
+  badge : BadgeState
+  progress : ProgressState
+  tooltip : TooltipState
+  tag : TagState
+  skeleton : SkeletonState
+  empty_state : EmptyStateState
+  accordion : AccordionState
+  tabs : TabsState
+  breadcrumb : BreadcrumbState
+  tree_view : TreeViewState
+  data_table : DataTableState
+  calendar : CalendarState
+  timeline : TimelineState
+  chart : ChartState
+  toast : ToastState
+  modal : ModalState
+  command_palette : CommandPaletteState
+  kanban : KanbanState
+  searchable_select : SearchableSelectState
+  date_range : DateRangeState
+  form_wizard : FormWizardState
+  stopwatch : StopwatchState
+  countdown : CountdownState
+  typewriter : TypewriterState
+  carousel : CarouselState
+  animated_counter : AnimatedCounterState
+  star_rating : StarRatingState
+  pin_input : PinInputState
+  password_strength : PasswordStrengthState
+  tag_auto : TagAutoState
+  inline_edit : InlineEditState
+  stepper : StepperState
+  split_pane : SplitPaneState
+  virtual_list : VirtualListState
+  masonry : MasonryState
+  confirm_button : ConfirmButtonState
+  copy_clipboard : CopyState
+  undo_snackbar : UndoSnackbarState
+  markdown : MarkdownState
+  spreadsheet : SpreadsheetState
+  drag_sort : DragSortState
+}
+pub fn Model::render_component(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub impl @debug.Debug for Model
+
+pub(all) enum Msg {
+  ChangeSection(Section)
+  ChangeComponent(Int)
+  TextInputChanged(String)
+  TextAreaChanged(String)
+  CheckboxToggled(Int)
+  RadioSelected(String)
+  SelectChanged(String)
+  ToggleSwitched(Int)
+  SliderChanged(String)
+  ColorSwatchClicked(String)
+  ColorHexChanged(String)
+  ProgressChanged(String)
+  TooltipShow(Int)
+  TooltipHide
+  TagAdd
+  TagRemove(Int)
+  TagInputChanged(String)
+  AccordionToggle(Int)
+  TabSelected(Int)
+  BreadcrumbNavigate(Int)
+  TreeToggle(Int)
+  TableSort(String)
+  TablePage(Int)
+  TableToggleRow(Int)
+  TableSelectAll
+  CalendarPrevMonth
+  CalendarNextMonth
+  CalendarSelectDay(Int)
+  KanbanMoveCard(Int, Int, Int)
+  ShowToast(String, String, String)
+  DismissToast(Int)
+  ModalOpen
+  ModalClose
+  ModalConfirm
+  SkeletonToggle
+  EmptyStateToggle
+  SearchableQueryChanged(String)
+  SearchableSelect_(String)
+  SearchableToggleOpen
+  SearchableFocus(Int)
+  DateRangeSetPicking(String)
+  DateRangeSelectDay(Int)
+  DateRangePrevMonth
+  DateRangeNextMonth
+  CommandPaletteToggle
+  CommandPaletteSearch(String)
+  CommandPaletteFocus(Int)
+  CommandPaletteSelect(Int)
+  WizardNext
+  WizardPrev
+  WizardFieldChanged(Int, String)
+  StopwatchToggle
+  StopwatchReset
+  StopwatchTick(Int)
+  CountdownSet(String)
+  CountdownToggle
+  CountdownReset
+  CountdownTick(Int)
+  TypewriterStart
+  TypewriterPause
+  TypewriterTick
+  TypewriterReset
+  CarouselPrev
+  CarouselNext
+  CarouselAutoToggle
+  CarouselAutoTick(Int)
+  CounterIncrement
+  CounterDecrement
+  CounterAnimTick
+  StarClick(Int)
+  StarHover(Int)
+  StarLeave
+  PinDigitChanged(Int, String)
+  PinClear
+  PasswordChanged(String)
+  PasswordToggleVisible
+  TagAutoInputChanged(String)
+  TagAutoAdd(String)
+  TagAutoRemove(Int)
+  TagAutoFocus(Int)
+  InlineStartEdit(Int)
+  InlineEditChanged(String)
+  InlineSaveEdit(Int)
+  InlineCancelEdit(Int)
+  StepperIncrement
+  StepperDecrement
+  SplitPaneResize(String)
+  VirtualScroll(String)
+  ConfirmButtonClick
+  ConfirmButtonConfirm
+  ConfirmButtonCancel
+  CopyClick
+  CopyReset(Int)
+  UndoRemoveItem(Int)
+  UndoUndo
+  UndoDismiss
+  MarkdownChanged(String)
+  SpreadsheetSelectCell(Int, Int)
+  SpreadsheetStartEdit
+  SpreadsheetEditChanged(String)
+  SpreadsheetSaveEdit
+  SpreadsheetCancelEdit
+  DragSortMoveUp(Int)
+  DragSortMoveDown(Int)
+}
+pub impl @debug.Debug for Msg
+
+pub(all) struct PasswordStrengthState {
+  password : String
+  visible : Bool
+}
+pub impl @debug.Debug for PasswordStrengthState
+
+pub(all) struct PinInputState {
+  digits : Array[String]
+  focus_index : Int
+  verified : Bool
+}
+pub impl @debug.Debug for PinInputState
+
+pub(all) struct ProgressState {
+  value : Int
+  animating : Bool
+}
+pub impl @debug.Debug for ProgressState
+
+pub(all) struct RadioState {
+  options : Array[String]
+  selected : String
+}
+pub impl @debug.Debug for RadioState
+
+pub(all) struct SearchableSelectState {
+  options : Array[SelectOption]
+  query : String
+  selected : String
+  open : Bool
+  focus_index : Int
+}
+pub impl @debug.Debug for SearchableSelectState
+
+pub(all) enum Section {
+  Inputs
+  Display
+  Navigation
+  Data
+  Overlay
+  Composite
+  Animated
+  RichInputs
+  Layout
+  Feedback
+}
+pub impl Eq for Section
+pub impl Show for Section
+pub impl @debug.Debug for Section
+
+pub(all) struct SelectOption {
+  label : String
+  value : String
+}
+pub impl Eq for SelectOption
+pub impl Show for SelectOption
+pub impl @debug.Debug for SelectOption
+
+pub(all) struct SelectState {
+  options : Array[String]
+  selected : String
+}
+pub impl @debug.Debug for SelectState
+
+pub(all) struct SkeletonState {
+  loading : Bool
+}
+pub impl @debug.Debug for SkeletonState
+
+pub(all) struct SliderState {
+  value : Int
+  min : Int
+  max : Int
+}
+pub impl @debug.Debug for SliderState
+
+pub(all) struct SplitPaneState {
+  left_percent : Int
+}
+pub impl @debug.Debug for SplitPaneState
+
+pub(all) struct SpreadsheetCell {
+  value : String
+}
+pub impl Eq for SpreadsheetCell
+pub impl Show for SpreadsheetCell
+pub impl @debug.Debug for SpreadsheetCell
+
+pub(all) struct SpreadsheetState {
+  cells : Array[Array[SpreadsheetCell]]
+  selected_row : Int
+  selected_col : Int
+  editing : Bool
+  edit_value : String
+}
+pub impl @debug.Debug for SpreadsheetState
+
+pub(all) struct StarRatingState {
+  rating : Int
+  hover : Int
+}
+pub impl @debug.Debug for StarRatingState
+
+pub(all) struct StepperState {
+  value : Int
+  min : Int
+  max : Int
+  step : Int
+}
+pub impl @debug.Debug for StepperState
+
+pub(all) struct StopwatchState {
+  elapsed_ms : Int
+  running : Bool
+  gen : Int
+}
+pub impl @debug.Debug for StopwatchState
+
+pub(all) struct TableRow {
+  name : String
+  email : String
+  role : String
+  status : String
+}
+pub impl Eq for TableRow
+pub impl Show for TableRow
+pub impl @debug.Debug for TableRow
+
+pub(all) struct TabsState {
+  tabs : Array[(String, String)]
+  active : Int
+}
+pub impl @debug.Debug for TabsState
+
+pub(all) struct TagAutoState {
+  tags : Array[String]
+  input : String
+  suggestions : Array[String]
+  show_suggestions : Bool
+  focus_index : Int
+}
+pub impl @debug.Debug for TagAutoState
+
+pub(all) struct TagState {
+  tags : Array[String]
+  input : String
+}
+pub impl @debug.Debug for TagState
+
+pub(all) struct TextAreaState {
+  value : String
+  max_chars : Int
+}
+pub impl @debug.Debug for TextAreaState
+
+pub(all) struct TextInputState {
+  value : String
+  error : String
+}
+pub impl @debug.Debug for TextInputState
+
+pub(all) struct TimelineEvent {
+  title : String
+  description : String
+  time : String
+  color : String
+}
+pub impl Eq for TimelineEvent
+pub impl Show for TimelineEvent
+pub impl @debug.Debug for TimelineEvent
+
+pub(all) struct TimelineState {
+  events : Array[TimelineEvent]
+}
+pub impl @debug.Debug for TimelineState
+
+pub(all) struct ToastItem {
+  id : Int
+  title : String
+  message : String
+  kind : String
+}
+pub impl Eq for ToastItem
+pub impl Show for ToastItem
+pub impl @debug.Debug for ToastItem
+
+pub(all) struct ToastState {
+  items : Array[ToastItem]
+  next_id : Int
+}
+pub impl @debug.Debug for ToastState
+
+pub(all) struct ToggleState {
+  items : Array[(String, Bool)]
+}
+pub impl @debug.Debug for ToggleState
+
+pub(all) struct TooltipState {
+  active_index : Int
+}
+pub impl @debug.Debug for TooltipState
+
+pub(all) struct TreeNode {
+  id : Int
+  label : String
+  children : Array[TreeNode]
+}
+pub impl Eq for TreeNode
+pub impl Show for TreeNode
+pub impl @debug.Debug for TreeNode
+
+pub(all) struct TreeViewState {
+  roots : Array[TreeNode]
+  expanded : Array[Int]
+}
+pub impl @debug.Debug for TreeViewState
+
+pub(all) struct TypewriterState {
+  full_text : String
+  visible_chars : Int
+  running : Bool
+}
+pub impl @debug.Debug for TypewriterState
+
+pub(all) struct UndoSnackbarState {
+  message : String
+  visible : Bool
+  items : Array[String]
+  last_removed : String
+  last_removed_index : Int
+}
+pub impl @debug.Debug for UndoSnackbarState
+
+pub(all) struct VirtualListState {
+  total_items : Int
+  scroll_top : Int
+  item_height : Int
+  visible_count : Int
+}
+pub impl @debug.Debug for VirtualListState
+
+pub(all) struct WizardField {
+  label : String
+  value : String
+  error : String
+}
+pub impl Eq for WizardField
+pub impl Show for WizardField
+pub impl @debug.Debug for WizardField
+
+pub(all) struct WizardStep {
+  title : String
+  fields : Array[WizardField]
+}
+pub impl Eq for WizardStep
+pub impl Show for WizardStep
+pub impl @debug.Debug for WizardStep
+
+// Type aliases
+
+// Traits
+

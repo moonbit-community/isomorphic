@@ -79,7 +79,7 @@ fn view_priority_picker(
   dispatch : @rabbita.Dispatch[Msg],
   current : String,
   on_change : (String) -> Msg,
-  lang~ : @shared.Lang = En,
+  lang? : @shared.Lang = En,
 ) -> @rabbita.Html {
   @html.div(
     style=["display: flex", "gap: 4px", "margin-bottom: 8px"],

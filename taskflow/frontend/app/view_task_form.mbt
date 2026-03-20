@@ -75,9 +75,12 @@ fn view_add_task_form(
               ],
               [@html.text(@shared.t(model.lang, "priority"))],
             ),
-            view_priority_picker(dispatch, model.new_priority, fn(p) {
-              NewPriorityChanged(p)
-            }, lang=model.lang),
+            view_priority_picker(
+              dispatch,
+              model.new_priority,
+              fn(p) { NewPriorityChanged(p) },
+              lang=model.lang,
+            ),
           ]),
           @html.div(style=[], [
             @html.div(
@@ -218,9 +221,12 @@ fn view_edit_task_form(
               ],
               [@html.text(@shared.t(model.lang, "priority"))],
             ),
-            view_priority_picker(dispatch, model.edit_priority, fn(p) {
-              EditPriorityChanged(p)
-            }, lang=model.lang),
+            view_priority_picker(
+              dispatch,
+              model.edit_priority,
+              fn(p) { EditPriorityChanged(p) },
+              lang=model.lang,
+            ),
           ]),
           @html.div(style=[], [
             @html.div(

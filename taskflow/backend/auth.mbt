@@ -50,9 +50,7 @@ fn init_auth_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let migrate = conn.prepare(
     "ALTER TABLE users ADD COLUMN role BLOB NOT NULL DEFAULT 'member'",
   )
-  try {
-    migrate.step_once()
-  } catch {
+  migrate.step_once() catch {
     _ => () // Column already exists
   }
   migrate.finalize()
@@ -150,7 +148,7 @@ fn login_user(
     "SELECT id, username, password_hash, salt, color, role FROM users WHERE username = ?",
   )
   stmt.bind_string_as_blob(index=1, val=username)
-  if !(stmt.step()) {
+  if !stmt.step() {
     stmt.finalize()
     return None
   }
@@ -202,7 +200,7 @@ fn get_session_user(
     ),
   )
   stmt.bind_string_as_blob(index=1, val=token)
-  if !(stmt.step()) {
+  if !stmt.step() {
     stmt.finalize()
     return None
   }

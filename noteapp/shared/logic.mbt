@@ -1,3 +1,4 @@
+///|
 /// Count words by splitting on whitespace.
 pub fn word_count(text : String) -> Int {
   if text == "" {
@@ -21,11 +22,13 @@ pub fn word_count(text : String) -> Int {
   count
 }
 
+///|
 /// Count the number of characters in the text.
 pub fn char_count(text : String) -> Int {
   text.char_length()
 }
 
+///|
 /// Estimate reading time in seconds (200 words per minute).
 pub fn reading_time_secs(text : String) -> Int {
   let words = word_count(text)
@@ -38,6 +41,7 @@ pub fn reading_time_secs(text : String) -> Int {
   }
 }
 
+///|
 /// Compute all stats for a note's content.
 pub fn compute_stats(content : String) -> NoteStats {
   {
@@ -47,6 +51,7 @@ pub fn compute_stats(content : String) -> NoteStats {
   }
 }
 
+///|
 /// Truncate text to max_len characters, appending "..." if truncated.
 pub fn truncate(text : String, max_len : Int) -> String {
   if text.char_length() <= max_len {
@@ -70,6 +75,7 @@ pub fn truncate(text : String, max_len : Int) -> String {
   }
 }
 
+///|
 /// Sort notes: pinned first, then by id descending.
 pub fn sort_notes(notes : Array[Note]) -> Array[Note] {
   let result = notes.copy()

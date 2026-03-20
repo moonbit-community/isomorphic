@@ -24,11 +24,11 @@ pub fn Model::update(
     Init => (self, fetch_polls(dispatch))
     GotPolls(Ok(polls)) => ({ ..self, polls, }, @rabbita.none)
     GotPolls(Err(_)) => (self, @rabbita.none)
-    QuestionInputChanged(v) => ({ ..self, question_input: v, }, @rabbita.none)
+    QuestionInputChanged(v) => ({ ..self, question_input: v }, @rabbita.none)
     OptionInputChanged(idx, v) => {
       let new_opts = self.option_inputs.copy()
       new_opts[idx] = v
-      ({ ..self, option_inputs: new_opts, }, @rabbita.none)
+      ({ ..self, option_inputs: new_opts }, @rabbita.none)
     }
     AddOptionInput => {
       if self.option_inputs.length() >= @shared.max_options {
@@ -36,7 +36,7 @@ pub fn Model::update(
       }
       let new_opts = self.option_inputs.copy()
       new_opts.push("")
-      ({ ..self, option_inputs: new_opts, }, @rabbita.none)
+      ({ ..self, option_inputs: new_opts }, @rabbita.none)
     }
     RemoveOptionInput(idx) => {
       if self.option_inputs.length() <= @shared.min_options {
@@ -48,7 +48,7 @@ pub fn Model::update(
           new_opts.push(self.option_inputs[i])
         }
       }
-      ({ ..self, option_inputs: new_opts, }, @rabbita.none)
+      ({ ..self, option_inputs: new_opts }, @rabbita.none)
     }
     CreatePoll => {
       if !@shared.validate_question(self.question_input) {
@@ -84,7 +84,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, question_input: "", option_inputs: ["", ""], }, cmd)
+      ({ ..self, question_input: "", option_inputs: ["", ""] }, cmd)
     }
     PollCreated(Ok(poll)) => {
       let polls = self.polls.copy()
@@ -93,7 +93,7 @@ pub fn Model::update(
       for p in polls {
         new_polls.push(p)
       }
-      ({ ..self, polls: new_polls, }, @rabbita.none)
+      ({ ..self, polls: new_polls }, @rabbita.none)
     }
     PollCreated(Err(_)) => (self, @rabbita.none)
     Vote(poll_id, option_id) => {
@@ -115,7 +115,7 @@ pub fn Model::update(
       )
       let new_voted = self.voted.copy()
       new_voted.push(poll_id)
-      ({ ..self, voted: new_voted, }, cmd)
+      ({ ..self, voted: new_voted }, cmd)
     }
     Voted(Ok(updated_poll)) => {
       let polls = self.polls.map(fn(p) {

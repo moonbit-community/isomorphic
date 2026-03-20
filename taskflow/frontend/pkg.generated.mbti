@@ -6,11 +6,6 @@ package "bobzhang/taskflow/frontend"
 // Errors
 
 // Types and methods
-type Model
-
-type Msg
-
-type Theme
 
 // Type aliases
 

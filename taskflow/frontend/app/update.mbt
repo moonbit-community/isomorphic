@@ -139,10 +139,7 @@ pub fn Model::update(
     SubmitRegister => {
       if !@shared.validate_username(self.auth_username) {
         return (
-          {
-            ..self,
-            auth_error: @shared.t(self.lang, "username_hint"),
-          },
+          { ..self, auth_error: @shared.t(self.lang, "username_hint") },
           @rabbita.none,
         )
       }
@@ -215,8 +212,7 @@ pub fn Model::update(
     SearchChanged(q) => ({ ..self, search_query: q }, @rabbita.none)
     SetFilterUrgency(u) => ({ ..self, filter_urgency: u }, @rabbita.none)
     SetViewMode(m) => ({ ..self, view_mode: m }, @rabbita.none)
-    ToggleDarkMode =>
-      ({ ..self, dark_mode: !self.dark_mode }, @rabbita.none)
+    ToggleDarkMode => ({ ..self, dark_mode: !self.dark_mode }, @rabbita.none)
     // ---- Task creation ----
     ShowAddTask =>
       (
@@ -248,15 +244,13 @@ pub fn Model::update(
       let due = self.new_due_date
       let cmd = @http.post(
         @shared.api_tasks,
-        Json(
-          {
-            "title": title,
-            "description": desc,
-            "priority": priority,
-            "assignee_id": assignee.to_double(),
-            "due_date": due,
-          },
-        ),
+        Json({
+          "title": title,
+          "description": desc,
+          "priority": priority,
+          "assignee_id": assignee.to_double(),
+          "due_date": due,
+        }),
         expect=Json(fn(result) { dispatch(TaskAdded(result)) }, fn(json) {
           Ok(@json.from_json(json)) catch {
             _ => Err("Failed to decode task")
@@ -306,15 +300,13 @@ pub fn Model::update(
       })
       let cmd = @http.post(
         @shared.api_task(id),
-        Json(
-          {
-            "title": title,
-            "description": desc,
-            "priority": priority,
-            "assignee_id": assignee.to_double(),
-            "due_date": due,
-          },
-        ),
+        Json({
+          "title": title,
+          "description": desc,
+          "priority": priority,
+          "assignee_id": assignee.to_double(),
+          "due_date": due,
+        }),
         expect~,
       )
       // Optimistic update
@@ -476,10 +468,7 @@ pub fn Model::update(
       // Dismiss dialogs/errors with Escape
       if key == "Escape" {
         if self.viewing_comments != 0 {
-          return (
-            { ..self, viewing_comments: 0, comments: [] },
-            @rabbita.none,
-          )
+          return ({ ..self, viewing_comments: 0, comments: [] }, @rabbita.none)
         }
         if self.confirm_delete != 0 {
           return ({ ..self, confirm_delete: 0 }, @rabbita.none)

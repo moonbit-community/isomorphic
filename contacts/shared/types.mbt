@@ -1,3 +1,4 @@
+///|
 /// A contact in the address book.
 pub(all) struct Contact {
   id : Int

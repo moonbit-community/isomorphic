@@ -1,3 +1,4 @@
+///|
 /// An option within a poll that users can vote on.
 pub(all) struct PollOption {
   id : Int
@@ -5,6 +6,7 @@ pub(all) struct PollOption {
   votes : Int
 } derive(ToJson, FromJson, Debug)
 
+///|
 /// A poll with a question and its options.
 pub(all) struct Poll {
   id : Int
@@ -12,6 +14,7 @@ pub(all) struct Poll {
   options : Array[PollOption]
 } derive(ToJson, FromJson, Debug)
 
+///|
 /// Poll results with computed totals and percentages.
 pub(all) struct PollResults {
   poll : Poll

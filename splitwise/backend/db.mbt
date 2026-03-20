@@ -161,7 +161,9 @@ fn delete_expense(
 
 ///|
 /// Build the full application state: all people, all expenses, and computed settlements.
-fn get_state(conn : @sqlite3.Connection) -> @shared.AppState raise @sqlite3.SqliteError {
+fn get_state(
+  conn : @sqlite3.Connection,
+) -> @shared.AppState raise @sqlite3.SqliteError {
   let people = get_all_people(conn)
   let expenses = get_all_expenses(conn)
   let settlements = @shared.compute_settlements(people, expenses)

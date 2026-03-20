@@ -5,5 +5,7 @@ import {
   "moonbit-community/rabbita/http",
   "moonbitlang/core/json",
 }
-warnings="+unnecessary_annotation"
+
+warnings = "+unnecessary_annotation"
+
 supported_targets = "js"

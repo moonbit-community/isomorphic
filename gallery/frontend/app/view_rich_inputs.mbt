@@ -1,7 +1,7 @@
 ///|
 fn Model::view_star_rating(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let rating = self.star_rating.rating
   let hover = self.star_rating.hover
@@ -26,33 +26,26 @@ fn Model::view_star_rating(
         attrs=@html.Attrs::build()
           .on_mouseenter(fn(_) { dispatch(StarHover(index)) })
           .on_mouseleave(fn(_) { dispatch(StarLeave) }),
-        if is_filled { "★" } else { "☆" },
+        if is_filled {
+          "★"
+        } else {
+          "☆"
+        },
       ),
     )
   }
   let stars = @html.div(
-    style=[
-      "display:flex",
-      "gap:4px",
-      "align-items:center",
-    ],
+    style=["display:flex", "gap:4px", "align-items:center"],
     star_buttons,
   )
   let label_text = if rating == 0 { "No rating" } else { "\{rating}/5 stars" }
   let label = @html.div(
-    style=[
-      "font-size:13px",
-      "color:\{text_secondary}",
-      "margin-top:8px",
-    ],
+    style=["font-size:13px", "color:\{text_secondary}", "margin-top:8px"],
     label_text,
   )
   @html.div(
     style=[
-      "display:flex",
-      "flex-direction:column",
-      "align-items:flex-start",
-      "gap:4px",
+      "display:flex", "flex-direction:column", "align-items:flex-start", "gap:4px",
     ],
     [stars, label],
   )
@@ -61,16 +54,12 @@ fn Model::view_star_rating(
 ///|
 fn Model::view_pin_input(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let digits = self.pin_input.digits
   let verified = self.pin_input.verified
   let hint = @html.div(
-    style=[
-      "font-size:12px",
-      "color:\{text_muted}",
-      "margin-bottom:10px",
-    ],
+    style=["font-size:12px", "color:\{text_muted}", "margin-bottom:10px"],
     "Enter PIN: 1234",
   )
   let pin_inputs : Array[@rabbita.Html] = []
@@ -95,17 +84,13 @@ fn Model::view_pin_input(
           "outline:none",
           "transition:border-color 0.15s",
         ],
-        on_input=(s) => dispatch(PinDigitChanged(index, s)),
+        on_input=s => dispatch(PinDigitChanged(index, s)),
         "",
       ),
     )
   }
   let inputs = @html.div(
-    style=[
-      "display:flex",
-      "gap:10px",
-      "align-items:center",
-    ],
+    style=["display:flex", "gap:10px", "align-items:center"],
     pin_inputs,
   )
   let status = if verified {
@@ -119,10 +104,7 @@ fn Model::view_pin_input(
         "font-size:14px",
         "font-weight:600",
       ],
-      [
-        @html.span(style=["font-size:18px"], "✓"),
-        @html.span("PIN verified!"),
-      ],
+      [@html.span(style=["font-size:18px"], "✓"), @html.span("PIN verified!")],
     )
   } else {
     @html.div(style=["height:30px"], "")
@@ -141,7 +123,7 @@ fn Model::view_pin_input(
 ///|
 fn Model::view_password_strength(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let password = self.password_strength.password
   let visible = self.password_strength.visible
@@ -188,23 +170,20 @@ fn Model::view_password_strength(
       @html.input(
         input_type=if visible { Text } else { Password },
         value=password,
-        style=[
-          ..input_style,
-          "flex:1",
-          "font-size:15px",
-        ],
-        on_input=(s) => dispatch(PasswordChanged(s)),
+        style=[..input_style, "flex:1", "font-size:15px"],
+        on_input=s => dispatch(PasswordChanged(s)),
         "",
       ),
       @html.button(
         style=[
-          ..btn_outline_style,
-          "padding:8px 12px",
-          "font-size:16px",
-          "flex-shrink:0",
+          ..btn_outline_style, "padding:8px 12px", "font-size:16px", "flex-shrink:0",
         ],
         on_click=dispatch(PasswordToggleVisible),
-        if visible { "🙈" } else { "👁" },
+        if visible {
+          "🙈"
+        } else {
+          "👁"
+        },
       ),
     ],
   )
@@ -239,16 +218,15 @@ fn Model::view_password_strength(
     ],
     strength_label,
   )
-  @html.div(
-    style=["display:flex", "flex-direction:column", "width:100%"],
-    [input_row, bar_bg, bar_label],
-  )
+  @html.div(style=["display:flex", "flex-direction:column", "width:100%"], [
+    input_row, bar_bg, bar_label,
+  ])
 }
 
 ///|
 fn Model::view_tag_auto(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let tags = self.tag_auto.tags
   let input_val = self.tag_auto.input
@@ -293,21 +271,14 @@ fn Model::view_tag_auto(
   }
   let tag_pills = @html.div(
     style=[
-      "display:flex",
-      "flex-wrap:wrap",
-      "gap:6px",
-      "margin-bottom:10px",
-      "min-height:32px",
+      "display:flex", "flex-wrap:wrap", "gap:6px", "margin-bottom:10px", "min-height:32px",
     ],
     tag_pill_nodes,
   )
-  let filtered = suggestions.filter(
-    fn(s) {
-      !tags.contains(s) &&
-      (input_val == "" ||
-      s.to_lower().contains(input_val.to_lower()))
-    },
-  )
+  let filtered = suggestions.filter(fn(s) {
+    !tags.contains(s) &&
+    (input_val == "" || s.to_lower().contains(input_val.to_lower()))
+  })
   let dropdown = if show_suggestions && input_val != "" && !filtered.is_empty() {
     let suggestion_nodes : Array[@rabbita.Html] = []
     for i, s in filtered {
@@ -328,8 +299,9 @@ fn Model::view_tag_auto(
             },
           ],
           on_click=dispatch(TagAutoAdd(suggestion)),
-          attrs=@html.Attrs::build()
-            .on_mouseenter(fn(_) { dispatch(TagAutoFocus(idx)) }),
+          attrs=@html.Attrs::build().on_mouseenter(fn(_) {
+            dispatch(TagAutoFocus(idx))
+          }),
           suggestion,
         ),
       )
@@ -353,29 +325,25 @@ fn Model::view_tag_auto(
   } else {
     @html.div(style=["display:none"], "")
   }
-  let input_wrapper = @html.div(
-    style=["position:relative", "width:100%"],
-    [
-      @html.input(
-        input_type=Text,
-        value=input_val,
-        style=[..input_style, "width:100%", "box-sizing:border-box"],
-        on_input=(s) => dispatch(TagAutoInputChanged(s)),
-        "",
-      ),
-      dropdown,
-    ],
-  )
-  @html.div(
-    style=["display:flex", "flex-direction:column", "width:100%"],
-    [tag_pills, input_wrapper],
-  )
+  let input_wrapper = @html.div(style=["position:relative", "width:100%"], [
+    @html.input(
+      input_type=Text,
+      value=input_val,
+      style=[..input_style, "width:100%", "box-sizing:border-box"],
+      on_input=s => dispatch(TagAutoInputChanged(s)),
+      "",
+    ),
+    dropdown,
+  ])
+  @html.div(style=["display:flex", "flex-direction:column", "width:100%"], [
+    tag_pills, input_wrapper,
+  ])
 }
 
 ///|
 fn Model::view_inline_edit(
   self : Model,
-  dispatch : @rabbita.Dispatch[Msg]
+  dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let items = self.inline_edit.items
   let edit_value = self.inline_edit.edit_value
@@ -388,17 +356,14 @@ fn Model::view_inline_edit(
       item_nodes.push(
         @html.div(
           style=[
-            "display:flex",
-            "gap:8px",
-            "align-items:center",
-            "padding:6px 0",
+            "display:flex", "gap:8px", "align-items:center", "padding:6px 0",
           ],
           [
             @html.input(
               input_type=Text,
               value=edit_value,
               style=[..input_style, "flex:1", "font-size:14px"],
-              on_input=(s) => dispatch(InlineEditChanged(s)),
+              on_input=s => dispatch(InlineEditChanged(s)),
               "",
             ),
             @html.button(
@@ -435,11 +400,7 @@ fn Model::view_inline_edit(
               text,
             ),
             @html.span(
-              style=[
-                "font-size:12px",
-                "color:\{text_muted}",
-                "margin-left:8px",
-              ],
+              style=["font-size:12px", "color:\{text_muted}", "margin-left:8px"],
               "✎ edit",
             ),
           ],

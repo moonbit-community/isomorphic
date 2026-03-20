@@ -1,3 +1,4 @@
+///|
 /// Format cents as a dollar string (e.g., 1050 -> "10.50").
 pub fn format_amount(cents : Int) -> String {
   let negative = cents < 0
@@ -12,6 +13,7 @@ pub fn format_amount(cents : Int) -> String {
   }
 }
 
+///|
 /// Compute the net balance for each person across all expenses.
 ///
 /// Positive = owed money (paid more than their share).
@@ -49,6 +51,7 @@ pub fn compute_balances(
   balances
 }
 
+///|
 /// Compute minimal settlements to resolve all debts.
 ///
 /// Uses a greedy algorithm: repeatedly match the largest debtor

@@ -62,7 +62,6 @@ test "GotNotes/Ok populates notes sorted (pinned first)" {
       #|  content_input: "",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -98,7 +97,6 @@ test "TitleInputChanged updates title_input" {
       #|  content_input: "",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -141,7 +139,6 @@ test "ContentInputChanged updates content_input" {
       #|  content_input: "Some content",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -161,7 +158,6 @@ test "SaveNote with empty title does nothing" {
       #|  content_input: "body",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -179,7 +175,6 @@ test "SaveNote with empty content does nothing" {
       #|  content_input: "",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -263,7 +258,6 @@ test "NoteSaved/Ok appends note and sorts" {
       #|  content_input: "",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -300,7 +294,6 @@ test "SelectNote sets selected_note_id" {
       #|  content_input: "",
       #|  selected_note_id: 42,
       #|}
-
     ),
   )
 }
@@ -322,10 +315,7 @@ test "DeselectNote clears selected_note_id" {
 ///|
 test "TogglePin does not change model (side-effect only)" {
   let initial = { ..empty_model(), notes: sample_notes() }
-  let (model, _) = initial.update(
-    msg=TogglePin(1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=TogglePin(1), dispatch=noop_dispatch)
   debug_inspect(
     model.notes.length(),
     content=(
@@ -372,7 +362,6 @@ test "NotePinToggled/Ok replaces matching note and re-sorts" {
       #|  content_input: "",
       #|  selected_note_id: 0,
       #|}
-
     ),
   )
 }
@@ -397,10 +386,7 @@ test "NotePinToggled/Err leaves model unchanged" {
 ///|
 test "DeleteNote does not change model (side-effect only)" {
   let initial = { ..empty_model(), notes: sample_notes() }
-  let (model, _) = initial.update(
-    msg=DeleteNote(1),
-    dispatch=noop_dispatch,
-  )
+  let (model, _) = initial.update(msg=DeleteNote(1), dispatch=noop_dispatch)
   debug_inspect(
     model.notes.length(),
     content=(
@@ -450,11 +436,7 @@ test "NoteDeleted/Ok with nonexistent id is no-op" {
 
 ///|
 test "NoteDeleted/Ok clears selected_note_id if deleted note was selected" {
-  let initial = {
-    ..empty_model(),
-    notes: sample_notes(),
-    selected_note_id: 1,
-  }
+  let initial = { ..empty_model(), notes: sample_notes(), selected_note_id: 1 }
   let (model, _) = initial.update(
     msg=NoteDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -469,11 +451,7 @@ test "NoteDeleted/Ok clears selected_note_id if deleted note was selected" {
 
 ///|
 test "NoteDeleted/Ok preserves selected_note_id if different note deleted" {
-  let initial = {
-    ..empty_model(),
-    notes: sample_notes(),
-    selected_note_id: 2,
-  }
+  let initial = { ..empty_model(), notes: sample_notes(), selected_note_id: 2 }
   let (model, _) = initial.update(
     msg=NoteDeleted(Ok(1)),
     dispatch=noop_dispatch,

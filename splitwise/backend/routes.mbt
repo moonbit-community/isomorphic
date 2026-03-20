@@ -63,9 +63,7 @@ fn handle_post_expenses(
       { "description": String(d), .. } => d
       _ => {
         println("  -> 400 Missing description")
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Missing description",
-        )
+        return @mocket.HttpResponse::new(BadRequest).body("Missing description")
       }
     }
     let amount = match json {
@@ -95,9 +93,7 @@ fn handle_post_expenses(
       }
       _ => {
         println("  -> 400 Missing split_among")
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Missing split_among",
-        )
+        return @mocket.HttpResponse::new(BadRequest).body("Missing split_among")
       }
     }
     if !@shared.validate_description(description) {
@@ -118,7 +114,9 @@ fn handle_post_expenses(
         "Must split among at least one person",
       )
     }
-    let expense = create_expense(conn, description, amount, paid_by, split_among)
+    let expense = create_expense(
+      conn, description, amount, paid_by, split_among,
+    )
     println("  -> 201 created expense: \{description}")
     @mocket.HttpResponse::new(Created).json(expense)
   } catch {

@@ -2,6 +2,7 @@
 package "bobzhang/kanban/shared"
 
 import {
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
@@ -66,6 +67,7 @@ pub(all) struct Board {
 pub impl Eq for Board
 pub impl Show for Board
 pub impl ToJson for Board
+pub impl @debug.Debug for Board
 pub impl @json.FromJson for Board
 
 pub(all) struct Card {
@@ -79,6 +81,7 @@ pub(all) struct Card {
 pub impl Eq for Card
 pub impl Show for Card
 pub impl ToJson for Card
+pub impl @debug.Debug for Card
 pub impl @json.FromJson for Card
 
 pub(all) struct Column {
@@ -89,6 +92,7 @@ pub(all) struct Column {
 pub impl Eq for Column
 pub impl Show for Column
 pub impl ToJson for Column
+pub impl @debug.Debug for Column
 pub impl @json.FromJson for Column
 
 pub(all) struct MoveCardRequest {
@@ -99,6 +103,7 @@ pub(all) struct MoveCardRequest {
 pub impl Eq for MoveCardRequest
 pub impl Show for MoveCardRequest
 pub impl ToJson for MoveCardRequest
+pub impl @debug.Debug for MoveCardRequest
 pub impl @json.FromJson for MoveCardRequest
 
 // Type aliases

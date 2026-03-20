@@ -86,7 +86,9 @@ fn main raise {
         { "name": String(n), .. } => n
         _ => {
           println("  -> 400 Missing name")
-          return @mocket.HttpResponse::new(BadRequest).body("Missing name field")
+          return @mocket.HttpResponse::new(BadRequest).body(
+            "Missing name field",
+          )
         }
       }
       let email = match json {

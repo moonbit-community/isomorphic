@@ -180,20 +180,16 @@ fn view_auth(
           // Language toggle
           @html.div(style=["text-align: center", "margin-top: 16px"], [
             @html.button(
-              on_click=dispatch(
-                SetLang(
-                  if lang == En {
-                    Zh
-                  } else {
-                    En
-                  },
-                ),
-              ),
+              on_click=dispatch(SetLang(if lang == En { Zh } else { En })),
               style=[
-                "background: none", "border: 1px solid #6366f1", "color: #6366f1", "cursor: pointer",
-                "font-size: 12px", "padding: 4px 12px", "border-radius: 12px",
+                "background: none", "border: 1px solid #6366f1", "color: #6366f1",
+                "cursor: pointer", "font-size: 12px", "padding: 4px 12px", "border-radius: 12px",
               ],
-              if lang == En { "中文" } else { "EN" },
+              if lang == En {
+                "中文"
+              } else {
+                "EN"
+              },
             ),
           ]),
         ],

@@ -38,7 +38,8 @@ pub fn t(lang : Lang, key : String) -> String {
     (Zh, "registration_failed") => "注册失败"
     (_, "registration_failed") => "Registration failed"
     (Zh, "username_hint") => "用户名：3-30个字母、数字或下划线"
-    (_, "username_hint") => "Username: 3-30 alphanumeric or underscore characters"
+    (_, "username_hint") =>
+      "Username: 3-30 alphanumeric or underscore characters"
     (Zh, "password_hint") => "密码：4-100个字符"
     (_, "password_hint") => "Password: 4-100 characters"
     (Zh, "logout") => "退出登录"
@@ -264,7 +265,8 @@ pub fn t(lang : Lang, key : String) -> String {
     (Zh, "dismiss") => "关闭"
     (_, "dismiss") => "Dismiss"
     // Keyboard hints
-    (Zh, "keyboard_hints") => "n: 新建 | l: 列表 | b: 看板 | d: 主题 | ⌘Z: 撤销 | Esc: 关闭"
+    (Zh, "keyboard_hints") =>
+      "n: 新建 | l: 列表 | b: 看板 | d: 主题 | ⌘Z: 撤销 | Esc: 关闭"
     (_, "keyboard_hints") =>
       "n: new task | l: list | b: board | d: dark mode | Ctrl+Z: undo | Esc: close"
     // Fallback

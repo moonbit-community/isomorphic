@@ -129,12 +129,15 @@ fn component_description(section : Section, index : Int) -> String {
       "A searchable select with filtering and keyboard navigation."
     (Composite, 2) => "A date range picker with start and end date selection."
     (Composite, 3) => "A multi-step form wizard with validation per step."
-    (Composite, 4) => "Live markdown preview with bold, italic, links and code rendering."
-    (Composite, 5) => "An editable spreadsheet grid with cell selection and inline editing."
+    (Composite, 4) =>
+      "Live markdown preview with bold, italic, links and code rendering."
+    (Composite, 5) =>
+      "An editable spreadsheet grid with cell selection and inline editing."
     (Composite, 6) => "A reorderable list using up/down buttons."
     (Animated, 0) => "A stopwatch with start, stop, and reset controls."
     (Animated, 1) => "A countdown timer with configurable duration."
-    (Animated, 2) => "Text revealed character by character with typewriter effect."
+    (Animated, 2) =>
+      "Text revealed character by character with typewriter effect."
     (Animated, 3) => "An image/card carousel with prev/next and auto-advance."
     (Animated, 4) => "A number that animates up and down on change."
     (RichInputs, 0) => "A clickable 1-5 star rating component."
@@ -144,7 +147,8 @@ fn component_description(section : Section, index : Int) -> String {
     (RichInputs, 4) => "Click text to edit in-place with Enter to save."
     (Layout, 0) => "A numeric stepper with configurable step, min, and max."
     (Layout, 1) => "Two resizable panels with a draggable divider."
-    (Layout, 2) => "Renders only visible items from a large list (scroll windowing)."
+    (Layout, 2) =>
+      "Renders only visible items from a large list (scroll windowing)."
     (Layout, 3) => "Cards of varying heights laid out in columns."
     (Feedback, 0) => "Click once to arm, click again to execute."
     (Feedback, 1) => "Copy text to clipboard with visual feedback."
