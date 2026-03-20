@@ -550,6 +550,13 @@ fn Model::view_grid(
         } else {
           ""
         }
+        // Check if this cell should render a sparkline (column I, rows 2-6 on Sales Dashboard)
+        let is_sparkline = is_sales && c == 8 && r >= 1 && r <= 5
+        let cell_content : @rabbita.Html = if is_sparkline {
+          view_sparkline(sheet, r)
+        } else {
+          @html.span(display)
+        }
         row_cells.push(
           @html.div(
             style=[
@@ -562,7 +569,7 @@ fn Model::view_grid(
               shadow,
             ],
             on_click=dispatch(SelectCell(col, row)),
-            display,
+            [cell_content],
           ),
         )
       }
