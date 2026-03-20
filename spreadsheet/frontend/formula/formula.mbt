@@ -706,17 +706,17 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
       }
       match (to_num(args[0]), to_num(args[1])) {
         (Some(base), Some(exponent)) => {
+          // Guard: negative base with fractional exp, or zero base with negative exp
+          if (base < 0.0 && exponent.to_int().to_double() != exponent) ||
+            (base == 0.0 && exponent < 0.0) {
+            return @cell.Value::Error("POWER")
+          }
           // Check if exponent is an integer for exact calculation
           let exp_int = exponent.to_int()
           if exp_int.to_double() == exponent {
             @cell.Value::Num(pow(base, exp_int))
           } else {
-            // Fractional exponent: use exp(ln(base) * exponent)
-            if base < 0.0 || (base == 0.0 && exponent < 0.0) {
-              @cell.Value::Error("POWER")
-            } else {
-              @cell.Value::Num(@math.pow(base, exponent))
-            }
+            @cell.Value::Num(@math.pow(base, exponent))
           }
         }
         _ => @cell.Value::Error("TYPE")
