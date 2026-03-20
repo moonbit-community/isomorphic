@@ -76,22 +76,19 @@ pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
     return @cell.Value::Empty
   }
   let trimmed_str = trimmed.to_string()
-  if trimmed_str.has_prefix("=") {
-    let expr = trimmed_str
-      .strip_prefix("=")
-      .unwrap()
-      .to_string()
-      .trim()
-      .to_string()
-    parse_and_eval(expr, lookup)
-  } else {
-    // Try number
-    try {
-      let n = @strconv.parse_double(trimmed_str)
-      @cell.Value::Num(n)
-    } catch {
-      _ => @cell.Value::Text(trimmed_str)
+  match trimmed_str.strip_prefix("=") {
+    Some(rest) => {
+      let expr = rest.to_string().trim().to_string()
+      parse_and_eval(expr, lookup)
     }
+    None =>
+      // Try number
+      try {
+        let n = @strconv.parse_double(trimmed_str)
+        @cell.Value::Num(n)
+      } catch {
+        _ => @cell.Value::Text(trimmed_str)
+      }
   }
 }
 
