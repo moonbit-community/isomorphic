@@ -1,5 +1,6 @@
 ///|
 /// Port types — the type system for connections.
+#warnings("-unnecessary_annotation")
 pub(all) enum PortType {
   TNumber
   TString
@@ -10,6 +11,7 @@ pub(all) enum PortType {
 ///|
 /// Node kinds — exhaustive enum of all node behaviors.
 /// Adding a new kind forces handling in ports.mbt and graph.mbt (compiler-enforced).
+#warnings("-unnecessary_annotation")
 pub(all) enum NodeKind {
   // Math
   MathAdd
@@ -44,6 +46,7 @@ pub(all) enum NodeKind {
 
 ///|
 /// Definition of a single port on a node (name and type).
+#warnings("-unnecessary_annotation")
 pub(all) struct PortDef {
   name : String
   port_type : PortType
@@ -51,6 +54,7 @@ pub(all) struct PortDef {
 
 ///|
 /// A node in the graph with position, kind, label, and configuration.
+#warnings("-unnecessary_annotation")
 pub(all) struct Node {
   id : Int
   kind : NodeKind
@@ -62,6 +66,7 @@ pub(all) struct Node {
 
 ///|
 /// A directed edge connecting an output port of one node to an input port of another.
+#warnings("-unnecessary_annotation")
 pub(all) struct Connection {
   id : Int
   from_node_id : Int
@@ -72,6 +77,7 @@ pub(all) struct Connection {
 
 ///|
 /// A complete graph consisting of nodes and connections between them.
+#warnings("-unnecessary_annotation")
 pub(all) struct Graph {
   nodes : Array[Node]
   connections : Array[Connection]
@@ -79,6 +85,7 @@ pub(all) struct Graph {
 
 ///|
 /// Runtime value flowing through ports.
+#warnings("-unnecessary_annotation")
 pub(all) enum Value {
   VNumber(Int)
   VString(String)
@@ -90,6 +97,7 @@ pub(all) enum Value {
 
 ///|
 /// Result of evaluating the graph: per-node outputs, errors, evaluation order, and cycle flag.
+#warnings("-unnecessary_annotation")
 pub(all) struct EvalResult {
   node_outputs : Array[(Int, Array[Value])]
   errors : Array[(Int, String)]
@@ -99,6 +107,7 @@ pub(all) struct EvalResult {
 
 ///|
 /// Metadata for a persisted graph (id and name, without full contents).
+#warnings("-unnecessary_annotation")
 pub(all) struct SavedGraph {
   id : Int
   name : String
