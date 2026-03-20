@@ -30,20 +30,18 @@ fn extract_session_cookie(resp : @mocket.HttpResponse) -> Unit {
     if k.to_string().to_lower() == "set-cookie" {
       let cookie_str = v.to_string()
       // Parse "session=<value>; ..." format
-      if cookie_str.has_prefix("session=") {
-        let rest = cookie_str[8:]
-        // Find end of value (semicolon or end)
-        let mut end = rest.char_length()
-        for i, c in rest {
-          if c == ';' {
-            end = i
-            break
+      match cookie_str.strip_prefix("session=") {
+        Some(rest) => {
+          let rest_str = rest.to_string()
+          let value = match rest_str.before(";") {
+            Some(v) => v.to_string()
+            None => rest_str
+          }
+          if value != "" {
+            session_cookie.val = value
           }
         }
-        let value = rest[:end].to_string()
-        if value != "" {
-          session_cookie.val = value
-        }
+        None => ()
       }
     }
   }

@@ -296,7 +296,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
     let line = "\{sv}"
     if line.has_prefix("# ") {
       flush_list()
-      let text = line[2:].to_string()
+      let text = line.strip_prefix("# ").unwrap().to_string()
       nodes.push(
         @html.h1(
           style=[
@@ -307,7 +307,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
       )
     } else if line.has_prefix("## ") {
       flush_list()
-      let text = line[3:].to_string()
+      let text = line.strip_prefix("## ").unwrap().to_string()
       nodes.push(
         @html.h2(
           style=[
@@ -318,7 +318,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
       )
     } else if line.has_prefix("> ") {
       flush_list()
-      let text = line[2:].to_string()
+      let text = line.strip_prefix("> ").unwrap().to_string()
       nodes.push(
         @html.blockquote(
           style=[
@@ -329,7 +329,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
         ),
       )
     } else if line.has_prefix("- ") {
-      let text = line[2:].to_string()
+      let text = line.strip_prefix("- ").unwrap().to_string()
       list_items.push(@html.li(style=["margin:2px 0"], text))
     } else if line == "" {
       flush_list()

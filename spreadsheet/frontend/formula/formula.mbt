@@ -76,8 +76,8 @@ pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
     return @cell.Value::Empty
   }
   let trimmed_str = trimmed.to_string()
-  if trimmed_str[0] == '=' {
-    let expr = trimmed_str[1:].to_string().trim().to_string()
+  if trimmed_str.has_prefix("=") {
+    let expr = trimmed_str.strip_prefix("=").unwrap().to_string().trim().to_string()
     parse_and_eval(expr, lookup)
   } else {
     // Try number

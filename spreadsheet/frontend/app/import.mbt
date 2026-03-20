@@ -324,11 +324,14 @@ fn export_sheet_cells(
       _ => ()
     }
     // Set formula (strip leading '=', normalize AVG→AVERAGE for Excel)
-    if cell.raw.length() > 0 && cell.raw[0] == '=' {
-      let formula = normalize_formula(cell.raw.substring(start=1))
-      ws.set_cell_formula(key, formula) catch {
-        _ => ()
+    match cell.raw.strip_prefix("=") {
+      Some(rest) => {
+        let formula = normalize_formula(rest.to_string())
+        ws.set_cell_formula(key, formula) catch {
+          _ => ()
+        }
       }
+      None => ()
     }
     // Apply style
     let has_align = match cell.align {
