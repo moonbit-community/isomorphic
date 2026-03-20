@@ -67,6 +67,7 @@ pub fn output_ports(kind : NodeKind) -> Array[PortDef] {
 }
 
 ///|
+/// Human-readable display label for a node kind.
 pub fn node_label(kind : NodeKind) -> String {
   match kind {
     MathAdd => "Add"
@@ -96,6 +97,7 @@ pub fn node_label(kind : NodeKind) -> String {
 }
 
 ///|
+/// Category name for grouping node kinds in the UI palette.
 pub fn node_category(kind : NodeKind) -> String {
   match kind {
     MathAdd | MathSubtract | MathMultiply | MathDivide | MathAbs => "math"
@@ -108,6 +110,7 @@ pub fn node_category(kind : NodeKind) -> String {
 }
 
 ///|
+/// Short label for a port type (e.g. "Num", "Str").
 pub fn port_type_label(pt : PortType) -> String {
   match pt {
     TNumber => "Num"
@@ -118,6 +121,7 @@ pub fn port_type_label(pt : PortType) -> String {
 }
 
 ///|
+/// CSS hex color associated with a port type for rendering.
 pub fn port_type_color(pt : PortType) -> String {
   match pt {
     TNumber => "#4CAF50"
@@ -128,6 +132,7 @@ pub fn port_type_color(pt : PortType) -> String {
 }
 
 ///|
+/// Serialize a node kind to its string identifier.
 pub fn kind_to_string(kind : NodeKind) -> String {
   match kind {
     MathAdd => "MathAdd"
@@ -157,6 +162,7 @@ pub fn kind_to_string(kind : NodeKind) -> String {
 }
 
 ///|
+/// Deserialize a node kind from its string identifier, defaulting to ConstNumber.
 pub fn kind_from_string(s : String) -> NodeKind {
   match s {
     "MathAdd" => MathAdd
@@ -187,6 +193,7 @@ pub fn kind_from_string(s : String) -> NodeKind {
 }
 
 ///|
+/// All available node kinds for iteration and palette display.
 pub let all_kinds : Array[NodeKind] = [
   MathAdd,
   MathSubtract,

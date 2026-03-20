@@ -43,12 +43,14 @@ pub(all) enum NodeKind {
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// Definition of a single port on a node (name and type).
 pub(all) struct PortDef {
   name : String
   port_type : PortType
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// A node in the graph with position, kind, label, and configuration.
 pub(all) struct Node {
   id : Int
   kind : NodeKind
@@ -59,6 +61,7 @@ pub(all) struct Node {
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// A directed edge connecting an output port of one node to an input port of another.
 pub(all) struct Connection {
   id : Int
   from_node_id : Int
@@ -68,6 +71,7 @@ pub(all) struct Connection {
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// A complete graph consisting of nodes and connections between them.
 pub(all) struct Graph {
   nodes : Array[Node]
   connections : Array[Connection]
@@ -85,6 +89,7 @@ pub(all) enum Value {
 } derive(ToJson, FromJson, Debug, Eq)
 
 ///|
+/// Result of evaluating the graph: per-node outputs, errors, evaluation order, and cycle flag.
 pub(all) struct EvalResult {
   node_outputs : Array[(Int, Array[Value])]
   errors : Array[(Int, String)]
@@ -93,6 +98,7 @@ pub(all) struct EvalResult {
 } derive(ToJson, FromJson, Debug)
 
 ///|
+/// Metadata for a persisted graph (id and name, without full contents).
 pub(all) struct SavedGraph {
   id : Int
   name : String
