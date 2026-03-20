@@ -12,6 +12,7 @@
     "./compose",
     "./spreadsheet",
     "./finapp",
-    "./nodegraph"
+    "./nodegraph",
+    "./mbtexcel"
   ]
 }

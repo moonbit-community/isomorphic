@@ -1,0 +1,3 @@
+[submodule "mbtexcel"]
+	path = mbtexcel
+	url = git@github.com:moonbitlang/mbtexcel.git
