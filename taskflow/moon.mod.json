@@ -9,5 +9,6 @@
     "moonbitlang/async": "0.16.8"
   },
   "repository": "https://github.com/moonbit-community/isomorphic",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "warn-list": "+missing_doc+unnecessary_annotation"
 }

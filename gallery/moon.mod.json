@@ -5,5 +5,6 @@
   "repository": "https://github.com/moonbit-community/isomorphic",
   "deps": {
     "moonbit-community/rabbita": "0.11.5"
-  }
+  },
+  "warn-list": "+missing_doc+unnecessary_annotation"
 }
