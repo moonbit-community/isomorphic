@@ -109,7 +109,9 @@ fn tokenize(s : String) -> Array[Token] {
         true
       } else {
         match tokens[tokens.length() - 1] {
-          TPlus | TMinus | TMul | TDiv | TLParen | TComma => true
+          TPlus | TMinus | TMul | TDiv | TLParen | TComma | TGt | TLt |
+          TGte | TLte | TEq =>
+            true
           _ => false
         }
       }
@@ -689,8 +691,10 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
       }
       match to_num(args[0]) {
         Some(n) => {
-          let factor = pow10(decimals)
-          let rounded = (n * factor + 0.5).to_int().to_double() / factor
+          let factor = pow10(if decimals < 0 { 0 } else { decimals })
+          // Use floor(x + 0.5) for correct rounding of negatives
+          let scaled = n * factor
+          let rounded = (scaled + 0.5).floor() / factor
           @cell.Value::Num(rounded)
         }
         None => @cell.Value::Error("TYPE")
@@ -701,7 +705,20 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
         return @cell.Value::Error("POWER:ARGS")
       }
       match (to_num(args[0]), to_num(args[1])) {
-        (Some(base), Some(exp)) => @cell.Value::Num(pow(base, exp.to_int()))
+        (Some(base), Some(exponent)) => {
+          // Check if exponent is an integer for exact calculation
+          let exp_int = exponent.to_int()
+          if exp_int.to_double() == exponent {
+            @cell.Value::Num(pow(base, exp_int))
+          } else {
+            // Fractional exponent: use exp(ln(base) * exponent)
+            if base <= 0.0 {
+              @cell.Value::Error("POWER")
+            } else {
+              @cell.Value::Num(@math.pow(base, exponent))
+            }
+          }
+        }
         _ => @cell.Value::Error("TYPE")
       }
     }
@@ -712,7 +729,8 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
       match (to_num(args[0]), to_num(args[1])) {
         (Some(_), Some(0.0)) => @cell.Value::Error("DIV/0")
         (Some(a), Some(b)) => {
-          let result = a - (a / b).to_int().to_double() * b
+          // Excel MOD: result has same sign as divisor
+          let result = a - (a / b).floor() * b
           @cell.Value::Num(result)
         }
         _ => @cell.Value::Error("TYPE")
@@ -723,7 +741,8 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
         return @cell.Value::Error("INT:ARGS")
       }
       match to_num(args[0]) {
-        Some(n) => @cell.Value::Num(n.to_int().to_double())
+        // INT floors toward negative infinity (Excel behavior)
+        Some(n) => @cell.Value::Num(n.floor())
         None => @cell.Value::Error("TYPE")
       }
     }
@@ -833,9 +852,23 @@ fn compare_values(
   b : @cell.Value,
   cmp : (Double, Double) -> Bool,
 ) -> @cell.Value {
+  // Try numeric comparison first
   match (to_num(a), to_num(b)) {
     (Some(x), Some(y)) =>
-      @cell.Value::Num(if cmp(x, y) { 1.0 } else { 0.0 })
+      return @cell.Value::Num(if cmp(x, y) { 1.0 } else { 0.0 })
+    _ => ()
+  }
+  // Try text equality comparison (for IF conditions with strings)
+  match (a, b) {
+    (Text(s1), Text(s2)) => {
+      // For text, = is equality, other comparisons use lexicographic order
+      let result = if s1 == s2 { cmp(0.0, 0.0) } else if s1 < s2 {
+        cmp(-1.0, 0.0)
+      } else {
+        cmp(1.0, 0.0)
+      }
+      @cell.Value::Num(if result { 1.0 } else { 0.0 })
+    }
     _ => @cell.Value::Error("TYPE")
   }
 }
