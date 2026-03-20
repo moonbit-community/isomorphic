@@ -390,11 +390,12 @@ fn Model::view_grid(
   } else {
     None
   }
-  // Formula highlighting: get referenced cells when selected cell has a formula
+  // Formula highlighting: use edit_value when editing, raw otherwise
   let sel_cell = self.selected_cell()
+  let formula_src = if self.editing { self.edit_value } else { sel_cell.raw }
   let highlighted_refs : Map[String, Bool] = {}
-  if sel_cell.raw.length() > 0 && sel_cell.raw[0] == '=' {
-    let refs = @formula.extract_references(sel_cell.raw)
+  if formula_src.length() > 0 && formula_src[0] == '=' {
+    let refs = @formula.extract_references(formula_src)
     for cell_ref in refs {
       highlighted_refs[cell_ref] = true
     }
@@ -514,16 +515,20 @@ fn Model::view_grid(
           Some(_) => true
           None => false
         }
-        let cell_bg = if is_ref_highlighted {
-          "#e8f5e920" // subtle green tint for formula references
-        } else if heat_bg != "" {
-          heat_bg
-        } else if cell.bg_color != "" {
+        let cell_bg = if cell.bg_color != "" {
           cell.bg_color
         } else if is_selected {
           "#e8f0fe"
         } else {
           "#fff"
+        }
+        // Overlays: heat map and/or formula ref highlighting via inset box-shadow
+        let heat_overlay = if is_ref_highlighted {
+          "box-shadow: inset 0 0 0 100px #34a85320"
+        } else if heat_bg != "" {
+          "box-shadow: inset 0 0 0 100px \{heat_bg}"
+        } else {
+          ""
         }
         let border = if is_selected {
           "2px solid #1a73e8"
@@ -567,7 +572,7 @@ fn Model::view_grid(
               "font-weight: \{weight}", "color: \{color}", "box-sizing: border-box",
               "justify-content: \{justify}", "font-style: \{font_style}",
               "transition: background 0.1s ease",
-              shadow,
+              shadow, heat_overlay,
             ],
             on_click=dispatch(SelectCell(col, row)),
             [cell_content],
