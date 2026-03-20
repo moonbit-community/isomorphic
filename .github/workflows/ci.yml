@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: chawyehsu/setup-moonup@v1
+        with:
+          moonbit-version: nightly
+
+      - run: moon version --all
+
+      - name: Check (all targets)
+        run: moon check --target native,js
+
+      - name: Build JS
+        run: moon build --target js
+
+      - name: Build Native
+        run: moon build --target native
+
+      - name: Test
+        run: moon test
