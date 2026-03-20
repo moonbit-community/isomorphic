@@ -31,18 +31,25 @@ fn Model::view_nodes(
   for card in cards {
     children.push(card)
   }
+  // Outer scroller with fixed viewport
   @html.div(
     style=[
-      "position: relative",
-      "min-height: \{ch}px",
-      "min-width: \{cw}px",
-      "margin-bottom: 16px",
-      "background: #0a0a1a",
-      "border-radius: 8px",
-      "border: 1px solid #1b2838",
-      "overflow: auto",
+      "overflow: auto", "margin-bottom: 16px",
+      "border-radius: 8px", "border: 1px solid #1b2838",
+      "max-height: 600px",
     ],
-    children,
+    [
+      // Inner canvas with actual dimensions
+      @html.div(
+        style=[
+          "position: relative",
+          "min-height: \{ch}px",
+          "min-width: \{cw}px",
+          "background: #0a0a1a",
+        ],
+        children,
+      ),
+    ],
   )
 }
 
@@ -58,12 +65,40 @@ fn Model::view_svg_wires(
     // Compute start/end positions
     let (from_x, from_y) = get_pos(layout, c.from_node_id)
     let (to_x, to_y) = get_pos(layout, c.to_node_id)
-    // Output port: right side of source node
+    // Look up node kinds
+    let mut from_kind : @shared.NodeKind = ConstNumber
+    let mut to_kind : @shared.NodeKind = ConstNumber
+    for n in self.nodes {
+      if n.id == c.from_node_id {
+        from_kind = n.kind
+      }
+      if n.id == c.to_node_id {
+        to_kind = n.kind
+      }
+    }
+    // Compute Y offsets accounting for variable card content
+    // Source node: output ports come after header + config + inputs section
+    let from_in_count = @shared.input_ports(from_kind).length()
+    let from_has_config = match from_kind {
+      ConstNumber | ConstString | ConstBool | ConstColor => true
+      _ => false
+    }
+    let from_config_h = if from_has_config { 32 } else { 0 }
+    let from_inputs_h = if from_in_count > 0 {
+      16 + from_in_count * port_stride
+    } else {
+      0
+    }
     let x1 = from_x + node_w
-    let y1 = from_y + header_h + c.from_port * port_stride + 14
-    // Input port: left side of target node
+    let y1 = from_y + header_h + from_config_h + from_inputs_h + 16 + c.from_port * port_stride + 8
+    // Target node: input ports come after header + config
+    let to_has_config = match to_kind {
+      ConstNumber | ConstString | ConstBool | ConstColor => true
+      _ => false
+    }
+    let to_config_h = if to_has_config { 32 } else { 0 }
     let x2 = to_x
-    let y2 = to_y + header_h + c.to_port * port_stride + 14
+    let y2 = to_y + header_h + to_config_h + 16 + c.to_port * port_stride + 8
     // Determine color from output port type
     let mut color = "#888"
     for n in self.nodes {

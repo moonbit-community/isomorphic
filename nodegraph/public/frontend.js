@@ -1388,6 +1388,9 @@ function _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(param0) {
   this._0 = param0;
 }
 _M0DTPC16option6OptionGRPB5ArrayGsEE4Some.prototype.$tag = 1;
+function _M0TPB8MutLocalGRP38bobzhang9nodegraph6shared8NodeKindE(param0) {
+  this.val = param0;
+}
 function _M0TPB8MutLocalGsE(param0) {
   this.val = param0;
 }
@@ -16804,11 +16807,8 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model16view__svg__wires(self, la
         to_y = _to_y;
         break _L$2;
       }
-      const x1 = from_x + _M0FP48bobzhang9nodegraph8frontend3app7node__w | 0;
-      const y1 = ((from_y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + (Math.imul(c.from_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 14 | 0;
-      const x2 = to_x;
-      const y2 = ((to_y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + (Math.imul(c.to_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 14 | 0;
-      const color = new _M0TPB8MutLocalGsE("#888");
+      const from_kind = new _M0TPB8MutLocalGRP38bobzhang9nodegraph6shared8NodeKindE(17);
+      const to_kind = new _M0TPB8MutLocalGRP38bobzhang9nodegraph6shared8NodeKindE(17);
       const _bind$3 = self.nodes;
       const _bind$4 = _bind$3.length;
       let _tmp$2 = 0;
@@ -16817,12 +16817,86 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model16view__svg__wires(self, la
         if (_$2 < _bind$4) {
           const n = _bind$3[_$2];
           if (n.id === c.from_node_id) {
+            from_kind.val = n.kind;
+          }
+          if (n.id === c.to_node_id) {
+            to_kind.val = n.kind;
+          }
+          _tmp$2 = _$2 + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      const from_in_count = _M0FP38bobzhang9nodegraph6shared12input__ports(from_kind.val).length;
+      const _bind$5 = from_kind.val;
+      let from_has_config;
+      switch (_bind$5) {
+        case 17: {
+          from_has_config = true;
+          break;
+        }
+        case 18: {
+          from_has_config = true;
+          break;
+        }
+        case 19: {
+          from_has_config = true;
+          break;
+        }
+        case 20: {
+          from_has_config = true;
+          break;
+        }
+        default: {
+          from_has_config = false;
+        }
+      }
+      const from_config_h = from_has_config ? 32 : 0;
+      const from_inputs_h = from_in_count > 0 ? 16 + (Math.imul(from_in_count, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0 : 0;
+      const x1 = from_x + _M0FP48bobzhang9nodegraph8frontend3app7node__w | 0;
+      const y1 = (((((from_y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + from_config_h | 0) + from_inputs_h | 0) + 16 | 0) + (Math.imul(c.from_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 8 | 0;
+      const _bind$6 = to_kind.val;
+      let to_has_config;
+      switch (_bind$6) {
+        case 17: {
+          to_has_config = true;
+          break;
+        }
+        case 18: {
+          to_has_config = true;
+          break;
+        }
+        case 19: {
+          to_has_config = true;
+          break;
+        }
+        case 20: {
+          to_has_config = true;
+          break;
+        }
+        default: {
+          to_has_config = false;
+        }
+      }
+      const to_config_h = to_has_config ? 32 : 0;
+      const x2 = to_x;
+      const y2 = ((((to_y + _M0FP48bobzhang9nodegraph8frontend3app9header__h | 0) + to_config_h | 0) + 16 | 0) + (Math.imul(c.to_port, _M0FP48bobzhang9nodegraph8frontend3app12port__stride) | 0) | 0) + 8 | 0;
+      const color = new _M0TPB8MutLocalGsE("#888");
+      const _bind$7 = self.nodes;
+      const _bind$8 = _bind$7.length;
+      let _tmp$3 = 0;
+      while (true) {
+        const _$2 = _tmp$3;
+        if (_$2 < _bind$8) {
+          const n = _bind$7[_$2];
+          if (n.id === c.from_node_id) {
             const ports = _M0FP38bobzhang9nodegraph6shared13output__ports(n.kind);
             if (c.from_port < ports.length) {
               color.val = _M0FP38bobzhang9nodegraph6shared17port__type__color(_M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared10SavedGraphE(ports, c.from_port).port_type);
             }
           }
-          _tmp$2 = _$2 + 1 | 0;
+          _tmp$3 = _$2 + 1 | 0;
           continue;
         } else {
           break;
@@ -16893,7 +16967,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model11view__nodes(self, dispatc
       break;
     }
   }
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: relative", `min-height: ${_M0IP016_24default__implPB4Show10to__stringGiE(ch)}px`, `min-width: ${_M0IP016_24default__implPB4Show10to__stringGiE(cw)}px`, "margin-bottom: 16px", "background: #0a0a1a", "border-radius: 8px", "border: 1px solid #1b2838", "overflow: auto"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, children);
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["overflow: auto", "margin-bottom: 16px", "border-radius: 8px", "border: 1px solid #1b2838", "max-height: 600px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: relative", `min-height: ${_M0IP016_24default__implPB4Show10to__stringGiE(ch)}px`, `min-width: ${_M0IP016_24default__implPB4Show10to__stringGiE(cw)}px`, "background: #0a0a1a"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, children)]);
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model21view__connect__banner(self, dispatch) {
   const from_label = new _M0TPB8MutLocalGsE("?");
