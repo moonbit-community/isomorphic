@@ -1,5 +1,6 @@
 ///|
 /// Supported UI languages.
+#warnings("-unnecessary_annotation")
 pub(all) enum Lang {
   En
   Zh

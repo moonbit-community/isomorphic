@@ -1,5 +1,6 @@
 ///|
 /// A registered user who can log in, be assigned tasks, and leave comments.
+#warnings("-unnecessary_annotation")
 pub(all) struct User {
   id : Int
   username : String
@@ -10,6 +11,7 @@ pub(all) struct User {
 ///|
 /// A team member who can be assigned tasks.
 /// Now derived from User for backward compatibility.
+#warnings("-unnecessary_annotation")
 pub(all) struct Member {
   id : Int
   name : String
@@ -18,6 +20,7 @@ pub(all) struct Member {
 
 ///|
 /// Server response for login/register.
+#warnings("-unnecessary_annotation")
 pub(all) struct AuthResponse {
   user : User
   message : String
@@ -25,6 +28,7 @@ pub(all) struct AuthResponse {
 
 ///|
 /// A task in the task management system.
+#warnings("-unnecessary_annotation")
 pub(all) struct Task {
   id : Int
   title : String
@@ -38,6 +42,7 @@ pub(all) struct Task {
 
 ///|
 /// A recorded status change for audit/history tracking.
+#warnings("-unnecessary_annotation")
 pub(all) struct Activity {
   id : Int
   task_id : Int
@@ -50,6 +55,7 @@ pub(all) struct Activity {
 
 ///|
 /// A comment on a task.
+#warnings("-unnecessary_annotation")
 pub(all) struct Comment {
   id : Int
   task_id : Int
@@ -60,6 +66,7 @@ pub(all) struct Comment {
 
 ///|
 /// A dependency between tasks: `task_id` depends on `depends_on_id`.
+#warnings("-unnecessary_annotation")
 pub(all) struct Dependency {
   task_id : Int
   depends_on_id : Int
@@ -67,6 +74,7 @@ pub(all) struct Dependency {
 
 ///|
 /// A label that can be attached to tasks.
+#warnings("-unnecessary_annotation")
 pub(all) struct Label {
   id : Int
   name : String
@@ -75,6 +83,7 @@ pub(all) struct Label {
 
 ///|
 /// Association between a task and a label.
+#warnings("-unnecessary_annotation")
 pub(all) struct TaskLabel {
   task_id : Int
   label_id : Int
@@ -82,6 +91,7 @@ pub(all) struct TaskLabel {
 
 ///|
 /// A checklist item belonging to a task.
+#warnings("-unnecessary_annotation")
 pub(all) struct Subtask {
   id : Int
   task_id : Int
@@ -92,6 +102,7 @@ pub(all) struct Subtask {
 ///|
 /// A recurrence rule for automatic task re-creation on completion.
 /// Interval is one of: "daily", "weekly", "monthly".
+#warnings("-unnecessary_annotation")
 pub(all) struct RecurrenceRule {
   task_id : Int
   interval : String
@@ -99,6 +110,7 @@ pub(all) struct RecurrenceRule {
 
 ///|
 /// A time tracking entry for a task.
+#warnings("-unnecessary_annotation")
 pub(all) struct TimeEntry {
   id : Int
   task_id : Int
@@ -109,6 +121,7 @@ pub(all) struct TimeEntry {
 
 ///|
 /// A URL-based attachment on a task.
+#warnings("-unnecessary_annotation")
 pub(all) struct Attachment {
   id : Int
   task_id : Int
@@ -118,6 +131,7 @@ pub(all) struct Attachment {
 
 ///|
 /// A project that groups related tasks.
+#warnings("-unnecessary_annotation")
 pub(all) struct Project {
   id : Int
   name : String
@@ -126,6 +140,7 @@ pub(all) struct Project {
 
 ///|
 /// Association between a task and a project.
+#warnings("-unnecessary_annotation")
 pub(all) struct TaskProject {
   task_id : Int
   project_id : Int
@@ -133,6 +148,7 @@ pub(all) struct TaskProject {
 
 ///|
 /// Full board state returned by `GET /api/board`.
+#warnings("-unnecessary_annotation")
 pub(all) struct Board {
   tasks : Array[Task]
   members : Array[Member]
