@@ -168,6 +168,138 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
 }
 
 ///|
+/// Renders an animated donut chart showing revenue share by product.
+fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
+  // Find Sales Dashboard sheet
+  let mut sheet = self.current_sheet()
+  for s in self.sheets {
+    if s.name == "Sales Dashboard" {
+      sheet = s
+      break
+    }
+  }
+  // Collect annual totals per product (column F, rows 2-6)
+  let products : Array[String] = []
+  let totals : Array[Double] = []
+  for r = 1; r < 6; r = r + 1 {
+    let name_cell = sheet.get(@cell.make_key(0, r))
+    let name = match name_cell.value {
+      Text(s) => s
+      _ => ""
+    }
+    if name == "" { continue }
+    products.push(name)
+    totals.push(get_num(sheet, 5, r)) // Column F = annual total
+  }
+  if products.is_empty() {
+    return @html.span("")
+  }
+  // Chart dimensions
+  let size = 220
+  let cx = size / 2
+  let cy = size / 2
+  let radius = 70
+  let stroke_w = 32
+  let colors = ["#4285f4", "#34a853", "#fbbc04", "#ea4335", "#9c27b0"]
+  // Compute total
+  let mut grand_total = 0.0
+  for t in totals {
+    grand_total = grand_total + t
+  }
+  if grand_total == 0.0 {
+    return @html.span("")
+  }
+  let circumference = 2.0 * 3.14159265 * radius.to_double()
+  let circ_int = circumference.to_int()
+  let elements : Array[@svg.Svg] = []
+  // Background ring
+  elements.push(
+    @svg.circle(
+      cx=cx, cy=cy, r=radius,
+      fill="none",
+      stroke="#f0f0f0",
+      stroke_width=stroke_w,
+    ),
+  )
+  // Donut segments
+  let mut offset_angle = -90.0 // start from top
+  for i = 0; i < products.length(); i = i + 1 {
+    let fraction = totals[i] / grand_total
+    let dash_len = (circumference * fraction).to_int()
+    let dash_off = (circumference - circumference * fraction).to_int()
+    let rotation = offset_angle
+    let delay = i * 150
+    let color_idx = i % colors.length()
+    elements.push(
+      @svg.circle(
+        cx=cx, cy=cy, r=radius,
+        fill="none",
+        stroke=colors[color_idx],
+        stroke_width=stroke_w,
+        style=[
+          "transform-origin: center",
+          "transform: rotate(\{rotation}deg)",
+          "--circumference: \{circ_int}",
+          "--dash-offset: \{dash_off}",
+          "animation: donutDraw 0.8s ease-out \{delay}ms both",
+        ],
+        attrs=@svg.Attrs::build()
+          .stroke_dasharray("\{dash_len} \{circ_int}")
+          .stroke_dashoffset("\{circ_int}"),
+      ),
+    )
+    offset_angle = offset_angle + fraction * 360.0
+  }
+  // Center text: grand total
+  let total_k = (grand_total / 1000.0 + 0.5).to_int()
+  elements.push(
+    @svg.svg_text(
+      x=cx,
+      y=cy - 6,
+      text="$\{total_k}k",
+      fill="#202124",
+      attrs=@svg.Attrs::build().font_size("16").font_weight("700").text_anchor("middle"),
+    ),
+  )
+  elements.push(
+    @svg.svg_text(
+      x=cx,
+      y=cy + 12,
+      text="Total",
+      fill="#5f6368",
+      attrs=@svg.Attrs::build().font_size("11").text_anchor("middle"),
+    ),
+  )
+  // Legend below chart
+  for i = 0; i < products.length(); i = i + 1 {
+    let lx = 10
+    let ly = size - 2 + i * 16
+    let color_idx = i % colors.length()
+    let pct = (totals[i] / grand_total * 100.0 + 0.5).to_int()
+    elements.push(
+      @svg.rect(x=lx, y=ly, width=10, height=10, fill=colors[color_idx], rx=2, ry=2),
+    )
+    elements.push(
+      @svg.svg_text(
+        x=lx + 14,
+        y=ly + 9,
+        text="\{products[i]} \{pct}%",
+        fill="#5f6368",
+        attrs=@svg.Attrs::build().font_size("10"),
+      ),
+    )
+  }
+  let total_h = size + products.length() * 16
+  @svg.svg(
+    width=size,
+    height=total_h,
+    view_box="0 0 \{size} \{total_h}",
+    style=["background: #fff", "border-radius: 8px"],
+    elements,
+  )
+}
+
+///|
 /// Renders a tiny sparkline SVG for a single row's Q1-Q4 data.
 fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let vals : Array[Double] = []

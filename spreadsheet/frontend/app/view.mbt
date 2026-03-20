@@ -15,11 +15,12 @@ pub fn Model::view(
       if self.show_chart {
         @html.div(
           style=[
-            "display: flex", "justify-content: center", "padding: 12px 16px",
+            "display: flex", "justify-content: center", "gap: 24px",
+            "padding: 12px 16px", "align-items: flex-start",
             "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
             "animation: chartSlideIn 0.4s ease-out",
           ],
-          [self.view_chart()],
+          [self.view_chart(), self.view_donut_chart()],
         )
       } else {
         @html.span("")

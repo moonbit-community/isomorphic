@@ -31,6 +31,10 @@
       0%, 100% { box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2); }
       50%      { box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.4); }
     }
+    @keyframes donutDraw {
+      from { stroke-dashoffset: var(--circumference); }
+      to   { stroke-dashoffset: var(--dash-offset); }
+    }
   </style>
 </head>
 <body>
