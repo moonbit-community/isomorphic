@@ -17,7 +17,12 @@ fn recalc(sheet : Sheet) -> Sheet {
           }
           cell.value
         })
-        new_cells[k] = { ..c, value }
+        // Keep existing value if re-evaluation fails (preserves cached xlsx results)
+        let final_value = match value {
+          Error(_) => match c.value { Empty => value; _ => c.value }
+          _ => value
+        }
+        new_cells[k] = { ..c, value: final_value }
       }
     })
   }
