@@ -110,6 +110,8 @@ fn Model::view_toolbar(
       // --- Color group ---
       view_color_palette(cell.bg_color, dispatch),
       view_separator(),
+      // --- Heat map toggle ---
+      toolbar_button("\u{2593}", self.heat_map, "font-size:14px", dispatch(ToggleHeatMap)),
       // --- Chart toggle ---
       toolbar_button("\u{2584}", self.show_chart, "font-size:14px", dispatch(ToggleChart)),
       view_separator(),
@@ -274,6 +276,91 @@ fn Model::view_formula_bar(
   )
 }
 
+// --- Heat Map ---
+
+///|
+/// Compute heat map color for a numeric value in range [min_val, max_val].
+/// Gradient: blue (#4285f4) → yellow (#fbbc04) → red (#ea4335)
+fn heat_color(value : Double, min_val : Double, max_val : Double) -> String {
+  if max_val <= min_val {
+    return ""
+  }
+  let t = (value - min_val) / (max_val - min_val) // 0.0 to 1.0
+  // Blue (#4285f4) → Yellow (#fbbc04) → Red (#ea4335)
+  let rgb : (Int, Int, Int) = if t < 0.5 {
+    let s = t * 2.0
+    (
+      (66.0 + (251.0 - 66.0) * s + 0.5).to_int(),
+      (133.0 + (188.0 - 133.0) * s + 0.5).to_int(),
+      (244.0 + (4.0 - 244.0) * s + 0.5).to_int(),
+    )
+  } else {
+    let s = (t - 0.5) * 2.0
+    (
+      (251.0 + (234.0 - 251.0) * s + 0.5).to_int(),
+      (188.0 + (67.0 - 188.0) * s + 0.5).to_int(),
+      (4.0 + (53.0 - 4.0) * s + 0.5).to_int(),
+    )
+  }
+  let (r, g, b) = rgb
+  fn to_hex(n : Int) -> String {
+    let clamped = if n < 0 { 0 } else if n > 255 { 255 } else { n }
+    let hi = clamped / 16
+    let lo = clamped % 16
+    fn hex_digit(d : Int) -> String {
+      match d {
+        0 => "0"
+        1 => "1"
+        2 => "2"
+        3 => "3"
+        4 => "4"
+        5 => "5"
+        6 => "6"
+        7 => "7"
+        8 => "8"
+        9 => "9"
+        10 => "a"
+        11 => "b"
+        12 => "c"
+        13 => "d"
+        14 => "e"
+        _ => "f"
+      }
+    }
+    "\{hex_digit(hi)}\{hex_digit(lo)}"
+  }
+  "#\{to_hex(r)}\{to_hex(g)}\{to_hex(b)}30" // 30 = ~19% alpha for subtle overlay
+}
+
+///|
+/// Collect min/max values from revenue cells (B2:E6, B8:E8) for heat map scaling.
+fn collect_heat_range(sheet : Sheet) -> (Double, Double) {
+  let mut min_val = 1.0e18
+  let mut max_val = -1.0e18
+  // Revenue data: rows 1-5 (B2:E6), totals row 7 (B8:E8)
+  let rows = [1, 2, 3, 4, 5, 7]
+  for r in rows {
+    for c = 1; c <= 4; c = c + 1 {
+      let key = @cell.make_key(c, r)
+      let cell = sheet.get(key)
+      match cell.value {
+        Num(n) => {
+          if n < min_val { min_val = n }
+          if n > max_val { max_val = n }
+        }
+        _ => ()
+      }
+    }
+  }
+  (min_val, max_val)
+}
+
+///|
+/// Check if a cell position is in the heat map region (B2:E6 or B8:E8).
+fn is_heat_cell(col : Int, row : Int) -> Bool {
+  col >= 1 && col <= 4 && ((row >= 1 && row <= 5) || row == 7)
+}
+
 // --- Grid ---
 
 ///|
@@ -296,6 +383,12 @@ fn Model::view_grid(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let sheet = self.current_sheet()
+  let is_sales = sheet.name == "Sales Dashboard"
+  let heat_range = if self.heat_map && is_sales {
+    Some(collect_heat_range(sheet))
+  } else {
+    None
+  }
   let col_w = "100px"
   let row_h = "28px"
   let header_w = "46px"
@@ -395,7 +488,21 @@ fn Model::view_grid(
         )
       } else {
         let display = cell.value.format_with(cell.format)
-        let cell_bg = if cell.bg_color != "" {
+        let heat_bg = match heat_range {
+          Some((min_v, max_v)) =>
+            if is_heat_cell(c, r) {
+              match cell.value {
+                Num(n) => heat_color(n, min_v, max_v)
+                _ => ""
+              }
+            } else {
+              ""
+            }
+          None => ""
+        }
+        let cell_bg = if heat_bg != "" {
+          heat_bg
+        } else if cell.bg_color != "" {
           cell.bg_color
         } else if is_selected {
           "#e8f0fe"

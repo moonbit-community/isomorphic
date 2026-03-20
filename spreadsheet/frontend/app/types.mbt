@@ -38,6 +38,7 @@ pub struct Model {
   editing : Bool
   edit_value : String
   show_chart : Bool
+  heat_map : Bool
 }
 
 ///|
@@ -64,6 +65,7 @@ pub(all) enum Msg {
   SetTextColor(String)
   ClearCell
   ToggleChart
+  ToggleHeatMap
 }
 
 ///|
@@ -82,6 +84,7 @@ pub fn Model::new() -> Model {
     editing: false,
     edit_value: "",
     show_chart: true,
+    heat_map: true,
   }
   // Recalculate all sheets so formulas are evaluated
   let sheets = model.sheets.copy()
