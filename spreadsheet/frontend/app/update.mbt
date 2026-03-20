@@ -101,6 +101,7 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       self.update_selected_cell(fn(c) { { ..c, bg_color: color } })
     SetTextColor(color) =>
       self.update_selected_cell(fn(c) { { ..c, text_color: color } })
+    ToggleChart => { ..self, show_chart: !self.show_chart }
     ClearCell => {
       let key = @cell.make_key(self.sel_col, self.sel_row)
       let sheet = self.current_sheet()
