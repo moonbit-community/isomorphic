@@ -5,9 +5,9 @@ pub fn Model::view(
 ) -> @rabbita.Html {
   @html.div(
     style=[
-      "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      "font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
       "height: 100vh", "display: flex", "flex-direction: column",
-      "background: #f0f0f0", "user-select: none",
+      "background: #f8f9fa", "user-select: none", "color: #202124",
     ],
     [
       self.view_toolbar(dispatch),
@@ -27,35 +27,110 @@ fn Model::view_toolbar(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let cell = self.selected_cell()
-  let bold_bg = if cell.bold { "#d0d0d0" } else { "#fff" }
+  let bold_active = cell.bold
   @html.div(
     style=[
-      "display: flex", "align-items: center", "gap: 8px", "padding: 4px 8px",
-      "background: #e8e8e8", "border-bottom: 1px solid #ccc",
+      "display: flex", "align-items: center", "gap: 2px", "padding: 6px 12px",
+      "background: linear-gradient(180deg, #f9fbfd 0%, #eef1f5 100%)",
+      "border-bottom: 1px solid #dadce0",
+      "min-height: 44px",
     ],
     [
-      @html.span(
-        style=["font-weight: bold", "font-size: 1.1em", "margin-right: 12px"],
-        "Spreadsheet",
-      ),
-      @html.button(
+      // App icon + title
+      @html.div(
         style=[
-          "font-weight: bold", "width: 28px", "height: 28px",
-          "background: \{bold_bg}", "border: 1px solid #aaa",
-          "border-radius: 3px", "cursor: pointer",
+          "display: flex", "align-items: center", "gap: 8px",
+          "margin-right: 16px",
         ],
-        on_click=dispatch(ToggleBold),
+        [
+          @html.div(
+            style=[
+              "width: 28px", "height: 28px", "border-radius: 4px",
+              "background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%)",
+              "display: flex", "align-items: center", "justify-content: center",
+              "color: white", "font-weight: 600", "font-size: 14px",
+              "box-shadow: 0 1px 3px rgba(15, 157, 88, 0.3)",
+            ],
+            "\u{229E}",
+          ),
+          @html.span(
+            style=[
+              "font-weight: 600", "font-size: 15px", "color: #202124",
+              "letter-spacing: -0.3px",
+            ],
+            "MoonBit Sheets",
+          ),
+        ],
+      ),
+      // Separator
+      view_separator(),
+      // Bold button
+      toolbar_button(
         "B",
+        bold_active,
+        "font-weight: 700; font-size: 13px; font-family: serif",
+        dispatch(ToggleBold),
       ),
-      @html.button(
-        style=[
-          "height: 28px", "padding: 0 10px", "border: 1px solid #aaa",
-          "border-radius: 3px", "cursor: pointer", "background: #fff",
-        ],
-        on_click=dispatch(ClearCell),
+      // Clear button
+      toolbar_button_text(
         "Clear",
+        false,
+        dispatch(ClearCell),
       ),
     ],
+  )
+}
+
+///|
+fn view_separator() -> @rabbita.Html {
+  @html.div(
+    style=[
+      "width: 1px", "height: 24px", "background: #dadce0", "margin: 0 6px",
+    ],
+    "",
+  )
+}
+
+///|
+fn toolbar_button(
+  label : String,
+  active : Bool,
+  extra_style : String,
+  action : @rabbita.Cmd,
+) -> @rabbita.Html {
+  let bg = if active {
+    "background: #d2e3fc; border-color: #a8c7fa"
+  } else {
+    "background: transparent; border-color: transparent"
+  }
+  @html.button(
+    style=[
+      "width: 32px", "height: 32px", "display: flex", "align-items: center",
+      "justify-content: center", "border-radius: 4px", "cursor: pointer",
+      "border: 1px solid transparent", "transition: all 0.15s ease",
+      bg, extra_style,
+    ],
+    on_click=action,
+    label,
+  )
+}
+
+///|
+fn toolbar_button_text(
+  label : String,
+  _active : Bool,
+  action : @rabbita.Cmd,
+) -> @rabbita.Html {
+  @html.button(
+    style=[
+      "height: 32px", "padding: 0 12px", "display: flex", "align-items: center",
+      "justify-content: center", "border-radius: 4px", "cursor: pointer",
+      "border: 1px solid transparent", "transition: all 0.15s ease",
+      "background: transparent", "font-size: 12px", "color: #444746",
+      "font-weight: 500",
+    ],
+    on_click=action,
+    label,
   )
 }
 
@@ -72,29 +147,38 @@ fn Model::view_formula_bar(
   @html.div(
     style=[
       "display: flex", "align-items: center", "padding: 4px 8px",
-      "background: #fff", "border-bottom: 1px solid #ccc",
+      "background: #fff", "border-bottom: 1px solid #e0e0e0",
+      "min-height: 36px",
     ],
     [
-      @html.span(
+      // Cell name box
+      @html.div(
         style=[
-          "display: inline-block", "width: 50px", "text-align: center",
-          "font-weight: bold", "font-size: 0.9em", "color: #555",
-          "border-right: 1px solid #ccc", "margin-right: 8px", "padding-right: 8px",
+          "min-width: 64px", "height: 28px", "text-align: center",
+          "font-weight: 500", "font-size: 13px", "color: #202124",
+          "border: 1px solid #dadce0", "border-radius: 4px",
+          "display: flex", "align-items: center", "justify-content: center",
+          "margin-right: 8px", "background: #f8f9fa",
+          "padding: 0 8px",
         ],
         cell_name,
       ),
+      // fx icon
       @html.span(
         style=[
-          "font-style: italic", "font-size: 0.85em", "color: #888",
-          "margin-right: 8px",
+          "font-size: 13px", "color: #70757a", "margin-right: 8px",
+          "font-style: italic", "font-weight: 500",
         ],
         "fx",
       ),
+      // Formula input
       @html.input(
         input_type=Text,
         style=[
-          "flex: 1", "border: 1px solid #ddd", "padding: 4px 8px",
-          "font-size: 0.9em", "font-family: monospace", "outline: none",
+          "flex: 1", "border: 1px solid #dadce0", "padding: 4px 10px",
+          "font-size: 13px", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace",
+          "border-radius: 4px", "height: 28px", "color: #202124",
+          "transition: border-color 0.15s ease",
         ],
         value=display_value,
         on_input=(value) => dispatch(UpdateEdit(value)),
@@ -113,9 +197,9 @@ fn Model::view_grid(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let sheet = self.current_sheet()
-  let col_w = "80px"
-  let row_h = "26px"
-  let header_w = "40px"
+  let col_w = "100px"
+  let row_h = "28px"
+  let header_w = "46px"
   let cols_template = "\{header_w} " + Array::make(num_cols, col_w).join(" ")
   let rows : Array[@rabbita.Html] = []
 
@@ -124,8 +208,8 @@ fn Model::view_grid(
   header_cells.push(
     @html.div(
       style=[
-        "background: #e8e8e8", "border-bottom: 1px solid #bbb",
-        "border-right: 1px solid #bbb", "display: flex",
+        "background: #f8f9fa", "border-bottom: 1px solid #c7c7c7",
+        "border-right: 1px solid #c7c7c7", "display: flex",
         "align-items: center", "justify-content: center",
       ],
       "",
@@ -133,14 +217,21 @@ fn Model::view_grid(
   )
   for c = 0; c < num_cols; c = c + 1 {
     let is_sel_col = c == self.sel_col
-    let bg = if is_sel_col { "#d0e0ff" } else { "#e8e8e8" }
+    let bg = if is_sel_col {
+      "#d3e3fd"
+    } else {
+      "#f8f9fa"
+    }
+    let fw = if is_sel_col { "600" } else { "500" }
+    let color = if is_sel_col { "#1a73e8" } else { "#444746" }
     header_cells.push(
       @html.div(
         style=[
-          "background: \{bg}", "border-bottom: 1px solid #bbb",
-          "border-right: 1px solid #ddd", "display: flex",
+          "background: \{bg}", "border-bottom: 1px solid #c7c7c7",
+          "border-right: 1px solid #e0e0e0", "display: flex",
           "align-items: center", "justify-content: center",
-          "font-size: 0.8em", "font-weight: bold", "color: #555",
+          "font-size: 12px", "font-weight: \{fw}", "color: \{color}",
+          "transition: background 0.1s ease",
         ],
         @cell.col_to_letter(c),
       ),
@@ -150,7 +241,7 @@ fn Model::view_grid(
     @html.div(
       style=[
         "display: grid", "grid-template-columns: \{cols_template}",
-        "height: \{row_h}",
+        "height: \{row_h}", "position: sticky", "top: 0", "z-index: 2",
       ],
       header_cells,
     ),
@@ -160,15 +251,19 @@ fn Model::view_grid(
   for r = 0; r < num_rows; r = r + 1 {
     let row_cells : Array[@rabbita.Html] = []
     let is_sel_row = r == self.sel_row
-    let row_bg = if is_sel_row { "#d0e0ff" } else { "#e8e8e8" }
+    let row_bg = if is_sel_row { "#d3e3fd" } else { "#f8f9fa" }
+    let row_fw = if is_sel_row { "600" } else { "400" }
+    let row_color = if is_sel_row { "#1a73e8" } else { "#444746" }
     // Row header
     row_cells.push(
       @html.div(
         style=[
-          "background: \{row_bg}", "border-right: 1px solid #bbb",
-          "border-bottom: 1px solid #ddd", "display: flex",
+          "background: \{row_bg}", "border-right: 1px solid #c7c7c7",
+          "border-bottom: 1px solid #e0e0e0", "display: flex",
           "align-items: center", "justify-content: center",
-          "font-size: 0.8em", "color: #555",
+          "font-size: 12px", "color: \{row_color}", "font-weight: \{row_fw}",
+          "position: sticky", "left: 0", "z-index: 1",
+          "transition: background 0.1s ease",
         ],
         (r + 1).to_string(),
       ),
@@ -186,9 +281,11 @@ fn Model::view_grid(
           @html.input(
             input_type=Text,
             style=[
-              "border: 2px solid #4f46e5", "outline: none", "padding: 0 4px",
-              "font-size: 0.85em", "font-family: monospace",
+              "border: 2px solid #1a73e8", "outline: none", "padding: 0 6px",
+              "font-size: 13px", "font-family: 'Inter', sans-serif",
               "box-sizing: border-box", "width: 100%", "height: 100%",
+              "background: #fff",
+              "box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15)",
             ],
             value=self.edit_value,
             on_input=(value) => dispatch(UpdateEdit(value)),
@@ -198,25 +295,39 @@ fn Model::view_grid(
         )
       } else {
         let display = cell.value.to_display()
-        let bg = if is_selected { "#e8f0ff" } else { "#fff" }
+        let bg = if is_selected { "#e8f0fe" } else { "#fff" }
         let border = if is_selected {
-          "2px solid #4f46e5"
+          "2px solid #1a73e8"
         } else {
           "1px solid #e0e0e0"
         }
-        let weight = if cell.bold { "bold" } else { "normal" }
+        let weight = if cell.bold { "600" } else { "400" }
         let is_error = match cell.value {
           Error(_) => true
           _ => false
         }
-        let color = if is_error { "#d00" } else { "#333" }
+        let is_num = match cell.value {
+          Num(_) => true
+          _ => false
+        }
+        let color = if is_error { "#d93025" } else { "#202124" }
+        let text_align = if is_num { "right" } else { "left" }
+        let justify = if is_num { "flex-end" } else { "flex-start" }
+        let shadow = if is_selected {
+          "box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2)"
+        } else {
+          ""
+        }
         row_cells.push(
           @html.div(
             style=[
-              "background: \{bg}", "border: \{border}", "padding: 0 4px",
-              "display: flex", "align-items: center", "font-size: 0.85em",
+              "background: \{bg}", "border: \{border}", "padding: 0 6px",
+              "display: flex", "align-items: center", "font-size: 13px",
               "overflow: hidden", "white-space: nowrap", "cursor: cell",
               "font-weight: \{weight}", "color: \{color}", "box-sizing: border-box",
+              "text-align: \{text_align}", "justify-content: \{justify}",
+              "transition: background 0.1s ease",
+              shadow,
             ],
             on_click=dispatch(SelectCell(col, row)),
             display,
@@ -236,7 +347,9 @@ fn Model::view_grid(
   }
 
   @html.div(
-    style=["flex: 1", "overflow: auto", "background: #fff", "outline: none"],
+    style=[
+      "flex: 1", "overflow: auto", "background: #fff", "outline: none",
+    ],
     on_keydown=(kb) => {
       let key = kb.key()
       if key == "ArrowUp" {
@@ -277,19 +390,23 @@ fn Model::view_sheet_tabs(
   for i = 0; i < self.sheets.length(); i = i + 1 {
     let sheet = self.sheets[i]
     let is_active = i == self.active_sheet
-    let bg = if is_active { "#fff" } else { "#ddd" }
-    let border_top = if is_active {
-      "2px solid #4f46e5"
+    let bg = if is_active { "#fff" } else { "#f0f0f0" }
+    let border_bottom = if is_active {
+      "3px solid #1a73e8"
     } else {
-      "2px solid transparent"
+      "3px solid transparent"
     }
+    let fw = if is_active { "500" } else { "400" }
+    let color = if is_active { "#1a73e8" } else { "#5f6368" }
     let idx = i
     tabs.push(
       @html.div(
         style=[
-          "padding: 6px 16px", "cursor: pointer", "background: \{bg}",
-          "border-top: \{border_top}", "border-right: 1px solid #ccc",
-          "font-size: 0.85em", "display: flex", "align-items: center", "gap: 6px",
+          "padding: 8px 16px", "cursor: pointer", "background: \{bg}",
+          "border-bottom: \{border_bottom}", "border-right: 1px solid #dadce0",
+          "font-size: 13px", "display: flex", "align-items: center", "gap: 8px",
+          "font-weight: \{fw}", "color: \{color}",
+          "transition: all 0.15s ease",
         ],
         on_click=dispatch(SelectSheet(idx)),
         [
@@ -297,8 +414,10 @@ fn Model::view_sheet_tabs(
           if self.sheets.length() > 1 {
             @html.button(
               style=[
-                "color: #999", "font-size: 0.8em", "cursor: pointer",
-                "background: none", "border: none", "padding: 0",
+                "color: #9aa0a6", "font-size: 11px", "cursor: pointer",
+                "background: none", "border: none", "padding: 2px 4px",
+                "border-radius: 50%", "line-height: 1",
+                "transition: all 0.15s ease",
               ],
               on_click=dispatch(DeleteSheet(idx)),
               "\u{2715}",
@@ -313,8 +432,9 @@ fn Model::view_sheet_tabs(
   tabs.push(
     @html.div(
       style=[
-        "padding: 6px 12px", "cursor: pointer", "color: #666",
-        "font-size: 1.1em", "display: flex", "align-items: center",
+        "padding: 8px 14px", "cursor: pointer", "color: #5f6368",
+        "font-size: 18px", "display: flex", "align-items: center",
+        "transition: color 0.15s ease", "font-weight: 300",
       ],
       on_click=dispatch(AddSheet),
       "+",
@@ -322,7 +442,8 @@ fn Model::view_sheet_tabs(
   )
   @html.div(
     style=[
-      "display: flex", "background: #e0e0e0", "border-top: 1px solid #ccc",
+      "display: flex", "background: #f0f0f0", "border-top: 1px solid #dadce0",
+      "min-height: 38px",
     ],
     tabs,
   )
@@ -345,8 +466,8 @@ fn Model::view_status_bar(self : Model) -> @rabbita.Html {
   @html.div(
     style=[
       "display: flex", "justify-content: space-between", "padding: 4px 12px",
-      "background: #e8e8e8", "border-top: 1px solid #ccc", "font-size: 0.8em",
-      "color: #666",
+      "background: #f8f9fa", "border-top: 1px solid #dadce0", "font-size: 12px",
+      "color: #5f6368", "min-height: 28px", "align-items: center",
     ],
     [
       @html.span(
