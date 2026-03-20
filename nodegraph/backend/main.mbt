@@ -1,22 +1,13 @@
 ///|
 fn main raise {
   guard @argparse.parse(
-      Command(
-        "nodegraph-server",
-        about="Visual Dataflow Editor backend",
-        options=[
-          OptionArg(
-            "port",
-            short='p',
-            long="port",
-            about="Port to listen on",
-            default_values=["4008"],
-          ),
-        ],
-      ),
+      Command("nodegraph-server", about="Visual Dataflow Editor backend", options=[
+        OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
+          "4008",
+        ]),
+      ]),
     )
-    is { values: { "port": [port], .. }, .. }
-  else {
+    is { values: { "port": [port], .. }, .. } else {
     println("Failed to parse arguments")
     return
   }
@@ -74,9 +65,7 @@ fn main raise {
   })
   // ── Graphs CRUD ─────────────────────────────────────────────────
   ..get(@shared.api_graphs, _ => {
-    try {
-      @mocket.HttpResponse::new(OK).json(get_all_graphs(conn))
-    } catch {
+    @mocket.HttpResponse::new(OK).json(get_all_graphs(conn)) catch {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
     }
   })
@@ -85,8 +74,7 @@ fn main raise {
       let json : Json = event.req.body()
       let name = match json {
         { "name": String(n), .. } => n
-        _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing name")
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing name")
       }
       if !@shared.validate_graph_name(name) {
         return @mocket.HttpResponse::new(BadRequest).body("Invalid name")
@@ -98,9 +86,7 @@ fn main raise {
   })
   ..get("\{@shared.api_graphs}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(
-        event.params.get("id").unwrap().to_string(),
-      )
+      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
       @mocket.HttpResponse::new(OK).json(get_graph(conn, id))
     } catch {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
@@ -108,9 +94,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_graphs}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(
-        event.params.get("id").unwrap().to_string(),
-      )
+      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
       delete_graph(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -129,8 +113,7 @@ fn main raise {
           (k, l, c)
         { "kind": String(k), .. } =>
           (k, @shared.node_label(@shared.kind_from_string(k)), "")
-        _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing kind")
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing kind")
       }
       let node = create_node_in_graph(conn, graph_id, kind, label, config)
       @mocket.HttpResponse::new(Created).json(node)
@@ -143,17 +126,12 @@ fn main raise {
       let _gid = @strconv.parse_int(
         event.params.get("gid").unwrap().to_string(),
       )
-      let nid = @strconv.parse_int(
-        event.params.get("nid").unwrap().to_string(),
-      )
+      let nid = @strconv.parse_int(event.params.get("nid").unwrap().to_string())
       let json : Json = event.req.body()
       let (config, label) = match json {
         { "config": String(c), "label": String(l), .. } => (c, l)
         { "config": String(c), .. } => (c, "")
-        _ =>
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing config",
-          )
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing config")
       }
       update_node_config(conn, nid, config, label)
       @mocket.HttpResponse::new(OK).json({ "ok": true })
@@ -166,9 +144,7 @@ fn main raise {
       let _gid = @strconv.parse_int(
         event.params.get("gid").unwrap().to_string(),
       )
-      let nid = @strconv.parse_int(
-        event.params.get("nid").unwrap().to_string(),
-      )
+      let nid = @strconv.parse_int(event.params.get("nid").unwrap().to_string())
       delete_node(conn, nid)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -190,12 +166,13 @@ fn main raise {
           "to_port": Number(tp, ..),
           ..
         } => (fn_id.to_int(), fp.to_int(), tn_id.to_int(), tp.to_int())
-        _ =>
-          return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
+        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
       }
       // Server-side validation using shared logic
       let graph = get_graph(conn, graph_id)
-      if @shared.validate_connection(graph, from_node, from_port, to_node, to_port)
+      if @shared.validate_connection(
+          graph, from_node, from_port, to_node, to_port,
+        )
         is Some(err) {
         return @mocket.HttpResponse::new(BadRequest).body(err)
       }
@@ -207,29 +184,22 @@ fn main raise {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
     }
   })
-  ..delete(
-    "\{@shared.api_graphs}/:gid/connections/:cid",
-    fn(event) noraise {
-      try {
-        let _gid = @strconv.parse_int(
-          event.params.get("gid").unwrap().to_string(),
-        )
-        let cid = @strconv.parse_int(
-          event.params.get("cid").unwrap().to_string(),
-        )
-        delete_connection(conn, cid)
-        @mocket.HttpResponse::new(NoContent)
-      } catch {
-        e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
-      }
-    },
-  )
+  ..delete("\{@shared.api_graphs}/:gid/connections/:cid", fn(event) noraise {
+    try {
+      let _gid = @strconv.parse_int(
+        event.params.get("gid").unwrap().to_string(),
+      )
+      let cid = @strconv.parse_int(event.params.get("cid").unwrap().to_string())
+      delete_connection(conn, cid)
+      @mocket.HttpResponse::new(NoContent)
+    } catch {
+      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+    }
+  })
   // ── Evaluate ────────────────────────────────────────────────────
   .post("\{@shared.api_graphs}/:id/evaluate", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(
-        event.params.get("id").unwrap().to_string(),
-      )
+      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
       let graph = get_graph(conn, id)
       let result = @shared.evaluate_graph(graph.nodes, graph.connections)
       @mocket.HttpResponse::new(OK).json(result)

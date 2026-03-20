@@ -20,11 +20,12 @@
 ///   self.calendar.selected  // Option[Date]
 /// ```
 
+///|
 /// A simple date representation.
 pub(all) struct Date {
   year : Int
   month : Int // 1-12
-  day : Int   // 1-31
+  day : Int // 1-31
 } derive(Eq)
 
 ///|
@@ -34,11 +35,7 @@ pub fn Date::to_string(self : Date) -> String {
   } else {
     self.month.to_string()
   }
-  let d = if self.day < 10 {
-    "0\{self.day}"
-  } else {
-    self.day.to_string()
-  }
+  let d = if self.day < 10 { "0\{self.day}" } else { self.day.to_string() }
   "\{self.year}-\{m}-\{d}"
 }
 
@@ -54,7 +51,7 @@ pub struct Model {
 pub(all) enum Msg {
   PrevMonth
   NextMonth
-  SelectDay(Int)     // day number clicked
+  SelectDay(Int) // day number clicked
   Clear
 }
 
@@ -118,7 +115,7 @@ fn day_of_week(year : Int, month : Int, day : Int) -> Int {
   let q = day
   let k = y % 100
   let j = y / 100
-  let h = (q + (13 * (m + 1)) / 5 + k + k / 4 + j / 4 - 2 * j) % 7
+  let h = (q + 13 * (m + 1) / 5 + k + k / 4 + j / 4 - 2 * j) % 7
   // h: 0=Sat, 1=Sun, 2=Mon, ... convert to 0=Sun
   ((h + 6) % 7 + 7) % 7
 }
@@ -174,8 +171,13 @@ pub fn Model::view(
     cells.push(
       @html.div(
         style=[
-          "padding: 8px", "text-align: center", "cursor: pointer", "border-radius: 6px",
-          "background: \{bg}", "color: \{color}", "font-weight: \{weight}",
+          "padding: 8px",
+          "text-align: center",
+          "cursor: pointer",
+          "border-radius: 6px",
+          "background: \{bg}",
+          "color: \{color}",
+          "font-weight: \{weight}",
           "transition: background 0.15s",
         ],
         on_click=dispatch(SelectDay(day)),
@@ -192,8 +194,8 @@ pub fn Model::view(
 
   @html.div(
     style=[
-      "border: 1px solid #ccc", "border-radius: 8px", "padding: 16px",
-      "min-width: 280px", "max-width: 320px", "font-family: system-ui, sans-serif",
+      "border: 1px solid #ccc", "border-radius: 8px", "padding: 16px", "min-width: 280px",
+      "max-width: 320px", "font-family: system-ui, sans-serif",
     ],
     [
       // Header: < Month Year >
@@ -214,12 +216,12 @@ pub fn Model::view(
       // Day-of-week headers
       @html.div(
         style=[
-          "display: grid", "grid-template-columns: repeat(7, 1fr)",
-          "text-align: center", "font-size: 0.85em", "color: #888", "margin-bottom: 4px",
+          "display: grid", "grid-template-columns: repeat(7, 1fr)", "text-align: center",
+          "font-size: 0.85em", "color: #888", "margin-bottom: 4px",
         ],
-        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
-          (d) => @html.div(style=["padding: 4px"], d),
-        ),
+        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => {
+          @html.div(style=["padding: 4px"], d)
+        }),
       ),
       // Day grid
       @html.div(

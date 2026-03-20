@@ -96,28 +96,29 @@ fn MixerModel::view(
 ) -> @rabbita.Html {
   @html.div(
     style=[
-      "background: #121212", "padding: 16px", "border-radius: 8px",
-      "border: 1px solid #333",
+      "background: #121212", "padding: 16px", "border-radius: 8px", "border: 1px solid #333",
     ],
     [
       // Header
       @html.div(
         style=[
-          "display: flex", "align-items: center", "gap: 8px",
-          "margin-bottom: 12px",
+          "display: flex", "align-items: center", "gap: 8px", "margin-bottom: 12px",
         ],
         [
           @html.div(
             style=[
-              "font-weight: bold", "color: #fff", "font-size: 0.95em",
-              "letter-spacing: 1px",
+              "font-weight: bold", "color: #fff", "font-size: 0.95em", "letter-spacing: 1px",
             ],
             "MIXER",
           ),
           @html.button(
             style=[
-              "padding: 3px 10px", "font-size: 0.7em", "border: none",
-              "border-radius: 3px", "cursor: pointer", "letter-spacing: 0.5px",
+              "padding: 3px 10px",
+              "font-size: 0.7em",
+              "border: none",
+              "border-radius: 3px",
+              "cursor: pointer",
+              "letter-spacing: 0.5px",
               if self.link {
                 "background: #FF5722; color: #fff"
               } else {
@@ -125,15 +126,18 @@ fn MixerModel::view(
               },
             ],
             on_click=dispatch(ToggleLink),
-            if self.link { "LINK: ON" } else { "LINK: OFF" },
+            if self.link {
+              "LINK: ON"
+            } else {
+              "LINK: OFF"
+            },
           ),
         ],
       ),
       // Channels + Master
       @html.div(
         style=[
-          "display: flex", "gap: 8px", "align-items: flex-start",
-          "overflow-x: auto",
+          "display: flex", "gap: 8px", "align-items: flex-start", "overflow-x: auto",
         ],
         [
           self.ch1.view(
@@ -165,9 +169,8 @@ fn MixerModel::view(
             [
               @html.div(
                 style=[
-                  "text-align: center", "font-weight: bold", "color: #FFD700",
-                  "font-size: 0.8em", "margin-bottom: 6px",
-                  "border-bottom: 1px solid #444", "padding-bottom: 4px",
+                  "text-align: center", "font-weight: bold", "color: #FFD700", "font-size: 0.8em",
+                  "margin-bottom: 6px", "border-bottom: 1px solid #444", "padding-bottom: 4px",
                   "letter-spacing: 1px",
                 ],
                 "MASTER",

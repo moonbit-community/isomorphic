@@ -211,9 +211,7 @@ fn delete_graph(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   // Cascade: delete connections, nodes, then graph
-  let s1 = conn.prepare(
-    "DELETE FROM connections WHERE graph_id = ?",
-  )
+  let s1 = conn.prepare("DELETE FROM connections WHERE graph_id = ?")
   s1.bind(index=1, val=id)
   s1.step_once()
   s1.finalize()
@@ -237,14 +235,7 @@ fn create_node_in_graph(
 ) -> @shared.Node raise @sqlite3.SqliteError {
   insert_node(conn, graph_id, kind, 0, 0, label, config)
   let id = last_id(conn)
-  {
-    id,
-    kind: @shared.kind_from_string(kind),
-    x: 0,
-    y: 0,
-    label,
-    config,
-  }
+  { id, kind: @shared.kind_from_string(kind), x: 0, y: 0, label, config }
 }
 
 ///|
@@ -254,9 +245,7 @@ fn update_node_config(
   config : String,
   label : String,
 ) -> Unit raise @sqlite3.SqliteError {
-  let s = conn.prepare(
-    "UPDATE nodes SET config = ?, label = ? WHERE id = ?",
-  )
+  let s = conn.prepare("UPDATE nodes SET config = ?, label = ? WHERE id = ?")
   s.bind_string_as_blob(index=1, val=config)
   s.bind_string_as_blob(index=2, val=label)
   s.bind(index=3, val=node_id)

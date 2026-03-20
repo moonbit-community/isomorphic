@@ -5,9 +5,9 @@
 ///   - Multiple sheets with independent cell grids
 ///   - Cell selection + editing state
 ///   - Formula evaluation across the entire sheet
+pub let num_cols : Int = 26 // A-Z
 
-pub let num_cols : Int = 26  // A-Z
-
+///|
 pub let num_rows : Int = 30
 
 ///|
@@ -45,10 +45,10 @@ pub struct Model {
 pub(all) enum Msg {
   // Navigation
   SelectCell(Int, Int)
-  MoveSelection(Int, Int)  // delta col, delta row
+  MoveSelection(Int, Int) // delta col, delta row
   // Editing
   StartEdit
-  StartEditWith(String)  // start editing with initial character
+  StartEditWith(String) // start editing with initial character
   UpdateEdit(String)
   CommitEdit
   CancelEdit
@@ -94,15 +94,21 @@ pub fn Model::new() -> Model {
   let sheets = model.sheets.copy()
   sheets[0] = recalc(sheets[0])
   sheets[1] = recalc(sheets[1])
-  { ..model, sheets }
+  { ..model, sheets, }
 }
 
 ///|
 fn set_cell(sheet : Sheet, key : String, raw : String) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
   sheet.cells[key] = {
-    raw, value, bold: false, italic: false,
-    align: Auto, format: General, bg_color: "", text_color: "",
+    raw,
+    value,
+    bold: false,
+    italic: false,
+    align: Auto,
+    format: General,
+    bg_color: "",
+    text_color: "",
   }
 }
 
@@ -110,8 +116,14 @@ fn set_cell(sheet : Sheet, key : String, raw : String) -> Unit {
 fn set_cell_bold(sheet : Sheet, key : String, raw : String) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
   sheet.cells[key] = {
-    raw, value, bold: true, italic: false,
-    align: Auto, format: General, bg_color: "", text_color: "",
+    raw,
+    value,
+    bold: true,
+    italic: false,
+    align: Auto,
+    format: General,
+    bg_color: "",
+    text_color: "",
   }
 }
 
@@ -128,8 +140,14 @@ fn set_styled(
 ) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
   sheet.cells[key] = {
-    raw, value, bold, italic: false,
-    align, format, bg_color, text_color,
+    raw,
+    value,
+    bold,
+    italic: false,
+    align,
+    format,
+    bg_color,
+    text_color,
   }
 }
 
@@ -175,7 +193,16 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E2", "58900")
   set_currency_bold(sheet, "F2", "=SUM(B2:E2)", "")
   set_currency(sheet, "G2", "=AVG(B2:E2)")
-  set_styled(sheet, "H2", "=IF(E2>B2, \"Up\", \"Down\")", false, Center, General, "", "")
+  set_styled(
+    sheet,
+    "H2",
+    "=IF(E2>B2, \"Up\", \"Down\")",
+    false,
+    Center,
+    General,
+    "",
+    "",
+  )
 
   set_cell(sheet, "A3", "Gadget X")
   set_currency(sheet, "B3", "32100")
@@ -184,7 +211,16 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E3", "44800")
   set_currency_bold(sheet, "F3", "=SUM(B3:E3)", "")
   set_currency(sheet, "G3", "=AVG(B3:E3)")
-  set_styled(sheet, "H3", "=IF(E3>B3, \"Up\", \"Down\")", false, Center, General, "", "")
+  set_styled(
+    sheet,
+    "H3",
+    "=IF(E3>B3, \"Up\", \"Down\")",
+    false,
+    Center,
+    General,
+    "",
+    "",
+  )
 
   set_cell(sheet, "A4", "Device Z")
   set_currency(sheet, "B4", "67800")
@@ -193,7 +229,16 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E4", "85200")
   set_currency_bold(sheet, "F4", "=SUM(B4:E4)", "")
   set_currency(sheet, "G4", "=AVG(B4:E4)")
-  set_styled(sheet, "H4", "=IF(E4>B4, \"Up\", \"Down\")", false, Center, General, "", "")
+  set_styled(
+    sheet,
+    "H4",
+    "=IF(E4>B4, \"Up\", \"Down\")",
+    false,
+    Center,
+    General,
+    "",
+    "",
+  )
 
   set_cell(sheet, "A5", "Service Plus")
   set_currency(sheet, "B5", "28900")
@@ -202,7 +247,16 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E5", "39100")
   set_currency_bold(sheet, "F5", "=SUM(B5:E5)", "")
   set_currency(sheet, "G5", "=AVG(B5:E5)")
-  set_styled(sheet, "H5", "=IF(E5>B5, \"Up\", \"Down\")", false, Center, General, "", "")
+  set_styled(
+    sheet,
+    "H5",
+    "=IF(E5>B5, \"Up\", \"Down\")",
+    false,
+    Center,
+    General,
+    "",
+    "",
+  )
 
   set_cell(sheet, "A6", "Cloud Suite")
   set_currency(sheet, "B6", "89500")
@@ -211,7 +265,16 @@ fn populate_sales_dashboard(sheet : Sheet) -> Unit {
   set_currency(sheet, "E6", "115600")
   set_currency_bold(sheet, "F6", "=SUM(B6:E6)", "")
   set_currency(sheet, "G6", "=AVG(B6:E6)")
-  set_styled(sheet, "H6", "=IF(E6>B6, \"Up\", \"Down\")", false, Center, General, "", "")
+  set_styled(
+    sheet,
+    "H6",
+    "=IF(E6>B6, \"Up\", \"Down\")",
+    false,
+    Center,
+    General,
+    "",
+    "",
+  )
 
   // Totals row — highlighted with green background
   let tot = "#e8f5e9"

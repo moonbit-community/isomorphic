@@ -54,12 +54,12 @@ fn RangeModel::view(
       @html.div([
         @html.h4("Start Date"),
         // Reuse calendar component — just map dispatch
-        self.start_cal.view((msg) => dispatch(Start(msg))),
+        self.start_cal.view(msg => dispatch(Start(msg))),
       ]),
       @html.div([
         @html.h4("End Date"),
         // Same component, second instance
-        self.end_cal.view((msg) => dispatch(End(msg))),
+        self.end_cal.view(msg => dispatch(End(msg))),
       ]),
     ]),
     @html.div(

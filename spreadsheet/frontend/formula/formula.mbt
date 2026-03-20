@@ -12,6 +12,7 @@
 ///   - Comparison: >, <, >=, <=, = (within IF conditions)
 ///   - String: CONCAT, LEN, UPPER, LOWER
 
+///|
 /// Extract all cell references from a formula string.
 /// Returns individual cell keys like ["B2", "C2", "D2", "E2"] with ranges expanded.
 pub fn extract_references(raw : String) -> Array[String] {
@@ -66,12 +67,10 @@ pub fn extract_references(raw : String) -> Array[String] {
   refs
 }
 
+///|
 /// Evaluate a raw cell string. If it starts with '=', parse as formula.
 /// Otherwise try to parse as number, or treat as text.
-pub fn evaluate(
-  raw : String,
-  lookup : (String) -> @cell.Value,
-) -> @cell.Value {
+pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
   let trimmed = raw.trim()
   if trimmed.is_empty() {
     return @cell.Value::Empty
@@ -112,9 +111,9 @@ fn parse_and_eval(
 ///|
 priv enum Token {
   TNum(Double)
-  TRef(String)      // cell reference like "A1"
-  TFunc(String)     // function name like "SUM"
-  TStr(String)      // string literal "hello"
+  TRef(String) // cell reference like "A1"
+  TFunc(String) // function name like "SUM"
+  TStr(String) // string literal "hello"
   TPlus
   TMinus
   TMul
@@ -123,11 +122,11 @@ priv enum Token {
   TRParen
   TColon
   TComma
-  TGt           // >
-  TLt           // <
-  TGte          // >=
-  TLte          // <=
-  TEq           // = (comparison, not assignment)
+  TGt // >
+  TLt // <
+  TGte // >=
+  TLte // <=
+  TEq // = (comparison, not assignment)
 }
 
 ///|
@@ -163,25 +162,35 @@ fn tokenize(s : String) -> Array[Token] {
         true
       } else {
         match tokens[tokens.length() - 1] {
-          TPlus | TMinus | TMul | TDiv | TLParen | TComma | TGt | TLt |
-          TGte | TLte | TEq =>
-            true
+          TPlus
+          | TMinus
+          | TMul
+          | TDiv
+          | TLParen
+          | TComma
+          | TGt
+          | TLt
+          | TGte
+          | TLte
+          | TEq => true
           _ => false
         }
       }
-      if prev_is_op && i + 1 < len && (chars[i + 1] >= '0' && chars[i + 1] <= '9') {
+      if prev_is_op && i + 1 < len && chars[i + 1] >= '0' && chars[i + 1] <= '9' {
         let start = i
         i = i + 1
-        while i < len && ((chars[i] >= '0' && chars[i] <= '9') || chars[i] == '.') {
+        while i < len &&
+              ((chars[i] >= '0' && chars[i] <= '9') || chars[i] == '.') {
           i = i + 1
         }
-        let num_str = chars[start:i].iter().fold(init=StringBuilder::new(), fn(sb, c) {
-          sb.write_char(c)
-          sb
-        }).to_string()
-        try {
-          tokens.push(TNum(@strconv.parse_double(num_str)))
-        } catch {
+        let num_str = chars[start:i]
+          .iter()
+          .fold(init=StringBuilder::new(), fn(sb, c) {
+            sb.write_char(c)
+            sb
+          })
+          .to_string()
+        tokens.push(TNum(@strconv.parse_double(num_str))) catch {
           _ => ()
         }
       } else {
@@ -230,13 +239,14 @@ fn tokenize(s : String) -> Array[Token] {
       while i < len && ((chars[i] >= '0' && chars[i] <= '9') || chars[i] == '.') {
         i = i + 1
       }
-      let num_str = chars[start:i].iter().fold(init=StringBuilder::new(), fn(sb, c) {
-        sb.write_char(c)
-        sb
-      }).to_string()
-      try {
-        tokens.push(TNum(@strconv.parse_double(num_str)))
-      } catch {
+      let num_str = chars[start:i]
+        .iter()
+        .fold(init=StringBuilder::new(), fn(sb, c) {
+          sb.write_char(c)
+          sb
+        })
+        .to_string()
+      tokens.push(TNum(@strconv.parse_double(num_str))) catch {
         _ => ()
       }
     } else if c >= 'A' && c <= 'Z' {
@@ -251,17 +261,23 @@ fn tokenize(s : String) -> Array[Token] {
         while i < len && chars[i] >= '0' && chars[i] <= '9' {
           i = i + 1
         }
-        let ref_str = chars[start:i].iter().fold(init=StringBuilder::new(), fn(sb, c) {
-          sb.write_char(c)
-          sb
-        }).to_string()
+        let ref_str = chars[start:i]
+          .iter()
+          .fold(init=StringBuilder::new(), fn(sb, c) {
+            sb.write_char(c)
+            sb
+          })
+          .to_string()
         tokens.push(TRef(ref_str))
       } else {
         // It's a function name like SUM, AVG
-        let func_str = chars[start:i].iter().fold(init=StringBuilder::new(), fn(sb, c) {
-          sb.write_char(c)
-          sb
-        }).to_string()
+        let func_str = chars[start:i]
+          .iter()
+          .fold(init=StringBuilder::new(), fn(sb, c) {
+            sb.write_char(c)
+            sb
+          })
+          .to_string()
         tokens.push(TFunc(func_str))
       }
     } else {
@@ -489,7 +505,11 @@ fn parse_if(
     Text(s) => s.length() > 0
     _ => false
   }
-  if is_true { true_val } else { false_val }
+  if is_true {
+    true_val
+  } else {
+    false_val
+  }
 }
 
 ///|
@@ -503,12 +523,10 @@ fn parse_math_func(
   // Parse first arg
   args.push(parse_comparison(state, lookup))
   // Parse optional additional args
-  while {
-    match state.peek() {
-      Some(TComma) => true
-      _ => false
-    }
-  } {
+  while (match state.peek() {
+          Some(TComma) => true
+          _ => false
+        }) {
     state.advance()
     args.push(parse_comparison(state, lookup))
   }
@@ -539,12 +557,10 @@ fn parse_string_func(
   // Parse first arg
   args.push(parse_comparison(state, lookup))
   // Parse remaining
-  while {
-    match state.peek() {
-      Some(TComma) => true
-      _ => false
-    }
-  } {
+  while (match state.peek() {
+          Some(TComma) => true
+          _ => false
+        }) {
     state.advance()
     args.push(parse_comparison(state, lookup))
   }
@@ -577,13 +593,12 @@ fn parse_aggregate_func(
               // Expand range
               expand_range(r1, r2, lookup, values)
             }
-            _ => {
+            _ =>
               // Single ref
               match to_num(lookup(r1)) {
                 Some(n) => values.push(n)
                 None => ()
               }
-            }
           }
         }
         Some(TComma) | Some(TRParen) => {
@@ -593,12 +608,10 @@ fn parse_aggregate_func(
             None => ()
           }
           // Parse remaining comma-separated args
-          while {
-            match state.peek() {
-              Some(TComma) => true
-              _ => false
-            }
-          } {
+          while (match state.peek() {
+                  Some(TComma) => true
+                  _ => false
+                }) {
             state.advance()
             let v = parse_expr(state, lookup)
             match to_num(v) {
@@ -607,12 +620,11 @@ fn parse_aggregate_func(
             }
           }
         }
-        _ => {
+        _ =>
           match to_num(lookup(r1)) {
             Some(n) => values.push(n)
             None => ()
           }
-        }
       }
     }
     Some(TRParen) => () // empty args
@@ -623,12 +635,10 @@ fn parse_aggregate_func(
         Some(n) => values.push(n)
         None => ()
       }
-      while {
-        match state.peek() {
-          Some(TComma) => true
-          _ => false
-        }
-      } {
+      while (match state.peek() {
+              Some(TComma) => true
+              _ => false
+            }) {
         state.advance()
         let v = parse_expr(state, lookup)
         match to_num(v) {
@@ -916,7 +926,9 @@ fn compare_values(
   match (a, b) {
     (Text(s1), Text(s2)) => {
       // For text, = is equality, other comparisons use lexicographic order
-      let result = if s1 == s2 { cmp(0.0, 0.0) } else if s1 < s2 {
+      let result = if s1 == s2 {
+        cmp(0.0, 0.0)
+      } else if s1 < s2 {
         cmp(-1.0, 0.0)
       } else {
         cmp(1.0, 0.0)
@@ -949,7 +961,11 @@ fn pow(base : Double, exp : Int) -> Double {
     result = result * base
     e = e - 1
   }
-  if exp < 0 { 1.0 / result } else { result }
+  if exp < 0 {
+    1.0 / result
+  } else {
+    result
+  }
 }
 
 ///|

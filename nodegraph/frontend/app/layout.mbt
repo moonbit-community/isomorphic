@@ -79,10 +79,7 @@ fn find_idx(ids : Array[Int], id : Int) -> Int {
 }
 
 ///|
-pub fn get_pos(
-  layout : Array[(Int, Int, Int)],
-  node_id : Int,
-) -> (Int, Int) {
+pub fn get_pos(layout : Array[(Int, Int, Int)], node_id : Int) -> (Int, Int) {
   for entry in layout {
     let (id, x, y) = entry
     if id == node_id {

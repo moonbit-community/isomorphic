@@ -22,7 +22,7 @@ priv enum ChannelMsg {
 }
 
 ///|
-fn ChannelModel::new(volume~ : Int = 75) -> ChannelModel {
+fn ChannelModel::new(volume? : Int = 75) -> ChannelModel {
   {
     volume: KnobModel::new(value=volume, max=100, step=5),
     pan: KnobModel::new(value=0, min=-50, max=50, step=5),
@@ -34,10 +34,7 @@ fn ChannelModel::new(volume~ : Int = 75) -> ChannelModel {
 }
 
 ///|
-fn ChannelModel::update(
-  self : ChannelModel,
-  msg : ChannelMsg,
-) -> ChannelModel {
+fn ChannelModel::update(self : ChannelModel, msg : ChannelMsg) -> ChannelModel {
   match msg {
     Volume(m) => { ..self, volume: self.volume.update(m) }
     Pan(m) => { ..self, pan: self.pan.update(m) }
@@ -53,26 +50,34 @@ fn ChannelModel::view(
   self : ChannelModel,
   dispatch : @rabbita.Dispatch[ChannelMsg],
   label~ : String,
-  color~ : String = "#4CAF50",
+  color? : String = "#4CAF50",
 ) -> @rabbita.Html {
   let dim = if self.mute { "0.3" } else { "1" }
   @html.div(
     style=[
-      "border: 1px solid #444", "padding: 10px", "border-radius: 6px",
-      "background: #1e1e1e", "min-width: 130px", "opacity: " + dim,
+      "border: 1px solid #444",
+      "padding: 10px",
+      "border-radius: 6px",
+      "background: #1e1e1e",
+      "min-width: 130px",
+      "opacity: " + dim,
     ],
     [
       // Channel label
       @html.div(
         style=[
-          "text-align: center", "font-weight: bold", "font-size: 0.8em",
-          "color: " + color, "margin-bottom: 6px",
-          "border-bottom: 1px solid #333", "padding-bottom: 4px",
+          "text-align: center",
+          "font-weight: bold",
+          "font-size: 0.8em",
+          "color: " + color,
+          "margin-bottom: 6px",
+          "border-bottom: 1px solid #333",
+          "padding-bottom: 4px",
         ],
         label,
       ),
       // Volume
-      self.volume.view(fn(msg) { dispatch(Volume(msg)) }, label="VOL", color=color),
+      self.volume.view(fn(msg) { dispatch(Volume(msg)) }, label="VOL", color~),
       // Pan
       @html.div(style=["margin-top: 4px"], [
         self.pan.view(
@@ -84,14 +89,18 @@ fn ChannelModel::view(
       // Mute / Solo
       @html.div(
         style=[
-          "display: flex", "gap: 4px", "margin-top: 6px",
-          "justify-content: center",
+          "display: flex", "gap: 4px", "margin-top: 6px", "justify-content: center",
         ],
         [
           @html.button(
             style=[
-              "flex: 1", "padding: 2px", "font-size: 0.65em", "font-weight: bold",
-              "border: none", "border-radius: 3px", "cursor: pointer",
+              "flex: 1",
+              "padding: 2px",
+              "font-size: 0.65em",
+              "font-weight: bold",
+              "border: none",
+              "border-radius: 3px",
+              "cursor: pointer",
               if self.mute {
                 "background: #F44336; color: #fff"
               } else {
@@ -103,8 +112,13 @@ fn ChannelModel::view(
           ),
           @html.button(
             style=[
-              "flex: 1", "padding: 2px", "font-size: 0.65em", "font-weight: bold",
-              "border: none", "border-radius: 3px", "cursor: pointer",
+              "flex: 1",
+              "padding: 2px",
+              "font-size: 0.65em",
+              "font-weight: bold",
+              "border: none",
+              "border-radius: 3px",
+              "cursor: pointer",
               if self.solo {
                 "background: #FFEB3B; color: #000"
               } else {
@@ -122,7 +136,7 @@ fn ChannelModel::view(
           style=["font-size: 0.6em", "color: #666", "margin-bottom: 2px"],
           "PATTERN",
         ),
-        self.steps.view(fn(msg) { dispatch(Steps(msg)) }, color=color),
+        self.steps.view(fn(msg) { dispatch(Steps(msg)) }, color~),
       ]),
       // Effects
       @html.div(

@@ -1,7 +1,6 @@
 ///|
 /// Renders an SVG bar chart from the active sheet's data.
 /// Reads rows 2-6, columns A (label) and B-E (Q1-Q4 values).
-
 fn Model::view_chart(self : Model) -> @rabbita.Html {
   // Find Sales Dashboard by name, fall back to current sheet
   let mut sheet = self.current_sheet()
@@ -36,8 +35,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   if products.is_empty() {
     return @html.div(
       style=[
-        "padding: 20px", "text-align: center", "color: #5f6368",
-        "font-size: 13px",
+        "padding: 20px", "text-align: center", "color: #5f6368", "font-size: 13px",
       ],
       "No chart data available. Add product names in column A and numbers in columns B-E.",
     )
@@ -54,10 +52,18 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   // Find max value for scaling
   let mut max_val = 1.0
   for i = 0; i < products.length(); i = i + 1 {
-    if q1[i] > max_val { max_val = q1[i] }
-    if q2[i] > max_val { max_val = q2[i] }
-    if q3[i] > max_val { max_val = q3[i] }
-    if q4[i] > max_val { max_val = q4[i] }
+    if q1[i] > max_val {
+      max_val = q1[i]
+    }
+    if q2[i] > max_val {
+      max_val = q2[i]
+    }
+    if q3[i] > max_val {
+      max_val = q3[i]
+    }
+    if q4[i] > max_val {
+      max_val = q4[i]
+    }
   }
   // Round max up to nearest nice number
   max_val = max_val * 1.1
@@ -69,7 +75,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   let elements : Array[@svg.Svg] = []
   // Background grid lines
   for i = 0; i <= 4; i = i + 1 {
-    let y = pad_top + plot_h - (plot_h * i / 4)
+    let y = pad_top + plot_h - plot_h * i / 4
     elements.push(
       @svg.line(
         x1=pad_left,
@@ -110,7 +116,8 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
           width=bar_w - 2,
           height=bh,
           fill=colors[j],
-          rx=2, ry=2,
+          rx=2,
+          ry=2,
           style=[
             "transform-box: fill-box",
             "transform-origin: bottom center",
@@ -155,7 +162,10 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
       y=16,
       text="Quarterly Revenue by Product",
       fill="#202124",
-      attrs=@svg.Attrs::build().font_size("13").font_weight("600").text_anchor("middle"),
+      attrs=@svg.Attrs::build()
+        .font_size("13")
+        .font_weight("600")
+        .text_anchor("middle"),
     ),
   )
   @svg.svg(
@@ -187,11 +197,14 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       Text(s) => s
       _ => ""
     }
-    if name == "" { continue }
+    if name == "" {
+      continue
+    }
     products.push(name)
-    let row_total = get_num(sheet, 1, r) + get_num(sheet, 2, r) + get_num(
-        sheet, 3, r,
-      ) + get_num(sheet, 4, r)
+    let row_total = get_num(sheet, 1, r) +
+      get_num(sheet, 2, r) +
+      get_num(sheet, 3, r) +
+      get_num(sheet, 4, r)
     totals.push(row_total)
   }
   if products.is_empty() {
@@ -218,7 +231,9 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
   // Background ring
   elements.push(
     @svg.circle(
-      cx=cx, cy=cy, r=radius,
+      cx~,
+      cy~,
+      r=radius,
       fill="none",
       stroke="#f0f0f0",
       stroke_width=stroke_w,
@@ -236,7 +251,9 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     // dasharray: "arc gap", dashoffset: arc→0 draws the segment
     elements.push(
       @svg.circle(
-        cx=cx, cy=cy, r=radius,
+        cx~,
+        cy~,
+        r=radius,
         fill="none",
         stroke=colors[color_idx],
         stroke_width=stroke_w,
@@ -262,7 +279,10 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       y=cy - 6,
       text="$\{total_k}k",
       fill="#202124",
-      attrs=@svg.Attrs::build().font_size("16").font_weight("700").text_anchor("middle"),
+      attrs=@svg.Attrs::build()
+        .font_size("16")
+        .font_weight("700")
+        .text_anchor("middle"),
     ),
   )
   elements.push(
@@ -281,7 +301,15 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     let color_idx = i % colors.length()
     let pct = (totals[i] / grand_total * 100.0 + 0.5).to_int()
     elements.push(
-      @svg.rect(x=lx, y=ly, width=10, height=10, fill=colors[color_idx], rx=2, ry=2),
+      @svg.rect(
+        x=lx,
+        y=ly,
+        width=10,
+        height=10,
+        fill=colors[color_idx],
+        rx=2,
+        ry=2,
+      ),
     )
     elements.push(
       @svg.svg_text(
@@ -318,8 +346,12 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let mut min_v = vals[0]
   let mut max_v = vals[0]
   for v in vals {
-    if v < min_v { min_v = v }
-    if v > max_v { max_v = v }
+    if v < min_v {
+      min_v = v
+    }
+    if v > max_v {
+      max_v = v
+    }
   }
   let range = if max_v > min_v { max_v - min_v } else { 1.0 }
   // Compute polyline points
@@ -328,10 +360,14 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let mut max_idx = 0
   for i = 0; i < vals.length(); i = i + 1 {
     let x = pad + pw * i / 3
-    let y = pad + ph - (((vals[i] - min_v) / range) * ph.to_double()).to_int()
+    let y = pad + ph - ((vals[i] - min_v) / range * ph.to_double()).to_int()
     points.push((x, y))
-    if vals[i] <= vals[min_idx] { min_idx = i }
-    if vals[i] >= vals[max_idx] { max_idx = i }
+    if vals[i] <= vals[min_idx] {
+      min_idx = i
+    }
+    if vals[i] >= vals[max_idx] {
+      max_idx = i
+    }
   }
   // Build area fill path (polygon under the line)
   let area_points : Array[(Int, Int)] = []
@@ -343,30 +379,33 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let elements : Array[@svg.Svg] = []
   // Gradient definition
   elements.push(
-    @svg.defs(
-      [
-        @svg.linear_gradient(
-          id="sparkGrad",
-          attrs=@svg.Attrs::build().x1("0").y1("0").x2("0").y2("1"),
-          [
-            @svg.stop(attrs=@svg.Attrs::build().offset("0%").stop_color("#34a853").stop_opacity("0.3")),
-            @svg.stop(attrs=@svg.Attrs::build().offset("100%").stop_color("#34a853").stop_opacity("0.05")),
-          ],
-        ),
-      ],
-    ),
+    @svg.defs([
+      @svg.linear_gradient(
+        id="sparkGrad",
+        attrs=@svg.Attrs::build().x1("0").y1("0").x2("0").y2("1"),
+        [
+          @svg.stop(
+            attrs=@svg.Attrs::build()
+              .offset("0%")
+              .stop_color("#34a853")
+              .stop_opacity("0.3"),
+          ),
+          @svg.stop(
+            attrs=@svg.Attrs::build()
+              .offset("100%")
+              .stop_color("#34a853")
+              .stop_opacity("0.05"),
+          ),
+        ],
+      ),
+    ]),
   )
   // Area fill
-  elements.push(
-    @svg.polyline(
-      points=area_points,
-      fill="url(#sparkGrad)",
-    ),
-  )
+  elements.push(@svg.polyline(points=area_points, fill="url(#sparkGrad)"))
   // Line
   elements.push(
     @svg.polyline(
-      points=points,
+      points~,
       fill="none",
       stroke="#34a853",
       stroke_width=2,
@@ -375,14 +414,10 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   )
   // Min dot (red)
   let (min_x, min_y) = points[min_idx]
-  elements.push(
-    @svg.circle(cx=min_x, cy=min_y, r=2, fill="#ea4335"),
-  )
+  elements.push(@svg.circle(cx=min_x, cy=min_y, r=2, fill="#ea4335"))
   // Max dot (green)
   let (max_x, max_y) = points[max_idx]
-  elements.push(
-    @svg.circle(cx=max_x, cy=max_y, r=2, fill="#34a853"),
-  )
+  elements.push(@svg.circle(cx=max_x, cy=max_y, r=2, fill="#34a853"))
   @svg.svg(
     width=w,
     height=h,

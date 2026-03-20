@@ -6,8 +6,8 @@ pub fn Model::view(
   @html.div(
     style=[
       "font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-      "height: 100vh", "display: flex", "flex-direction: column",
-      "background: #f8f9fa", "user-select: none", "color: #202124",
+      "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa",
+      "user-select: none", "color: #202124",
     ],
     [
       self.view_toolbar(dispatch),
@@ -15,9 +15,8 @@ pub fn Model::view(
       if self.show_chart {
         @html.div(
           style=[
-            "display: flex", "justify-content: center", "gap: 24px",
-            "padding: 12px 16px", "align-items: flex-start",
-            "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
+            "display: flex", "justify-content: center", "gap: 24px", "padding: 12px 16px",
+            "align-items: flex-start", "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
             "animation: chartSlideIn 0.4s ease-out",
           ],
           [self.view_chart(), self.view_donut_chart()],
@@ -62,33 +61,27 @@ fn Model::view_toolbar(
   }
   @html.div(
     style=[
-      "display: flex", "align-items: center", "gap: 2px", "padding: 6px 12px",
-      "background: linear-gradient(180deg, #f9fbfd 0%, #eef1f5 100%)",
-      "border-bottom: 1px solid #dadce0",
-      "min-height: 44px", "flex-wrap: wrap",
+      "display: flex", "align-items: center", "gap: 2px", "padding: 6px 12px", "background: linear-gradient(180deg, #f9fbfd 0%, #eef1f5 100%)",
+      "border-bottom: 1px solid #dadce0", "min-height: 44px", "flex-wrap: wrap",
     ],
     [
       // App icon + title
       @html.div(
         style=[
-          "display: flex", "align-items: center", "gap: 8px",
-          "margin-right: 16px",
+          "display: flex", "align-items: center", "gap: 8px", "margin-right: 16px",
         ],
         [
           @html.div(
             style=[
-              "width: 28px", "height: 28px", "border-radius: 4px",
-              "background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%)",
+              "width: 28px", "height: 28px", "border-radius: 4px", "background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%)",
               "display: flex", "align-items: center", "justify-content: center",
-              "color: white", "font-weight: 600", "font-size: 14px",
-              "box-shadow: 0 1px 3px rgba(15, 157, 88, 0.3)",
+              "color: white", "font-weight: 600", "font-size: 14px", "box-shadow: 0 1px 3px rgba(15, 157, 88, 0.3)",
             ],
             "\u{229E}",
           ),
           @html.span(
             style=[
-              "font-weight: 600", "font-size: 15px", "color: #202124",
-              "letter-spacing: -0.3px",
+              "font-weight: 600", "font-size: 15px", "color: #202124", "letter-spacing: -0.3px",
             ],
             "MoonBit Sheets",
           ),
@@ -96,25 +89,70 @@ fn Model::view_toolbar(
       ),
       view_separator(),
       // --- Font style group ---
-      toolbar_button("B", cell.bold, "font-weight:700;font-size:13px;font-family:serif", dispatch(ToggleBold)),
-      toolbar_button("I", cell.italic, "font-style:italic;font-size:13px;font-family:serif", dispatch(ToggleItalic)),
+      toolbar_button(
+        "B",
+        cell.bold,
+        "font-weight:700;font-size:13px;font-family:serif",
+        dispatch(ToggleBold),
+      ),
+      toolbar_button(
+        "I",
+        cell.italic,
+        "font-style:italic;font-size:13px;font-family:serif",
+        dispatch(ToggleItalic),
+      ),
       view_separator(),
       // --- Alignment group ---
-      toolbar_button("\u{2261}", is_left, "font-size:14px", dispatch(SetAlign(@cell.Align::Left))),
-      toolbar_button("\u{2263}", is_center, "font-size:14px", dispatch(SetAlign(@cell.Align::Center))),
-      toolbar_button("\u{2262}", is_right, "font-size:14px", dispatch(SetAlign(@cell.Align::Right))),
+      toolbar_button(
+        "\u{2261}",
+        is_left,
+        "font-size:14px",
+        dispatch(SetAlign(@cell.Align::Left)),
+      ),
+      toolbar_button(
+        "\u{2263}",
+        is_center,
+        "font-size:14px",
+        dispatch(SetAlign(@cell.Align::Center)),
+      ),
+      toolbar_button(
+        "\u{2262}",
+        is_right,
+        "font-size:14px",
+        dispatch(SetAlign(@cell.Align::Right)),
+      ),
       view_separator(),
       // --- Number format group ---
-      toolbar_button("$", is_currency, "font-size:13px;font-weight:500", dispatch(SetFormat(@cell.NumFormat::Currency))),
-      toolbar_button("%", is_percent, "font-size:13px;font-weight:500", dispatch(SetFormat(@cell.NumFormat::Percent))),
+      toolbar_button(
+        "$",
+        is_currency,
+        "font-size:13px;font-weight:500",
+        dispatch(SetFormat(@cell.NumFormat::Currency)),
+      ),
+      toolbar_button(
+        "%",
+        is_percent,
+        "font-size:13px;font-weight:500",
+        dispatch(SetFormat(@cell.NumFormat::Percent)),
+      ),
       view_separator(),
       // --- Color group ---
       view_color_palette(cell.bg_color, dispatch),
       view_separator(),
       // --- Heat map toggle ---
-      toolbar_button("\u{2593}", self.heat_map, "font-size:14px", dispatch(ToggleHeatMap)),
+      toolbar_button(
+        "\u{2593}",
+        self.heat_map,
+        "font-size:14px",
+        dispatch(ToggleHeatMap),
+      ),
       // --- Chart toggle ---
-      toolbar_button("\u{2584}", self.show_chart, "font-size:14px", dispatch(ToggleChart)),
+      toolbar_button(
+        "\u{2584}",
+        self.show_chart,
+        "font-size:14px",
+        dispatch(ToggleChart),
+      ),
       view_separator(),
       // --- Import / Export ---
       toolbar_button_text("Import", false, dispatch(RequestImport)),
@@ -128,9 +166,7 @@ fn Model::view_toolbar(
 ///|
 fn view_separator() -> @rabbita.Html {
   @html.div(
-    style=[
-      "width: 1px", "height: 24px", "background: #dadce0", "margin: 0 6px",
-    ],
+    style=["width: 1px", "height: 24px", "background: #dadce0", "margin: 0 6px"],
     "",
   )
 }
@@ -149,9 +185,8 @@ fn toolbar_button(
   }
   @html.button(
     style=[
-      "width: 32px", "height: 32px", "display: flex", "align-items: center",
-      "justify-content: center", "border-radius: 4px", "cursor: pointer",
-      "border: 1px solid transparent", "transition: all 0.15s ease",
+      "width: 32px", "height: 32px", "display: flex", "align-items: center", "justify-content: center",
+      "border-radius: 4px", "cursor: pointer", "border: 1px solid transparent", "transition: all 0.15s ease",
       bg, extra_style,
     ],
     on_click=action,
@@ -168,10 +203,9 @@ fn toolbar_button_text(
   @html.button(
     style=[
       "height: 32px", "padding: 0 12px", "display: flex", "align-items: center",
-      "justify-content: center", "border-radius: 4px", "cursor: pointer",
-      "border: 1px solid transparent", "transition: all 0.15s ease",
-      "background: transparent", "font-size: 12px", "color: #444746",
-      "font-weight: 500",
+      "justify-content: center", "border-radius: 4px", "cursor: pointer", "border: 1px solid transparent",
+      "transition: all 0.15s ease", "background: transparent", "font-size: 12px",
+      "color: #444746", "font-weight: 500",
     ],
     on_click=action,
     label,
@@ -184,16 +218,16 @@ fn view_color_palette(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let colors = [
-    "",        // default (no color)
-    "#fce4ec", // pink
-    "#fff3e0", // orange
-    "#fffde7", // yellow
-    "#e8f5e9", // green
-    "#e3f2fd", // blue
-    "#ede7f6", // purple
-    "#f3e5f5", // magenta
-    "#efebe9", // brown
-    "#e0e0e0", // gray
+    "", // default (no color)
+     "#fce4ec", // pink
+     "#fff3e0", // orange
+     "#fffde7", // yellow
+     "#e8f5e9", // green
+     "#e3f2fd", // blue
+     "#ede7f6", // purple
+     "#f3e5f5", // magenta
+     "#efebe9", // brown
+     "#e0e0e0", // gray
   ]
   let swatches : Array[@rabbita.Html] = []
   for c in colors {
@@ -208,8 +242,12 @@ fn view_color_palette(
     swatches.push(
       @html.div(
         style=[
-          "width: 18px", "height: 18px", "border-radius: 3px",
-          "background: \{swatch_bg}", "border: \{border}", "cursor: pointer",
+          "width: 18px",
+          "height: 18px",
+          "border-radius: 3px",
+          "background: \{swatch_bg}",
+          "border: \{border}",
+          "cursor: pointer",
           "transition: transform 0.1s ease",
         ],
         on_click=dispatch(SetBgColor(color)),
@@ -218,9 +256,7 @@ fn view_color_palette(
     )
   }
   @html.div(
-    style=[
-      "display: flex", "align-items: center", "gap: 3px",
-    ],
+    style=["display: flex", "align-items: center", "gap: 3px"],
     swatches,
   )
 }
@@ -237,28 +273,25 @@ fn Model::view_formula_bar(
   let display_value = if self.editing { self.edit_value } else { cell.raw }
   @html.div(
     style=[
-      "display: flex", "align-items: center", "padding: 4px 8px",
-      "background: #fff", "border-bottom: 1px solid #e0e0e0",
-      "min-height: 36px",
+      "display: flex", "align-items: center", "padding: 4px 8px", "background: #fff",
+      "border-bottom: 1px solid #e0e0e0", "min-height: 36px",
     ],
     [
       // Cell name box
       @html.div(
         style=[
-          "min-width: 64px", "height: 28px", "text-align: center",
-          "font-weight: 500", "font-size: 13px", "color: #202124",
-          "border: 1px solid #dadce0", "border-radius: 4px",
-          "display: flex", "align-items: center", "justify-content: center",
-          "margin-right: 8px", "background: #f8f9fa",
-          "padding: 0 8px",
+          "min-width: 64px", "height: 28px", "text-align: center", "font-weight: 500",
+          "font-size: 13px", "color: #202124", "border: 1px solid #dadce0", "border-radius: 4px",
+          "display: flex", "align-items: center", "justify-content: center", "margin-right: 8px",
+          "background: #f8f9fa", "padding: 0 8px",
         ],
         cell_name,
       ),
       // fx icon
       @html.span(
         style=[
-          "font-size: 13px", "color: #70757a", "margin-right: 8px",
-          "font-style: italic", "font-weight: 500",
+          "font-size: 13px", "color: #70757a", "margin-right: 8px", "font-style: italic",
+          "font-weight: 500",
         ],
         "fx",
       ),
@@ -266,14 +299,13 @@ fn Model::view_formula_bar(
       @html.input(
         input_type=Text,
         style=[
-          "flex: 1", "border: 1px solid #dadce0", "padding: 4px 10px",
-          "font-size: 13px", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace",
-          "border-radius: 4px", "height: 28px", "color: #202124",
-          "transition: border-color 0.15s ease",
+          "flex: 1", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
+          "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
+          "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
         ],
         value=display_value,
-        on_input=(value) => dispatch(UpdateEdit(value)),
-        on_change=(_value) => dispatch(CommitEdit),
+        on_input=value => dispatch(UpdateEdit(value)),
+        on_change=_value => dispatch(CommitEdit),
         "",
       ),
     ],
@@ -349,8 +381,12 @@ fn collect_heat_range(sheet : Sheet) -> (Double, Double) {
       let cell = sheet.get(key)
       match cell.value {
         Num(n) => {
-          if n < min_val { min_val = n }
-          if n > max_val { max_val = n }
+          if n < min_val {
+            min_val = n
+          }
+          if n > max_val {
+            max_val = n
+          }
         }
         _ => ()
       }
@@ -414,30 +450,30 @@ fn Model::view_grid(
   header_cells.push(
     @html.div(
       style=[
-        "background: #f8f9fa", "border-bottom: 1px solid #c7c7c7",
-        "border-right: 1px solid #c7c7c7", "display: flex",
-        "align-items: center", "justify-content: center",
-        "position: sticky", "left: 0", "z-index: 3",
+        "background: #f8f9fa", "border-bottom: 1px solid #c7c7c7", "border-right: 1px solid #c7c7c7",
+        "display: flex", "align-items: center", "justify-content: center", "position: sticky",
+        "left: 0", "z-index: 3",
       ],
       "",
     ),
   )
   for c = 0; c < num_cols; c = c + 1 {
     let is_sel_col = c == self.sel_col
-    let bg = if is_sel_col {
-      "#d3e3fd"
-    } else {
-      "#f8f9fa"
-    }
+    let bg = if is_sel_col { "#d3e3fd" } else { "#f8f9fa" }
     let fw = if is_sel_col { "600" } else { "500" }
     let color = if is_sel_col { "#1a73e8" } else { "#444746" }
     header_cells.push(
       @html.div(
         style=[
-          "background: \{bg}", "border-bottom: 1px solid #c7c7c7",
-          "border-right: 1px solid #e0e0e0", "display: flex",
-          "align-items: center", "justify-content: center",
-          "font-size: 12px", "font-weight: \{fw}", "color: \{color}",
+          "background: \{bg}",
+          "border-bottom: 1px solid #c7c7c7",
+          "border-right: 1px solid #e0e0e0",
+          "display: flex",
+          "align-items: center",
+          "justify-content: center",
+          "font-size: 12px",
+          "font-weight: \{fw}",
+          "color: \{color}",
           "transition: background 0.1s ease",
         ],
         @cell.col_to_letter(c),
@@ -447,8 +483,12 @@ fn Model::view_grid(
   rows.push(
     @html.div(
       style=[
-        "display: grid", "grid-template-columns: \{cols_template}",
-        "height: \{row_h}", "position: sticky", "top: 0", "z-index: 2",
+        "display: grid",
+        "grid-template-columns: \{cols_template}",
+        "height: \{row_h}",
+        "position: sticky",
+        "top: 0",
+        "z-index: 2",
       ],
       header_cells,
     ),
@@ -465,11 +505,18 @@ fn Model::view_grid(
     row_cells.push(
       @html.div(
         style=[
-          "background: \{row_bg}", "border-right: 1px solid #c7c7c7",
-          "border-bottom: 1px solid #e0e0e0", "display: flex",
-          "align-items: center", "justify-content: center",
-          "font-size: 12px", "color: \{row_color}", "font-weight: \{row_fw}",
-          "position: sticky", "left: 0", "z-index: 1",
+          "background: \{row_bg}",
+          "border-right: 1px solid #c7c7c7",
+          "border-bottom: 1px solid #e0e0e0",
+          "display: flex",
+          "align-items: center",
+          "justify-content: center",
+          "font-size: 12px",
+          "color: \{row_color}",
+          "font-weight: \{row_fw}",
+          "position: sticky",
+          "left: 0",
+          "z-index: 1",
           "transition: background 0.1s ease",
         ],
         (r + 1).to_string(),
@@ -488,14 +535,12 @@ fn Model::view_grid(
           @html.input(
             input_type=Text,
             style=[
-              "border: 2px solid #1a73e8", "outline: none", "padding: 0 6px",
-              "font-size: 13px", "font-family: 'Inter', sans-serif",
-              "box-sizing: border-box", "width: 100%", "height: 100%",
-              "background: #fff",
-              "box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15)",
+              "border: 2px solid #1a73e8", "outline: none", "padding: 0 6px", "font-size: 13px",
+              "font-family: 'Inter', sans-serif", "box-sizing: border-box", "width: 100%",
+              "height: 100%", "background: #fff", "box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15)",
             ],
             value=self.edit_value,
-            on_input=(value) => dispatch(UpdateEdit(value)),
+            on_input=value => dispatch(UpdateEdit(value)),
             autofocus=true,
             "",
           ),
@@ -526,8 +571,16 @@ fn Model::view_grid(
           "#fff"
         }
         // Overlays: heat map and/or formula ref highlighting via inset box-shadow
-        let ref_shadow = if is_ref_highlighted { "inset 0 0 0 100px #34a85320" } else { "" }
-        let heat_shadow = if heat_bg != "" { "inset 0 0 0 100px \{heat_bg}" } else { "" }
+        let ref_shadow = if is_ref_highlighted {
+          "inset 0 0 0 100px #34a85320"
+        } else {
+          ""
+        }
+        let heat_shadow = if heat_bg != "" {
+          "inset 0 0 0 100px \{heat_bg}"
+        } else {
+          ""
+        }
         let heat_overlay = if ref_shadow != "" && heat_shadow != "" {
           "box-shadow: \{ref_shadow}, \{heat_shadow}"
         } else if ref_shadow != "" {
@@ -564,7 +617,11 @@ fn Model::view_grid(
           ""
         }
         // Check if this cell should render a sparkline (column I, rows 2-6 on Sales Dashboard, only if empty)
-        let is_sparkline = is_sales && c == 8 && r >= 1 && r <= 5 && cell.raw == ""
+        let is_sparkline = is_sales &&
+          c == 8 &&
+          r >= 1 &&
+          r <= 5 &&
+          cell.raw == ""
         let cell_content : @rabbita.Html = if is_sparkline {
           view_sparkline(sheet, r)
         } else {
@@ -573,13 +630,23 @@ fn Model::view_grid(
         row_cells.push(
           @html.div(
             style=[
-              "background: \{cell_bg}", "border: \{border}", "padding: 0 6px",
-              "display: flex", "align-items: center", "font-size: 13px",
-              "overflow: hidden", "white-space: nowrap", "cursor: cell",
-              "font-weight: \{weight}", "color: \{color}", "box-sizing: border-box",
-              "justify-content: \{justify}", "font-style: \{font_style}",
+              "background: \{cell_bg}",
+              "border: \{border}",
+              "padding: 0 6px",
+              "display: flex",
+              "align-items: center",
+              "font-size: 13px",
+              "overflow: hidden",
+              "white-space: nowrap",
+              "cursor: cell",
+              "font-weight: \{weight}",
+              "color: \{color}",
+              "box-sizing: border-box",
+              "justify-content: \{justify}",
+              "font-style: \{font_style}",
               "transition: background 0.1s ease",
-              shadow, heat_overlay,
+              shadow,
+              heat_overlay,
             ],
             on_click=dispatch(SelectCell(col, row)),
             [cell_content],
@@ -590,7 +657,8 @@ fn Model::view_grid(
     rows.push(
       @html.div(
         style=[
-          "display: grid", "grid-template-columns: \{cols_template}",
+          "display: grid",
+          "grid-template-columns: \{cols_template}",
           "height: \{row_h}",
         ],
         row_cells,
@@ -599,10 +667,8 @@ fn Model::view_grid(
   }
 
   @html.div(
-    style=[
-      "flex: 1", "overflow: auto", "background: #fff", "outline: none",
-    ],
-    on_keydown=(kb) => {
+    style=["flex: 1", "overflow: auto", "background: #fff", "outline: none"],
+    on_keydown=kb => {
       let key = kb.key()
       if key == "ArrowUp" {
         dispatch(MoveSelection(0, -1))
@@ -654,10 +720,17 @@ fn Model::view_sheet_tabs(
     tabs.push(
       @html.div(
         style=[
-          "padding: 8px 16px", "cursor: pointer", "background: \{bg}",
-          "border-bottom: \{border_bottom}", "border-right: 1px solid #dadce0",
-          "font-size: 13px", "display: flex", "align-items: center", "gap: 8px",
-          "font-weight: \{fw}", "color: \{color}",
+          "padding: 8px 16px",
+          "cursor: pointer",
+          "background: \{bg}",
+          "border-bottom: \{border_bottom}",
+          "border-right: 1px solid #dadce0",
+          "font-size: 13px",
+          "display: flex",
+          "align-items: center",
+          "gap: 8px",
+          "font-weight: \{fw}",
+          "color: \{color}",
           "transition: all 0.15s ease",
         ],
         on_click=dispatch(SelectSheet(idx)),
@@ -666,9 +739,8 @@ fn Model::view_sheet_tabs(
           if self.sheets.length() > 1 {
             @html.button(
               style=[
-                "color: #9aa0a6", "font-size: 11px", "cursor: pointer",
-                "background: none", "border: none", "padding: 2px 4px",
-                "border-radius: 50%", "line-height: 1",
+                "color: #9aa0a6", "font-size: 11px", "cursor: pointer", "background: none",
+                "border: none", "padding: 2px 4px", "border-radius: 50%", "line-height: 1",
                 "transition: all 0.15s ease",
               ],
               on_click=dispatch(DeleteSheet(idx)),
@@ -684,9 +756,8 @@ fn Model::view_sheet_tabs(
   tabs.push(
     @html.div(
       style=[
-        "padding: 8px 14px", "cursor: pointer", "color: #5f6368",
-        "font-size: 18px", "display: flex", "align-items: center",
-        "transition: color 0.15s ease", "font-weight: 300",
+        "padding: 8px 14px", "cursor: pointer", "color: #5f6368", "font-size: 18px",
+        "display: flex", "align-items: center", "transition: color 0.15s ease", "font-weight: 300",
       ],
       on_click=dispatch(AddSheet),
       "+",
@@ -694,8 +765,7 @@ fn Model::view_sheet_tabs(
   )
   @html.div(
     style=[
-      "display: flex", "background: #f0f0f0", "border-top: 1px solid #dadce0",
-      "min-height: 38px",
+      "display: flex", "background: #f0f0f0", "border-top: 1px solid #dadce0", "min-height: 38px",
     ],
     tabs,
   )
@@ -717,14 +787,12 @@ fn Model::view_status_bar(self : Model) -> @rabbita.Html {
   })
   @html.div(
     style=[
-      "display: flex", "justify-content: space-between", "padding: 4px 12px",
-      "background: #f8f9fa", "border-top: 1px solid #dadce0", "font-size: 12px",
-      "color: #5f6368", "min-height: 28px", "align-items: center",
+      "display: flex", "justify-content: space-between", "padding: 4px 12px", "background: #f8f9fa",
+      "border-top: 1px solid #dadce0", "font-size: 12px", "color: #5f6368", "min-height: 28px",
+      "align-items: center",
     ],
     [
-      @html.span(
-        "\{sheet_name} \u{2022} \{cell_name}: \{val_str}",
-      ),
+      @html.span("\{sheet_name} \u{2022} \{cell_name}: \{val_str}"),
       @html.span(
         "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{num_cols}\u{00D7}\{num_rows} grid",
       ),

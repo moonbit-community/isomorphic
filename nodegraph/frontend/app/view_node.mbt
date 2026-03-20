@@ -130,9 +130,13 @@ fn Model::view_single_node(
   let has_output = node_vals.length() > 0
   @html.div(
     style=[
-      "min-width: 190px", "max-width: 250px", "background: #16213e",
-      "border: 2px solid \{cat_color}", "border-radius: 10px",
-      "overflow: hidden", "animation: fadeIn 0.3s ease",
+      "min-width: 190px",
+      "max-width: 250px",
+      "background: #16213e",
+      "border: 2px solid \{cat_color}",
+      "border-radius: 10px",
+      "overflow: hidden",
+      "animation: fadeIn 0.3s ease",
       if has_output {
         "box-shadow: 0 0 12px \{cat_color}40"
       } else {
@@ -145,11 +149,15 @@ fn Model::view_single_node(
         style=[
           "background: linear-gradient(135deg, \{cat_color}, \{cat_color}bb)",
           "padding: 7px 12px",
-          "display: flex", "justify-content: space-between", "align-items: center",
+          "display: flex",
+          "justify-content: space-between",
+          "align-items: center",
         ],
         [
           @html.span(
-            style=["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)"],
+            style=[
+              "font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)",
+            ],
             node.label,
           ),
           @html.button(
@@ -189,50 +197,49 @@ fn Model::view_const_config(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   if self.editing_node == node.id {
-    @html.div(
-      style=["display: flex", "gap: 4px", "margin-bottom: 6px"],
-      [
-        @html.input(
-          input_type=Text,
-          value=self.config_value,
-          on_input=fn(v) { dispatch(SetConfigValue(v)) },
-          style=[
-            "flex: 1", "padding: 4px 6px", "background: #0d1b2a",
-            "border: 1px solid #e94560", "border-radius: 3px",
-            "color: #eee", "font-family: inherit", "font-size: 0.8em",
-          ],
-          "",
-        ),
-        @html.button(
-          style=[
-            "padding: 4px 8px", "background: #4CAF50", "color: #fff",
-            "border: none", "border-radius: 3px", "cursor: pointer",
-            "font-size: 0.7em",
-          ],
-          on_click=dispatch(SaveConfig),
-          "\u{2713}",
-        ),
-        @html.button(
-          style=[
-            "padding: 4px 8px", "background: #555", "color: #ccc",
-            "border: none", "border-radius: 3px", "cursor: pointer",
-            "font-size: 0.7em",
-          ],
-          on_click=dispatch(CancelEditConfig),
-          "\u{2715}",
-        ),
-      ],
-    )
+    @html.div(style=["display: flex", "gap: 4px", "margin-bottom: 6px"], [
+      @html.input(
+        input_type=Text,
+        value=self.config_value,
+        on_input=fn(v) { dispatch(SetConfigValue(v)) },
+        style=[
+          "flex: 1", "padding: 4px 6px", "background: #0d1b2a", "border: 1px solid #e94560",
+          "border-radius: 3px", "color: #eee", "font-family: inherit", "font-size: 0.8em",
+        ],
+        "",
+      ),
+      @html.button(
+        style=[
+          "padding: 4px 8px", "background: #4CAF50", "color: #fff", "border: none",
+          "border-radius: 3px", "cursor: pointer", "font-size: 0.7em",
+        ],
+        on_click=dispatch(SaveConfig),
+        "\u{2713}",
+      ),
+      @html.button(
+        style=[
+          "padding: 4px 8px", "background: #555", "color: #ccc", "border: none",
+          "border-radius: 3px", "cursor: pointer", "font-size: 0.7em",
+        ],
+        on_click=dispatch(CancelEditConfig),
+        "\u{2715}",
+      ),
+    ])
   } else {
     @html.div(
       style=[
-        "margin-bottom: 6px", "cursor: pointer", "padding: 4px 6px",
-        "background: #0d1b2a", "border-radius: 3px", "font-size: 0.8em",
-        "color: #ccc", "text-align: center",
+        "margin-bottom: 6px", "cursor: pointer", "padding: 4px 6px", "background: #0d1b2a",
+        "border-radius: 3px", "font-size: 0.8em", "color: #ccc", "text-align: center",
       ],
       on_click=dispatch(StartEditConfig(node.id, node.config)),
       [
-        @html.span(if node.config.length() > 0 { node.config } else { "(click to set)" }),
+        @html.span(
+          if node.config.length() > 0 {
+            node.config
+          } else {
+            "(click to set)"
+          },
+        ),
       ],
     )
   }
@@ -283,14 +290,16 @@ fn Model::view_input_ports(
     items.push(
       @html.div(
         style=[
-          "display: flex", "align-items: center", "gap: 4px",
-          "margin-bottom: 3px",
+          "display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px",
         ],
         [
           @html.div(
             style=[
-              "width: 10px", "height: 10px", "border-radius: 50%",
-              "background: \{color}", "transition: all 0.2s",
+              "width: 10px",
+              "height: 10px",
+              "border-radius: 50%",
+              "background: \{color}",
+              "transition: all 0.2s",
               "flex-shrink: 0",
               if connected {
                 "box-shadow: 0 0 8px \{color}; border: 1px solid \{color}"
@@ -307,9 +316,14 @@ fn Model::view_input_ports(
           if compatible {
             @html.button(
               style=[
-                "padding: 2px 6px", "background: \{color}", "color: #fff",
-                "border: none", "border-radius: 3px", "cursor: pointer",
-                "font-size: 0.6em", "font-weight: 700",
+                "padding: 2px 6px",
+                "background: \{color}",
+                "color: #fff",
+                "border: none",
+                "border-radius: 3px",
+                "cursor: pointer",
+                "font-size: 0.6em",
+                "font-weight: 700",
               ],
               on_click=dispatch(CompleteConnect(node.id, i)),
               "\u{2192} Connect",
@@ -351,28 +365,32 @@ fn Model::view_output_ports(
     items.push(
       @html.div(
         style=[
-          "display: flex", "align-items: center", "gap: 4px",
-          "margin-bottom: 3px", "justify-content: flex-end",
+          "display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px",
+          "justify-content: flex-end",
         ],
         [
           @html.button(
             style=[
-              "padding: 2px 6px", "background: \{color}30",
-              "color: \{color}", "border: 1px solid \{color}",
-              "border-radius: 3px", "cursor: pointer",
-              "font-size: 0.6em", "font-weight: 700",
+              "padding: 2px 6px",
+              "background: \{color}30",
+              "color: \{color}",
+              "border: 1px solid \{color}",
+              "border-radius: 3px",
+              "cursor: pointer",
+              "font-size: 0.6em",
+              "font-weight: 700",
             ],
             on_click=dispatch(StartConnect(node.id, i)),
             "Connect \u{2192}",
           ),
-          @html.span(
-            style=["font-size: 0.7em", "color: #aaa"],
-            p.name,
-          ),
+          @html.span(style=["font-size: 0.7em", "color: #aaa"], p.name),
           @html.div(
             style=[
-              "width: 10px", "height: 10px", "border-radius: 50%",
-              "background: \{color}", "flex-shrink: 0",
+              "width: 10px",
+              "height: 10px",
+              "border-radius: 50%",
+              "background: \{color}",
+              "flex-shrink: 0",
               "border: 1px solid \{color}50",
             ],
             "",
@@ -384,8 +402,7 @@ fn Model::view_output_ports(
   let children2 : Array[@rabbita.Html] = [
     @html.div(
       style=[
-        "font-size: 0.6em", "color: #666", "margin-bottom: 2px",
-        "text-align: right",
+        "font-size: 0.6em", "color: #666", "margin-bottom: 2px", "text-align: right",
       ],
       "OUTPUTS",
     ),
@@ -411,20 +428,24 @@ fn Model::view_node_values(
       VColor(hex) =>
         @html.div(
           style=[
-            "display: flex", "align-items: center", "gap: 8px",
-            "padding: 4px",
+            "display: flex", "align-items: center", "gap: 8px", "padding: 4px",
           ],
           [
             @html.div(
               style=[
-                "width: 40px", "height: 40px", "border-radius: 6px",
-                "background: \{hex}", "border: 2px solid #555",
+                "width: 40px",
+                "height: 40px",
+                "border-radius: 6px",
+                "background: \{hex}",
+                "border: 2px solid #555",
                 "box-shadow: 0 0 12px \{hex}60",
               ],
               "",
             ),
             @html.span(
-              style=["font-size: 0.75em", "color: #ccc", "font-family: monospace"],
+              style=[
+                "font-size: 0.75em", "color: #ccc", "font-family: monospace",
+              ],
               hex,
             ),
           ],
@@ -432,51 +453,55 @@ fn Model::view_node_values(
       VBool(b) =>
         @html.div(
           style=[
-            "display: inline-block", "padding: 3px 10px", "border-radius: 12px",
-            "font-size: 0.75em", "font-weight: 700",
+            "display: inline-block",
+            "padding: 3px 10px",
+            "border-radius: 12px",
+            "font-size: 0.75em",
+            "font-weight: 700",
             if b {
               "background: #4CAF5030; color: #76FF03; border: 1px solid #4CAF50"
             } else {
               "background: #f4433630; color: #ff5252; border: 1px solid #f44336"
             },
           ],
-          if b { "true" } else { "false" },
+          if b {
+            "true"
+          } else {
+            "false"
+          },
         )
       VNumber(n) =>
         @html.div(
           style=[
-            "font-size: 1.1em", "color: #76FF03", "font-family: monospace",
-            "font-weight: 700", "text-shadow: 0 0 8px #76FF0340",
+            "font-size: 1.1em", "color: #76FF03", "font-family: monospace", "font-weight: 700",
+            "text-shadow: 0 0 8px #76FF0340",
           ],
           n.to_string(),
         )
       VString(s) =>
         @html.div(
           style=[
-            "font-size: 0.8em", "color: #FF9800", "font-family: monospace",
-            "padding: 2px 6px", "background: #FF980010", "border-radius: 3px",
-            "border: 1px solid #FF980030",
+            "font-size: 0.8em", "color: #FF9800", "font-family: monospace", "padding: 2px 6px",
+            "background: #FF980010", "border-radius: 3px", "border: 1px solid #FF980030",
           ],
           "\"\{s}\"",
         )
       VError(e) =>
         @html.div(
           style=[
-            "font-size: 0.7em", "color: #ff5252", "padding: 2px 6px",
-            "background: #ff525210", "border-radius: 3px",
+            "font-size: 0.7em", "color: #ff5252", "padding: 2px 6px", "background: #ff525210",
+            "border-radius: 3px",
           ],
           "\u{26A0} \{e}",
         )
-      VNone =>
-        @html.div(
-          style=["font-size: 0.7em", "color: #555"],
-          "(none)",
-        )
+      VNone => @html.div(style=["font-size: 0.7em", "color: #555"], "(none)")
     }
   })
   let result_children : Array[@rabbita.Html] = [
     @html.div(
-      style=["font-size: 0.55em", "color: #555", "margin-bottom: 3px", "letter-spacing: 1px"],
+      style=[
+        "font-size: 0.55em", "color: #555", "margin-bottom: 3px", "letter-spacing: 1px",
+      ],
       "RESULT",
     ),
   ]

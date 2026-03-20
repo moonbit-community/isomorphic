@@ -5,22 +5,25 @@ fn Model::view_accounts(
 ) -> @rabbita.Html {
   @html.div(
     style=[
-      "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px",
-      "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+      "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
     ],
     [
       // Header
       @html.div(
         style=[
-          "display: flex", "justify-content: space-between",
-          "align-items: center", "margin-bottom: 16px",
+          "display: flex", "justify-content: space-between", "align-items: center",
+          "margin-bottom: 16px",
         ],
         [
           @html.h2(style=["font-size: 1.1em", "color: #333"], "Accounts"),
           @html.button(
             style=[
-              "padding: 8px 16px", "border: none", "border-radius: 6px",
-              "cursor: pointer", "font-weight: 600", "font-size: 0.85em",
+              "padding: 8px 16px",
+              "border: none",
+              "border-radius: 6px",
+              "cursor: pointer",
+              "font-weight: 600",
+              "font-size: 0.85em",
               if self.show_form {
                 "background: #e0e0e0; color: #666"
               } else {
@@ -28,7 +31,11 @@ fn Model::view_accounts(
               },
             ],
             on_click=dispatch(ToggleForm),
-            if self.show_form { "Cancel" } else { "+ Add Account" },
+            if self.show_form {
+              "Cancel"
+            } else {
+              "+ Add Account"
+            },
           ),
         ],
       ),
@@ -52,9 +59,8 @@ fn Model::view_account_form(
   @html.form(
     on_submit=dispatch(SubmitAccount),
     style=[
-      "background: #f8f9fa", "padding: 16px", "border-radius: 8px",
-      "margin-bottom: 16px", "display: flex", "gap: 8px",
-      "align-items: flex-end",
+      "background: #f8f9fa", "padding: 16px", "border-radius: 8px", "margin-bottom: 16px",
+      "display: flex", "gap: 8px", "align-items: flex-end",
     ],
     [
       @html.div(style=["flex: 2"], [
@@ -68,8 +74,7 @@ fn Model::view_account_form(
           value=self.acct_name,
           on_input=fn(v) { dispatch(SetAcctName(v)) },
           style=[
-            "width: 100%", "padding: 8px", "border: 1px solid #ddd",
-            "border-radius: 4px",
+            "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
           ],
           "",
         ),
@@ -82,8 +87,7 @@ fn Model::view_account_form(
         @html.select(
           on_change=fn(v) { dispatch(SetAcctType(v)) },
           style=[
-            "width: 100%", "padding: 8px", "border: 1px solid #ddd",
-            "border-radius: 4px",
+            "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
           ],
           [
             @html.option(value="checking", "Checking"),
@@ -95,9 +99,8 @@ fn Model::view_account_form(
       @html.button(
         type_="submit",
         style=[
-          "padding: 8px 20px", "background: #1a73e8", "color: #fff",
-          "border: none", "border-radius: 6px", "cursor: pointer",
-          "font-weight: 600", "height: 38px",
+          "padding: 8px 20px", "background: #1a73e8", "color: #fff", "border: none",
+          "border-radius: 6px", "cursor: pointer", "font-weight: 600", "height: 38px",
         ],
         "Create",
       ),
@@ -113,8 +116,7 @@ fn Model::view_account_list(
   if self.accounts.is_empty() {
     return @html.p(
       style=[
-        "text-align: center", "color: #999", "padding: 20px",
-        "font-style: italic",
+        "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
       ],
       "No accounts yet. Create one to get started!",
     )
@@ -136,17 +138,13 @@ fn Model::view_account_list(
     }
     @html.div(
       style=[
-        "display: flex", "align-items: center", "padding: 14px",
-        "background: #f8f9fa", "border-radius: 8px", "gap: 12px",
-        "margin-bottom: 8px",
+        "display: flex", "align-items: center", "padding: 14px", "background: #f8f9fa",
+        "border-radius: 8px", "gap: 12px", "margin-bottom: 8px",
       ],
       [
         @html.div(style=["font-size: 1.5em"], type_icon),
         @html.div(style=["flex: 1"], [
-          @html.div(
-            style=["font-weight: 600", "font-size: 0.95em"],
-            a.name,
-          ),
+          @html.div(style=["font-weight: 600", "font-size: 0.95em"], a.name),
           @html.div(
             style=["font-size: 0.75em", "color: #999"],
             "\{a.account_type.to_label()} \u{00B7} \{txn_count} transactions",
@@ -154,16 +152,18 @@ fn Model::view_account_list(
         ]),
         @html.div(
           style=[
-            "font-size: 1.2em", "font-weight: 700", "color: \{color}",
-            "min-width: 100px", "text-align: right",
+            "font-size: 1.2em",
+            "font-weight: 700",
+            "color: \{color}",
+            "min-width: 100px",
+            "text-align: right",
           ],
           @shared.format_amount(balance),
         ),
         @html.button(
           style=[
-            "padding: 6px 10px", "background: #ffebee", "color: #c62828",
-            "border: none", "border-radius: 4px", "cursor: pointer",
-            "font-size: 0.8em",
+            "padding: 6px 10px", "background: #ffebee", "color: #c62828", "border: none",
+            "border-radius: 4px", "cursor: pointer", "font-size: 0.8em",
           ],
           on_click=dispatch(DeleteAccount(a.id)),
           "Delete",

@@ -20,12 +20,12 @@ priv enum KnobMsg {
 
 ///|
 fn KnobModel::new(
-  value~ : Int = 0,
-  min~ : Int = 0,
-  max~ : Int = 100,
-  step~ : Int = 1,
+  value? : Int = 0,
+  min? : Int = 0,
+  max? : Int = 100,
+  step? : Int = 1,
 ) -> KnobModel {
-  { value: value, min_val: min, max_val: max, step: step }
+  { value, min_val: min, max_val: max, step }
 }
 
 ///|
@@ -48,7 +48,7 @@ fn KnobModel::view(
   self : KnobModel,
   dispatch : @rabbita.Dispatch[KnobMsg],
   label~ : String,
-  color~ : String = "#4CAF50",
+  color? : String = "#4CAF50",
 ) -> @rabbita.Html {
   let range = self.max_val - self.min_val
   let pct = if range > 0 {
@@ -61,51 +61,44 @@ fn KnobModel::view(
       style=["font-size: 0.7em", "color: #999", "margin-bottom: 2px"],
       label,
     ),
-    @html.div(
-      style=["display: flex", "align-items: center", "gap: 2px"],
-      [
-        @html.button(
-          style=[
-            "width: 22px", "height: 22px", "font-size: 0.75em",
-            "border: 1px solid #555", "background: #2a2a2a", "color: #fff",
-            "cursor: pointer", "border-radius: 3px",
-          ],
-          on_click=dispatch(Decrement),
-          "\u{2212}",
-        ),
-        @html.div(
-          style=[
-            "flex: 1", "height: 8px", "background: #333", "border-radius: 4px",
-            "overflow: hidden",
-          ],
-          [
-            @html.div(
-              style=[
-                "height: 100%",
-                "width: " + pct.to_string() + "%",
-                "background: " + color,
-                "border-radius: 4px",
-                "transition: width 0.1s",
-              ],
-              "",
-            ),
-          ],
-        ),
-        @html.button(
-          style=[
-            "width: 22px", "height: 22px", "font-size: 0.75em",
-            "border: 1px solid #555", "background: #2a2a2a", "color: #fff",
-            "cursor: pointer", "border-radius: 3px",
-          ],
-          on_click=dispatch(Increment),
-          "+",
-        ),
-      ],
-    ),
+    @html.div(style=["display: flex", "align-items: center", "gap: 2px"], [
+      @html.button(
+        style=[
+          "width: 22px", "height: 22px", "font-size: 0.75em", "border: 1px solid #555",
+          "background: #2a2a2a", "color: #fff", "cursor: pointer", "border-radius: 3px",
+        ],
+        on_click=dispatch(Decrement),
+        "\u{2212}",
+      ),
+      @html.div(
+        style=[
+          "flex: 1", "height: 8px", "background: #333", "border-radius: 4px", "overflow: hidden",
+        ],
+        [
+          @html.div(
+            style=[
+              "height: 100%",
+              "width: " + pct.to_string() + "%",
+              "background: " + color,
+              "border-radius: 4px",
+              "transition: width 0.1s",
+            ],
+            "",
+          ),
+        ],
+      ),
+      @html.button(
+        style=[
+          "width: 22px", "height: 22px", "font-size: 0.75em", "border: 1px solid #555",
+          "background: #2a2a2a", "color: #fff", "cursor: pointer", "border-radius: 3px",
+        ],
+        on_click=dispatch(Increment),
+        "+",
+      ),
+    ]),
     @html.div(
       style=[
-        "text-align: center", "font-size: 0.8em", "font-weight: bold",
-        "color: #ccc",
+        "text-align: center", "font-size: 0.8em", "font-weight: bold", "color: #ccc",
       ],
       self.value.to_string(),
     ),
@@ -146,7 +139,7 @@ fn StepModel::update(self : StepModel, msg : StepMsg) -> StepModel {
 fn StepModel::view(
   self : StepModel,
   dispatch : @rabbita.Dispatch[StepMsg],
-  color~ : String = "#76FF03",
+  color? : String = "#76FF03",
 ) -> @rabbita.Html {
   let buttons : Array[@rabbita.Html] = []
   for i = 0; i < 8; i = i + 1 {
@@ -156,8 +149,15 @@ fn StepModel::view(
     buttons.push(
       @html.div(
         style=[
-          "width: 18px", "height: 18px", "border-radius: 2px", "cursor: pointer",
-          if active { "background: " + color } else { "background: " + inactive_bg },
+          "width: 18px",
+          "height: 18px",
+          "border-radius: 2px",
+          "cursor: pointer",
+          if active {
+            "background: " + color
+          } else {
+            "background: " + inactive_bg
+          },
         ],
         on_click=dispatch(Toggle(i)),
         "",

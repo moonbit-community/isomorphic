@@ -6,8 +6,7 @@ fn Model::view_connections(
   if self.connections.is_empty() {
     return @html.div(
       style=[
-        "text-align: center", "color: #444", "padding: 12px",
-        "font-size: 0.8em",
+        "text-align: center", "color: #444", "padding: 12px", "font-size: 0.8em",
       ],
       "No connections. Click \"Connect \u{2192}\" on an output port to start wiring.",
     )
@@ -40,9 +39,8 @@ fn Model::view_connections(
     }
     @html.div(
       style=[
-        "display: flex", "align-items: center", "gap: 6px",
-        "padding: 6px 10px", "background: #16213e", "border-radius: 4px",
-        "margin-bottom: 4px", "font-size: 0.8em",
+        "display: flex", "align-items: center", "gap: 6px", "padding: 6px 10px",
+        "background: #16213e", "border-radius: 4px", "margin-bottom: 4px", "font-size: 0.8em",
       ],
       [
         // Source
@@ -53,19 +51,15 @@ fn Model::view_connections(
         @html.span(style=["color: #666"], ".\{from_port_name}"),
         @html.span(style=["color: #e94560"], "\u{2192}"),
         // Target
-        @html.span(
-          style=["color: \{to_color}", "font-weight: 600"],
-          to_label,
-        ),
+        @html.span(style=["color: \{to_color}", "font-weight: 600"], to_label),
         @html.span(style=["color: #666"], ".\{to_port_name}"),
         // Spacer
         @html.div(style=["flex: 1"], ""),
         // Delete
         @html.button(
           style=[
-            "padding: 2px 8px", "background: #333", "color: #888",
-            "border: none", "border-radius: 3px", "cursor: pointer",
-            "font-size: 0.75em",
+            "padding: 2px 8px", "background: #333", "color: #888", "border: none",
+            "border-radius: 3px", "cursor: pointer", "font-size: 0.75em",
           ],
           on_click=dispatch(DeleteConnection(c.id)),
           "\u{2715}",
@@ -76,8 +70,7 @@ fn Model::view_connections(
   let children : Array[@rabbita.Html] = [
     @html.div(
       style=[
-        "font-size: 0.75em", "color: #666", "margin-bottom: 6px",
-        "letter-spacing: 1px",
+        "font-size: 0.75em", "color: #666", "margin-bottom: 6px", "letter-spacing: 1px",
       ],
       "CONNECTIONS (\{self.connections.length()})",
     ),
@@ -85,8 +78,5 @@ fn Model::view_connections(
   for row in rows {
     children.push(row)
   }
-  @html.div(
-    style=["border-top: 1px solid #333", "padding-top: 12px"],
-    children,
-  )
+  @html.div(style=["border-top: 1px solid #333", "padding-top: 12px"], children)
 }
