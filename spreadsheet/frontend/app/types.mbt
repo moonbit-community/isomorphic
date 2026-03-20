@@ -37,6 +37,7 @@ pub struct Model {
   sel_row : Int
   editing : Bool
   edit_value : String
+  show_chart : Bool
 }
 
 ///|
@@ -62,6 +63,7 @@ pub(all) enum Msg {
   SetBgColor(String)
   SetTextColor(String)
   ClearCell
+  ToggleChart
 }
 
 ///|
@@ -79,6 +81,7 @@ pub fn Model::new() -> Model {
     sel_row: 0,
     editing: false,
     edit_value: "",
+    show_chart: true,
   }
   // Recalculate all sheets so formulas are evaluated
   let sheets = model.sheets.copy()

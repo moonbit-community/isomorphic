@@ -12,6 +12,17 @@ pub fn Model::view(
     [
       self.view_toolbar(dispatch),
       self.view_formula_bar(dispatch),
+      if self.show_chart {
+        @html.div(
+          style=[
+            "display: flex", "justify-content: center", "padding: 12px 16px",
+            "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
+          ],
+          [self.view_chart()],
+        )
+      } else {
+        @html.span("")
+      },
       self.view_grid(dispatch),
       self.view_sheet_tabs(dispatch),
       self.view_status_bar(),
@@ -97,6 +108,9 @@ fn Model::view_toolbar(
       view_separator(),
       // --- Color group ---
       view_color_palette(cell.bg_color, dispatch),
+      view_separator(),
+      // --- Chart toggle ---
+      toolbar_button("\u{2584}", self.show_chart, "font-size:14px", dispatch(ToggleChart)),
       view_separator(),
       // --- Clear ---
       toolbar_button_text("Clear", false, dispatch(ClearCell)),
