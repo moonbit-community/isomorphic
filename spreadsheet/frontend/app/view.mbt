@@ -556,8 +556,8 @@ fn Model::view_grid(
         } else {
           ""
         }
-        // Check if this cell should render a sparkline (column I, rows 2-6 on Sales Dashboard)
-        let is_sparkline = is_sales && c == 8 && r >= 1 && r <= 5
+        // Check if this cell should render a sparkline (column I, rows 2-6 on Sales Dashboard, only if empty)
+        let is_sparkline = is_sales && c == 8 && r >= 1 && r <= 5 && cell.raw == ""
         let cell_content : @rabbita.Html = if is_sparkline {
           view_sparkline(sheet, r)
         } else {
