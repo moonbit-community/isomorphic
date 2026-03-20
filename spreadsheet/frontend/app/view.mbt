@@ -523,10 +523,14 @@ fn Model::view_grid(
           "#fff"
         }
         // Overlays: heat map and/or formula ref highlighting via inset box-shadow
-        let heat_overlay = if is_ref_highlighted {
-          "box-shadow: inset 0 0 0 100px #34a85320"
-        } else if heat_bg != "" {
-          "box-shadow: inset 0 0 0 100px \{heat_bg}"
+        let ref_shadow = if is_ref_highlighted { "inset 0 0 0 100px #34a85320" } else { "" }
+        let heat_shadow = if heat_bg != "" { "inset 0 0 0 100px \{heat_bg}" } else { "" }
+        let heat_overlay = if ref_shadow != "" && heat_shadow != "" {
+          "box-shadow: \{ref_shadow}, \{heat_shadow}"
+        } else if ref_shadow != "" {
+          "box-shadow: \{ref_shadow}"
+        } else if heat_shadow != "" {
+          "box-shadow: \{heat_shadow}"
         } else {
           ""
         }
