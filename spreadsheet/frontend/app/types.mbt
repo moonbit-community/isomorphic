@@ -106,92 +106,135 @@ fn set_cell_bold(sheet : Sheet, key : String, raw : String) -> Unit {
 }
 
 ///|
-fn populate_sales_dashboard(sheet : Sheet) -> Unit {
-  // Headers (row 0)
-  set_cell_bold(sheet, "A1", "Product")
-  set_cell_bold(sheet, "B1", "Q1 Revenue")
-  set_cell_bold(sheet, "C1", "Q2 Revenue")
-  set_cell_bold(sheet, "D1", "Q3 Revenue")
-  set_cell_bold(sheet, "E1", "Q4 Revenue")
-  set_cell_bold(sheet, "F1", "Annual Total")
-  set_cell_bold(sheet, "G1", "Avg Quarter")
-  set_cell_bold(sheet, "H1", "Growth")
+fn set_styled(
+  sheet : Sheet,
+  key : String,
+  raw : String,
+  bold : Bool,
+  align : @cell.Align,
+  format : @cell.NumFormat,
+  bg_color : String,
+  text_color : String,
+) -> Unit {
+  let value = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
+  sheet.cells[key] = {
+    raw, value, bold, italic: false,
+    align, format, bg_color, text_color,
+  }
+}
 
-  // Product data
+///|
+fn set_header(sheet : Sheet, key : String, raw : String, bg : String) -> Unit {
+  set_styled(sheet, key, raw, true, Center, General, bg, "")
+}
+
+///|
+fn set_currency(sheet : Sheet, key : String, raw : String) -> Unit {
+  set_styled(sheet, key, raw, false, Auto, Currency, "", "")
+}
+
+///|
+fn set_currency_bold(
+  sheet : Sheet,
+  key : String,
+  raw : String,
+  bg : String,
+) -> Unit {
+  set_styled(sheet, key, raw, true, Auto, Currency, bg, "")
+}
+
+///|
+fn populate_sales_dashboard(sheet : Sheet) -> Unit {
+  // Headers (row 0) — styled with blue background
+  let hdr = "#e3f2fd"
+  set_header(sheet, "A1", "Product", hdr)
+  set_header(sheet, "B1", "Q1 Revenue", hdr)
+  set_header(sheet, "C1", "Q2 Revenue", hdr)
+  set_header(sheet, "D1", "Q3 Revenue", hdr)
+  set_header(sheet, "E1", "Q4 Revenue", hdr)
+  set_header(sheet, "F1", "Annual Total", hdr)
+  set_header(sheet, "G1", "Avg Quarter", hdr)
+  set_header(sheet, "H1", "Growth", hdr)
+
+  // Product data — revenue in currency format
   set_cell(sheet, "A2", "Widget Pro")
-  set_cell(sheet, "B2", "45200")
-  set_cell(sheet, "C2", "52800")
-  set_cell(sheet, "D2", "61400")
-  set_cell(sheet, "E2", "58900")
-  set_cell(sheet, "F2", "=SUM(B2:E2)")
-  set_cell(sheet, "G2", "=AVG(B2:E2)")
-  set_cell(sheet, "H2", "=IF(E2>B2, \"Up\", \"Down\")")
+  set_currency(sheet, "B2", "45200")
+  set_currency(sheet, "C2", "52800")
+  set_currency(sheet, "D2", "61400")
+  set_currency(sheet, "E2", "58900")
+  set_currency_bold(sheet, "F2", "=SUM(B2:E2)", "")
+  set_currency(sheet, "G2", "=AVG(B2:E2)")
+  set_styled(sheet, "H2", "=IF(E2>B2, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
 
   set_cell(sheet, "A3", "Gadget X")
-  set_cell(sheet, "B3", "32100")
-  set_cell(sheet, "C3", "38500")
-  set_cell(sheet, "D3", "41200")
-  set_cell(sheet, "E3", "44800")
-  set_cell(sheet, "F3", "=SUM(B3:E3)")
-  set_cell(sheet, "G3", "=AVG(B3:E3)")
-  set_cell(sheet, "H3", "=IF(E3>B3, \"Up\", \"Down\")")
+  set_currency(sheet, "B3", "32100")
+  set_currency(sheet, "C3", "38500")
+  set_currency(sheet, "D3", "41200")
+  set_currency(sheet, "E3", "44800")
+  set_currency_bold(sheet, "F3", "=SUM(B3:E3)", "")
+  set_currency(sheet, "G3", "=AVG(B3:E3)")
+  set_styled(sheet, "H3", "=IF(E3>B3, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
 
   set_cell(sheet, "A4", "Device Z")
-  set_cell(sheet, "B4", "67800")
-  set_cell(sheet, "C4", "72100")
-  set_cell(sheet, "D4", "78500")
-  set_cell(sheet, "E4", "85200")
-  set_cell(sheet, "F4", "=SUM(B4:E4)")
-  set_cell(sheet, "G4", "=AVG(B4:E4)")
-  set_cell(sheet, "H4", "=IF(E4>B4, \"Up\", \"Down\")")
+  set_currency(sheet, "B4", "67800")
+  set_currency(sheet, "C4", "72100")
+  set_currency(sheet, "D4", "78500")
+  set_currency(sheet, "E4", "85200")
+  set_currency_bold(sheet, "F4", "=SUM(B4:E4)", "")
+  set_currency(sheet, "G4", "=AVG(B4:E4)")
+  set_styled(sheet, "H4", "=IF(E4>B4, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
 
   set_cell(sheet, "A5", "Service Plus")
-  set_cell(sheet, "B5", "28900")
-  set_cell(sheet, "C5", "31200")
-  set_cell(sheet, "D5", "35600")
-  set_cell(sheet, "E5", "39100")
-  set_cell(sheet, "F5", "=SUM(B5:E5)")
-  set_cell(sheet, "G5", "=AVG(B5:E5)")
-  set_cell(sheet, "H5", "=IF(E5>B5, \"Up\", \"Down\")")
+  set_currency(sheet, "B5", "28900")
+  set_currency(sheet, "C5", "31200")
+  set_currency(sheet, "D5", "35600")
+  set_currency(sheet, "E5", "39100")
+  set_currency_bold(sheet, "F5", "=SUM(B5:E5)", "")
+  set_currency(sheet, "G5", "=AVG(B5:E5)")
+  set_styled(sheet, "H5", "=IF(E5>B5, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
 
   set_cell(sheet, "A6", "Cloud Suite")
-  set_cell(sheet, "B6", "89500")
-  set_cell(sheet, "C6", "95200")
-  set_cell(sheet, "D6", "102800")
-  set_cell(sheet, "E6", "115600")
-  set_cell(sheet, "F6", "=SUM(B6:E6)")
-  set_cell(sheet, "G6", "=AVG(B6:E6)")
-  set_cell(sheet, "H6", "=IF(E6>B6, \"Up\", \"Down\")")
+  set_currency(sheet, "B6", "89500")
+  set_currency(sheet, "C6", "95200")
+  set_currency(sheet, "D6", "102800")
+  set_currency(sheet, "E6", "115600")
+  set_currency_bold(sheet, "F6", "=SUM(B6:E6)", "")
+  set_currency(sheet, "G6", "=AVG(B6:E6)")
+  set_styled(sheet, "H6", "=IF(E6>B6, \"Up\", \"Down\")", false, Center, General, "", "#0f9d58")
 
-  // Totals row
-  set_cell_bold(sheet, "A8", "Totals")
-  set_cell_bold(sheet, "B8", "=SUM(B2:B6)")
-  set_cell_bold(sheet, "C8", "=SUM(C2:C6)")
-  set_cell_bold(sheet, "D8", "=SUM(D2:D6)")
-  set_cell_bold(sheet, "E8", "=SUM(E2:E6)")
-  set_cell_bold(sheet, "F8", "=SUM(F2:F6)")
-  set_cell_bold(sheet, "G8", "=AVG(G2:G6)")
+  // Totals row — highlighted with green background
+  let tot = "#e8f5e9"
+  set_styled(sheet, "A8", "Totals", true, Auto, General, tot, "")
+  set_currency_bold(sheet, "B8", "=SUM(B2:B6)", tot)
+  set_currency_bold(sheet, "C8", "=SUM(C2:C6)", tot)
+  set_currency_bold(sheet, "D8", "=SUM(D2:D6)", tot)
+  set_currency_bold(sheet, "E8", "=SUM(E2:E6)", tot)
+  set_currency_bold(sheet, "F8", "=SUM(F2:F6)", tot)
+  set_currency_bold(sheet, "G8", "=AVG(G2:G6)", tot)
 
-  // Summary stats
-  set_cell_bold(sheet, "A10", "Statistics")
+  // Summary stats — highlighted with yellow background
+  let stat = "#fffde7"
+  set_styled(sheet, "A10", "Statistics", true, Auto, General, stat, "")
+  set_styled(sheet, "B10", "", false, Auto, General, stat, "")
   set_cell(sheet, "A11", "Best Quarter")
-  set_cell(sheet, "B11", "=MAX(B8:E8)")
+  set_currency(sheet, "B11", "=MAX(B8:E8)")
   set_cell(sheet, "A12", "Worst Quarter")
-  set_cell(sheet, "B12", "=MIN(B8:E8)")
+  set_currency(sheet, "B12", "=MIN(B8:E8)")
   set_cell(sheet, "A13", "Product Count")
   set_cell(sheet, "B13", "=COUNT(B2:B6)")
   set_cell(sheet, "A14", "Grand Total")
-  set_cell_bold(sheet, "B14", "=F8")
+  set_currency_bold(sheet, "B14", "=F8", "")
 }
 
 ///|
 fn populate_team_metrics(sheet : Sheet) -> Unit {
-  // Headers
-  set_cell_bold(sheet, "A1", "Team Member")
-  set_cell_bold(sheet, "B1", "Tasks Done")
-  set_cell_bold(sheet, "C1", "Hours")
-  set_cell_bold(sheet, "D1", "Efficiency")
-  set_cell_bold(sheet, "E1", "Rating")
+  // Headers — styled with purple background
+  let hdr = "#ede7f6"
+  set_header(sheet, "A1", "Team Member", hdr)
+  set_header(sheet, "B1", "Tasks Done", hdr)
+  set_header(sheet, "C1", "Hours", hdr)
+  set_header(sheet, "D1", "Efficiency", hdr)
+  set_header(sheet, "E1", "Rating", hdr)
 
   set_cell(sheet, "A2", "Alice Chen")
   set_cell(sheet, "B2", "47")
