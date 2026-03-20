@@ -1,7 +1,15 @@
 ///|
+let api_base : String = "http://localhost:4009"
+
+///|
+fn api(path : String) -> String {
+  api_base + path
+}
+
+///|
 fn fetch_graphs(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
-    @shared.api_graphs,
+    api(@shared.api_graphs),
     expect=Json(
       fn(r) { dispatch(GotGraphs(r)) },
       fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
@@ -15,7 +23,7 @@ fn fetch_graph(
   id : Int,
 ) -> @rabbita.Cmd {
   @http.get(
-    @shared.api_graph(id),
+    api(@shared.api_graph(id)),
     expect=Json(
       fn(r) { dispatch(GotGraph(r)) },
       fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
@@ -29,7 +37,7 @@ fn do_evaluate(
   graph_id : Int,
 ) -> @rabbita.Cmd {
   @http.post(
-    @shared.api_graph_evaluate(graph_id),
+    api(@shared.api_graph_evaluate(graph_id)),
     Json({}),
     expect=Json(
       fn(r) { dispatch(GotEvalResult(r)) },
@@ -94,7 +102,7 @@ pub fn Model::update(
         return ({ ..self, error: "Name required" }, @rabbita.none)
       }
       let cmd = @http.post(
-        @shared.api_graphs,
+        api(@shared.api_graphs),
         Json({ "name": self.new_graph_name.to_json() }),
         expect=Json(
           fn(r) { dispatch(GraphCreated(r)) },
@@ -111,7 +119,7 @@ pub fn Model::update(
     GraphCreated(Err(e)) => ({ ..self, error: e }, @rabbita.none)
     DeleteGraph(id) => {
       let cmd = @http.delete(
-        @shared.api_graph(id),
+        api(@shared.api_graph(id)),
         expect=Text(fn(r) { dispatch(GraphDeleted(r.map(fn(_) { id }))) }),
       )
       (self, cmd)
@@ -147,7 +155,7 @@ pub fn Model::update(
         _ => ""
       }
       let cmd = @http.post(
-        @shared.api_graph_nodes(self.current_graph_id),
+        api(@shared.api_graph_nodes(self.current_graph_id)),
         Json(
           {
             "kind": @shared.kind_to_string(kind).to_json(),
@@ -171,7 +179,7 @@ pub fn Model::update(
     NodeAdded(Err(e)) => ({ ..self, error: e }, @rabbita.none)
     DeleteNode(id) => {
       let cmd = @http.delete(
-        @shared.api_graph_node(self.current_graph_id, id),
+        api(@shared.api_graph_node(self.current_graph_id, id)),
         expect=Text(fn(r) { dispatch(NodeDeleted(r.map(fn(_) { id }))) }),
       )
       (self, cmd)
@@ -196,7 +204,7 @@ pub fn Model::update(
         return (self, @rabbita.none)
       }
       let cmd = @http.post(
-        @shared.api_graph_node(self.current_graph_id, self.editing_node),
+        api(@shared.api_graph_node(self.current_graph_id, self.editing_node)),
         Json(
           {
             "config": self.config_value.to_json(),
@@ -249,7 +257,7 @@ pub fn Model::update(
         )
       }
       let cmd = @http.post(
-        @shared.api_graph_connections(self.current_graph_id),
+        api(@shared.api_graph_connections(self.current_graph_id)),
         Json(
           {
             "from_node_id": from_node.to_json(),
@@ -274,7 +282,7 @@ pub fn Model::update(
     ConnectionAdded(Err(e)) => ({ ..self, error: e }, @rabbita.none)
     DeleteConnection(id) => {
       let cmd = @http.delete(
-        @shared.api_graph_connection(self.current_graph_id, id),
+        api(@shared.api_graph_connection(self.current_graph_id, id)),
         expect=Text(fn(r) {
           dispatch(ConnectionDeleted(r.map(fn(_) { id })))
         }),

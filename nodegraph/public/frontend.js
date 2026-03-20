@@ -1606,8 +1606,7 @@ const _M0FPC17strconv25min__exponent__fast__path = $_22L;
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1059 = ".";
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1060 = "e";
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1061 = "E";
-const _M0FP38bobzhang9nodegraph6shared9api__base = "http://localhost:4009";
-const _M0FP38bobzhang9nodegraph6shared11api__graphs = "http://localhost:4009/api/graphs";
+const _M0FP38bobzhang9nodegraph6shared11api__graphs = "/api/graphs";
 const _M0FP38bobzhang9nodegraph6shared10all__kinds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
 const _M0FP319moonbit_2dcommunity7rabbita3dom14namespace__svg = "http://www.w3.org/2000/svg";
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none = _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Empty__;
@@ -1618,6 +1617,7 @@ const _M0FP48bobzhang9nodegraph8frontend3app15node__stride__x = 280;
 const _M0FP48bobzhang9nodegraph8frontend3app6pad__y = 20;
 const _M0FP48bobzhang9nodegraph8frontend3app9header__h = 35;
 const _M0FP48bobzhang9nodegraph8frontend3app12port__stride = 28;
+const _M0FP48bobzhang9nodegraph8frontend3app9api__base = "http://localhost:4009";
 const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FPC16double13neg__infinity = _M0MPC15int645Int6423reinterpret__as__double($_4503599627370496L);
 const _M0FPC16double8infinity = _M0MPC15int645Int6423reinterpret__as__double($9218868437227405312L);
@@ -11794,22 +11794,22 @@ function _M0FP38bobzhang9nodegraph6shared21validate__graph__name(name) {
   return name.length > 0 && name.length <= 100;
 }
 function _M0FP38bobzhang9nodegraph6shared10api__graph(id) {
-  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}`;
+  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}`;
 }
 function _M0FP38bobzhang9nodegraph6shared17api__graph__nodes(id) {
-  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/nodes`;
+  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/nodes`;
 }
 function _M0FP38bobzhang9nodegraph6shared16api__graph__node(graph_id, node_id) {
-  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/nodes/${_M0IP016_24default__implPB4Show10to__stringGiE(node_id)}`;
+  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/nodes/${_M0IP016_24default__implPB4Show10to__stringGiE(node_id)}`;
 }
 function _M0FP38bobzhang9nodegraph6shared23api__graph__connections(id) {
-  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/connections`;
+  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/connections`;
 }
 function _M0FP38bobzhang9nodegraph6shared22api__graph__connection(graph_id, conn_id) {
-  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/connections/${_M0IP016_24default__implPB4Show10to__stringGiE(conn_id)}`;
+  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/connections/${_M0IP016_24default__implPB4Show10to__stringGiE(conn_id)}`;
 }
 function _M0FP38bobzhang9nodegraph6shared20api__graph__evaluate(id) {
-  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/evaluate`;
+  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/evaluate`;
 }
 function _M0FP38bobzhang9nodegraph6shared11node__label(kind) {
   switch (kind) {
@@ -17120,8 +17120,11 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model4view(self, dispatch) {
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$2, _tmp$3]);
 }
+function _M0FP48bobzhang9nodegraph8frontend3app3api(path) {
+  return `${_M0FP48bobzhang9nodegraph8frontend3app9api__base}${path}`;
+}
 function _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) {
-  return _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE(_M0FP38bobzhang9nodegraph6shared11api__graphs, new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg9GotGraphs(r)), (json) => {
+  return _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared11api__graphs), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg9GotGraphs(r)), (json) => {
     let _try_err;
     _L: {
       const _bind = _M0FPC14json10from__jsonGRPB5ArrayGRP38bobzhang9nodegraph6shared10SavedGraphEE(json, undefined);
@@ -17140,7 +17143,7 @@ function _M0FP48bobzhang9nodegraph8frontend3app13fetch__graphs(dispatch) {
   }));
 }
 function _M0FP48bobzhang9nodegraph8frontend3app12fetch__graph(dispatch, id) {
-  return _M0FP319moonbit_2dcommunity7rabbita4http3getGRP38bobzhang9nodegraph6shared5GraphE(_M0FP38bobzhang9nodegraph6shared10api__graph(id), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared5GraphE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg8GotGraph(r)), (json) => {
+  return _M0FP319moonbit_2dcommunity7rabbita4http3getGRP38bobzhang9nodegraph6shared5GraphE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared10api__graph(id)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared5GraphE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg8GotGraph(r)), (json) => {
     let _try_err;
     _L: {
       const _bind = _M0FPC14json10from__jsonGRP38bobzhang9nodegraph6shared5GraphE(json, undefined);
@@ -17159,7 +17162,7 @@ function _M0FP48bobzhang9nodegraph8frontend3app12fetch__graph(dispatch, id) {
   }));
 }
 function _M0FP48bobzhang9nodegraph8frontend3app12do__evaluate(dispatch, graph_id) {
-  const _tmp = _M0FP38bobzhang9nodegraph6shared20api__graph__evaluate(graph_id);
+  const _tmp = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared20api__graph__evaluate(graph_id));
   const _bind = [];
   return _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 0)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared10EvalResultE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg13GotEvalResult(r)), (json) => {
     let _try_err;
@@ -17276,21 +17279,22 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                           if (!_M0FP38bobzhang9nodegraph6shared21validate__graph__name(self.new_graph_name)) {
                                                             return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.connecting_from_node, self.connecting_from_port, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, "Name required"), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                           }
+                                                          const _tmp = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared11api__graphs);
                                                           const _bind = [{ _0: "name", _1: _M0IPC16string6StringPB6ToJson8to__json(self.new_graph_name) }];
-                                                          const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_M0FP38bobzhang9nodegraph6shared11api__graphs, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared10SavedGraphE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12GraphCreated(r)), (json) => {
+                                                          const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 1)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared10SavedGraphE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12GraphCreated(r)), (json) => {
                                                             let _try_err;
                                                             _L$27: {
                                                               const _bind$2 = _M0FPC14json10from__jsonGRP38bobzhang9nodegraph6shared10SavedGraphE(json, undefined);
-                                                              let _tmp;
+                                                              let _tmp$2;
                                                               if (_bind$2.$tag === 1) {
                                                                 const _ok = _bind$2;
-                                                                _tmp = _ok._0;
+                                                                _tmp$2 = _ok._0;
                                                               } else {
                                                                 const _err = _bind$2;
                                                                 _try_err = _err._0;
                                                                 break _L$27;
                                                               }
-                                                              return new _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10SavedGraphsE2Ok(_tmp);
+                                                              return new _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10SavedGraphsE2Ok(_tmp$2);
                                                             }
                                                             return new _M0DTPC16result6ResultGRP38bobzhang9nodegraph6shared10SavedGraphsE3Err("decode error");
                                                           }));
@@ -17413,9 +17417,9 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                                           if (self.editing_node === 0) {
                                                             return { _0: self, _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                                           }
-                                                          const _tmp = _M0FP38bobzhang9nodegraph6shared16api__graph__node(self.current_graph_id, self.editing_node);
+                                                          const _tmp$2 = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared16api__graph__node(self.current_graph_id, self.editing_node));
                                                           const _bind$2 = [{ _0: "config", _1: _M0IPC16string6StringPB6ToJson8to__json(self.config_value) }, { _0: "label", _1: _M0IPC16string6StringPB6ToJson8to__json(self.config_value) }];
-                                                          const cmd$2 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$2, 0, 2)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB4JsonE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg11ConfigSaved(_M0MPC16result6Result3mapGRPB4JsonsuE(r, (_json) => {
+                                                          const cmd$2 = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp$2, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$2, 0, 2)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB4JsonE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg11ConfigSaved(_M0MPC16result6Result3mapGRPB4JsonsuE(r, (_json) => {
                                                           }))), (json) => new _M0DTPC16result6ResultGRPB4JsonsE2Ok(json)));
                                                           const nodes = _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared4NodeRP38bobzhang9nodegraph6shared4NodeE(self.nodes, (n) => {
                                                             if (n.id === self.editing_node) {
@@ -17525,7 +17529,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                           }
                                           return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.connecting_from_node, self.connecting_from_port, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$5), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                                         }
-                                        const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang9nodegraph6shared10api__graph(id$6), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12GraphDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$6)))));
+                                        const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared10api__graph(id$6)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12GraphDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$6)))));
                                         return { _0: self, _1: cmd };
                                       }
                                       const graphs = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared10SavedGraphE(self.graphs, (g) => g.id !== id$5);
@@ -17561,7 +17565,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                                   config = "";
                                 }
                               }
-                              const _tmp = _M0FP38bobzhang9nodegraph6shared17api__graph__nodes(self.current_graph_id);
+                              const _tmp = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared17api__graph__nodes(self.current_graph_id));
                               const _bind = [{ _0: "kind", _1: _M0IPC16string6StringPB6ToJson8to__json(_M0FP38bobzhang9nodegraph6shared16kind__to__string(kind)) }, { _0: "label", _1: _M0IPC16string6StringPB6ToJson8to__json(label) }, { _0: "config", _1: _M0IPC16string6StringPB6ToJson8to__json(config) }];
                               const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 3)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared4NodeE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg9NodeAdded(r)), (json) => {
                                 let _try_err;
@@ -17589,7 +17593,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                           }
                           return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.connecting_from_node, self.connecting_from_port, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$3), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
                         }
-                        const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang9nodegraph6shared16api__graph__node(self.current_graph_id, id$4), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg11NodeDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$4)))));
+                        const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared16api__graph__node(self.current_graph_id, id$4)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg11NodeDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$4)))));
                         return { _0: self, _1: cmd };
                       }
                       const nodes = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared4NodeE(self.nodes, (n) => n.id !== id$3);
@@ -17621,7 +17625,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
                 }
                 return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, 0, 0, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, err), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
               }
-              const _tmp = _M0FP38bobzhang9nodegraph6shared23api__graph__connections(self.current_graph_id);
+              const _tmp = _M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared23api__graph__connections(self.current_graph_id));
               const _bind = [{ _0: "from_node_id", _1: _M0IPC13int3IntPB6ToJson8to__json(from_node) }, { _0: "from_port", _1: _M0IPC13int3IntPB6ToJson8to__json(from_port) }, { _0: "to_node_id", _1: _M0IPC13int3IntPB6ToJson8to__json(to_node) }, { _0: "to_port", _1: _M0IPC13int3IntPB6ToJson8to__json(to_port) }];
               const cmd = _M0FP319moonbit_2dcommunity7rabbita4http4postGRP38bobzhang9nodegraph6shared10ConnectionE(_tmp, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind, 0, 4)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRP38bobzhang9nodegraph6shared10ConnectionE4Json((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg15ConnectionAdded(r)), (json) => {
                 let _try_err;
@@ -17649,7 +17653,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model6update(self, msg, dispatch
           }
           return { _0: new _M0TP48bobzhang9nodegraph8frontend3app5Model(self.page, self.graphs, self.current_graph_id, self.nodes, self.connections, self.eval_result, self.auto_eval, self.connecting_from_node, self.connecting_from_port, self.editing_node, self.config_value, self.new_graph_name, self.show_palette, self.palette_cat, self.first_load, self.loading, e$2), _1: _M0FP319moonbit_2dcommunity7rabbita3cmd4none };
         }
-        const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP38bobzhang9nodegraph6shared22api__graph__connection(self.current_graph_id, id$2), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg17ConnectionDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$2)))));
+        const cmd = _M0FP319moonbit_2dcommunity7rabbita4http6deleteGuE(_M0FP48bobzhang9nodegraph8frontend3app3api(_M0FP38bobzhang9nodegraph6shared22api__graph__connection(self.current_graph_id, id$2)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((r) => dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg17ConnectionDeleted(_M0MPC16result6Result3mapGssiE(r, (_discard_) => id$2)))));
         return { _0: self, _1: cmd };
       }
       const connections = _M0MPC15array5Array6filterGRP38bobzhang9nodegraph6shared10ConnectionE(self.connections, (c) => c.id !== id);
