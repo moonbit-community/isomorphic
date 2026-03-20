@@ -178,7 +178,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       break
     }
   }
-  // Collect annual totals per product (column F, rows 2-6)
+  // Collect annual totals per product from B-E (same source as bar chart)
   let products : Array[String] = []
   let totals : Array[Double] = []
   for r = 1; r < 6; r = r + 1 {
@@ -189,7 +189,10 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     }
     if name == "" { continue }
     products.push(name)
-    totals.push(get_num(sheet, 5, r)) // Column F = annual total
+    let row_total = get_num(sheet, 1, r) + get_num(sheet, 2, r) + get_num(
+        sheet, 3, r,
+      ) + get_num(sheet, 4, r)
+    totals.push(row_total)
   }
   if products.is_empty() {
     return @html.span("")
@@ -221,15 +224,16 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       stroke_width=stroke_w,
     ),
   )
-  // Donut segments
+  // Donut segments — each circle uses dasharray to show only its arc
   let mut offset_angle = -90.0 // start from top
   for i = 0; i < products.length(); i = i + 1 {
     let fraction = totals[i] / grand_total
-    let dash_len = (circumference * fraction).to_int()
-    let dash_off = (circumference - circumference * fraction).to_int()
+    let arc_len = (circumference * fraction).to_int()
+    let gap_len = circ_int - arc_len
     let rotation = offset_angle
     let delay = i * 150
     let color_idx = i % colors.length()
+    // dasharray: "arc gap", dashoffset: arc→0 draws the segment
     elements.push(
       @svg.circle(
         cx=cx, cy=cy, r=radius,
@@ -239,13 +243,13 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
         style=[
           "transform-origin: center",
           "transform: rotate(\{rotation}deg)",
-          "--circumference: \{circ_int}",
-          "--dash-offset: \{dash_off}",
+          "--circumference: \{arc_len}",
+          "--dash-offset: 0",
           "animation: donutDraw 0.8s ease-out \{delay}ms both",
         ],
         attrs=@svg.Attrs::build()
-          .stroke_dasharray("\{dash_len} \{circ_int}")
-          .stroke_dashoffset("\{circ_int}"),
+          .stroke_dasharray("\{arc_len} \{gap_len}")
+          .stroke_dashoffset("\{arc_len}"),
       ),
     )
     offset_angle = offset_angle + fraction * 360.0
