@@ -98,6 +98,7 @@ fn import_sheet_cells(
   dim : String,
 ) -> Unit {
   // Parse dimension like "A1:H14" to get bounds
+  // Falls back to full grid (0,0 to Z,29) if parse fails (e.g. multi-letter cols like AA)
   let parts = split_colon(dim)
   let (min_col, min_row, max_col, max_row) = match parts {
     Some((start, end)) => {
@@ -105,14 +106,13 @@ fn import_sheet_cells(
       let e = @cell.parse_ref(end)
       match (s, e) {
         (Some((c1, r1)), Some((c2, r2))) => (c1, r1, c2, r2)
-        _ => return
+        _ => (0, 0, num_cols - 1, num_rows - 1)
       }
     }
     None => {
-      // Single cell dimension
       match @cell.parse_ref(dim) {
         Some((c, r)) => (c, r, c, r)
-        None => return
+        None => (0, 0, num_cols - 1, num_rows - 1)
       }
     }
   }
@@ -137,23 +137,45 @@ fn import_sheet_cells(
       } catch {
         _ => None
       }
+      // Get style info (even for empty cells that may have formatting)
+      let (bold, italic, align, bg_color) = get_xlsx_style(wb, sheet_name, key)
       // Determine raw string (formula takes priority)
       let raw = match formula {
         Some(f) => if f != "" { "=\{f}" } else { cell_value_to_raw(raw_value) }
         None => cell_value_to_raw(raw_value)
       }
-      if raw == "" {
+      let has_align = match align { Auto => false; _ => true }
+      let has_style = bold || italic || bg_color != "" || has_align
+      if raw == "" && !has_style {
         continue
       }
-      // Evaluate the value
-      let value = @formula.evaluate(raw, fn(ref) { sheet.get(ref).value })
-      // Get style info
-      let (bold, italic, align, bg_color) = get_xlsx_style(wb, sheet_name, key)
+      // Evaluate the value; for formulas that fail, use cached xlsx value
+      let value = if raw.length() > 0 && raw[0] == '=' {
+        let evaluated = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
+        match evaluated {
+          Error(_) => cell_value_to_value(raw_value) // fall back to cached result
+          _ => evaluated
+        }
+      } else {
+        @formula.evaluate(raw, fn(r) { sheet.get(r).value })
+      }
       sheet.cells[key] = {
         raw, value, bold, italic, align,
         format: General, bg_color, text_color: "",
       }
     }
+  }
+}
+
+///|
+/// Convert xlsx CellValue to our Value type (for cached formula results).
+fn cell_value_to_value(cv : @xlsx.CellValue?) -> @cell.Value {
+  match cv {
+    None => Empty
+    Some(String(s)) => Text(s)
+    Some(Numeric(n)) => Num(n)
+    Some(Bool(b)) => Text(if b { "TRUE" } else { "FALSE" })
+    Some(Error(e)) => Error(e)
   }
 }
 
