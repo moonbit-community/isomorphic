@@ -42,7 +42,11 @@ fn main raise {
       #|  <title>NodeGraph - Visual Dataflow Editor</title>
       #|  <style>
       #|    * { margin: 0; padding: 0; box-sizing: border-box; }
-      #|    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; }
+      #|    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0e17; color: #eee; }
+      #|    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+      #|    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 4px currentColor; } 50% { box-shadow: 0 0 12px currentColor; } }
+      #|    @keyframes flowDash { to { stroke-dashoffset: -20; } }
+      #|    @keyframes breathe { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
       #|  </style>
       #|</head>
       #|<body>

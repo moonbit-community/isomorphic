@@ -8,20 +8,21 @@ fn Model::view_editor(
     @html.div(
       style=[
         "display: flex", "align-items: center", "gap: 10px",
-        "margin-bottom: 12px", "padding-bottom: 10px",
-        "border-bottom: 1px solid #333",
+        "margin-bottom: 12px", "padding: 10px 14px",
+        "background: linear-gradient(135deg, #16213e, #0f3460)",
+        "border-radius: 8px", "border: 1px solid #1b2838",
       ],
       [
         @html.button(
           style=[
-            "padding: 6px 14px", "background: #333", "color: #ccc",
-            "border: none", "border-radius: 4px", "cursor: pointer",
+            "padding: 6px 14px", "background: rgba(255,255,255,0.08)", "color: #ccc",
+            "border: 1px solid #ffffff15", "border-radius: 6px", "cursor: pointer",
           ],
           on_click=dispatch(GoToList),
           "\u{2190} Back",
         ),
         @html.div(
-          style=["flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 1px"],
+          style=["flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 2px", "color: #e94560"],
           "EDITOR",
         ),
         @html.button(

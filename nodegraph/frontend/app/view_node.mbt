@@ -46,28 +46,36 @@ fn Model::view_single_node(
     ConstNumber | ConstString | ConstBool | ConstColor => true
     _ => false
   }
+  let has_output = node_vals.length() > 0
   @html.div(
     style=[
-      "min-width: 180px", "max-width: 240px", "background: #16213e",
-      "border: 2px solid \{cat_color}", "border-radius: 8px",
-      "overflow: hidden",
+      "min-width: 190px", "max-width: 250px", "background: #16213e",
+      "border: 2px solid \{cat_color}", "border-radius: 10px",
+      "overflow: hidden", "animation: fadeIn 0.3s ease",
+      if has_output {
+        "box-shadow: 0 0 12px \{cat_color}40"
+      } else {
+        "box-shadow: 0 2px 8px rgba(0,0,0,0.4)"
+      },
     ],
     [
-      // Header
+      // Header with gradient
       @html.div(
         style=[
-          "background: \{cat_color}", "padding: 6px 10px",
+          "background: linear-gradient(135deg, \{cat_color}, \{cat_color}bb)",
+          "padding: 7px 12px",
           "display: flex", "justify-content: space-between", "align-items: center",
         ],
         [
           @html.span(
-            style=["font-weight: 700", "font-size: 0.8em", "color: #fff"],
+            style=["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)"],
             node.label,
           ),
           @html.button(
             style=[
-              "background: none", "border: none", "color: rgba(255,255,255,0.7)",
-              "cursor: pointer", "font-size: 0.8em",
+              "background: rgba(0,0,0,0.2)", "border: none", "color: rgba(255,255,255,0.8)",
+              "cursor: pointer", "font-size: 0.75em", "width: 20px", "height: 20px",
+              "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center",
             ],
             on_click=dispatch(DeleteNode(node.id)),
             "\u{2715}",
@@ -200,9 +208,14 @@ fn Model::view_input_ports(
         [
           @html.div(
             style=[
-              "width: 8px", "height: 8px", "border-radius: 50%",
-              "background: \{color}",
-              if connected { "box-shadow: 0 0 4px \{color}" } else { "" },
+              "width: 10px", "height: 10px", "border-radius: 50%",
+              "background: \{color}", "transition: all 0.2s",
+              "flex-shrink: 0",
+              if connected {
+                "box-shadow: 0 0 8px \{color}; border: 1px solid \{color}"
+              } else {
+                "opacity: 0.6; border: 1px solid \{color}50"
+              },
             ],
             "",
           ),
@@ -277,8 +290,9 @@ fn Model::view_output_ports(
           ),
           @html.div(
             style=[
-              "width: 8px", "height: 8px", "border-radius: 50%",
-              "background: \{color}",
+              "width: 10px", "height: 10px", "border-radius: 50%",
+              "background: \{color}", "flex-shrink: 0",
+              "border: 1px solid \{color}50",
             ],
             "",
           ),
@@ -316,13 +330,15 @@ fn Model::view_node_values(
       VColor(hex) =>
         @html.div(
           style=[
-            "display: flex", "align-items: center", "gap: 6px",
+            "display: flex", "align-items: center", "gap: 8px",
+            "padding: 4px",
           ],
           [
             @html.div(
               style=[
-                "width: 24px", "height: 24px", "border-radius: 4px",
-                "background: \{hex}", "border: 1px solid #555",
+                "width: 40px", "height: 40px", "border-radius: 6px",
+                "background: \{hex}", "border: 2px solid #555",
+                "box-shadow: 0 0 12px \{hex}60",
               ],
               "",
             ),
@@ -332,20 +348,64 @@ fn Model::view_node_values(
             ),
           ],
         )
-      _ =>
+      VBool(b) =>
         @html.div(
           style=[
-            "font-size: 0.8em", "color: #76FF03", "font-family: monospace",
-            "font-weight: 700",
+            "display: inline-block", "padding: 3px 10px", "border-radius: 12px",
+            "font-size: 0.75em", "font-weight: 700",
+            if b {
+              "background: #4CAF5030; color: #76FF03; border: 1px solid #4CAF50"
+            } else {
+              "background: #f4433630; color: #ff5252; border: 1px solid #f44336"
+            },
           ],
-          @shared.format_value(v),
+          if b { "true" } else { "false" },
+        )
+      VNumber(n) =>
+        @html.div(
+          style=[
+            "font-size: 1.1em", "color: #76FF03", "font-family: monospace",
+            "font-weight: 700", "text-shadow: 0 0 8px #76FF0340",
+          ],
+          n.to_string(),
+        )
+      VString(s) =>
+        @html.div(
+          style=[
+            "font-size: 0.8em", "color: #FF9800", "font-family: monospace",
+            "padding: 2px 6px", "background: #FF980010", "border-radius: 3px",
+            "border: 1px solid #FF980030",
+          ],
+          "\"\{s}\"",
+        )
+      VError(e) =>
+        @html.div(
+          style=[
+            "font-size: 0.7em", "color: #ff5252", "padding: 2px 6px",
+            "background: #ff525210", "border-radius: 3px",
+          ],
+          "\u{26A0} \{e}",
+        )
+      VNone =>
+        @html.div(
+          style=["font-size: 0.7em", "color: #555"],
+          "(none)",
         )
     }
   })
+  let result_children : Array[@rabbita.Html] = [
+    @html.div(
+      style=["font-size: 0.55em", "color: #555", "margin-bottom: 3px", "letter-spacing: 1px"],
+      "RESULT",
+    ),
+  ]
+  for item in items {
+    result_children.push(item)
+  }
   @html.div(
     style=[
-      "margin-top: 6px", "padding-top: 6px", "border-top: 1px solid #333",
+      "margin-top: 6px", "padding-top: 6px", "border-top: 1px solid #ffffff10",
     ],
-    items,
+    result_children,
   )
 }

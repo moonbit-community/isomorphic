@@ -11964,58 +11964,6 @@ function _M0FP38bobzhang9nodegraph6shared16kind__to__string(kind) {
     }
   }
 }
-function _M0FP38bobzhang9nodegraph6shared13format__value(v) {
-  let e;
-  _L: {
-    let b;
-    _L$2: {
-      let s;
-      _L$3: {
-        let n;
-        _L$4: {
-          switch (v.$tag) {
-            case 0: {
-              const _VNumber = v;
-              const _n = _VNumber._0;
-              n = _n;
-              break _L$4;
-            }
-            case 1: {
-              const _VString = v;
-              const _s = _VString._0;
-              s = _s;
-              break _L$3;
-            }
-            case 2: {
-              const _VBool = v;
-              const _b = _VBool._0;
-              b = _b;
-              break _L$2;
-            }
-            case 3: {
-              const _VColor = v;
-              const _c = _VColor._0;
-              return _c;
-            }
-            case 4: {
-              const _VError = v;
-              const _e = _VError._0;
-              e = _e;
-              break _L;
-            }
-            default: {
-              return "(none)";
-            }
-          }
-        }
-        return _M0MPC13int3Int18to__string_2einner(n, 10);
-      }
-      return `\"${_M0IPC16string6StringPB4Show10to__string(s)}\"`;
-    }
-    return b ? "true" : "false";
-  }
-  return `Error: ${_M0IPC16string6StringPB4Show10to__string(e)}`;
-}
 function _M0FP38bobzhang9nodegraph6shared18get__node__outputs(result, node_id) {
   const _bind = result.node_outputs;
   const _bind$2 = _bind.length;
@@ -16222,7 +16170,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model18view__input__ports(self, 
       } else {
         compatible = false;
       }
-      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 8px", "height: 8px", "border-radius: 50%", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`, connected.val ? `box-shadow: 0 0 4px ${_M0IPC16string6StringPB4Show10to__string(color)}` : ""], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 0.7em", "color: #aaa", "flex: 1"], undefined, undefined, undefined, -1, undefined, p.name), compatible ? _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`, "color: #fff", "border: none", "border-radius: 3px", "cursor: pointer", "font-size: 0.6em", "font-weight: 700"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg15CompleteConnect(node.id, i)), undefined, "→ Connect") : _M0FP319moonbit_2dcommunity7rabbita4html4text("")]));
+      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 10px", "height: 10px", "border-radius: 50%", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`, "transition: all 0.2s", "flex-shrink: 0", connected.val ? `box-shadow: 0 0 8px ${_M0IPC16string6StringPB4Show10to__string(color)}; border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(color)}` : `opacity: 0.6; border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(color)}50`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 0.7em", "color: #aaa", "flex: 1"], undefined, undefined, undefined, -1, undefined, p.name), compatible ? _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`, "color: #fff", "border: none", "border-radius: 3px", "cursor: pointer", "font-size: 0.6em", "font-weight: 700"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg15CompleteConnect(node.id, i)), undefined, "→ Connect") : _M0FP319moonbit_2dcommunity7rabbita4html4text("")]));
       _tmp = i + 1 | 0;
       continue;
     } else {
@@ -16250,20 +16198,77 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model18view__node__values(self, 
     return _M0FP319moonbit_2dcommunity7rabbita4html4text("");
   }
   const items = _M0MPC15array5Array3mapGRP38bobzhang9nodegraph6shared5ValueRP319moonbit_2dcommunity7rabbita4html4HtmlE(vals, (v) => {
-    let hex;
+    let e;
     _L: {
-      if (v.$tag === 3) {
-        const _VColor = v;
-        const _hex = _VColor._0;
-        hex = _hex;
-        break _L;
-      } else {
-        return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.8em", "color: #76FF03", "font-family: monospace", "font-weight: 700"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0FP38bobzhang9nodegraph6shared13format__value(v));
+      let s;
+      _L$2: {
+        let n;
+        _L$3: {
+          let b;
+          _L$4: {
+            let hex;
+            _L$5: {
+              switch (v.$tag) {
+                case 3: {
+                  const _VColor = v;
+                  const _hex = _VColor._0;
+                  hex = _hex;
+                  break _L$5;
+                }
+                case 2: {
+                  const _VBool = v;
+                  const _b = _VBool._0;
+                  b = _b;
+                  break _L$4;
+                }
+                case 0: {
+                  const _VNumber = v;
+                  const _n = _VNumber._0;
+                  n = _n;
+                  break _L$3;
+                }
+                case 1: {
+                  const _VString = v;
+                  const _s = _VString._0;
+                  s = _s;
+                  break _L$2;
+                }
+                case 4: {
+                  const _VError = v;
+                  const _e = _VError._0;
+                  e = _e;
+                  break _L;
+                }
+                default: {
+                  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.7em", "color: #555"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "(none)");
+                }
+              }
+            }
+            return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 8px", "padding: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 40px", "height: 40px", "border-radius: 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(hex)}`, "border: 2px solid #555", `box-shadow: 0 0 12px ${_M0IPC16string6StringPB4Show10to__string(hex)}60`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 0.75em", "color: #ccc", "font-family: monospace"], undefined, undefined, undefined, -1, undefined, hex)]);
+          }
+          return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["display: inline-block", "padding: 3px 10px", "border-radius: 12px", "font-size: 0.75em", "font-weight: 700", b ? "background: #4CAF5030; color: #76FF03; border: 1px solid #4CAF50" : "background: #f4433630; color: #ff5252; border: 1px solid #f44336"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, b ? "true" : "false");
+        }
+        return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 1.1em", "color: #76FF03", "font-family: monospace", "font-weight: 700", "text-shadow: 0 0 8px #76FF0340"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, _M0MPC13int3Int18to__string_2einner(n, 10));
       }
+      return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.8em", "color: #FF9800", "font-family: monospace", "padding: 2px 6px", "background: #FF980010", "border-radius: 3px", "border: 1px solid #FF980030"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, `\"${_M0IPC16string6StringPB4Show10to__string(s)}\"`);
     }
-    return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 6px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 24px", "height: 24px", "border-radius: 4px", `background: ${_M0IPC16string6StringPB4Show10to__string(hex)}`, "border: 1px solid #555"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ""), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 0.75em", "color: #ccc", "font-family: monospace"], undefined, undefined, undefined, -1, undefined, hex)]);
+    return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.7em", "color: #ff5252", "padding: 2px 6px", "background: #ff525210", "border-radius: 3px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, `⚠ ${_M0IPC16string6StringPB4Show10to__string(e)}`);
   });
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 6px", "padding-top: 6px", "border-top: 1px solid #333"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, items);
+  const result_children = [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 0.55em", "color: #555", "margin-bottom: 3px", "letter-spacing: 1px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "RESULT")];
+  const _bind = items.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const item = items[_];
+      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(result_children, item);
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["margin-top: 6px", "padding-top: 6px", "border-top: 1px solid #ffffff10"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, result_children);
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model19view__output__ports(self, node, ports, dispatch) {
   if (_M0MPC15array5Array9is__emptyGRP38bobzhang9nodegraph6shared10SavedGraphE(ports)) {
@@ -16276,7 +16281,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model19view__output__ports(self,
     if (i < ports.length) {
       const p = _M0MPC15array5Array2atGRP38bobzhang9nodegraph6shared7PortDefE(ports, i);
       const color = _M0FP38bobzhang9nodegraph6shared17port__type__color(p.port_type);
-      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px", "justify-content: flex-end"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}30`, `color: ${_M0IPC16string6StringPB4Show10to__string(color)}`, `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(color)}`, "border-radius: 3px", "cursor: pointer", "font-size: 0.6em", "font-weight: 700"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12StartConnect(node.id, i)), undefined, "Connect →"), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 0.7em", "color: #aaa"], undefined, undefined, undefined, -1, undefined, p.name), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 8px", "height: 8px", "border-radius: 50%", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "")]));
+      _M0MPC15array5Array4pushGRP38bobzhang9nodegraph6shared10ConnectionE(items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px", "justify-content: flex-end"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 2px 6px", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}30`, `color: ${_M0IPC16string6StringPB4Show10to__string(color)}`, `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(color)}`, "border-radius: 3px", "cursor: pointer", "font-size: 0.6em", "font-weight: 700"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg12StartConnect(node.id, i)), undefined, "Connect →"), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 0.7em", "color: #aaa"], undefined, undefined, undefined, -1, undefined, p.name), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 10px", "height: 10px", "border-radius: 50%", `background: ${_M0IPC16string6StringPB4Show10to__string(color)}`, "flex-shrink: 0", `border: 1px solid ${_M0IPC16string6StringPB4Show10to__string(color)}50`], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "")]));
       _tmp = i + 1 | 0;
       continue;
     } else {
@@ -16369,7 +16374,8 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model18view__single__node(self, 
       is_const = false;
     }
   }
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["min-width: 180px", "max-width: 240px", "background: #16213e", `border: 2px solid ${_M0IPC16string6StringPB4Show10to__string(cat_color)}`, "border-radius: 8px", "overflow: hidden"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: ${_M0IPC16string6StringPB4Show10to__string(cat_color)}`, "padding: 6px 10px", "display: flex", "justify-content: space-between", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: 700", "font-size: 0.8em", "color: #fff"], undefined, undefined, undefined, -1, undefined, node.label), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["background: none", "border: none", "color: rgba(255,255,255,0.7)", "cursor: pointer", "font-size: 0.8em"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg10DeleteNode(node.id)), undefined, "✕")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [is_const ? _M0MP48bobzhang9nodegraph8frontend3app5Model19view__const__config(self, node, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__input__ports(self, node, in_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model19view__output__ports(self, node, out_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__node__values(self, node, node_vals)])]);
+  const has_output = node_vals.length > 0;
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["min-width: 190px", "max-width: 250px", "background: #16213e", `border: 2px solid ${_M0IPC16string6StringPB4Show10to__string(cat_color)}`, "border-radius: 10px", "overflow: hidden", "animation: fadeIn 0.3s ease", has_output ? `box-shadow: 0 0 12px ${_M0IPC16string6StringPB4Show10to__string(cat_color)}40` : "box-shadow: 0 2px 8px rgba(0,0,0,0.4)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE([`background: linear-gradient(135deg, ${_M0IPC16string6StringPB4Show10to__string(cat_color)}, ${_M0IPC16string6StringPB4Show10to__string(cat_color)}bb)`, "padding: 7px 12px", "display: flex", "justify-content: space-between", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)"], undefined, undefined, undefined, -1, undefined, node.label), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["background: rgba(0,0,0,0.2)", "border: none", "color: rgba(255,255,255,0.8)", "cursor: pointer", "font-size: 0.75em", "width: 20px", "height: 20px", "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang9nodegraph8frontend3app3Msg10DeleteNode(node.id)), undefined, "✕")]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["padding: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [is_const ? _M0MP48bobzhang9nodegraph8frontend3app5Model19view__const__config(self, node, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__input__ports(self, node, in_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model19view__output__ports(self, node, out_ports, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__node__values(self, node, node_vals)])]);
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model11view__nodes(self, dispatch) {
   if (_M0MPC15array5Array9is__emptyGRP38bobzhang9nodegraph6shared10SavedGraphE(self.nodes)) {
@@ -16497,7 +16503,7 @@ function _M0MP48bobzhang9nodegraph8frontend3app5Model18view__eval__status(self) 
   }
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model12view__editor(self, dispatch) {
-  return _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 10px", "margin-bottom: 12px", "padding-bottom: 10px", "border-bottom: 1px solid #333"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "background: #333", "color: #ccc", "border: none", "border-radius: 4px", "cursor: pointer"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg8GoToList__), undefined, "← Back"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 1px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "EDITOR"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "border: none", "border-radius: 4px", "cursor: pointer", "font-weight: 600", self.auto_eval ? "background: #4CAF50; color: #fff" : "background: #333; color: #888"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg14ToggleAutoEval__), undefined, self.auto_eval ? "Auto: ON" : "Auto: OFF"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "background: #e94560", "color: #fff", "border: none", "border-radius: 4px", "cursor: pointer", "font-weight: 600"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg8Evaluate__), undefined, "▶ Evaluate"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "border: none", "border-radius: 4px", "cursor: pointer", self.show_palette ? "background: #0f3460; color: #e94560" : "background: #e94560; color: #fff"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg13TogglePalette__), undefined, self.show_palette ? "Close Palette" : "+ Add Node")]), self.connecting_from_node !== 0 ? _M0MP48bobzhang9nodegraph8frontend3app5Model21view__connect__banner(self, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), self.show_palette ? _M0MP48bobzhang9nodegraph8frontend3app5Model13view__palette(self, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__eval__status(self), _M0MP48bobzhang9nodegraph8frontend3app5Model11view__nodes(self, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model17view__connections(self, dispatch)]);
+  return _M0FP319moonbit_2dcommunity7rabbita4html3divGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 10px", "margin-bottom: 12px", "padding: 10px 14px", "background: linear-gradient(135deg, #16213e, #0f3460)", "border-radius: 8px", "border: 1px solid #1b2838"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "background: rgba(255,255,255,0.08)", "color: #ccc", "border: 1px solid #ffffff15", "border-radius: 6px", "cursor: pointer"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg8GoToList__), undefined, "← Back"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 2px", "color: #e94560"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "EDITOR"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "border: none", "border-radius: 4px", "cursor: pointer", "font-weight: 600", self.auto_eval ? "background: #4CAF50; color: #fff" : "background: #333; color: #888"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg14ToggleAutoEval__), undefined, self.auto_eval ? "Auto: ON" : "Auto: OFF"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "background: #e94560", "color: #fff", "border: none", "border-radius: 4px", "cursor: pointer", "font-weight: 600"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg8Evaluate__), undefined, "▶ Evaluate"), _M0FP319moonbit_2dcommunity7rabbita4html14button_2einnerGsE(["padding: 6px 14px", "border: none", "border-radius: 4px", "cursor: pointer", self.show_palette ? "background: #0f3460; color: #e94560" : "background: #e94560; color: #fff"], undefined, undefined, undefined, -1, undefined, -1, undefined, undefined, -1, dispatch(_M0DTP48bobzhang9nodegraph8frontend3app3Msg13TogglePalette__), undefined, self.show_palette ? "Close Palette" : "+ Add Node")]), self.connecting_from_node !== 0 ? _M0MP48bobzhang9nodegraph8frontend3app5Model21view__connect__banner(self, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), self.show_palette ? _M0MP48bobzhang9nodegraph8frontend3app5Model13view__palette(self, dispatch) : _M0FP319moonbit_2dcommunity7rabbita4html4text(""), _M0MP48bobzhang9nodegraph8frontend3app5Model18view__eval__status(self), _M0MP48bobzhang9nodegraph8frontend3app5Model11view__nodes(self, dispatch), _M0MP48bobzhang9nodegraph8frontend3app5Model17view__connections(self, dispatch)]);
 }
 function _M0MP48bobzhang9nodegraph8frontend3app5Model11view__error(self, dispatch) {
   if (self.error.length === 0) {
