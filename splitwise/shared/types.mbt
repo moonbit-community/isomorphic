@@ -1,5 +1,6 @@
 ///|
 /// A person in the group who can pay or owe expenses.
+#warnings("-unnecessary_annotation")
 pub(all) struct Person {
   id : Int
   name : String
@@ -7,6 +8,7 @@ pub(all) struct Person {
 
 ///|
 /// An expense paid by one person, split among participants.
+#warnings("-unnecessary_annotation")
 pub(all) struct Expense {
   id : Int
   description : String
@@ -20,6 +22,7 @@ pub(all) struct Expense {
 
 ///|
 /// A settlement: one person pays another to resolve debts.
+#warnings("-unnecessary_annotation")
 pub(all) struct Settlement {
   from_id : Int
   from_name : String
@@ -31,6 +34,7 @@ pub(all) struct Settlement {
 
 ///|
 /// Full state returned by GET /api/state.
+#warnings("-unnecessary_annotation")
 pub(all) struct AppState {
   people : Array[Person]
   expenses : Array[Expense]
