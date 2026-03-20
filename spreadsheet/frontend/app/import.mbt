@@ -422,13 +422,6 @@ fn normalize_formula(formula : String) -> String {
 ///|
 /// Split a string on ':' into two parts.
 fn split_colon(s : String) -> (String, String)? {
-  let chars = s.to_array()
-  for i = 0; i < chars.length(); i = i + 1 {
-    if chars[i] == ':' {
-      let left = s.substring(end=i)
-      let right = s.substring(start=i + 1)
-      return Some((left, right))
-    }
-  }
-  None
+  let (left, right) = s.split_once(":")?
+  Some((left.to_string(), right.to_string()))
 }
