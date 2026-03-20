@@ -1,4 +1,4 @@
-.PHONY: build-frontend build-backend build serve clean
+.PHONY: build-frontend build-backend build serve serve-backend clean
 
 build-frontend:
 	moon build --target js
@@ -11,7 +11,11 @@ build: build-frontend build-backend
 
 PORT ?= 4008
 serve: build
-	moon run backend --target native -- --port $(PORT)
+	@echo "Starting API server on port 4009..."
+	@moon run backend --target native -- --port 4009 &
+	@sleep 2
+	@echo "Starting frontend on http://localhost:$(PORT)"
+	@cd public && python3 -m http.server $(PORT)
 
 clean:
 	rm -f public/frontend.js nodegraph.db

@@ -1606,7 +1606,8 @@ const _M0FPC17strconv25min__exponent__fast__path = $_22L;
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1059 = ".";
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1060 = "e";
 const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1061 = "E";
-const _M0FP38bobzhang9nodegraph6shared11api__graphs = "/api/graphs";
+const _M0FP38bobzhang9nodegraph6shared9api__base = "http://localhost:4009";
+const _M0FP38bobzhang9nodegraph6shared11api__graphs = "http://localhost:4009/api/graphs";
 const _M0FP38bobzhang9nodegraph6shared10all__kinds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
 const _M0FP319moonbit_2dcommunity7rabbita3dom14namespace__svg = "http://www.w3.org/2000/svg";
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none = _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Empty__;
@@ -11793,22 +11794,22 @@ function _M0FP38bobzhang9nodegraph6shared21validate__graph__name(name) {
   return name.length > 0 && name.length <= 100;
 }
 function _M0FP38bobzhang9nodegraph6shared10api__graph(id) {
-  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}`;
+  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}`;
 }
 function _M0FP38bobzhang9nodegraph6shared17api__graph__nodes(id) {
-  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/nodes`;
+  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/nodes`;
 }
 function _M0FP38bobzhang9nodegraph6shared16api__graph__node(graph_id, node_id) {
-  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/nodes/${_M0IP016_24default__implPB4Show10to__stringGiE(node_id)}`;
+  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/nodes/${_M0IP016_24default__implPB4Show10to__stringGiE(node_id)}`;
 }
 function _M0FP38bobzhang9nodegraph6shared23api__graph__connections(id) {
-  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/connections`;
+  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/connections`;
 }
 function _M0FP38bobzhang9nodegraph6shared22api__graph__connection(graph_id, conn_id) {
-  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/connections/${_M0IP016_24default__implPB4Show10to__stringGiE(conn_id)}`;
+  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(graph_id)}/connections/${_M0IP016_24default__implPB4Show10to__stringGiE(conn_id)}`;
 }
 function _M0FP38bobzhang9nodegraph6shared20api__graph__evaluate(id) {
-  return `/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/evaluate`;
+  return `${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang9nodegraph6shared9api__base)}/api/graphs/${_M0IP016_24default__implPB4Show10to__stringGiE(id)}/evaluate`;
 }
 function _M0FP38bobzhang9nodegraph6shared11node__label(kind) {
   switch (kind) {
