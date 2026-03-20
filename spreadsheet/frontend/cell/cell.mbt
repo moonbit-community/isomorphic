@@ -81,19 +81,23 @@ pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
           }
         }
         Currency => {
-          let i = (n * 100.0 + 0.5).to_int()
-          let dollars = i / 100
-          let cents = i % 100
-          let cents_abs = if cents < 0 { 0 - cents } else { cents }
-          let cents_str = if cents_abs < 10 {
-            "0\{cents_abs}"
+          // Use floor(x + 0.5) for correct rounding of negatives
+          let i = (n * 100.0 + 0.5).floor().to_int()
+          let is_neg = i < 0
+          let abs_i = if is_neg { 0 - i } else { i }
+          let dollars = abs_i / 100
+          let cents = abs_i % 100
+          let cents_str = if cents < 10 {
+            "0\{cents}"
           } else {
-            cents_abs.to_string()
+            cents.to_string()
           }
-          "$\{format_with_commas(dollars)}.\{cents_str}"
+          let sign = if is_neg { "-" } else { "" }
+          "\{sign}$\{format_with_commas(dollars)}.\{cents_str}"
         }
         Percent => {
-          let pct = (n * 1000.0 + 0.5).to_int().to_double() / 10.0
+          let scaled = (n * 1000.0 + 0.5).floor().to_int()
+          let pct = scaled.to_double() / 10.0
           let i = pct.to_int()
           if i.to_double() == pct {
             "\{i}%"
@@ -102,16 +106,18 @@ pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
           }
         }
         Fixed => {
-          let i = (n * 100.0 + 0.5).to_int()
-          let whole = i / 100
-          let frac = i % 100
-          let frac_abs = if frac < 0 { 0 - frac } else { frac }
-          let frac_str = if frac_abs < 10 {
-            "0\{frac_abs}"
+          let i = (n * 100.0 + 0.5).floor().to_int()
+          let is_neg = i < 0
+          let abs_i = if is_neg { 0 - i } else { i }
+          let whole = abs_i / 100
+          let frac = abs_i % 100
+          let frac_str = if frac < 10 {
+            "0\{frac}"
           } else {
-            frac_abs.to_string()
+            frac.to_string()
           }
-          "\{whole}.\{frac_str}"
+          let sign = if is_neg { "-" } else { "" }
+          "\{sign}\{whole}.\{frac_str}"
         }
       }
     Text(s) => s
@@ -121,15 +127,20 @@ pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
 
 ///|
 fn format_with_commas(n : Int) -> String {
-  let s = n.to_string()
+  let is_neg = n < 0
+  let abs_n = if is_neg { 0 - n } else { n }
+  let s = abs_n.to_string()
   let chars = s.to_array()
   if chars.length() <= 3 {
-    return s
+    return if is_neg { "-\{s}" } else { s }
   }
   let sb = StringBuilder::new()
+  if is_neg {
+    sb.write_char('-')
+  }
   let start_offset = chars.length() % 3
   for i = 0; i < chars.length(); i = i + 1 {
-    if i > 0 && (i - start_offset) % 3 == 0 && chars[i] != '-' {
+    if i > 0 && (i - start_offset) % 3 == 0 {
       sb.write_char(',')
     }
     sb.write_char(chars[i])
