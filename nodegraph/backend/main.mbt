@@ -147,6 +147,14 @@ fn main raise {
         event.params.get("nid").unwrap().to_string(),
       )
       let json : Json = event.req.body()
+      // Handle position update
+      match json {
+        { "x": Number(x, ..), "y": Number(y, ..), .. } => {
+          update_node_position(conn, nid, x.to_int(), y.to_int())
+          return @mocket.HttpResponse::new(OK).json({ "ok": true })
+        }
+        _ => ()
+      }
       let (config, label) = match json {
         { "config": String(c), "label": String(l), .. } => (c, l)
         { "config": String(c), .. } => (c, "")

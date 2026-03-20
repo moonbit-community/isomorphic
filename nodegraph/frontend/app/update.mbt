@@ -190,6 +190,76 @@ pub fn Model::update(
       (m, auto_eval_cmd(m, dispatch))
     }
     NodeDeleted(Err(_)) => (self, @rabbita.none)
+    // ── Node dragging ────────────────────────────────────────────
+    StartDrag(node_id, mx, my) => {
+      // Find node position to compute offset
+      let mut nx = 0
+      let mut ny = 0
+      for n in self.nodes {
+        if n.id == node_id {
+          nx = n.x
+          ny = n.y
+        }
+      }
+      (
+        {
+          ..self,
+          dragging_node: node_id,
+          drag_offset_x: mx - nx,
+          drag_offset_y: my - ny,
+        },
+        @rabbita.none,
+      )
+    }
+    Drag(mx, my) => {
+      if self.dragging_node == 0 {
+        return (self, @rabbita.none)
+      }
+      let new_x = mx - self.drag_offset_x
+      let new_y = my - self.drag_offset_y
+      let nodes = self.nodes.map(fn(n) {
+        if n.id == self.dragging_node {
+          { ..n, x: new_x, y: new_y }
+        } else {
+          n
+        }
+      })
+      ({ ..self, nodes }, @rabbita.none)
+    }
+    EndDrag => {
+      if self.dragging_node == 0 {
+        return ({ ..self, dragging_node: 0 }, @rabbita.none)
+      }
+      // Save position to backend
+      let node_id = self.dragging_node
+      let mut nx = 0
+      let mut ny = 0
+      for n in self.nodes {
+        if n.id == node_id {
+          nx = n.x
+          ny = n.y
+        }
+      }
+      let cmd = @http.post(
+        api(@shared.api_graph_node(self.current_graph_id, node_id)),
+        Json(
+          {
+            "config": "".to_json(),
+            "label": "".to_json(),
+            "x": nx.to_json(),
+            "y": ny.to_json(),
+          },
+        ),
+        expect=Json(
+          fn(r) {
+            dispatch(NodePositionSaved(r.map(fn(_j : Json) { () })))
+          },
+          fn(json) { Ok(json) },
+        ),
+      )
+      ({ ..self, dragging_node: 0 }, cmd)
+    }
+    NodePositionSaved(_) => (self, @rabbita.none)
     // ── Config editing ────────────────────────────────────────────
     StartEditConfig(node_id, current) =>
       ({ ..self, editing_node: node_id, config_value: current }, @rabbita.none)
@@ -230,12 +300,26 @@ pub fn Model::update(
     // ── Connection ────────────────────────────────────────────────
     StartConnect(node_id, port) =>
       (
-        { ..self, connecting_from_node: node_id, connecting_from_port: port },
+        {
+          ..self,
+          connecting_from_node: node_id,
+          connecting_from_port: port,
+          wire_mouse_x: 0,
+          wire_mouse_y: 0,
+        },
         @rabbita.none,
       )
+    WireMove(mx, my) =>
+      ({ ..self, wire_mouse_x: mx, wire_mouse_y: my }, @rabbita.none)
     CancelConnect =>
       (
-        { ..self, connecting_from_node: 0, connecting_from_port: 0 },
+        {
+          ..self,
+          connecting_from_node: 0,
+          connecting_from_port: 0,
+          wire_mouse_x: 0,
+          wire_mouse_y: 0,
+        },
         @rabbita.none,
       )
     CompleteConnect(to_node, to_port) => {

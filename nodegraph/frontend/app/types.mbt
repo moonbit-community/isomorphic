@@ -13,9 +13,15 @@ pub(all) struct Model {
   connections : Array[@shared.Connection]
   eval_result : @shared.EvalResult?
   auto_eval : Bool
-  // Connection creation mode
+  // Node dragging
+  dragging_node : Int
+  drag_offset_x : Int
+  drag_offset_y : Int
+  // Connection wire dragging
   connecting_from_node : Int
   connecting_from_port : Int
+  wire_mouse_x : Int
+  wire_mouse_y : Int
   // Node config editing
   editing_node : Int
   config_value : String
@@ -57,9 +63,15 @@ pub(all) enum Msg {
   SaveConfig
   CancelEditConfig
   ConfigSaved(Result[Unit, String])
-  // Connection
-  StartConnect(Int, Int)
-  CompleteConnect(Int, Int)
+  // Node dragging
+  StartDrag(Int, Int, Int) // node_id, mouse_x, mouse_y
+  Drag(Int, Int)           // mouse_x, mouse_y
+  EndDrag
+  NodePositionSaved(Result[Unit, String])
+  // Connection wire dragging
+  StartConnect(Int, Int)   // node_id, port_idx
+  WireMove(Int, Int)       // mouse_x, mouse_y
+  CompleteConnect(Int, Int) // node_id, port_idx
   CancelConnect
   ConnectionAdded(Result[@shared.Connection, String])
   DeleteConnection(Int)

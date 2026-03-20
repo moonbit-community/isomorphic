@@ -307,6 +307,21 @@ fn create_node_in_graph(
 }
 
 ///|
+fn update_node_position(
+  conn : @sqlite3.Connection,
+  node_id : Int,
+  x : Int,
+  y : Int,
+) -> Unit raise @sqlite3.SqliteError {
+  let s = conn.prepare("UPDATE nodes SET x = ?, y = ? WHERE id = ?")
+  s.bind(index=1, val=x)
+  s.bind(index=2, val=y)
+  s.bind(index=3, val=node_id)
+  s.step_once()
+  s.finalize()
+}
+
+///|
 fn update_node_config(
   conn : @sqlite3.Connection,
   node_id : Int,

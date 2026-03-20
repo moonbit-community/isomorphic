@@ -9,7 +9,17 @@ fn Model::view_nodes(
       "No nodes yet. Open the palette to add some!",
     )
   }
-  let layout = compute_layout(self.nodes, self.connections)
+  // Use auto-layout for nodes that haven't been positioned (x=0, y=0)
+  let auto = compute_layout(self.nodes, self.connections)
+  // Build position map: use node's stored x/y if set, else auto-layout
+  let layout : Array[(Int, Int, Int)] = self.nodes.map(fn(n) {
+    if n.x != 0 || n.y != 0 {
+      (n.id, n.x, n.y)
+    } else {
+      let (ax, ay) = get_pos(auto, n.id)
+      (n.id, ax, ay)
+    }
+  })
   let (cw, ch) = canvas_size(layout)
   // Build node cards with absolute positions
   let cards : Array[@rabbita.Html] = self.nodes.map(fn(n) {
@@ -20,26 +30,28 @@ fn Model::view_nodes(
         "left: \{x}px",
         "top: \{y}px",
         "width: \{node_w}px",
+        if self.dragging_node == n.id { "z-index: 100; opacity: 0.9" } else { "z-index: 1" },
       ],
       [self.view_single_node(n, dispatch)],
     )
   })
-  // Build SVG wires
+  // Build SVG wires (established connections + temporary drag wire)
   let wires = self.view_svg_wires(layout, cw, ch)
+  let temp_wire = self.view_temp_wire(layout, cw, ch)
   // Canvas container
-  let children : Array[@rabbita.Html] = [wires]
+  let children : Array[@rabbita.Html] = [wires, temp_wire]
   for card in cards {
     children.push(card)
   }
-  // Outer scroller with fixed viewport
+  // Outer scroller with mouse events for dragging
   @html.div(
     style=[
       "overflow: auto", "margin-bottom: 16px",
       "border-radius: 8px", "border: 1px solid #1b2838",
       "max-height: 600px",
+      if self.dragging_node != 0 { "cursor: grabbing" } else { "" },
     ],
     [
-      // Inner canvas with actual dimensions
       @html.div(
         style=[
           "position: relative",
@@ -47,7 +59,83 @@ fn Model::view_nodes(
           "min-width: \{cw}px",
           "background: #0a0a1a",
         ],
+        on_mouseup=fn(_m) {
+          if self.dragging_node != 0 {
+            dispatch(EndDrag)
+          } else if self.connecting_from_node != 0 {
+            dispatch(CancelConnect)
+          } else {
+            @rabbita.none
+          }
+        },
+        on_mousedown=fn(_m) { @rabbita.none },
+        attrs=@html.Attrs::build().on_mousemove(fn(ev) {
+          let mx = ev.get_offset_x()
+          let my = ev.get_offset_y()
+          if self.dragging_node != 0 {
+            dispatch(Drag(mx, my))
+          } else if self.connecting_from_node != 0 {
+            dispatch(WireMove(mx, my))
+          } else {
+            @rabbita.none
+          }
+        }),
         children,
+      ),
+    ],
+  )
+}
+
+///|
+/// Draw a temporary SVG wire from the source port to the mouse cursor
+/// during connection creation.
+fn Model::view_temp_wire(
+  self : Model,
+  layout : Array[(Int, Int, Int)],
+  w : Int,
+  h : Int,
+) -> @rabbita.Html {
+  if self.connecting_from_node == 0 || (self.wire_mouse_x == 0 && self.wire_mouse_y == 0) {
+    return @html.text("")
+  }
+  let (from_x, from_y) = get_pos(layout, self.connecting_from_node)
+  let mut from_kind : @shared.NodeKind = ConstNumber
+  for n in self.nodes {
+    if n.id == self.connecting_from_node {
+      from_kind = n.kind
+    }
+  }
+  let from_in_count = @shared.input_ports(from_kind).length()
+  let from_has_config = match from_kind {
+    ConstNumber | ConstString | ConstBool | ConstColor => true
+    _ => false
+  }
+  let from_config_h = if from_has_config { 32 } else { 0 }
+  let from_inputs_h = if from_in_count > 0 {
+    16 + from_in_count * port_stride
+  } else {
+    0
+  }
+  let x1 = from_x + node_w
+  let y1 = from_y + header_h + from_config_h + from_inputs_h + 16 + self.connecting_from_port * port_stride + 8
+  let x2 = self.wire_mouse_x
+  let y2 = self.wire_mouse_y
+  let diff = x2 - x1
+  let abs_diff = if diff < 0 { -diff } else { diff }
+  let dx = if abs_diff < 80 { 50 } else { abs_diff / 2 }
+  let path_d = "M \{x1} \{y1} C \{x1 + dx} \{y1}, \{x2 - dx} \{y2}, \{x2} \{y2}"
+  @svg.svg(
+    width=w,
+    height=h,
+    style=["position: absolute", "top: 0", "left: 0", "pointer-events: none"],
+    [
+      @svg.path(
+        d=path_d,
+        fill="none",
+        stroke="#e94560",
+        stroke_width=2,
+        attrs=@svg.Attrs::build().stroke_dasharray("8 4"),
+        style=["animation: flowDash 0.5s linear infinite"],
       ),
     ],
   )
@@ -177,16 +265,21 @@ fn Model::view_single_node(
       },
     ],
     [
-      // Header with gradient
+      // Header with gradient — draggable
       @html.div(
         style=[
           "background: linear-gradient(135deg, \{cat_color}, \{cat_color}bb)",
           "padding: 7px 12px",
           "display: flex", "justify-content: space-between", "align-items: center",
+          "cursor: grab", "user-select: none",
         ],
+        on_mousedown=fn(m) {
+          let pos = m.offset_pos()
+          dispatch(StartDrag(node.id, pos.x, pos.y))
+        },
         [
           @html.span(
-            style=["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)"],
+            style=["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)", "pointer-events: none"],
             node.label,
           ),
           @html.button(
@@ -343,15 +436,15 @@ fn Model::view_input_ports(
           @html.div(style=[dot_style], ""),
           @html.span(style=[name_style], p.name),
           if compatible {
-            @html.button(
+            @html.div(
               style=[
                 "padding: 3px 8px", "background: \{color}", "color: #fff",
-                "border: none", "border-radius: 4px", "cursor: pointer",
+                "border: none", "border-radius: 4px", "cursor: crosshair",
                 "font-size: 0.65em", "font-weight: 700",
                 "animation: breathe 1.5s infinite",
               ],
-              on_click=dispatch(CompleteConnect(node.id, i)),
-              "\u{2192} Connect",
+              on_mouseup=fn(_m) { dispatch(CompleteConnect(node.id, i)) },
+              "\u{2192} drop here",
             )
           } else if incompatible {
             @html.span(
@@ -399,15 +492,19 @@ fn Model::view_output_ports(
           "margin-bottom: 3px", "justify-content: flex-end",
         ],
         [
-          @html.button(
+          @html.div(
             style=[
               "padding: 2px 6px", "background: \{color}30",
               "color: \{color}", "border: 1px solid \{color}",
-              "border-radius: 3px", "cursor: pointer",
+              "border-radius: 3px", "cursor: crosshair",
               "font-size: 0.6em", "font-weight: 700",
+              "user-select: none",
             ],
-            on_click=dispatch(StartConnect(node.id, i)),
-            "Connect \u{2192}",
+            on_mousedown=fn(m) {
+              let _ = m
+              dispatch(StartConnect(node.id, i))
+            },
+            "\u{25CF} drag \u{2192}",
           ),
           @html.span(
             style=["font-size: 0.7em", "color: #aaa"],
