@@ -229,7 +229,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
   for i = 0; i < products.length(); i = i + 1 {
     let fraction = totals[i] / grand_total
     let arc_len = (circumference * fraction).to_int()
-    let gap_len = circ_int - arc_len
+    let gap_len = circ_int + 1 // oversized gap avoids sub-pixel seam from rounding
     let rotation = offset_angle
     let delay = i * 150
     let color_idx = i % colors.length()
