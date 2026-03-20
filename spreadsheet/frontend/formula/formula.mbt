@@ -712,7 +712,7 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
             @cell.Value::Num(pow(base, exp_int))
           } else {
             // Fractional exponent: use exp(ln(base) * exponent)
-            if base <= 0.0 {
+            if base < 0.0 {
               @cell.Value::Error("POWER")
             } else {
               @cell.Value::Num(@math.pow(base, exponent))
