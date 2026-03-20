@@ -80,6 +80,15 @@ fn Model::view_editor(
     self.view_nodes(dispatch),
     // Connections list
     self.view_connections(dispatch),
+    // Branding footer
+    @html.div(
+      style=[
+        "text-align: center", "padding: 12px", "margin-top: 8px",
+        "font-size: 0.65em", "color: #444", "letter-spacing: 1px",
+        "border-top: 1px solid #1b2838",
+      ],
+      "Built with MoonBit + TEA \u{00B7} Type-safe visual dataflow \u{00B7} Same validation runs on frontend & backend",
+    ),
   ])
 }
 
@@ -91,12 +100,20 @@ fn Model::view_connect_banner(
   // Find the source node info
   let mut from_label = "?"
   let mut port_label = "?"
+  let mut port_color = "#888"
+  let mut type_label = "?"
   for n in self.nodes {
     if n.id == self.connecting_from_node {
       from_label = n.label
       let ports = @shared.output_ports(n.kind)
       if self.connecting_from_port < ports.length() {
         port_label = ports[self.connecting_from_port].name
+        port_color = @shared.port_type_color(
+          ports[self.connecting_from_port].port_type,
+        )
+        type_label = @shared.port_type_label(
+          ports[self.connecting_from_port].port_type,
+        )
       }
     }
   }
@@ -104,11 +121,24 @@ fn Model::view_connect_banner(
     style=[
       "background: #0f3460", "padding: 10px 16px", "border-radius: 6px",
       "margin-bottom: 10px", "display: flex", "justify-content: space-between",
-      "align-items: center", "border: 1px solid #e94560",
+      "align-items: center", "border: 2px solid \{port_color}",
+      "animation: fadeIn 0.2s ease",
     ],
     [
-      @html.span(
-        "Connecting from \{from_label}.\{port_label} \u{2192} click an input port below",
+      @html.div(
+        style=["display: flex", "align-items: center", "gap: 8px"],
+        [
+          @html.div(
+            style=[
+              "width: 12px", "height: 12px", "border-radius: 50%",
+              "background: \{port_color}", "animation: pulseGlow 1s infinite",
+            ],
+            "",
+          ),
+          @html.span(
+            "Connecting \{type_label} from \{from_label}.\{port_label} \u{2192} click a compatible input port",
+          ),
+        ],
       ),
       @html.button(
         style=[

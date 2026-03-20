@@ -262,8 +262,9 @@ fn Model::view_input_ports(
     // In connection mode, show clickable targets
     let in_connect_mode = self.connecting_from_node != 0 &&
       self.connecting_from_node != node.id
-    let compatible = if in_connect_mode && !connected {
-      // Check type compatibility
+    let mut compatible = false
+    let mut incompatible = false
+    if in_connect_mode && !connected {
       let mut compat = false
       for n in self.nodes {
         if n.id == self.connecting_from_node {
@@ -276,43 +277,49 @@ fn Model::view_input_ports(
           }
         }
       }
-      compat
+      compatible = compat
+      incompatible = !compat
+    }
+    // Port dot style changes based on connection mode
+    let dot_style = if compatible {
+      "width: 14px; height: 14px; border-radius: 50%; background: \{color}; flex-shrink: 0; box-shadow: 0 0 10px \{color}; border: 2px solid #fff; animation: pulseGlow 1s infinite"
+    } else if incompatible {
+      "width: 10px; height: 10px; border-radius: 50%; background: #333; flex-shrink: 0; border: 2px solid #f44336; opacity: 0.4"
+    } else if connected {
+      "width: 10px; height: 10px; border-radius: 50%; background: \{color}; flex-shrink: 0; box-shadow: 0 0 8px \{color}; border: 1px solid \{color}"
     } else {
-      false
+      "width: 10px; height: 10px; border-radius: 50%; background: \{color}; flex-shrink: 0; opacity: 0.6; border: 1px solid \{color}50"
+    }
+    let name_style = if incompatible {
+      "font-size: 0.7em; color: #555; flex: 1; text-decoration: line-through"
+    } else {
+      "font-size: 0.7em; color: #aaa; flex: 1"
     }
     items.push(
       @html.div(
         style=[
           "display: flex", "align-items: center", "gap: 4px",
           "margin-bottom: 3px",
+          if incompatible { "opacity: 0.5" } else { "" },
         ],
         [
-          @html.div(
-            style=[
-              "width: 10px", "height: 10px", "border-radius: 50%",
-              "background: \{color}", "transition: all 0.2s",
-              "flex-shrink: 0",
-              if connected {
-                "box-shadow: 0 0 8px \{color}; border: 1px solid \{color}"
-              } else {
-                "opacity: 0.6; border: 1px solid \{color}50"
-              },
-            ],
-            "",
-          ),
-          @html.span(
-            style=["font-size: 0.7em", "color: #aaa", "flex: 1"],
-            p.name,
-          ),
+          @html.div(style=[dot_style], ""),
+          @html.span(style=[name_style], p.name),
           if compatible {
             @html.button(
               style=[
-                "padding: 2px 6px", "background: \{color}", "color: #fff",
-                "border: none", "border-radius: 3px", "cursor: pointer",
-                "font-size: 0.6em", "font-weight: 700",
+                "padding: 3px 8px", "background: \{color}", "color: #fff",
+                "border: none", "border-radius: 4px", "cursor: pointer",
+                "font-size: 0.65em", "font-weight: 700",
+                "animation: breathe 1.5s infinite",
               ],
               on_click=dispatch(CompleteConnect(node.id, i)),
               "\u{2192} Connect",
+            )
+          } else if incompatible {
+            @html.span(
+              style=["font-size: 0.6em", "color: #f44336"],
+              "\u{2715}",
             )
           } else {
             @html.text("")
