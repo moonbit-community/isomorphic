@@ -148,7 +148,7 @@ fn Model::view_virtual_list(
   let start_index = vl.scroll_top
   let end_index = start_index + vl.visible_count - 1
   let items : Array[@rabbita.Html] = []
-  for i = 0; i < vl.visible_count; i = i + 1 {
+  for i in 0..<vl.visible_count {
     let item_index = start_index + i
     let is_even = item_index % 2 == 0
     let bg = if is_even { surface } else { surface_alt }
@@ -201,7 +201,7 @@ fn Model::view_masonry(
 ) -> @rabbita.Html {
   let ms = self.masonry
   let columns : Array[Array[@rabbita.Html]] = []
-  for i = 0; i < ms.columns; i = i + 1 {
+  for _ in 0..<ms.columns {
     columns.push([])
   }
   for i, item in ms.items {

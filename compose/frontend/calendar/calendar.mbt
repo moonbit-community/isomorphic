@@ -157,10 +157,10 @@ pub fn Model::view(
 
   // Build grid cells: blank leading cells + day cells
   let cells : Array[@rabbita.Html] = []
-  for i = 0; i < first_dow; i = i + 1 {
+  for _ in 0..<first_dow {
     cells.push(@html.div(style=["padding: 8px"]) <| "")
   }
-  for d = 1; d <= total_days; d = d + 1 {
+  for d in 1..<=total_days {
     let date : Date = { year: self.view_year, month: self.view_month, day: d }
     let is_selected = self.selected == Some(date)
     let is_today = self.today == date

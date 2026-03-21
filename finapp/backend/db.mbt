@@ -410,7 +410,7 @@ fn get_dashboard(
   } else {
     10
   }
-  for i = 0; i < limit; i = i + 1 {
+  for i in 0..<limit {
     recent.push(transactions[i])
   }
   // Category spending breakdown
