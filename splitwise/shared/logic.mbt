@@ -62,16 +62,8 @@ pub fn compute_settlements(
 ) -> Array[Settlement] {
   let balances = compute_balances(people, expenses)
   // Separate into debtors (negative balance) and creditors (positive balance)
-  let debtors : Array[(Int, Int)] = [] // (id, abs amount owed)
-  let creditors : Array[(Int, Int)] = [] // (id, amount owed to them)
-  for b in balances {
-    let (id, bal) = b
-    if bal < 0 {
-      debtors.push((id, -bal))
-    } else if bal > 0 {
-      creditors.push((id, bal))
-    }
-  }
+  let debtors = balances.filter(fn(b) { b.1 < 0 }).map(fn(b) { (b.0, -b.1) })
+  let creditors = balances.filter(fn(b) { b.1 > 0 })
   let settlements : Array[Settlement] = []
   // Greedy: settle largest debts first
   let mut di = 0
@@ -102,10 +94,8 @@ pub fn compute_settlements(
 
 ///|
 fn find_name(people : Array[Person], id : Int) -> String {
-  for p in people {
-    if p.id == id {
-      return p.name
-    }
+  match people.iter().find_first(fn(p) { p.id == id }) {
+    Some(p) => p.name
+    None => "Unknown"
   }
-  "Unknown"
 }

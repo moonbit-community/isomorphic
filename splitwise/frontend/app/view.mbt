@@ -243,20 +243,14 @@ fn person_color(id : Int) -> String {
 ///|
 /// Sum all expense amounts.
 fn compute_total(expenses : Array[@shared.Expense]) -> Int {
-  let mut total = 0
-  for e in expenses {
-    total += e.amount
-  }
-  total
+  expenses.fold(init=0, fn(acc, e) { acc + e.amount })
 }
 
 ///|
 /// Look up a person's name by their id, returning "Unknown" if not found.
 fn find_person_name(people : Array[@shared.Person], id : Int) -> String {
-  for p in people {
-    if p.id == id {
-      return p.name
-    }
+  match people.iter().find_first(fn(p) { p.id == id }) {
+    Some(p) => p.name
+    None => "Unknown"
   }
-  "Unknown"
 }
