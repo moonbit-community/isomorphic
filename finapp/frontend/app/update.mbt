@@ -1,4 +1,5 @@
 ///|
+/// Fetch aggregated dashboard data for the given month from the backend.
 fn fetch_dashboard(
   dispatch : @rabbita.Dispatch[Msg],
   month : String,
@@ -14,6 +15,7 @@ fn fetch_dashboard(
 }
 
 ///|
+/// Fetch all accounts from the backend.
 fn fetch_accounts(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_accounts,
@@ -26,6 +28,7 @@ fn fetch_accounts(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
+/// Fetch all transactions from the backend, ordered newest first.
 fn fetch_transactions(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_transactions,
@@ -38,6 +41,7 @@ fn fetch_transactions(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
+/// Fetch all spending/income categories from the backend.
 fn fetch_categories(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     @shared.api_categories,
@@ -50,6 +54,7 @@ fn fetch_categories(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
+/// Fetch budgets for the given month from the backend.
 fn fetch_budgets(
   dispatch : @rabbita.Dispatch[Msg],
   month : String,
@@ -65,6 +70,8 @@ fn fetch_budgets(
 }
 
 ///|
+/// Fetch all data (dashboard, accounts, transactions, categories, budgets) in
+/// a single batched command. Used on initial load to populate the full UI.
 fn fetch_all(dispatch : @rabbita.Dispatch[Msg], month : String) -> @rabbita.Cmd {
   @rabbita.batch([
     fetch_dashboard(dispatch, month),
@@ -76,6 +83,7 @@ fn fetch_all(dispatch : @rabbita.Dispatch[Msg], month : String) -> @rabbita.Cmd 
 }
 
 ///|
+/// Parse a string as an integer, returning the default value on failure.
 fn parse_int_or(s : String, default : Int) -> Int {
   @strconv.parse_int(s) catch {
     _ => default

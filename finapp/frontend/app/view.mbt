@@ -19,6 +19,7 @@ pub fn Model::view(
 }
 
 ///|
+/// Render the top navigation tab bar, highlighting the currently active page.
 fn Model::view_nav(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -66,6 +67,7 @@ fn Model::view_nav(
 }
 
 ///|
+/// Render the dismissible error banner. Returns empty text if there is no error.
 fn Model::view_error(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -89,6 +91,7 @@ fn Model::view_error(
 }
 
 ///|
+/// Look up a category by ID, returning None if not found.
 fn find_category(
   categories : Array[@shared.Category],
   id : Int,
@@ -97,6 +100,7 @@ fn find_category(
 }
 
 ///|
+/// Look up an account by ID, returning None if not found.
 fn find_account(
   accounts : Array[@shared.Account],
   id : Int,

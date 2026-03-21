@@ -1,4 +1,8 @@
 ///|
+/// Initialize the database schema, creating the accounts, categories, transactions,
+/// and budgets tables if they do not already exist. Text columns use BLOB storage
+/// for UTF-8 safety. The budgets table enforces a UNIQUE constraint on (category_id, month)
+/// to support upsert semantics.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     (
@@ -58,6 +62,9 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Populate the categories table with a default set of income and expense categories
+/// (e.g. Salary, Groceries, Transport). Skips seeding if any categories already exist,
+/// so it is safe to call on every startup.
 fn seed_categories(
   conn : @sqlite3.Connection,
 ) -> Unit raise @sqlite3.SqliteError {
@@ -99,6 +106,8 @@ fn seed_categories(
 // ── Account CRUD ──────────────────────────────────────────────────
 
 ///|
+/// Extract an Account from the current row of a prepared statement.
+/// Expects columns in order: id, name (BLOB), account_type (BLOB).
 fn read_account(stmt : @sqlite3.Statement) -> @shared.Account {
   let id : Int = stmt.column(index=0)
   let name : String = stmt.column_blob_as_string(index=1)
@@ -109,6 +118,8 @@ fn read_account(stmt : @sqlite3.Statement) -> @shared.Account {
 }
 
 ///|
+/// Retrieve all accounts ordered by ID.
+/// Used by both the accounts list endpoint and the dashboard aggregation.
 fn get_all_accounts(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Account] raise @sqlite3.SqliteError {
@@ -124,6 +135,8 @@ fn get_all_accounts(
 }
 
 ///|
+/// Insert a new account and return it with its auto-generated ID.
+/// The `account_type` should be one of "checking", "savings", or "credit_card".
 fn create_account(
   conn : @sqlite3.Connection,
   name : String,
@@ -144,6 +157,8 @@ fn create_account(
 }
 
 ///|
+/// Delete an account by ID, cascading to remove all associated transactions first
+/// to avoid foreign key violations.
 fn delete_account(
   conn : @sqlite3.Connection,
   id : Int,
@@ -161,6 +176,8 @@ fn delete_account(
 // ── Category CRUD ─────────────────────────────────────────────────
 
 ///|
+/// Extract a Category from the current row of a prepared statement.
+/// Expects columns in order: id, name (BLOB), icon (BLOB), color (BLOB), cat_type (BLOB).
 fn read_category(stmt : @sqlite3.Statement) -> @shared.Category {
   let id : Int = stmt.column(index=0)
   let name : String = stmt.column_blob_as_string(index=1)
@@ -173,6 +190,8 @@ fn read_category(stmt : @sqlite3.Statement) -> @shared.Category {
 }
 
 ///|
+/// Retrieve all categories ordered by type (income/expense) then name.
+/// Categories are seeded at startup and currently cannot be created via the API.
 fn get_all_categories(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Category] raise @sqlite3.SqliteError {
@@ -190,6 +209,9 @@ fn get_all_categories(
 // ── Transaction CRUD ──────────────────────────────────────────────
 
 ///|
+/// Extract a Transaction from the current row of a prepared statement.
+/// Expects columns in order: id, account_id, category_id, amount, txn_type (BLOB),
+/// description (BLOB), date (BLOB).
 fn read_transaction(stmt : @sqlite3.Statement) -> @shared.Transaction {
   let id : Int = stmt.column(index=0)
   let account_id : Int = stmt.column(index=1)
@@ -204,6 +226,8 @@ fn read_transaction(stmt : @sqlite3.Statement) -> @shared.Transaction {
 }
 
 ///|
+/// Retrieve all transactions ordered by date descending (newest first),
+/// with ties broken by ID descending.
 fn get_all_transactions(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Transaction] raise @sqlite3.SqliteError {
@@ -219,6 +243,9 @@ fn get_all_transactions(
 }
 
 ///|
+/// Insert a new transaction and return it with its auto-generated ID.
+/// Amount is stored in cents. The `txn_type` should be "income" or "expense",
+/// and `date` should be in "YYYY-MM-DD" format.
 fn create_transaction(
   conn : @sqlite3.Connection,
   account_id : Int,
@@ -255,6 +282,7 @@ fn create_transaction(
 }
 
 ///|
+/// Delete a single transaction by ID.
 fn delete_transaction(
   conn : @sqlite3.Connection,
   id : Int,
@@ -268,6 +296,7 @@ fn delete_transaction(
 // ── Budget CRUD ───────────────────────────────────────────────────
 
 ///|
+/// Retrieve all budgets for a given month (format "YYYY-MM"), ordered by ID.
 fn get_budgets_for_month(
   conn : @sqlite3.Connection,
   month : String,
@@ -289,6 +318,10 @@ fn get_budgets_for_month(
 }
 
 ///|
+/// Insert or update a budget for a given category and month. If a budget already
+/// exists for the same (category_id, month) pair, its amount_limit is updated
+/// instead of creating a duplicate. Re-selects the row after upsert because
+/// `last_insert_rowid()` is unreliable after ON CONFLICT updates.
 fn upsert_budget(
   conn : @sqlite3.Connection,
   category_id : Int,
@@ -316,6 +349,7 @@ fn upsert_budget(
 }
 
 ///|
+/// Delete a single budget by ID.
 fn delete_budget(
   conn : @sqlite3.Connection,
   id : Int,
@@ -329,6 +363,10 @@ fn delete_budget(
 // ── Dashboard aggregate ───────────────────────────────────────────
 
 ///|
+/// Assemble the full dashboard payload for a given month. Fetches all accounts,
+/// categories, transactions, and budgets, then computes derived data: account
+/// balances, monthly income/expense summary, budget statuses with spending,
+/// the 10 most recent transactions, and per-category spending breakdown.
 fn get_dashboard(
   conn : @sqlite3.Connection,
   month : String,

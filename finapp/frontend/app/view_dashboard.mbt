@@ -1,4 +1,7 @@
 ///|
+/// Render the dashboard page showing account balances, monthly summary,
+/// budget progress bars, spending breakdown by category, and recent transactions.
+/// Shows a loading/empty state when dashboard data is not yet available.
 fn Model::view_dashboard(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -29,6 +32,8 @@ fn Model::view_dashboard(
 }
 
 ///|
+/// Render a row of account balance cards, each color-coded green for positive
+/// and red for negative balances.
 fn Model::view_balance_cards(
   self : Model,
   data : @shared.DashboardData,
@@ -62,6 +67,8 @@ fn Model::view_balance_cards(
 }
 
 ///|
+/// Render the monthly summary showing income, expenses, and net amount
+/// in three side-by-side cards.
 fn Model::view_month_summary(
   self : Model,
   data : @shared.DashboardData,
@@ -106,6 +113,8 @@ fn Model::view_month_summary(
 }
 
 ///|
+/// Render the budget progress section with a colored progress bar per budget.
+/// Hidden when no budgets are set. Bars turn red when spending exceeds the limit.
 fn Model::view_budget_progress(
   self : Model,
   data : @shared.DashboardData,
@@ -154,6 +163,8 @@ fn Model::view_budget_progress(
 }
 
 ///|
+/// Render the spending-by-category horizontal bar chart. Each bar is scaled
+/// relative to the highest-spending category. Hidden when there is no spending data.
 fn Model::view_spending_breakdown(
   self : Model,
   data : @shared.DashboardData,
@@ -204,6 +215,8 @@ fn Model::view_spending_breakdown(
 }
 
 ///|
+/// Render the recent transactions section on the dashboard, showing up to 10
+/// of the most recent transactions with category icons and signed amounts.
 fn Model::view_recent_transactions(
   self : Model,
   data : @shared.DashboardData,

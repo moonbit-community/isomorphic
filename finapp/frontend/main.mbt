@@ -1,4 +1,7 @@
 ///|
+/// Entry point for the FinApp frontend. Creates the Rabbita MVU app with initial
+/// model state, mounts it to the DOM, and dispatches the Init message to fetch
+/// all data from the backend.
 #warnings("-alert_unstable")
 fn main {
   let (dispatch, app_cell) = @rabbita.cell_with_dispatch(

@@ -1,4 +1,6 @@
 ///|
+/// Render the accounts page with a header, toggleable creation form, and the
+/// account list with balances.
 fn Model::view_accounts(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -40,6 +42,8 @@ fn Model::view_accounts(
 }
 
 ///|
+/// Render the account creation form with name input and type dropdown
+/// (checking, savings, credit card).
 fn Model::view_account_form(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -78,6 +82,8 @@ fn Model::view_account_form(
 }
 
 ///|
+/// Render the list of account cards, each showing the account type icon, name,
+/// transaction count, computed balance, and a delete button.
 fn Model::view_account_list(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],

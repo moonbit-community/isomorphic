@@ -1,4 +1,6 @@
 ///|
+/// Render the transactions page with a toggleable creation form, account/type
+/// filters, and the filtered transaction list.
 fn Model::view_transactions(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -42,6 +44,8 @@ fn Model::view_transactions(
 }
 
 ///|
+/// Render the transaction creation form with type, account, category dropdowns,
+/// amount and description inputs, and a date picker.
 fn Model::view_transaction_form(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -127,6 +131,7 @@ fn Model::view_transaction_form(
 }
 
 ///|
+/// Render the transaction filter bar with account and type dropdowns.
 fn Model::view_transaction_filters(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -155,6 +160,8 @@ fn Model::view_transaction_filters(
 }
 
 ///|
+/// Render the filtered list of transactions, each showing category icon,
+/// description, date, account name, signed amount, and a delete button.
 fn Model::view_transaction_list(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],

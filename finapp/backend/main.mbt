@@ -1,4 +1,8 @@
 ///|
+/// Entry point for the FinApp backend server. Opens the SQLite database, initializes
+/// the schema and seed data, then registers route handlers for the REST API
+/// (accounts, categories, transactions, budgets, dashboard) and starts serving
+/// on the configured port (default 4007).
 fn main raise {
   guard @argparse.parse(
       Command("finapp-server", about="Personal Finance Tracker backend", options=[

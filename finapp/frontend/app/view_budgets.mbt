@@ -1,4 +1,5 @@
 ///|
+/// Render the budgets page with a header, toggleable form, and the budget list.
 fn Model::view_budgets(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -40,6 +41,8 @@ fn Model::view_budgets(
 }
 
 ///|
+/// Render the budget creation form with a category dropdown (expense categories only)
+/// and a monthly limit input.
 fn Model::view_budget_form(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -84,6 +87,8 @@ fn Model::view_budget_form(
 }
 
 ///|
+/// Render the list of budgets for the current month, each showing a progress bar,
+/// spent vs. limit amounts, and an over-budget warning when applicable.
 fn Model::view_budget_list(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
