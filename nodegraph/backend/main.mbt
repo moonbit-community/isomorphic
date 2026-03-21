@@ -1,4 +1,30 @@
 ///|
+/// Entry point for the nodegraph backend server.
+///
+/// Initializes SQLite (with foreign keys enabled), runs schema migrations,
+/// seeds demo data on first launch, and registers all HTTP routes:
+///
+/// **Static assets:**
+/// - `GET /`              -- serves the HTML shell (inline)
+/// - `GET /frontend.js`   -- serves the compiled frontend JS from `public/`
+///
+/// **Graphs CRUD:**
+/// - `GET  /api/graphs`       -- list all graphs (metadata only)
+/// - `POST /api/graphs`       -- create a new graph `{"name": "..."}`
+/// - `GET  /api/graphs/:id`   -- load full graph (nodes + connections)
+/// - `DELETE /api/graphs/:id` -- delete graph and cascade all children
+///
+/// **Nodes:**
+/// - `POST   /api/graphs/:id/nodes`          -- create a node in a graph
+/// - `POST   /api/graphs/:gid/nodes/:nid`    -- update position or config
+/// - `DELETE /api/graphs/:gid/nodes/:nid`     -- delete node and its edges
+///
+/// **Connections:**
+/// - `POST   /api/graphs/:id/connections`         -- create (with validation)
+/// - `DELETE /api/graphs/:gid/connections/:cid`   -- delete
+///
+/// **Evaluation:**
+/// - `POST /api/graphs/:id/evaluate` -- evaluate the graph and return results
 fn main raise {
   guard @argparse.parse(
       Command("nodegraph-server", about="Visual Dataflow Editor backend", options=[

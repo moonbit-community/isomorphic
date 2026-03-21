@@ -1,4 +1,16 @@
 ///|
+/// Initialize the database schema, creating tables if they do not already exist.
+///
+/// Creates three tables:
+/// - `graphs`: top-level graph entities with an auto-increment ID and a name
+///   stored as BLOB for UTF-8 safety.
+/// - `nodes`: individual nodes belonging to a graph, with kind, position (x, y),
+///   display label, and a config string (all text columns stored as BLOB).
+/// - `connections`: directed edges between node ports, with a UNIQUE constraint
+///   on `(to_node_id, to_port)` to enforce the single-connection-per-input-port
+///   invariant at the database level.
+///
+/// This function is idempotent and safe to call on every server startup.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let s1 = conn.prepare(
     (
@@ -43,6 +55,18 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Populate the database with demo graphs if no graphs exist yet.
+///
+/// Creates three example graphs to showcase different node categories:
+/// 1. **Color Mixer** -- three ConstNumber nodes feeding into ColorRGB,
+///    mixed with a ConstColor via ColorMix, then into ColorBrightness.
+/// 2. **String Pipeline** -- string constants through Upper, Concat, Length,
+///    and DisplayText nodes.
+/// 3. **Math & Logic** -- arithmetic (Multiply, Subtract) feeding into
+///    comparison nodes (GreaterThan, Equals).
+///
+/// Skips seeding entirely when the `graphs` table already contains rows,
+/// so user data is never overwritten on server restart.
 fn seed_demo(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let check = conn.prepare("SELECT COUNT(*) FROM graphs")
   guard check.step()
@@ -124,6 +148,8 @@ fn seed_demo(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Insert a new graph row with the given name. The auto-generated ID can be
+/// retrieved immediately afterward via `last_id`.
 fn seed_graph(
   conn : @sqlite3.Connection,
   name : String,
@@ -135,6 +161,8 @@ fn seed_graph(
 }
 
 ///|
+/// Return the rowid of the most recently inserted row on this connection.
+/// Must be called immediately after an INSERT before any other write occurs.
 fn last_id(conn : @sqlite3.Connection) -> Int raise @sqlite3.SqliteError {
   let s = conn.prepare("SELECT last_insert_rowid()")
   guard s.step()
@@ -144,6 +172,9 @@ fn last_id(conn : @sqlite3.Connection) -> Int raise @sqlite3.SqliteError {
 }
 
 ///|
+/// Insert a new node row into the database. Text fields (`kind`, `label`,
+/// `config`) are bound as blobs for UTF-8 safety. The auto-generated node ID
+/// can be retrieved via `last_id` immediately after this call.
 fn insert_node(
   conn : @sqlite3.Connection,
   graph_id : Int,
@@ -167,6 +198,10 @@ fn insert_node(
 }
 
 ///|
+/// Insert a connection (edge) row linking an output port of one node to an
+/// input port of another within the same graph. The UNIQUE constraint on
+/// `(to_node_id, to_port)` in the schema prevents duplicate input connections
+/// at the database level.
 fn insert_conn(
   conn : @sqlite3.Connection,
   graph_id : Int,
@@ -190,6 +225,9 @@ fn insert_conn(
 // ── Reads ─────────────────────────────────────────────────────────
 
 ///|
+/// Deserialize a `Node` from the current row of a prepared statement.
+/// Expects columns in order: id, kind, x, y, label, config. Text columns
+/// are read via `column_blob_as_string` for UTF-8 safety.
 fn read_node(stmt : @sqlite3.Statement) -> @shared.Node {
   let id : Int = stmt.column(index=0)
   let kind = @shared.kind_from_string(stmt.column_blob_as_string(index=1))
@@ -201,6 +239,8 @@ fn read_node(stmt : @sqlite3.Statement) -> @shared.Node {
 }
 
 ///|
+/// Deserialize a `Connection` from the current row of a prepared statement.
+/// Expects columns in order: id, from_node_id, from_port, to_node_id, to_port.
 fn read_connection(stmt : @sqlite3.Statement) -> @shared.Connection {
   let id : Int = stmt.column(index=0)
   let from_node_id : Int = stmt.column(index=1)
@@ -211,6 +251,8 @@ fn read_connection(stmt : @sqlite3.Statement) -> @shared.Connection {
 }
 
 ///|
+/// Fetch all saved graphs as lightweight `SavedGraph` metadata (id + name),
+/// ordered by creation ID. Used by the graph list / switcher UI.
 fn get_all_graphs(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.SavedGraph] raise @sqlite3.SqliteError {
@@ -226,6 +268,9 @@ fn get_all_graphs(
 }
 
 ///|
+/// Load a full graph (all nodes and connections) for the given graph ID.
+/// Nodes and connections are each ordered by their row ID to ensure
+/// deterministic evaluation and rendering order.
 fn get_graph(
   conn : @sqlite3.Connection,
   graph_id : Int,
@@ -252,6 +297,8 @@ fn get_graph(
 }
 
 ///|
+/// Create a new empty graph with the given name and return its `SavedGraph`
+/// metadata including the auto-generated ID.
 fn create_graph(
   conn : @sqlite3.Connection,
   name : String,
@@ -265,6 +312,10 @@ fn create_graph(
 }
 
 ///|
+/// Delete a graph and all of its dependent data. Performs a manual cascade:
+/// connections first, then nodes, then the graph row itself. This ordering
+/// avoids foreign-key violations regardless of whether PRAGMA foreign_keys
+/// is enforced.
 fn delete_graph(
   conn : @sqlite3.Connection,
   id : Int,
@@ -285,6 +336,9 @@ fn delete_graph(
 }
 
 ///|
+/// Create a new node in the specified graph and return the complete `Node`
+/// struct. The node is placed at position (0, 0); the frontend is expected to
+/// assign a layout position after creation (via `update_node_position`).
 fn create_node_in_graph(
   conn : @sqlite3.Connection,
   graph_id : Int,
@@ -298,6 +352,8 @@ fn create_node_in_graph(
 }
 
 ///|
+/// Persist a node's canvas position (x, y) after the user drags it or after
+/// auto-layout computes new coordinates.
 fn update_node_position(
   conn : @sqlite3.Connection,
   node_id : Int,
@@ -313,6 +369,9 @@ fn update_node_position(
 }
 
 ///|
+/// Update a node's configuration value and display label. For constant nodes
+/// the config holds the literal value (e.g. "42", "hello", "#ff0000"); for
+/// operator nodes it is typically empty.
 fn update_node_config(
   conn : @sqlite3.Connection,
   node_id : Int,
@@ -328,6 +387,9 @@ fn update_node_config(
 }
 
 ///|
+/// Delete a node and all connections that reference it (both incoming and
+/// outgoing). The connection cleanup runs first to avoid foreign-key
+/// violations.
 fn delete_node(
   conn : @sqlite3.Connection,
   node_id : Int,
@@ -346,6 +408,11 @@ fn delete_node(
 }
 
 ///|
+/// Insert a new connection (directed edge) between two node ports and return
+/// the complete `Connection` struct with the auto-generated ID. Callers are
+/// expected to validate the connection (type compatibility, cycle check, port
+/// occupancy) before calling this function; the database only enforces the
+/// UNIQUE constraint on `(to_node_id, to_port)`.
 fn create_connection(
   conn : @sqlite3.Connection,
   graph_id : Int,
@@ -369,6 +436,7 @@ fn create_connection(
 }
 
 ///|
+/// Delete a single connection by its row ID.
 fn delete_connection(
   conn : @sqlite3.Connection,
   conn_id : Int,

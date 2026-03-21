@@ -1,5 +1,11 @@
 ///|
-/// Input port definitions for each node kind. Compiler-enforced exhaustive match.
+/// Return the input port definitions for a given node kind.
+///
+/// Each entry in the returned array describes one input port: its display name
+/// and its expected `PortType`. The array index is the port index used in
+/// `Connection.to_port`. Constant nodes return an empty array (they are source
+/// nodes with no inputs). The match is exhaustive over `NodeKind`, so adding a
+/// new variant forces this function to be updated at compile time.
 pub fn input_ports(kind : NodeKind) -> Array[PortDef] {
   match kind {
     MathAdd =>
@@ -41,7 +47,12 @@ pub fn input_ports(kind : NodeKind) -> Array[PortDef] {
 }
 
 ///|
-/// Output port definitions for each node kind.
+/// Return the output port definitions for a given node kind.
+///
+/// Each entry describes one output port: its display name and `PortType`. The
+/// array index is the port index used in `Connection.from_port`. Display/sink
+/// nodes return an empty array (they consume values but produce none). Like
+/// `input_ports`, the match is exhaustive over `NodeKind`.
 pub fn output_ports(kind : NodeKind) -> Array[PortDef] {
   match kind {
     MathAdd => [{ name: "Sum", port_type: TNumber }]
@@ -132,7 +143,9 @@ pub fn port_type_color(pt : PortType) -> String {
 }
 
 ///|
-/// Serialize a node kind to its string identifier.
+/// Serialize a `NodeKind` enum variant to its canonical string identifier
+/// (e.g. `MathAdd` -> `"MathAdd"`). Used for database storage and JSON
+/// serialization. The mapping is the inverse of `kind_from_string`.
 pub fn kind_to_string(kind : NodeKind) -> String {
   match kind {
     MathAdd => "MathAdd"
@@ -162,7 +175,10 @@ pub fn kind_to_string(kind : NodeKind) -> String {
 }
 
 ///|
-/// Deserialize a node kind from its string identifier, defaulting to ConstNumber.
+/// Deserialize a `NodeKind` from its canonical string identifier.
+/// Returns `ConstNumber` as a safe fallback for any unrecognized string,
+/// ensuring that corrupted or legacy data does not crash the application.
+/// This is the inverse of `kind_to_string`.
 pub fn kind_from_string(s : String) -> NodeKind {
   match s {
     "MathAdd" => MathAdd

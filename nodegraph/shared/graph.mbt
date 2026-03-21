@@ -1,6 +1,16 @@
 ///|
-/// Topological sort using Kahn's algorithm.
-/// Returns (sorted_node_ids, has_cycle).
+/// Topological sort of graph nodes using Kahn's algorithm (BFS-based).
+///
+/// Computes an evaluation order such that every node is processed after all of
+/// its upstream dependencies. The algorithm maintains an in-degree count for
+/// each node, starts from nodes with zero in-degree (source/constant nodes),
+/// and iteratively peels them off while decrementing the in-degree of their
+/// downstream neighbors.
+///
+/// Returns `(sorted_node_ids, has_cycle)` where `has_cycle` is true when the
+/// sorted output is shorter than the input (meaning some nodes are trapped in
+/// a cycle and could not be reached). Even when a cycle exists, the returned
+/// array contains a valid ordering for the acyclic portion of the graph.
 pub fn topological_sort(
   nodes : Array[Node],
   connections : Array[Connection],
@@ -47,8 +57,16 @@ pub fn topological_sort(
 }
 
 ///|
-/// DFS from `to_id` following existing connections. If we reach `from_id`,
-/// adding an edge from_id → to_id would create a cycle.
+/// Check whether adding a directed edge `from_id -> to_id` would introduce a
+/// cycle into the connection graph.
+///
+/// Performs an iterative depth-first search starting at `to_id` and following
+/// existing edges forward (from_node -> to_node). If the traversal reaches
+/// `from_id`, it means there is already a path from `to_id` to `from_id`, so
+/// adding the proposed edge would close a loop. Uses a visited set to avoid
+/// re-exploring nodes in graphs with diamond/fan-out patterns.
+///
+/// This is called during connection validation to enforce the DAG invariant.
 pub fn would_create_cycle(
   connections : Array[Connection],
   from_id : Int,
@@ -75,7 +93,22 @@ pub fn would_create_cycle(
 }
 
 ///|
-/// Evaluate the entire graph. Returns output values for each node.
+/// Evaluate the entire dataflow graph in topological order.
+///
+/// Steps:
+/// 1. Run `topological_sort` to obtain a dependency-safe processing order.
+/// 2. For each node in that order, gather input values from upstream
+///    connections by looking up the already-computed outputs of predecessor
+///    nodes and mapping them by port index.
+/// 3. Call `evaluate_node` with the gathered inputs and the node's config.
+/// 4. On success, store the output values keyed by node ID. On failure,
+///    record the error and propagate `VError` values to all output ports so
+///    downstream nodes receive an explicit error rather than a silent default.
+///
+/// Returns an `EvalResult` containing per-node outputs, per-node errors, the
+/// evaluation order, and a flag indicating whether the graph contains a cycle.
+/// Nodes trapped in a cycle are simply excluded from evaluation (they will have
+/// no entry in `node_outputs`).
 pub fn evaluate_graph(
   nodes : Array[Node],
   connections : Array[Connection],
@@ -123,7 +156,23 @@ pub fn evaluate_graph(
 }
 
 ///|
-/// Evaluate a single node given its input values and config.
+/// Evaluate a single node given its resolved input values and config string.
+///
+/// Dispatches on `NodeKind` to perform the appropriate operation:
+/// - **Math nodes**: binary or unary arithmetic on `VNumber` inputs. Division
+///   returns an error on divide-by-zero rather than panicking.
+/// - **String nodes**: concatenation, length, case conversion on `VString`.
+/// - **Logic nodes**: boolean operators and numeric comparisons.
+/// - **Color nodes**: RGB composition (clamped 0-255), 50/50 channel mixing,
+///   and perceived-brightness calculation (BT.601 luminance formula).
+/// - **Constant nodes**: produce a single output parsed from `config`.
+///   `ConstNumber` defaults to 0 on parse failure; `ConstColor` defaults to
+///   black (`#000000`) when config is empty.
+/// - **Display nodes**: pass-through sinks that forward their input unchanged,
+///   returning `VNone` when disconnected.
+///
+/// Returns `Ok(outputs)` on success or `Err(message)` on type mismatch /
+/// invalid input.
 fn evaluate_node(
   kind : NodeKind,
   inputs : Array[Value],
@@ -244,6 +293,9 @@ fn evaluate_node(
 // ── Helpers ───────────────────────────────────────────────────────
 
 ///|
+/// Extract a numeric value from the inputs array at `idx`.
+/// Returns `Ok(0)` for `VNone` (unconnected port default), or an error if
+/// the index is out of range or the value is not a number.
 fn get_num(inputs : Array[Value], idx : Int) -> Result[Int, String] {
   if idx >= inputs.length() {
     return Err("Missing input")
@@ -256,6 +308,9 @@ fn get_num(inputs : Array[Value], idx : Int) -> Result[Int, String] {
 }
 
 ///|
+/// Extract a string value from the inputs array at `idx`.
+/// Returns `Ok("")` for `VNone` (unconnected port default), or an error if
+/// the index is out of range or the value is not a string.
 fn get_str(inputs : Array[Value], idx : Int) -> Result[String, String] {
   if idx >= inputs.length() {
     return Err("Missing input")
@@ -268,6 +323,9 @@ fn get_str(inputs : Array[Value], idx : Int) -> Result[String, String] {
 }
 
 ///|
+/// Extract a boolean value from the inputs array at `idx`.
+/// Returns `Ok(false)` for `VNone` (unconnected port default), or an error if
+/// the index is out of range or the value is not a boolean.
 fn get_bool(inputs : Array[Value], idx : Int) -> Result[Bool, String] {
   if idx >= inputs.length() {
     return Err("Missing input")
@@ -280,6 +338,9 @@ fn get_bool(inputs : Array[Value], idx : Int) -> Result[Bool, String] {
 }
 
 ///|
+/// Extract a color hex string from the inputs array at `idx`.
+/// Returns `Ok("#000000")` (black) for `VNone` (unconnected port default), or
+/// an error if the index is out of range or the value is not a color.
 fn get_color(inputs : Array[Value], idx : Int) -> Result[String, String] {
   if idx >= inputs.length() {
     return Err("Missing input")
@@ -292,6 +353,9 @@ fn get_color(inputs : Array[Value], idx : Int) -> Result[String, String] {
 }
 
 ///|
+/// Apply a binary integer operation to the first two inputs.
+/// Extracts both values as numbers and returns a single-element `VNumber`
+/// array, or an error if either input is missing or has the wrong type.
 fn math_binop(
   inputs : Array[Value],
   op : (Int, Int) -> Int,
@@ -303,6 +367,7 @@ fn math_binop(
 }
 
 ///|
+/// Clamp an integer to the inclusive range `[lo, hi]`.
 fn clamp(v : Int, lo : Int, hi : Int) -> Int {
   if v < lo {
     lo
@@ -314,6 +379,8 @@ fn clamp(v : Int, lo : Int, hi : Int) -> Int {
 }
 
 ///|
+/// Convert a single integer (0-15) to its lowercase hexadecimal character.
+/// Values outside 0-15 default to "0".
 fn hex_digit(d : Int) -> String {
   match d {
     0 => "0"
@@ -337,11 +404,15 @@ fn hex_digit(d : Int) -> String {
 }
 
 ///|
+/// Convert an integer (0-255) to a two-character lowercase hex string
+/// (e.g. 255 -> "ff", 10 -> "0a"). Used to build CSS hex color codes.
 fn int_to_hex2(n : Int) -> String {
   hex_digit(n / 16) + hex_digit(n % 16)
 }
 
 ///|
+/// Parse a single hexadecimal character ('0'-'9', 'a'-'f', 'A'-'F') to its
+/// integer value 0-15. Returns 0 for any unrecognized character.
 fn hex_char_val(c : Char) -> Int {
   if c >= '0' && c <= '9' {
     c.to_int() - '0'.to_int()
@@ -355,6 +426,8 @@ fn hex_char_val(c : Char) -> Int {
 }
 
 ///|
+/// Parse two consecutive hex characters from `s` starting at `offset` into an
+/// integer 0-255. Returns 0 if the string is too short.
 fn parse_hex2(s : String, offset : Int) -> Int {
   let chars = s.to_array()
   if offset + 1 >= chars.length() {
@@ -364,6 +437,8 @@ fn parse_hex2(s : String, offset : Int) -> Int {
 }
 
 ///|
+/// Parse a CSS hex color string (e.g. "#ff8000") into its (R, G, B) integer
+/// components (each 0-255). Returns (0, 0, 0) for malformed/short strings.
 fn parse_color(hex : String) -> (Int, Int, Int) {
   if hex.length() < 7 {
     return (0, 0, 0)
@@ -372,6 +447,9 @@ fn parse_color(hex : String) -> (Int, Int, Int) {
 }
 
 ///|
+/// Mix two CSS hex colors by averaging their R, G, B channels independently.
+/// Returns a new hex color string (e.g. mixing "#ff0000" and "#0000ff" yields
+/// "#7f007f").
 fn mix_colors(a : String, b : String) -> String {
   let (r1, g1, b1) = parse_color(a)
   let (r2, g2, b2) = parse_color(b)

@@ -1,28 +1,48 @@
 ///|
-/// Compute auto-layout positions from topological structure.
-/// Returns Array[(node_id, x_px, y_px)].
+/// Width of a rendered node card in pixels. Used by `canvas_size` to compute
+/// the right-edge boundary.
 let node_w : Int = 220
 
 ///|
+/// Horizontal distance between layer columns in pixels (node width + gap).
 let node_stride_x : Int = 280
 
 ///|
+/// Vertical distance between nodes within the same layer column in pixels.
 let node_stride_y : Int = 210
 
 ///|
+/// Horizontal padding from the left edge of the canvas to the first column.
 let pad_x : Int = 20
 
 ///|
+/// Vertical padding from the top edge of the canvas to the first row.
 let pad_y : Int = 20
 
 ///|
+/// Height of the node header area in pixels (used for port Y offset calculation).
 let header_h : Int = 35
 
 ///|
+/// Vertical spacing between consecutive ports within a node, in pixels.
 let port_stride : Int = 28
 
 ///|
-/// Compute auto-layout positions for nodes using topological layering. Returns an array of (node_id, x, y) tuples.
+/// Compute auto-layout positions for nodes using topological layering.
+///
+/// Algorithm:
+/// 1. **Layer assignment via iterative relaxation.** Every node starts at
+///    layer 0. For each connection `A -> B`, set `layer[B] = max(layer[B],
+///    layer[A] + 1)`. Repeat N passes (where N is the node count) to
+///    propagate layers through the longest path -- this is equivalent to the
+///    Bellman-Ford longest-path approach and converges in O(N * E).
+/// 2. **Position computation.** Nodes are grouped by layer. Within each layer
+///    they are stacked vertically in array order. X is determined by the layer
+///    index times `node_stride_x`, Y by the row index within that layer times
+///    `node_stride_y`, both offset by the canvas padding.
+///
+/// Returns an array of `(node_id, x_px, y_px)` tuples. Returns an empty
+/// array when the node list is empty.
 pub fn compute_layout(
   nodes : Array[@shared.Node],
   connections : Array[@shared.Connection],
@@ -70,6 +90,8 @@ pub fn compute_layout(
 }
 
 ///|
+/// Linear search for `id` in the `ids` array. Returns the index if found, or
+/// -1 if absent. The -1 sentinel is checked by callers before array access.
 fn find_idx(ids : Array[Int], id : Int) -> Int {
   for i = 0; i < ids.length(); i = i + 1 {
     if ids[i] == id {
