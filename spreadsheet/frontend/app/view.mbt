@@ -309,7 +309,7 @@ fn heat_color(value : Double, min_val : Double, max_val : Double) -> String {
   }
   let (r, g, b) = rgb
   fn to_hex(n : Int) -> String {
-    let clamped = if n < 0 { 0 } else if n > 255 { 255 } else { n }
+    let clamped = n.clamp(min=0, max=255)
     let hi = clamped / 16
     let lo = clamped % 16
     fn hex_digit(d : Int) -> String {

@@ -901,7 +901,7 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
         return Error("ABS:ARGS")
       }
       match to_num(args[0]) {
-        Some(n) => Num(if n < 0.0 { 0.0 - n } else { n })
+        Some(n) => Num(n.abs())
         None => Error("TYPE")
       }
     }
@@ -942,7 +942,7 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
           // Check if exponent is an integer for exact calculation
           let exp_int = exponent.to_int()
           if exp_int.to_double() == exponent {
-            Num(pow(base, exp_int))
+            Num(@math.pow(base, exp_int.to_double()))
           } else {
             Num(@math.pow(base, exponent))
           }
@@ -1140,26 +1140,6 @@ fn pow10(n : Int) -> Double {
     result = result * 10.0
   }
   result
-}
-
-///|
-/// Integer exponentiation by repeated multiplication.
-/// Handles negative exponents by computing the reciprocal of the positive result.
-fn pow(base : Double, exp : Int) -> Double {
-  if exp == 0 {
-    return 1.0
-  }
-  let mut result = 1.0
-  let mut e = if exp < 0 { 0 - exp } else { exp }
-  while e > 0 {
-    result = result * base
-    e = e - 1
-  }
-  if exp < 0 {
-    1.0 / result
-  } else {
-    result
-  }
 }
 
 ///|

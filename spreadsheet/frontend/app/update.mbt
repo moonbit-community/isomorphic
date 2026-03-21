@@ -78,8 +78,8 @@ pub fn Model::update(
         @rabbita.none,
         {
           ..model,
-          sel_col: clamp(col, 0, num_cols - 1),
-          sel_row: clamp(row, 0, num_rows - 1),
+          sel_col: col.clamp(min=0, max=num_cols - 1),
+          sel_row: row.clamp(min=0, max=num_rows - 1),
           editing: false,
         },
       )
@@ -90,8 +90,8 @@ pub fn Model::update(
         @rabbita.none,
         {
           ..model,
-          sel_col: clamp(model.sel_col + dc, 0, num_cols - 1),
-          sel_row: clamp(model.sel_row + dr, 0, num_rows - 1),
+          sel_col: (model.sel_col + dc).clamp(min=0, max=num_cols - 1),
+          sel_row: (model.sel_row + dr).clamp(min=0, max=num_rows - 1),
           editing: false,
         },
       )
@@ -215,16 +215,4 @@ fn Model::commit_edit(self : Model) -> Model {
   let sheets = self.sheets.copy()
   sheets[self.active_sheet] = new_sheet
   { ..self, sheets, editing: false, edit_value: "" }
-}
-
-///|
-/// Clamp an integer to the inclusive range `[min, max]`.
-fn clamp(v : Int, min : Int, max : Int) -> Int {
-  if v < min {
-    min
-  } else if v > max {
-    max
-  } else {
-    v
-  }
 }
