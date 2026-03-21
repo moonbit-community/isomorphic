@@ -134,7 +134,7 @@ fn Model::view_temp_wire(
   let x2 = self.wire_mouse_x
   let y2 = self.wire_mouse_y
   let diff = x2 - x1
-  let abs_diff = if diff < 0 { -diff } else { diff }
+  let abs_diff = diff.abs()
   let dx = if abs_diff < 80 { 50 } else { abs_diff / 2 }
   let path_d = "M \{x1} \{y1} C \{x1 + dx} \{y1}, \{x2 - dx} \{y2}, \{x2} \{y2}"
   @svg.svg(width=w, height=h, style=[
@@ -215,7 +215,7 @@ fn Model::view_svg_wires(
     }
     // Bezier control offset
     let diff = x2 - x1
-    let abs_diff = if diff < 0 { -diff } else { diff }
+    let abs_diff = diff.abs()
     let dx = if abs_diff < 100 { 60 } else { abs_diff / 2 }
     let path_d = "M \{x1} \{y1} C \{x1 + dx} \{y1}, \{x2 - dx} \{y2}, \{x2} \{y2}"
     // Shadow path

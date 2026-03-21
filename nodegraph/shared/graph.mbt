@@ -194,7 +194,7 @@ fn evaluate_node(
       }
     MathAbs =>
       match get_num(inputs, 0) {
-        Ok(v) => Ok([VNumber(if v < 0 { -v } else { v })])
+        Ok(v) => Ok([VNumber(v.abs())])
         Err(e) => Err(e)
       }
     StringConcat =>
@@ -245,9 +245,9 @@ fn evaluate_node(
     ColorRGB =>
       match (get_num(inputs, 0), get_num(inputs, 1), get_num(inputs, 2)) {
         (Ok(r), Ok(g), Ok(b)) => {
-          let rc = clamp(r, 0, 255)
-          let gc = clamp(g, 0, 255)
-          let bc = clamp(b, 0, 255)
+          let rc = r.clamp(min=0, max=255)
+          let gc = g.clamp(min=0, max=255)
+          let bc = b.clamp(min=0, max=255)
           Ok([VColor("#\{int_to_hex2(rc)}\{int_to_hex2(gc)}\{int_to_hex2(bc)}")])
         }
         _ => Err("Expected three Numbers (R, G, B)")
@@ -363,18 +363,6 @@ fn math_binop(
   match (get_num(inputs, 0), get_num(inputs, 1)) {
     (Ok(a), Ok(b)) => Ok([VNumber(op(a, b))])
     _ => Err("Expected two Numbers")
-  }
-}
-
-///|
-/// Clamp an integer to the inclusive range `[lo, hi]`.
-fn clamp(v : Int, lo : Int, hi : Int) -> Int {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
   }
 }
 
