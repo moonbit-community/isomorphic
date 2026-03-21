@@ -17,7 +17,7 @@ fn recalc(sheet : Sheet) -> Sheet {
   sheet.cells.each(fn(k, v) { new_cells[k] = v })
   // Second pass: evaluate formulas
   // We do multiple passes to handle dependencies (simple convergence)
-  for _pass = 0; _pass < 3; _pass = _pass + 1 {
+  for _ in 0..<3 {
     sheet.cells.each(fn(k, c) {
       if c.raw.length() > 0 && c.raw[0] == '=' {
         let value = @formula.evaluate(c.raw, fn(r) {
@@ -120,9 +120,9 @@ pub fn Model::update(
         return (@rabbita.none, self)
       }
       let sheets = []
-      for j = 0; j < self.sheets.length(); j = j + 1 {
+      for j, s in self.sheets {
         if j != i {
-          sheets.push(self.sheets[j])
+          sheets.push(s)
         }
       }
       let active = if self.active_sheet >= sheets.length() {

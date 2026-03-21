@@ -1136,7 +1136,7 @@ fn compare_values(
 /// Used by `ROUND` to scale values before and after rounding.
 fn pow10(n : Int) -> Double {
   let mut result = 1.0
-  for _i = 0; _i < n; _i = _i + 1 {
+  for _ in 0..<n {
     result = result * 10.0
   }
   result

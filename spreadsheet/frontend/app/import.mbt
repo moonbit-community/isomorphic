@@ -95,7 +95,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
     sheets.push(sheet)
   }
   // Recalculate all sheets
-  for i = 0; i < sheets.length(); i = i + 1 {
+  for i in 0..<sheets.length() {
     sheets[i] = recalc(sheets[i])
   }
   {
@@ -341,8 +341,7 @@ extern "js" fn download_bytes(bytes : Bytes, filename : String) =
 fn export_xlsx(model : Model) -> Unit {
   let wb = @xlsx.Workbook::new()
   // Create all sheets
-  for i = 0; i < model.sheets.length(); i = i + 1 {
-    let sheet = model.sheets[i]
+  for sheet in model.sheets {
     let ws = wb.new_sheet(sheet.name) catch { _ => continue }
     export_sheet_cells(wb, ws, sheet)
   }

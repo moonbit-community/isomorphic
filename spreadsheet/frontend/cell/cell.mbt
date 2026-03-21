@@ -180,11 +180,11 @@ fn format_with_commas(n : Int) -> String {
     sb.write_char('-')
   }
   let start_offset = chars.length() % 3
-  for i = 0; i < chars.length(); i = i + 1 {
+  for i, ch in chars {
     if i > 0 && (i - start_offset) % 3 == 0 {
       sb.write_char(',')
     }
-    sb.write_char(chars[i])
+    sb.write_char(ch)
   }
   sb.to_string()
 }

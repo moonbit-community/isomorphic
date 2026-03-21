@@ -48,7 +48,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   let plot_h = chart_h - pad_top - pad_bottom
   // Find max value for scaling
   let mut max_val = 1.0
-  for i = 0; i < products.length(); i = i + 1 {
+  for i in 0..<products.length() {
     if q1[i] > max_val {
       max_val = q1[i]
     }
@@ -71,7 +71,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   let quarter_labels = ["Q1", "Q2", "Q3", "Q4"]
   let elements : Array[@svg.Svg] = []
   // Background grid lines
-  for i = 0; i <= 4; i = i + 1 {
+  for i in 0..<=4 {
     let y = pad_top + plot_h - plot_h * i / 4
     elements.push(
       @svg.line(
@@ -97,10 +97,10 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
     )
   }
   // Bars for each product
-  for i = 0; i < n; i = i + 1 {
+  for i in 0..<n {
     let group_x = pad_left + group_w * i + bar_w / 2
     let vals = [q1[i], q2[i], q3[i], q4[i]]
-    for j = 0; j < 4; j = j + 1 {
+    for j in 0..<4 {
       let bar_h_val = vals[j] / max_val * plot_h.to_double()
       let bh = bar_h_val.to_int()
       let bx = group_x + bar_w * j
@@ -136,7 +136,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
     )
   }
   // Legend
-  for j = 0; j < 4; j = j + 1 {
+  for j in 0..<4 {
     let lx = pad_left + j * 70
     let ly = 10
     elements.push(
@@ -237,7 +237,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
   )
   // Donut segments — each circle uses dasharray to show only its arc
   let mut offset_angle = -90.0 // start from top
-  for i = 0; i < products.length(); i = i + 1 {
+  for i in 0..<products.length() {
     let fraction = totals[i] / grand_total
     let arc_len = (circumference * fraction).to_int()
     let gap_len = circ_int + 1 // oversized gap avoids sub-pixel seam from rounding
@@ -291,7 +291,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     ),
   )
   // Legend below chart
-  for i = 0; i < products.length(); i = i + 1 {
+  for i in 0..<products.length() {
     let lx = 10
     let ly = size - 2 + i * 16
     let color_idx = i % colors.length()
@@ -350,14 +350,14 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let points : Array[(Int, Int)] = []
   let mut min_idx = 0
   let mut max_idx = 0
-  for i = 0; i < vals.length(); i = i + 1 {
+  for i, v in vals {
     let x = pad + pw * i / 3
-    let y = pad + ph - ((vals[i] - min_v) / range * ph.to_double()).to_int()
+    let y = pad + ph - ((v - min_v) / range * ph.to_double()).to_int()
     points.push((x, y))
-    if vals[i] <= vals[min_idx] {
+    if v <= vals[min_idx] {
       min_idx = i
     }
-    if vals[i] >= vals[max_idx] {
+    if v >= vals[max_idx] {
       max_idx = i
     }
   }

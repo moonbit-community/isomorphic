@@ -423,7 +423,7 @@ fn Model::view_grid(
       "left: 0", "z-index: 3",
     ]) <| "",
   )
-  for c = 0; c < num_cols; c = c + 1 {
+  for c in 0..<num_cols {
     let is_sel_col = c == self.sel_col
     let bg = if is_sel_col { "#d3e3fd" } else { "#f8f9fa" }
     let fw = if is_sel_col { "600" } else { "500" }
@@ -455,7 +455,7 @@ fn Model::view_grid(
   )
 
   // Data rows
-  for r = 0; r < num_rows; r = r + 1 {
+  for r in 0..<num_rows {
     let row_cells : Array[@rabbita.Html] = []
     let is_sel_row = r == self.sel_row
     let row_bg = if is_sel_row { "#d3e3fd" } else { "#f8f9fa" }
@@ -480,7 +480,7 @@ fn Model::view_grid(
       ]) <| (r + 1).to_string(),
     )
     // Data cells
-    for c = 0; c < num_cols; c = c + 1 {
+    for c in 0..<num_cols {
       let key = @cell.make_key(c, r)
       let cell = sheet.get(key)
       let is_selected = c == self.sel_col && r == self.sel_row
@@ -658,8 +658,7 @@ fn Model::view_sheet_tabs(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let tabs : Array[@rabbita.Html] = []
-  for i = 0; i < self.sheets.length(); i = i + 1 {
-    let sheet = self.sheets[i]
+  for i, sheet in self.sheets {
     let is_active = i == self.active_sheet
     let bg = if is_active { "#fff" } else { "#f0f0f0" }
     let border_bottom = if is_active {
