@@ -177,13 +177,9 @@ pub fn urgency_label(due_date : String, today : String) -> String {
 /// assert_eq(@shared.count_overdue(tasks, "2024-03-01"), 1)
 /// ```
 pub fn count_overdue(tasks : Array[Task], today : String) -> Int {
-  let mut count = 0
-  for t in tasks {
-    if t.status != "done" && t.due_date != "" && t.due_date < today {
-      count += 1
-    }
-  }
-  count
+  tasks
+  .filter(fn(t) { t.status != "done" && t.due_date != "" && t.due_date < today })
+  .length()
 }
 
 ///|
@@ -200,13 +196,7 @@ pub fn count_overdue(tasks : Array[Task], today : String) -> Int {
 /// assert_eq(@shared.count_due_today(tasks, "2024-03-02"), 0)
 /// ```
 pub fn count_due_today(tasks : Array[Task], today : String) -> Int {
-  let mut count = 0
-  for t in tasks {
-    if t.status != "done" && t.due_date == today {
-      count += 1
-    }
-  }
-  count
+  tasks.filter(fn(t) { t.status != "done" && t.due_date == today }).length()
 }
 
 ///|
@@ -264,13 +254,7 @@ pub fn completion_percent(tasks : Array[Task]) -> Int {
 /// assert_eq(@shared.count_by_status(tasks, "review"), 0)
 /// ```
 pub fn count_by_status(tasks : Array[Task], status : String) -> Int {
-  let mut count = 0
-  for t in tasks {
-    if t.status == status {
-      count += 1
-    }
-  }
-  count
+  tasks.filter(fn(t) { t.status == status }).length()
 }
 
 ///|
@@ -302,12 +286,7 @@ pub fn tasks_for_member(tasks : Array[Task], member_id : Int) -> Array[Task] {
 /// assert_true(@shared.find_member(members, 99) is None)
 /// ```
 pub fn find_member(members : Array[Member], id : Int) -> Member? {
-  for m in members {
-    if m.id == id {
-      return Some(m)
-    }
-  }
-  None
+  members.iter().find_first(fn(m) { m.id == id })
 }
 
 ///|
@@ -648,13 +627,7 @@ pub fn search_matches(task : Task, query : String) -> Bool {
 /// assert_eq(@shared.get_dependencies(deps, 99), [])
 /// ```
 pub fn get_dependencies(deps : Array[Dependency], task_id : Int) -> Array[Int] {
-  let result : Array[Int] = []
-  for d in deps {
-    if d.task_id == task_id {
-      result.push(d.depends_on_id)
-    }
-  }
-  result
+  deps.filter(fn(d) { d.task_id == task_id }).map(fn(d) { d.depends_on_id })
 }
 
 ///|
@@ -735,12 +708,9 @@ pub fn labels_for_task(
   task_labels : Array[TaskLabel],
   task_id : Int,
 ) -> Array[Label] {
-  let label_ids : Array[Int] = []
-  for tl in task_labels {
-    if tl.task_id == task_id {
-      label_ids.push(tl.label_id)
-    }
-  }
+  let label_ids = task_labels
+    .filter(fn(tl) { tl.task_id == task_id })
+    .map(fn(tl) { tl.label_id })
   labels.filter(fn(l) { label_ids.contains(l.id) })
 }
 
@@ -864,13 +834,9 @@ pub fn subtask_progress(subtasks : Array[Subtask], task_id : Int) -> (Int, Int) 
 /// assert_eq(@shared.total_time(entries, 10), 75)
 /// ```
 pub fn total_time(entries : Array[TimeEntry], task_id : Int) -> Int {
-  let mut total = 0
-  for e in entries {
-    if e.task_id == task_id {
-      total += e.minutes
-    }
-  }
-  total
+  entries
+  .filter(fn(e) { e.task_id == task_id })
+  .fold(init=0, fn(acc, e) { acc + e.minutes })
 }
 
 ///|
@@ -907,13 +873,7 @@ pub fn attachments_for_task(
 /// assert_eq(@shared.attachment_count(atts, 99), 0)
 /// ```
 pub fn attachment_count(attachments : Array[Attachment], task_id : Int) -> Int {
-  let mut count = 0
-  for a in attachments {
-    if a.task_id == task_id {
-      count += 1
-    }
-  }
-  count
+  attachments.filter(fn(a) { a.task_id == task_id }).length()
 }
 
 ///|
@@ -1006,12 +966,10 @@ pub let recurrence_intervals : Array[String] = ["daily", "weekly", "monthly"]
 /// assert_eq(@shared.get_recurrence(rules, 99), "")
 /// ```
 pub fn get_recurrence(rules : Array[RecurrenceRule], task_id : Int) -> String {
-  for r in rules {
-    if r.task_id == task_id {
-      return r.interval
-    }
+  match rules.iter().find_first(fn(r) { r.task_id == task_id }) {
+    Some(r) => r.interval
+    None => ""
   }
-  ""
 }
 
 ///|
@@ -1031,12 +989,10 @@ pub fn project_for_task(
   task_projects : Array[TaskProject],
   task_id : Int,
 ) -> Int {
-  for tp in task_projects {
-    if tp.task_id == task_id {
-      return tp.project_id
-    }
+  match task_projects.iter().find_first(fn(tp) { tp.task_id == task_id }) {
+    Some(tp) => tp.project_id
+    None => 0
   }
-  0
 }
 
 ///|
@@ -1052,12 +1008,7 @@ pub fn project_for_task(
 /// assert_true(@shared.find_project(projects, 99) is None)
 /// ```
 pub fn find_project(projects : Array[Project], id : Int) -> Project? {
-  for p in projects {
-    if p.id == id {
-      return Some(p)
-    }
-  }
-  None
+  projects.iter().find_first(fn(p) { p.id == id })
 }
 
 ///|

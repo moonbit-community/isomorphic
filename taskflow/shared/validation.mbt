@@ -108,12 +108,7 @@ pub fn validate_task_description(desc : String) -> Bool {
 /// assert_false(@shared.validate_status("invalid"))
 /// ```
 pub fn validate_status(status : String) -> Bool {
-  for s in valid_statuses {
-    if s == status {
-      return true
-    }
-  }
-  false
+  valid_statuses.contains(status)
 }
 
 ///|
@@ -126,12 +121,7 @@ pub fn validate_status(status : String) -> Bool {
 /// assert_false(@shared.validate_priority("critical"))
 /// ```
 pub fn validate_priority(priority : String) -> Bool {
-  for p in valid_priorities {
-    if p == priority {
-      return true
-    }
-  }
-  false
+  valid_priorities.contains(priority)
 }
 
 ///|
