@@ -89,7 +89,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
     let sheet = Sheet::new(name)
     // Get the used range dimension (e.g. "A1:H14")
     let dim = wb.get_sheet_dimension(name) catch { _ => "" }
-    if dim != "" {
+    if !dim.is_empty() {
       import_sheet_cells(wb, name, sheet, dim)
     }
     sheets.push(sheet)
@@ -165,19 +165,24 @@ fn import_sheet_cells(
       let (bold, italic, align, bg_color) = get_xlsx_style(wb, sheet_name, key)
       // Determine raw string (formula takes priority)
       let raw = match formula {
-        Some(f) => if f != "" { "=\{f}" } else { cell_value_to_raw(raw_value) }
+        Some(f) =>
+          if !f.is_empty() {
+            "=\{f}"
+          } else {
+            cell_value_to_raw(raw_value)
+          }
         None => cell_value_to_raw(raw_value)
       }
       let has_align = match align {
         Auto => false
         _ => true
       }
-      let has_style = bold || italic || bg_color != "" || has_align
-      if raw == "" && !has_style {
+      let has_style = bold || italic || !bg_color.is_empty() || has_align
+      if raw.is_empty() && !has_style {
         continue
       }
       // Evaluate the value; for formulas that fail, use cached xlsx value
-      let value = if raw.length() > 0 && raw[0] == '=' {
+      let value = if !raw.is_empty() && raw[0] == '=' {
         let evaluated = @formula.evaluate(raw, fn(r) { sheet.get(r).value })
         match evaluated {
           Error(_) => cell_value_to_value(raw_value) // fall back to cached result
@@ -292,7 +297,7 @@ fn get_xlsx_style(
         Some(f) =>
           match f.colors {
             Some(colors) =>
-              if colors.length() > 0 && colors[0] != "" {
+              if !colors.is_empty() && !colors[0].is_empty() {
                 let c = colors[0]
                 // Excel colors may be "FFRRGGBB" (8-char ARGB) — convert to #RRGGBB
                 if c.length() == 8 {
@@ -371,10 +376,10 @@ fn export_sheet_cells(
       Auto => false
       _ => true
     }
-    let has_any = cell.raw != "" ||
+    let has_any = !cell.raw.is_empty() ||
       cell.bold ||
       cell.italic ||
-      cell.bg_color != "" ||
+      !cell.bg_color.is_empty() ||
       has_align
     if !has_any {
       return
@@ -404,7 +409,10 @@ fn export_sheet_cells(
       Auto => false
       _ => true
     }
-    let has_style = cell.bold || cell.italic || cell.bg_color != "" || has_align
+    let has_style = cell.bold ||
+      cell.italic ||
+      !cell.bg_color.is_empty() ||
+      has_align
     if has_style {
       let style = build_xlsx_style(cell)
       let style_id = wb.new_style(style)
@@ -446,7 +454,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
     Auto => ()
   }
   // Fill color
-  if cell.bg_color != "" {
+  if !cell.bg_color.is_empty() {
     // Convert "#RRGGBB" to "FFRRGGBB"
     let color = if cell.bg_color.length() == 7 && cell.bg_color[0] == '#' {
       "FF\{cell.bg_color[1:].to_string()}"

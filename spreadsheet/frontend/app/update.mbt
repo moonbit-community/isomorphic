@@ -19,7 +19,7 @@ fn recalc(sheet : Sheet) -> Sheet {
   // We do multiple passes to handle dependencies (simple convergence)
   for _ in 0..<3 {
     sheet.cells.each(fn(k, c) {
-      if c.raw.length() > 0 && c.raw[0] == '=' {
+      if !c.raw.is_empty() && c.raw[0] == '=' {
         let value = @formula.evaluate(c.raw, fn(r) {
           let cell = match new_cells.get(r) {
             Some(c) => c

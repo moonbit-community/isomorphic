@@ -3953,68 +3953,68 @@ const _M0FPC17strconv17parse__scientificN8exp__numS244 = $0L;
 const _M0FPC17strconv13parse__numberN11exp__numberS225 = $0L;
 const _M0FPC17strconv12double__info = new _M0TPC17strconv9FloatInfo(52, 11, -1023);
 const _M0FPC17strconv6powtab = [1, 3, 6, 9, 13, 16, 19, 23, 26, 29, 33, 36, 39, 43, 46, 49, 53, 56, 59];
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4314 = { _0: 0, _1: "" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4315 = { _0: 1, _1: "5" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4316 = { _0: 1, _1: "25" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4317 = { _0: 1, _1: "125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4318 = { _0: 2, _1: "625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4319 = { _0: 2, _1: "3125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4320 = { _0: 2, _1: "15625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4321 = { _0: 3, _1: "78125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4322 = { _0: 3, _1: "390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4323 = { _0: 3, _1: "1953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4324 = { _0: 4, _1: "9765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4325 = { _0: 4, _1: "48828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4326 = { _0: 4, _1: "244140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4327 = { _0: 4, _1: "1220703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4328 = { _0: 5, _1: "6103515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4329 = { _0: 5, _1: "30517578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4330 = { _0: 5, _1: "152587890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4331 = { _0: 6, _1: "762939453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4332 = { _0: 6, _1: "3814697265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4333 = { _0: 6, _1: "19073486328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4334 = { _0: 7, _1: "95367431640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4335 = { _0: 7, _1: "476837158203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4336 = { _0: 7, _1: "2384185791015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4337 = { _0: 7, _1: "11920928955078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4338 = { _0: 8, _1: "59604644775390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4339 = { _0: 8, _1: "298023223876953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4340 = { _0: 8, _1: "1490116119384765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4341 = { _0: 9, _1: "7450580596923828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4342 = { _0: 9, _1: "37252902984619140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4343 = { _0: 9, _1: "186264514923095703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4344 = { _0: 10, _1: "931322574615478515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4345 = { _0: 10, _1: "4656612873077392578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4346 = { _0: 10, _1: "23283064365386962890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4347 = { _0: 10, _1: "116415321826934814453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4348 = { _0: 11, _1: "582076609134674072265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4349 = { _0: 11, _1: "2910383045673370361328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4350 = { _0: 11, _1: "14551915228366851806640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4351 = { _0: 12, _1: "72759576141834259033203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4352 = { _0: 12, _1: "363797880709171295166015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4353 = { _0: 12, _1: "1818989403545856475830078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4354 = { _0: 13, _1: "9094947017729282379150390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4355 = { _0: 13, _1: "45474735088646411895751953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4356 = { _0: 13, _1: "227373675443232059478759765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4357 = { _0: 13, _1: "1136868377216160297393798828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4358 = { _0: 14, _1: "5684341886080801486968994140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4359 = { _0: 14, _1: "28421709430404007434844970703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4360 = { _0: 14, _1: "142108547152020037174224853515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4361 = { _0: 15, _1: "710542735760100185871124267578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4362 = { _0: 15, _1: "3552713678800500929355621337890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4363 = { _0: 15, _1: "17763568394002504646778106689453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4364 = { _0: 16, _1: "88817841970012523233890533447265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4365 = { _0: 16, _1: "444089209850062616169452667236328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4366 = { _0: 16, _1: "2220446049250313080847263336181640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4367 = { _0: 16, _1: "11102230246251565404236316680908203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4368 = { _0: 17, _1: "55511151231257827021181583404541015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4369 = { _0: 17, _1: "277555756156289135105907917022705078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4370 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4371 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4372 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4373 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4374 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
-const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f4314, _M0FPC17strconv34left__shift__cheats_2etuple_2f4315, _M0FPC17strconv34left__shift__cheats_2etuple_2f4316, _M0FPC17strconv34left__shift__cheats_2etuple_2f4317, _M0FPC17strconv34left__shift__cheats_2etuple_2f4318, _M0FPC17strconv34left__shift__cheats_2etuple_2f4319, _M0FPC17strconv34left__shift__cheats_2etuple_2f4320, _M0FPC17strconv34left__shift__cheats_2etuple_2f4321, _M0FPC17strconv34left__shift__cheats_2etuple_2f4322, _M0FPC17strconv34left__shift__cheats_2etuple_2f4323, _M0FPC17strconv34left__shift__cheats_2etuple_2f4324, _M0FPC17strconv34left__shift__cheats_2etuple_2f4325, _M0FPC17strconv34left__shift__cheats_2etuple_2f4326, _M0FPC17strconv34left__shift__cheats_2etuple_2f4327, _M0FPC17strconv34left__shift__cheats_2etuple_2f4328, _M0FPC17strconv34left__shift__cheats_2etuple_2f4329, _M0FPC17strconv34left__shift__cheats_2etuple_2f4330, _M0FPC17strconv34left__shift__cheats_2etuple_2f4331, _M0FPC17strconv34left__shift__cheats_2etuple_2f4332, _M0FPC17strconv34left__shift__cheats_2etuple_2f4333, _M0FPC17strconv34left__shift__cheats_2etuple_2f4334, _M0FPC17strconv34left__shift__cheats_2etuple_2f4335, _M0FPC17strconv34left__shift__cheats_2etuple_2f4336, _M0FPC17strconv34left__shift__cheats_2etuple_2f4337, _M0FPC17strconv34left__shift__cheats_2etuple_2f4338, _M0FPC17strconv34left__shift__cheats_2etuple_2f4339, _M0FPC17strconv34left__shift__cheats_2etuple_2f4340, _M0FPC17strconv34left__shift__cheats_2etuple_2f4341, _M0FPC17strconv34left__shift__cheats_2etuple_2f4342, _M0FPC17strconv34left__shift__cheats_2etuple_2f4343, _M0FPC17strconv34left__shift__cheats_2etuple_2f4344, _M0FPC17strconv34left__shift__cheats_2etuple_2f4345, _M0FPC17strconv34left__shift__cheats_2etuple_2f4346, _M0FPC17strconv34left__shift__cheats_2etuple_2f4347, _M0FPC17strconv34left__shift__cheats_2etuple_2f4348, _M0FPC17strconv34left__shift__cheats_2etuple_2f4349, _M0FPC17strconv34left__shift__cheats_2etuple_2f4350, _M0FPC17strconv34left__shift__cheats_2etuple_2f4351, _M0FPC17strconv34left__shift__cheats_2etuple_2f4352, _M0FPC17strconv34left__shift__cheats_2etuple_2f4353, _M0FPC17strconv34left__shift__cheats_2etuple_2f4354, _M0FPC17strconv34left__shift__cheats_2etuple_2f4355, _M0FPC17strconv34left__shift__cheats_2etuple_2f4356, _M0FPC17strconv34left__shift__cheats_2etuple_2f4357, _M0FPC17strconv34left__shift__cheats_2etuple_2f4358, _M0FPC17strconv34left__shift__cheats_2etuple_2f4359, _M0FPC17strconv34left__shift__cheats_2etuple_2f4360, _M0FPC17strconv34left__shift__cheats_2etuple_2f4361, _M0FPC17strconv34left__shift__cheats_2etuple_2f4362, _M0FPC17strconv34left__shift__cheats_2etuple_2f4363, _M0FPC17strconv34left__shift__cheats_2etuple_2f4364, _M0FPC17strconv34left__shift__cheats_2etuple_2f4365, _M0FPC17strconv34left__shift__cheats_2etuple_2f4366, _M0FPC17strconv34left__shift__cheats_2etuple_2f4367, _M0FPC17strconv34left__shift__cheats_2etuple_2f4368, _M0FPC17strconv34left__shift__cheats_2etuple_2f4369, _M0FPC17strconv34left__shift__cheats_2etuple_2f4370, _M0FPC17strconv34left__shift__cheats_2etuple_2f4371, _M0FPC17strconv34left__shift__cheats_2etuple_2f4372, _M0FPC17strconv34left__shift__cheats_2etuple_2f4373, _M0FPC17strconv34left__shift__cheats_2etuple_2f4374];
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4335 = { _0: 0, _1: "" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4336 = { _0: 1, _1: "5" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4337 = { _0: 1, _1: "25" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4338 = { _0: 1, _1: "125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4339 = { _0: 2, _1: "625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4340 = { _0: 2, _1: "3125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4341 = { _0: 2, _1: "15625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4342 = { _0: 3, _1: "78125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4343 = { _0: 3, _1: "390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4344 = { _0: 3, _1: "1953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4345 = { _0: 4, _1: "9765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4346 = { _0: 4, _1: "48828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4347 = { _0: 4, _1: "244140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4348 = { _0: 4, _1: "1220703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4349 = { _0: 5, _1: "6103515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4350 = { _0: 5, _1: "30517578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4351 = { _0: 5, _1: "152587890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4352 = { _0: 6, _1: "762939453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4353 = { _0: 6, _1: "3814697265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4354 = { _0: 6, _1: "19073486328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4355 = { _0: 7, _1: "95367431640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4356 = { _0: 7, _1: "476837158203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4357 = { _0: 7, _1: "2384185791015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4358 = { _0: 7, _1: "11920928955078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4359 = { _0: 8, _1: "59604644775390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4360 = { _0: 8, _1: "298023223876953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4361 = { _0: 8, _1: "1490116119384765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4362 = { _0: 9, _1: "7450580596923828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4363 = { _0: 9, _1: "37252902984619140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4364 = { _0: 9, _1: "186264514923095703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4365 = { _0: 10, _1: "931322574615478515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4366 = { _0: 10, _1: "4656612873077392578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4367 = { _0: 10, _1: "23283064365386962890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4368 = { _0: 10, _1: "116415321826934814453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4369 = { _0: 11, _1: "582076609134674072265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4370 = { _0: 11, _1: "2910383045673370361328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4371 = { _0: 11, _1: "14551915228366851806640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4372 = { _0: 12, _1: "72759576141834259033203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4373 = { _0: 12, _1: "363797880709171295166015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4374 = { _0: 12, _1: "1818989403545856475830078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4375 = { _0: 13, _1: "9094947017729282379150390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4376 = { _0: 13, _1: "45474735088646411895751953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4377 = { _0: 13, _1: "227373675443232059478759765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4378 = { _0: 13, _1: "1136868377216160297393798828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4379 = { _0: 14, _1: "5684341886080801486968994140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4380 = { _0: 14, _1: "28421709430404007434844970703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4381 = { _0: 14, _1: "142108547152020037174224853515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4382 = { _0: 15, _1: "710542735760100185871124267578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4383 = { _0: 15, _1: "3552713678800500929355621337890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4384 = { _0: 15, _1: "17763568394002504646778106689453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4385 = { _0: 16, _1: "88817841970012523233890533447265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4386 = { _0: 16, _1: "444089209850062616169452667236328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4387 = { _0: 16, _1: "2220446049250313080847263336181640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4388 = { _0: 16, _1: "11102230246251565404236316680908203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4389 = { _0: 17, _1: "55511151231257827021181583404541015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4390 = { _0: 17, _1: "277555756156289135105907917022705078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4391 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4392 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4393 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4394 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4395 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
+const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f4335, _M0FPC17strconv34left__shift__cheats_2etuple_2f4336, _M0FPC17strconv34left__shift__cheats_2etuple_2f4337, _M0FPC17strconv34left__shift__cheats_2etuple_2f4338, _M0FPC17strconv34left__shift__cheats_2etuple_2f4339, _M0FPC17strconv34left__shift__cheats_2etuple_2f4340, _M0FPC17strconv34left__shift__cheats_2etuple_2f4341, _M0FPC17strconv34left__shift__cheats_2etuple_2f4342, _M0FPC17strconv34left__shift__cheats_2etuple_2f4343, _M0FPC17strconv34left__shift__cheats_2etuple_2f4344, _M0FPC17strconv34left__shift__cheats_2etuple_2f4345, _M0FPC17strconv34left__shift__cheats_2etuple_2f4346, _M0FPC17strconv34left__shift__cheats_2etuple_2f4347, _M0FPC17strconv34left__shift__cheats_2etuple_2f4348, _M0FPC17strconv34left__shift__cheats_2etuple_2f4349, _M0FPC17strconv34left__shift__cheats_2etuple_2f4350, _M0FPC17strconv34left__shift__cheats_2etuple_2f4351, _M0FPC17strconv34left__shift__cheats_2etuple_2f4352, _M0FPC17strconv34left__shift__cheats_2etuple_2f4353, _M0FPC17strconv34left__shift__cheats_2etuple_2f4354, _M0FPC17strconv34left__shift__cheats_2etuple_2f4355, _M0FPC17strconv34left__shift__cheats_2etuple_2f4356, _M0FPC17strconv34left__shift__cheats_2etuple_2f4357, _M0FPC17strconv34left__shift__cheats_2etuple_2f4358, _M0FPC17strconv34left__shift__cheats_2etuple_2f4359, _M0FPC17strconv34left__shift__cheats_2etuple_2f4360, _M0FPC17strconv34left__shift__cheats_2etuple_2f4361, _M0FPC17strconv34left__shift__cheats_2etuple_2f4362, _M0FPC17strconv34left__shift__cheats_2etuple_2f4363, _M0FPC17strconv34left__shift__cheats_2etuple_2f4364, _M0FPC17strconv34left__shift__cheats_2etuple_2f4365, _M0FPC17strconv34left__shift__cheats_2etuple_2f4366, _M0FPC17strconv34left__shift__cheats_2etuple_2f4367, _M0FPC17strconv34left__shift__cheats_2etuple_2f4368, _M0FPC17strconv34left__shift__cheats_2etuple_2f4369, _M0FPC17strconv34left__shift__cheats_2etuple_2f4370, _M0FPC17strconv34left__shift__cheats_2etuple_2f4371, _M0FPC17strconv34left__shift__cheats_2etuple_2f4372, _M0FPC17strconv34left__shift__cheats_2etuple_2f4373, _M0FPC17strconv34left__shift__cheats_2etuple_2f4374, _M0FPC17strconv34left__shift__cheats_2etuple_2f4375, _M0FPC17strconv34left__shift__cheats_2etuple_2f4376, _M0FPC17strconv34left__shift__cheats_2etuple_2f4377, _M0FPC17strconv34left__shift__cheats_2etuple_2f4378, _M0FPC17strconv34left__shift__cheats_2etuple_2f4379, _M0FPC17strconv34left__shift__cheats_2etuple_2f4380, _M0FPC17strconv34left__shift__cheats_2etuple_2f4381, _M0FPC17strconv34left__shift__cheats_2etuple_2f4382, _M0FPC17strconv34left__shift__cheats_2etuple_2f4383, _M0FPC17strconv34left__shift__cheats_2etuple_2f4384, _M0FPC17strconv34left__shift__cheats_2etuple_2f4385, _M0FPC17strconv34left__shift__cheats_2etuple_2f4386, _M0FPC17strconv34left__shift__cheats_2etuple_2f4387, _M0FPC17strconv34left__shift__cheats_2etuple_2f4388, _M0FPC17strconv34left__shift__cheats_2etuple_2f4389, _M0FPC17strconv34left__shift__cheats_2etuple_2f4390, _M0FPC17strconv34left__shift__cheats_2etuple_2f4391, _M0FPC17strconv34left__shift__cheats_2etuple_2f4392, _M0FPC17strconv34left__shift__cheats_2etuple_2f4393, _M0FPC17strconv34left__shift__cheats_2etuple_2f4394, _M0FPC17strconv34left__shift__cheats_2etuple_2f4395];
 const _M0FPC17strconv10int__pow10 = [$1L, $10L, $100L, $1000L, $10000L, $100000L, $1000000L, $10000000L, $100000000L, $1000000000L, $10000000000L, $100000000000L, $1000000000000L, $10000000000000L, $100000000000000L, $1000000000000000L];
 const _M0FPC17strconv25max__exponent__fast__path = $22L;
 const _M0FPC17strconv5table = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1e+12, 1e+13, 1e+14, 1e+15, 1e+16, 1e+17, 1e+18, 1e+19, 1e+20, 1e+21, 1e+22, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -4152,7 +4152,7 @@ const _M0FPC16double13neg__infinity = _M0MPC15int645Int6423reinterpret__as__doub
 const _M0FPC16double14not__a__number = _M0MPC15int645Int6423reinterpret__as__double($9221120237041090561L);
 const _M0FPC16double8infinity = _M0MPC15int645Int6423reinterpret__as__double($9218868437227405312L);
 const _M0FPC17strconv25max__mantissa__fast__path = _M0IPC16uint646UInt64PB3Shl3shl($2L, 52);
-const _M0FPC17strconv28checked__mul_2econstr_2f4834 = $0L;
+const _M0FPC17strconv28checked__mul_2econstr_2f4855 = $0L;
 const _M0FP38bobzhang8mbtexcel4xlsx15ole__identifier = _M0MPC15array5Array3mapGiyE([208, 207, 17, 224, 161, 177, 26, 225], (v) => v & 255);
 const _bind = _M0MPC15array5Array3mapGiyE([20, 110, 11, 231, 171, 172, 208, 214], (v) => v & 255);
 const _M0FP38bobzhang8mbtexcel4xlsx10block__key = _M0MPC15bytes5Bytes11from__array(new _M0TPB9ArrayViewGyE(_bind, 0, _bind.length));
@@ -5819,6 +5819,21 @@ function _M0MPC16string10StringView11has__prefix(self, str) {
 function _M0MPC16string6String11has__prefix(self, str) {
   return _M0MPC16string10StringView11has__prefix(new _M0TPC16string10StringView(self, 0, self.length), str);
 }
+function _M0MPC16string10StringView13strip__suffix(self, suffix) {
+  const self_len = _M0MPC16string10StringView6length(self);
+  const suffix_len = _M0MPC16string10StringView6length(suffix);
+  return self_len >= suffix_len && _M0IPC16string10StringViewPB2Eq5equal(_M0MPC16string10StringView12view_2einner(self, self_len - suffix_len | 0, undefined), suffix) ? _M0MPC16string10StringView12view_2einner(self, 0, self_len - suffix_len | 0) : undefined;
+}
+function _M0MPC16string6String13strip__suffix(self, suffix) {
+  return _M0MPC16string10StringView13strip__suffix(new _M0TPC16string10StringView(self, 0, self.length), suffix);
+}
+function _M0MPC16string10StringView13strip__prefix(self, prefix) {
+  const prefix_len = _M0MPC16string10StringView6length(prefix);
+  return _M0MPC16string10StringView6length(self) >= prefix_len && _M0IPC16string10StringViewPB2Eq5equal(_M0MPC16string10StringView12view_2einner(self, 0, prefix_len), prefix) ? _M0MPC16string10StringView12view_2einner(self, prefix_len, undefined) : undefined;
+}
+function _M0MPC16string6String13strip__prefix(self, prefix) {
+  return _M0MPC16string10StringView13strip__prefix(new _M0TPC16string10StringView(self, 0, self.length), prefix);
+}
 function _M0MPC15array5Array11new_2einnerGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(capacity) {
   return [];
 }
@@ -6101,6 +6116,32 @@ function _M0MPC16string10StringView5split(self, sep) {
 function _M0MPC16string6String5split(self, sep) {
   return _M0MPC16string10StringView5split(new _M0TPC16string10StringView(self, 0, self.length), sep);
 }
+function _M0MPC16string10StringView11split__once(self, needle) {
+  const _bind$5 = _M0MPC16string10StringView4find(self, needle);
+  if (_bind$5 === undefined) {
+    return undefined;
+  } else {
+    const _Some = _bind$5;
+    const _index = _Some;
+    return { _0: _M0MPC16string10StringView12view_2einner(self, 0, _index), _1: _M0MPC16string10StringView12view_2einner(self, _index + _M0MPC16string10StringView6length(needle) | 0, undefined) };
+  }
+}
+function _M0MPC16string6String11split__once(self, needle) {
+  return _M0MPC16string10StringView11split__once(new _M0TPC16string10StringView(self, 0, self.length), needle);
+}
+function _M0MPC16string10StringView5after(self, needle) {
+  const _bind$5 = _M0MPC16string10StringView4find(self, needle);
+  if (_bind$5 === undefined) {
+    return undefined;
+  } else {
+    const _Some = _bind$5;
+    const _index = _Some;
+    return _M0MPC16string10StringView12view_2einner(self, _index + _M0MPC16string10StringView6length(needle) | 0, undefined);
+  }
+}
+function _M0MPC16string6String5after(self, needle) {
+  return _M0MPC16string10StringView5after(new _M0TPC16string10StringView(self, 0, self.length), needle);
+}
 function _M0MPB4Iter9to__arrayGRPC16string10StringViewE(self) {
   const result = [];
   while (true) {
@@ -6370,24 +6411,6 @@ function _M0MPC16string6String9to__array(self) {
     _M0MPC15array5Array4pushGcE(rv, c);
     return rv;
   });
-}
-function _M0MPB4Iter5iter2GcE(self) {
-  const i = new _M0TPB8MutLocalGiE(0);
-  return () => {
-    const _bind$5 = _M0MPB4Iter4nextGcE(self);
-    if (_bind$5 === -1) {
-      return undefined;
-    } else {
-      const _Some = _bind$5;
-      const _elem = _Some;
-      const result = { _0: i.val, _1: _elem };
-      i.val = i.val + 1 | 0;
-      return result;
-    }
-  };
-}
-function _M0MPC16string6String5iter2(self) {
-  return _M0MPB4Iter5iter2GcE(_M0MPC16string6String4iter(self));
 }
 function _M0IPC13int3IntPB4Show6output(self, logger) {
   logger.method_table.method_0(logger.self, _M0MPC13int3Int18to__string_2einner(self, 10));
@@ -12583,7 +12606,7 @@ function _M0FPB23fixed__bubble__sort__byGiE(arr, cmp) {
     }
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__2_2f4004(_env, a, b) {
+function _M0FPB41fixed__choose__pivot__by_2esort__2_2f4025(_env, a, b) {
   const swaps = _env._2;
   const cmp = _env._1;
   const arr = _env._0;
@@ -12595,10 +12618,10 @@ function _M0FPB41fixed__choose__pivot__by_2esort__2_2f4004(_env, a, b) {
     return;
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__3_2f4005(_env, a, b, c) {
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4004(_env, a, b);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4004(_env, b, c);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4004(_env, a, b);
+function _M0FPB41fixed__choose__pivot__by_2esort__3_2f4026(_env, a, b, c) {
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4025(_env, a, b);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4025(_env, b, c);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4025(_env, a, b);
 }
 function _M0FPB24fixed__choose__pivot__byGiE(arr, cmp) {
   const len = _M0MPC15array12MutArrayView6lengthGiE(arr);
@@ -12618,11 +12641,11 @@ function _M0FPB24fixed__choose__pivot__byGiE(arr, cmp) {
     const c = Math.imul(len / 4 | 0, 3) | 0;
     const _env = { _0: arr, _1: cmp, _2: swaps };
     if (len > 50) {
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4005(_env, a - 1 | 0, a, a + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4005(_env, b - 1 | 0, b, b + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4005(_env, c - 1 | 0, c, c + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4026(_env, a - 1 | 0, a, a + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4026(_env, b - 1 | 0, b, b + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4026(_env, c - 1 | 0, c, c + 1 | 0);
     }
-    _M0FPB41fixed__choose__pivot__by_2esort__3_2f4005(_env, a, b, c);
+    _M0FPB41fixed__choose__pivot__by_2esort__3_2f4026(_env, a, b, c);
   }
   if (swaps.val === 12) {
     _M0MPC15array12MutArrayView14rev__in__placeGiE(arr);
@@ -15645,7 +15668,7 @@ function _M0MPC17strconv7Decimal16to__double__priv(self) {
 }
 function _M0FPC17strconv12checked__mul(a, b) {
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $0L) || _M0IPC16uint646UInt64PB2Eq5equal(b, $0L)) {
-    return _M0FPC17strconv28checked__mul_2econstr_2f4834;
+    return _M0FPC17strconv28checked__mul_2econstr_2f4855;
   }
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $1L)) {
     return b;
@@ -22033,27 +22056,27 @@ function _M0MP38bobzhang8mbtexcel3zip7Archive3get(self, name) {
   }
   return undefined;
 }
-function _M0IP38bobzhang8mbtexcel4xlsx4FontPB2Eq5equal(_x_17649, _x_17650) {
-  return _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.bold, _x_17650.bold) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.italic, _x_17650.italic) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.strike, _x_17650.strike) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.outline, _x_17650.outline) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.shadow, _x_17650.shadow) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.condense, _x_17650.condense) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17649.extend, _x_17650.extend) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17649.underline, _x_17650.underline) && _M0IPC16option6OptionPB2Eq5equalGdE(_x_17649.size, _x_17650.size) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17649.color, _x_17650.color) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17649.color_theme, _x_17650.color_theme) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17649.color_indexed, _x_17650.color_indexed) && _M0IPC16option6OptionPB2Eq5equalGdE(_x_17649.color_tint, _x_17650.color_tint) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17649.charset, _x_17650.charset) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17649.family_number, _x_17650.family_number) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17649.scheme, _x_17650.scheme) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17649.vert_align, _x_17650.vert_align) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17649.family, _x_17650.family);
+function _M0IP38bobzhang8mbtexcel4xlsx4FontPB2Eq5equal(_x_17629, _x_17630) {
+  return _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.bold, _x_17630.bold) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.italic, _x_17630.italic) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.strike, _x_17630.strike) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.outline, _x_17630.outline) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.shadow, _x_17630.shadow) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.condense, _x_17630.condense) && _M0IPC16option6OptionPB2Eq5equalGbE(_x_17629.extend, _x_17630.extend) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17629.underline, _x_17630.underline) && _M0IPC16option6OptionPB2Eq5equalGdE(_x_17629.size, _x_17630.size) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17629.color, _x_17630.color) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17629.color_theme, _x_17630.color_theme) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17629.color_indexed, _x_17630.color_indexed) && _M0IPC16option6OptionPB2Eq5equalGdE(_x_17629.color_tint, _x_17630.color_tint) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17629.charset, _x_17630.charset) && _M0IPC16option6OptionPB2Eq5equalGiE(_x_17629.family_number, _x_17630.family_number) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17629.scheme, _x_17630.scheme) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17629.vert_align, _x_17630.vert_align) && _M0IPC16option6OptionPB2Eq5equalGsE(_x_17629.family, _x_17630.family);
 }
-function _M0IP38bobzhang8mbtexcel4xlsx11StreamStatePB2Eq5equal(_x_17637, _x_17638) {
-  switch (_x_17637) {
+function _M0IP38bobzhang8mbtexcel4xlsx11StreamStatePB2Eq5equal(_x_17617, _x_17618) {
+  switch (_x_17617) {
     case 0: {
-      if (_x_17638 === 0) {
+      if (_x_17618 === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_17638 === 1) {
+      if (_x_17618 === 1) {
         return true;
       } else {
         return false;
       }
     }
     default: {
-      if (_x_17638 === 2) {
+      if (_x_17618 === 2) {
         return true;
       } else {
         return false;
@@ -22061,24 +22084,24 @@ function _M0IP38bobzhang8mbtexcel4xlsx11StreamStatePB2Eq5equal(_x_17637, _x_1763
     }
   }
 }
-function _M0IP38bobzhang8mbtexcel4xlsx13HyperlinkTypePB2Eq5equal(_x_17621, _x_17622) {
-  switch (_x_17621) {
+function _M0IP38bobzhang8mbtexcel4xlsx13HyperlinkTypePB2Eq5equal(_x_17601, _x_17602) {
+  switch (_x_17601) {
     case 0: {
-      if (_x_17622 === 0) {
+      if (_x_17602 === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_17622 === 1) {
+      if (_x_17602 === 1) {
         return true;
       } else {
         return false;
       }
     }
     default: {
-      if (_x_17622 === 2) {
+      if (_x_17602 === 2) {
         return true;
       } else {
         return false;
@@ -22086,680 +22109,680 @@ function _M0IP38bobzhang8mbtexcel4xlsx13HyperlinkTypePB2Eq5equal(_x_17621, _x_17
     }
   }
 }
-function _M0IP38bobzhang8mbtexcel4xlsx9XlsxErrorPB4Show6output(_x_17371, _x_17372) {
-  let _arg_17419;
+function _M0IP38bobzhang8mbtexcel4xlsx9XlsxErrorPB4Show6output(_x_17351, _x_17352) {
+  let _arg_17399;
   _L: {
-    let _arg_17418;
+    let _arg_17398;
     _L$2: {
-      let _arg_17417;
+      let _arg_17397;
       _L$3: {
-        let _arg_17416;
+        let _arg_17396;
         _L$4: {
-          let _arg_17415;
+          let _arg_17395;
           _L$5: {
-            let _arg_17413;
-            let _arg_17414;
+            let _arg_17393;
+            let _arg_17394;
             _L$6: {
-              let _arg_17412;
+              let _arg_17392;
               _L$7: {
-                let _arg_17411;
+                let _arg_17391;
                 _L$8: {
-                  let _arg_17410;
+                  let _arg_17390;
                   _L$9: {
-                    let _arg_17408;
-                    let _arg_17409;
+                    let _arg_17388;
+                    let _arg_17389;
                     _L$10: {
-                      let _arg_17406;
-                      let _arg_17407;
+                      let _arg_17386;
+                      let _arg_17387;
                       _L$11: {
-                        let _arg_17405;
+                        let _arg_17385;
                         _L$12: {
-                          let _arg_17404;
+                          let _arg_17384;
                           _L$13: {
-                            let _arg_17403;
+                            let _arg_17383;
                             _L$14: {
-                              let _arg_17402;
+                              let _arg_17382;
                               _L$15: {
-                                let _arg_17401;
+                                let _arg_17381;
                                 _L$16: {
-                                  let _arg_17400;
+                                  let _arg_17380;
                                   _L$17: {
-                                    let _arg_17399;
+                                    let _arg_17379;
                                     _L$18: {
-                                      let _arg_17398;
+                                      let _arg_17378;
                                       _L$19: {
-                                        let _arg_17397;
+                                        let _arg_17377;
                                         _L$20: {
-                                          let _arg_17396;
+                                          let _arg_17376;
                                           _L$21: {
-                                            let _arg_17395;
+                                            let _arg_17375;
                                             _L$22: {
-                                              let _arg_17394;
+                                              let _arg_17374;
                                               _L$23: {
-                                                let _arg_17393;
+                                                let _arg_17373;
                                                 _L$24: {
-                                                  let _arg_17392;
+                                                  let _arg_17372;
                                                   _L$25: {
-                                                    let _arg_17391;
+                                                    let _arg_17371;
                                                     _L$26: {
-                                                      let _arg_17390;
+                                                      let _arg_17370;
                                                       _L$27: {
-                                                        let _arg_17389;
+                                                        let _arg_17369;
                                                         _L$28: {
-                                                          let _arg_17388;
+                                                          let _arg_17368;
                                                           _L$29: {
-                                                            let _arg_17387;
+                                                            let _arg_17367;
                                                             _L$30: {
-                                                              let _arg_17386;
+                                                              let _arg_17366;
                                                               _L$31: {
-                                                                let _arg_17385;
+                                                                let _arg_17365;
                                                                 _L$32: {
-                                                                  let _arg_17384;
+                                                                  let _arg_17364;
                                                                   _L$33: {
-                                                                    let _arg_17383;
+                                                                    let _arg_17363;
                                                                     _L$34: {
-                                                                      let _arg_17382;
+                                                                      let _arg_17362;
                                                                       _L$35: {
-                                                                        let _arg_17381;
+                                                                        let _arg_17361;
                                                                         _L$36: {
-                                                                          let _arg_17380;
+                                                                          let _arg_17360;
                                                                           _L$37: {
-                                                                            let _arg_17379;
+                                                                            let _arg_17359;
                                                                             _L$38: {
-                                                                              let _arg_17378;
+                                                                              let _arg_17358;
                                                                               _L$39: {
-                                                                                let _arg_17377;
+                                                                                let _arg_17357;
                                                                                 _L$40: {
-                                                                                  let _arg_17376;
+                                                                                  let _arg_17356;
                                                                                   _L$41: {
-                                                                                    let _arg_17375;
+                                                                                    let _arg_17355;
                                                                                     _L$42: {
-                                                                                      let _arg_17374;
+                                                                                      let _arg_17354;
                                                                                       _L$43: {
-                                                                                        let _arg_17373;
+                                                                                        let _arg_17353;
                                                                                         _L$44: {
-                                                                                          switch (_x_17371.$tag) {
+                                                                                          switch (_x_17351.$tag) {
                                                                                             case 54: {
-                                                                                              const _MissingPart = _x_17371;
-                                                                                              const _$42$arg_17373 = _MissingPart._0;
-                                                                                              _arg_17373 = _$42$arg_17373;
+                                                                                              const _MissingPart = _x_17351;
+                                                                                              const _$42$arg_17353 = _MissingPart._0;
+                                                                                              _arg_17353 = _$42$arg_17353;
                                                                                               break _L$44;
                                                                                             }
                                                                                             case 53: {
-                                                                                              const _SheetNotFound = _x_17371;
-                                                                                              const _$42$arg_17374 = _SheetNotFound._0;
-                                                                                              _arg_17374 = _$42$arg_17374;
+                                                                                              const _SheetNotFound = _x_17351;
+                                                                                              const _$42$arg_17354 = _SheetNotFound._0;
+                                                                                              _arg_17354 = _$42$arg_17354;
                                                                                               break _L$43;
                                                                                             }
                                                                                             case 52: {
-                                                                                              const _InvalidSheetName = _x_17371;
-                                                                                              const _$42$arg_17375 = _InvalidSheetName._0;
-                                                                                              _arg_17375 = _$42$arg_17375;
+                                                                                              const _InvalidSheetName = _x_17351;
+                                                                                              const _$42$arg_17355 = _InvalidSheetName._0;
+                                                                                              _arg_17355 = _$42$arg_17355;
                                                                                               break _L$42;
                                                                                             }
                                                                                             case 51: {
-                                                                                              const _SheetAlreadyExists = _x_17371;
-                                                                                              const _$42$arg_17376 = _SheetAlreadyExists._0;
-                                                                                              _arg_17376 = _$42$arg_17376;
+                                                                                              const _SheetAlreadyExists = _x_17351;
+                                                                                              const _$42$arg_17356 = _SheetAlreadyExists._0;
+                                                                                              _arg_17356 = _$42$arg_17356;
                                                                                               break _L$41;
                                                                                             }
                                                                                             case 50: {
-                                                                                              const _InvalidSheetIndex = _x_17371;
-                                                                                              const _$42$arg_17377 = _InvalidSheetIndex._0;
-                                                                                              _arg_17377 = _$42$arg_17377;
+                                                                                              const _InvalidSheetIndex = _x_17351;
+                                                                                              const _$42$arg_17357 = _InvalidSheetIndex._0;
+                                                                                              _arg_17357 = _$42$arg_17357;
                                                                                               break _L$40;
                                                                                             }
                                                                                             case 49: {
-                                                                                              const _InvalidSheetOperation = _x_17371;
-                                                                                              const _$42$arg_17378 = _InvalidSheetOperation._0;
-                                                                                              _arg_17378 = _$42$arg_17378;
+                                                                                              const _InvalidSheetOperation = _x_17351;
+                                                                                              const _$42$arg_17358 = _InvalidSheetOperation._0;
+                                                                                              _arg_17358 = _$42$arg_17358;
                                                                                               break _L$39;
                                                                                             }
                                                                                             case 48: {
-                                                                                              const _InvalidXml = _x_17371;
-                                                                                              const _$42$arg_17379 = _InvalidXml._0;
-                                                                                              _arg_17379 = _$42$arg_17379;
+                                                                                              const _InvalidXml = _x_17351;
+                                                                                              const _$42$arg_17359 = _InvalidXml._0;
+                                                                                              _arg_17359 = _$42$arg_17359;
                                                                                               break _L$38;
                                                                                             }
                                                                                             case 47: {
-                                                                                              const _InvalidBase64 = _x_17371;
-                                                                                              const _$42$arg_17380 = _InvalidBase64._0;
-                                                                                              _arg_17380 = _$42$arg_17380;
+                                                                                              const _InvalidBase64 = _x_17351;
+                                                                                              const _$42$arg_17360 = _InvalidBase64._0;
+                                                                                              _arg_17360 = _$42$arg_17360;
                                                                                               break _L$37;
                                                                                             }
                                                                                             case 46: {
-                                                                                              const _InvalidCellRef = _x_17371;
-                                                                                              const _$42$arg_17381 = _InvalidCellRef._0;
-                                                                                              _arg_17381 = _$42$arg_17381;
+                                                                                              const _InvalidCellRef = _x_17351;
+                                                                                              const _$42$arg_17361 = _InvalidCellRef._0;
+                                                                                              _arg_17361 = _$42$arg_17361;
                                                                                               break _L$36;
                                                                                             }
                                                                                             case 45: {
-                                                                                              const _InvalidSharedString = _x_17371;
-                                                                                              const _$42$arg_17382 = _InvalidSharedString._0;
-                                                                                              _arg_17382 = _$42$arg_17382;
+                                                                                              const _InvalidSharedString = _x_17351;
+                                                                                              const _$42$arg_17362 = _InvalidSharedString._0;
+                                                                                              _arg_17362 = _$42$arg_17362;
                                                                                               break _L$35;
                                                                                             }
                                                                                             case 44: {
-                                                                                              const _InvalidStyleId = _x_17371;
-                                                                                              const _$42$arg_17383 = _InvalidStyleId._0;
-                                                                                              _arg_17383 = _$42$arg_17383;
+                                                                                              const _InvalidStyleId = _x_17351;
+                                                                                              const _$42$arg_17363 = _InvalidStyleId._0;
+                                                                                              _arg_17363 = _$42$arg_17363;
                                                                                               break _L$34;
                                                                                             }
                                                                                             case 43: {
-                                                                                              const _InvalidTable = _x_17371;
-                                                                                              const _$42$arg_17384 = _InvalidTable._0;
-                                                                                              _arg_17384 = _$42$arg_17384;
+                                                                                              const _InvalidTable = _x_17351;
+                                                                                              const _$42$arg_17364 = _InvalidTable._0;
+                                                                                              _arg_17364 = _$42$arg_17364;
                                                                                               break _L$33;
                                                                                             }
                                                                                             case 42: {
-                                                                                              const _InvalidSparkline = _x_17371;
-                                                                                              const _$42$arg_17385 = _InvalidSparkline._0;
-                                                                                              _arg_17385 = _$42$arg_17385;
+                                                                                              const _InvalidSparkline = _x_17351;
+                                                                                              const _$42$arg_17365 = _InvalidSparkline._0;
+                                                                                              _arg_17365 = _$42$arg_17365;
                                                                                               break _L$32;
                                                                                             }
                                                                                             case 41: {
-                                                                                              const _InvalidPivotTable = _x_17371;
-                                                                                              const _$42$arg_17386 = _InvalidPivotTable._0;
-                                                                                              _arg_17386 = _$42$arg_17386;
+                                                                                              const _InvalidPivotTable = _x_17351;
+                                                                                              const _$42$arg_17366 = _InvalidPivotTable._0;
+                                                                                              _arg_17366 = _$42$arg_17366;
                                                                                               break _L$31;
                                                                                             }
                                                                                             case 40: {
-                                                                                              const _InvalidVBAProject = _x_17371;
-                                                                                              const _$42$arg_17387 = _InvalidVBAProject._0;
-                                                                                              _arg_17387 = _$42$arg_17387;
+                                                                                              const _InvalidVBAProject = _x_17351;
+                                                                                              const _$42$arg_17367 = _InvalidVBAProject._0;
+                                                                                              _arg_17367 = _$42$arg_17367;
                                                                                               break _L$30;
                                                                                             }
                                                                                             case 39: {
-                                                                                              const _InvalidVmlDrawing = _x_17371;
-                                                                                              const _$42$arg_17388 = _InvalidVmlDrawing._0;
-                                                                                              _arg_17388 = _$42$arg_17388;
+                                                                                              const _InvalidVmlDrawing = _x_17351;
+                                                                                              const _$42$arg_17368 = _InvalidVmlDrawing._0;
+                                                                                              _arg_17368 = _$42$arg_17368;
                                                                                               break _L$29;
                                                                                             }
                                                                                             case 38: {
-                                                                                              const _InvalidAutoFilter = _x_17371;
-                                                                                              const _$42$arg_17389 = _InvalidAutoFilter._0;
-                                                                                              _arg_17389 = _$42$arg_17389;
+                                                                                              const _InvalidAutoFilter = _x_17351;
+                                                                                              const _$42$arg_17369 = _InvalidAutoFilter._0;
+                                                                                              _arg_17369 = _$42$arg_17369;
                                                                                               break _L$28;
                                                                                             }
                                                                                             case 37: {
-                                                                                              const _InvalidDataValidation = _x_17371;
-                                                                                              const _$42$arg_17390 = _InvalidDataValidation._0;
-                                                                                              _arg_17390 = _$42$arg_17390;
+                                                                                              const _InvalidDataValidation = _x_17351;
+                                                                                              const _$42$arg_17370 = _InvalidDataValidation._0;
+                                                                                              _arg_17370 = _$42$arg_17370;
                                                                                               break _L$27;
                                                                                             }
                                                                                             case 36: {
-                                                                                              const _InvalidConditionalFormat = _x_17371;
-                                                                                              const _$42$arg_17391 = _InvalidConditionalFormat._0;
-                                                                                              _arg_17391 = _$42$arg_17391;
+                                                                                              const _InvalidConditionalFormat = _x_17351;
+                                                                                              const _$42$arg_17371 = _InvalidConditionalFormat._0;
+                                                                                              _arg_17371 = _$42$arg_17371;
                                                                                               break _L$26;
                                                                                             }
                                                                                             case 35: {
-                                                                                              const _InvalidDefinedName = _x_17371;
-                                                                                              const _$42$arg_17392 = _InvalidDefinedName._0;
-                                                                                              _arg_17392 = _$42$arg_17392;
+                                                                                              const _InvalidDefinedName = _x_17351;
+                                                                                              const _$42$arg_17372 = _InvalidDefinedName._0;
+                                                                                              _arg_17372 = _$42$arg_17372;
                                                                                               break _L$25;
                                                                                             }
                                                                                             case 34: {
-                                                                                              const _DefinedNameDuplicate = _x_17371;
-                                                                                              const _$42$arg_17393 = _DefinedNameDuplicate._0;
-                                                                                              _arg_17393 = _$42$arg_17393;
+                                                                                              const _DefinedNameDuplicate = _x_17351;
+                                                                                              const _$42$arg_17373 = _DefinedNameDuplicate._0;
+                                                                                              _arg_17373 = _$42$arg_17373;
                                                                                               break _L$24;
                                                                                             }
                                                                                             case 33: {
-                                                                                              const _DefinedNameScope = _x_17371;
-                                                                                              const _$42$arg_17394 = _DefinedNameScope._0;
-                                                                                              _arg_17394 = _$42$arg_17394;
+                                                                                              const _DefinedNameScope = _x_17351;
+                                                                                              const _$42$arg_17374 = _DefinedNameScope._0;
+                                                                                              _arg_17374 = _$42$arg_17374;
                                                                                               break _L$23;
                                                                                             }
                                                                                             case 32: {
-                                                                                              const _InvalidPageLayout = _x_17371;
-                                                                                              const _$42$arg_17395 = _InvalidPageLayout._0;
-                                                                                              _arg_17395 = _$42$arg_17395;
+                                                                                              const _InvalidPageLayout = _x_17351;
+                                                                                              const _$42$arg_17375 = _InvalidPageLayout._0;
+                                                                                              _arg_17375 = _$42$arg_17375;
                                                                                               break _L$22;
                                                                                             }
                                                                                             case 31: {
-                                                                                              const _InvalidHeaderFooter = _x_17371;
-                                                                                              const _$42$arg_17396 = _InvalidHeaderFooter._0;
-                                                                                              _arg_17396 = _$42$arg_17396;
+                                                                                              const _InvalidHeaderFooter = _x_17351;
+                                                                                              const _$42$arg_17376 = _InvalidHeaderFooter._0;
+                                                                                              _arg_17376 = _$42$arg_17376;
                                                                                               break _L$21;
                                                                                             }
                                                                                             case 30: {
-                                                                                              const _InvalidSheetProtection = _x_17371;
-                                                                                              const _$42$arg_17397 = _InvalidSheetProtection._0;
-                                                                                              _arg_17397 = _$42$arg_17397;
+                                                                                              const _InvalidSheetProtection = _x_17351;
+                                                                                              const _$42$arg_17377 = _InvalidSheetProtection._0;
+                                                                                              _arg_17377 = _$42$arg_17377;
                                                                                               break _L$20;
                                                                                             }
                                                                                             case 29: {
-                                                                                              const _InvalidWorkbookProperty = _x_17371;
-                                                                                              const _$42$arg_17398 = _InvalidWorkbookProperty._0;
-                                                                                              _arg_17398 = _$42$arg_17398;
+                                                                                              const _InvalidWorkbookProperty = _x_17351;
+                                                                                              const _$42$arg_17378 = _InvalidWorkbookProperty._0;
+                                                                                              _arg_17378 = _$42$arg_17378;
                                                                                               break _L$19;
                                                                                             }
                                                                                             case 28: {
-                                                                                              const _InvalidWorkbookProtection = _x_17371;
-                                                                                              const _$42$arg_17399 = _InvalidWorkbookProtection._0;
-                                                                                              _arg_17399 = _$42$arg_17399;
+                                                                                              const _InvalidWorkbookProtection = _x_17351;
+                                                                                              const _$42$arg_17379 = _InvalidWorkbookProtection._0;
+                                                                                              _arg_17379 = _$42$arg_17379;
                                                                                               break _L$18;
                                                                                             }
                                                                                             case 27: {
-                                                                                              const _InvalidOptions = _x_17371;
-                                                                                              const _$42$arg_17400 = _InvalidOptions._0;
-                                                                                              _arg_17400 = _$42$arg_17400;
+                                                                                              const _InvalidOptions = _x_17351;
+                                                                                              const _$42$arg_17380 = _InvalidOptions._0;
+                                                                                              _arg_17380 = _$42$arg_17380;
                                                                                               break _L$17;
                                                                                             }
                                                                                             case 26: {
-                                                                                              const _InvalidExcelDate = _x_17371;
-                                                                                              const _$42$arg_17401 = _InvalidExcelDate._0;
-                                                                                              _arg_17401 = _$42$arg_17401;
+                                                                                              const _InvalidExcelDate = _x_17351;
+                                                                                              const _$42$arg_17381 = _InvalidExcelDate._0;
+                                                                                              _arg_17381 = _$42$arg_17381;
                                                                                               break _L$16;
                                                                                             }
                                                                                             case 25: {
-                                                                                              const _InvalidSheetBackground = _x_17371;
-                                                                                              const _$42$arg_17402 = _InvalidSheetBackground._0;
-                                                                                              _arg_17402 = _$42$arg_17402;
+                                                                                              const _InvalidSheetBackground = _x_17351;
+                                                                                              const _$42$arg_17382 = _InvalidSheetBackground._0;
+                                                                                              _arg_17382 = _$42$arg_17382;
                                                                                               break _L$15;
                                                                                             }
                                                                                             case 24: {
-                                                                                              const _InvalidHyperlink = _x_17371;
-                                                                                              const _$42$arg_17403 = _InvalidHyperlink._0;
-                                                                                              _arg_17403 = _$42$arg_17403;
+                                                                                              const _InvalidHyperlink = _x_17351;
+                                                                                              const _$42$arg_17383 = _InvalidHyperlink._0;
+                                                                                              _arg_17383 = _$42$arg_17383;
                                                                                               break _L$14;
                                                                                             }
                                                                                             case 23: {
-                                                                                              const _HyperlinkLimitExceeded = _x_17371;
-                                                                                              const _$42$arg_17404 = _HyperlinkLimitExceeded._0;
-                                                                                              _arg_17404 = _$42$arg_17404;
+                                                                                              const _HyperlinkLimitExceeded = _x_17351;
+                                                                                              const _$42$arg_17384 = _HyperlinkLimitExceeded._0;
+                                                                                              _arg_17384 = _$42$arg_17384;
                                                                                               break _L$13;
                                                                                             }
                                                                                             case 22: {
-                                                                                              const _CellTextTooLong = _x_17371;
-                                                                                              const _$42$arg_17405 = _CellTextTooLong._0;
-                                                                                              _arg_17405 = _$42$arg_17405;
+                                                                                              const _CellTextTooLong = _x_17351;
+                                                                                              const _$42$arg_17385 = _CellTextTooLong._0;
+                                                                                              _arg_17385 = _$42$arg_17385;
                                                                                               break _L$12;
                                                                                             }
                                                                                             case 21: {
-                                                                                              const _GraphicNameTooLong = _x_17371;
-                                                                                              const _$42$arg_17406 = _GraphicNameTooLong._0;
-                                                                                              const _$42$arg_17407 = _GraphicNameTooLong._1;
-                                                                                              _arg_17406 = _$42$arg_17406;
-                                                                                              _arg_17407 = _$42$arg_17407;
+                                                                                              const _GraphicNameTooLong = _x_17351;
+                                                                                              const _$42$arg_17386 = _GraphicNameTooLong._0;
+                                                                                              const _$42$arg_17387 = _GraphicNameTooLong._1;
+                                                                                              _arg_17386 = _$42$arg_17386;
+                                                                                              _arg_17387 = _$42$arg_17387;
                                                                                               break _L$11;
                                                                                             }
                                                                                             case 20: {
-                                                                                              const _GraphicAltTextTooLong = _x_17371;
-                                                                                              const _$42$arg_17408 = _GraphicAltTextTooLong._0;
-                                                                                              const _$42$arg_17409 = _GraphicAltTextTooLong._1;
-                                                                                              _arg_17408 = _$42$arg_17408;
-                                                                                              _arg_17409 = _$42$arg_17409;
+                                                                                              const _GraphicAltTextTooLong = _x_17351;
+                                                                                              const _$42$arg_17388 = _GraphicAltTextTooLong._0;
+                                                                                              const _$42$arg_17389 = _GraphicAltTextTooLong._1;
+                                                                                              _arg_17388 = _$42$arg_17388;
+                                                                                              _arg_17389 = _$42$arg_17389;
                                                                                               break _L$10;
                                                                                             }
                                                                                             case 19: {
-                                                                                              const _CommentAlreadyExists = _x_17371;
-                                                                                              const _$42$arg_17410 = _CommentAlreadyExists._0;
-                                                                                              _arg_17410 = _$42$arg_17410;
+                                                                                              const _CommentAlreadyExists = _x_17351;
+                                                                                              const _$42$arg_17390 = _CommentAlreadyExists._0;
+                                                                                              _arg_17390 = _$42$arg_17390;
                                                                                               break _L$9;
                                                                                             }
                                                                                             case 18: {
-                                                                                              const _TableNotFound = _x_17371;
-                                                                                              const _$42$arg_17411 = _TableNotFound._0;
-                                                                                              _arg_17411 = _$42$arg_17411;
+                                                                                              const _TableNotFound = _x_17351;
+                                                                                              const _$42$arg_17391 = _TableNotFound._0;
+                                                                                              _arg_17391 = _$42$arg_17391;
                                                                                               break _L$8;
                                                                                             }
                                                                                             case 17: {
-                                                                                              const _StreamModeConflict = _x_17371;
-                                                                                              const _$42$arg_17412 = _StreamModeConflict._0;
-                                                                                              _arg_17412 = _$42$arg_17412;
+                                                                                              const _StreamModeConflict = _x_17351;
+                                                                                              const _$42$arg_17392 = _StreamModeConflict._0;
+                                                                                              _arg_17392 = _$42$arg_17392;
                                                                                               break _L$7;
                                                                                             }
                                                                                             case 16: {
-                                                                                              const _StreamRowOrder = _x_17371;
-                                                                                              const _$42$arg_17413 = _StreamRowOrder._0;
-                                                                                              const _$42$arg_17414 = _StreamRowOrder._1;
-                                                                                              _arg_17413 = _$42$arg_17413;
-                                                                                              _arg_17414 = _$42$arg_17414;
+                                                                                              const _StreamRowOrder = _x_17351;
+                                                                                              const _$42$arg_17393 = _StreamRowOrder._0;
+                                                                                              const _$42$arg_17394 = _StreamRowOrder._1;
+                                                                                              _arg_17393 = _$42$arg_17393;
+                                                                                              _arg_17394 = _$42$arg_17394;
                                                                                               break _L$6;
                                                                                             }
                                                                                             case 15: {
-                                                                                              _x_17372.method_table.method_0(_x_17372.self, "StreamWriterClosed");
+                                                                                              _x_17352.method_table.method_0(_x_17352.self, "StreamWriterClosed");
                                                                                               return;
                                                                                             }
                                                                                             case 14: {
-                                                                                              _x_17372.method_table.method_0(_x_17372.self, "EncryptedPackage");
+                                                                                              _x_17352.method_table.method_0(_x_17352.self, "EncryptedPackage");
                                                                                               return;
                                                                                             }
                                                                                             case 13: {
-                                                                                              const _InvalidEncryptionInfo = _x_17371;
-                                                                                              const _$42$arg_17415 = _InvalidEncryptionInfo._0;
-                                                                                              _arg_17415 = _$42$arg_17415;
+                                                                                              const _InvalidEncryptionInfo = _x_17351;
+                                                                                              const _$42$arg_17395 = _InvalidEncryptionInfo._0;
+                                                                                              _arg_17395 = _$42$arg_17395;
                                                                                               break _L$5;
                                                                                             }
                                                                                             case 12: {
-                                                                                              const _InvalidEncryptedPackage = _x_17371;
-                                                                                              const _$42$arg_17416 = _InvalidEncryptedPackage._0;
-                                                                                              _arg_17416 = _$42$arg_17416;
+                                                                                              const _InvalidEncryptedPackage = _x_17351;
+                                                                                              const _$42$arg_17396 = _InvalidEncryptedPackage._0;
+                                                                                              _arg_17396 = _$42$arg_17396;
                                                                                               break _L$4;
                                                                                             }
                                                                                             case 11: {
-                                                                                              _x_17372.method_table.method_0(_x_17372.self, "InvalidPassword");
+                                                                                              _x_17352.method_table.method_0(_x_17352.self, "InvalidPassword");
                                                                                               return;
                                                                                             }
                                                                                             case 10: {
-                                                                                              const _InvalidPasswordLength = _x_17371;
-                                                                                              const _$42$arg_17417 = _InvalidPasswordLength._0;
-                                                                                              _arg_17417 = _$42$arg_17417;
+                                                                                              const _InvalidPasswordLength = _x_17351;
+                                                                                              const _$42$arg_17397 = _InvalidPasswordLength._0;
+                                                                                              _arg_17397 = _$42$arg_17397;
                                                                                               break _L$3;
                                                                                             }
                                                                                             case 9: {
-                                                                                              const _UnsupportedEncryption = _x_17371;
-                                                                                              const _$42$arg_17418 = _UnsupportedEncryption._0;
-                                                                                              _arg_17418 = _$42$arg_17418;
+                                                                                              const _UnsupportedEncryption = _x_17351;
+                                                                                              const _$42$arg_17398 = _UnsupportedEncryption._0;
+                                                                                              _arg_17398 = _$42$arg_17398;
                                                                                               break _L$2;
                                                                                             }
                                                                                             default: {
-                                                                                              const _UnsupportedFeature = _x_17371;
-                                                                                              const _$42$arg_17419 = _UnsupportedFeature._0;
-                                                                                              _arg_17419 = _$42$arg_17419;
+                                                                                              const _UnsupportedFeature = _x_17351;
+                                                                                              const _$42$arg_17399 = _UnsupportedFeature._0;
+                                                                                              _arg_17399 = _$42$arg_17399;
                                                                                               break _L;
                                                                                             }
                                                                                           }
                                                                                         }
-                                                                                        _x_17372.method_table.method_0(_x_17372.self, "MissingPart(");
-                                                                                        _x_17372.method_table.method_0(_x_17372.self, "path=");
-                                                                                        _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17373);
-                                                                                        _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                                        _x_17352.method_table.method_0(_x_17352.self, "MissingPart(");
+                                                                                        _x_17352.method_table.method_0(_x_17352.self, "path=");
+                                                                                        _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17353);
+                                                                                        _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                                         return;
                                                                                       }
-                                                                                      _x_17372.method_table.method_0(_x_17372.self, "SheetNotFound(");
-                                                                                      _x_17372.method_table.method_0(_x_17372.self, "name=");
-                                                                                      _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17374);
-                                                                                      _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                                      _x_17352.method_table.method_0(_x_17352.self, "SheetNotFound(");
+                                                                                      _x_17352.method_table.method_0(_x_17352.self, "name=");
+                                                                                      _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17354);
+                                                                                      _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                                       return;
                                                                                     }
-                                                                                    _x_17372.method_table.method_0(_x_17372.self, "InvalidSheetName(");
-                                                                                    _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                                                    _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17375);
-                                                                                    _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                                    _x_17352.method_table.method_0(_x_17352.self, "InvalidSheetName(");
+                                                                                    _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                                                    _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17355);
+                                                                                    _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                                     return;
                                                                                   }
-                                                                                  _x_17372.method_table.method_0(_x_17372.self, "SheetAlreadyExists(");
-                                                                                  _x_17372.method_table.method_0(_x_17372.self, "name=");
-                                                                                  _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17376);
-                                                                                  _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                                  _x_17352.method_table.method_0(_x_17352.self, "SheetAlreadyExists(");
+                                                                                  _x_17352.method_table.method_0(_x_17352.self, "name=");
+                                                                                  _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17356);
+                                                                                  _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                                   return;
                                                                                 }
-                                                                                _x_17372.method_table.method_0(_x_17372.self, "InvalidSheetIndex(");
-                                                                                _x_17372.method_table.method_0(_x_17372.self, "index=");
-                                                                                _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17377);
-                                                                                _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                                _x_17352.method_table.method_0(_x_17352.self, "InvalidSheetIndex(");
+                                                                                _x_17352.method_table.method_0(_x_17352.self, "index=");
+                                                                                _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17357);
+                                                                                _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                                 return;
                                                                               }
-                                                                              _x_17372.method_table.method_0(_x_17372.self, "InvalidSheetOperation(");
-                                                                              _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                                              _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17378);
-                                                                              _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                              _x_17352.method_table.method_0(_x_17352.self, "InvalidSheetOperation(");
+                                                                              _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                                              _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17358);
+                                                                              _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                               return;
                                                                             }
-                                                                            _x_17372.method_table.method_0(_x_17372.self, "InvalidXml(");
-                                                                            _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                                            _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17379);
-                                                                            _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                            _x_17352.method_table.method_0(_x_17352.self, "InvalidXml(");
+                                                                            _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                                            _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17359);
+                                                                            _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                             return;
                                                                           }
-                                                                          _x_17372.method_table.method_0(_x_17372.self, "InvalidBase64(");
-                                                                          _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                                          _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17380);
-                                                                          _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                          _x_17352.method_table.method_0(_x_17352.self, "InvalidBase64(");
+                                                                          _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                                          _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17360);
+                                                                          _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                           return;
                                                                         }
-                                                                        _x_17372.method_table.method_0(_x_17372.self, "InvalidCellRef(");
-                                                                        _x_17372.method_table.method_0(_x_17372.self, "value=");
-                                                                        _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17381);
-                                                                        _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                        _x_17352.method_table.method_0(_x_17352.self, "InvalidCellRef(");
+                                                                        _x_17352.method_table.method_0(_x_17352.self, "value=");
+                                                                        _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17361);
+                                                                        _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                         return;
                                                                       }
-                                                                      _x_17372.method_table.method_0(_x_17372.self, "InvalidSharedString(");
-                                                                      _x_17372.method_table.method_0(_x_17372.self, "index=");
-                                                                      _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17382);
-                                                                      _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                      _x_17352.method_table.method_0(_x_17352.self, "InvalidSharedString(");
+                                                                      _x_17352.method_table.method_0(_x_17352.self, "index=");
+                                                                      _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17362);
+                                                                      _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                       return;
                                                                     }
-                                                                    _x_17372.method_table.method_0(_x_17372.self, "InvalidStyleId(");
-                                                                    _x_17372.method_table.method_0(_x_17372.self, "index=");
-                                                                    _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17383);
-                                                                    _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                    _x_17352.method_table.method_0(_x_17352.self, "InvalidStyleId(");
+                                                                    _x_17352.method_table.method_0(_x_17352.self, "index=");
+                                                                    _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17363);
+                                                                    _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                     return;
                                                                   }
-                                                                  _x_17372.method_table.method_0(_x_17372.self, "InvalidTable(");
-                                                                  _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                                  _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17384);
-                                                                  _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                  _x_17352.method_table.method_0(_x_17352.self, "InvalidTable(");
+                                                                  _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                                  _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17364);
+                                                                  _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                   return;
                                                                 }
-                                                                _x_17372.method_table.method_0(_x_17372.self, "InvalidSparkline(");
-                                                                _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                                _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17385);
-                                                                _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                                _x_17352.method_table.method_0(_x_17352.self, "InvalidSparkline(");
+                                                                _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                                _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17365);
+                                                                _x_17352.method_table.method_0(_x_17352.self, ")");
                                                                 return;
                                                               }
-                                                              _x_17372.method_table.method_0(_x_17372.self, "InvalidPivotTable(");
-                                                              _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                              _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17386);
-                                                              _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                              _x_17352.method_table.method_0(_x_17352.self, "InvalidPivotTable(");
+                                                              _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                              _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17366);
+                                                              _x_17352.method_table.method_0(_x_17352.self, ")");
                                                               return;
                                                             }
-                                                            _x_17372.method_table.method_0(_x_17372.self, "InvalidVBAProject(");
-                                                            _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                            _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17387);
-                                                            _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                            _x_17352.method_table.method_0(_x_17352.self, "InvalidVBAProject(");
+                                                            _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                            _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17367);
+                                                            _x_17352.method_table.method_0(_x_17352.self, ")");
                                                             return;
                                                           }
-                                                          _x_17372.method_table.method_0(_x_17372.self, "InvalidVmlDrawing(");
-                                                          _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                          _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17388);
-                                                          _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                          _x_17352.method_table.method_0(_x_17352.self, "InvalidVmlDrawing(");
+                                                          _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                          _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17368);
+                                                          _x_17352.method_table.method_0(_x_17352.self, ")");
                                                           return;
                                                         }
-                                                        _x_17372.method_table.method_0(_x_17372.self, "InvalidAutoFilter(");
-                                                        _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                        _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17389);
-                                                        _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                        _x_17352.method_table.method_0(_x_17352.self, "InvalidAutoFilter(");
+                                                        _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                        _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17369);
+                                                        _x_17352.method_table.method_0(_x_17352.self, ")");
                                                         return;
                                                       }
-                                                      _x_17372.method_table.method_0(_x_17372.self, "InvalidDataValidation(");
-                                                      _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                      _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17390);
-                                                      _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                      _x_17352.method_table.method_0(_x_17352.self, "InvalidDataValidation(");
+                                                      _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                      _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17370);
+                                                      _x_17352.method_table.method_0(_x_17352.self, ")");
                                                       return;
                                                     }
-                                                    _x_17372.method_table.method_0(_x_17372.self, "InvalidConditionalFormat(");
-                                                    _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                    _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17391);
-                                                    _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                    _x_17352.method_table.method_0(_x_17352.self, "InvalidConditionalFormat(");
+                                                    _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                    _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17371);
+                                                    _x_17352.method_table.method_0(_x_17352.self, ")");
                                                     return;
                                                   }
-                                                  _x_17372.method_table.method_0(_x_17372.self, "InvalidDefinedName(");
-                                                  _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                                  _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17392);
-                                                  _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                  _x_17352.method_table.method_0(_x_17352.self, "InvalidDefinedName(");
+                                                  _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                                  _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17372);
+                                                  _x_17352.method_table.method_0(_x_17352.self, ")");
                                                   return;
                                                 }
-                                                _x_17372.method_table.method_0(_x_17372.self, "DefinedNameDuplicate(");
-                                                _x_17372.method_table.method_0(_x_17372.self, "name=");
-                                                _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17393);
-                                                _x_17372.method_table.method_0(_x_17372.self, ")");
+                                                _x_17352.method_table.method_0(_x_17352.self, "DefinedNameDuplicate(");
+                                                _x_17352.method_table.method_0(_x_17352.self, "name=");
+                                                _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17373);
+                                                _x_17352.method_table.method_0(_x_17352.self, ")");
                                                 return;
                                               }
-                                              _x_17372.method_table.method_0(_x_17372.self, "DefinedNameScope(");
-                                              _x_17372.method_table.method_0(_x_17372.self, "name=");
-                                              _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17394);
-                                              _x_17372.method_table.method_0(_x_17372.self, ")");
+                                              _x_17352.method_table.method_0(_x_17352.self, "DefinedNameScope(");
+                                              _x_17352.method_table.method_0(_x_17352.self, "name=");
+                                              _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17374);
+                                              _x_17352.method_table.method_0(_x_17352.self, ")");
                                               return;
                                             }
-                                            _x_17372.method_table.method_0(_x_17372.self, "InvalidPageLayout(");
-                                            _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                            _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17395);
-                                            _x_17372.method_table.method_0(_x_17372.self, ")");
+                                            _x_17352.method_table.method_0(_x_17352.self, "InvalidPageLayout(");
+                                            _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                            _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17375);
+                                            _x_17352.method_table.method_0(_x_17352.self, ")");
                                             return;
                                           }
-                                          _x_17372.method_table.method_0(_x_17372.self, "InvalidHeaderFooter(");
-                                          _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                          _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17396);
-                                          _x_17372.method_table.method_0(_x_17372.self, ")");
+                                          _x_17352.method_table.method_0(_x_17352.self, "InvalidHeaderFooter(");
+                                          _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                          _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17376);
+                                          _x_17352.method_table.method_0(_x_17352.self, ")");
                                           return;
                                         }
-                                        _x_17372.method_table.method_0(_x_17372.self, "InvalidSheetProtection(");
-                                        _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                        _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17397);
-                                        _x_17372.method_table.method_0(_x_17372.self, ")");
+                                        _x_17352.method_table.method_0(_x_17352.self, "InvalidSheetProtection(");
+                                        _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                        _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17377);
+                                        _x_17352.method_table.method_0(_x_17352.self, ")");
                                         return;
                                       }
-                                      _x_17372.method_table.method_0(_x_17372.self, "InvalidWorkbookProperty(");
-                                      _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                      _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17398);
-                                      _x_17372.method_table.method_0(_x_17372.self, ")");
+                                      _x_17352.method_table.method_0(_x_17352.self, "InvalidWorkbookProperty(");
+                                      _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                      _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17378);
+                                      _x_17352.method_table.method_0(_x_17352.self, ")");
                                       return;
                                     }
-                                    _x_17372.method_table.method_0(_x_17372.self, "InvalidWorkbookProtection(");
-                                    _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                    _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17399);
-                                    _x_17372.method_table.method_0(_x_17372.self, ")");
+                                    _x_17352.method_table.method_0(_x_17352.self, "InvalidWorkbookProtection(");
+                                    _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                    _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17379);
+                                    _x_17352.method_table.method_0(_x_17352.self, ")");
                                     return;
                                   }
-                                  _x_17372.method_table.method_0(_x_17372.self, "InvalidOptions(");
-                                  _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                                  _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17400);
-                                  _x_17372.method_table.method_0(_x_17372.self, ")");
+                                  _x_17352.method_table.method_0(_x_17352.self, "InvalidOptions(");
+                                  _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                                  _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17380);
+                                  _x_17352.method_table.method_0(_x_17352.self, ")");
                                   return;
                                 }
-                                _x_17372.method_table.method_0(_x_17372.self, "InvalidExcelDate(");
-                                _x_17372.method_table.method_0(_x_17372.self, "value=");
-                                _M0MPB6Logger13write__objectGdE(_x_17372, _arg_17401);
-                                _x_17372.method_table.method_0(_x_17372.self, ")");
+                                _x_17352.method_table.method_0(_x_17352.self, "InvalidExcelDate(");
+                                _x_17352.method_table.method_0(_x_17352.self, "value=");
+                                _M0MPB6Logger13write__objectGdE(_x_17352, _arg_17381);
+                                _x_17352.method_table.method_0(_x_17352.self, ")");
                                 return;
                               }
-                              _x_17372.method_table.method_0(_x_17372.self, "InvalidSheetBackground(");
-                              _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                              _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17402);
-                              _x_17372.method_table.method_0(_x_17372.self, ")");
+                              _x_17352.method_table.method_0(_x_17352.self, "InvalidSheetBackground(");
+                              _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                              _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17382);
+                              _x_17352.method_table.method_0(_x_17352.self, ")");
                               return;
                             }
-                            _x_17372.method_table.method_0(_x_17372.self, "InvalidHyperlink(");
-                            _x_17372.method_table.method_0(_x_17372.self, "msg=");
-                            _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17403);
-                            _x_17372.method_table.method_0(_x_17372.self, ")");
+                            _x_17352.method_table.method_0(_x_17352.self, "InvalidHyperlink(");
+                            _x_17352.method_table.method_0(_x_17352.self, "msg=");
+                            _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17383);
+                            _x_17352.method_table.method_0(_x_17352.self, ")");
                             return;
                           }
-                          _x_17372.method_table.method_0(_x_17372.self, "HyperlinkLimitExceeded(");
-                          _x_17372.method_table.method_0(_x_17372.self, "limit=");
-                          _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17404);
-                          _x_17372.method_table.method_0(_x_17372.self, ")");
+                          _x_17352.method_table.method_0(_x_17352.self, "HyperlinkLimitExceeded(");
+                          _x_17352.method_table.method_0(_x_17352.self, "limit=");
+                          _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17384);
+                          _x_17352.method_table.method_0(_x_17352.self, ")");
                           return;
                         }
-                        _x_17372.method_table.method_0(_x_17372.self, "CellTextTooLong(");
-                        _x_17372.method_table.method_0(_x_17372.self, "len=");
-                        _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17405);
-                        _x_17372.method_table.method_0(_x_17372.self, ")");
+                        _x_17352.method_table.method_0(_x_17352.self, "CellTextTooLong(");
+                        _x_17352.method_table.method_0(_x_17352.self, "len=");
+                        _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17385);
+                        _x_17352.method_table.method_0(_x_17352.self, ")");
                         return;
                       }
-                      _x_17372.method_table.method_0(_x_17372.self, "GraphicNameTooLong(");
-                      _x_17372.method_table.method_0(_x_17372.self, "len=");
-                      _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17406);
-                      _x_17372.method_table.method_0(_x_17372.self, ", ");
-                      _x_17372.method_table.method_0(_x_17372.self, "limit=");
-                      _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17407);
-                      _x_17372.method_table.method_0(_x_17372.self, ")");
+                      _x_17352.method_table.method_0(_x_17352.self, "GraphicNameTooLong(");
+                      _x_17352.method_table.method_0(_x_17352.self, "len=");
+                      _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17386);
+                      _x_17352.method_table.method_0(_x_17352.self, ", ");
+                      _x_17352.method_table.method_0(_x_17352.self, "limit=");
+                      _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17387);
+                      _x_17352.method_table.method_0(_x_17352.self, ")");
                       return;
                     }
-                    _x_17372.method_table.method_0(_x_17372.self, "GraphicAltTextTooLong(");
-                    _x_17372.method_table.method_0(_x_17372.self, "len=");
-                    _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17408);
-                    _x_17372.method_table.method_0(_x_17372.self, ", ");
-                    _x_17372.method_table.method_0(_x_17372.self, "limit=");
-                    _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17409);
-                    _x_17372.method_table.method_0(_x_17372.self, ")");
+                    _x_17352.method_table.method_0(_x_17352.self, "GraphicAltTextTooLong(");
+                    _x_17352.method_table.method_0(_x_17352.self, "len=");
+                    _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17388);
+                    _x_17352.method_table.method_0(_x_17352.self, ", ");
+                    _x_17352.method_table.method_0(_x_17352.self, "limit=");
+                    _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17389);
+                    _x_17352.method_table.method_0(_x_17352.self, ")");
                     return;
                   }
-                  _x_17372.method_table.method_0(_x_17372.self, "CommentAlreadyExists(");
-                  _x_17372.method_table.method_0(_x_17372.self, "cell=");
-                  _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17410);
-                  _x_17372.method_table.method_0(_x_17372.self, ")");
+                  _x_17352.method_table.method_0(_x_17352.self, "CommentAlreadyExists(");
+                  _x_17352.method_table.method_0(_x_17352.self, "cell=");
+                  _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17390);
+                  _x_17352.method_table.method_0(_x_17352.self, ")");
                   return;
                 }
-                _x_17372.method_table.method_0(_x_17372.self, "TableNotFound(");
-                _x_17372.method_table.method_0(_x_17372.self, "name=");
-                _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17411);
-                _x_17372.method_table.method_0(_x_17372.self, ")");
+                _x_17352.method_table.method_0(_x_17352.self, "TableNotFound(");
+                _x_17352.method_table.method_0(_x_17352.self, "name=");
+                _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17391);
+                _x_17352.method_table.method_0(_x_17352.self, ")");
                 return;
               }
-              _x_17372.method_table.method_0(_x_17372.self, "StreamModeConflict(");
-              _x_17372.method_table.method_0(_x_17372.self, "msg=");
-              _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17412);
-              _x_17372.method_table.method_0(_x_17372.self, ")");
+              _x_17352.method_table.method_0(_x_17352.self, "StreamModeConflict(");
+              _x_17352.method_table.method_0(_x_17352.self, "msg=");
+              _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17392);
+              _x_17352.method_table.method_0(_x_17352.self, ")");
               return;
             }
-            _x_17372.method_table.method_0(_x_17372.self, "StreamRowOrder(");
-            _x_17372.method_table.method_0(_x_17372.self, "last=");
-            _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17413);
-            _x_17372.method_table.method_0(_x_17372.self, ", ");
-            _x_17372.method_table.method_0(_x_17372.self, "next=");
-            _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17414);
-            _x_17372.method_table.method_0(_x_17372.self, ")");
+            _x_17352.method_table.method_0(_x_17352.self, "StreamRowOrder(");
+            _x_17352.method_table.method_0(_x_17352.self, "last=");
+            _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17393);
+            _x_17352.method_table.method_0(_x_17352.self, ", ");
+            _x_17352.method_table.method_0(_x_17352.self, "next=");
+            _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17394);
+            _x_17352.method_table.method_0(_x_17352.self, ")");
             return;
           }
-          _x_17372.method_table.method_0(_x_17372.self, "InvalidEncryptionInfo(");
-          _x_17372.method_table.method_0(_x_17372.self, "msg=");
-          _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17415);
-          _x_17372.method_table.method_0(_x_17372.self, ")");
+          _x_17352.method_table.method_0(_x_17352.self, "InvalidEncryptionInfo(");
+          _x_17352.method_table.method_0(_x_17352.self, "msg=");
+          _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17395);
+          _x_17352.method_table.method_0(_x_17352.self, ")");
           return;
         }
-        _x_17372.method_table.method_0(_x_17372.self, "InvalidEncryptedPackage(");
-        _x_17372.method_table.method_0(_x_17372.self, "msg=");
-        _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17416);
-        _x_17372.method_table.method_0(_x_17372.self, ")");
+        _x_17352.method_table.method_0(_x_17352.self, "InvalidEncryptedPackage(");
+        _x_17352.method_table.method_0(_x_17352.self, "msg=");
+        _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17396);
+        _x_17352.method_table.method_0(_x_17352.self, ")");
         return;
       }
-      _x_17372.method_table.method_0(_x_17372.self, "InvalidPasswordLength(");
-      _x_17372.method_table.method_0(_x_17372.self, "len=");
-      _M0MPB6Logger13write__objectGiE(_x_17372, _arg_17417);
-      _x_17372.method_table.method_0(_x_17372.self, ")");
+      _x_17352.method_table.method_0(_x_17352.self, "InvalidPasswordLength(");
+      _x_17352.method_table.method_0(_x_17352.self, "len=");
+      _M0MPB6Logger13write__objectGiE(_x_17352, _arg_17397);
+      _x_17352.method_table.method_0(_x_17352.self, ")");
       return;
     }
-    _x_17372.method_table.method_0(_x_17372.self, "UnsupportedEncryption(");
-    _x_17372.method_table.method_0(_x_17372.self, "msg=");
-    _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17418);
-    _x_17372.method_table.method_0(_x_17372.self, ")");
+    _x_17352.method_table.method_0(_x_17352.self, "UnsupportedEncryption(");
+    _x_17352.method_table.method_0(_x_17352.self, "msg=");
+    _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17398);
+    _x_17352.method_table.method_0(_x_17352.self, ")");
     return;
   }
-  _x_17372.method_table.method_0(_x_17372.self, "UnsupportedFeature(");
-  _x_17372.method_table.method_0(_x_17372.self, "msg=");
-  _M0MPB6Logger13write__objectGsE(_x_17372, _arg_17419);
-  _x_17372.method_table.method_0(_x_17372.self, ")");
+  _x_17352.method_table.method_0(_x_17352.self, "UnsupportedFeature(");
+  _x_17352.method_table.method_0(_x_17352.self, "msg=");
+  _M0MPB6Logger13write__objectGsE(_x_17352, _arg_17399);
+  _x_17352.method_table.method_0(_x_17352.self, ")");
 }
-function _M0IP38bobzhang8mbtexcel4xlsx13CellValueTypePB2Eq5equal(_x_17347, _x_17348) {
-  switch (_x_17347) {
+function _M0IP38bobzhang8mbtexcel4xlsx13CellValueTypePB2Eq5equal(_x_17327, _x_17328) {
+  switch (_x_17327) {
     case 0: {
-      if (_x_17348 === 0) {
+      if (_x_17328 === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_17348 === 1) {
+      if (_x_17328 === 1) {
         return true;
       } else {
         return false;
       }
     }
     case 2: {
-      if (_x_17348 === 2) {
+      if (_x_17328 === 2) {
         return true;
       } else {
         return false;
       }
     }
     default: {
-      if (_x_17348 === 3) {
+      if (_x_17328 === 3) {
         return true;
       } else {
         return false;
@@ -25340,37 +25363,24 @@ function _M0FP38bobzhang8mbtexcel4xlsx31archive__path__from__part__name(part_nam
   if (part === "") {
     return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("content type part name empty"));
   }
-  let _tmp$2;
-  const _bind$5 = "/";
-  if (_M0MPC16string6String11has__prefix(part, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length))) {
-    const _bind$6 = "/";
-    const segments = _M0MPC15array5Array10from__iterGRPC16string10StringViewE(_M0MPC16string6String5split(part, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length)));
-    const path_parts = [];
-    const _bind$7 = segments.length;
-    let _tmp$3 = 0;
-    while (true) {
-      const i = _tmp$3;
-      if (i < _bind$7) {
-        const segment = segments[i];
-        if (i > 0) {
-          _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(path_parts, _M0IPC16string10StringViewPB4Show10to__string(segment));
-        }
-        _tmp$3 = i + 1 | 0;
-        continue;
-      } else {
-        break;
-      }
+  let rest;
+  _L: {
+    const _bind$5 = "/";
+    const _bind$6 = _M0MPC16string6String13strip__prefix(part, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+    if (_bind$6 === undefined) {
+      return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(part);
+    } else {
+      const _Some = _bind$6;
+      const _rest = _Some;
+      rest = _rest;
+      break _L;
     }
-    const _bind$8 = "/";
-    const path = _M0MPC15array5Array4joinGsE(path_parts, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-    if (path === "") {
-      return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("content type part name empty"));
-    }
-    _tmp$2 = path;
-  } else {
-    _tmp$2 = part;
   }
-  return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_tmp$2);
+  const path = _M0IPC16string10StringViewPB4Show10to__string(rest);
+  if (path === "") {
+    return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("content type part name empty"));
+  }
+  return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(path);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx21rels__path__for__part(part_path) {
   const part = _M0IPC16string10StringViewPB4Show10to__string(part_path);
@@ -30699,16 +30709,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx14palette__color(color) {
     return "FF000000";
   }
   const text = _M0IPC16string10StringViewPB4Show10to__string(color);
-  let trimmed;
   const _bind$6 = "#";
-  if (_M0MPC16string6String11has__prefix(text, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length))) {
-    _L: {
-      trimmed = _M0MPC16string6String11sub_2einner(text, 1, undefined);
-      break _L;
-    }
-  } else {
-    trimmed = new _M0TPC16string10StringView(text, 0, text.length);
-  }
+  const trimmed = _M0MPC16option6Option10unwrap__orGRP38bobzhang8mbtexcel4xlsx12ColDimensionE(_M0MPC16string6String13strip__prefix(text, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length)), new _M0TPC16string10StringView(text, 0, text.length));
   return `FF${_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string10StringView9to__upper(trimmed))}`;
 }
 function _M0FP38bobzhang8mbtexcel4xlsx32sheet__props__has__sheet__format(options) {
@@ -32447,23 +32449,27 @@ function _M0FP38bobzhang8mbtexcel4xlsx21write__worksheet__xml(sheet, string_map,
 }
 function _M0FP38bobzhang8mbtexcel4xlsx19normalize__rgb__hex(value) {
   const text = _M0IPC16string10StringViewPB4Show10to__string(value);
-  let _tmp$2;
-  if (text.length === 8) {
-    const _bind$5 = "FF";
-    _tmp$2 = _M0MPC16string6String11has__prefix(text, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  } else {
-    _tmp$2 = false;
-  }
-  if (_tmp$2) {
-    let view;
-    _L: {
-      view = _M0MPC16string6String11sub_2einner(text, 2, undefined);
-      break _L;
+  _L: {
+    let rest;
+    _L$2: {
+      const _bind$5 = "FF";
+      const _bind$6 = _M0MPC16string6String13strip__prefix(text, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+      if (_bind$6 === undefined) {
+        break _L;
+      } else {
+        const _Some = _bind$6;
+        const _rest = _Some;
+        if (text.length === 8) {
+          rest = _rest;
+          break _L$2;
+        } else {
+          break _L;
+        }
+      }
     }
-    return _M0IPC16string10StringViewPB4Show10to__string(view);
-  } else {
-    return text;
+    return _M0IPC16string10StringViewPB4Show10to__string(rest);
   }
+  return text;
 }
 function _M0FP38bobzhang8mbtexcel4xlsx17write__theme__xml(theme_colors) {
   let colors;
@@ -32690,50 +32696,35 @@ function _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, tag_name) {
   let start;
   const _bind$5 = _M0MPC16string6String4find(xml_str, new _M0TPC16string10StringView(needle, 0, needle.length));
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
+    return undefined;
   } else {
     const _Some = _bind$5;
     const _pos = _Some;
     start = _pos;
   }
-  let rest;
-  _L: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + 1 | 0, undefined);
-    break _L;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + 1 | 0, undefined);
   let end;
   const _bind$6 = ">";
   const _bind$7 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
+    return undefined;
   } else {
     const _Some = _bind$7;
     const _pos = _Some;
     end = _pos;
   }
-  let slice;
-  _L$2: {
-    slice = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$2;
-  }
-  return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0IPC16string10StringViewPB4Show10to__string(slice));
+  const slice = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
+  return _M0IPC16string10StringViewPB4Show10to__string(slice);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx31parse__pivot__cache__slicer__id(cache_xml) {
   let tag;
   _L: {
     const _bind$5 = "x14:pivotCacheDefinition";
     const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(cache_xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-    let _bind$7;
-    if (_bind$6.$tag === 1) {
-      const _ok = _bind$6;
-      _bind$7 = _ok._0;
-    } else {
-      return _bind$6;
-    }
-    if (_bind$7 === undefined) {
+    if (_bind$6 === undefined) {
       return new _M0DTPC16result6ResultGOiRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
     } else {
-      const _Some = _bind$7;
+      const _Some = _bind$6;
       const _tag = _Some;
       tag = _tag;
       break _L;
@@ -32809,14 +32800,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx32ensure__pivot__cache__slicer__id(cache_x
         }
         break _L;
       }
-      let rest;
-      _L$3: {
-        rest = _M0MPC16string6String11sub_2einner(xml.val, start, undefined);
-        break _L$3;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(xml.val, start, undefined);
       let end_rel;
-      _L$4: {
-        _L$5: {
+      _L$3: {
+        _L$4: {
           const _bind$9 = ">";
           const _bind$10 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
           if (_bind$10 === undefined) {
@@ -32824,21 +32811,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx32ensure__pivot__cache__slicer__id(cache_x
             const _Some = _bind$10;
             const _end_rel = _Some;
             end_rel = _end_rel;
-            break _L$5;
+            break _L$4;
           }
-          break _L$4;
+          break _L$3;
         }
         const end = start + end_rel | 0;
-        let before;
-        _L$6: {
-          before = _M0MPC16string6String11sub_2einner(xml.val, 0, end);
-          break _L$6;
-        }
-        let after;
-        _L$7: {
-          after = _M0MPC16string6String11sub_2einner(xml.val, end, undefined);
-          break _L$7;
-        }
+        const before = _M0MPC16string6String11sub_2einner(xml.val, 0, end);
+        const after = _M0MPC16string6String11sub_2einner(xml.val, end, undefined);
         xml.val = `${_M0IPC16string10StringViewPB4Show10to__string(before)} xmlns:x14=\"${_M0IPC16string6StringPB4Show10to__string(_M0FP38bobzhang8mbtexcel4xlsx15slicer__ns__x14)}\"${_M0IPC16string10StringViewPB4Show10to__string(after)}`;
       }
     }
@@ -32864,16 +32843,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx32ensure__pivot__cache__slicer__id(cache_x
       }
       break _L;
     }
-    let head;
-    _L$3: {
-      head = _M0MPC16string6String11sub_2einner(xml.val, 0, pos);
-      break _L$3;
-    }
-    let tail;
-    _L$4: {
-      tail = _M0MPC16string6String11sub_2einner(xml.val, pos, undefined);
-      break _L$4;
-    }
+    const head = _M0MPC16string6String11sub_2einner(xml.val, 0, pos);
+    const tail = _M0MPC16string6String11sub_2einner(xml.val, pos, undefined);
     return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(`${_M0IPC16string10StringViewPB4Show10to__string(head)}${_M0IPC16string6StringPB4Show10to__string(ext_entry)}${_M0IPC16string10StringViewPB4Show10to__string(tail)}`);
   }
   let pos$2;
@@ -32890,16 +32861,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx32ensure__pivot__cache__slicer__id(cache_x
       break _L$2;
     }
   }
-  let head;
-  _L$3: {
-    head = _M0MPC16string6String11sub_2einner(xml.val, 0, pos$2);
-    break _L$3;
-  }
-  let tail;
-  _L$4: {
-    tail = _M0MPC16string6String11sub_2einner(xml.val, pos$2, undefined);
-    break _L$4;
-  }
+  const head = _M0MPC16string6String11sub_2einner(xml.val, 0, pos$2);
+  const tail = _M0MPC16string6String11sub_2einner(xml.val, pos$2, undefined);
   return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(`${_M0IPC16string10StringViewPB4Show10to__string(head)}  <extLst>\n${_M0IPC16string6StringPB4Show10to__string(ext_entry)}  </extLst>\n${_M0IPC16string10StringViewPB4Show10to__string(tail)}`);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx21extension__from__path(path) {
@@ -32918,11 +32881,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx21extension__from__path(path) {
   if (start >= path_str.length) {
     return undefined;
   }
-  let slice;
-  _L: {
-    slice = _M0MPC16string6String11sub_2einner(path_str, start, undefined);
-    break _L;
-  }
+  const slice = _M0MPC16string6String11sub_2einner(path_str, start, undefined);
   const value = _M0MPC16string6String9to__lower(_M0IPC16string10StringViewPB4Show10to__string(slice));
   return value === "" ? undefined : value;
 }
@@ -35428,17 +35387,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx18write__styles__xml(styles, conditional_s
     const _tmp$8 = new _M0TPC16string10StringView(_bind$19, 0, _bind$19.length);
     const _bind$20 = "";
     const normalized = _M0MPC16string6String12replace__all(color, _tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
-    let base;
-    if (normalized.length === 8) {
-      let _tmp$9;
-      _L: {
-        _tmp$9 = _M0MPC16string6String11sub_2einner(normalized, 2, undefined);
-        break _L;
-      }
-      base = _M0IPC16string10StringViewPB4Show10to__string(_tmp$9);
-    } else {
-      base = normalized;
-    }
+    const base = normalized.length === 8 ? _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(normalized, 2, undefined)) : normalized;
     const t = clamp_transparency(transparency);
     if (t <= 0 && normalized.length === 8) {
       return normalized;
@@ -40671,22 +40620,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, tag_name) 
   let start;
   const _bind$5 = _M0MPC16string6String4find(xml_str, new _M0TPC16string10StringView(open_tag, 0, open_tag.length));
   if (_bind$5 === undefined) {
-    return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
+    return undefined;
   } else {
     const _Some = _bind$5;
     const _pos = _Some;
     start = _pos;
   }
-  let after_start;
-  _L: {
-    after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
-    break _L;
-  }
+  const after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
   let open_end_rel;
   const _bind$6 = ">";
   const _bind$7 = _M0MPC16string10StringView4find(after_start, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
   if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
+    return undefined;
   } else {
     const _Some = _bind$7;
     const _pos = _Some;
@@ -40696,18 +40641,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, tag_name) 
   let end;
   const _bind$8 = _M0MPC16string6String4find(xml_str, new _M0TPC16string10StringView(close_tag, 0, close_tag.length));
   if (_bind$8 === undefined) {
-    return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
+    return undefined;
   } else {
     const _Some = _bind$8;
     const _pos = _Some;
     end = _pos;
   }
-  let body;
-  _L$2: {
-    body = _M0MPC16string6String11sub_2einner(xml_str, body_start, end);
-    break _L$2;
-  }
-  return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0IPC16string10StringViewPB4Show10to__string(body));
+  const body = _M0MPC16string6String11sub_2einner(xml_str, body_start, end);
+  return _M0IPC16string10StringViewPB4Show10to__string(body);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(text) {
   const _bind$5 = _M0MPC16string6String9to__lower(_M0IPC16string10StringViewPB4Show10to__string(text));
@@ -41269,11 +41210,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(xml, tag_name) {
     const _pos = _Some;
     start = _pos;
   }
-  let after_start;
-  _L: {
-    after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
-    break _L;
-  }
+  const after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
   let open_end_rel;
   const _bind$6 = ">";
   const _bind$7 = _M0MPC16string10StringView4find(after_start, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
@@ -41294,11 +41231,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(xml, tag_name) {
     const _pos = _Some;
     end = _pos;
   }
-  let body;
-  _L$2: {
-    body = _M0MPC16string6String11sub_2einner(xml_str, body_start, end);
-    break _L$2;
-  }
+  const body = _M0MPC16string6String11sub_2einner(xml_str, body_start, end);
   return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0IPC16string10StringViewPB4Show10to__string(body));
 }
 function _M0FP38bobzhang8mbtexcel4xlsx21parse__table__columns(xml) {
@@ -41359,11 +41292,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__table__columns(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let name;
     const _bind$11 = "name";
     const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -41415,11 +41344,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
     const _pos = _Some;
     start = _pos;
   }
-  let rest;
-  _L: {
-    rest = _M0MPC16string6String11sub_2einner(text, start, undefined);
-    break _L;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(text, start, undefined);
   let end;
   const _bind$7 = "/>";
   const _bind$8 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -41438,15 +41363,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$2: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$2;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   let style_name;
   let value;
-  _L$3: {
-    _L$4: {
+  _L: {
+    _L$2: {
       const _bind$9 = "name";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41462,16 +41383,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value = _value;
-        break _L$4;
+        break _L$2;
       }
-      break _L$3;
+      break _L;
     }
     style_name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
   }
   let show_first_column;
   let value$2;
-  _L$4: {
-    _L$5: {
+  _L$2: {
+    _L$3: {
       const _bind$9 = "showFirstColumn";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41487,16 +41408,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$2 = _value;
-        break _L$5;
+        break _L$3;
       }
-      break _L$4;
+      break _L$2;
     }
     show_first_column = parse_bool_attr(new _M0TPC16string10StringView(value$2, 0, value$2.length));
   }
   let show_last_column;
   let value$3;
-  _L$5: {
-    _L$6: {
+  _L$3: {
+    _L$4: {
       const _bind$9 = "showLastColumn";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41512,16 +41433,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$3 = _value;
-        break _L$6;
+        break _L$4;
       }
-      break _L$5;
+      break _L$3;
     }
     show_last_column = parse_bool_attr(new _M0TPC16string10StringView(value$3, 0, value$3.length));
   }
   let show_row_stripes;
   let value$4;
-  _L$6: {
-    _L$7: {
+  _L$4: {
+    _L$5: {
       const _bind$9 = "showRowStripes";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41537,16 +41458,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$4 = _value;
-        break _L$7;
+        break _L$5;
       }
-      break _L$6;
+      break _L$4;
     }
     show_row_stripes = parse_bool_attr(new _M0TPC16string10StringView(value$4, 0, value$4.length));
   }
   let show_column_stripes;
   let value$5;
-  _L$7: {
-    _L$8: {
+  _L$5: {
+    _L$6: {
       const _bind$9 = "showColumnStripes";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41562,9 +41483,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$5 = _value;
-        break _L$8;
+        break _L$6;
       }
-      break _L$7;
+      break _L$5;
     }
     show_column_stripes = parse_bool_attr(new _M0TPC16string10StringView(value$5, 0, value$5.length));
   }
@@ -41582,11 +41503,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
     const _pos = _Some;
     start = _pos;
   }
-  let rest;
-  _L: {
-    rest = _M0MPC16string6String11sub_2einner(text, start, undefined);
-    break _L;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(text, start, undefined);
   let end;
   const _bind$7 = ">";
   const _bind$8 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -41597,14 +41514,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$2: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$2;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   let id;
   let value;
-  _L$3: {
+  _L: {
     const _bind$9 = "id";
     const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
     let _bind$11;
@@ -41620,12 +41533,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
       const _Some = _bind$11;
       const _value = _Some;
       value = _value;
-      break _L$3;
+      break _L;
     }
   }
   let _try_err;
-  _L$4: {
-    _L$5: {
+  _L$2: {
+    _L$3: {
       const _bind$9 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
       if (_bind$9.$tag === 1) {
         const _ok = _bind$9;
@@ -41633,16 +41546,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
       } else {
         const _err = _bind$9;
         _try_err = _err._0;
-        break _L$5;
+        break _L$3;
       }
-      break _L$4;
+      break _L$2;
     }
     return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx5TableRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("table id invalid"));
   }
   let name;
   let value$2;
-  _L$5: {
-    _L$6: {
+  _L$3: {
+    _L$4: {
       const _bind$9 = "name";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41654,7 +41567,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
       }
       if (_bind$11 === undefined) {
         let value$3;
-        _L$7: {
+        _L$5: {
           const _bind$12 = "displayName";
           const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
           let _bind$14;
@@ -41670,7 +41583,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
             const _Some = _bind$14;
             const _value = _Some;
             value$3 = _value;
-            break _L$7;
+            break _L$5;
           }
         }
         name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
@@ -41678,16 +41591,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$2 = _value;
-        break _L$6;
+        break _L$4;
       }
-      break _L$5;
+      break _L$3;
     }
     name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
   }
   let display_name;
   let value$3;
-  _L$6: {
-    _L$7: {
+  _L$4: {
+    _L$5: {
       const _bind$9 = "displayName";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41703,15 +41616,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$3 = _value;
-        break _L$7;
+        break _L$5;
       }
-      break _L$6;
+      break _L$4;
     }
     display_name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
   }
   let ref_value;
   let value$4;
-  _L$7: {
+  _L$5: {
     const _bind$9 = "ref";
     const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
     let _bind$11;
@@ -41727,14 +41640,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
       const _Some = _bind$11;
       const _value = _Some;
       value$4 = _value;
-      break _L$7;
+      break _L$5;
     }
   }
   ref_value = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$4, 0, value$4.length));
   let show_header_row;
   let value$5;
-  _L$8: {
-    _L$9: {
+  _L$6: {
+    _L$7: {
       const _bind$9 = "headerRowCount";
       const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
       let _bind$11;
@@ -41750,9 +41663,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
         const _Some = _bind$11;
         const _value = _Some;
         value$5 = _value;
-        break _L$9;
+        break _L$7;
       }
-      break _L$8;
+      break _L$6;
     }
     show_header_row = _M0IP016_24default__implPB2Eq10not__equalGsE(value$5, "0");
   }
@@ -41768,7 +41681,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
   let _min_row;
   let min_col;
   let max_col;
-  _L$9: {
+  _L$7: {
     const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx17parse__range__ref(new _M0TPC16string10StringView(ref_value, 0, ref_value.length));
     let _bind$11;
     if (_bind$10.$tag === 1) {
@@ -41785,7 +41698,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
     _min_row = __min_row;
     min_col = _min_col;
     max_col = _max_col;
-    break _L$9;
+    break _L$7;
   }
   const expected_cols = (max_col - min_col | 0) + 1 | 0;
   if (columns.length !== expected_cols) {
@@ -41796,7 +41709,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
   let style_name;
   let show_last_column;
   let show_column_stripes;
-  _L$10: {
+  _L$8: {
     const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx19parse__table__style(xml);
     let _bind$11;
     if (_bind$10.$tag === 1) {
@@ -41815,7 +41728,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx17parse__table__xml(xml) {
     style_name = _style_name;
     show_last_column = _show_last_column;
     show_column_stripes = _show_column_stripes;
-    break _L$10;
+    break _L$8;
   }
   const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx21normalize__range__ref(new _M0TPC16string10StringView(ref_value, 0, ref_value.length));
   let normalized_ref;
@@ -41837,13 +41750,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx21find__last__substring(text, needle) {
   const last = new _M0TPB8MutLocalGOiE(undefined);
   while (true) {
     if (i.val < text_str.length) {
-      let rest;
-      _L: {
-        rest = _M0MPC16string6String11sub_2einner(text_str, i.val, undefined);
-        break _L;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(text_str, i.val, undefined);
       let pos;
-      _L$2: {
+      _L: {
         const _bind$5 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(needle_str, 0, needle_str.length));
         if (_bind$5 === undefined) {
           break;
@@ -41851,7 +41760,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx21find__last__substring(text, needle) {
           const _Some = _bind$5;
           const _pos = _Some;
           pos = _pos;
-          break _L$2;
+          break _L;
         }
       }
       const abs = i.val + pos | 0;
@@ -41883,13 +41792,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx21end__after__last__tag(xml, tag) {
           break _L$2;
         }
       }
-      let rest;
-      _L$3: {
-        rest = _M0MPC16string6String11sub_2einner(_M0IPC16string10StringViewPB4Show10to__string(xml), pos$2, undefined);
-        break _L$3;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(_M0IPC16string10StringViewPB4Show10to__string(xml), pos$2, undefined);
       let rel;
-      _L$4: {
+      _L$3: {
         const _bind$6 = ">";
         const _bind$7 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
         if (_bind$7 === undefined) {
@@ -41898,7 +41803,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx21end__after__last__tag(xml, tag) {
           const _Some = _bind$7;
           const _rel = _Some;
           rel = _rel;
-          break _L$4;
+          break _L$3;
         }
       }
       return (pos$2 + rel | 0) + 1 | 0;
@@ -41923,11 +41828,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(xml) {
     const _pos = _Some;
     style_end = _pos;
   }
-  let prefix;
-  _L: {
-    prefix = _M0MPC16string6String11sub_2einner(xml_str, 0, style_end);
-    break _L;
-  }
+  const prefix = _M0MPC16string6String11sub_2einner(xml_str, 0, style_end);
   const search_start = new _M0TPB8MutLocalGiE(0);
   const _bind$6 = ["colors", "tableStyles", "dxfs", "cellStyles", "cellXfs"];
   const _bind$7 = _bind$6.length;
@@ -41937,17 +41838,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(xml) {
     if (_ < _bind$7) {
       const tag = _bind$6[_];
       let end;
-      _L$2: {
-        _L$3: {
+      _L: {
+        _L$2: {
           const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx21end__after__last__tag(prefix, new _M0TPC16string10StringView(tag, 0, tag.length));
           if (_bind$8 === undefined) {
           } else {
             const _Some = _bind$8;
             const _end = _Some;
             end = _end;
-            break _L$3;
+            break _L$2;
           }
-          break _L$2;
+          break _L;
         }
         if (end > search_start.val) {
           search_start.val = end;
@@ -41959,11 +41860,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(xml) {
       break;
     }
   }
-  let tail;
-  _L$2: {
-    tail = _M0MPC16string10StringView11sub_2einner(prefix, search_start.val, undefined);
-    break _L$2;
-  }
+  const tail = _M0MPC16string10StringView11sub_2einner(prefix, search_start.val, undefined);
   let ext_rel;
   const _bind$8 = "<extLst";
   const _bind$9 = _M0MPC16string10StringView4find(tail, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
@@ -41975,11 +41872,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(xml) {
     ext_rel = _pos;
   }
   const ext_start = search_start.val + ext_rel | 0;
-  let ext_rest;
-  _L$3: {
-    ext_rest = _M0MPC16string10StringView11sub_2einner(prefix, ext_start, undefined);
-    break _L$3;
-  }
+  const ext_rest = _M0MPC16string10StringView11sub_2einner(prefix, ext_start, undefined);
   let open_end_rel;
   const _bind$10 = ">";
   const _bind$11 = _M0MPC16string10StringView4find(ext_rest, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
@@ -41994,11 +41887,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(xml) {
     return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok("");
   }
   const body_start = (ext_start + open_end_rel | 0) + 1 | 0;
-  let body_rest;
-  _L$4: {
-    body_rest = _M0MPC16string10StringView11sub_2einner(prefix, body_start, undefined);
-    break _L$4;
-  }
+  const body_rest = _M0MPC16string10StringView11sub_2einner(prefix, body_start, undefined);
   let close_rel;
   const _bind$12 = "</extLst>";
   const _bind$13 = _M0MPC16string10StringView4find(body_rest, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
@@ -42010,12 +41899,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(xml) {
     close_rel = _pos;
   }
   const body_end = body_start + close_rel | 0;
-  let _tmp$3;
-  _L$5: {
-    _tmp$3 = _M0MPC16string10StringView11sub_2einner(prefix, body_start, body_end);
-    break _L$5;
-  }
-  return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0IPC16string10StringViewPB4Show10to__string(_tmp$3));
+  return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string10StringView11sub_2einner(prefix, body_start, body_end)));
 }
 function _M0FP38bobzhang8mbtexcel4xlsx30parse__table__styles__defaults(xml) {
   const table = new _M0TPB8MutLocalGsE("TableStyleMedium9");
@@ -42025,16 +41909,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__table__styles__defaults(xml) {
     _L$2: {
       const _bind$5 = "tableStyles";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag = _tag;
         break _L$2;
@@ -42483,11 +42360,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, t
     const _pos = _Some;
     start = _pos;
   }
-  let rest;
-  _L: {
-    rest = _M0MPC16string6String11sub_2einner(text, start, undefined);
-    break _L;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(text, start, undefined);
   let end;
   const _bind$6 = ">";
   const _bind$7 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
@@ -42498,11 +42371,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, t
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$2: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$2;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   return _M0FP38bobzhang8mbtexcel4xlsx23parse__sparkline__color(tag);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(value) {
@@ -42538,11 +42407,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         break _L;
       }
     }
-    let range_part;
-    _L$2: {
-      range_part = _M0MPC16string6String11sub_2einner(text, pos + 1 | 0, undefined);
-      break _L$2;
-    }
+    const range_part = _M0MPC16string6String11sub_2einner(text, pos + 1 | 0, undefined);
     return _M0FP38bobzhang8mbtexcel4xlsx21normalize__range__ref(range_part);
   };
   const groups = [];
@@ -42581,11 +42446,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
       const _pos = _Some;
       tag_end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, tag_end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, tag_end);
     let group_end;
     const _bind$9 = "</x14:sparklineGroup>";
     const _bind$10 = _M0MPC16string6String4find(text, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
@@ -42596,15 +42457,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
       const _pos = _Some;
       group_end = _pos;
     }
-    let body;
-    _L$3: {
-      body = _M0MPC16string6String11sub_2einner(text, tag_end + 1 | 0, group_end);
-      break _L$3;
-    }
+    const body = _M0MPC16string6String11sub_2einner(text, tag_end + 1 | 0, group_end);
     let kind;
     let value;
-    _L$4: {
-      _L$5: {
+    _L$2: {
+      _L$3: {
         const _bind$11 = "type";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42620,16 +42477,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value = _value;
-          break _L$5;
+          break _L$3;
         }
-        break _L$4;
+        break _L$2;
       }
       kind = _M0FP38bobzhang8mbtexcel4xlsx29sparkline__type__from__string(new _M0TPC16string10StringView(value, 0, value.length));
     }
     const options = _M0MP38bobzhang8mbtexcel4xlsx21SparklineGroupOptions3new();
     let value$2;
-    _L$5: {
-      _L$6: {
+    _L$3: {
+      _L$4: {
         const _bind$11 = "displayEmptyCellsAs";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42644,15 +42501,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$2 = _value;
-          break _L$6;
+          break _L$4;
         }
-        break _L$5;
+        break _L$3;
       }
       options.display_empty_cells_as = value$2;
     }
     let value$3;
-    _L$6: {
-      _L$7: {
+    _L$4: {
+      _L$5: {
         const _bind$11 = "dateAxis";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42667,15 +42524,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$3 = _value;
-          break _L$7;
+          break _L$5;
         }
-        break _L$6;
+        break _L$4;
       }
       options.date_axis = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$3, 0, value$3.length));
     }
     let value$4;
-    _L$7: {
-      _L$8: {
+    _L$5: {
+      _L$6: {
         const _bind$11 = "lineWeight";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42690,14 +42547,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$4 = _value;
-          break _L$8;
+          break _L$6;
         }
-        break _L$7;
+        break _L$5;
       }
       let _tmp$2;
       let _try_err;
-      _L$9: {
-        _L$10: {
+      _L$7: {
+        _L$8: {
           const _bind$11 = value$4;
           const _bind$12 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
           if (_bind$12.$tag === 1) {
@@ -42706,17 +42563,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$10;
+            break _L$8;
           }
-          break _L$9;
+          break _L$7;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx14SparklineGroupERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("sparkline lineWeight invalid"));
       }
       options.line_weight = new _M0DTPC16option6OptionGdE4Some(_tmp$2);
     }
     let value$5;
-    _L$8: {
-      _L$9: {
+    _L$6: {
+      _L$7: {
         const _bind$11 = "manualMax";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42731,14 +42588,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$5 = _value;
-          break _L$9;
+          break _L$7;
         }
-        break _L$8;
+        break _L$6;
       }
       let _tmp$2;
       let _try_err;
-      _L$10: {
-        _L$11: {
+      _L$8: {
+        _L$9: {
           const _bind$11 = value$5;
           const _bind$12 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length), 10);
           if (_bind$12.$tag === 1) {
@@ -42747,17 +42604,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$11;
+            break _L$9;
           }
-          break _L$10;
+          break _L$8;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx14SparklineGroupERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("sparkline manualMax invalid"));
       }
       options.manual_max = _tmp$2;
     }
     let value$6;
-    _L$9: {
-      _L$10: {
+    _L$7: {
+      _L$8: {
         const _bind$11 = "manualMin";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42772,14 +42629,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$6 = _value;
-          break _L$10;
+          break _L$8;
         }
-        break _L$9;
+        break _L$7;
       }
       let _tmp$2;
       let _try_err;
-      _L$11: {
-        _L$12: {
+      _L$9: {
+        _L$10: {
           const _bind$11 = value$6;
           const _bind$12 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length), 10);
           if (_bind$12.$tag === 1) {
@@ -42788,17 +42645,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$12;
+            break _L$10;
           }
-          break _L$11;
+          break _L$9;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx14SparklineGroupERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("sparkline manualMin invalid"));
       }
       options.manual_min = _tmp$2;
     }
     let value$7;
-    _L$10: {
-      _L$11: {
+    _L$8: {
+      _L$9: {
         const _bind$11 = "markers";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42813,15 +42670,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$7 = _value;
-          break _L$11;
+          break _L$9;
         }
-        break _L$10;
+        break _L$8;
       }
       options.markers = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$7, 0, value$7.length));
     }
     let value$8;
-    _L$11: {
-      _L$12: {
+    _L$9: {
+      _L$10: {
         const _bind$11 = "high";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42836,15 +42693,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$8 = _value;
-          break _L$12;
+          break _L$10;
         }
-        break _L$11;
+        break _L$9;
       }
       options.high = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$8, 0, value$8.length));
     }
     let value$9;
-    _L$12: {
-      _L$13: {
+    _L$10: {
+      _L$11: {
         const _bind$11 = "low";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42859,15 +42716,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$9 = _value;
-          break _L$13;
+          break _L$11;
         }
-        break _L$12;
+        break _L$10;
       }
       options.low = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$9, 0, value$9.length));
     }
     let value$10;
-    _L$13: {
-      _L$14: {
+    _L$11: {
+      _L$12: {
         const _bind$11 = "first";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42882,15 +42739,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$10 = _value;
-          break _L$14;
+          break _L$12;
         }
-        break _L$13;
+        break _L$11;
       }
       options.first = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$10, 0, value$10.length));
     }
     let value$11;
-    _L$14: {
-      _L$15: {
+    _L$12: {
+      _L$13: {
         const _bind$11 = "last";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42905,15 +42762,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$11 = _value;
-          break _L$15;
+          break _L$13;
         }
-        break _L$14;
+        break _L$12;
       }
       options.last = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$11, 0, value$11.length));
     }
     let value$12;
-    _L$15: {
-      _L$16: {
+    _L$13: {
+      _L$14: {
         const _bind$11 = "negative";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42928,15 +42785,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$12 = _value;
-          break _L$16;
+          break _L$14;
         }
-        break _L$15;
+        break _L$13;
       }
       options.negative = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$12, 0, value$12.length));
     }
     let value$13;
-    _L$16: {
-      _L$17: {
+    _L$14: {
+      _L$15: {
         const _bind$11 = "displayXAxis";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42951,15 +42808,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$13 = _value;
-          break _L$17;
+          break _L$15;
         }
-        break _L$16;
+        break _L$14;
       }
       options.display_x_axis = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$13, 0, value$13.length));
     }
     let value$14;
-    _L$17: {
-      _L$18: {
+    _L$15: {
+      _L$16: {
         const _bind$11 = "displayHidden";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42974,15 +42831,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$14 = _value;
-          break _L$18;
+          break _L$16;
         }
-        break _L$17;
+        break _L$15;
       }
       options.display_hidden = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$14, 0, value$14.length));
     }
     let value$15;
-    _L$18: {
-      _L$19: {
+    _L$16: {
+      _L$17: {
         const _bind$11 = "rightToLeft";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -42997,16 +42854,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$15 = _value;
-          break _L$19;
+          break _L$17;
         }
-        break _L$18;
+        break _L$16;
       }
       options.right_to_left = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$15, 0, value$15.length));
     }
     let _tmp$2;
     let _try_err;
-    _L$19: {
-      _L$20: {
+    _L$17: {
+      _L$18: {
         const _bind$11 = "colorSeries";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43015,17 +42872,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err = _err._0;
-          break _L$20;
+          break _L$18;
         }
-        break _L$19;
+        break _L$17;
       }
       _tmp$2 = undefined;
     }
     options.color_series = _tmp$2;
     let _tmp$3;
     let _try_err$2;
-    _L$20: {
-      _L$21: {
+    _L$18: {
+      _L$19: {
         const _bind$11 = "colorNegative";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43034,17 +42891,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$2 = _err._0;
-          break _L$21;
+          break _L$19;
         }
-        break _L$20;
+        break _L$18;
       }
       _tmp$3 = undefined;
     }
     options.color_negative = _tmp$3;
     let _tmp$4;
     let _try_err$3;
-    _L$21: {
-      _L$22: {
+    _L$19: {
+      _L$20: {
         const _bind$11 = "colorAxis";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43053,17 +42910,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$3 = _err._0;
-          break _L$22;
+          break _L$20;
         }
-        break _L$21;
+        break _L$19;
       }
       _tmp$4 = undefined;
     }
     options.color_axis = _tmp$4;
     let _tmp$5;
     let _try_err$4;
-    _L$22: {
-      _L$23: {
+    _L$20: {
+      _L$21: {
         const _bind$11 = "colorMarkers";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43072,17 +42929,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$4 = _err._0;
-          break _L$23;
+          break _L$21;
         }
-        break _L$22;
+        break _L$20;
       }
       _tmp$5 = undefined;
     }
     options.color_markers = _tmp$5;
     let _tmp$6;
     let _try_err$5;
-    _L$23: {
-      _L$24: {
+    _L$21: {
+      _L$22: {
         const _bind$11 = "colorFirst";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43091,17 +42948,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$5 = _err._0;
-          break _L$24;
+          break _L$22;
         }
-        break _L$23;
+        break _L$21;
       }
       _tmp$6 = undefined;
     }
     options.color_first = _tmp$6;
     let _tmp$7;
     let _try_err$6;
-    _L$24: {
-      _L$25: {
+    _L$22: {
+      _L$23: {
         const _bind$11 = "colorLast";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43110,17 +42967,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$6 = _err._0;
-          break _L$25;
+          break _L$23;
         }
-        break _L$24;
+        break _L$22;
       }
       _tmp$7 = undefined;
     }
     options.color_last = _tmp$7;
     let _tmp$8;
     let _try_err$7;
-    _L$25: {
-      _L$26: {
+    _L$23: {
+      _L$24: {
         const _bind$11 = "colorHigh";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43129,17 +42986,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$7 = _err._0;
-          break _L$26;
+          break _L$24;
         }
-        break _L$25;
+        break _L$23;
       }
       _tmp$8 = undefined;
     }
     options.color_high = _tmp$8;
     let _tmp$9;
     let _try_err$8;
-    _L$26: {
-      _L$27: {
+    _L$24: {
+      _L$25: {
         const _bind$11 = "colorLow";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32find__sparkline__color__in__body(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         if (_bind$12.$tag === 1) {
@@ -43148,9 +43005,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         } else {
           const _err = _bind$12;
           _try_err$8 = _err._0;
-          break _L$27;
+          break _L$25;
         }
-        break _L$26;
+        break _L$24;
       }
       _tmp$9 = undefined;
     }
@@ -43161,7 +43018,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
     const _it$2 = _M0MPC16string10StringView5split(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
     while (true) {
       let spark_chunk;
-      _L$27: {
+      _L$25: {
         const _bind$12 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it$2);
         if (_bind$12 === undefined) {
           break;
@@ -43169,7 +43026,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$12;
           const _spark_chunk = _Some;
           spark_chunk = _spark_chunk;
-          break _L$27;
+          break _L$25;
         }
       }
       if (sparkline_first.val) {
@@ -43187,14 +43044,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         const _pos = _Some;
         spark_end = _pos;
       }
-      let spark_body;
-      _L$28: {
-        spark_body = _M0MPC16string6String11sub_2einner(spark_text, 0, spark_end);
-        break _L$28;
-      }
+      const spark_body = _M0MPC16string6String11sub_2einner(spark_text, 0, spark_end);
       let range;
       let pos;
-      _L$29: {
+      _L$26: {
         const _bind$14 = "<xm:f>";
         const _bind$15 = _M0MPC16string10StringView4find(spark_body, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
         if (_bind$15 === undefined) {
@@ -43203,14 +43056,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$15;
           const _pos = _Some;
           pos = _pos;
-          break _L$29;
+          break _L$26;
         }
       }
-      let rest;
-      _L$30: {
-        rest = _M0MPC16string10StringView11sub_2einner(spark_body, pos + 6 | 0, undefined);
-        break _L$30;
-      }
+      const rest = _M0MPC16string10StringView11sub_2einner(spark_body, pos + 6 | 0, undefined);
       let end;
       const _bind$14 = "</xm:f>";
       const _bind$15 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
@@ -43224,7 +43073,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
       range = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(_M0MPC16string10StringView11sub_2einner(rest, 0, end));
       let location;
       let pos$2;
-      _L$31: {
+      _L$27: {
         const _bind$16 = "<xm:sqref>";
         const _bind$17 = _M0MPC16string10StringView4find(spark_body, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
         if (_bind$17 === undefined) {
@@ -43233,14 +43082,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
           const _Some = _bind$17;
           const _pos = _Some;
           pos$2 = _pos;
-          break _L$31;
+          break _L$27;
         }
       }
-      let rest$2;
-      _L$32: {
-        rest$2 = _M0MPC16string10StringView11sub_2einner(spark_body, pos$2 + 10 | 0, undefined);
-        break _L$32;
-      }
+      const rest$2 = _M0MPC16string10StringView11sub_2einner(spark_body, pos$2 + 10 | 0, undefined);
       let end$2;
       const _bind$16 = "</xm:sqref>";
       const _bind$17 = _M0MPC16string10StringView4find(rest$2, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
@@ -43254,7 +43099,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
       location = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(_M0MPC16string10StringView11sub_2einner(rest$2, 0, end$2));
       let row;
       let col;
-      _L$33: {
+      _L$28: {
         const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx17cell__ref__to__rc(new _M0TPC16string10StringView(location, 0, location.length));
         let _bind$19;
         if (_bind$18.$tag === 1) {
@@ -43267,7 +43112,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sparkline__groups(xml) {
         const _col = _bind$19._1;
         row = _row;
         col = _col;
-        break _L$33;
+        break _L$28;
       }
       const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row, col);
       let canonical_loc;
@@ -43390,14 +43235,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let col_id;
     let value;
-    _L$3: {
+    _L$2: {
       const _bind$8 = "colId";
       const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
       let _bind$10;
@@ -43413,12 +43254,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
         const _Some = _bind$10;
         const _value = _Some;
         value = _value;
-        break _L$3;
+        break _L$2;
       }
     }
     let _try_err;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
         if (_bind$8.$tag === 1) {
           const _ok = _bind$8;
@@ -43426,9 +43267,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
         } else {
           const _err = _bind$8;
           _try_err = _err._0;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx16AutoFilterColumnERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("filterColumn colId invalid"));
     }
@@ -43437,11 +43278,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
     const custom_filters = new _M0TPB8MutLocalGORP38bobzhang8mbtexcel4xlsx23AutoFilterCustomFiltersE(undefined);
     const _bind$8 = "/";
     if (!_M0MPC16string10StringView11has__suffix(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length))) {
-      let rest;
-      _L$5: {
-        rest = _M0MPC16string6String11sub_2einner(text, end + 1 | 0, undefined);
-        break _L$5;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(text, end + 1 | 0, undefined);
       let body_end;
       const _bind$9 = "</filterColumn>";
       const _bind$10 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
@@ -43454,34 +43291,24 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
       }
       let column_body;
       if (body_end > 0) {
-        _L$6: {
-          column_body = _M0MPC16string10StringView11sub_2einner(rest, 0, body_end);
-          break _L$6;
-        }
+        column_body = _M0MPC16string10StringView11sub_2einner(rest, 0, body_end);
       } else {
         const _bind$11 = "";
         column_body = new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length);
       }
       let filters_body;
-      _L$6: {
-        _L$7: {
+      _L$4: {
+        _L$5: {
           const _bind$11 = "filters";
           const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(column_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-          let _bind$13;
-          if (_bind$12.$tag === 1) {
-            const _ok = _bind$12;
-            _bind$13 = _ok._0;
+          if (_bind$12 === undefined) {
           } else {
-            return _bind$12;
-          }
-          if (_bind$13 === undefined) {
-          } else {
-            const _Some = _bind$13;
+            const _Some = _bind$12;
             const _filters_body = _Some;
             filters_body = _filters_body;
-            break _L$7;
+            break _L$5;
           }
-          break _L$6;
+          break _L$4;
         }
         const values = [];
         const first_filter = new _M0TPB8MutLocalGbE(true);
@@ -43489,7 +43316,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
         const _it$2 = _M0MPC16string6String5split(filters_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         while (true) {
           let part;
-          _L$8: {
+          _L$6: {
             const _bind$12 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it$2);
             if (_bind$12 === undefined) {
               break;
@@ -43497,7 +43324,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
               const _Some = _bind$12;
               const _part = _Some;
               part = _part;
-              break _L$8;
+              break _L$6;
             }
           }
           if (first_filter.val) {
@@ -43523,14 +43350,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
             const _pos = _Some;
             filter_end = _pos;
           }
-          let filter_tag;
-          _L$9: {
-            filter_tag = _M0MPC16string6String11sub_2einner(filter_text, 0, filter_end);
-            break _L$9;
-          }
+          const filter_tag = _M0MPC16string6String11sub_2einner(filter_text, 0, filter_end);
           let value$2;
-          _L$10: {
-            _L$11: {
+          _L$7: {
+            _L$8: {
               const _bind$14 = "val";
               const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(filter_tag, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
               let _bind$16;
@@ -43546,9 +43369,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
                 const _Some = _bind$16;
                 const _value = _Some;
                 value$2 = _value;
-                break _L$11;
+                break _L$8;
               }
-              break _L$10;
+              break _L$7;
             }
             _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(values, _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length)));
           }
@@ -43557,52 +43380,38 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
         filters.val = new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(values);
       }
       let custom_body;
-      _L$7: {
-        _L$8: {
+      _L$5: {
+        _L$6: {
           const _bind$11 = "customFilters";
           const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(column_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-          let _bind$13;
-          if (_bind$12.$tag === 1) {
-            const _ok = _bind$12;
-            _bind$13 = _ok._0;
+          if (_bind$12 === undefined) {
           } else {
-            return _bind$12;
-          }
-          if (_bind$13 === undefined) {
-          } else {
-            const _Some = _bind$13;
+            const _Some = _bind$12;
             const _custom_body = _Some;
             custom_body = _custom_body;
-            break _L$8;
+            break _L$6;
           }
-          break _L$7;
+          break _L$5;
         }
         let and_value;
         let custom_tag;
-        _L$9: {
-          _L$10: {
+        _L$7: {
+          _L$8: {
             const _bind$11 = "customFilters";
             const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(column_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-            let _bind$13;
-            if (_bind$12.$tag === 1) {
-              const _ok = _bind$12;
-              _bind$13 = _ok._0;
-            } else {
-              return _bind$12;
-            }
-            if (_bind$13 === undefined) {
+            if (_bind$12 === undefined) {
               and_value = false;
             } else {
-              const _Some = _bind$13;
+              const _Some = _bind$12;
               const _custom_tag = _Some;
               custom_tag = _custom_tag;
-              break _L$10;
+              break _L$8;
             }
-            break _L$9;
+            break _L$7;
           }
           let value$2;
-          _L$11: {
-            _L$12: {
+          _L$9: {
+            _L$10: {
               const _tmp$2 = new _M0TPC16string10StringView(custom_tag, 0, custom_tag.length);
               const _bind$11 = "and";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -43619,9 +43428,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$2 = _value;
-                break _L$12;
+                break _L$10;
               }
-              break _L$11;
+              break _L$9;
             }
             and_value = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$2, 0, value$2.length));
           }
@@ -43632,7 +43441,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
         const _it$2 = _M0MPC16string6String5split(custom_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         while (true) {
           let part;
-          _L$10: {
+          _L$8: {
             const _bind$12 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it$2);
             if (_bind$12 === undefined) {
               break;
@@ -43640,7 +43449,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
               const _Some = _bind$12;
               const _part = _Some;
               part = _part;
-              break _L$10;
+              break _L$8;
             }
           }
           if (first_custom.val) {
@@ -43666,11 +43475,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
             const _pos = _Some;
             custom_end = _pos;
           }
-          let custom_tag$2;
-          _L$11: {
-            custom_tag$2 = _M0MPC16string6String11sub_2einner(custom_text, 0, custom_end);
-            break _L$11;
-          }
+          const custom_tag$2 = _M0MPC16string6String11sub_2einner(custom_text, 0, custom_end);
           let operator;
           const _bind$14 = "operator";
           const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(custom_tag$2, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
@@ -43690,8 +43495,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
           }
           let val;
           let value$2;
-          _L$12: {
-            _L$13: {
+          _L$9: {
+            _L$10: {
               const _bind$17 = "val";
               const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(custom_tag$2, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length));
               let _bind$19;
@@ -43707,9 +43512,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(body, min_c
                 const _Some = _bind$19;
                 const _value = _Some;
                 value$2 = _value;
-                break _L$13;
+                break _L$10;
               }
-              break _L$12;
+              break _L$9;
             }
             val = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
           }
@@ -43728,63 +43533,56 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__auto__filter(xml) {
   let tag;
   const _bind$5 = "autoFilter";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx10AutoFilterRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
   let ref_value;
   const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-  const _bind$8 = "ref";
-  const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-  let _bind$10;
-  if (_bind$9.$tag === 1) {
-    const _ok = _bind$9;
-    _bind$10 = _ok._0;
+  const _bind$7 = "ref";
+  const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+  let _bind$9;
+  if (_bind$8.$tag === 1) {
+    const _ok = _bind$8;
+    _bind$9 = _ok._0;
   } else {
-    return _bind$9;
+    return _bind$8;
   }
-  if (_bind$10 === undefined) {
+  if (_bind$9 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx10AutoFilterRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("autoFilter ref missing"));
   } else {
-    const _Some = _bind$10;
+    const _Some = _bind$9;
     const _value = _Some;
     ref_value = _value;
   }
-  const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx21normalize__range__ref(new _M0TPC16string10StringView(ref_value, 0, ref_value.length));
+  const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx21normalize__range__ref(new _M0TPC16string10StringView(ref_value, 0, ref_value.length));
   let range_ref;
-  if (_bind$11.$tag === 1) {
-    const _ok = _bind$11;
+  if (_bind$10.$tag === 1) {
+    const _ok = _bind$10;
     range_ref = _ok._0;
   } else {
-    return _bind$11;
+    return _bind$10;
   }
   let _max_row;
   let _min_row;
   let min_col;
   let _max_col;
   _L: {
-    const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx17parse__range__ref(new _M0TPC16string10StringView(range_ref, 0, range_ref.length));
-    let _bind$13;
-    if (_bind$12.$tag === 1) {
-      const _ok = _bind$12;
-      _bind$13 = _ok._0;
+    const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx17parse__range__ref(new _M0TPC16string10StringView(range_ref, 0, range_ref.length));
+    let _bind$12;
+    if (_bind$11.$tag === 1) {
+      const _ok = _bind$11;
+      _bind$12 = _ok._0;
     } else {
-      return _bind$12;
+      return _bind$11;
     }
-    const __min_row = _bind$13._0;
-    const _min_col = _bind$13._1;
-    const __max_row = _bind$13._2;
-    const __max_col = _bind$13._3;
+    const __min_row = _bind$12._0;
+    const _min_col = _bind$12._1;
+    const __max_row = _bind$12._2;
+    const __max_col = _bind$12._3;
     _max_row = __max_row;
     _min_row = __min_row;
     min_col = _min_col;
@@ -43792,8 +43590,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__auto__filter(xml) {
     break _L;
   }
   const _tmp$3 = _M0MPC16string6String4trim(tag, undefined);
-  const _bind$12 = "/";
-  const self_closing = _M0MPC16string10StringView11has__suffix(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
+  const _bind$11 = "/";
+  const self_closing = _M0MPC16string10StringView11has__suffix(_tmp$3, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
   let columns;
   if (self_closing) {
     columns = [];
@@ -43801,31 +43599,31 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__auto__filter(xml) {
     let body;
     _L$2: {
       _L$3: {
-        const _bind$13 = "autoFilter";
-        const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(xml, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
-        let _bind$15;
-        if (_bind$14.$tag === 1) {
-          const _ok = _bind$14;
-          _bind$15 = _ok._0;
+        const _bind$12 = "autoFilter";
+        const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(xml, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
+        let _bind$14;
+        if (_bind$13.$tag === 1) {
+          const _ok = _bind$13;
+          _bind$14 = _ok._0;
         } else {
-          return _bind$14;
+          return _bind$13;
         }
-        if (_bind$15 === undefined) {
+        if (_bind$14 === undefined) {
           columns = [];
         } else {
-          const _Some = _bind$15;
+          const _Some = _bind$14;
           const _body = _Some;
           body = _body;
           break _L$3;
         }
         break _L$2;
       }
-      const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(new _M0TPC16string10StringView(body, 0, body.length), min_col);
-      if (_bind$13.$tag === 1) {
-        const _ok = _bind$13;
+      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx28parse__auto__filter__columns(new _M0TPC16string10StringView(body, 0, body.length), min_col);
+      if (_bind$12.$tag === 1) {
+        const _ok = _bind$12;
         columns = _ok._0;
       } else {
-        return _bind$13;
+        return _bind$12;
       }
     }
   }
@@ -44116,17 +43914,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   let tag;
   const _bind$5 = "headerFooter";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx19HeaderFooterOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
@@ -44135,18 +43926,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "differentOddEven";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "differentOddEven";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value = _value;
         break _L$2;
@@ -44159,18 +43950,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "differentFirst";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "differentFirst";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
         break _L$3;
@@ -44183,18 +43974,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$3: {
     _L$4: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "scaleWithDoc";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "scaleWithDoc";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
         break _L$4;
@@ -44207,18 +43998,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$4: {
     _L$5: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "alignWithMargins";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "alignWithMargins";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$4 = _value;
         break _L$5;
@@ -44228,19 +44019,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
     options.align_with_margins = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$4, 0, value$4.length));
   }
   let body;
-  const _bind$8 = "headerFooter";
-  const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(xml, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-  let _bind$10;
-  if (_bind$9.$tag === 1) {
-    const _ok = _bind$9;
-    _bind$10 = _ok._0;
+  const _bind$7 = "headerFooter";
+  const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(xml, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+  let _bind$9;
+  if (_bind$8.$tag === 1) {
+    const _ok = _bind$8;
+    _bind$9 = _ok._0;
   } else {
-    return _bind$9;
+    return _bind$8;
   }
-  if (_bind$10 === undefined) {
+  if (_bind$9 === undefined) {
     body = "";
   } else {
-    const _Some = _bind$10;
+    const _Some = _bind$9;
     const _value = _Some;
     body = _value;
   }
@@ -44248,18 +44039,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$5: {
     _L$6: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$11 = "oddHeader";
-      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      let _bind$13;
-      if (_bind$12.$tag === 1) {
-        const _ok = _bind$12;
-        _bind$13 = _ok._0;
+      const _bind$10 = "oddHeader";
+      const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
       } else {
-        return _bind$12;
-      }
-      if (_bind$13 === undefined) {
-      } else {
-        const _Some = _bind$13;
+        const _Some = _bind$11;
         const _value = _Some;
         value$5 = _value;
         break _L$6;
@@ -44272,18 +44056,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$6: {
     _L$7: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$11 = "oddFooter";
-      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      let _bind$13;
-      if (_bind$12.$tag === 1) {
-        const _ok = _bind$12;
-        _bind$13 = _ok._0;
+      const _bind$10 = "oddFooter";
+      const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
       } else {
-        return _bind$12;
-      }
-      if (_bind$13 === undefined) {
-      } else {
-        const _Some = _bind$13;
+        const _Some = _bind$11;
         const _value = _Some;
         value$6 = _value;
         break _L$7;
@@ -44296,18 +44073,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$7: {
     _L$8: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$11 = "evenHeader";
-      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      let _bind$13;
-      if (_bind$12.$tag === 1) {
-        const _ok = _bind$12;
-        _bind$13 = _ok._0;
+      const _bind$10 = "evenHeader";
+      const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
       } else {
-        return _bind$12;
-      }
-      if (_bind$13 === undefined) {
-      } else {
-        const _Some = _bind$13;
+        const _Some = _bind$11;
         const _value = _Some;
         value$7 = _value;
         break _L$8;
@@ -44320,18 +44090,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$8: {
     _L$9: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$11 = "evenFooter";
-      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      let _bind$13;
-      if (_bind$12.$tag === 1) {
-        const _ok = _bind$12;
-        _bind$13 = _ok._0;
+      const _bind$10 = "evenFooter";
+      const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
       } else {
-        return _bind$12;
-      }
-      if (_bind$13 === undefined) {
-      } else {
-        const _Some = _bind$13;
+        const _Some = _bind$11;
         const _value = _Some;
         value$8 = _value;
         break _L$9;
@@ -44344,18 +44107,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$9: {
     _L$10: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$11 = "firstHeader";
-      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      let _bind$13;
-      if (_bind$12.$tag === 1) {
-        const _ok = _bind$12;
-        _bind$13 = _ok._0;
+      const _bind$10 = "firstHeader";
+      const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
       } else {
-        return _bind$12;
-      }
-      if (_bind$13 === undefined) {
-      } else {
-        const _Some = _bind$13;
+        const _Some = _bind$11;
         const _value = _Some;
         value$9 = _value;
         break _L$10;
@@ -44368,18 +44124,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__header__footer(xml) {
   _L$10: {
     _L$11: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$11 = "firstFooter";
-      const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      let _bind$13;
-      if (_bind$12.$tag === 1) {
-        const _ok = _bind$12;
-        _bind$13 = _ok._0;
+      const _bind$10 = "firstFooter";
+      const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
       } else {
-        return _bind$12;
-      }
-      if (_bind$13 === undefined) {
-      } else {
-        const _Some = _bind$13;
+        const _Some = _bind$11;
         const _value = _Some;
         value$10 = _value;
         break _L$11;
@@ -44394,17 +44143,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   let rpr_body;
   const _bind$5 = "rPr";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(body, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx12RichTextFontRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     rpr_body = _value;
   }
@@ -44431,18 +44173,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "b";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "b";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag = _tag;
         break _L$2;
@@ -44454,19 +44189,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$3: {
       _L$4: {
         const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$4;
@@ -44484,18 +44219,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "i";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "i";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$2 = _tag;
         break _L$3;
@@ -44507,19 +44235,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$4: {
       _L$5: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$2, 0, tag$2.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$5;
@@ -44537,18 +44265,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$3: {
     _L$4: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "strike";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "strike";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$3 = _tag;
         break _L$4;
@@ -44560,19 +44281,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$5: {
       _L$6: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$3, 0, tag$3.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$6;
@@ -44590,18 +44311,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$4: {
     _L$5: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "outline";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "outline";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$4 = _tag;
         break _L$5;
@@ -44613,19 +44327,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$6: {
       _L$7: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$4, 0, tag$4.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$7;
@@ -44643,18 +44357,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$5: {
     _L$6: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "shadow";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "shadow";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$5 = _tag;
         break _L$6;
@@ -44666,19 +44373,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$7: {
       _L$8: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$5, 0, tag$5.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$8;
@@ -44696,18 +44403,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$6: {
     _L$7: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "condense";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "condense";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$6 = _tag;
         break _L$7;
@@ -44719,19 +44419,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$8: {
       _L$9: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$6, 0, tag$6.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$9;
@@ -44749,18 +44449,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$7: {
     _L$8: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "extend";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "extend";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$7 = _tag;
         break _L$8;
@@ -44772,19 +44465,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$9: {
       _L$10: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$7, 0, tag$7.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           value = true;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$10;
@@ -44802,18 +44495,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$8: {
     _L$9: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "u";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "u";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$8 = _tag;
         break _L$9;
@@ -44822,19 +44508,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     }
     let value;
     const _tmp$2 = new _M0TPC16string10StringView(tag$8, 0, tag$8.length);
-    const _bind$8 = "val";
-    const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-    let _bind$10;
-    if (_bind$9.$tag === 1) {
-      const _ok = _bind$9;
-      _bind$10 = _ok._0;
+    const _bind$7 = "val";
+    const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+    let _bind$9;
+    if (_bind$8.$tag === 1) {
+      const _ok = _bind$8;
+      _bind$9 = _ok._0;
     } else {
-      return _bind$9;
+      return _bind$8;
     }
-    if (_bind$10 === undefined) {
+    if (_bind$9 === undefined) {
       value = "single";
     } else {
-      const _Some = _bind$10;
+      const _Some = _bind$9;
       const _val = _Some;
       value = _val;
     }
@@ -44847,18 +44533,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$9: {
     _L$10: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "sz";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "sz";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$9 = _tag;
         break _L$10;
@@ -44869,18 +44548,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$11: {
       _L$12: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$9, 0, tag$9.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$12;
@@ -44890,17 +44569,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
       let _try_err;
       _L$13: {
         _L$14: {
-          const _bind$8 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(val, 0, val.length));
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(val, 0, val.length));
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$14;
           }
-          const value = _bind$9;
+          const value = _bind$8;
           size.val = new _M0DTPC16option6OptionGdE4Some(value);
           has_any.val = true;
           break _L$13;
@@ -44912,18 +44591,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$10: {
     _L$11: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "charset";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "charset";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$10 = _tag;
         break _L$11;
@@ -44934,18 +44606,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$12: {
       _L$13: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$10, 0, tag$10.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$13;
@@ -44955,17 +44627,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
       let _try_err;
       _L$14: {
         _L$15: {
-          const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val, 0, val.length), 10);
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val, 0, val.length), 10);
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$15;
           }
-          const value = _bind$9;
+          const value = _bind$8;
           charset.val = value;
           has_any.val = true;
           break _L$14;
@@ -44977,18 +44649,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$11: {
     _L$12: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "family";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "family";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$11 = _tag;
         break _L$12;
@@ -44999,18 +44664,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$13: {
       _L$14: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$11, 0, tag$11.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$14;
@@ -45020,17 +44685,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
       let _try_err;
       _L$15: {
         _L$16: {
-          const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val, 0, val.length), 10);
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val, 0, val.length), 10);
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$16;
           }
-          const value = _bind$9;
+          const value = _bind$8;
           family_number.val = value;
           has_any.val = true;
           break _L$15;
@@ -45042,18 +44707,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$12: {
     _L$13: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "rFont";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "rFont";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$12 = _tag;
         break _L$13;
@@ -45064,18 +44722,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$14: {
       _L$15: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$12, 0, tag$12.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$15;
@@ -45090,18 +44748,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$13: {
     _L$14: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "color";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "color";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$13 = _tag;
         break _L$14;
@@ -45112,18 +44763,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$15: {
       _L$16: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$13, 0, tag$13.length);
-        const _bind$8 = "rgb";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "rgb";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$16;
@@ -45137,18 +44788,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$16: {
       _L$17: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$13, 0, tag$13.length);
-        const _bind$8 = "theme";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "theme";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val$2 = _val;
           break _L$17;
@@ -45158,17 +44809,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
       let _try_err;
       _L$18: {
         _L$19: {
-          const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val$2, 0, val$2.length), 10);
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val$2, 0, val$2.length), 10);
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$19;
           }
-          const value = _bind$9;
+          const value = _bind$8;
           color_theme.val = value;
           has_any.val = true;
           break _L$18;
@@ -45180,18 +44831,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$17: {
       _L$18: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$13, 0, tag$13.length);
-        const _bind$8 = "indexed";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "indexed";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val$3 = _val;
           break _L$18;
@@ -45201,17 +44852,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
       let _try_err;
       _L$19: {
         _L$20: {
-          const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val$3, 0, val$3.length), 10);
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(val$3, 0, val$3.length), 10);
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$20;
           }
-          const value = _bind$9;
+          const value = _bind$8;
           color_indexed.val = value;
           has_any.val = true;
           break _L$19;
@@ -45223,18 +44874,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$18: {
       _L$19: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$13, 0, tag$13.length);
-        const _bind$8 = "tint";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "tint";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val$4 = _val;
           break _L$19;
@@ -45244,17 +44895,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
       let _try_err;
       _L$20: {
         _L$21: {
-          const _bind$8 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(val$4, 0, val$4.length));
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(val$4, 0, val$4.length));
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$21;
           }
-          const value = _bind$9;
+          const value = _bind$8;
           color_tint.val = new _M0DTPC16option6OptionGdE4Some(value);
           has_any.val = true;
           break _L$20;
@@ -45267,18 +44918,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$14: {
     _L$15: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "vertAlign";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "vertAlign";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$14 = _tag;
         break _L$15;
@@ -45289,18 +44933,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$16: {
       _L$17: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$14, 0, tag$14.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$17;
@@ -45315,18 +44959,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
   _L$15: {
     _L$16: {
       const _tmp$2 = new _M0TPC16string10StringView(rpr_body, 0, rpr_body.length);
-      const _bind$8 = "scheme";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "scheme";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tag = _Some;
         tag$15 = _tag;
         break _L$16;
@@ -45337,18 +44974,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body) {
     _L$17: {
       _L$18: {
         const _tmp$2 = new _M0TPC16string10StringView(tag$15, 0, tag$15.length);
-        const _bind$8 = "val";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "val";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _val = _Some;
           val = _val;
           break _L$18;
@@ -45427,11 +45064,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(xml) {
   const index = new _M0TPB8MutLocalGiE(0);
   while (true) {
     if (index.val < xml_str.length) {
-      let rest;
-      _L: {
-        rest = _M0MPC16string6String11sub_2einner(xml_str, index.val, undefined);
-        break _L;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(xml_str, index.val, undefined);
       let rel;
       const _bind$5 = "<r";
       const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -45453,11 +45086,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(xml) {
         index.val = after;
         continue;
       }
-      let tail;
-      _L$2: {
-        tail = _M0MPC16string6String11sub_2einner(xml_str, after, undefined);
-        break _L$2;
-      }
+      const tail = _M0MPC16string6String11sub_2einner(xml_str, after, undefined);
       let open_end_rel;
       const _bind$7 = ">";
       const _bind$8 = _M0MPC16string10StringView4find(tail, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -45469,11 +45098,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(xml) {
         open_end_rel = _pos;
       }
       const body_start = (after + open_end_rel | 0) + 1 | 0;
-      let body_rest;
-      _L$3: {
-        body_rest = _M0MPC16string6String11sub_2einner(xml_str, body_start, undefined);
-        break _L$3;
-      }
+      const body_rest = _M0MPC16string6String11sub_2einner(xml_str, body_start, undefined);
       let close_rel;
       const _bind$9 = "</r>";
       const _bind$10 = _M0MPC16string10StringView4find(body_rest, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
@@ -45485,11 +45110,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(xml) {
         close_rel = _pos;
       }
       const body_end = body_start + close_rel | 0;
-      let body;
-      _L$4: {
-        body = _M0MPC16string6String11sub_2einner(xml_str, body_start, body_end);
-        break _L$4;
-      }
+      const body = _M0MPC16string6String11sub_2einner(xml_str, body_start, body_end);
       const run_text = _M0FP38bobzhang8mbtexcel4xlsx18parse__text__nodes(body);
       const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__font(body);
       let font;
@@ -45520,11 +45141,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__inline__string(rest) {
     const _pos = _Some;
     start = _pos;
   }
-  let after_start;
-  _L: {
-    after_start = _M0MPC16string6String11sub_2einner(text, start, undefined);
-    break _L;
-  }
+  const after_start = _M0MPC16string6String11sub_2einner(text, start, undefined);
   let open_end;
   const _bind$7 = ">";
   const _bind$8 = _M0MPC16string10StringView4find(after_start, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -45546,18 +45163,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__inline__string(rest) {
     const _pos = _Some;
     end = _pos;
   }
-  let body;
-  _L$2: {
-    body = _M0MPC16string6String11sub_2einner(text, body_start, end);
-    break _L$2;
-  }
+  const body = _M0MPC16string6String11sub_2einner(text, body_start, end);
   let runs;
   const _bind$11 = "<r";
   if (_M0MPC16string10StringView8contains(body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length))) {
     let parsed;
     let _try_err;
-    _L$3: {
-      _L$4: {
+    _L: {
+      _L$2: {
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(body);
         if (_bind$12.$tag === 1) {
           const _ok = _bind$12;
@@ -45565,9 +45178,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__inline__string(rest) {
         } else {
           const _err = _bind$12;
           _try_err = _err._0;
-          break _L$4;
+          break _L$2;
         }
-        break _L$3;
+        break _L;
       }
       parsed = [];
     }
@@ -45635,11 +45248,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__merge__cells(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let ref_value;
     const _bind$11 = "ref";
     const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -45670,7 +45279,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__merge__cells(xml) {
     } else {
       let row;
       let col;
-      _L$3: {
+      _L$2: {
         const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx17cell__ref__to__rc(new _M0TPC16string10StringView(ref_value, 0, ref_value.length));
         let _bind$16;
         if (_bind$15.$tag === 1) {
@@ -45683,7 +45292,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__merge__cells(xml) {
         const _col = _bind$16._1;
         row = _row;
         col = _col;
-        break _L$3;
+        break _L$2;
       }
       const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row, col);
       let cell_ref;
@@ -45757,14 +45366,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let id;
     let value;
-    _L$3: {
+    _L$2: {
       const _bind$10 = "id";
       const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
       let _bind$12;
@@ -45780,12 +45385,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
         const _Some = _bind$12;
         const _value = _Some;
         value = _value;
-        break _L$3;
+        break _L$2;
       }
     }
     let _try_err;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$10 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
         if (_bind$10.$tag === 1) {
           const _ok = _bind$10;
@@ -45793,16 +45398,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
         } else {
           const _err = _bind$10;
           _try_err = _err._0;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx9PageBreakERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("brk id invalid"));
     }
     let min;
     let value$2;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$10 = "min";
         const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
         let _bind$12;
@@ -45818,13 +45423,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
           const _Some = _bind$12;
           const _value = _Some;
           value$2 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       let _try_err$2;
-      _L$7: {
-        _L$8: {
+      _L$6: {
+        _L$7: {
           const _bind$10 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
           if (_bind$10.$tag === 1) {
             const _ok = _bind$10;
@@ -45832,17 +45437,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
           } else {
             const _err = _bind$10;
             _try_err$2 = _err._0;
-            break _L$8;
+            break _L$7;
           }
-          break _L$7;
+          break _L$6;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx9PageBreakERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("brk min invalid"));
       }
     }
     let max;
     let value$3;
-    _L$6: {
-      _L$7: {
+    _L$5: {
+      _L$6: {
         const _bind$10 = "max";
         const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
         let _bind$12;
@@ -45858,13 +45463,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
           const _Some = _bind$12;
           const _value = _Some;
           value$3 = _value;
-          break _L$7;
+          break _L$6;
         }
-        break _L$6;
+        break _L$5;
       }
       let _try_err$2;
-      _L$8: {
-        _L$9: {
+      _L$7: {
+        _L$8: {
           const _bind$10 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
           if (_bind$10.$tag === 1) {
             const _ok = _bind$10;
@@ -45872,17 +45477,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
           } else {
             const _err = _bind$10;
             _try_err$2 = _err._0;
-            break _L$9;
+            break _L$8;
           }
-          break _L$8;
+          break _L$7;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx9PageBreakERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("brk max invalid"));
       }
     }
     let manual;
     let value$4;
-    _L$7: {
-      _L$8: {
+    _L$6: {
+      _L$7: {
         const _bind$10 = "man";
         const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
         let _bind$12;
@@ -45898,9 +45503,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__breaks(xml, tag_name) {
           const _Some = _bind$12;
           const _value = _Some;
           value$4 = _value;
-          break _L$8;
+          break _L$7;
         }
-        break _L$7;
+        break _L$6;
       }
       manual = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$4, 0, value$4.length));
     }
@@ -45913,17 +45518,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   let tag;
   const _bind$5 = "pageSetup";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx17PageLayoutOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
@@ -45932,18 +45530,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "paperSize";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "paperSize";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value = _value;
         break _L$2;
@@ -45954,12 +45552,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
     let _try_err;
     _L$3: {
       _L$4: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$4;
         }
@@ -45973,18 +45571,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "orientation";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "orientation";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
         break _L$3;
@@ -45997,18 +45595,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$3: {
     _L$4: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "firstPageNumber";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "firstPageNumber";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
         break _L$4;
@@ -46019,12 +45617,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
     let _try_err;
     _L$5: {
       _L$6: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$6;
         }
@@ -46038,18 +45636,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$4: {
     _L$5: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "scale";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "scale";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$4 = _value;
         break _L$5;
@@ -46060,12 +45658,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
     let _try_err;
     _L$6: {
       _L$7: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$7;
         }
@@ -46079,18 +45677,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$5: {
     _L$6: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "fitToHeight";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "fitToHeight";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$5 = _value;
         break _L$6;
@@ -46101,12 +45699,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
     let _try_err;
     _L$7: {
       _L$8: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$5, 0, value$5.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$5, 0, value$5.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$8;
         }
@@ -46120,18 +45718,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$6: {
     _L$7: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "fitToWidth";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "fitToWidth";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$6 = _value;
         break _L$7;
@@ -46142,12 +45740,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
     let _try_err;
     _L$8: {
       _L$9: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$6, 0, value$6.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$6, 0, value$6.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$9;
         }
@@ -46161,18 +45759,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$7: {
     _L$8: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "blackAndWhite";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "blackAndWhite";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$7 = _value;
         break _L$8;
@@ -46185,18 +45783,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__page__layout(xml) {
   _L$8: {
     _L$9: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "pageOrder";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "pageOrder";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$8 = _value;
         break _L$9;
@@ -46214,16 +45812,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__page__margins(xml) {
     _L$2: {
       const _bind$5 = "pageMargins";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag = _tag;
         break _L$2;
@@ -46484,16 +46075,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__page__margins(xml) {
     _L$3: {
       const _bind$5 = "printOptions";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$2 = _tag;
         break _L$3;
@@ -46565,36 +46149,29 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__picture__rel__id(xml) {
   let tag;
   const _bind$5 = "picture";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
   let value;
   _L: {
     const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-    const _bind$8 = "r:id";
-    const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-    let _bind$10;
-    if (_bind$9.$tag === 1) {
-      const _ok = _bind$9;
-      _bind$10 = _ok._0;
+    const _bind$7 = "r:id";
+    const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+    let _bind$9;
+    if (_bind$8.$tag === 1) {
+      const _ok = _bind$8;
+      _bind$9 = _ok._0;
     } else {
-      return _bind$9;
+      return _bind$8;
     }
-    if (_bind$10 === undefined) {
+    if (_bind$9 === undefined) {
       return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("picture relationship missing"));
     } else {
-      const _Some = _bind$10;
+      const _Some = _bind$9;
       const _value = _Some;
       value = _value;
       break _L;
@@ -46854,11 +46431,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__sheet__dimension(xml) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
   let end;
   const _bind$5 = "/>";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -46877,13 +46450,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__sheet__dimension(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$3: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   let value;
-  _L$4: {
+  _L$2: {
     const _bind$7 = "ref";
     const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
     let _bind$9;
@@ -46899,7 +46468,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__sheet__dimension(xml) {
       const _Some = _bind$9;
       const _value = _Some;
       value = _value;
-      break _L$4;
+      break _L$2;
     }
   }
   return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length)));
@@ -46911,16 +46480,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__props(xml) {
     _L$2: {
       const _bind$5 = "sheetPr";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag = _tag;
         break _L$2;
@@ -47007,16 +46569,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__props(xml) {
     _L$3: {
       const _bind$5 = "tabColor";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$2 = _tag;
         break _L$3;
@@ -47186,16 +46741,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__props(xml) {
     _L$4: {
       const _bind$5 = "outlinePr";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$3 = _tag;
         break _L$4;
@@ -47266,16 +46814,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__props(xml) {
     _L$5: {
       const _bind$5 = "pageSetUpPr";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$4 = _tag;
         break _L$5;
@@ -47346,16 +46887,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__props(xml) {
     _L$6: {
       const _bind$5 = "sheetFormatPr";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$5 = _tag;
         break _L$6;
@@ -47610,17 +47144,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   let tag;
   const _bind$5 = "sheetProtection";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx15SheetProtectionRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
@@ -47629,18 +47156,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "spinCount";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "spinCount";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value = _value;
         break _L$2;
@@ -47651,12 +47178,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
     let _try_err;
     _L$3: {
       _L$4: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$4;
         }
@@ -47671,19 +47198,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$2: {
     _L$3: {
       const _tmp$3 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "algorithmName";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "algorithmName";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$2 = "";
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
         break _L$3;
@@ -47698,19 +47225,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$3: {
     _L$4: {
       const _tmp$5 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "password";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$5, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "password";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$5, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$4 = "";
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
         break _L$4;
@@ -47725,19 +47252,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$4: {
     _L$5: {
       const _tmp$7 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "hashValue";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$7, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "hashValue";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$7, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$6 = "";
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$4 = _value;
         break _L$5;
@@ -47752,19 +47279,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$5: {
     _L$6: {
       const _tmp$9 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "saltValue";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "saltValue";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$8 = "";
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$5 = _value;
         break _L$6;
@@ -47780,19 +47307,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$6: {
     _L$7: {
       const _tmp$12 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "sheet";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "sheet";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$11 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$6 = _value;
         break _L$7;
@@ -47807,19 +47334,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$7: {
     _L$8: {
       const _tmp$14 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "objects";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$14, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "objects";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$14, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$13 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$7 = _value;
         break _L$8;
@@ -47834,19 +47361,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$8: {
     _L$9: {
       const _tmp$16 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "scenarios";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$16, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "scenarios";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$16, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$15 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$8 = _value;
         break _L$9;
@@ -47861,19 +47388,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$9: {
     _L$10: {
       const _tmp$18 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "formatCells";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$18, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "formatCells";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$18, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$17 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$9 = _value;
         break _L$10;
@@ -47888,19 +47415,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$10: {
     _L$11: {
       const _tmp$20 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "formatColumns";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$20, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "formatColumns";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$20, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$19 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$10 = _value;
         break _L$11;
@@ -47915,19 +47442,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$11: {
     _L$12: {
       const _tmp$22 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "formatRows";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$22, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "formatRows";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$22, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$21 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$11 = _value;
         break _L$12;
@@ -47942,19 +47469,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$12: {
     _L$13: {
       const _tmp$24 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "insertColumns";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$24, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "insertColumns";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$24, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$23 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$12 = _value;
         break _L$13;
@@ -47969,19 +47496,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$13: {
     _L$14: {
       const _tmp$26 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "insertRows";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$26, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "insertRows";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$26, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$25 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$13 = _value;
         break _L$14;
@@ -47996,19 +47523,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$14: {
     _L$15: {
       const _tmp$28 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "insertHyperlinks";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$28, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "insertHyperlinks";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$28, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$27 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$14 = _value;
         break _L$15;
@@ -48023,19 +47550,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$15: {
     _L$16: {
       const _tmp$30 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "deleteColumns";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$30, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "deleteColumns";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$30, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$29 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$15 = _value;
         break _L$16;
@@ -48050,19 +47577,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$16: {
     _L$17: {
       const _tmp$32 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "deleteRows";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$32, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "deleteRows";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$32, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$31 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$16 = _value;
         break _L$17;
@@ -48077,19 +47604,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$17: {
     _L$18: {
       const _tmp$34 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "selectLockedCells";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$34, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "selectLockedCells";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$34, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$33 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$17 = _value;
         break _L$18;
@@ -48104,19 +47631,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$18: {
     _L$19: {
       const _tmp$36 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "sort";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$36, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "sort";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$36, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$35 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$18 = _value;
         break _L$19;
@@ -48131,19 +47658,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$19: {
     _L$20: {
       const _tmp$38 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "autoFilter";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$38, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "autoFilter";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$38, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$37 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$19 = _value;
         break _L$20;
@@ -48158,19 +47685,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$20: {
     _L$21: {
       const _tmp$40 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "pivotTables";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$40, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "pivotTables";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$40, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$39 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$20 = _value;
         break _L$21;
@@ -48185,19 +47712,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__protection(xml) {
   _L$21: {
     _L$22: {
       const _tmp$42 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "selectUnlockedCells";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$42, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "selectUnlockedCells";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$42, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         _tmp$41 = false;
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$21 = _value;
         break _L$22;
@@ -48248,15 +47775,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     const pane = _M0MP38bobzhang8mbtexcel4xlsx9SheetPane3new();
     let value;
-    _L$3: {
-      _L$4: {
+    _L$2: {
+      _L$3: {
         const _bind$8 = "activePane";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48271,15 +47794,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value = _value;
-          break _L$4;
+          break _L$3;
         }
-        break _L$3;
+        break _L$2;
       }
       pane.active_pane = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     }
     let value$2;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$8 = "state";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48294,15 +47817,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value$2 = _value;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       pane.state = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
     }
     let value$3;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$8 = "topLeftCell";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48317,15 +47840,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value$3 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       pane.top_left_cell = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
     }
     let value$4;
-    _L$6: {
-      _L$7: {
+    _L$5: {
+      _L$6: {
         const _bind$8 = "xSplit";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48340,14 +47863,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value$4 = _value;
-          break _L$7;
+          break _L$6;
         }
-        break _L$6;
+        break _L$5;
       }
       let _tmp$2;
       let _try_err;
-      _L$8: {
-        _L$9: {
+      _L$7: {
+        _L$8: {
           const _bind$8 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(value$4, 0, value$4.length));
           if (_bind$8.$tag === 1) {
             const _ok = _bind$8;
@@ -48355,17 +47878,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           } else {
             const _err = _bind$8;
             _try_err = _err._0;
-            break _L$9;
+            break _L$8;
           }
-          break _L$8;
+          break _L$7;
         }
         return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx9SheetPaneRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("pane xSplit invalid"));
       }
       pane.x_split = _tmp$2;
     }
     let value$5;
-    _L$7: {
-      _L$8: {
+    _L$6: {
+      _L$7: {
         const _bind$8 = "ySplit";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48380,14 +47903,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value$5 = _value;
-          break _L$8;
+          break _L$7;
         }
-        break _L$7;
+        break _L$6;
       }
       let _tmp$2;
       let _try_err;
-      _L$9: {
-        _L$10: {
+      _L$8: {
+        _L$9: {
           const _bind$8 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(value$5, 0, value$5.length));
           if (_bind$8.$tag === 1) {
             const _ok = _bind$8;
@@ -48395,9 +47918,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(body) {
           } else {
             const _err = _bind$8;
             _try_err = _err._0;
-            break _L$10;
+            break _L$9;
           }
-          break _L$9;
+          break _L$8;
         }
         return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx9SheetPaneRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("pane ySplit invalid"));
       }
@@ -48448,15 +47971,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__sheet__view__selections(body) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     const selection = new _M0TP38bobzhang8mbtexcel4xlsx9Selection("", "", "");
     let value;
-    _L$3: {
-      _L$4: {
+    _L$2: {
+      _L$3: {
         const _bind$8 = "sqref";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48471,15 +47990,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__sheet__view__selections(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value = _value;
-          break _L$4;
+          break _L$3;
         }
-        break _L$3;
+        break _L$2;
       }
       selection.sqref = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     }
     let value$2;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$8 = "activeCell";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48494,15 +48013,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__sheet__view__selections(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value$2 = _value;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       selection.active_cell = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
     }
     let value$3;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$8 = "pane";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -48517,9 +48036,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__sheet__view__selections(body) {
           const _Some = _bind$10;
           const _value = _Some;
           value$3 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       selection.pane = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
     }
@@ -48578,15 +48097,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     const view = _M0MP38bobzhang8mbtexcel4xlsx9SheetView3new();
     let value;
-    _L$3: {
-      _L$4: {
+    _L$2: {
+      _L$3: {
         const _bind$11 = "defaultGridColor";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48601,15 +48116,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value = _value;
-          break _L$4;
+          break _L$3;
         }
-        break _L$3;
+        break _L$2;
       }
       view.default_grid_color = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value, 0, value.length));
     }
     let value$2;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$11 = "rightToLeft";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48624,15 +48139,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$2 = _value;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       view.right_to_left = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$2, 0, value$2.length));
     }
     let value$3;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$11 = "showFormulas";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48647,15 +48162,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$3 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       view.show_formulas = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$3, 0, value$3.length));
     }
     let value$4;
-    _L$6: {
-      _L$7: {
+    _L$5: {
+      _L$6: {
         const _bind$11 = "showGridLines";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48670,15 +48185,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$4 = _value;
-          break _L$7;
+          break _L$6;
         }
-        break _L$6;
+        break _L$5;
       }
       view.show_grid_lines = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$4, 0, value$4.length));
     }
     let value$5;
-    _L$7: {
-      _L$8: {
+    _L$6: {
+      _L$7: {
         const _bind$11 = "showRowColHeaders";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48693,15 +48208,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$5 = _value;
-          break _L$8;
+          break _L$7;
         }
-        break _L$7;
+        break _L$6;
       }
       view.show_row_col_headers = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$5, 0, value$5.length));
     }
     let value$6;
-    _L$8: {
-      _L$9: {
+    _L$7: {
+      _L$8: {
         const _bind$11 = "showRuler";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48716,15 +48231,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$6 = _value;
-          break _L$9;
+          break _L$8;
         }
-        break _L$8;
+        break _L$7;
       }
       view.show_ruler = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$6, 0, value$6.length));
     }
     let value$7;
-    _L$9: {
-      _L$10: {
+    _L$8: {
+      _L$9: {
         const _bind$11 = "showZeros";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48739,15 +48254,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$7 = _value;
-          break _L$10;
+          break _L$9;
         }
-        break _L$9;
+        break _L$8;
       }
       view.show_zeros = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$7, 0, value$7.length));
     }
     let value$8;
-    _L$10: {
-      _L$11: {
+    _L$9: {
+      _L$10: {
         const _bind$11 = "topLeftCell";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48762,15 +48277,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$8 = _value;
-          break _L$11;
+          break _L$10;
         }
-        break _L$10;
+        break _L$9;
       }
       view.top_left_cell = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$8, 0, value$8.length));
     }
     let value$9;
-    _L$11: {
-      _L$12: {
+    _L$10: {
+      _L$11: {
         const _bind$11 = "view";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48785,15 +48300,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$9 = _value;
-          break _L$12;
+          break _L$11;
         }
-        break _L$11;
+        break _L$10;
       }
       view.view = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$9, 0, value$9.length));
     }
     let value$10;
-    _L$12: {
-      _L$13: {
+    _L$11: {
+      _L$12: {
         const _bind$11 = "zoomScale";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48808,14 +48323,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$10 = _value;
-          break _L$13;
+          break _L$12;
         }
-        break _L$12;
+        break _L$11;
       }
       let _tmp$2;
       let _try_err;
-      _L$14: {
-        _L$15: {
+      _L$13: {
+        _L$14: {
           const _bind$11 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(value$10, 0, value$10.length));
           if (_bind$11.$tag === 1) {
             const _ok = _bind$11;
@@ -48823,17 +48338,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           } else {
             const _err = _bind$11;
             _try_err = _err._0;
-            break _L$15;
+            break _L$14;
           }
-          break _L$14;
+          break _L$13;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx9SheetViewERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("sheetView zoomScale invalid"));
       }
       view.zoom_scale = new _M0DTPC16option6OptionGdE4Some(_tmp$2);
     }
     let value$11;
-    _L$13: {
-      _L$14: {
+    _L$12: {
+      _L$13: {
         const _bind$11 = "tabSelected";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48848,15 +48363,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$11 = _value;
-          break _L$14;
+          break _L$13;
         }
-        break _L$13;
+        break _L$12;
       }
       view.tab_selected = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$11, 0, value$11.length));
     }
     let value$12;
-    _L$14: {
-      _L$15: {
+    _L$13: {
+      _L$14: {
         const _bind$11 = "workbookViewId";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -48871,14 +48386,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$12 = _value;
-          break _L$15;
+          break _L$14;
         }
-        break _L$14;
+        break _L$13;
       }
       let _tmp$2;
       let _try_err;
-      _L$16: {
-        _L$17: {
+      _L$15: {
+        _L$16: {
           const _bind$11 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$12, 0, value$12.length), 10);
           if (_bind$11.$tag === 1) {
             const _ok = _bind$11;
@@ -48886,9 +48401,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
           } else {
             const _err = _bind$11;
             _try_err = _err._0;
-            break _L$17;
+            break _L$16;
           }
-          break _L$16;
+          break _L$15;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx9SheetViewERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("sheetView workbookViewId invalid"));
       }
@@ -48910,11 +48425,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__sheet__views(xml) {
       }
       const body_start = end + 1 | 0;
       if (close > body_start) {
-        let inner;
-        _L$15: {
-          inner = _M0MPC16string6String11sub_2einner(text, body_start, close);
-          break _L$15;
-        }
+        const inner = _M0MPC16string6String11sub_2einner(text, body_start, close);
         const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx24parse__sheet__view__pane(inner);
         let _tmp$3;
         if (_bind$14.$tag === 1) {
@@ -49757,11 +49268,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__active__sheet__index(xml) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
   let end;
   const _bind$5 = ">";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -49772,13 +49279,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__active__sheet__index(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$3: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   let value;
-  _L$4: {
+  _L$2: {
     const _bind$7 = "activeTab";
     const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
     let _bind$9;
@@ -49794,13 +49297,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__active__sheet__index(xml) {
       const _Some = _bind$9;
       const _value = _Some;
       value = _value;
-      break _L$4;
+      break _L$2;
     }
   }
   let _tmp$2;
   let _try_err;
-  _L$5: {
-    _L$6: {
+  _L$3: {
+    _L$4: {
       const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
       if (_bind$7.$tag === 1) {
         const _ok = _bind$7;
@@ -49808,9 +49311,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__active__sheet__index(xml) {
       } else {
         const _err = _bind$7;
         _try_err = _err._0;
-        break _L$6;
+        break _L$4;
       }
-      break _L$5;
+      break _L$3;
     }
     return new _M0DTPC16result6ResultGOiRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("activeTab invalid"));
   }
@@ -49831,11 +49334,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__workbook__props(xml) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
   let end;
   const _bind$5 = ">";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -49846,15 +49345,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__workbook__props(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$3: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   const props = _M0MP38bobzhang8mbtexcel4xlsx20WorkbookPropsOptions3new();
   let value;
-  _L$4: {
-    _L$5: {
+  _L$2: {
+    _L$3: {
       const _bind$7 = "date1904";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -49869,15 +49364,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__workbook__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value = _value;
-        break _L$5;
+        break _L$3;
       }
-      break _L$4;
+      break _L$2;
     }
     props.date_1904 = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value, 0, value.length));
   }
   let value$2;
-  _L$5: {
-    _L$6: {
+  _L$3: {
+    _L$4: {
       const _bind$7 = "filterPrivacy";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -49892,15 +49387,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__workbook__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
-        break _L$6;
+        break _L$4;
       }
-      break _L$5;
+      break _L$3;
     }
     props.filter_privacy = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$2, 0, value$2.length));
   }
   let value$3;
-  _L$6: {
-    _L$7: {
+  _L$4: {
+    _L$5: {
       const _bind$7 = "codeName";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -49915,9 +49410,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__workbook__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
-        break _L$7;
+        break _L$5;
       }
-      break _L$6;
+      break _L$4;
     }
     props.code_name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
   }
@@ -49938,11 +49433,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
   let end;
   const _bind$5 = ">";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -49953,15 +49444,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$3: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   const props = _M0MP38bobzhang8mbtexcel4xlsx16CalcPropsOptions3new();
   let value;
-  _L$4: {
-    _L$5: {
+  _L$2: {
+    _L$3: {
       const _bind$7 = "calcId";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -49976,14 +49463,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value = _value;
-        break _L$5;
+        break _L$3;
       }
-      break _L$4;
+      break _L$2;
     }
     let _tmp$2;
     let _try_err;
-    _L$6: {
-      _L$7: {
+    _L$4: {
+      _L$5: {
         const _bind$7 = _M0FPC17strconv19parse__uint_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
         if (_bind$7.$tag === 1) {
           const _ok = _bind$7;
@@ -49991,17 +49478,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         } else {
           const _err = _bind$7;
           _try_err = _err._0;
-          break _L$7;
+          break _L$5;
         }
-        break _L$6;
+        break _L$4;
       }
       return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx16CalcPropsOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("calcId invalid"));
     }
     props.calc_id = _tmp$2;
   }
   let value$2;
-  _L$5: {
-    _L$6: {
+  _L$3: {
+    _L$4: {
       const _bind$7 = "calcMode";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50016,12 +49503,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
-        break _L$6;
+        break _L$4;
       }
-      break _L$5;
+      break _L$3;
     }
     let mode;
-    _L$7: {
+    _L$5: {
       const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx21normalize__calc__mode(new _M0TPC16string10StringView(value$2, 0, value$2.length));
       if (_bind$7 === undefined) {
         return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx16CalcPropsOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("calcMode invalid"));
@@ -50029,14 +49516,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$7;
         const _mode = _Some;
         mode = _mode;
-        break _L$7;
+        break _L$5;
       }
     }
     props.calc_mode = mode;
   }
   let value$3;
-  _L$6: {
-    _L$7: {
+  _L$4: {
+    _L$5: {
       const _bind$7 = "fullCalcOnLoad";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50051,15 +49538,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
-        break _L$7;
+        break _L$5;
       }
-      break _L$6;
+      break _L$4;
     }
     props.full_calc_on_load = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$3, 0, value$3.length));
   }
   let value$4;
-  _L$7: {
-    _L$8: {
+  _L$5: {
+    _L$6: {
       const _bind$7 = "refMode";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50074,12 +49561,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$4 = _value;
-        break _L$8;
+        break _L$6;
       }
-      break _L$7;
+      break _L$5;
     }
     let mode;
-    _L$9: {
+    _L$7: {
       const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx20normalize__ref__mode(new _M0TPC16string10StringView(value$4, 0, value$4.length));
       if (_bind$7 === undefined) {
         return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx16CalcPropsOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("refMode invalid"));
@@ -50087,14 +49574,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$7;
         const _mode = _Some;
         mode = _mode;
-        break _L$9;
+        break _L$7;
       }
     }
     props.ref_mode = mode;
   }
   let value$5;
-  _L$8: {
-    _L$9: {
+  _L$6: {
+    _L$7: {
       const _bind$7 = "iterate";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50109,15 +49596,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$5 = _value;
-        break _L$9;
+        break _L$7;
       }
-      break _L$8;
+      break _L$6;
     }
     props.iterate = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$5, 0, value$5.length));
   }
   let value$6;
-  _L$9: {
-    _L$10: {
+  _L$7: {
+    _L$8: {
       const _bind$7 = "iterateCount";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50132,14 +49619,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$6 = _value;
-        break _L$10;
+        break _L$8;
       }
-      break _L$9;
+      break _L$7;
     }
     let _tmp$2;
     let _try_err;
-    _L$11: {
-      _L$12: {
+    _L$9: {
+      _L$10: {
         const _bind$7 = _M0FPC17strconv19parse__uint_2einner(new _M0TPC16string10StringView(value$6, 0, value$6.length), 10);
         if (_bind$7.$tag === 1) {
           const _ok = _bind$7;
@@ -50147,17 +49634,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         } else {
           const _err = _bind$7;
           _try_err = _err._0;
-          break _L$12;
+          break _L$10;
         }
-        break _L$11;
+        break _L$9;
       }
       return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx16CalcPropsOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("iterateCount invalid"));
     }
     props.iterate_count = _tmp$2;
   }
   let value$7;
-  _L$10: {
-    _L$11: {
+  _L$8: {
+    _L$9: {
       const _bind$7 = "iterateDelta";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50172,14 +49659,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$7 = _value;
-        break _L$11;
+        break _L$9;
       }
-      break _L$10;
+      break _L$8;
     }
     let _tmp$2;
     let _try_err;
-    _L$12: {
-      _L$13: {
+    _L$10: {
+      _L$11: {
         const _bind$7 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(value$7, 0, value$7.length));
         if (_bind$7.$tag === 1) {
           const _ok = _bind$7;
@@ -50187,17 +49674,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         } else {
           const _err = _bind$7;
           _try_err = _err._0;
-          break _L$13;
+          break _L$11;
         }
-        break _L$12;
+        break _L$10;
       }
       return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx16CalcPropsOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("iterateDelta invalid"));
     }
     props.iterate_delta = new _M0DTPC16option6OptionGdE4Some(_tmp$2);
   }
   let value$8;
-  _L$11: {
-    _L$12: {
+  _L$9: {
+    _L$10: {
       const _bind$7 = "fullPrecision";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50212,15 +49699,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$8 = _value;
-        break _L$12;
+        break _L$10;
       }
-      break _L$11;
+      break _L$9;
     }
     props.full_precision = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$8, 0, value$8.length));
   }
   let value$9;
-  _L$12: {
-    _L$13: {
+  _L$10: {
+    _L$11: {
       const _bind$7 = "calcCompleted";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50235,15 +49722,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$9 = _value;
-        break _L$13;
+        break _L$11;
       }
-      break _L$12;
+      break _L$10;
     }
     props.calc_completed = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$9, 0, value$9.length));
   }
   let value$10;
-  _L$13: {
-    _L$14: {
+  _L$11: {
+    _L$12: {
       const _bind$7 = "calcOnSave";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50258,15 +49745,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$10 = _value;
-        break _L$14;
+        break _L$12;
       }
-      break _L$13;
+      break _L$11;
     }
     props.calc_on_save = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$10, 0, value$10.length));
   }
   let value$11;
-  _L$14: {
-    _L$15: {
+  _L$12: {
+    _L$13: {
       const _bind$7 = "concurrentCalc";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50281,15 +49768,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$11 = _value;
-        break _L$15;
+        break _L$13;
       }
-      break _L$14;
+      break _L$12;
     }
     props.concurrent_calc = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$11, 0, value$11.length));
   }
   let value$12;
-  _L$15: {
-    _L$16: {
+  _L$13: {
+    _L$14: {
       const _bind$7 = "concurrentManualCount";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50304,14 +49791,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$12 = _value;
-        break _L$16;
+        break _L$14;
       }
-      break _L$15;
+      break _L$13;
     }
     let _tmp$2;
     let _try_err;
-    _L$17: {
-      _L$18: {
+    _L$15: {
+      _L$16: {
         const _bind$7 = _M0FPC17strconv19parse__uint_2einner(new _M0TPC16string10StringView(value$12, 0, value$12.length), 10);
         if (_bind$7.$tag === 1) {
           const _ok = _bind$7;
@@ -50319,17 +49806,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         } else {
           const _err = _bind$7;
           _try_err = _err._0;
-          break _L$18;
+          break _L$16;
         }
-        break _L$17;
+        break _L$15;
       }
       return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx16CalcPropsOptionsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("concurrentManualCount invalid"));
     }
     props.concurrent_manual_count = _tmp$2;
   }
   let value$13;
-  _L$16: {
-    _L$17: {
+  _L$14: {
+    _L$15: {
       const _bind$7 = "forceFullCalc";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50344,9 +49831,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__calc__props(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$13 = _value;
-        break _L$17;
+        break _L$15;
       }
-      break _L$16;
+      break _L$14;
     }
     props.force_full_calc = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$13, 0, value$13.length));
   }
@@ -50367,11 +49854,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
   let end;
   const _bind$5 = ">";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -50382,15 +49865,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$3: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   const protection = new _M0TP38bobzhang8mbtexcel4xlsx18WorkbookProtection(false, false, "", "", "", 0);
   let value;
-  _L$4: {
-    _L$5: {
+  _L$2: {
+    _L$3: {
       const _bind$7 = "lockStructure";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50405,15 +49884,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value = _value;
-        break _L$5;
+        break _L$3;
       }
-      break _L$4;
+      break _L$2;
     }
     protection.lock_structure = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value, 0, value.length));
   }
   let value$2;
-  _L$5: {
-    _L$6: {
+  _L$3: {
+    _L$4: {
       const _bind$7 = "lockWindows";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50428,15 +49907,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
-        break _L$6;
+        break _L$4;
       }
-      break _L$5;
+      break _L$3;
     }
     protection.lock_windows = _M0FP38bobzhang8mbtexcel4xlsx17parse__cell__bool(new _M0TPC16string10StringView(value$2, 0, value$2.length));
   }
   let value$3;
-  _L$6: {
-    _L$7: {
+  _L$4: {
+    _L$5: {
       const _bind$7 = "workbookAlgorithmName";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50451,15 +49930,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
-        break _L$7;
+        break _L$5;
       }
-      break _L$6;
+      break _L$4;
     }
     protection.algorithm_name = value$3;
   }
   let value$4;
-  _L$7: {
-    _L$8: {
+  _L$5: {
+    _L$6: {
       const _bind$7 = "workbookHashValue";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50474,15 +49953,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$4 = _value;
-        break _L$8;
+        break _L$6;
       }
-      break _L$7;
+      break _L$5;
     }
     protection.hash_value = value$4;
   }
   let value$5;
-  _L$8: {
-    _L$9: {
+  _L$6: {
+    _L$7: {
       const _bind$7 = "workbookSaltValue";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50497,15 +49976,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$5 = _value;
-        break _L$9;
+        break _L$7;
       }
-      break _L$8;
+      break _L$6;
     }
     protection.salt_value = value$5;
   }
   let value$6;
-  _L$9: {
-    _L$10: {
+  _L$7: {
+    _L$8: {
       const _bind$7 = "workbookSpinCount";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
       let _bind$9;
@@ -50520,14 +49999,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         const _Some = _bind$9;
         const _value = _Some;
         value$6 = _value;
-        break _L$10;
+        break _L$8;
       }
-      break _L$9;
+      break _L$7;
     }
     let _tmp$2;
     let _try_err;
-    _L$11: {
-      _L$12: {
+    _L$9: {
+      _L$10: {
         const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$6, 0, value$6.length), 10);
         if (_bind$7.$tag === 1) {
           const _ok = _bind$7;
@@ -50535,9 +50014,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__workbook__protection(xml) {
         } else {
           const _err = _bind$7;
           _try_err = _err._0;
-          break _L$12;
+          break _L$10;
         }
-        break _L$11;
+        break _L$9;
       }
       return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx18WorkbookProtectionRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("workbookSpinCount invalid"));
     }
@@ -50604,11 +50083,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__num__fmts(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let id_text;
     const _bind$12 = "numFmtId";
     const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
@@ -50645,8 +50120,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__num__fmts(xml) {
     }
     let id;
     let _try_err;
-    _L$3: {
-      _L$4: {
+    _L$2: {
+      _L$3: {
         const _bind$18 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(id_text, 0, id_text.length), 10);
         if (_bind$18.$tag === 1) {
           const _ok = _bind$18;
@@ -50654,9 +50129,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__num__fmts(xml) {
         } else {
           const _err = _bind$18;
           _try_err = _err._0;
-          break _L$4;
+          break _L$3;
         }
-        break _L$3;
+        break _L$2;
       }
       return new _M0DTPC16result6ResultGRPB3MapGisERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("numFmtId invalid"));
     }
@@ -50669,17 +50144,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   let tag;
   const _bind$5 = "alignment";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx9AlignmentRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
@@ -50688,18 +50156,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "horizontal";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "horizontal";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value = _value;
         break _L$2;
@@ -50712,18 +50180,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "vertical";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "vertical";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
         break _L$3;
@@ -50736,18 +50204,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$3: {
     _L$4: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "wrapText";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "wrapText";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$3 = _value;
         break _L$4;
@@ -50760,18 +50228,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$4: {
     _L$5: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "textRotation";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "textRotation";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$4 = _value;
         break _L$5;
@@ -50782,12 +50250,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
     let _try_err;
     _L$6: {
       _L$7: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$7;
         }
@@ -50801,18 +50269,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$5: {
     _L$6: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "indent";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "indent";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$5 = _value;
         break _L$6;
@@ -50823,12 +50291,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
     let _try_err;
     _L$7: {
       _L$8: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$5, 0, value$5.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$5, 0, value$5.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$8;
         }
@@ -50842,18 +50310,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$6: {
     _L$7: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "shrinkToFit";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "shrinkToFit";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$6 = _value;
         break _L$7;
@@ -50866,18 +50334,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$7: {
     _L$8: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "justifyLastLine";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "justifyLastLine";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$7 = _value;
         break _L$8;
@@ -50890,18 +50358,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$8: {
     _L$9: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "readingOrder";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "readingOrder";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$8 = _value;
         break _L$9;
@@ -50912,12 +50380,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
     let _try_err;
     _L$10: {
       _L$11: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$8, 0, value$8.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$8, 0, value$8.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$11;
         }
@@ -50931,18 +50399,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
   _L$9: {
     _L$10: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "relativeIndent";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "relativeIndent";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$9 = _value;
         break _L$10;
@@ -50953,12 +50421,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
     let _try_err;
     _L$11: {
       _L$12: {
-        const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$9, 0, value$9.length), 10);
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
+        const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$9, 0, value$9.length), 10);
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
           _tmp$2 = _ok._0;
         } else {
-          const _err = _bind$8;
+          const _err = _bind$7;
           _try_err = _err._0;
           break _L$12;
         }
@@ -50969,24 +50437,24 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(xml) {
     alignment.relative_indent = _tmp$2;
   }
   _L$10: {
-    const _bind$8 = alignment.horizontal;
-    const _bind$9 = alignment.vertical;
-    const _bind$10 = alignment.wrap_text;
-    const _bind$11 = alignment.text_rotation;
-    const _bind$12 = alignment.indent;
-    const _bind$13 = alignment.shrink_to_fit;
-    const _bind$14 = alignment.justify_last_line;
-    const _bind$15 = alignment.reading_order;
-    const _bind$16 = alignment.relative_indent;
-    if (_bind$8 === undefined) {
-      if (_bind$9 === undefined) {
-        if (_bind$10 === -1) {
-          if (_bind$11 === undefined) {
-            if (_bind$12 === undefined) {
-              if (_bind$13 === -1) {
-                if (_bind$14 === -1) {
-                  if (_bind$15 === undefined) {
-                    if (_bind$16 === undefined) {
+    const _bind$7 = alignment.horizontal;
+    const _bind$8 = alignment.vertical;
+    const _bind$9 = alignment.wrap_text;
+    const _bind$10 = alignment.text_rotation;
+    const _bind$11 = alignment.indent;
+    const _bind$12 = alignment.shrink_to_fit;
+    const _bind$13 = alignment.justify_last_line;
+    const _bind$14 = alignment.reading_order;
+    const _bind$15 = alignment.relative_indent;
+    if (_bind$7 === undefined) {
+      if (_bind$8 === undefined) {
+        if (_bind$9 === -1) {
+          if (_bind$10 === undefined) {
+            if (_bind$11 === undefined) {
+              if (_bind$12 === -1) {
+                if (_bind$13 === -1) {
+                  if (_bind$14 === undefined) {
+                    if (_bind$15 === undefined) {
                       return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx9AlignmentRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
                     } else {
                       break _L$10;
@@ -51022,17 +50490,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__protection__entry(xml) {
   let tag;
   const _bind$5 = "protection";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx10ProtectionRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
@@ -51041,18 +50502,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__protection__entry(xml) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "hidden";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "hidden";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value = _value;
         break _L$2;
@@ -51065,18 +50526,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__protection__entry(xml) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "locked";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "locked";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
         break _L$3;
@@ -51086,10 +50547,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__protection__entry(xml) {
     protection.locked = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$2, 0, value$2.length));
   }
   _L$3: {
-    const _bind$8 = protection.hidden;
-    const _bind$9 = protection.locked;
-    if (_bind$8 === -1) {
-      if (_bind$9 === -1) {
+    const _bind$7 = protection.hidden;
+    const _bind$8 = protection.locked;
+    if (_bind$7 === -1) {
+      if (_bind$8 === -1) {
         return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx10ProtectionRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
       } else {
         break _L$3;
@@ -51151,31 +50612,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
       const _pos = _Some;
       open_end = _pos;
     }
-    let open_tag;
-    _L$2: {
-      open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
-      break _L$2;
-    }
+    const open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
     const _bind$11 = "/";
     const self_closing = _M0MPC16string10StringView11has__suffix(open_tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-    let tag;
-    if (self_closing) {
-      _L$3: {
-        tag = _M0MPC16string10StringView11sub_2einner(open_tag, 0, _M0MPC16string10StringView6length(open_tag) - 1 | 0);
-        break _L$3;
-      }
-    } else {
-      tag = open_tag;
-    }
+    const tag = self_closing ? _M0MPC16string10StringView11sub_2einner(open_tag, 0, _M0MPC16string10StringView6length(open_tag) - 1 | 0) : open_tag;
     let xf_body;
     if (self_closing) {
       xf_body = "";
     } else {
-      let rest;
-      _L$3: {
-        rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
-        break _L$3;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
       let close;
       const _bind$12 = "</xf>";
       const _bind$13 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
@@ -51186,17 +50631,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
         const _pos = _Some;
         close = _pos;
       }
-      let _tmp$2;
-      _L$4: {
-        _tmp$2 = _M0MPC16string10StringView11sub_2einner(rest, 0, close);
-        break _L$4;
-      }
-      xf_body = _M0IPC16string10StringViewPB4Show10to__string(_tmp$2);
+      xf_body = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string10StringView11sub_2einner(rest, 0, close));
     }
     let num_fmt_id;
     let value;
-    _L$3: {
-      _L$4: {
+    _L$2: {
+      _L$3: {
         const _bind$12 = "numFmtId";
         const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
         let _bind$14;
@@ -51212,13 +50652,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           const _Some = _bind$14;
           const _value = _Some;
           value = _value;
-          break _L$4;
+          break _L$3;
         }
-        break _L$3;
+        break _L$2;
       }
       let _try_err;
-      _L$5: {
-        _L$6: {
+      _L$4: {
+        _L$5: {
           const _bind$12 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
           if (_bind$12.$tag === 1) {
             const _ok = _bind$12;
@@ -51226,17 +50666,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$6;
+            break _L$5;
           }
-          break _L$5;
+          break _L$4;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5StyleERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("numFmtId invalid"));
       }
     }
     let _tmp$2;
     let code;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$12 = _M0MPB3Map3getGisE(num_fmts, num_fmt_id);
         if (_bind$12 === undefined) {
           _tmp$2 = num_fmt_id === 0 ? _M0MP38bobzhang8mbtexcel4xlsx5Style3new() : _M0MP38bobzhang8mbtexcel4xlsx5Style23builtin__number__format(num_fmt_id);
@@ -51244,17 +50684,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           const _Some = _bind$12;
           const _code = _Some;
           code = _code;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       _tmp$2 = _M0MP38bobzhang8mbtexcel4xlsx5Style14number__format(code);
     }
     const style = new _M0TPB8MutLocalGRP38bobzhang8mbtexcel4xlsx5StyleE(_tmp$2);
     let font_id;
     let value$2;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$12 = "fontId";
         const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
         let _bind$14;
@@ -51270,13 +50710,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           const _Some = _bind$14;
           const _value = _Some;
           value$2 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       let _try_err;
-      _L$7: {
-        _L$8: {
+      _L$6: {
+        _L$7: {
           const _bind$12 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
           if (_bind$12.$tag === 1) {
             const _ok = _bind$12;
@@ -51284,9 +50724,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$8;
+            break _L$7;
           }
-          break _L$7;
+          break _L$6;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5StyleERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("fontId invalid"));
       }
@@ -51296,8 +50736,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
     }
     let fill_id;
     let value$3;
-    _L$6: {
-      _L$7: {
+    _L$5: {
+      _L$6: {
         const _bind$12 = "fillId";
         const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
         let _bind$14;
@@ -51313,13 +50753,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           const _Some = _bind$14;
           const _value = _Some;
           value$3 = _value;
-          break _L$7;
+          break _L$6;
         }
-        break _L$6;
+        break _L$5;
       }
       let _try_err;
-      _L$8: {
-        _L$9: {
+      _L$7: {
+        _L$8: {
           const _bind$12 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
           if (_bind$12.$tag === 1) {
             const _ok = _bind$12;
@@ -51327,9 +50767,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$9;
+            break _L$8;
           }
-          break _L$8;
+          break _L$7;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5StyleERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("fillId invalid"));
       }
@@ -51339,8 +50779,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
     }
     let border_id;
     let value$4;
-    _L$7: {
-      _L$8: {
+    _L$6: {
+      _L$7: {
         const _bind$12 = "borderId";
         const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
         let _bind$14;
@@ -51356,13 +50796,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           const _Some = _bind$14;
           const _value = _Some;
           value$4 = _value;
-          break _L$8;
+          break _L$7;
         }
-        break _L$7;
+        break _L$6;
       }
       let _try_err;
-      _L$9: {
-        _L$10: {
+      _L$8: {
+        _L$9: {
           const _bind$12 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
           if (_bind$12.$tag === 1) {
             const _ok = _bind$12;
@@ -51370,9 +50810,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
           } else {
             const _err = _bind$12;
             _try_err = _err._0;
-            break _L$10;
+            break _L$9;
           }
-          break _L$9;
+          break _L$8;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5StyleERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("borderId invalid"));
       }
@@ -51385,8 +50825,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
     }
     if (!self_closing) {
       let protection;
-      _L$8: {
-        _L$9: {
+      _L$7: {
+        _L$8: {
           const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24parse__protection__entry(new _M0TPC16string10StringView(xf_body, 0, xf_body.length));
           let _bind$13;
           if (_bind$12.$tag === 1) {
@@ -51400,15 +50840,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
             const _Some = _bind$13;
             const _protection = _Some;
             protection = _protection;
-            break _L$9;
+            break _L$8;
           }
-          break _L$8;
+          break _L$7;
         }
         style.val = _M0MP38bobzhang8mbtexcel4xlsx5Style16with__protection(style.val, protection);
       }
       let alignment;
-      _L$9: {
-        _L$10: {
+      _L$8: {
+        _L$9: {
           const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(new _M0TPC16string10StringView(xf_body, 0, xf_body.length));
           let _bind$13;
           if (_bind$12.$tag === 1) {
@@ -51422,9 +50862,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__cell__xfs(xml, num_fmts, fonts, f
             const _Some = _bind$13;
             const _alignment = _Some;
             alignment = _alignment;
-            break _L$10;
+            break _L$9;
           }
-          break _L$9;
+          break _L$8;
         }
         style.val = _M0MP38bobzhang8mbtexcel4xlsx5Style15with__alignment(style.val, alignment);
       }
@@ -51442,17 +50882,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
   const parse_side = (xml$2, side) => {
     let tag;
     const _bind$5 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml$2, side);
-    let _bind$6;
-    if (_bind$5.$tag === 1) {
-      const _ok = _bind$5;
-      _bind$6 = _ok._0;
-    } else {
-      return _bind$5;
-    }
-    if (_bind$6 === undefined) {
+    if (_bind$5 === undefined) {
       return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx6BorderRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
     } else {
-      const _Some = _bind$6;
+      const _Some = _bind$5;
       const _value = _Some;
       tag = _value;
     }
@@ -51461,19 +50894,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
     _L: {
       _L$2: {
         const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-        const _bind$7 = "style";
-        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
+        const _bind$6 = "style";
+        const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
+        let _bind$8;
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
+          _bind$8 = _ok._0;
         } else {
-          return _bind$8;
+          return _bind$7;
         }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
           style_name = "none";
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _value = _Some;
           value = _value;
           break _L$2;
@@ -51483,12 +50916,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
       style_name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     }
     const style = new _M0TPB8MutLocalGiE(0);
-    const _bind$7 = 0;
-    const _bind$8 = border_styles.length;
-    let _tmp$2 = _bind$7;
+    const _bind$6 = 0;
+    const _bind$7 = border_styles.length;
+    let _tmp$2 = _bind$6;
     while (true) {
       const i = _tmp$2;
-      if (i < _bind$8) {
+      if (i < _bind$7) {
         if (_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend3app5SheetE(border_styles, i) === style_name) {
           style.val = i;
         }
@@ -51502,17 +50935,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
     let body;
     _L$2: {
       _L$3: {
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml$2, side);
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml$2, side);
+        if (_bind$8 === undefined) {
         } else {
-          return _bind$9;
-        }
-        if (_bind$10 === undefined) {
-        } else {
-          const _Some = _bind$10;
+          const _Some = _bind$8;
           const _body = _Some;
           body = _body;
           break _L$3;
@@ -51523,18 +50949,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
       _L$4: {
         _L$5: {
           const _tmp$3 = new _M0TPC16string10StringView(body, 0, body.length);
-          const _bind$9 = "color";
-          const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
-          let _bind$11;
-          if (_bind$10.$tag === 1) {
-            const _ok = _bind$10;
-            _bind$11 = _ok._0;
+          const _bind$8 = "color";
+          const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
+          if (_bind$9 === undefined) {
           } else {
-            return _bind$10;
-          }
-          if (_bind$11 === undefined) {
-          } else {
-            const _Some = _bind$11;
+            const _Some = _bind$9;
             const _color_tag = _Some;
             color_tag = _color_tag;
             break _L$5;
@@ -51545,18 +50964,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
         _L$6: {
           _L$7: {
             const _tmp$3 = new _M0TPC16string10StringView(color_tag, 0, color_tag.length);
-            const _bind$9 = "rgb";
-            const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
-            let _bind$11;
-            if (_bind$10.$tag === 1) {
-              const _ok = _bind$10;
-              _bind$11 = _ok._0;
+            const _bind$8 = "rgb";
+            const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
+            let _bind$10;
+            if (_bind$9.$tag === 1) {
+              const _ok = _bind$9;
+              _bind$10 = _ok._0;
             } else {
-              return _bind$10;
+              return _bind$9;
             }
-            if (_bind$11 === undefined) {
+            if (_bind$10 === undefined) {
             } else {
-              const _Some = _bind$11;
+              const _Some = _bind$10;
               const _value = _Some;
               value$2 = _value;
               break _L$7;
@@ -51569,35 +50988,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(border_tag, xml) {
     }
     let rgb;
     _L$3: {
-      const _bind$9 = color.val;
-      if (_bind$9 === undefined) {
+      const _bind$8 = color.val;
+      if (_bind$8 === undefined) {
         return style.val > 0 ? new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx6BorderRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0MP38bobzhang8mbtexcel4xlsx6Border12with__values(_M0IPC16string10StringViewPB4Show10to__string(side), undefined, style.val)) : new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx6BorderRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
       } else {
-        const _Some = _bind$9;
+        const _Some = _bind$8;
         const _rgb = _Some;
         rgb = _rgb;
         break _L$3;
       }
     }
-    let normalized;
-    let _tmp$3;
-    if (rgb.length === 8) {
-      const _bind$9 = "FF";
-      _tmp$3 = _M0MPC16string6String11has__prefix(rgb, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
-    } else {
-      _tmp$3 = false;
-    }
-    if (_tmp$3) {
-      let _tmp$4;
-      _L$4: {
-        _tmp$4 = _M0MPC16string6String11sub_2einner(rgb, 2, undefined);
-        break _L$4;
-      }
-      normalized = _M0IPC16string10StringViewPB4Show10to__string(_tmp$4);
-    } else {
-      normalized = rgb;
-    }
-    return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx6BorderRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0MP38bobzhang8mbtexcel4xlsx6Border12with__values(_M0IPC16string10StringViewPB4Show10to__string(side), normalized, style.val));
+    return new _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx6BorderRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0MP38bobzhang8mbtexcel4xlsx6Border12with__values(_M0IPC16string10StringViewPB4Show10to__string(side), _M0FP38bobzhang8mbtexcel4xlsx19normalize__rgb__hex(new _M0TPC16string10StringView(rgb, 0, rgb.length)), style.val));
   };
   let diagonal_up;
   let value;
@@ -51866,13 +51267,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__hex__byte(text, start) {
   if (start < 0 || _M0MPC16string10StringView6length(text) < end) {
     return 0;
   }
-  let view;
-  _L: {
-    view = _M0MPC16string10StringView11sub_2einner(text, start, end);
-    break _L;
-  }
+  const view = _M0MPC16string10StringView11sub_2einner(text, start, end);
   let _try_err;
-  _L$2: {
+  _L: {
     const _bind$5 = _M0FPC17strconv18parse__int_2einner(view, 16);
     if (_bind$5.$tag === 1) {
       const _ok = _bind$5;
@@ -51880,7 +51277,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx16parse__hex__byte(text, start) {
     } else {
       const _err = _bind$5;
       _try_err = _err._0;
-      break _L$2;
+      break _L;
     }
   }
   return 0;
@@ -51897,12 +51294,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
       const opacity = ((Math.imul(alpha, 100) | 0) + 127 | 0) / 255 | 0;
       const t = 100 - opacity | 0;
       const transparency = t <= 0 ? undefined : t;
-      let _tmp$2;
-      _L: {
-        _tmp$2 = _M0MPC16string10StringView11sub_2einner(rgb, 2, undefined);
-        break _L;
-      }
-      const color = _M0IPC16string10StringViewPB4Show10to__string(_tmp$2);
+      const color = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string10StringView11sub_2einner(rgb, 2, undefined));
       return { _0: color, _1: transparency };
     } else {
       return { _0: _M0IPC16string10StringViewPB4Show10to__string(rgb), _1: undefined };
@@ -51913,16 +51305,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
     _L$2: {
       const _bind$5 = "gradientFill";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag = _tag;
         break _L$2;
@@ -52216,14 +51601,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
           const _pos = _Some;
           open_end = _pos;
         }
-        let open_tag;
-        _L$12: {
-          open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
-          break _L$12;
-        }
+        const open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
         let value$7;
-        _L$13: {
-          _L$14: {
+        _L$12: {
+          _L$13: {
             const _bind$8 = "position";
             const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(open_tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
             let _bind$10;
@@ -52239,13 +51620,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
               const _Some = _bind$10;
               const _value = _Some;
               value$7 = _value;
-              break _L$14;
+              break _L$13;
             }
-            break _L$13;
+            break _L$12;
           }
           let _try_err;
-          _L$15: {
-            _L$16: {
+          _L$14: {
+            _L$15: {
               const _bind$8 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(value$7, 0, value$7.length));
               let _bind$9;
               if (_bind$8.$tag === 1) {
@@ -52254,20 +51635,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
               } else {
                 const _err = _bind$8;
                 _try_err = _err._0;
-                break _L$16;
+                break _L$15;
               }
               const v = _bind$9;
               _M0MPC15array5Array4pushGdE(stop_positions, v);
-              break _L$15;
+              break _L$14;
             }
             return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx4FillRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("gradientFill stop position invalid"));
           }
         }
-        let rest;
-        _L$14: {
-          rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
-          break _L$14;
-        }
+        const rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
         let end;
         const _bind$8 = "</stop>";
         const _bind$9 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
@@ -52278,35 +51655,24 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
           const _pos = _Some;
           end = _pos;
         }
-        let content;
-        _L$15: {
-          content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-          break _L$15;
-        }
+        const content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
         let color_tag;
-        _L$16: {
-          _L$17: {
+        _L$13: {
+          _L$14: {
             const _bind$10 = "color";
             const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(content, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
-            let _bind$12;
-            if (_bind$11.$tag === 1) {
-              const _ok = _bind$11;
-              _bind$12 = _ok._0;
+            if (_bind$11 === undefined) {
             } else {
-              return _bind$11;
-            }
-            if (_bind$12 === undefined) {
-            } else {
-              const _Some = _bind$12;
+              const _Some = _bind$11;
               const _color_tag = _Some;
               color_tag = _color_tag;
-              break _L$17;
+              break _L$14;
             }
-            break _L$16;
+            break _L$13;
           }
           let value$8;
-          _L$18: {
-            _L$19: {
+          _L$15: {
+            _L$16: {
               const _tmp$2 = new _M0TPC16string10StringView(color_tag, 0, color_tag.length);
               const _bind$10 = "rgb";
               const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
@@ -52322,25 +51688,25 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
                 const _Some = _bind$12;
                 const _value = _Some;
                 value$8 = _value;
-                break _L$19;
+                break _L$16;
               }
-              break _L$18;
+              break _L$15;
             }
             const rgb = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$8, 0, value$8.length));
             let c;
             let t;
-            _L$20: {
+            _L$17: {
               const _bind$10 = parse_rgb_color(new _M0TPC16string10StringView(rgb, 0, rgb.length));
               const _c = _bind$10._0;
               const _t = _bind$10._1;
               c = _c;
               t = _t;
-              break _L$20;
+              break _L$17;
             }
             _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(stop_colors, c);
             let v;
-            _L$21: {
-              _L$22: {
+            _L$18: {
+              _L$19: {
                 const _bind$10 = transparency.val;
                 if (_bind$10 === undefined) {
                   if (t === undefined) {
@@ -52348,10 +51714,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
                     const _Some = t;
                     const _v = _Some;
                     v = _v;
-                    break _L$22;
+                    break _L$19;
                   }
                 }
-                break _L$21;
+                break _L$18;
               }
               transparency.val = v;
             }
@@ -52422,17 +51788,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
   _L$2: {
     const _bind$5 = "patternFill";
     const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-    let _bind$7;
-    if (_bind$6.$tag === 1) {
-      const _ok = _bind$6;
-      _bind$7 = _ok._0;
-    } else {
-      return _bind$6;
-    }
-    if (_bind$7 === undefined) {
+    if (_bind$6 === undefined) {
       return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx4FillRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(fill);
     } else {
-      const _Some = _bind$7;
+      const _Some = _bind$6;
       const _tag = _Some;
       tag$2 = _tag;
       break _L$2;
@@ -52496,16 +51855,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
     _L$5: {
       const _bind$7 = "fgColor";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-      let _bind$9;
-      if (_bind$8.$tag === 1) {
-        const _ok = _bind$8;
-        _bind$9 = _ok._0;
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$8;
-      }
-      if (_bind$9 === undefined) {
-      } else {
-        const _Some = _bind$9;
+        const _Some = _bind$8;
         const _color_tag = _Some;
         color_tag = _color_tag;
         break _L$5;
@@ -52693,16 +52045,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(xml) {
     _L$6: {
       const _bind$7 = "bgColor";
       const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-      let _bind$9;
-      if (_bind$8.$tag === 1) {
-        const _ok = _bind$8;
-        _bind$9 = _ok._0;
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$8;
-      }
-      if (_bind$9 === undefined) {
-      } else {
-        const _Some = _bind$9;
+        const _Some = _bind$8;
         const _color_tag = _Some;
         color_tag$2 = _color_tag;
         break _L$6;
@@ -52943,16 +52288,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$2: {
       const _bind$5 = "b";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag = _tag;
         break _L$2;
@@ -52992,16 +52330,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$3: {
       const _bind$5 = "i";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$2 = _tag;
         break _L$3;
@@ -53041,16 +52372,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$4: {
       const _bind$5 = "strike";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$3 = _tag;
         break _L$4;
@@ -53090,16 +52414,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$5: {
       const _bind$5 = "outline";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$4 = _tag;
         break _L$5;
@@ -53139,16 +52456,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$6: {
       const _bind$5 = "shadow";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$5 = _tag;
         break _L$6;
@@ -53188,16 +52498,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$7: {
       const _bind$5 = "condense";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$6 = _tag;
         break _L$7;
@@ -53237,16 +52540,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$8: {
       const _bind$5 = "extend";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$7 = _tag;
         break _L$8;
@@ -53286,16 +52582,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$9: {
       const _bind$5 = "u";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$8 = _tag;
         break _L$9;
@@ -53333,16 +52622,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$10: {
       const _bind$5 = "sz";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$9 = _tag;
         break _L$10;
@@ -53396,16 +52678,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$11: {
       const _bind$5 = "charset";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$10 = _tag;
         break _L$11;
@@ -53460,16 +52735,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$12: {
       const _bind$5 = "name";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$11 = _tag;
         break _L$12;
@@ -53506,16 +52774,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$13: {
       const _bind$5 = "family";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$12 = _tag;
         break _L$13;
@@ -53572,16 +52833,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$14: {
       const _bind$5 = "vertAlign";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$13 = _tag;
         break _L$14;
@@ -53618,16 +52872,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$15: {
       const _bind$5 = "scheme";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$14 = _tag;
         break _L$15;
@@ -53664,16 +52911,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
     _L$16: {
       const _bind$5 = "color";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      let _bind$7;
-      if (_bind$6.$tag === 1) {
-        const _ok = _bind$6;
-        _bind$7 = _ok._0;
+      if (_bind$6 === undefined) {
       } else {
-        return _bind$6;
-      }
-      if (_bind$7 === undefined) {
-      } else {
-        const _Some = _bind$7;
+        const _Some = _bind$6;
         const _tag = _Some;
         tag$15 = _tag;
         break _L$16;
@@ -53703,25 +52943,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(xml) {
         break _L$17;
       }
       const rgb = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
-      let normalized;
-      let _tmp$2;
-      if (rgb.length === 8) {
-        const _bind$5 = "FF";
-        _tmp$2 = _M0MPC16string6String11has__prefix(rgb, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-      } else {
-        _tmp$2 = false;
-      }
-      if (_tmp$2) {
-        let _tmp$3;
-        _L$19: {
-          _tmp$3 = _M0MPC16string6String11sub_2einner(rgb, 2, undefined);
-          break _L$19;
-        }
-        normalized = _M0IPC16string10StringViewPB4Show10to__string(_tmp$3);
-      } else {
-        normalized = rgb;
-      }
-      font.color = normalized;
+      font.color = _M0FP38bobzhang8mbtexcel4xlsx19normalize__rgb__hex(new _M0TPC16string10StringView(rgb, 0, rgb.length));
     }
     let value$2;
     _L$18: {
@@ -53865,11 +53087,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
     const _pos = _Some;
     start = _pos;
   }
-  let after_start;
-  _L: {
-    after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
-    break _L;
-  }
+  const after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
   let tag_end;
   const _bind$6 = ">";
   const _bind$7 = _M0MPC16string10StringView4find(after_start, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
@@ -53880,11 +53098,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
     const _pos = _Some;
     tag_end = _pos;
   }
-  let tag_text;
-  _L$2: {
-    tag_text = _M0MPC16string10StringView11sub_2einner(after_start, 0, tag_end);
-    break _L$2;
-  }
+  const tag_text = _M0MPC16string10StringView11sub_2einner(after_start, 0, tag_end);
   const _bind$8 = "/";
   if (_M0MPC16string10StringView11has__suffix(tag_text, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length))) {
     return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5StyleERP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(styles);
@@ -53899,17 +53113,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
     const _pos = _Some;
     close_start = _pos;
   }
-  let body;
-  _L$3: {
-    body = _M0MPC16string10StringView11sub_2einner(after_start, tag_end + 1 | 0, close_start);
-    break _L$3;
-  }
+  const body = _M0MPC16string10StringView11sub_2einner(after_start, tag_end + 1 | 0, close_start);
   const first = new _M0TPB8MutLocalGbE(true);
   const _bind$10 = "<dxf";
   const _it = _M0MPC16string10StringView5split(body, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
   while (true) {
     let chunk;
-    _L$4: {
+    _L: {
       const _bind$11 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it);
       if (_bind$11 === undefined) {
         break;
@@ -53917,7 +53127,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
         const _Some = _bind$11;
         const _chunk = _Some;
         chunk = _chunk;
-        break _L$4;
+        break _L;
       }
     }
     if (first.val) {
@@ -53943,38 +53153,27 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$5: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$5;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let _tmp$2;
     let num_fmt_tag;
-    _L$6: {
-      _L$7: {
+    _L$2: {
+      _L$3: {
         const _bind$13 = "numFmt";
         const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(tag, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
-        let _bind$15;
-        if (_bind$14.$tag === 1) {
-          const _ok = _bind$14;
-          _bind$15 = _ok._0;
-        } else {
-          return _bind$14;
-        }
-        if (_bind$15 === undefined) {
+        if (_bind$14 === undefined) {
           _tmp$2 = _M0MP38bobzhang8mbtexcel4xlsx5Style3new();
         } else {
-          const _Some = _bind$15;
+          const _Some = _bind$14;
           const _num_fmt_tag = _Some;
           num_fmt_tag = _num_fmt_tag;
-          break _L$7;
+          break _L$3;
         }
-        break _L$6;
+        break _L$2;
       }
       let num_fmt_id;
       let value;
-      _L$8: {
-        _L$9: {
+      _L$4: {
+        _L$5: {
           const _tmp$3 = new _M0TPC16string10StringView(num_fmt_tag, 0, num_fmt_tag.length);
           const _bind$13 = "numFmtId";
           const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
@@ -53991,13 +53190,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
             const _Some = _bind$15;
             const _value = _Some;
             value = _value;
-            break _L$9;
+            break _L$5;
           }
-          break _L$8;
+          break _L$4;
         }
         let _try_err;
-        _L$10: {
-          _L$11: {
+        _L$6: {
+          _L$7: {
             const _bind$13 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
             if (_bind$13.$tag === 1) {
               const _ok = _bind$13;
@@ -54005,16 +53204,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
             } else {
               const _err = _bind$13;
               _try_err = _err._0;
-              break _L$11;
+              break _L$7;
             }
-            break _L$10;
+            break _L$6;
           }
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5StyleERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("numFmtId invalid"));
         }
       }
       let value$2;
-      _L$9: {
-        _L$10: {
+      _L$5: {
+        _L$6: {
           const _tmp$3 = new _M0TPC16string10StringView(num_fmt_tag, 0, num_fmt_tag.length);
           const _bind$13 = "formatCode";
           const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
@@ -54027,8 +53226,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
           }
           if (_bind$15 === undefined) {
             let code;
-            _L$11: {
-              _L$12: {
+            _L$7: {
+              _L$8: {
                 const _bind$16 = _M0MPB3Map3getGisE(num_fmts, num_fmt_id);
                 if (_bind$16 === undefined) {
                   _tmp$2 = num_fmt_id === 0 ? _M0MP38bobzhang8mbtexcel4xlsx5Style3new() : _M0MP38bobzhang8mbtexcel4xlsx5Style23builtin__number__format(num_fmt_id);
@@ -54036,9 +53235,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
                   const _Some = _bind$16;
                   const _code = _Some;
                   code = _code;
-                  break _L$12;
+                  break _L$8;
                 }
-                break _L$11;
+                break _L$7;
               }
               _tmp$2 = _M0MP38bobzhang8mbtexcel4xlsx5Style14number__format(code);
             }
@@ -54046,17 +53245,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
             const _Some = _bind$15;
             const _value = _Some;
             value$2 = _value;
-            break _L$10;
+            break _L$6;
           }
-          break _L$9;
+          break _L$5;
         }
         _tmp$2 = _M0MP38bobzhang8mbtexcel4xlsx5Style14number__format(_M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length)));
       }
     }
     const style = new _M0TPB8MutLocalGRP38bobzhang8mbtexcel4xlsx5StyleE(_tmp$2);
     let font_body;
-    _L$7: {
-      _L$8: {
+    _L$3: {
+      _L$4: {
         const _bind$13 = "font";
         const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(tag, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
         let _bind$15;
@@ -54071,9 +53270,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
           const _Some = _bind$15;
           const _font_body = _Some;
           font_body = _font_body;
-          break _L$8;
+          break _L$4;
         }
-        break _L$7;
+        break _L$3;
       }
       const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(new _M0TPC16string10StringView(font_body, 0, font_body.length));
       let font;
@@ -54088,8 +53287,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
       }
     }
     let fill_body;
-    _L$8: {
-      _L$9: {
+    _L$4: {
+      _L$5: {
         const _bind$13 = "fill";
         const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(tag, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
         let _bind$15;
@@ -54104,9 +53303,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
           const _Some = _bind$15;
           const _fill_body = _Some;
           fill_body = _fill_body;
-          break _L$9;
+          break _L$5;
         }
-        break _L$8;
+        break _L$4;
       }
       const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(new _M0TPC16string10StringView(fill_body, 0, fill_body.length));
       let fill;
@@ -54123,8 +53322,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
       }
     }
     let border_body;
-    _L$9: {
-      _L$10: {
+    _L$5: {
+      _L$6: {
         const _bind$13 = "border";
         const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx18extract__tag__body(tag, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
         let _bind$15;
@@ -54139,42 +53338,35 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
           const _Some = _bind$15;
           const _border_body = _Some;
           border_body = _border_body;
-          break _L$10;
+          break _L$6;
         }
-        break _L$9;
+        break _L$5;
       }
       let border_tag;
       const _bind$13 = "border";
       const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(tag, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
-      let _bind$15;
-      if (_bind$14.$tag === 1) {
-        const _ok = _bind$14;
-        _bind$15 = _ok._0;
-      } else {
-        return _bind$14;
-      }
-      if (_bind$15 === undefined) {
+      if (_bind$14 === undefined) {
         border_tag = "border";
       } else {
-        const _Some = _bind$15;
+        const _Some = _bind$14;
         const _value = _Some;
         border_tag = _value;
       }
-      const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(new _M0TPC16string10StringView(border_tag, 0, border_tag.length), new _M0TPC16string10StringView(border_body, 0, border_body.length));
+      const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(new _M0TPC16string10StringView(border_tag, 0, border_tag.length), new _M0TPC16string10StringView(border_body, 0, border_body.length));
       let border;
-      if (_bind$16.$tag === 1) {
-        const _ok = _bind$16;
+      if (_bind$15.$tag === 1) {
+        const _ok = _bind$15;
         border = _ok._0;
       } else {
-        return _bind$16;
+        return _bind$15;
       }
       if (border.length > 0) {
         style.val = _M0MP38bobzhang8mbtexcel4xlsx5Style12with__border(style.val, border);
       }
     }
     let protection;
-    _L$10: {
-      _L$11: {
+    _L$6: {
+      _L$7: {
         const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx24parse__protection__entry(tag);
         let _bind$14;
         if (_bind$13.$tag === 1) {
@@ -54188,15 +53380,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
           const _Some = _bind$14;
           const _protection = _Some;
           protection = _protection;
-          break _L$11;
+          break _L$7;
         }
-        break _L$10;
+        break _L$6;
       }
       style.val = _M0MP38bobzhang8mbtexcel4xlsx5Style16with__protection(style.val, protection);
     }
     let alignment;
-    _L$11: {
-      _L$12: {
+    _L$7: {
+      _L$8: {
         const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx23parse__alignment__entry(tag);
         let _bind$14;
         if (_bind$13.$tag === 1) {
@@ -54210,9 +53402,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx11parse__dxfs(xml, num_fmts, fonts) {
           const _Some = _bind$14;
           const _alignment = _Some;
           alignment = _alignment;
-          break _L$12;
+          break _L$8;
         }
-        break _L$11;
+        break _L$7;
       }
       style.val = _M0MP38bobzhang8mbtexcel4xlsx5Style15with__alignment(style.val, alignment);
     }
@@ -54272,21 +53464,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx14parse__borders(xml) {
       const _pos = _Some;
       open_end = _pos;
     }
-    let open_tag;
-    _L$2: {
-      open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
-      break _L$2;
-    }
+    const open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
     const _bind$11 = "/";
     if (_M0MPC16string10StringView11has__suffix(open_tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length))) {
       _M0MPC15array5Array4pushGRPB5ArrayGUiRP38bobzhang8mbtexcel4xlsx5TableEEE(borders, []);
       continue;
     }
-    let rest;
-    _L$3: {
-      rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
-      break _L$3;
-    }
+    const rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
     let end;
     const _bind$12 = "</border>";
     const _bind$13 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
@@ -54297,11 +53481,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx14parse__borders(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let content;
-    _L$4: {
-      content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-      break _L$4;
-    }
+    const content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
     const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx20parse__border__entry(open_tag, content);
     let _tmp$2;
     if (_bind$14.$tag === 1) {
@@ -54368,21 +53548,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx12parse__fills(xml) {
       const _pos = _Some;
       open_end = _pos;
     }
-    let open_tag;
-    _L$2: {
-      open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
-      break _L$2;
-    }
+    const open_tag = _M0MPC16string6String11sub_2einner(text, 0, open_end);
     const _bind$11 = "/";
     if (_M0MPC16string10StringView11has__suffix(open_tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length))) {
       _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(fills, _M0MP38bobzhang8mbtexcel4xlsx4Fill3new());
       continue;
     }
-    let rest;
-    _L$3: {
-      rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
-      break _L$3;
-    }
+    const rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
     let end;
     const _bind$12 = "</fill>";
     const _bind$13 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
@@ -54393,11 +53565,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx12parse__fills(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let content;
-    _L$4: {
-      content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-      break _L$4;
-    }
+    const content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
     const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx18parse__fill__entry(content);
     let _tmp$2;
     if (_bind$14.$tag === 1) {
@@ -54462,11 +53630,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx12parse__fonts(xml) {
       const _pos = _Some;
       open_end = _pos;
     }
-    let rest;
-    _L$2: {
-      rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
-      break _L$2;
-    }
+    const rest = _M0MPC16string6String11sub_2einner(text, open_end + 1 | 0, undefined);
     let end;
     const _bind$11 = "</font>";
     const _bind$12 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -54477,11 +53641,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx12parse__fonts(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let content;
-    _L$3: {
-      content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-      break _L$3;
-    }
+    const content = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
     const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx18parse__font__entry(content);
     let _tmp$2;
     if (_bind$13.$tag === 1) {
@@ -54751,32 +53911,25 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__comments__xml(xml) {
     let text_body;
     const _bind$16 = "text";
     const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(rest, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
-    let _bind$18;
-    if (_bind$17.$tag === 1) {
-      const _ok = _bind$17;
-      _bind$18 = _ok._0;
-    } else {
-      return _bind$17;
-    }
-    if (_bind$18 === undefined) {
+    if (_bind$17 === undefined) {
       text_body = "";
     } else {
-      const _Some = _bind$18;
+      const _Some = _bind$17;
       const _value = _Some;
       text_body = _value;
     }
     let paragraph;
-    const _bind$19 = "<r";
-    if (_M0MPC16string6String8contains(text_body, new _M0TPC16string10StringView(_bind$19, 0, _bind$19.length))) {
+    const _bind$18 = "<r";
+    if (_M0MPC16string6String8contains(text_body, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length))) {
       let _try_err;
       _L$4: {
         _L$5: {
-          const _bind$20 = _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(new _M0TPC16string10StringView(text_body, 0, text_body.length));
-          if (_bind$20.$tag === 1) {
-            const _ok = _bind$20;
+          const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx23parse__rich__text__runs(new _M0TPC16string10StringView(text_body, 0, text_body.length));
+          if (_bind$19.$tag === 1) {
+            const _ok = _bind$19;
             paragraph = _ok._0;
           } else {
-            const _err = _bind$20;
+            const _err = _bind$19;
             _try_err = _err._0;
             break _L$5;
           }
@@ -54851,11 +54004,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__table__part__ids(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let id;
     const _bind$11 = "r:id";
     const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -54936,11 +54085,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__pivot__table__part__ids(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let id;
     const _bind$11 = "r:id";
     const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -55005,11 +54150,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx30parse__sheet__slicer__rel__ids(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let id;
     const _bind$8 = "r:id";
     const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
@@ -55074,14 +54215,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__slicer__part__entries(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let name;
     let value;
-    _L$3: {
+    _L$2: {
       const _bind$8 = "name";
       const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
       let _bind$10;
@@ -55097,13 +54234,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__slicer__part__entries(xml) {
         const _Some = _bind$10;
         const _value = _Some;
         value = _value;
-        break _L$3;
+        break _L$2;
       }
     }
     name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     let cache;
     let value$2;
-    _L$4: {
+    _L$3: {
       const _bind$8 = "cache";
       const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
       let _bind$10;
@@ -55119,14 +54256,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__slicer__part__entries(xml) {
         const _Some = _bind$10;
         const _value = _Some;
         value$2 = _value;
-        break _L$4;
+        break _L$3;
       }
     }
     cache = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
     let caption;
     let value$3;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$8 = "caption";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -55142,16 +54279,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__slicer__part__entries(xml) {
           const _Some = _bind$10;
           const _value = _Some;
           value$3 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       caption = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
     }
     let display_header;
     let value$4;
-    _L$6: {
-      _L$7: {
+    _L$5: {
+      _L$6: {
         const _bind$8 = "showCaption";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
         let _bind$10;
@@ -55167,9 +54304,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__slicer__part__entries(xml) {
           const _Some = _bind$10;
           const _value = _Some;
           value$4 = _value;
-          break _L$7;
+          break _L$6;
         }
-        break _L$6;
+        break _L$5;
       }
       display_header = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$4, 0, value$4.length));
     }
@@ -55182,17 +54319,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
   let tag;
   const _bind$5 = "slicerCacheDefinition";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx14SlicerCacheDefRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("slicerCacheDefinition missing"));
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     tag = _value;
   }
@@ -55200,19 +54330,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
   let value;
   _L: {
     const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-    const _bind$8 = "name";
-    const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-    let _bind$10;
-    if (_bind$9.$tag === 1) {
-      const _ok = _bind$9;
-      _bind$10 = _ok._0;
+    const _bind$7 = "name";
+    const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+    let _bind$9;
+    if (_bind$8.$tag === 1) {
+      const _ok = _bind$8;
+      _bind$9 = _ok._0;
     } else {
-      return _bind$9;
+      return _bind$8;
     }
-    if (_bind$10 === undefined) {
+    if (_bind$9 === undefined) {
       return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx14SlicerCacheDefRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("slicer cache name missing"));
     } else {
-      const _Some = _bind$10;
+      const _Some = _bind$9;
       const _value = _Some;
       value = _value;
       break _L;
@@ -55224,19 +54354,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
-      const _bind$8 = "sourceName";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "sourceName";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      let _bind$9;
+      if (_bind$8.$tag === 1) {
+        const _ok = _bind$8;
+        _bind$9 = _ok._0;
       } else {
-        return _bind$9;
+        return _bind$8;
       }
-      if (_bind$10 === undefined) {
+      if (_bind$9 === undefined) {
         source_name = "";
       } else {
-        const _Some = _bind$10;
+        const _Some = _bind$9;
         const _value = _Some;
         value$2 = _value;
         break _L$3;
@@ -55253,18 +54383,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
   let cache_tag;
   _L$3: {
     _L$4: {
-      const _bind$8 = "x15:tableSlicerCache";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "x15:tableSlicerCache";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _cache_tag = _Some;
         cache_tag = _cache_tag;
         break _L$4;
@@ -55275,18 +54398,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
     _L$5: {
       _L$6: {
         const _tmp$2 = new _M0TPC16string10StringView(cache_tag, 0, cache_tag.length);
-        const _bind$8 = "tableId";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "tableId";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _value = _Some;
           value$3 = _value;
           break _L$6;
@@ -55296,17 +54419,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
       let _try_err;
       _L$7: {
         _L$8: {
-          const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$8;
           }
-          const val = _bind$9;
+          const val = _bind$8;
           table_id.val = val;
           break _L$7;
         }
@@ -55317,18 +54440,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
     _L$6: {
       _L$7: {
         const _tmp$2 = new _M0TPC16string10StringView(cache_tag, 0, cache_tag.length);
-        const _bind$8 = "column";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "column";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _value = _Some;
           value$4 = _value;
           break _L$7;
@@ -55338,17 +54461,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
       let _try_err;
       _L$8: {
         _L$9: {
-          const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
+          const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$4, 0, value$4.length), 10);
+          let _bind$8;
+          if (_bind$7.$tag === 1) {
+            const _ok = _bind$7;
+            _bind$8 = _ok._0;
           } else {
-            const _err = _bind$8;
+            const _err = _bind$7;
             _try_err = _err._0;
             break _L$9;
           }
-          const val = _bind$9;
+          const val = _bind$8;
           table_column.val = val;
           break _L$8;
         }
@@ -55359,18 +54482,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
     _L$7: {
       _L$8: {
         const _tmp$2 = new _M0TPC16string10StringView(cache_tag, 0, cache_tag.length);
-        const _bind$8 = "sortOrder";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "sortOrder";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _value = _Some;
           value$5 = _value;
           break _L$8;
@@ -55385,18 +54508,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
   let tabular_tag;
   _L$4: {
     _L$5: {
-      const _bind$8 = "tabular";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "tabular";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _tabular_tag = _Some;
         tabular_tag = _tabular_tag;
         break _L$5;
@@ -55407,18 +54523,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
     _L$6: {
       _L$7: {
         const _tmp$2 = new _M0TPC16string10StringView(tabular_tag, 0, tabular_tag.length);
-        const _bind$8 = "sortOrder";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "sortOrder";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
         } else {
-          return _bind$9;
+          return _bind$8;
         }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _value = _Some;
           value$3 = _value;
           break _L$7;
@@ -55433,18 +54549,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
   let pivot_tables_body;
   _L$5: {
     _L$6: {
-      const _bind$8 = "pivotTables";
-      const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-      let _bind$10;
-      if (_bind$9.$tag === 1) {
-        const _ok = _bind$9;
-        _bind$10 = _ok._0;
+      const _bind$7 = "pivotTables";
+      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+      if (_bind$8 === undefined) {
       } else {
-        return _bind$9;
-      }
-      if (_bind$10 === undefined) {
-      } else {
-        const _Some = _bind$10;
+        const _Some = _bind$8;
         const _pivot_tables_body = _Some;
         pivot_tables_body = _pivot_tables_body;
         break _L$6;
@@ -55455,18 +54564,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
     _L$7: {
       _L$8: {
         const _tmp$2 = new _M0TPC16string10StringView(pivot_tables_body, 0, pivot_tables_body.length);
-        const _bind$8 = "pivotTable";
-        const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
+        const _bind$7 = "pivotTable";
+        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+        if (_bind$8 === undefined) {
         } else {
-          return _bind$9;
-        }
-        if (_bind$10 === undefined) {
-        } else {
-          const _Some = _bind$10;
+          const _Some = _bind$8;
           const _pivot_tag = _Some;
           pivot_tag = _pivot_tag;
           break _L$8;
@@ -55477,18 +54579,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
       _L$9: {
         _L$10: {
           const _tmp$2 = new _M0TPC16string10StringView(pivot_tag, 0, pivot_tag.length);
-          const _bind$8 = "tabId";
-          const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-          let _bind$10;
-          if (_bind$9.$tag === 1) {
-            const _ok = _bind$9;
-            _bind$10 = _ok._0;
+          const _bind$7 = "tabId";
+          const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+          let _bind$9;
+          if (_bind$8.$tag === 1) {
+            const _ok = _bind$8;
+            _bind$9 = _ok._0;
           } else {
-            return _bind$9;
+            return _bind$8;
           }
-          if (_bind$10 === undefined) {
+          if (_bind$9 === undefined) {
           } else {
-            const _Some = _bind$10;
+            const _Some = _bind$9;
             const _value = _Some;
             value$3 = _value;
             break _L$10;
@@ -55498,17 +54600,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
         let _try_err;
         _L$11: {
           _L$12: {
-            const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
-            let _bind$9;
-            if (_bind$8.$tag === 1) {
-              const _ok = _bind$8;
-              _bind$9 = _ok._0;
+            const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
+            let _bind$8;
+            if (_bind$7.$tag === 1) {
+              const _ok = _bind$7;
+              _bind$8 = _ok._0;
             } else {
-              const _err = _bind$8;
+              const _err = _bind$7;
               _try_err = _err._0;
               break _L$12;
             }
-            const val = _bind$9;
+            const val = _bind$8;
             pivot_tab_id.val = val;
             break _L$11;
           }
@@ -55519,18 +54621,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__slicer__cache__definition(xml) {
       _L$10: {
         _L$11: {
           const _tmp$2 = new _M0TPC16string10StringView(pivot_tag, 0, pivot_tag.length);
-          const _bind$8 = "name";
-          const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-          let _bind$10;
-          if (_bind$9.$tag === 1) {
-            const _ok = _bind$9;
-            _bind$10 = _ok._0;
+          const _bind$7 = "name";
+          const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+          let _bind$9;
+          if (_bind$8.$tag === 1) {
+            const _ok = _bind$8;
+            _bind$9 = _ok._0;
           } else {
-            return _bind$9;
+            return _bind$8;
           }
-          if (_bind$10 === undefined) {
+          if (_bind$9 === undefined) {
           } else {
-            const _Some = _bind$10;
+            const _Some = _bind$9;
             const _value = _Some;
             value$4 = _value;
             break _L$11;
@@ -55568,26 +54670,21 @@ function _M0FP38bobzhang8mbtexcel4xlsx28parse__relationship__targets(xml, rel_ty
   return new _M0DTPC16result6ResultGRPB3MapGssERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml(msg));
 }
 function _M0FP38bobzhang8mbtexcel4xlsx26drop__first__path__segment(path) {
-  const _bind$5 = "/";
-  const parts = _M0MPC15array5Array10from__iterGRPC16string10StringViewE(_M0MPC16string10StringView5split(path, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length)));
-  const rest = [];
-  const _bind$6 = parts.length;
-  let _tmp$2 = 0;
-  while (true) {
-    const i = _tmp$2;
-    if (i < _bind$6) {
-      const part = parts[i];
-      if (i > 0) {
-        _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(rest, _M0IPC16string10StringViewPB4Show10to__string(part));
-      }
-      _tmp$2 = i + 1 | 0;
-      continue;
+  let rest;
+  _L: {
+    const _tmp$2 = _M0IPC16string10StringViewPB4Show10to__string(path);
+    const _bind$5 = "/";
+    const _bind$6 = _M0MPC16string6String5after(_tmp$2, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+    if (_bind$6 === undefined) {
+      return _M0IPC16string10StringViewPB4Show10to__string(path);
     } else {
-      break;
+      const _Some = _bind$6;
+      const _rest = _Some;
+      rest = _rest;
+      break _L;
     }
   }
-  const _bind$7 = "/";
-  return _M0MPC15array5Array4joinGsE(rest, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
+  return _M0IPC16string10StringViewPB4Show10to__string(rest);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx26normalize__rel__part__path(path) {
   const segments = [];
@@ -56079,29 +55176,22 @@ function _M0FP38bobzhang8mbtexcel4xlsx34resolve__workbook__xml__part__path(archi
 function _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(xml, tag_name, msg) {
   let body;
   const _bind$5 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, tag_name);
-  let _bind$6;
-  if (_bind$5.$tag === 1) {
-    const _ok = _bind$5;
-    _bind$6 = _ok._0;
-  } else {
-    return _bind$5;
-  }
-  if (_bind$6 === undefined) {
+  if (_bind$5 === undefined) {
     return new _M0DTPC16result6ResultGiRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml(msg));
   } else {
-    const _Some = _bind$6;
+    const _Some = _bind$5;
     const _value = _Some;
     body = _value;
   }
   let _try_err;
   _L: {
-    const _bind$7 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(body, 0, body.length), 10);
+    const _bind$6 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(body, 0, body.length), 10);
     let _tmp$2;
-    if (_bind$7.$tag === 1) {
-      const _ok = _bind$7;
+    if (_bind$6.$tag === 1) {
+      const _ok = _bind$6;
       _tmp$2 = _ok._0;
     } else {
-      const _err = _bind$7;
+      const _err = _bind$6;
       _try_err = _err._0;
       break _L;
     }
@@ -56192,11 +55282,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__drawing__anchors(drawing_xml) {
       }
     }
     end = pos + close_tag.length | 0;
-    let slice;
-    _L$3: {
-      slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$3;
-    }
+    const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
     _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(anchors, { _0: `<xdr:oneCellAnchor${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`, _1: 0 });
     continue;
   }
@@ -56236,39 +55322,28 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__drawing__anchors(drawing_xml) {
       }
     }
     end = pos + close_tag.length | 0;
-    let slice;
-    _L$3: {
-      slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$3;
-    }
+    const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
     const full = `<xdr:twoCellAnchor${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
     let positioning;
     let tag;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _tmp$2 = new _M0TPC16string10StringView(full, 0, full.length);
         const _bind$7 = "xdr:twoCellAnchor";
         const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
-        } else {
-          return _bind$8;
-        }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
           positioning = 1;
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _tag = _Some;
           tag = _tag;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       let value;
-      _L$6: {
-        _L$7: {
+      _L$5: {
+        _L$6: {
           const _tmp$2 = new _M0TPC16string10StringView(tag, 0, tag.length);
           const _bind$7 = "editAs";
           const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -56285,9 +55360,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__drawing__anchors(drawing_xml) {
             const _Some = _bind$9;
             const _value = _Some;
             value = _value;
-            break _L$7;
+            break _L$6;
           }
-          break _L$6;
+          break _L$5;
         }
         positioning = value === "absolute" ? 2 : 1;
       }
@@ -56392,85 +55467,71 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         const _tmp$3 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
         const _bind$7 = "xdr:pic";
         const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$3, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
-        } else {
-          return _bind$8;
-        }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
           break _L;
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _value = _Some;
           pic_body = _value;
         }
         let from_body;
         const _tmp$4 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$10 = "xdr:from";
-        const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
-        let _bind$12;
-        if (_bind$11.$tag === 1) {
-          const _ok = _bind$11;
-          _bind$12 = _ok._0;
-        } else {
-          return _bind$11;
-        }
-        if (_bind$12 === undefined) {
+        const _bind$9 = "xdr:from";
+        const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
+        if (_bind$10 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing anchor from missing"));
         } else {
-          const _Some = _bind$12;
+          const _Some = _bind$10;
           const _value = _Some;
           from_body = _value;
         }
         const _tmp$5 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$13 = "xdr:col";
-        const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$5, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length), "drawing col invalid");
+        const _bind$11 = "xdr:col";
+        const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$5, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length), "drawing col invalid");
         let col_idx0;
+        if (_bind$12.$tag === 1) {
+          const _ok = _bind$12;
+          col_idx0 = _ok._0;
+        } else {
+          return _bind$12;
+        }
+        const _tmp$6 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$13 = "xdr:row";
+        const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$6, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length), "drawing row invalid");
+        let row_idx0;
         if (_bind$14.$tag === 1) {
           const _ok = _bind$14;
-          col_idx0 = _ok._0;
+          row_idx0 = _ok._0;
         } else {
           return _bind$14;
         }
-        const _tmp$6 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$15 = "xdr:row";
-        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$6, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length), "drawing row invalid");
-        let row_idx0;
+        const _tmp$7 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$15 = "xdr:colOff";
+        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$7, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length), "drawing colOff invalid");
+        let col_off_emu;
         if (_bind$16.$tag === 1) {
           const _ok = _bind$16;
-          row_idx0 = _ok._0;
+          col_off_emu = _ok._0;
         } else {
           return _bind$16;
         }
-        const _tmp$7 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$17 = "xdr:colOff";
-        const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$7, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length), "drawing colOff invalid");
-        let col_off_emu;
+        const _tmp$8 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$17 = "xdr:rowOff";
+        const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$8, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length), "drawing rowOff invalid");
+        let row_off_emu;
         if (_bind$18.$tag === 1) {
           const _ok = _bind$18;
-          col_off_emu = _ok._0;
+          row_off_emu = _ok._0;
         } else {
           return _bind$18;
         }
-        const _tmp$8 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$19 = "xdr:rowOff";
-        const _bind$20 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$8, new _M0TPC16string10StringView(_bind$19, 0, _bind$19.length), "drawing rowOff invalid");
-        let row_off_emu;
-        if (_bind$20.$tag === 1) {
-          const _ok = _bind$20;
-          row_off_emu = _ok._0;
-        } else {
-          return _bind$20;
-        }
-        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
+        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
         let reference;
-        if (_bind$21.$tag === 1) {
-          const _ok = _bind$21;
+        if (_bind$19.$tag === 1) {
+          const _ok = _bind$19;
           reference = _ok._0;
         } else {
-          return _bind$21;
+          return _bind$19;
         }
         if (_M0FP38bobzhang8mbtexcel4xlsx24picture__emu__per__pixel === 0) {
           $panic();
@@ -56486,19 +55547,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
           if (positioning === 0) {
             let ext_tag;
             const _tmp$9 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-            const _bind$22 = "xdr:ext";
-            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
-            let _bind$24;
-            if (_bind$23.$tag === 1) {
-              const _ok = _bind$23;
-              _bind$24 = _ok._0;
-            } else {
-              return _bind$23;
-            }
-            if (_bind$24 === undefined) {
+            const _bind$20 = "xdr:ext";
+            const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+            if (_bind$21 === undefined) {
               return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing ext missing"));
             } else {
-              const _Some = _bind$24;
+              const _Some = _bind$21;
               const _value = _Some;
               ext_tag = _value;
             }
@@ -56506,19 +55560,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
             let value;
             _L$4: {
               const _tmp$10 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-              const _bind$25 = "cx";
-              const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
-              let _bind$27;
-              if (_bind$26.$tag === 1) {
-                const _ok = _bind$26;
-                _bind$27 = _ok._0;
+              const _bind$22 = "cx";
+              const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+              let _bind$24;
+              if (_bind$23.$tag === 1) {
+                const _ok = _bind$23;
+                _bind$24 = _ok._0;
               } else {
-                return _bind$26;
+                return _bind$23;
               }
-              if (_bind$27 === undefined) {
+              if (_bind$24 === undefined) {
                 return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing cx missing"));
               } else {
-                const _Some = _bind$27;
+                const _Some = _bind$24;
                 const _value = _Some;
                 value = _value;
                 break _L$4;
@@ -56527,12 +55581,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
             let _try_err;
             _L$5: {
               _L$6: {
-                const _bind$25 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
-                if (_bind$25.$tag === 1) {
-                  const _ok = _bind$25;
+                const _bind$22 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
+                if (_bind$22.$tag === 1) {
+                  const _ok = _bind$22;
                   cx = _ok._0;
                 } else {
-                  const _err = _bind$25;
+                  const _err = _bind$22;
                   _try_err = _err._0;
                   break _L$6;
                 }
@@ -56544,19 +55598,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
             let value$2;
             _L$6: {
               const _tmp$10 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-              const _bind$25 = "cy";
-              const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
-              let _bind$27;
-              if (_bind$26.$tag === 1) {
-                const _ok = _bind$26;
-                _bind$27 = _ok._0;
+              const _bind$22 = "cy";
+              const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+              let _bind$24;
+              if (_bind$23.$tag === 1) {
+                const _ok = _bind$23;
+                _bind$24 = _ok._0;
               } else {
-                return _bind$26;
+                return _bind$23;
               }
-              if (_bind$27 === undefined) {
+              if (_bind$24 === undefined) {
                 return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing cy missing"));
               } else {
-                const _Some = _bind$27;
+                const _Some = _bind$24;
                 const _value = _Some;
                 value$2 = _value;
                 break _L$6;
@@ -56565,12 +55619,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
             let _try_err$2;
             _L$7: {
               _L$8: {
-                const _bind$25 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
-                if (_bind$25.$tag === 1) {
-                  const _ok = _bind$25;
+                const _bind$22 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
+                if (_bind$22.$tag === 1) {
+                  const _ok = _bind$22;
                   cy = _ok._0;
                 } else {
-                  const _err = _bind$25;
+                  const _err = _bind$22;
                   _try_err$2 = _err._0;
                   break _L$8;
                 }
@@ -56584,66 +55638,59 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
           } else {
             let to_body;
             const _tmp$9 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-            const _bind$22 = "xdr:to";
-            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
-            let _bind$24;
-            if (_bind$23.$tag === 1) {
-              const _ok = _bind$23;
-              _bind$24 = _ok._0;
-            } else {
-              return _bind$23;
-            }
-            if (_bind$24 === undefined) {
+            const _bind$20 = "xdr:to";
+            const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$9, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+            if (_bind$21 === undefined) {
               return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing anchor to missing"));
             } else {
-              const _Some = _bind$24;
+              const _Some = _bind$21;
               const _value = _Some;
               to_body = _value;
             }
             const _tmp$10 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$25 = "xdr:col";
-            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$10, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length), "drawing to col invalid");
+            const _bind$22 = "xdr:col";
+            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$10, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length), "drawing to col invalid");
             let to_col_idx0;
-            if (_bind$26.$tag === 1) {
-              const _ok = _bind$26;
+            if (_bind$23.$tag === 1) {
+              const _ok = _bind$23;
               to_col_idx0 = _ok._0;
             } else {
-              return _bind$26;
+              return _bind$23;
             }
             const _tmp$11 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$27 = "xdr:row";
-            const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$11, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length), "drawing to row invalid");
+            const _bind$24 = "xdr:row";
+            const _bind$25 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$11, new _M0TPC16string10StringView(_bind$24, 0, _bind$24.length), "drawing to row invalid");
             let to_row_idx0;
-            if (_bind$28.$tag === 1) {
-              const _ok = _bind$28;
+            if (_bind$25.$tag === 1) {
+              const _ok = _bind$25;
               to_row_idx0 = _ok._0;
             } else {
-              return _bind$28;
+              return _bind$25;
             }
             const _tmp$12 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$29 = "xdr:colOff";
-            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$12, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length), "drawing to colOff invalid");
+            const _bind$26 = "xdr:colOff";
+            const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$12, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length), "drawing to colOff invalid");
             let to_col_off;
-            if (_bind$30.$tag === 1) {
-              const _ok = _bind$30;
+            if (_bind$27.$tag === 1) {
+              const _ok = _bind$27;
               to_col_off = _ok._0;
             } else {
-              return _bind$30;
+              return _bind$27;
             }
             const _tmp$13 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$31 = "xdr:rowOff";
-            const _bind$32 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$13, new _M0TPC16string10StringView(_bind$31, 0, _bind$31.length), "drawing to rowOff invalid");
+            const _bind$28 = "xdr:rowOff";
+            const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$13, new _M0TPC16string10StringView(_bind$28, 0, _bind$28.length), "drawing to rowOff invalid");
             let to_row_off;
-            if (_bind$32.$tag === 1) {
-              const _ok = _bind$32;
+            if (_bind$29.$tag === 1) {
+              const _ok = _bind$29;
               to_row_off = _ok._0;
             } else {
-              return _bind$32;
+              return _bind$29;
             }
-            const _bind$33 = "col";
-            const cx = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$33, 0, _bind$33.length), col_idx0, col_off_emu, to_col_idx0, to_col_off);
-            const _bind$34 = "row";
-            const cy = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$34, 0, _bind$34.length), row_idx0, row_off_emu, to_row_idx0, to_row_off);
+            const _bind$30 = "col";
+            const cx = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length), col_idx0, col_off_emu, to_col_idx0, to_col_off);
+            const _bind$31 = "row";
+            const cy = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$31, 0, _bind$31.length), row_idx0, row_off_emu, to_row_idx0, to_row_off);
             width_emu = cx;
             height_emu = cy;
             break _L$3;
@@ -56651,19 +55698,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         }
         let c_nv_pr_tag;
         const _tmp$9 = new _M0TPC16string10StringView(pic_body, 0, pic_body.length);
-        const _bind$22 = "xdr:cNvPr";
-        const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
-        let _bind$24;
-        if (_bind$23.$tag === 1) {
-          const _ok = _bind$23;
-          _bind$24 = _ok._0;
-        } else {
-          return _bind$23;
-        }
-        if (_bind$24 === undefined) {
+        const _bind$20 = "xdr:cNvPr";
+        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+        if (_bind$21 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing cNvPr missing"));
         } else {
-          const _Some = _bind$24;
+          const _Some = _bind$21;
           const _value = _Some;
           c_nv_pr_tag = _value;
         }
@@ -56672,19 +55712,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         _L$4: {
           _L$5: {
             const _tmp$10 = new _M0TPC16string10StringView(c_nv_pr_tag, 0, c_nv_pr_tag.length);
-            const _bind$25 = "name";
-            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
-            let _bind$27;
-            if (_bind$26.$tag === 1) {
-              const _ok = _bind$26;
-              _bind$27 = _ok._0;
+            const _bind$22 = "name";
+            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+            let _bind$24;
+            if (_bind$23.$tag === 1) {
+              const _ok = _bind$23;
+              _bind$24 = _ok._0;
             } else {
-              return _bind$26;
+              return _bind$23;
             }
-            if (_bind$27 === undefined) {
+            if (_bind$24 === undefined) {
               name = "";
             } else {
-              const _Some = _bind$27;
+              const _Some = _bind$24;
               const _value = _Some;
               value = _value;
               break _L$5;
@@ -56698,19 +55738,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         _L$5: {
           _L$6: {
             const _tmp$10 = new _M0TPC16string10StringView(c_nv_pr_tag, 0, c_nv_pr_tag.length);
-            const _bind$25 = "descr";
-            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
-            let _bind$27;
-            if (_bind$26.$tag === 1) {
-              const _ok = _bind$26;
-              _bind$27 = _ok._0;
+            const _bind$22 = "descr";
+            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+            let _bind$24;
+            if (_bind$23.$tag === 1) {
+              const _ok = _bind$23;
+              _bind$24 = _ok._0;
             } else {
-              return _bind$26;
+              return _bind$23;
             }
-            if (_bind$27 === undefined) {
+            if (_bind$24 === undefined) {
               alt_text = "";
             } else {
-              const _Some = _bind$27;
+              const _Some = _bind$24;
               const _value = _Some;
               value$2 = _value;
               break _L$6;
@@ -56719,23 +55759,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
           }
           alt_text = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
         }
-        const _bind$25 = "noChangeAspect=\"1\"";
-        const lock_aspect_ratio = _M0MPC16string6String8contains(pic_body, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+        const _bind$22 = "noChangeAspect=\"1\"";
+        const lock_aspect_ratio = _M0MPC16string6String8contains(pic_body, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
         let client_tag;
         const _tmp$10 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$26 = "xdr:clientData";
-        const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-        let _bind$28;
-        if (_bind$27.$tag === 1) {
-          const _ok = _bind$27;
-          _bind$28 = _ok._0;
-        } else {
-          return _bind$27;
-        }
-        if (_bind$28 === undefined) {
+        const _bind$23 = "xdr:clientData";
+        const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$10, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
+        if (_bind$24 === undefined) {
           client_tag = "";
         } else {
-          const _Some = _bind$28;
+          const _Some = _bind$24;
           const _value = _Some;
           client_tag = _value;
         }
@@ -56744,19 +55777,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         _L$6: {
           _L$7: {
             const _tmp$11 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$29 = "fLocksWithSheet";
-            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-            let _bind$31;
-            if (_bind$30.$tag === 1) {
-              const _ok = _bind$30;
-              _bind$31 = _ok._0;
+            const _bind$25 = "fLocksWithSheet";
+            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$11, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+            let _bind$27;
+            if (_bind$26.$tag === 1) {
+              const _ok = _bind$26;
+              _bind$27 = _ok._0;
             } else {
-              return _bind$30;
+              return _bind$26;
             }
-            if (_bind$31 === undefined) {
+            if (_bind$27 === undefined) {
               locked = true;
             } else {
-              const _Some = _bind$31;
+              const _Some = _bind$27;
               const _value = _Some;
               value$3 = _value;
               break _L$7;
@@ -56770,19 +55803,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         _L$7: {
           _L$8: {
             const _tmp$11 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$29 = "fPrintsWithSheet";
-            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-            let _bind$31;
-            if (_bind$30.$tag === 1) {
-              const _ok = _bind$30;
-              _bind$31 = _ok._0;
+            const _bind$25 = "fPrintsWithSheet";
+            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$11, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+            let _bind$27;
+            if (_bind$26.$tag === 1) {
+              const _ok = _bind$26;
+              _bind$27 = _ok._0;
             } else {
-              return _bind$30;
+              return _bind$26;
             }
-            if (_bind$31 === undefined) {
+            if (_bind$27 === undefined) {
               print_object = true;
             } else {
-              const _Some = _bind$31;
+              const _Some = _bind$27;
               const _value = _Some;
               value$4 = _value;
               break _L$8;
@@ -56793,65 +55826,58 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         }
         let blip_tag;
         const _tmp$11 = new _M0TPC16string10StringView(pic_body, 0, pic_body.length);
-        const _bind$29 = "a:blip";
-        const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-        let _bind$31;
-        if (_bind$30.$tag === 1) {
-          const _ok = _bind$30;
-          _bind$31 = _ok._0;
-        } else {
-          return _bind$30;
-        }
-        if (_bind$31 === undefined) {
+        const _bind$25 = "a:blip";
+        const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+        if (_bind$26 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing blip missing"));
         } else {
-          const _Some = _bind$31;
+          const _Some = _bind$26;
           const _value = _Some;
           blip_tag = _value;
         }
         let embed_id;
         const _tmp$12 = new _M0TPC16string10StringView(blip_tag, 0, blip_tag.length);
-        const _bind$32 = "r:embed";
-        const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-        let _bind$34;
-        if (_bind$33.$tag === 1) {
-          const _ok = _bind$33;
-          _bind$34 = _ok._0;
+        const _bind$27 = "r:embed";
+        const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
+        let _bind$29;
+        if (_bind$28.$tag === 1) {
+          const _ok = _bind$28;
+          _bind$29 = _ok._0;
         } else {
-          return _bind$33;
+          return _bind$28;
         }
-        if (_bind$34 === undefined) {
+        if (_bind$29 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing embed missing"));
         } else {
-          const _Some = _bind$34;
+          const _Some = _bind$29;
           const _value = _Some;
           embed_id = _value;
         }
         let target;
-        const _bind$35 = _M0MPB3Map3getGssE(image_targets, embed_id);
-        if (_bind$35 === undefined) {
+        const _bind$30 = _M0MPB3Map3getGssE(image_targets, embed_id);
+        if (_bind$30 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing image target missing"));
         } else {
-          const _Some = _bind$35;
+          const _Some = _bind$30;
           const _value = _Some;
           target = _value;
         }
         const _tmp$13 = new _M0TPC16string10StringView(target, 0, target.length);
-        const _bind$36 = "drawings";
-        const _bind$37 = _M0FP38bobzhang8mbtexcel4xlsx20resolve__rel__target(_tmp$13, new _M0TPC16string10StringView(_bind$36, 0, _bind$36.length));
+        const _bind$31 = "drawings";
+        const _bind$32 = _M0FP38bobzhang8mbtexcel4xlsx20resolve__rel__target(_tmp$13, new _M0TPC16string10StringView(_bind$31, 0, _bind$31.length));
         let media_path;
-        if (_bind$37.$tag === 1) {
-          const _ok = _bind$37;
+        if (_bind$32.$tag === 1) {
+          const _ok = _bind$32;
           media_path = _ok._0;
         } else {
-          return _bind$37;
+          return _bind$32;
         }
         let data;
-        const _bind$38 = _M0MP38bobzhang8mbtexcel3zip7Archive3get(archive, new _M0TPC16string10StringView(media_path, 0, media_path.length));
-        if (_bind$38 === undefined) {
+        const _bind$33 = _M0MP38bobzhang8mbtexcel3zip7Archive3get(archive, new _M0TPC16string10StringView(media_path, 0, media_path.length));
+        if (_bind$33 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error52bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eMissingPart(media_path));
         } else {
-          const _Some = _bind$38;
+          const _Some = _bind$33;
           const _value = _Some;
           data = _value;
         }
@@ -56859,13 +55885,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         let pos;
         _L$8: {
           _L$9: {
-            const _bind$39 = ".";
-            const _bind$40 = _M0MPC16string6String9rev__find(media_path, new _M0TPC16string10StringView(_bind$39, 0, _bind$39.length));
-            if (_bind$40 === undefined) {
-              const _bind$41 = "";
-              ext = new _M0TPC16string10StringView(_bind$41, 0, _bind$41.length);
+            const _bind$34 = ".";
+            const _bind$35 = _M0MPC16string6String9rev__find(media_path, new _M0TPC16string10StringView(_bind$34, 0, _bind$34.length));
+            if (_bind$35 === undefined) {
+              const _bind$36 = "";
+              ext = new _M0TPC16string10StringView(_bind$36, 0, _bind$36.length);
             } else {
-              const _Some = _bind$40;
+              const _Some = _bind$35;
               const _pos = _Some;
               pos = _pos;
               break _L$9;
@@ -56873,22 +55899,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
             break _L$8;
           }
           if ((pos + 1 | 0) < media_path.length) {
-            _L$10: {
-              ext = _M0MPC16string6String11sub_2einner(media_path, pos + 1 | 0, undefined);
-              break _L$10;
-            }
+            ext = _M0MPC16string6String11sub_2einner(media_path, pos + 1 | 0, undefined);
           } else {
-            const _bind$39 = "";
-            ext = new _M0TPC16string10StringView(_bind$39, 0, _bind$39.length);
+            const _bind$34 = "";
+            ext = new _M0TPC16string10StringView(_bind$34, 0, _bind$34.length);
           }
         }
         const extension = _M0MPC16string6String9to__lower(_M0IPC16string10StringViewPB4Show10to__string(ext));
         let content_type;
-        const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx20image__content__type(new _M0TPC16string10StringView(extension, 0, extension.length));
-        if (_bind$39 === undefined) {
+        const _bind$34 = _M0FP38bobzhang8mbtexcel4xlsx20image__content__type(new _M0TPC16string10StringView(extension, 0, extension.length));
+        if (_bind$34 === undefined) {
           content_type = "application/octet-stream";
         } else {
-          const _Some = _bind$39;
+          const _Some = _bind$34;
           const _value = _Some;
           content_type = _value;
         }
@@ -56898,18 +55921,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
         _L$9: {
           _L$10: {
             const _tmp$14 = new _M0TPC16string10StringView(pic_body, 0, pic_body.length);
-            const _bind$40 = "a:hlinkClick";
-            const _bind$41 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$14, new _M0TPC16string10StringView(_bind$40, 0, _bind$40.length));
-            let _bind$42;
-            if (_bind$41.$tag === 1) {
-              const _ok = _bind$41;
-              _bind$42 = _ok._0;
+            const _bind$35 = "a:hlinkClick";
+            const _bind$36 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$14, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length));
+            if (_bind$36 === undefined) {
             } else {
-              return _bind$41;
-            }
-            if (_bind$42 === undefined) {
-            } else {
-              const _Some = _bind$42;
+              const _Some = _bind$36;
               const _tag = _Some;
               tag = _tag;
               break _L$10;
@@ -56920,18 +55936,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
           _L$11: {
             _L$12: {
               const _tmp$14 = new _M0TPC16string10StringView(tag, 0, tag.length);
-              const _bind$40 = "r:id";
-              const _bind$41 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$14, new _M0TPC16string10StringView(_bind$40, 0, _bind$40.length));
-              let _bind$42;
-              if (_bind$41.$tag === 1) {
-                const _ok = _bind$41;
-                _bind$42 = _ok._0;
+              const _bind$35 = "r:id";
+              const _bind$36 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$14, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length));
+              let _bind$37;
+              if (_bind$36.$tag === 1) {
+                const _ok = _bind$36;
+                _bind$37 = _ok._0;
               } else {
-                return _bind$41;
+                return _bind$36;
               }
-              if (_bind$42 === undefined) {
+              if (_bind$37 === undefined) {
               } else {
-                const _Some = _bind$42;
+                const _Some = _bind$37;
                 const _rel_id = _Some;
                 rel_id = _rel_id;
                 break _L$12;
@@ -56941,10 +55957,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
             let value$5;
             _L$13: {
               _L$14: {
-                const _bind$40 = _M0MPB3Map3getGssE(hyperlink_targets, rel_id);
-                if (_bind$40 === undefined) {
+                const _bind$35 = _M0MPB3Map3getGssE(hyperlink_targets, rel_id);
+                if (_bind$35 === undefined) {
                 } else {
-                  const _Some = _bind$40;
+                  const _Some = _bind$35;
                   const _value = _Some;
                   value$5 = _value;
                   break _L$14;
@@ -56953,8 +55969,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__images(drawing_xml, draw
               }
               hyperlink.val = value$5;
               const _tmp$14 = hyperlink.val;
-              const _bind$40 = "://";
-              if (_M0MPC16string6String8contains(_tmp$14, new _M0TPC16string10StringView(_bind$40, 0, _bind$40.length))) {
+              const _bind$35 = "://";
+              if (_M0MPC16string6String8contains(_tmp$14, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length))) {
                 hyperlink_type.val = 0;
               } else {
                 hyperlink_type.val = 1;
@@ -57016,63 +56032,56 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
         const _tmp$3 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
         const _bind$7 = "c:chart";
         const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
-        } else {
-          return _bind$8;
-        }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
           break _L;
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _value = _Some;
           chart_tag = _value;
         }
         let rel_id;
         const _tmp$4 = new _M0TPC16string10StringView(chart_tag, 0, chart_tag.length);
-        const _bind$10 = "r:id";
-        const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
-        let _bind$12;
-        if (_bind$11.$tag === 1) {
-          const _ok = _bind$11;
-          _bind$12 = _ok._0;
+        const _bind$9 = "r:id";
+        const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
+        let _bind$11;
+        if (_bind$10.$tag === 1) {
+          const _ok = _bind$10;
+          _bind$11 = _ok._0;
         } else {
-          return _bind$11;
+          return _bind$10;
         }
-        if (_bind$12 === undefined) {
+        if (_bind$11 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing chart rel id missing"));
         } else {
-          const _Some = _bind$12;
+          const _Some = _bind$11;
           const _value = _Some;
           rel_id = _value;
         }
         let target;
-        const _bind$13 = _M0MPB3Map3getGssE(chart_targets, rel_id);
-        if (_bind$13 === undefined) {
+        const _bind$12 = _M0MPB3Map3getGssE(chart_targets, rel_id);
+        if (_bind$12 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing chart target missing"));
         } else {
-          const _Some = _bind$13;
+          const _Some = _bind$12;
           const _value = _Some;
           target = _value;
         }
         const _tmp$5 = new _M0TPC16string10StringView(target, 0, target.length);
-        const _bind$14 = "drawings";
-        const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx20resolve__rel__target(_tmp$5, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
+        const _bind$13 = "drawings";
+        const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx20resolve__rel__target(_tmp$5, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
         let chart_path;
-        if (_bind$15.$tag === 1) {
-          const _ok = _bind$15;
+        if (_bind$14.$tag === 1) {
+          const _ok = _bind$14;
           chart_path = _ok._0;
         } else {
-          return _bind$15;
+          return _bind$14;
         }
         let chart_bytes;
-        const _bind$16 = _M0MP38bobzhang8mbtexcel3zip7Archive3get(archive, new _M0TPC16string10StringView(chart_path, 0, chart_path.length));
-        if (_bind$16 === undefined) {
+        const _bind$15 = _M0MP38bobzhang8mbtexcel3zip7Archive3get(archive, new _M0TPC16string10StringView(chart_path, 0, chart_path.length));
+        if (_bind$15 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error52bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eMissingPart(chart_path));
         } else {
-          const _Some = _bind$16;
+          const _Some = _bind$15;
           const _value = _Some;
           chart_bytes = _value;
         }
@@ -57080,12 +56089,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
         let _try_err;
         _L$3: {
           _L$4: {
-            const _bind$17 = _M0FPC28encoding4utf814decode_2einner(_M0MPC15bytes5Bytes12view_2einner(chart_bytes, 0, chart_bytes.length), false);
-            if (_bind$17.$tag === 1) {
-              const _ok = _bind$17;
+            const _bind$16 = _M0FPC28encoding4utf814decode_2einner(_M0MPC15bytes5Bytes12view_2einner(chart_bytes, 0, chart_bytes.length), false);
+            if (_bind$16.$tag === 1) {
+              const _ok = _bind$16;
               xml = _ok._0;
             } else {
-              const _err = _bind$17;
+              const _err = _bind$16;
               _try_err = _err._0;
               break _L$4;
             }
@@ -57095,69 +56104,62 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
         }
         let from_body;
         const _tmp$6 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$17 = "xdr:from";
-        const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$6, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length));
-        let _bind$19;
-        if (_bind$18.$tag === 1) {
-          const _ok = _bind$18;
-          _bind$19 = _ok._0;
-        } else {
-          return _bind$18;
-        }
-        if (_bind$19 === undefined) {
+        const _bind$16 = "xdr:from";
+        const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$6, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
+        if (_bind$17 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing anchor from missing"));
         } else {
-          const _Some = _bind$19;
+          const _Some = _bind$17;
           const _value = _Some;
           from_body = _value;
         }
         const _tmp$7 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$20 = "xdr:col";
-        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$7, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length), "drawing col invalid");
+        const _bind$18 = "xdr:col";
+        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$7, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length), "drawing col invalid");
         let col_idx0;
+        if (_bind$19.$tag === 1) {
+          const _ok = _bind$19;
+          col_idx0 = _ok._0;
+        } else {
+          return _bind$19;
+        }
+        const _tmp$8 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$20 = "xdr:row";
+        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length), "drawing row invalid");
+        let row_idx0;
         if (_bind$21.$tag === 1) {
           const _ok = _bind$21;
-          col_idx0 = _ok._0;
+          row_idx0 = _ok._0;
         } else {
           return _bind$21;
         }
-        const _tmp$8 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$22 = "xdr:row";
-        const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$8, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length), "drawing row invalid");
-        let row_idx0;
+        const _tmp$9 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$22 = "xdr:colOff";
+        const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length), "drawing colOff invalid");
+        let col_off_emu;
         if (_bind$23.$tag === 1) {
           const _ok = _bind$23;
-          row_idx0 = _ok._0;
+          col_off_emu = _ok._0;
         } else {
           return _bind$23;
         }
-        const _tmp$9 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$24 = "xdr:colOff";
-        const _bind$25 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$9, new _M0TPC16string10StringView(_bind$24, 0, _bind$24.length), "drawing colOff invalid");
-        let col_off_emu;
+        const _tmp$10 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$24 = "xdr:rowOff";
+        const _bind$25 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$10, new _M0TPC16string10StringView(_bind$24, 0, _bind$24.length), "drawing rowOff invalid");
+        let row_off_emu;
         if (_bind$25.$tag === 1) {
           const _ok = _bind$25;
-          col_off_emu = _ok._0;
+          row_off_emu = _ok._0;
         } else {
           return _bind$25;
         }
-        const _tmp$10 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$26 = "xdr:rowOff";
-        const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length), "drawing rowOff invalid");
-        let row_off_emu;
-        if (_bind$27.$tag === 1) {
-          const _ok = _bind$27;
-          row_off_emu = _ok._0;
-        } else {
-          return _bind$27;
-        }
-        const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
+        const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
         let reference;
-        if (_bind$28.$tag === 1) {
-          const _ok = _bind$28;
+        if (_bind$26.$tag === 1) {
+          const _ok = _bind$26;
           reference = _ok._0;
         } else {
-          return _bind$28;
+          return _bind$26;
         }
         if (_M0FP38bobzhang8mbtexcel4xlsx24picture__emu__per__pixel === 0) {
           $panic();
@@ -57173,19 +56175,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
           if (positioning === 0) {
             let ext_tag;
             const _tmp$11 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-            const _bind$29 = "xdr:ext";
-            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-            let _bind$31;
-            if (_bind$30.$tag === 1) {
-              const _ok = _bind$30;
-              _bind$31 = _ok._0;
-            } else {
-              return _bind$30;
-            }
-            if (_bind$31 === undefined) {
+            const _bind$27 = "xdr:ext";
+            const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
+            if (_bind$28 === undefined) {
               return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing ext missing"));
             } else {
-              const _Some = _bind$31;
+              const _Some = _bind$28;
               const _value = _Some;
               ext_tag = _value;
             }
@@ -57193,19 +56188,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
             let value;
             _L$5: {
               const _tmp$12 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-              const _bind$32 = "cx";
-              const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-              let _bind$34;
-              if (_bind$33.$tag === 1) {
-                const _ok = _bind$33;
-                _bind$34 = _ok._0;
+              const _bind$29 = "cx";
+              const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
+              let _bind$31;
+              if (_bind$30.$tag === 1) {
+                const _ok = _bind$30;
+                _bind$31 = _ok._0;
               } else {
-                return _bind$33;
+                return _bind$30;
               }
-              if (_bind$34 === undefined) {
+              if (_bind$31 === undefined) {
                 return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing cx missing"));
               } else {
-                const _Some = _bind$34;
+                const _Some = _bind$31;
                 const _value = _Some;
                 value = _value;
                 break _L$5;
@@ -57214,12 +56209,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
             let _try_err$2;
             _L$6: {
               _L$7: {
-                const _bind$32 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
-                if (_bind$32.$tag === 1) {
-                  const _ok = _bind$32;
+                const _bind$29 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value, 0, value.length), 10);
+                if (_bind$29.$tag === 1) {
+                  const _ok = _bind$29;
                   cx = _ok._0;
                 } else {
-                  const _err = _bind$32;
+                  const _err = _bind$29;
                   _try_err$2 = _err._0;
                   break _L$7;
                 }
@@ -57231,19 +56226,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
             let value$2;
             _L$7: {
               const _tmp$12 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-              const _bind$32 = "cy";
-              const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-              let _bind$34;
-              if (_bind$33.$tag === 1) {
-                const _ok = _bind$33;
-                _bind$34 = _ok._0;
+              const _bind$29 = "cy";
+              const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
+              let _bind$31;
+              if (_bind$30.$tag === 1) {
+                const _ok = _bind$30;
+                _bind$31 = _ok._0;
               } else {
-                return _bind$33;
+                return _bind$30;
               }
-              if (_bind$34 === undefined) {
+              if (_bind$31 === undefined) {
                 return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing cy missing"));
               } else {
-                const _Some = _bind$34;
+                const _Some = _bind$31;
                 const _value = _Some;
                 value$2 = _value;
                 break _L$7;
@@ -57252,12 +56247,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
             let _try_err$3;
             _L$8: {
               _L$9: {
-                const _bind$32 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
-                if (_bind$32.$tag === 1) {
-                  const _ok = _bind$32;
+                const _bind$29 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
+                if (_bind$29.$tag === 1) {
+                  const _ok = _bind$29;
                   cy = _ok._0;
                 } else {
-                  const _err = _bind$32;
+                  const _err = _bind$29;
                   _try_err$3 = _err._0;
                   break _L$9;
                 }
@@ -57271,66 +56266,59 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
           } else {
             let to_body;
             const _tmp$11 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-            const _bind$29 = "xdr:to";
-            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-            let _bind$31;
-            if (_bind$30.$tag === 1) {
-              const _ok = _bind$30;
-              _bind$31 = _ok._0;
-            } else {
-              return _bind$30;
-            }
-            if (_bind$31 === undefined) {
+            const _bind$27 = "xdr:to";
+            const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$11, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
+            if (_bind$28 === undefined) {
               return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ChartERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing anchor to missing"));
             } else {
-              const _Some = _bind$31;
+              const _Some = _bind$28;
               const _value = _Some;
               to_body = _value;
             }
             const _tmp$12 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$32 = "xdr:col";
-            const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length), "drawing to col invalid");
+            const _bind$29 = "xdr:col";
+            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$12, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length), "drawing to col invalid");
             let to_col_idx0;
-            if (_bind$33.$tag === 1) {
-              const _ok = _bind$33;
+            if (_bind$30.$tag === 1) {
+              const _ok = _bind$30;
               to_col_idx0 = _ok._0;
             } else {
-              return _bind$33;
+              return _bind$30;
             }
             const _tmp$13 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$34 = "xdr:row";
-            const _bind$35 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$13, new _M0TPC16string10StringView(_bind$34, 0, _bind$34.length), "drawing to row invalid");
+            const _bind$31 = "xdr:row";
+            const _bind$32 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$13, new _M0TPC16string10StringView(_bind$31, 0, _bind$31.length), "drawing to row invalid");
             let to_row_idx0;
-            if (_bind$35.$tag === 1) {
-              const _ok = _bind$35;
+            if (_bind$32.$tag === 1) {
+              const _ok = _bind$32;
               to_row_idx0 = _ok._0;
             } else {
-              return _bind$35;
+              return _bind$32;
             }
             const _tmp$14 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$36 = "xdr:colOff";
-            const _bind$37 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$14, new _M0TPC16string10StringView(_bind$36, 0, _bind$36.length), "drawing to colOff invalid");
+            const _bind$33 = "xdr:colOff";
+            const _bind$34 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$14, new _M0TPC16string10StringView(_bind$33, 0, _bind$33.length), "drawing to colOff invalid");
             let to_col_off;
-            if (_bind$37.$tag === 1) {
-              const _ok = _bind$37;
+            if (_bind$34.$tag === 1) {
+              const _ok = _bind$34;
               to_col_off = _ok._0;
             } else {
-              return _bind$37;
+              return _bind$34;
             }
             const _tmp$15 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$38 = "xdr:rowOff";
-            const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$15, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length), "drawing to rowOff invalid");
+            const _bind$35 = "xdr:rowOff";
+            const _bind$36 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$15, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length), "drawing to rowOff invalid");
             let to_row_off;
-            if (_bind$39.$tag === 1) {
-              const _ok = _bind$39;
+            if (_bind$36.$tag === 1) {
+              const _ok = _bind$36;
               to_row_off = _ok._0;
             } else {
-              return _bind$39;
+              return _bind$36;
             }
-            const _bind$40 = "col";
-            const cx = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$40, 0, _bind$40.length), col_idx0, col_off_emu, to_col_idx0, to_col_off);
-            const _bind$41 = "row";
-            const cy = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$41, 0, _bind$41.length), row_idx0, row_off_emu, to_row_idx0, to_row_off);
+            const _bind$37 = "col";
+            const cx = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$37, 0, _bind$37.length), col_idx0, col_off_emu, to_col_idx0, to_col_off);
+            const _bind$38 = "row";
+            const cy = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length), row_idx0, row_off_emu, to_row_idx0, to_row_off);
             width_emu = cx;
             height_emu = cy;
             break _L$4;
@@ -57338,19 +56326,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
         }
         let client_tag;
         const _tmp$11 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$29 = "xdr:clientData";
-        const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-        let _bind$31;
-        if (_bind$30.$tag === 1) {
-          const _ok = _bind$30;
-          _bind$31 = _ok._0;
-        } else {
-          return _bind$30;
-        }
-        if (_bind$31 === undefined) {
+        const _bind$27 = "xdr:clientData";
+        const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
+        if (_bind$28 === undefined) {
           client_tag = "";
         } else {
-          const _Some = _bind$31;
+          const _Some = _bind$28;
           const _value = _Some;
           client_tag = _value;
         }
@@ -57359,19 +56340,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
         _L$5: {
           _L$6: {
             const _tmp$12 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$32 = "fLocksWithSheet";
-            const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-            let _bind$34;
-            if (_bind$33.$tag === 1) {
-              const _ok = _bind$33;
-              _bind$34 = _ok._0;
+            const _bind$29 = "fLocksWithSheet";
+            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
+            let _bind$31;
+            if (_bind$30.$tag === 1) {
+              const _ok = _bind$30;
+              _bind$31 = _ok._0;
             } else {
-              return _bind$33;
+              return _bind$30;
             }
-            if (_bind$34 === undefined) {
+            if (_bind$31 === undefined) {
               locked = true;
             } else {
-              const _Some = _bind$34;
+              const _Some = _bind$31;
               const _value = _Some;
               value = _value;
               break _L$6;
@@ -57385,19 +56366,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__charts(drawing_xml, draw
         _L$6: {
           _L$7: {
             const _tmp$12 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$32 = "fPrintsWithSheet";
-            const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-            let _bind$34;
-            if (_bind$33.$tag === 1) {
-              const _ok = _bind$33;
-              _bind$34 = _ok._0;
+            const _bind$29 = "fPrintsWithSheet";
+            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
+            let _bind$31;
+            if (_bind$30.$tag === 1) {
+              const _ok = _bind$30;
+              _bind$31 = _ok._0;
             } else {
-              return _bind$33;
+              return _bind$30;
             }
-            if (_bind$34 === undefined) {
+            if (_bind$31 === undefined) {
               print_object = true;
             } else {
-              const _Some = _bind$34;
+              const _Some = _bind$31;
               const _value = _Some;
               value$2 = _value;
               break _L$7;
@@ -57451,85 +56432,64 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         const _tmp$3 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
         const _bind$8 = "xdr:sp";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$3, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
-        } else {
-          return _bind$9;
-        }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           break _L;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _value = _Some;
           sp_body = _value;
         }
-        const _bind$11 = "<a:prstGeom";
-        if (!_M0MPC16string6String8contains(sp_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length))) {
+        const _bind$10 = "<a:prstGeom";
+        if (!_M0MPC16string6String8contains(sp_body, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length))) {
           break _L;
         }
         let from_body;
         const _tmp$4 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$12 = "xdr:from";
-        const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
-        let _bind$14;
-        if (_bind$13.$tag === 1) {
-          const _ok = _bind$13;
-          _bind$14 = _ok._0;
-        } else {
-          return _bind$13;
-        }
-        if (_bind$14 === undefined) {
+        const _bind$11 = "xdr:from";
+        const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
+        if (_bind$12 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing anchor from missing"));
         } else {
-          const _Some = _bind$14;
+          const _Some = _bind$12;
           const _value = _Some;
           from_body = _value;
         }
         const _tmp$5 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$15 = "xdr:col";
-        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$5, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length), "drawing col invalid");
+        const _bind$13 = "xdr:col";
+        const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$5, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length), "drawing col invalid");
         let col_idx0;
+        if (_bind$14.$tag === 1) {
+          const _ok = _bind$14;
+          col_idx0 = _ok._0;
+        } else {
+          return _bind$14;
+        }
+        const _tmp$6 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$15 = "xdr:row";
+        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$6, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length), "drawing row invalid");
+        let row_idx0;
         if (_bind$16.$tag === 1) {
           const _ok = _bind$16;
-          col_idx0 = _ok._0;
+          row_idx0 = _ok._0;
         } else {
           return _bind$16;
         }
-        const _tmp$6 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$17 = "xdr:row";
-        const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$6, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length), "drawing row invalid");
-        let row_idx0;
-        if (_bind$18.$tag === 1) {
-          const _ok = _bind$18;
-          row_idx0 = _ok._0;
-        } else {
-          return _bind$18;
-        }
-        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
+        const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
         let reference;
-        if (_bind$19.$tag === 1) {
-          const _ok = _bind$19;
+        if (_bind$17.$tag === 1) {
+          const _ok = _bind$17;
           reference = _ok._0;
         } else {
-          return _bind$19;
+          return _bind$17;
         }
         let c_nv_pr_tag;
         const _tmp$7 = new _M0TPC16string10StringView(sp_body, 0, sp_body.length);
-        const _bind$20 = "xdr:cNvPr";
-        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$7, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
-        let _bind$22;
-        if (_bind$21.$tag === 1) {
-          const _ok = _bind$21;
-          _bind$22 = _ok._0;
-        } else {
-          return _bind$21;
-        }
-        if (_bind$22 === undefined) {
+        const _bind$18 = "xdr:cNvPr";
+        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$7, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length));
+        if (_bind$19 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape cNvPr missing"));
         } else {
-          const _Some = _bind$22;
+          const _Some = _bind$19;
           const _value = _Some;
           c_nv_pr_tag = _value;
         }
@@ -57538,19 +56498,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$3: {
           _L$4: {
             const _tmp$8 = new _M0TPC16string10StringView(c_nv_pr_tag, 0, c_nv_pr_tag.length);
-            const _bind$23 = "name";
-            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$8, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-            let _bind$25;
-            if (_bind$24.$tag === 1) {
-              const _ok = _bind$24;
-              _bind$25 = _ok._0;
+            const _bind$20 = "name";
+            const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+            let _bind$22;
+            if (_bind$21.$tag === 1) {
+              const _ok = _bind$21;
+              _bind$22 = _ok._0;
             } else {
-              return _bind$24;
+              return _bind$21;
             }
-            if (_bind$25 === undefined) {
+            if (_bind$22 === undefined) {
               name = "";
             } else {
-              const _Some = _bind$25;
+              const _Some = _bind$22;
               const _value = _Some;
               value = _value;
               break _L$4;
@@ -57564,19 +56524,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$4: {
           _L$5: {
             const _tmp$8 = new _M0TPC16string10StringView(c_nv_pr_tag, 0, c_nv_pr_tag.length);
-            const _bind$23 = "descr";
-            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$8, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-            let _bind$25;
-            if (_bind$24.$tag === 1) {
-              const _ok = _bind$24;
-              _bind$25 = _ok._0;
+            const _bind$20 = "descr";
+            const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+            let _bind$22;
+            if (_bind$21.$tag === 1) {
+              const _ok = _bind$21;
+              _bind$22 = _ok._0;
             } else {
-              return _bind$24;
+              return _bind$21;
             }
-            if (_bind$25 === undefined) {
+            if (_bind$22 === undefined) {
               alt_text = "";
             } else {
-              const _Some = _bind$25;
+              const _Some = _bind$22;
               const _value = _Some;
               value$2 = _value;
               break _L$5;
@@ -57590,19 +56550,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$5: {
           _L$6: {
             const _tmp$8 = new _M0TPC16string10StringView(c_nv_pr_tag, 0, c_nv_pr_tag.length);
-            const _bind$23 = "macro";
-            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$8, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-            let _bind$25;
-            if (_bind$24.$tag === 1) {
-              const _ok = _bind$24;
-              _bind$25 = _ok._0;
+            const _bind$20 = "macro";
+            const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+            let _bind$22;
+            if (_bind$21.$tag === 1) {
+              const _ok = _bind$21;
+              _bind$22 = _ok._0;
             } else {
-              return _bind$24;
+              return _bind$21;
             }
-            if (_bind$25 === undefined) {
+            if (_bind$22 === undefined) {
               macro_name = "";
             } else {
-              const _Some = _bind$25;
+              const _Some = _bind$22;
               const _value = _Some;
               value$3 = _value;
               break _L$6;
@@ -57613,19 +56573,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         }
         let client_tag;
         const _tmp$8 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$23 = "xdr:clientData";
-        const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$8, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-        let _bind$25;
-        if (_bind$24.$tag === 1) {
-          const _ok = _bind$24;
-          _bind$25 = _ok._0;
-        } else {
-          return _bind$24;
-        }
-        if (_bind$25 === undefined) {
+        const _bind$20 = "xdr:clientData";
+        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+        if (_bind$21 === undefined) {
           client_tag = "";
         } else {
-          const _Some = _bind$25;
+          const _Some = _bind$21;
           const _value = _Some;
           client_tag = _value;
         }
@@ -57634,19 +56587,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$6: {
           _L$7: {
             const _tmp$9 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$26 = "fLocksWithSheet";
-            const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-            let _bind$28;
-            if (_bind$27.$tag === 1) {
-              const _ok = _bind$27;
-              _bind$28 = _ok._0;
+            const _bind$22 = "fLocksWithSheet";
+            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+            let _bind$24;
+            if (_bind$23.$tag === 1) {
+              const _ok = _bind$23;
+              _bind$24 = _ok._0;
             } else {
-              return _bind$27;
+              return _bind$23;
             }
-            if (_bind$28 === undefined) {
+            if (_bind$24 === undefined) {
               locked = true;
             } else {
-              const _Some = _bind$28;
+              const _Some = _bind$24;
               const _value = _Some;
               value$4 = _value;
               break _L$7;
@@ -57660,19 +56613,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$7: {
           _L$8: {
             const _tmp$9 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$26 = "fPrintsWithSheet";
-            const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-            let _bind$28;
-            if (_bind$27.$tag === 1) {
-              const _ok = _bind$27;
-              _bind$28 = _ok._0;
+            const _bind$22 = "fPrintsWithSheet";
+            const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+            let _bind$24;
+            if (_bind$23.$tag === 1) {
+              const _ok = _bind$23;
+              _bind$24 = _ok._0;
             } else {
-              return _bind$27;
+              return _bind$23;
             }
-            if (_bind$28 === undefined) {
+            if (_bind$24 === undefined) {
               print_object = true;
             } else {
-              const _Some = _bind$28;
+              const _Some = _bind$24;
               const _value = _Some;
               value$5 = _value;
               break _L$8;
@@ -57683,55 +56636,34 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         }
         let sppr_body;
         const _tmp$9 = new _M0TPC16string10StringView(sp_body, 0, sp_body.length);
-        const _bind$26 = "xdr:spPr";
-        const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$9, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-        let _bind$28;
-        if (_bind$27.$tag === 1) {
-          const _ok = _bind$27;
-          _bind$28 = _ok._0;
-        } else {
-          return _bind$27;
-        }
-        if (_bind$28 === undefined) {
+        const _bind$22 = "xdr:spPr";
+        const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+        if (_bind$23 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape spPr missing"));
         } else {
-          const _Some = _bind$28;
+          const _Some = _bind$23;
           const _value = _Some;
           sppr_body = _value;
         }
         let xfrm_body;
         const _tmp$10 = new _M0TPC16string10StringView(sppr_body, 0, sppr_body.length);
-        const _bind$29 = "a:xfrm";
-        const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$10, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-        let _bind$31;
-        if (_bind$30.$tag === 1) {
-          const _ok = _bind$30;
-          _bind$31 = _ok._0;
-        } else {
-          return _bind$30;
-        }
-        if (_bind$31 === undefined) {
+        const _bind$24 = "a:xfrm";
+        const _bind$25 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$10, new _M0TPC16string10StringView(_bind$24, 0, _bind$24.length));
+        if (_bind$25 === undefined) {
           xfrm_body = sppr_body;
         } else {
-          const _Some = _bind$31;
+          const _Some = _bind$25;
           const _value = _Some;
           xfrm_body = _value;
         }
         let ext_tag;
         const _tmp$11 = new _M0TPC16string10StringView(xfrm_body, 0, xfrm_body.length);
-        const _bind$32 = "a:ext";
-        const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-        let _bind$34;
-        if (_bind$33.$tag === 1) {
-          const _ok = _bind$33;
-          _bind$34 = _ok._0;
-        } else {
-          return _bind$33;
-        }
-        if (_bind$34 === undefined) {
+        const _bind$26 = "a:ext";
+        const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
+        if (_bind$27 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape ext missing"));
         } else {
-          const _Some = _bind$34;
+          const _Some = _bind$27;
           const _value = _Some;
           ext_tag = _value;
         }
@@ -57739,19 +56671,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         let value$6;
         _L$8: {
           const _tmp$12 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-          const _bind$35 = "cx";
-          const _bind$36 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length));
-          let _bind$37;
-          if (_bind$36.$tag === 1) {
-            const _ok = _bind$36;
-            _bind$37 = _ok._0;
+          const _bind$28 = "cx";
+          const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$28, 0, _bind$28.length));
+          let _bind$30;
+          if (_bind$29.$tag === 1) {
+            const _ok = _bind$29;
+            _bind$30 = _ok._0;
           } else {
-            return _bind$36;
+            return _bind$29;
           }
-          if (_bind$37 === undefined) {
+          if (_bind$30 === undefined) {
             return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape cx missing"));
           } else {
-            const _Some = _bind$37;
+            const _Some = _bind$30;
             const _value = _Some;
             value$6 = _value;
             break _L$8;
@@ -57760,12 +56692,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         let _try_err;
         _L$9: {
           _L$10: {
-            const _bind$35 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$6, 0, value$6.length), 10);
-            if (_bind$35.$tag === 1) {
-              const _ok = _bind$35;
+            const _bind$28 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$6, 0, value$6.length), 10);
+            if (_bind$28.$tag === 1) {
+              const _ok = _bind$28;
               cx = _ok._0;
             } else {
-              const _err = _bind$35;
+              const _err = _bind$28;
               _try_err = _err._0;
               break _L$10;
             }
@@ -57777,19 +56709,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         let value$7;
         _L$10: {
           const _tmp$12 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-          const _bind$35 = "cy";
-          const _bind$36 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length));
-          let _bind$37;
-          if (_bind$36.$tag === 1) {
-            const _ok = _bind$36;
-            _bind$37 = _ok._0;
+          const _bind$28 = "cy";
+          const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$28, 0, _bind$28.length));
+          let _bind$30;
+          if (_bind$29.$tag === 1) {
+            const _ok = _bind$29;
+            _bind$30 = _ok._0;
           } else {
-            return _bind$36;
+            return _bind$29;
           }
-          if (_bind$37 === undefined) {
+          if (_bind$30 === undefined) {
             return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape cy missing"));
           } else {
-            const _Some = _bind$37;
+            const _Some = _bind$30;
             const _value = _Some;
             value$7 = _value;
             break _L$10;
@@ -57798,12 +56730,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         let _try_err$2;
         _L$11: {
           _L$12: {
-            const _bind$35 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$7, 0, value$7.length), 10);
-            if (_bind$35.$tag === 1) {
-              const _ok = _bind$35;
+            const _bind$28 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$7, 0, value$7.length), 10);
+            if (_bind$28.$tag === 1) {
+              const _ok = _bind$28;
               cy = _ok._0;
             } else {
-              const _err = _bind$35;
+              const _err = _bind$28;
               _try_err$2 = _err._0;
               break _L$12;
             }
@@ -57815,19 +56747,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         const height = _M0MPC16double6Double7to__int(_M0MPC16double6Double5round((cy + 0) / (_M0FP38bobzhang8mbtexcel4xlsx24picture__emu__per__pixel + 0)));
         let geom_tag;
         const _tmp$12 = new _M0TPC16string10StringView(sppr_body, 0, sppr_body.length);
-        const _bind$35 = "a:prstGeom";
-        const _bind$36 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$12, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length));
-        let _bind$37;
-        if (_bind$36.$tag === 1) {
-          const _ok = _bind$36;
-          _bind$37 = _ok._0;
-        } else {
-          return _bind$36;
-        }
-        if (_bind$37 === undefined) {
+        const _bind$28 = "a:prstGeom";
+        const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$12, new _M0TPC16string10StringView(_bind$28, 0, _bind$28.length));
+        if (_bind$29 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape prstGeom missing"));
         } else {
-          const _Some = _bind$37;
+          const _Some = _bind$29;
           const _value = _Some;
           geom_tag = _value;
         }
@@ -57835,19 +56760,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         let value$8;
         _L$12: {
           const _tmp$13 = new _M0TPC16string10StringView(geom_tag, 0, geom_tag.length);
-          const _bind$38 = "prst";
-          const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-          let _bind$40;
-          if (_bind$39.$tag === 1) {
-            const _ok = _bind$39;
-            _bind$40 = _ok._0;
+          const _bind$30 = "prst";
+          const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+          let _bind$32;
+          if (_bind$31.$tag === 1) {
+            const _ok = _bind$31;
+            _bind$32 = _ok._0;
           } else {
-            return _bind$39;
+            return _bind$31;
           }
-          if (_bind$40 === undefined) {
+          if (_bind$32 === undefined) {
             return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx5ShapeERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing shape prst missing"));
           } else {
-            const _Some = _bind$40;
+            const _Some = _bind$32;
             const _value = _Some;
             value$8 = _value;
             break _L$12;
@@ -57860,18 +56785,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$13: {
           _L$14: {
             const _tmp$13 = new _M0TPC16string10StringView(sppr_body, 0, sppr_body.length);
-            const _bind$38 = "a:solidFill";
-            const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-            let _bind$40;
-            if (_bind$39.$tag === 1) {
-              const _ok = _bind$39;
-              _bind$40 = _ok._0;
+            const _bind$30 = "a:solidFill";
+            const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+            if (_bind$31 === undefined) {
             } else {
-              return _bind$39;
-            }
-            if (_bind$40 === undefined) {
-            } else {
-              const _Some = _bind$40;
+              const _Some = _bind$31;
               const _fill_body = _Some;
               fill_body = _fill_body;
               break _L$14;
@@ -57882,18 +56800,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
           _L$15: {
             _L$16: {
               const _tmp$13 = new _M0TPC16string10StringView(fill_body, 0, fill_body.length);
-              const _bind$38 = "a:srgbClr";
-              const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-              let _bind$40;
-              if (_bind$39.$tag === 1) {
-                const _ok = _bind$39;
-                _bind$40 = _ok._0;
+              const _bind$30 = "a:srgbClr";
+              const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+              if (_bind$31 === undefined) {
               } else {
-                return _bind$39;
-              }
-              if (_bind$40 === undefined) {
-              } else {
-                const _Some = _bind$40;
+                const _Some = _bind$31;
                 const _tag = _Some;
                 tag = _tag;
                 break _L$16;
@@ -57904,18 +56815,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
             _L$17: {
               _L$18: {
                 const _tmp$13 = new _M0TPC16string10StringView(tag, 0, tag.length);
-                const _bind$38 = "val";
-                const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-                let _bind$40;
-                if (_bind$39.$tag === 1) {
-                  const _ok = _bind$39;
-                  _bind$40 = _ok._0;
+                const _bind$30 = "val";
+                const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+                let _bind$32;
+                if (_bind$31.$tag === 1) {
+                  const _ok = _bind$31;
+                  _bind$32 = _ok._0;
                 } else {
-                  return _bind$39;
+                  return _bind$31;
                 }
-                if (_bind$40 === undefined) {
+                if (_bind$32 === undefined) {
                 } else {
-                  const _Some = _bind$40;
+                  const _Some = _bind$32;
                   const _value = _Some;
                   value$9 = _value;
                   break _L$18;
@@ -57927,18 +56838,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
               _L$19: {
                 _L$20: {
                   const _tmp$13 = new _M0TPC16string10StringView(fill_body, 0, fill_body.length);
-                  const _bind$38 = "a:alpha";
-                  const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-                  let _bind$40;
-                  if (_bind$39.$tag === 1) {
-                    const _ok = _bind$39;
-                    _bind$40 = _ok._0;
+                  const _bind$30 = "a:alpha";
+                  const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+                  if (_bind$31 === undefined) {
                   } else {
-                    return _bind$39;
-                  }
-                  if (_bind$40 === undefined) {
-                  } else {
-                    const _Some = _bind$40;
+                    const _Some = _bind$31;
                     const _alpha_tag = _Some;
                     alpha_tag = _alpha_tag;
                     break _L$20;
@@ -57949,18 +56853,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
                 _L$21: {
                   _L$22: {
                     const _tmp$13 = new _M0TPC16string10StringView(alpha_tag, 0, alpha_tag.length);
-                    const _bind$38 = "val";
-                    const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-                    let _bind$40;
-                    if (_bind$39.$tag === 1) {
-                      const _ok = _bind$39;
-                      _bind$40 = _ok._0;
+                    const _bind$30 = "val";
+                    const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+                    let _bind$32;
+                    if (_bind$31.$tag === 1) {
+                      const _ok = _bind$31;
+                      _bind$32 = _ok._0;
                     } else {
-                      return _bind$39;
+                      return _bind$31;
                     }
-                    if (_bind$40 === undefined) {
+                    if (_bind$32 === undefined) {
                     } else {
-                      const _Some = _bind$40;
+                      const _Some = _bind$32;
                       const _alpha = _Some;
                       alpha = _alpha;
                       break _L$22;
@@ -57970,17 +56874,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
                   let _try_err$3;
                   _L$23: {
                     _L$24: {
-                      const _bind$38 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(alpha, 0, alpha.length), 10);
-                      let _bind$39;
-                      if (_bind$38.$tag === 1) {
-                        const _ok = _bind$38;
-                        _bind$39 = _ok._0;
+                      const _bind$30 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(alpha, 0, alpha.length), 10);
+                      let _bind$31;
+                      if (_bind$30.$tag === 1) {
+                        const _ok = _bind$30;
+                        _bind$31 = _ok._0;
                       } else {
-                        const _err = _bind$38;
+                        const _err = _bind$30;
                         _try_err$3 = _err._0;
                         break _L$24;
                       }
-                      const value$10 = _bind$39;
+                      const value$10 = _bind$31;
                       if (1000 === 0) {
                         $panic();
                       }
@@ -58003,18 +56907,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$14: {
           _L$15: {
             const _tmp$13 = new _M0TPC16string10StringView(sppr_body, 0, sppr_body.length);
-            const _bind$38 = "a:ln";
-            const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-            let _bind$40;
-            if (_bind$39.$tag === 1) {
-              const _ok = _bind$39;
-              _bind$40 = _ok._0;
+            const _bind$30 = "a:ln";
+            const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+            if (_bind$31 === undefined) {
             } else {
-              return _bind$39;
-            }
-            if (_bind$40 === undefined) {
-            } else {
-              const _Some = _bind$40;
+              const _Some = _bind$31;
               const _tag = _Some;
               tag = _tag;
               break _L$15;
@@ -58025,18 +56922,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
           _L$16: {
             _L$17: {
               const _tmp$13 = new _M0TPC16string10StringView(tag, 0, tag.length);
-              const _bind$38 = "w";
-              const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-              let _bind$40;
-              if (_bind$39.$tag === 1) {
-                const _ok = _bind$39;
-                _bind$40 = _ok._0;
+              const _bind$30 = "w";
+              const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+              let _bind$32;
+              if (_bind$31.$tag === 1) {
+                const _ok = _bind$31;
+                _bind$32 = _ok._0;
               } else {
-                return _bind$39;
+                return _bind$31;
               }
-              if (_bind$40 === undefined) {
+              if (_bind$32 === undefined) {
               } else {
-                const _Some = _bind$40;
+                const _Some = _bind$32;
                 const _value = _Some;
                 value$9 = _value;
                 break _L$17;
@@ -58046,17 +56943,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
             let _try_err$3;
             _L$18: {
               _L$19: {
-                const _bind$38 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$9, 0, value$9.length), 10);
-                let _bind$39;
-                if (_bind$38.$tag === 1) {
-                  const _ok = _bind$38;
-                  _bind$39 = _ok._0;
+                const _bind$30 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$9, 0, value$9.length), 10);
+                let _bind$31;
+                if (_bind$30.$tag === 1) {
+                  const _ok = _bind$30;
+                  _bind$31 = _ok._0;
                 } else {
-                  const _err = _bind$38;
+                  const _err = _bind$30;
                   _try_err$3 = _err._0;
                   break _L$19;
                 }
-                const value$10 = _bind$39;
+                const value$10 = _bind$31;
                 line_width.val = (value$10 + 0) / 12700;
                 break _L$18;
               }
@@ -58066,18 +56963,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
           _L$17: {
             _L$18: {
               const _tmp$13 = new _M0TPC16string10StringView(sppr_body, 0, sppr_body.length);
-              const _bind$38 = "a:ln";
-              const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-              let _bind$40;
-              if (_bind$39.$tag === 1) {
-                const _ok = _bind$39;
-                _bind$40 = _ok._0;
+              const _bind$30 = "a:ln";
+              const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+              if (_bind$31 === undefined) {
               } else {
-                return _bind$39;
-              }
-              if (_bind$40 === undefined) {
-              } else {
-                const _Some = _bind$40;
+                const _Some = _bind$31;
                 const _ln_body = _Some;
                 ln_body = _ln_body;
                 break _L$18;
@@ -58088,18 +56978,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
             _L$19: {
               _L$20: {
                 const _tmp$13 = new _M0TPC16string10StringView(ln_body, 0, ln_body.length);
-                const _bind$38 = "a:srgbClr";
-                const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-                let _bind$40;
-                if (_bind$39.$tag === 1) {
-                  const _ok = _bind$39;
-                  _bind$40 = _ok._0;
+                const _bind$30 = "a:srgbClr";
+                const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+                if (_bind$31 === undefined) {
                 } else {
-                  return _bind$39;
-                }
-                if (_bind$40 === undefined) {
-                } else {
-                  const _Some = _bind$40;
+                  const _Some = _bind$31;
                   const _color_tag = _Some;
                   color_tag = _color_tag;
                   break _L$20;
@@ -58110,18 +56993,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
               _L$21: {
                 _L$22: {
                   const _tmp$13 = new _M0TPC16string10StringView(color_tag, 0, color_tag.length);
-                  const _bind$38 = "val";
-                  const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-                  let _bind$40;
-                  if (_bind$39.$tag === 1) {
-                    const _ok = _bind$39;
-                    _bind$40 = _ok._0;
+                  const _bind$30 = "val";
+                  const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+                  let _bind$32;
+                  if (_bind$31.$tag === 1) {
+                    const _ok = _bind$31;
+                    _bind$32 = _ok._0;
                   } else {
-                    return _bind$39;
+                    return _bind$31;
                   }
-                  if (_bind$40 === undefined) {
+                  if (_bind$32 === undefined) {
                   } else {
-                    const _Some = _bind$40;
+                    const _Some = _bind$32;
                     const _value = _Some;
                     value$10 = _value;
                     break _L$22;
@@ -58138,18 +57021,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
         _L$15: {
           _L$16: {
             const _tmp$13 = new _M0TPC16string10StringView(sp_body, 0, sp_body.length);
-            const _bind$38 = "xdr:txBody";
-            const _bind$39 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$13, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
-            let _bind$40;
-            if (_bind$39.$tag === 1) {
-              const _ok = _bind$39;
-              _bind$40 = _ok._0;
+            const _bind$30 = "xdr:txBody";
+            const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$13, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
+            if (_bind$31 === undefined) {
             } else {
-              return _bind$39;
-            }
-            if (_bind$40 === undefined) {
-            } else {
-              const _Some = _bind$40;
+              const _Some = _bind$31;
               const _tx_body = _Some;
               tx_body = _tx_body;
               break _L$16;
@@ -58158,16 +57034,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
           }
           const tx = tx_body;
           const first = new _M0TPB8MutLocalGbE(true);
-          const _bind$38 = "<a:t>";
-          const _it = _M0MPC16string6String5split(tx, new _M0TPC16string10StringView(_bind$38, 0, _bind$38.length));
+          const _bind$30 = "<a:t>";
+          const _it = _M0MPC16string6String5split(tx, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length));
           while (true) {
             let chunk;
             _L$17: {
-              const _bind$39 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it);
-              if (_bind$39 === undefined) {
+              const _bind$31 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it);
+              if (_bind$31 === undefined) {
                 break;
               } else {
-                const _Some = _bind$39;
+                const _Some = _bind$31;
                 const _chunk = _Some;
                 chunk = _chunk;
                 break _L$17;
@@ -58179,20 +57055,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__drawing__shapes(drawing_xml) {
             }
             const part = _M0IPC16string10StringViewPB4Show10to__string(chunk);
             let end;
-            const _bind$39 = "</a:t>";
-            const _bind$40 = _M0MPC16string6String4find(part, new _M0TPC16string10StringView(_bind$39, 0, _bind$39.length));
-            if (_bind$40 === undefined) {
+            const _bind$31 = "</a:t>";
+            const _bind$32 = _M0MPC16string6String4find(part, new _M0TPC16string10StringView(_bind$31, 0, _bind$31.length));
+            if (_bind$32 === undefined) {
               continue;
             } else {
-              const _Some = _bind$40;
+              const _Some = _bind$32;
               const _pos = _Some;
               end = _pos;
             }
-            let text;
-            _L$18: {
-              text = _M0MPC16string6String11sub_2einner(part, 0, end);
-              break _L$18;
-            }
+            const text = _M0MPC16string6String11sub_2einner(part, 0, end);
             _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(paragraph, new _M0TP38bobzhang8mbtexcel4xlsx11RichTextRun(_M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(text), undefined));
             continue;
           }
@@ -58243,17 +57115,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         const _tmp$3 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
         const _bind$8 = "sle:slicer";
         const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-        let _bind$10;
-        if (_bind$9.$tag === 1) {
-          const _ok = _bind$9;
-          _bind$10 = _ok._0;
-        } else {
-          return _bind$9;
-        }
-        if (_bind$10 === undefined) {
+        if (_bind$9 === undefined) {
           break _L;
         } else {
-          const _Some = _bind$10;
+          const _Some = _bind$9;
           const _value = _Some;
           slicer_tag = _value;
         }
@@ -58261,19 +57126,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         let value;
         _L$3: {
           const _tmp$4 = new _M0TPC16string10StringView(slicer_tag, 0, slicer_tag.length);
-          const _bind$11 = "name";
-          const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-          let _bind$13;
-          if (_bind$12.$tag === 1) {
-            const _ok = _bind$12;
-            _bind$13 = _ok._0;
+          const _bind$10 = "name";
+          const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+          let _bind$12;
+          if (_bind$11.$tag === 1) {
+            const _ok = _bind$11;
+            _bind$12 = _ok._0;
           } else {
-            return _bind$12;
+            return _bind$11;
           }
-          if (_bind$13 === undefined) {
+          if (_bind$12 === undefined) {
             break _L;
           } else {
-            const _Some = _bind$13;
+            const _Some = _bind$12;
             const _value = _Some;
             value = _value;
             break _L$3;
@@ -58282,69 +57147,62 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         slicer_name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
         let from_body;
         const _tmp$4 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$11 = "xdr:from";
-        const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-        let _bind$13;
-        if (_bind$12.$tag === 1) {
-          const _ok = _bind$12;
-          _bind$13 = _ok._0;
-        } else {
-          return _bind$12;
-        }
-        if (_bind$13 === undefined) {
+        const _bind$10 = "xdr:from";
+        const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+        if (_bind$11 === undefined) {
           return new _M0DTPC16result6ResultGRPB3MapGsRP38bobzhang8mbtexcel4xlsx16SlicerAnchorInfoERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing slicer from missing"));
         } else {
-          const _Some = _bind$13;
+          const _Some = _bind$11;
           const _value = _Some;
           from_body = _value;
         }
         const _tmp$5 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$14 = "xdr:col";
-        const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$5, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length), "drawing slicer col invalid");
+        const _bind$12 = "xdr:col";
+        const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$5, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length), "drawing slicer col invalid");
         let col_idx0;
+        if (_bind$13.$tag === 1) {
+          const _ok = _bind$13;
+          col_idx0 = _ok._0;
+        } else {
+          return _bind$13;
+        }
+        const _tmp$6 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$14 = "xdr:row";
+        const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$6, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length), "drawing slicer row invalid");
+        let row_idx0;
         if (_bind$15.$tag === 1) {
           const _ok = _bind$15;
-          col_idx0 = _ok._0;
+          row_idx0 = _ok._0;
         } else {
           return _bind$15;
         }
-        const _tmp$6 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$16 = "xdr:row";
-        const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$6, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length), "drawing slicer row invalid");
-        let row_idx0;
+        const _tmp$7 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$16 = "xdr:colOff";
+        const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$7, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length), "drawing slicer colOff invalid");
+        let col_off_emu;
         if (_bind$17.$tag === 1) {
           const _ok = _bind$17;
-          row_idx0 = _ok._0;
+          col_off_emu = _ok._0;
         } else {
           return _bind$17;
         }
-        const _tmp$7 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$18 = "xdr:colOff";
-        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$7, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length), "drawing slicer colOff invalid");
-        let col_off_emu;
+        const _tmp$8 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
+        const _bind$18 = "xdr:rowOff";
+        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$8, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length), "drawing slicer rowOff invalid");
+        let row_off_emu;
         if (_bind$19.$tag === 1) {
           const _ok = _bind$19;
-          col_off_emu = _ok._0;
+          row_off_emu = _ok._0;
         } else {
           return _bind$19;
         }
-        const _tmp$8 = new _M0TPC16string10StringView(from_body, 0, from_body.length);
-        const _bind$20 = "xdr:rowOff";
-        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length), "drawing slicer rowOff invalid");
-        let row_off_emu;
-        if (_bind$21.$tag === 1) {
-          const _ok = _bind$21;
-          row_off_emu = _ok._0;
-        } else {
-          return _bind$21;
-        }
-        const _bind$22 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
+        const _bind$20 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row_idx0 + 1 | 0, col_idx0 + 1 | 0);
         let cell;
-        if (_bind$22.$tag === 1) {
-          const _ok = _bind$22;
+        if (_bind$20.$tag === 1) {
+          const _ok = _bind$20;
           cell = _ok._0;
         } else {
-          return _bind$22;
+          return _bind$20;
         }
         if (_M0FP38bobzhang8mbtexcel4xlsx24picture__emu__per__pixel === 0) {
           $panic();
@@ -58360,19 +57218,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
           if (positioning === 0) {
             let ext_tag;
             const _tmp$9 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-            const _bind$23 = "xdr:ext";
-            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-            let _bind$25;
-            if (_bind$24.$tag === 1) {
-              const _ok = _bind$24;
-              _bind$25 = _ok._0;
-            } else {
-              return _bind$24;
-            }
-            if (_bind$25 === undefined) {
+            const _bind$21 = "xdr:ext";
+            const _bind$22 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$21, 0, _bind$21.length));
+            if (_bind$22 === undefined) {
               return new _M0DTPC16result6ResultGRPB3MapGsRP38bobzhang8mbtexcel4xlsx16SlicerAnchorInfoERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing slicer ext missing"));
             } else {
-              const _Some = _bind$25;
+              const _Some = _bind$22;
               const _value = _Some;
               ext_tag = _value;
             }
@@ -58380,19 +57231,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
             let value$2;
             _L$5: {
               const _tmp$10 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-              const _bind$26 = "cx";
-              const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-              let _bind$28;
-              if (_bind$27.$tag === 1) {
-                const _ok = _bind$27;
-                _bind$28 = _ok._0;
+              const _bind$23 = "cx";
+              const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
+              let _bind$25;
+              if (_bind$24.$tag === 1) {
+                const _ok = _bind$24;
+                _bind$25 = _ok._0;
               } else {
-                return _bind$27;
+                return _bind$24;
               }
-              if (_bind$28 === undefined) {
+              if (_bind$25 === undefined) {
                 return new _M0DTPC16result6ResultGRPB3MapGsRP38bobzhang8mbtexcel4xlsx16SlicerAnchorInfoERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing slicer cx missing"));
               } else {
-                const _Some = _bind$28;
+                const _Some = _bind$25;
                 const _value = _Some;
                 value$2 = _value;
                 break _L$5;
@@ -58401,12 +57252,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
             let _try_err;
             _L$6: {
               _L$7: {
-                const _bind$26 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
-                if (_bind$26.$tag === 1) {
-                  const _ok = _bind$26;
+                const _bind$23 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$2, 0, value$2.length), 10);
+                if (_bind$23.$tag === 1) {
+                  const _ok = _bind$23;
                   cx = _ok._0;
                 } else {
-                  const _err = _bind$26;
+                  const _err = _bind$23;
                   _try_err = _err._0;
                   break _L$7;
                 }
@@ -58418,19 +57269,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
             let value$3;
             _L$7: {
               const _tmp$10 = new _M0TPC16string10StringView(ext_tag, 0, ext_tag.length);
-              const _bind$26 = "cy";
-              const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-              let _bind$28;
-              if (_bind$27.$tag === 1) {
-                const _ok = _bind$27;
-                _bind$28 = _ok._0;
+              const _bind$23 = "cy";
+              const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
+              let _bind$25;
+              if (_bind$24.$tag === 1) {
+                const _ok = _bind$24;
+                _bind$25 = _ok._0;
               } else {
-                return _bind$27;
+                return _bind$24;
               }
-              if (_bind$28 === undefined) {
+              if (_bind$25 === undefined) {
                 return new _M0DTPC16result6ResultGRPB3MapGsRP38bobzhang8mbtexcel4xlsx16SlicerAnchorInfoERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing slicer cy missing"));
               } else {
-                const _Some = _bind$28;
+                const _Some = _bind$25;
                 const _value = _Some;
                 value$3 = _value;
                 break _L$7;
@@ -58439,12 +57290,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
             let _try_err$2;
             _L$8: {
               _L$9: {
-                const _bind$26 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
-                if (_bind$26.$tag === 1) {
-                  const _ok = _bind$26;
+                const _bind$23 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
+                if (_bind$23.$tag === 1) {
+                  const _ok = _bind$23;
                   cy = _ok._0;
                 } else {
-                  const _err = _bind$26;
+                  const _err = _bind$23;
                   _try_err$2 = _err._0;
                   break _L$9;
                 }
@@ -58458,66 +57309,59 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
           } else {
             let to_body;
             const _tmp$9 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-            const _bind$23 = "xdr:to";
-            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$9, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-            let _bind$25;
-            if (_bind$24.$tag === 1) {
-              const _ok = _bind$24;
-              _bind$25 = _ok._0;
-            } else {
-              return _bind$24;
-            }
-            if (_bind$25 === undefined) {
+            const _bind$21 = "xdr:to";
+            const _bind$22 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$9, new _M0TPC16string10StringView(_bind$21, 0, _bind$21.length));
+            if (_bind$22 === undefined) {
               return new _M0DTPC16result6ResultGRPB3MapGsRP38bobzhang8mbtexcel4xlsx16SlicerAnchorInfoERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("drawing slicer to missing"));
             } else {
-              const _Some = _bind$25;
+              const _Some = _bind$22;
               const _value = _Some;
               to_body = _value;
             }
             const _tmp$10 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$26 = "xdr:col";
-            const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length), "drawing slicer to col invalid");
+            const _bind$23 = "xdr:col";
+            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$10, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length), "drawing slicer to col invalid");
             let to_col_idx0;
-            if (_bind$27.$tag === 1) {
-              const _ok = _bind$27;
+            if (_bind$24.$tag === 1) {
+              const _ok = _bind$24;
               to_col_idx0 = _ok._0;
             } else {
-              return _bind$27;
+              return _bind$24;
             }
             const _tmp$11 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$28 = "xdr:row";
-            const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$11, new _M0TPC16string10StringView(_bind$28, 0, _bind$28.length), "drawing slicer to row invalid");
+            const _bind$25 = "xdr:row";
+            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$11, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length), "drawing slicer to row invalid");
             let to_row_idx0;
-            if (_bind$29.$tag === 1) {
-              const _ok = _bind$29;
+            if (_bind$26.$tag === 1) {
+              const _ok = _bind$26;
               to_row_idx0 = _ok._0;
             } else {
-              return _bind$29;
+              return _bind$26;
             }
             const _tmp$12 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$30 = "xdr:colOff";
-            const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$12, new _M0TPC16string10StringView(_bind$30, 0, _bind$30.length), "drawing slicer to colOff invalid");
+            const _bind$27 = "xdr:colOff";
+            const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$12, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length), "drawing slicer to colOff invalid");
             let to_col_off;
-            if (_bind$31.$tag === 1) {
-              const _ok = _bind$31;
+            if (_bind$28.$tag === 1) {
+              const _ok = _bind$28;
               to_col_off = _ok._0;
             } else {
-              return _bind$31;
+              return _bind$28;
             }
             const _tmp$13 = new _M0TPC16string10StringView(to_body, 0, to_body.length);
-            const _bind$32 = "xdr:rowOff";
-            const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$13, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length), "drawing slicer to rowOff invalid");
+            const _bind$29 = "xdr:rowOff";
+            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx20parse__xml__int__tag(_tmp$13, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length), "drawing slicer to rowOff invalid");
             let to_row_off;
-            if (_bind$33.$tag === 1) {
-              const _ok = _bind$33;
+            if (_bind$30.$tag === 1) {
+              const _ok = _bind$30;
               to_row_off = _ok._0;
             } else {
-              return _bind$33;
+              return _bind$30;
             }
-            const _bind$34 = "col";
-            const cx = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$34, 0, _bind$34.length), col_idx0, col_off_emu, to_col_idx0, to_col_off);
-            const _bind$35 = "row";
-            const cy = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$35, 0, _bind$35.length), row_idx0, row_off_emu, to_row_idx0, to_row_off);
+            const _bind$31 = "col";
+            const cx = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$31, 0, _bind$31.length), col_idx0, col_off_emu, to_col_idx0, to_col_off);
+            const _bind$32 = "row";
+            const cy = _M0FP38bobzhang8mbtexcel4xlsx24drawing__axis__span__emu(sheet, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length), row_idx0, row_off_emu, to_row_idx0, to_row_off);
             width_emu = cx;
             height_emu = cy;
             break _L$4;
@@ -58527,19 +57371,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         const height = _M0MPC16double6Double7to__int(_M0MPC16double6Double5round((height_emu + 0) / (_M0FP38bobzhang8mbtexcel4xlsx24picture__emu__per__pixel + 0)));
         let graphic_frame_tag;
         const _tmp$9 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$23 = "xdr:graphicFrame";
-        const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
-        let _bind$25;
-        if (_bind$24.$tag === 1) {
-          const _ok = _bind$24;
-          _bind$25 = _ok._0;
-        } else {
-          return _bind$24;
-        }
-        if (_bind$25 === undefined) {
+        const _bind$21 = "xdr:graphicFrame";
+        const _bind$22 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$9, new _M0TPC16string10StringView(_bind$21, 0, _bind$21.length));
+        if (_bind$22 === undefined) {
           graphic_frame_tag = "";
         } else {
-          const _Some = _bind$25;
+          const _Some = _bind$22;
           const _value = _Some;
           graphic_frame_tag = _value;
         }
@@ -58548,19 +57385,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         _L$5: {
           _L$6: {
             const _tmp$10 = new _M0TPC16string10StringView(graphic_frame_tag, 0, graphic_frame_tag.length);
-            const _bind$26 = "macro";
-            const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-            let _bind$28;
-            if (_bind$27.$tag === 1) {
-              const _ok = _bind$27;
-              _bind$28 = _ok._0;
+            const _bind$23 = "macro";
+            const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
+            let _bind$25;
+            if (_bind$24.$tag === 1) {
+              const _ok = _bind$24;
+              _bind$25 = _ok._0;
             } else {
-              return _bind$27;
+              return _bind$24;
             }
-            if (_bind$28 === undefined) {
+            if (_bind$25 === undefined) {
               macro_name = "";
             } else {
-              const _Some = _bind$28;
+              const _Some = _bind$25;
               const _value = _Some;
               value$2 = _value;
               break _L$6;
@@ -58571,19 +57408,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         }
         let c_nv_pr_tag;
         const _tmp$10 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$26 = "xdr:cNvPr";
-        const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
-        let _bind$28;
-        if (_bind$27.$tag === 1) {
-          const _ok = _bind$27;
-          _bind$28 = _ok._0;
-        } else {
-          return _bind$27;
-        }
-        if (_bind$28 === undefined) {
+        const _bind$23 = "xdr:cNvPr";
+        const _bind$24 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$10, new _M0TPC16string10StringView(_bind$23, 0, _bind$23.length));
+        if (_bind$24 === undefined) {
           c_nv_pr_tag = "";
         } else {
-          const _Some = _bind$28;
+          const _Some = _bind$24;
           const _value = _Some;
           c_nv_pr_tag = _value;
         }
@@ -58592,19 +57422,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         _L$6: {
           _L$7: {
             const _tmp$11 = new _M0TPC16string10StringView(c_nv_pr_tag, 0, c_nv_pr_tag.length);
-            const _bind$29 = "descr";
-            const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-            let _bind$31;
-            if (_bind$30.$tag === 1) {
-              const _ok = _bind$30;
-              _bind$31 = _ok._0;
+            const _bind$25 = "descr";
+            const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$11, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+            let _bind$27;
+            if (_bind$26.$tag === 1) {
+              const _ok = _bind$26;
+              _bind$27 = _ok._0;
             } else {
-              return _bind$30;
+              return _bind$26;
             }
-            if (_bind$31 === undefined) {
+            if (_bind$27 === undefined) {
               alt_text = "";
             } else {
-              const _Some = _bind$31;
+              const _Some = _bind$27;
               const _value = _Some;
               value$3 = _value;
               break _L$7;
@@ -58615,19 +57445,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         }
         let client_tag;
         const _tmp$11 = new _M0TPC16string10StringView(anchor_xml, 0, anchor_xml.length);
-        const _bind$29 = "xdr:clientData";
-        const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$29, 0, _bind$29.length));
-        let _bind$31;
-        if (_bind$30.$tag === 1) {
-          const _ok = _bind$30;
-          _bind$31 = _ok._0;
-        } else {
-          return _bind$30;
-        }
-        if (_bind$31 === undefined) {
+        const _bind$25 = "xdr:clientData";
+        const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$11, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+        if (_bind$26 === undefined) {
           client_tag = "";
         } else {
-          const _Some = _bind$31;
+          const _Some = _bind$26;
           const _value = _Some;
           client_tag = _value;
         }
@@ -58636,19 +57459,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         _L$7: {
           _L$8: {
             const _tmp$12 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$32 = "fLocksWithSheet";
-            const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-            let _bind$34;
-            if (_bind$33.$tag === 1) {
-              const _ok = _bind$33;
-              _bind$34 = _ok._0;
+            const _bind$27 = "fLocksWithSheet";
+            const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
+            let _bind$29;
+            if (_bind$28.$tag === 1) {
+              const _ok = _bind$28;
+              _bind$29 = _ok._0;
             } else {
-              return _bind$33;
+              return _bind$28;
             }
-            if (_bind$34 === undefined) {
+            if (_bind$29 === undefined) {
               locked = true;
             } else {
-              const _Some = _bind$34;
+              const _Some = _bind$29;
               const _value = _Some;
               value$4 = _value;
               break _L$8;
@@ -58662,19 +57485,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__drawing__slicer__anchors(drawing_
         _L$8: {
           _L$9: {
             const _tmp$12 = new _M0TPC16string10StringView(client_tag, 0, client_tag.length);
-            const _bind$32 = "fPrintsWithSheet";
-            const _bind$33 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$32, 0, _bind$32.length));
-            let _bind$34;
-            if (_bind$33.$tag === 1) {
-              const _ok = _bind$33;
-              _bind$34 = _ok._0;
+            const _bind$27 = "fPrintsWithSheet";
+            const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$12, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
+            let _bind$29;
+            if (_bind$28.$tag === 1) {
+              const _ok = _bind$28;
+              _bind$29 = _ok._0;
             } else {
-              return _bind$33;
+              return _bind$28;
             }
-            if (_bind$34 === undefined) {
+            if (_bind$29 === undefined) {
               print_object = true;
             } else {
-              const _Some = _bind$34;
+              const _Some = _bind$29;
               const _value = _Some;
               value$5 = _value;
               break _L$9;
@@ -58876,13 +57699,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__default__font(xml) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + marker.length | 0, undefined);
   let name_start;
-  _L$3: {
+  _L$2: {
     const _bind$5 = "<name";
     const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
     if (_bind$6 === undefined) {
@@ -58891,16 +57710,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__default__font(xml) {
       const _Some = _bind$6;
       const _name_start = _Some;
       name_start = _name_start;
-      break _L$3;
+      break _L$2;
     }
   }
-  let name_rest;
-  _L$4: {
-    name_rest = _M0MPC16string10StringView11sub_2einner(rest, name_start + 5 | 0, undefined);
-    break _L$4;
-  }
+  const name_rest = _M0MPC16string10StringView11sub_2einner(rest, name_start + 5 | 0, undefined);
   let end;
-  _L$5: {
+  _L$3: {
     const _bind$5 = ">";
     const _bind$6 = _M0MPC16string10StringView4find(name_rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
     if (_bind$6 === undefined) {
@@ -58909,18 +57724,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__default__font(xml) {
       const _Some = _bind$6;
       const _end = _Some;
       end = _end;
-      break _L$5;
+      break _L$3;
     }
   }
-  let tag;
-  _L$6: {
-    tag = _M0MPC16string10StringView11sub_2einner(name_rest, 0, end);
-    break _L$6;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(name_rest, 0, end);
   let value_result;
   let _try_err;
-  _L$7: {
-    _L$8: {
+  _L$4: {
+    _L$5: {
       const _bind$5 = "val";
       const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
       let _tmp$2;
@@ -58930,33 +57741,33 @@ function _M0FP38bobzhang8mbtexcel4xlsx20parse__default__font(xml) {
       } else {
         const _err = _bind$6;
         _try_err = _err._0;
-        break _L$8;
+        break _L$5;
       }
       value_result = new _M0DTPC16result6ResultGOsRPC15error5ErrorE2Ok(_tmp$2);
-      break _L$7;
+      break _L$4;
     }
     value_result = new _M0DTPC16result6ResultGOsRPC15error5ErrorE3Err(_try_err);
   }
   let value;
-  _L$8: {
+  _L$5: {
     if (value_result.$tag === 1) {
       const _Ok = value_result;
       const _value = _Ok._0;
       value = _value;
-      break _L$8;
+      break _L$5;
     } else {
       return "Calibri";
     }
   }
   let text;
-  _L$9: {
+  _L$6: {
     if (value === undefined) {
       return "Calibri";
     } else {
       const _Some = value;
       const _text = _Some;
       text = _text;
-      break _L$9;
+      break _L$6;
     }
   }
   return _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(text, 0, text.length));
@@ -58966,17 +57777,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx25parse__pivot__table__name(xml) {
   _L: {
     const _bind$5 = "pivotTableDefinition";
     const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-    let _bind$7;
-    if (_bind$6.$tag === 1) {
-      const _ok = _bind$6;
-      _bind$7 = _ok._0;
-    } else {
-      return _bind$6;
-    }
-    if (_bind$7 === undefined) {
+    if (_bind$6 === undefined) {
       return new _M0DTPC16result6ResultGsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok("");
     } else {
-      const _Some = _bind$7;
+      const _Some = _bind$6;
       const _tag = _Some;
       tag = _tag;
       break _L;
@@ -59055,14 +57859,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__defined__names(xml, sheet_names) 
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let name;
     let value;
-    _L$3: {
+    _L$2: {
       const _bind$11 = "name";
       const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
       let _bind$13;
@@ -59078,14 +57878,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__defined__names(xml, sheet_names) 
         const _Some = _bind$13;
         const _value = _Some;
         value = _value;
-        break _L$3;
+        break _L$2;
       }
     }
     name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     let comment;
     let value$2;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$11 = "comment";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -59101,16 +57901,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__defined__names(xml, sheet_names) 
           const _Some = _bind$13;
           const _value = _Some;
           value$2 = _value;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       comment = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
     }
     let local_id;
     let value$3;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$11 = "localSheetId";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -59126,13 +57926,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__defined__names(xml, sheet_names) 
           const _Some = _bind$13;
           const _value = _Some;
           value$3 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       let _try_err;
-      _L$7: {
-        _L$8: {
+      _L$6: {
+        _L$7: {
           const _bind$11 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
           if (_bind$11.$tag === 1) {
             const _ok = _bind$11;
@@ -59140,18 +57940,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__defined__names(xml, sheet_names) 
           } else {
             const _err = _bind$11;
             _try_err = _err._0;
-            break _L$8;
+            break _L$7;
           }
-          break _L$7;
+          break _L$6;
         }
         return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx11DefinedNameERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("definedName localSheetId invalid"));
       }
     }
-    let rest;
-    _L$6: {
-      rest = _M0MPC16string6String11sub_2einner(text, end + 1 | 0, undefined);
-      break _L$6;
-    }
+    const rest = _M0MPC16string6String11sub_2einner(text, end + 1 | 0, undefined);
     let data_end;
     const _bind$11 = "</definedName>";
     const _bind$12 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -59162,24 +57958,20 @@ function _M0FP38bobzhang8mbtexcel4xlsx21parse__defined__names(xml, sheet_names) 
       const _pos = _Some;
       data_end = _pos;
     }
-    let data;
-    _L$7: {
-      data = _M0MPC16string10StringView11sub_2einner(rest, 0, data_end);
-      break _L$7;
-    }
+    const data = _M0MPC16string10StringView11sub_2einner(rest, 0, data_end);
     let scope;
     let id;
-    _L$8: {
-      _L$9: {
+    _L$5: {
+      _L$6: {
         if (local_id === undefined) {
           scope = "Workbook";
         } else {
           const _Some = local_id;
           const _id = _Some;
           id = _id;
-          break _L$9;
+          break _L$6;
         }
-        break _L$8;
+        break _L$5;
       }
       if (id >= 0 && id < sheet_names.length) {
         scope = _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend3app5SheetE(sheet_names, id);
@@ -59253,11 +58045,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__data__validations(xml) {
             }
           }
           end = pos$2 + 2 | 0;
-          let slice;
-          _L$5: {
-            slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-            break _L$5;
-          }
+          const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
           _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(validations, `<dataValidation ${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`);
         } else {
           const _Some = _bind$9;
@@ -59268,11 +58056,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__data__validations(xml) {
         break _L$2;
       }
       const end = pos + close_tag.length | 0;
-      let slice;
-      _L$4: {
-        slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-        break _L$4;
-      }
+      const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
       _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(validations, `<dataValidation ${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`);
     }
     continue;
@@ -59322,11 +58106,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx29parse__data__validations__x14(xml) {
       }
     }
     end = pos + close_tag.length | 0;
-    let slice;
-    _L$3: {
-      slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$3;
-    }
+    const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
     const full = `<x14:dataValidation ${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
     let open_end;
     const _bind$7 = ">";
@@ -59338,11 +58118,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx29parse__data__validations__x14(xml) {
       const _pos = _Some;
       open_end = _pos;
     }
-    let attrs;
-    _L$4: {
-      attrs = _M0MPC16string6String11sub_2einner(full, "<x14:dataValidation ".length, open_end);
-      break _L$4;
-    }
+    const attrs = _M0MPC16string6String11sub_2einner(full, "<x14:dataValidation ".length, open_end);
     let allow_blank;
     const _bind$9 = "allowBlank";
     const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
@@ -59379,123 +58155,88 @@ function _M0FP38bobzhang8mbtexcel4xlsx29parse__data__validations__x14(xml) {
     }
     let sqref;
     let value;
-    _L$5: {
+    _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(full, 0, full.length);
       const _bind$15 = "xm:sqref";
       const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-      let _bind$17;
-      if (_bind$16.$tag === 1) {
-        const _ok = _bind$16;
-        _bind$17 = _ok._0;
-      } else {
-        return _bind$16;
-      }
-      if (_bind$17 === undefined) {
+      if (_bind$16 === undefined) {
         return new _M0DTPC16result6ResultGRPB5ArrayGsERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("x14:dataValidation sqref missing"));
       } else {
-        const _Some = _bind$17;
+        const _Some = _bind$16;
         const _value = _Some;
         value = _value;
-        break _L$5;
+        break _L$3;
       }
     }
     sqref = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     const formula1 = new _M0TPB8MutLocalGsE("");
     let value$2;
-    _L$6: {
-      _L$7: {
+    _L$4: {
+      _L$5: {
         const _tmp$2 = new _M0TPC16string10StringView(full, 0, full.length);
         const _bind$15 = "x14:formula1";
         const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-        let _bind$17;
-        if (_bind$16.$tag === 1) {
-          const _ok = _bind$16;
-          _bind$17 = _ok._0;
+        if (_bind$16 === undefined) {
         } else {
-          return _bind$16;
-        }
-        if (_bind$17 === undefined) {
-        } else {
-          const _Some = _bind$17;
+          const _Some = _bind$16;
           const _value = _Some;
           value$2 = _value;
-          break _L$7;
+          break _L$5;
         }
-        break _L$6;
+        break _L$4;
       }
       const body = value$2;
       let f;
-      _L$8: {
-        _L$9: {
+      _L$6: {
+        _L$7: {
           const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
           const _bind$15 = "xm:f";
           const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-          let _bind$17;
-          if (_bind$16.$tag === 1) {
-            const _ok = _bind$16;
-            _bind$17 = _ok._0;
-          } else {
-            return _bind$16;
-          }
-          if (_bind$17 === undefined) {
+          if (_bind$16 === undefined) {
             formula1.val = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
           } else {
-            const _Some = _bind$17;
+            const _Some = _bind$16;
             const _f = _Some;
             f = _f;
-            break _L$9;
+            break _L$7;
           }
-          break _L$8;
+          break _L$6;
         }
         formula1.val = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(f, 0, f.length));
       }
     }
     const formula2 = new _M0TPB8MutLocalGsE("");
     let value$3;
-    _L$7: {
-      _L$8: {
+    _L$5: {
+      _L$6: {
         const _tmp$2 = new _M0TPC16string10StringView(full, 0, full.length);
         const _bind$15 = "x14:formula2";
         const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-        let _bind$17;
-        if (_bind$16.$tag === 1) {
-          const _ok = _bind$16;
-          _bind$17 = _ok._0;
+        if (_bind$16 === undefined) {
         } else {
-          return _bind$16;
-        }
-        if (_bind$17 === undefined) {
-        } else {
-          const _Some = _bind$17;
+          const _Some = _bind$16;
           const _value = _Some;
           value$3 = _value;
-          break _L$8;
+          break _L$6;
         }
-        break _L$7;
+        break _L$5;
       }
       const body = value$3;
       let f;
-      _L$9: {
-        _L$10: {
+      _L$7: {
+        _L$8: {
           const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
           const _bind$15 = "xm:f";
           const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-          let _bind$17;
-          if (_bind$16.$tag === 1) {
-            const _ok = _bind$16;
-            _bind$17 = _ok._0;
-          } else {
-            return _bind$16;
-          }
-          if (_bind$17 === undefined) {
+          if (_bind$16 === undefined) {
             formula2.val = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$3, 0, value$3.length));
           } else {
-            const _Some = _bind$17;
+            const _Some = _bind$16;
             const _f = _Some;
             f = _f;
-            break _L$10;
+            break _L$8;
           }
-          break _L$9;
+          break _L$7;
         }
         formula2.val = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(f, 0, f.length));
       }
@@ -59595,11 +58336,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__conditional__formats(xml) {
             }
           }
           end = pos$2 + 2 | 0;
-          let slice;
-          _L$5: {
-            slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-            break _L$5;
-          }
+          const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
           _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(formats, `<conditionalFormatting${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`);
         } else {
           const _Some = _bind$7;
@@ -59610,11 +58347,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx27parse__conditional__formats(xml) {
         break _L$2;
       }
       const end = pos + close_tag.length | 0;
-      let slice;
-      _L$4: {
-        slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-        break _L$4;
-      }
+      const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
       _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(formats, `<conditionalFormatting${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`);
     }
     continue;
@@ -59744,11 +58477,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__x14__cfvo__values(xml) {
             }
           }
           end = pos$2 + 2 | 0;
-          let slice;
-          _L$5: {
-            slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-            break _L$5;
-          }
+          const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
           full = `<x14:cfvo${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
         } else {
           const _Some = _bind$7;
@@ -59759,11 +58488,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__x14__cfvo__values(xml) {
         break _L$2;
       }
       const end = pos + close_tag.length | 0;
-      let slice;
-      _L$4: {
-        slice = _M0MPC16string6String11sub_2einner(text, 0, end);
-        break _L$4;
-      }
+      const slice = _M0MPC16string6String11sub_2einner(text, 0, end);
       full = `<x14:cfvo${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
     }
     let open_end;
@@ -59776,15 +58501,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__x14__cfvo__values(xml) {
       const _pos = _Some;
       open_end = _pos;
     }
-    let attrs;
-    _L$3: {
-      attrs = _M0MPC16string6String11sub_2einner(full, "<x14:cfvo".length, open_end);
-      break _L$3;
-    }
+    const attrs = _M0MPC16string6String11sub_2einner(full, "<x14:cfvo".length, open_end);
     let typ;
     let value;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$9 = "type";
         const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
         let _bind$11;
@@ -59800,59 +58521,45 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__x14__cfvo__values(xml) {
           const _Some = _bind$11;
           const _value = _Some;
           value = _value;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       typ = value;
     }
     let value$2;
     let v;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _tmp$2 = new _M0TPC16string10StringView(full, 0, full.length);
         const _bind$9 = "xm:f";
         const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$2, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
-        let _bind$11;
-        if (_bind$10.$tag === 1) {
-          const _ok = _bind$10;
-          _bind$11 = _ok._0;
-        } else {
-          return _bind$10;
-        }
-        if (_bind$11 === undefined) {
+        if (_bind$10 === undefined) {
           let v$2;
-          _L$7: {
-            _L$8: {
+          _L$6: {
+            _L$7: {
               const _tmp$3 = new _M0TPC16string10StringView(full, 0, full.length);
-              const _bind$12 = "f";
-              const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
-              let _bind$14;
-              if (_bind$13.$tag === 1) {
-                const _ok = _bind$13;
-                _bind$14 = _ok._0;
-              } else {
-                return _bind$13;
-              }
-              if (_bind$14 === undefined) {
+              const _bind$11 = "f";
+              const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$3, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
+              if (_bind$12 === undefined) {
                 value$2 = "";
               } else {
-                const _Some = _bind$14;
+                const _Some = _bind$12;
                 const _v = _Some;
                 v$2 = _v;
-                break _L$8;
+                break _L$7;
               }
-              break _L$7;
+              break _L$6;
             }
             value$2 = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(v$2, 0, v$2.length));
           }
         } else {
-          const _Some = _bind$11;
+          const _Some = _bind$10;
           const _v = _Some;
           v = _v;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       value$2 = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(v, 0, v.length));
     }
@@ -59883,23 +58590,27 @@ function _M0FP38bobzhang8mbtexcel4xlsx24parse__x14__cfvo__values(xml) {
 }
 function _M0FP38bobzhang8mbtexcel4xlsx27color__text__from__rgb__x14(rgb) {
   const text = _M0IPC16string10StringViewPB4Show10to__string(rgb);
-  let _tmp$2;
-  const _bind$5 = "FF";
-  if (_M0MPC16string6String11has__prefix(text, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length))) {
-    _tmp$2 = text.length === 8;
-  } else {
-    _tmp$2 = false;
-  }
-  if (_tmp$2) {
+  _L: {
     let rest;
-    _L: {
-      rest = _M0MPC16string6String11sub_2einner(text, 2, undefined);
-      break _L;
+    _L$2: {
+      const _bind$5 = "FF";
+      const _bind$6 = _M0MPC16string6String13strip__prefix(text, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+      if (_bind$6 === undefined) {
+        break _L;
+      } else {
+        const _Some = _bind$6;
+        const _rest = _Some;
+        if (text.length === 8) {
+          rest = _rest;
+          break _L$2;
+        } else {
+          break _L;
+        }
+      }
     }
     return `#${_M0IPC16string10StringViewPB4Show10to__string(rest)}`;
-  } else {
-    return `#${_M0IPC16string6StringPB4Show10to__string(text)}`;
   }
+  return `#${_M0IPC16string6StringPB4Show10to__string(text)}`;
 }
 function _M0FP38bobzhang8mbtexcel4xlsx43parse__x14__conditional__formatting__blocks(xml) {
   const blocks = [];
@@ -59920,11 +58631,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx43parse__x14__conditional__formatting__blo
   const open_needle = "<x14:conditionalFormatting";
   while (true) {
     if (open_search_from.val < xml_str.length) {
-      let rest;
-      _L: {
-        rest = _M0MPC16string6String11sub_2einner(xml_str, open_search_from.val, undefined);
-        break _L;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(xml_str, open_search_from.val, undefined);
       let rel_start;
       const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(open_needle, 0, open_needle.length));
       if (_bind$6 === undefined) {
@@ -59936,11 +58643,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx43parse__x14__conditional__formatting__blo
       }
       const start = open_search_from.val + rel_start | 0;
       const after_needle = start + open_needle.length | 0;
-      let next_char;
-      _L$2: {
-        next_char = _M0MPC16string6String11sub_2einner(xml_str, after_needle, after_needle + 1 | 0);
-        break _L$2;
-      }
+      const next_char = _M0MPC16string6String11sub_2einner(xml_str, after_needle, after_needle + 1 | 0);
       const _bind$7 = "s";
       if (_M0IPC16string10StringViewPB2Eq5equal(next_char, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length))) {
         open_search_from.val = after_needle;
@@ -59990,11 +58693,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx43parse__x14__conditional__formatting__blo
   const search_from = new _M0TPB8MutLocalGiE(0);
   while (true) {
     if (search_from.val < xml_str.length) {
-      let rest;
-      _L$2: {
-        rest = _M0MPC16string6String11sub_2einner(xml_str, search_from.val, undefined);
-        break _L$2;
-      }
+      const rest = _M0MPC16string6String11sub_2einner(xml_str, search_from.val, undefined);
       let rel_start;
       const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(needle, 0, needle.length));
       if (_bind$6 === undefined) {
@@ -60006,34 +58705,26 @@ function _M0FP38bobzhang8mbtexcel4xlsx43parse__x14__conditional__formatting__blo
       }
       const start = search_from.val + rel_start | 0;
       const after_needle = start + needle.length | 0;
-      let next_char;
-      _L$3: {
-        next_char = _M0MPC16string6String11sub_2einner(xml_str, after_needle, after_needle + 1 | 0);
-        break _L$3;
-      }
+      const next_char = _M0MPC16string6String11sub_2einner(xml_str, after_needle, after_needle + 1 | 0);
       const _bind$7 = "s";
       if (_M0IPC16string10StringViewPB2Eq5equal(next_char, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length))) {
         search_from.val = after_needle;
         continue;
       }
-      let after_start;
-      _L$4: {
-        after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
-        break _L$4;
-      }
+      const after_start = _M0MPC16string6String11sub_2einner(xml_str, start, undefined);
       const after_text = _M0IPC16string10StringViewPB4Show10to__string(after_start);
       let full;
       let consumed;
-      _L$5: {
+      _L$2: {
         let _bind$8;
         let pos;
-        _L$6: {
-          _L$7: {
+        _L$3: {
+          _L$4: {
             const _bind$9 = _M0MPC16string6String4find(after_text, new _M0TPC16string10StringView(close_tag, 0, close_tag.length));
             if (_bind$9 === undefined) {
               let end;
               let pos$2;
-              _L$8: {
+              _L$5: {
                 const _bind$10 = "/>";
                 const _bind$11 = _M0MPC16string6String4find(after_text, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
                 if (_bind$11 === undefined) {
@@ -60042,37 +58733,29 @@ function _M0FP38bobzhang8mbtexcel4xlsx43parse__x14__conditional__formatting__blo
                   const _Some = _bind$11;
                   const _pos = _Some;
                   pos$2 = _pos;
-                  break _L$8;
+                  break _L$5;
                 }
               }
               end = pos$2 + 2 | 0;
-              let slice;
-              _L$9: {
-                slice = _M0MPC16string6String11sub_2einner(after_text, 0, end);
-                break _L$9;
-              }
+              const slice = _M0MPC16string6String11sub_2einner(after_text, 0, end);
               _bind$8 = { _0: _M0IPC16string10StringViewPB4Show10to__string(slice), _1: end };
             } else {
               const _Some = _bind$9;
               const _pos = _Some;
               pos = _pos;
-              break _L$7;
+              break _L$4;
             }
-            break _L$6;
+            break _L$3;
           }
           const end = pos + close_tag.length | 0;
-          let slice;
-          _L$8: {
-            slice = _M0MPC16string6String11sub_2einner(after_text, 0, end);
-            break _L$8;
-          }
+          const slice = _M0MPC16string6String11sub_2einner(after_text, 0, end);
           _bind$8 = { _0: _M0IPC16string10StringViewPB4Show10to__string(slice), _1: end };
         }
         const _full = _bind$8._0;
         const _consumed = _bind$8._1;
         full = _full;
         consumed = _consumed;
-        break _L$5;
+        break _L$2;
       }
       _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(blocks, full);
       search_from.val = start + consumed | 0;
@@ -60111,30 +58794,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
             const _tmp$3 = new _M0TPC16string10StringView(full, 0, full.length);
             const _bind$8 = "xm:sqref";
             const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$3, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
-            let _bind$10;
-            if (_bind$9.$tag === 1) {
-              const _ok = _bind$9;
-              _bind$10 = _ok._0;
-            } else {
-              return _bind$9;
-            }
-            if (_bind$10 === undefined) {
+            if (_bind$9 === undefined) {
               let value$2;
               _L$4: {
                 const _tmp$4 = new _M0TPC16string10StringView(full, 0, full.length);
-                const _bind$11 = "sqref";
-                const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-                let _bind$13;
-                if (_bind$12.$tag === 1) {
-                  const _ok = _bind$12;
-                  _bind$13 = _ok._0;
-                } else {
-                  return _bind$12;
-                }
-                if (_bind$13 === undefined) {
+                const _bind$10 = "sqref";
+                const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+                if (_bind$11 === undefined) {
                   break _L;
                 } else {
-                  const _Some = _bind$13;
+                  const _Some = _bind$11;
                   const _value = _Some;
                   value$2 = _value;
                   break _L$4;
@@ -60142,7 +58811,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
               }
               sqref = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
             } else {
-              const _Some = _bind$10;
+              const _Some = _bind$9;
               const _value = _Some;
               value = _value;
               break _L$3;
@@ -60198,11 +58867,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
                   }
                 }
                 end = pos$2 + 2 | 0;
-                let slice;
-                _L$7: {
-                  slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
-                  break _L$7;
-                }
+                const slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
                 rule_full = `<x14:cfRule${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
               } else {
                 const _Some = _bind$10;
@@ -60213,11 +58878,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
               break _L$4;
             }
             const end = pos + rule_close.length | 0;
-            let slice;
-            _L$6: {
-              slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
-              break _L$6;
-            }
+            const slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
             rule_full = `<x14:cfRule${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
           }
           let open_end;
@@ -60230,15 +58891,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
             const _pos = _Some;
             open_end = _pos;
           }
-          let attrs;
-          _L$5: {
-            attrs = _M0MPC16string6String11sub_2einner(rule_full, "<x14:cfRule".length, open_end);
-            break _L$5;
-          }
+          const attrs = _M0MPC16string6String11sub_2einner(rule_full, "<x14:cfRule".length, open_end);
           let typ;
           let value$2;
-          _L$6: {
-            _L$7: {
+          _L$5: {
+            _L$6: {
               const _bind$12 = "type";
               const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
               let _bind$14;
@@ -60254,9 +58911,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
                 const _Some = _bind$14;
                 const _value = _Some;
                 value$2 = _value;
-                break _L$7;
+                break _L$6;
               }
-              break _L$6;
+              break _L$5;
             }
             typ = value$2;
           }
@@ -60265,7 +58922,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
           }
           let id;
           let value$3;
-          _L$7: {
+          _L$6: {
             const _bind$12 = "id";
             const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
             let _bind$14;
@@ -60281,7 +58938,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
               const _Some = _bind$14;
               const _value = _Some;
               value$3 = _value;
-              break _L$7;
+              break _L$6;
             }
           }
           id = value$3;
@@ -60289,23 +58946,80 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
           const bar_solid = new _M0TPB8MutLocalGbE(false);
           const bar_border_color = new _M0TPB8MutLocalGsE("");
           let tag;
-          _L$8: {
-            _L$9: {
+          _L$7: {
+            _L$8: {
               const _tmp$3 = new _M0TPC16string10StringView(rule_full, 0, rule_full.length);
               const _bind$12 = "x14:dataBar";
               const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
-              let _bind$14;
-              if (_bind$13.$tag === 1) {
-                const _ok = _bind$13;
-                _bind$14 = _ok._0;
+              if (_bind$13 === undefined) {
               } else {
-                return _bind$13;
-              }
-              if (_bind$14 === undefined) {
-              } else {
-                const _Some = _bind$14;
+                const _Some = _bind$13;
                 const _tag = _Some;
                 tag = _tag;
+                break _L$8;
+              }
+              break _L$7;
+            }
+            let value$4;
+            _L$9: {
+              _L$10: {
+                const _tmp$3 = new _M0TPC16string10StringView(tag, 0, tag.length);
+                const _bind$12 = "direction";
+                const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
+                let _bind$14;
+                if (_bind$13.$tag === 1) {
+                  const _ok = _bind$13;
+                  _bind$14 = _ok._0;
+                } else {
+                  return _bind$13;
+                }
+                if (_bind$14 === undefined) {
+                } else {
+                  const _Some = _bind$14;
+                  const _value = _Some;
+                  value$4 = _value;
+                  break _L$10;
+                }
+                break _L$9;
+              }
+              bar_direction.val = value$4;
+            }
+            let value$5;
+            _L$10: {
+              _L$11: {
+                const _tmp$3 = new _M0TPC16string10StringView(tag, 0, tag.length);
+                const _bind$12 = "gradient";
+                const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
+                let _bind$14;
+                if (_bind$13.$tag === 1) {
+                  const _ok = _bind$13;
+                  _bind$14 = _ok._0;
+                } else {
+                  return _bind$13;
+                }
+                if (_bind$14 === undefined) {
+                } else {
+                  const _Some = _bind$14;
+                  const _value = _Some;
+                  value$5 = _value;
+                  break _L$11;
+                }
+                break _L$10;
+              }
+              bar_solid.val = !_M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$5, 0, value$5.length));
+            }
+          }
+          let tag$2;
+          _L$8: {
+            _L$9: {
+              const _tmp$3 = new _M0TPC16string10StringView(rule_full, 0, rule_full.length);
+              const _bind$12 = "x14:borderColor";
+              const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
+              if (_bind$13 === undefined) {
+              } else {
+                const _Some = _bind$13;
+                const _tag = _Some;
+                tag$2 = _tag;
                 break _L$9;
               }
               break _L$8;
@@ -60313,8 +59027,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
             let value$4;
             _L$10: {
               _L$11: {
-                const _tmp$3 = new _M0TPC16string10StringView(tag, 0, tag.length);
-                const _bind$12 = "direction";
+                const _tmp$3 = new _M0TPC16string10StringView(tag$2, 0, tag$2.length);
+                const _bind$12 = "rgb";
                 const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
                 let _bind$14;
                 if (_bind$13.$tag === 1) {
@@ -60331,77 +59045,6 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__x14__data__bars(xml) {
                   break _L$11;
                 }
                 break _L$10;
-              }
-              bar_direction.val = value$4;
-            }
-            let value$5;
-            _L$11: {
-              _L$12: {
-                const _tmp$3 = new _M0TPC16string10StringView(tag, 0, tag.length);
-                const _bind$12 = "gradient";
-                const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
-                let _bind$14;
-                if (_bind$13.$tag === 1) {
-                  const _ok = _bind$13;
-                  _bind$14 = _ok._0;
-                } else {
-                  return _bind$13;
-                }
-                if (_bind$14 === undefined) {
-                } else {
-                  const _Some = _bind$14;
-                  const _value = _Some;
-                  value$5 = _value;
-                  break _L$12;
-                }
-                break _L$11;
-              }
-              bar_solid.val = !_M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$5, 0, value$5.length));
-            }
-          }
-          let tag$2;
-          _L$9: {
-            _L$10: {
-              const _tmp$3 = new _M0TPC16string10StringView(rule_full, 0, rule_full.length);
-              const _bind$12 = "x14:borderColor";
-              const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
-              let _bind$14;
-              if (_bind$13.$tag === 1) {
-                const _ok = _bind$13;
-                _bind$14 = _ok._0;
-              } else {
-                return _bind$13;
-              }
-              if (_bind$14 === undefined) {
-              } else {
-                const _Some = _bind$14;
-                const _tag = _Some;
-                tag$2 = _tag;
-                break _L$10;
-              }
-              break _L$9;
-            }
-            let value$4;
-            _L$11: {
-              _L$12: {
-                const _tmp$3 = new _M0TPC16string10StringView(tag$2, 0, tag$2.length);
-                const _bind$12 = "rgb";
-                const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$3, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
-                let _bind$14;
-                if (_bind$13.$tag === 1) {
-                  const _ok = _bind$13;
-                  _bind$14 = _ok._0;
-                } else {
-                  return _bind$13;
-                }
-                if (_bind$14 === undefined) {
-                } else {
-                  const _Some = _bind$14;
-                  const _value = _Some;
-                  value$4 = _value;
-                  break _L$12;
-                }
-                break _L$11;
               }
               bar_border_color.val = _M0FP38bobzhang8mbtexcel4xlsx27color__text__from__rgb__x14(new _M0TPC16string10StringView(value$4, 0, value$4.length));
             }
@@ -60452,11 +59095,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
     const _pos = _Some;
     ext_start = _pos;
   }
-  let ext_tail;
-  _L: {
-    ext_tail = _M0MPC16string6String11sub_2einner(text, ext_start, undefined);
-    break _L;
-  }
+  const ext_tail = _M0MPC16string6String11sub_2einner(text, ext_start, undefined);
   let open_end;
   const _bind$7 = ">";
   const _bind$8 = _M0MPC16string10StringView4find(ext_tail, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -60477,18 +59116,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
     const _pos = _Some;
     close_rel = _pos;
   }
-  let body;
-  _L$2: {
-    body = _M0MPC16string10StringView11sub_2einner(ext_tail, open_end + 1 | 0, close_rel);
-    break _L$2;
-  }
+  const body = _M0MPC16string10StringView11sub_2einner(ext_tail, open_end + 1 | 0, close_rel);
   const first = new _M0TPB8MutLocalGbE(true);
   const _tmp$2 = _M0IPC16string10StringViewPB4Show10to__string(body);
   const _bind$11 = "<ext ";
   const _it = _M0MPC16string6String5split(_tmp$2, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
   while (true) {
     let chunk;
-    _L$3: {
+    _L: {
       const _bind$12 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it);
       if (_bind$12 === undefined) {
         break;
@@ -60496,7 +59131,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
         const _Some = _bind$12;
         const _chunk = _Some;
         chunk = _chunk;
-        break _L$3;
+        break _L;
       }
     }
     if (first.val) {
@@ -60507,13 +59142,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
     const full = `<ext ${text$2}`;
     let end;
     let pos;
-    _L$4: {
-      _L$5: {
+    _L$2: {
+      _L$3: {
         const _bind$12 = "</ext>";
         const _bind$13 = _M0MPC16string6String4find(full, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
         if (_bind$13 === undefined) {
           let pos$2;
-          _L$6: {
+          _L$4: {
             const _bind$14 = "/>";
             const _bind$15 = _M0MPC16string6String4find(full, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
             if (_bind$15 === undefined) {
@@ -60522,7 +59157,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
               const _Some = _bind$15;
               const _pos = _Some;
               pos$2 = _pos;
-              break _L$6;
+              break _L$4;
             }
           }
           end = pos$2 + 2 | 0;
@@ -60530,17 +59165,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
           const _Some = _bind$13;
           const _pos = _Some;
           pos = _pos;
-          break _L$5;
+          break _L$3;
         }
-        break _L$4;
+        break _L$2;
       }
       end = pos + "</ext>".length | 0;
     }
-    let block;
-    _L$5: {
-      block = _M0MPC16string6String11sub_2einner(full, 0, end);
-      break _L$5;
-    }
+    const block = _M0MPC16string6String11sub_2einner(full, 0, end);
     let open_end$2;
     const _bind$12 = ">";
     const _bind$13 = _M0MPC16string10StringView4find(block, new _M0TPC16string10StringView(_bind$12, 0, _bind$12.length));
@@ -60551,15 +59182,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
       const _pos = _Some;
       open_end$2 = _pos;
     }
-    let open_tag;
-    _L$6: {
-      open_tag = _M0MPC16string10StringView11sub_2einner(block, 0, open_end$2);
-      break _L$6;
-    }
+    const open_tag = _M0MPC16string10StringView11sub_2einner(block, 0, open_end$2);
     let uri;
     let value;
-    _L$7: {
-      _L$8: {
+    _L$3: {
+      _L$4: {
         const _bind$14 = "uri";
         const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(open_tag, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
         let _bind$16;
@@ -60575,9 +59202,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx38parse__unknown__worksheet__ext__blocks(x
           const _Some = _bind$16;
           const _value = _Some;
           value = _value;
-          break _L$8;
+          break _L$4;
         }
-        break _L$7;
+        break _L$3;
       }
       uri = value;
     }
@@ -60633,30 +59260,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
           const _tmp$3 = new _M0TPC16string10StringView(full, 0, full.length);
           const _bind$7 = "xm:sqref";
           const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$3, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-          let _bind$9;
-          if (_bind$8.$tag === 1) {
-            const _ok = _bind$8;
-            _bind$9 = _ok._0;
-          } else {
-            return _bind$8;
-          }
-          if (_bind$9 === undefined) {
+          if (_bind$8 === undefined) {
             let value$2;
             _L$3: {
               const _tmp$4 = new _M0TPC16string10StringView(full, 0, full.length);
-              const _bind$10 = "sqref";
-              const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
-              let _bind$12;
-              if (_bind$11.$tag === 1) {
-                const _ok = _bind$11;
-                _bind$12 = _ok._0;
-              } else {
-                return _bind$11;
-              }
-              if (_bind$12 === undefined) {
+              const _bind$9 = "sqref";
+              const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(_tmp$4, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
+              if (_bind$10 === undefined) {
                 return new _M0DTPC16result6ResultGRPB5ArrayGsERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("x14:conditionalFormatting sqref missing"));
               } else {
-                const _Some = _bind$12;
+                const _Some = _bind$10;
                 const _value = _Some;
                 value$2 = _value;
                 break _L$3;
@@ -60664,7 +59277,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
             }
             sqref = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value$2, 0, value$2.length));
           } else {
-            const _Some = _bind$9;
+            const _Some = _bind$8;
             const _value = _Some;
             value = _value;
             break _L$2;
@@ -60719,11 +59332,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                   }
                 }
                 end = pos$2 + 2 | 0;
-                let slice;
-                _L$6: {
-                  slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
-                  break _L$6;
-                }
+                const slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
                 rule_full = `<x14:cfRule${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
               } else {
                 const _Some = _bind$9;
@@ -60734,11 +59343,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
               break _L$3;
             }
             const end = pos + rule_close.length | 0;
-            let slice;
-            _L$5: {
-              slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
-              break _L$5;
-            }
+            const slice = _M0MPC16string6String11sub_2einner(rule_text, 0, end);
             rule_full = `<x14:cfRule${_M0IPC16string6StringPB4Show10to__string(_M0IPC16string10StringViewPB4Show10to__string(slice))}`;
           }
           let open_end;
@@ -60751,15 +59356,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
             const _pos = _Some;
             open_end = _pos;
           }
-          let attrs;
-          _L$4: {
-            attrs = _M0MPC16string6String11sub_2einner(rule_full, "<x14:cfRule".length, open_end);
-            break _L$4;
-          }
+          const attrs = _M0MPC16string6String11sub_2einner(rule_full, "<x14:cfRule".length, open_end);
           let typ;
           let value$2;
-          _L$5: {
-            _L$6: {
+          _L$4: {
+            _L$5: {
               const _bind$11 = "type";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
               let _bind$13;
@@ -60775,9 +59376,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$2 = _value;
-                break _L$6;
+                break _L$5;
               }
-              break _L$5;
+              break _L$4;
             }
             typ = value$2;
           }
@@ -60786,8 +59387,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
           }
           let _tmp$3;
           let value$3;
-          _L$6: {
-            _L$7: {
+          _L$5: {
+            _L$6: {
               const _bind$11 = "priority";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
               let _bind$13;
@@ -60803,13 +59404,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$3 = _value;
-                break _L$7;
+                break _L$6;
               }
-              break _L$6;
+              break _L$5;
             }
             let _try_err;
-            _L$8: {
-              _L$9: {
+            _L$7: {
+              _L$8: {
                 const _bind$11 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(value$3, 0, value$3.length), 10);
                 if (_bind$11.$tag === 1) {
                   const _ok = _bind$11;
@@ -60817,9 +59418,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 } else {
                   const _err = _bind$11;
                   _try_err = _err._0;
-                  break _L$9;
+                  break _L$8;
                 }
-                break _L$8;
+                break _L$7;
               }
               return new _M0DTPC16result6ResultGRPB5ArrayGsERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("x14:cfRule priority invalid"));
             }
@@ -60830,8 +59431,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
           }
           let stop_if_true;
           let value$4;
-          _L$7: {
-            _L$8: {
+          _L$6: {
+            _L$7: {
               const _bind$11 = "stopIfTrue";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
               let _bind$13;
@@ -60847,38 +59448,31 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$4 = _value;
-                break _L$8;
+                break _L$7;
               }
-              break _L$7;
+              break _L$6;
             }
             stop_if_true = _M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$4, 0, value$4.length));
           }
           const opt = _M0MP38bobzhang8mbtexcel4xlsx24ConditionalFormatOptions3new("icon_set");
           opt.stop_if_true = stop_if_true;
           let tag;
-          _L$8: {
+          _L$7: {
             const _tmp$4 = new _M0TPC16string10StringView(rule_full, 0, rule_full.length);
             const _bind$11 = "x14:iconSet";
             const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-            let _bind$13;
-            if (_bind$12.$tag === 1) {
-              const _ok = _bind$12;
-              _bind$13 = _ok._0;
-            } else {
-              return _bind$12;
-            }
-            if (_bind$13 === undefined) {
+            if (_bind$12 === undefined) {
               continue;
             } else {
-              const _Some = _bind$13;
+              const _Some = _bind$12;
               const _tag = _Some;
               tag = _tag;
-              break _L$8;
+              break _L$7;
             }
           }
           let value$5;
-          _L$9: {
-            _L$10: {
+          _L$8: {
+            _L$9: {
               const _tmp$4 = new _M0TPC16string10StringView(tag, 0, tag.length);
               const _bind$11 = "iconSet";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -60894,15 +59488,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$5 = _value;
-                break _L$10;
+                break _L$9;
               }
-              break _L$9;
+              break _L$8;
             }
             opt.icon_style = value$5;
           }
           let value$6;
-          _L$10: {
-            _L$11: {
+          _L$9: {
+            _L$10: {
               const _tmp$4 = new _M0TPC16string10StringView(tag, 0, tag.length);
               const _bind$11 = "reverse";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -60918,16 +59512,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$6 = _value;
-                break _L$11;
+                break _L$10;
               }
-              break _L$10;
+              break _L$9;
             }
             opt.reverse_icons = _M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$6, 0, value$6.length));
           }
           let show_value;
           let value$7;
-          _L$11: {
-            _L$12: {
+          _L$10: {
+            _L$11: {
               const _tmp$4 = new _M0TPC16string10StringView(tag, 0, tag.length);
               const _bind$11 = "showValue";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -60944,16 +59538,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$7 = _value;
-                break _L$12;
+                break _L$11;
               }
-              break _L$11;
+              break _L$10;
             }
             show_value = _M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$7, 0, value$7.length));
           }
           opt.icons_only = !show_value;
           let value$8;
-          _L$12: {
-            _L$13: {
+          _L$11: {
+            _L$12: {
               const _tmp$4 = new _M0TPC16string10StringView(tag, 0, tag.length);
               const _bind$11 = "percent";
               const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -60966,8 +59560,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
               }
               if (_bind$13 === undefined) {
                 let value$9;
-                _L$14: {
-                  _L$15: {
+                _L$13: {
+                  _L$14: {
                     const _bind$14 = "percent";
                     const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
                     let _bind$16;
@@ -60982,9 +59576,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                       const _Some = _bind$16;
                       const _value = _Some;
                       value$9 = _value;
-                      break _L$15;
+                      break _L$14;
                     }
-                    break _L$14;
+                    break _L$13;
                   }
                   opt.percent = _M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$9, 0, value$9.length));
                 }
@@ -60992,9 +59586,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__conditional__formats__x14(xml) {
                 const _Some = _bind$13;
                 const _value = _Some;
                 value$8 = _value;
-                break _L$13;
+                break _L$12;
               }
-              break _L$12;
+              break _L$11;
             }
             opt.percent = _M0FP38bobzhang8mbtexcel4xlsx16parse__xml__bool(new _M0TPC16string10StringView(value$8, 0, value$8.length));
           }
@@ -61218,11 +59812,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__legacy__drawing__rel__id(xml, tag
   const pos = new _M0TPB8MutLocalGiE(0);
   while (true) {
     if (pos.val < xml_str.length) {
-      let tail;
-      _L: {
-        tail = _M0MPC16string6String11sub_2einner(xml_str, pos.val, undefined);
-        break _L;
-      }
+      const tail = _M0MPC16string6String11sub_2einner(xml_str, pos.val, undefined);
       let rel;
       const _bind$5 = _M0MPC16string10StringView4find(tail, new _M0TPC16string10StringView(marker, 0, marker.length));
       if (_bind$5 === undefined) {
@@ -61241,11 +59831,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__legacy__drawing__rel__id(xml, tag
           continue;
         }
       }
-      let text;
-      _L$2: {
-        text = _M0MPC16string6String11sub_2einner(xml_str, start + 1 | 0, undefined);
-        break _L$2;
-      }
+      const text = _M0MPC16string6String11sub_2einner(xml_str, start + 1 | 0, undefined);
       let end;
       const _bind$6 = "/>";
       const _bind$7 = _M0MPC16string10StringView4find(text, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
@@ -61264,11 +59850,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx31parse__legacy__drawing__rel__id(xml, tag
         const _value = _Some;
         end = _value;
       }
-      let tag;
-      _L$3: {
-        tag = _M0MPC16string10StringView11sub_2einner(text, 0, end);
-        break _L$3;
-      }
+      const tag = _M0MPC16string10StringView11sub_2einner(text, 0, end);
       let id;
       const _bind$8 = "r:id";
       const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
@@ -61966,13 +60548,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19extract__tag__value(xml, tag_name) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(text, start + open.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(text, start + open.length | 0, undefined);
   let end;
-  _L$3: {
+  _L$2: {
     const _bind$5 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(close, 0, close.length));
     if (_bind$5 === undefined) {
       return undefined;
@@ -61980,14 +60558,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx19extract__tag__value(xml, tag_name) {
       const _Some = _bind$5;
       const _end = _Some;
       end = _end;
-      break _L$3;
+      break _L$2;
     }
   }
-  let slice;
-  _L$4: {
-    slice = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$4;
-  }
+  const slice = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   return _M0IPC16string10StringViewPB4Show10to__string(slice);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx30parse__custom__property__value(xml) {
@@ -62164,14 +60738,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx25parse__custom__properties(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let name;
     let value;
-    _L$3: {
+    _L$2: {
       const _bind$8 = "name";
       const _bind$9 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
       let _bind$10;
@@ -62187,15 +60757,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx25parse__custom__properties(xml) {
         const _Some = _bind$10;
         const _value = _Some;
         value = _value;
-        break _L$3;
+        break _L$2;
       }
     }
     name = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     const close_tag = "</property>";
     let body;
     let pos;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$8 = _M0MPC16string6String4find(text, new _M0TPC16string10StringView(close_tag, 0, close_tag.length));
         if (_bind$8 === undefined) {
           const _bind$9 = "";
@@ -62204,14 +60774,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx25parse__custom__properties(xml) {
           const _Some = _bind$8;
           const _pos = _Some;
           pos = _pos;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
-      _L$6: {
-        body = _M0MPC16string6String11sub_2einner(text, end + 1 | 0, pos);
-        break _L$6;
-      }
+      body = _M0MPC16string6String11sub_2einner(text, end + 1 | 0, pos);
     }
     const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx30parse__custom__property__value(body);
     let value$2;
@@ -62241,11 +60808,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, tag) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string10StringView11sub_2einner(body, start + open.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string10StringView11sub_2einner(body, start + open.length | 0, undefined);
   let end;
   const _bind$5 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(close, 0, close.length));
   if (_bind$5 === undefined) {
@@ -62255,11 +60818,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, tag) {
     const _v = _Some;
     end = _v;
   }
-  let value;
-  _L$3: {
-    value = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const value = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   return _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(value);
 }
 function _M0FP38bobzhang8mbtexcel4xlsx24strip__vml__font__markup(text) {
@@ -62341,11 +60900,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
     const _v = _Some;
     start = _v;
   }
-  let after_textbox;
-  _L: {
-    after_textbox = _M0MPC16string10StringView11sub_2einner(shape, start, undefined);
-    break _L;
-  }
+  const after_textbox = _M0MPC16string10StringView11sub_2einner(shape, start, undefined);
   let div_start;
   const _bind$7 = "<div";
   const _bind$8 = _M0MPC16string10StringView4find(after_textbox, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
@@ -62356,11 +60911,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
     const _v = _Some;
     div_start = _v;
   }
-  let div_after;
-  _L$2: {
-    div_after = _M0MPC16string10StringView11sub_2einner(after_textbox, div_start, undefined);
-    break _L$2;
-  }
+  const div_after = _M0MPC16string10StringView11sub_2einner(after_textbox, div_start, undefined);
   let div_open_end;
   const _bind$9 = ">";
   const _bind$10 = _M0MPC16string10StringView4find(div_after, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
@@ -62371,11 +60922,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
     const _v = _Some;
     div_open_end = _v;
   }
-  let div_body;
-  _L$3: {
-    div_body = _M0MPC16string10StringView11sub_2einner(div_after, div_open_end + 1 | 0, undefined);
-    break _L$3;
-  }
+  const div_body = _M0MPC16string10StringView11sub_2einner(div_after, div_open_end + 1 | 0, undefined);
   let div_close;
   const _bind$11 = "</div>";
   const _bind$12 = _M0MPC16string10StringView4find(div_body, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -62386,11 +60933,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
     const _v = _Some;
     div_close = _v;
   }
-  let inner;
-  _L$4: {
-    inner = _M0MPC16string10StringView11sub_2einner(div_body, 0, div_close);
-    break _L$4;
-  }
+  const inner = _M0MPC16string10StringView11sub_2einner(div_body, 0, div_close);
   const _bind$13 = "<font";
   if (!_M0MPC16string10StringView8contains(inner, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length))) {
     return new _M0DTPC16result6ResultGUsRPB5ArrayGRP38bobzhang8mbtexcel4xlsx11RichTextRunEERP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok({ _0: _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(inner), _1: empty });
@@ -62399,11 +60942,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
   const i = new _M0TPB8MutLocalGiE(0);
   const runs = [];
   while (true) {
-    let rest;
-    _L$5: {
-      rest = _M0MPC16string6String11sub_2einner(inner_s, i.val, undefined);
-      break _L$5;
-    }
+    const rest = _M0MPC16string6String11sub_2einner(inner_s, i.val, undefined);
     let font_rel;
     const _bind$14 = "<font";
     const _bind$15 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
@@ -62415,11 +60954,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
       font_rel = _v;
     }
     const font_start = i.val + font_rel | 0;
-    let font_open;
-    _L$6: {
-      font_open = _M0MPC16string6String11sub_2einner(inner_s, font_start, undefined);
-      break _L$6;
-    }
+    const font_open = _M0MPC16string6String11sub_2einner(inner_s, font_start, undefined);
     let open_end_rel;
     const _bind$16 = ">";
     const _bind$17 = _M0MPC16string10StringView4find(font_open, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
@@ -62430,17 +60965,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
       const _v = _Some;
       open_end_rel = _v;
     }
-    let attrs;
-    _L$7: {
-      attrs = _M0MPC16string10StringView11sub_2einner(font_open, 5, open_end_rel);
-      break _L$7;
-    }
+    const attrs = _M0MPC16string10StringView11sub_2einner(font_open, 5, open_end_rel);
     const content_start = (font_start + open_end_rel | 0) + 1 | 0;
-    let after_open;
-    _L$8: {
-      after_open = _M0MPC16string6String11sub_2einner(inner_s, content_start, undefined);
-      break _L$8;
-    }
+    const after_open = _M0MPC16string6String11sub_2einner(inner_s, content_start, undefined);
     let close_rel;
     const _bind$18 = "</font>";
     const _bind$19 = _M0MPC16string10StringView4find(after_open, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length));
@@ -62451,11 +60978,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
       const _v = _Some;
       close_rel = _v;
     }
-    let raw_inner;
-    _L$9: {
-      raw_inner = _M0MPC16string10StringView11sub_2einner(after_open, 0, close_rel);
-      break _L$9;
-    }
+    const raw_inner = _M0MPC16string10StringView11sub_2einner(after_open, 0, close_rel);
     const _bind$20 = "<b>";
     const bold = _M0MPC16string10StringView8contains(raw_inner, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
     const _bind$21 = "<i>";
@@ -62483,8 +61006,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
     }
     let size;
     let v;
-    _L$10: {
-      _L$11: {
+    _L: {
+      _L$2: {
         const _bind$25 = "size";
         const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
         let _bind$27;
@@ -62500,14 +61023,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
           const _Some = _bind$27;
           const _v = _Some;
           v = _v;
-          break _L$11;
+          break _L$2;
         }
-        break _L$10;
+        break _L;
       }
       let n;
       let _try_err;
-      _L$12: {
-        _L$13: {
+      _L$3: {
+        _L$4: {
           const _bind$25 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v, undefined), 10);
           if (_bind$25.$tag === 1) {
             const _ok = _bind$25;
@@ -62515,9 +61038,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
           } else {
             const _err = _bind$25;
             _try_err = _err._0;
-            break _L$13;
+            break _L$4;
           }
-          break _L$12;
+          break _L$3;
         }
         n = 0;
       }
@@ -62525,8 +61048,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
     }
     let color;
     let v$2;
-    _L$11: {
-      _L$12: {
+    _L$2: {
+      _L$3: {
         const _bind$25 = "color";
         const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(attrs, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
         let _bind$27;
@@ -62542,9 +61065,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(shape) {
           const _Some = _bind$27;
           const _v = _Some;
           v$2 = _v;
-          break _L$12;
+          break _L$3;
         }
-        break _L$11;
+        break _L$2;
       }
       const _tmp$2 = _M0MPC16string6String4trim(v$2, undefined);
       const _bind$25 = "";
@@ -62705,11 +61228,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       const _v = _Some;
       cd_start = _v;
     }
-    let cd;
-    _L$2: {
-      cd = _M0MPC16string10StringView11sub_2einner(chunk, cd_start + "<x:ClientData".length | 0, undefined);
-      break _L$2;
-    }
+    const cd = _M0MPC16string10StringView11sub_2einner(chunk, cd_start + "<x:ClientData".length | 0, undefined);
     let end_tag;
     const _bind$9 = ">";
     const _bind$10 = _M0MPC16string10StringView4find(cd, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
@@ -62720,11 +61239,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       const _v = _Some;
       end_tag = _v;
     }
-    let tag;
-    _L$3: {
-      tag = _M0MPC16string10StringView11sub_2einner(cd, 0, end_tag);
-      break _L$3;
-    }
+    const tag = _M0MPC16string10StringView11sub_2einner(cd, 0, end_tag);
     let object_type;
     const _bind$11 = "ObjectType";
     const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
@@ -62745,16 +61260,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
     if (object_type === "Note") {
       continue;
     }
-    let body;
-    _L$4: {
-      body = _M0MPC16string10StringView11sub_2einner(cd, end_tag + 1 | 0, undefined);
-      break _L$4;
-    }
+    const body = _M0MPC16string10StringView11sub_2einner(cd, end_tag + 1 | 0, undefined);
     const row0_opt = new _M0TPB8MutLocalGOiE(undefined);
     const col0_opt = new _M0TPB8MutLocalGOiE(undefined);
     let v;
-    _L$5: {
-      _L$6: {
+    _L$2: {
+      _L$3: {
         const _bind$14 = "x:Row";
         const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
         if (_bind$15 === undefined) {
@@ -62762,13 +61273,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$15;
           const _v = _Some;
           v = _v;
-          break _L$6;
+          break _L$3;
         }
-        break _L$5;
+        break _L$2;
       }
       let _try_err;
-      _L$7: {
-        _L$8: {
+      _L$4: {
+        _L$5: {
           const _bind$14 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(v, 0, v.length), 10);
           let _bind$15;
           if (_bind$14.$tag === 1) {
@@ -62777,17 +61288,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           } else {
             const _err = _bind$14;
             _try_err = _err._0;
-            break _L$8;
+            break _L$5;
           }
           const value = _bind$15;
           row0_opt.val = value;
-          break _L$7;
+          break _L$4;
         }
       }
     }
     let v$2;
-    _L$6: {
-      _L$7: {
+    _L$3: {
+      _L$4: {
         const _bind$14 = "x:Column";
         const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
         if (_bind$15 === undefined) {
@@ -62795,13 +61306,13 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$15;
           const _v = _Some;
           v$2 = _v;
-          break _L$7;
+          break _L$4;
         }
-        break _L$6;
+        break _L$3;
       }
       let _try_err;
-      _L$8: {
-        _L$9: {
+      _L$5: {
+        _L$6: {
           const _bind$14 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(v$2, 0, v$2.length), 10);
           let _bind$15;
           if (_bind$14.$tag === 1) {
@@ -62810,46 +61321,46 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           } else {
             const _err = _bind$14;
             _try_err = _err._0;
-            break _L$9;
+            break _L$6;
           }
           const value = _bind$15;
           col0_opt.val = value;
-          break _L$8;
+          break _L$5;
         }
       }
     }
     let row0;
     let col0;
-    _L$7: {
+    _L$4: {
       let _bind$14;
-      _L$8: {
-        _L$9: {
+      _L$5: {
+        _L$6: {
           let r;
           let c;
-          _L$10: {
+          _L$7: {
             const _bind$15 = row0_opt.val;
             const _bind$16 = col0_opt.val;
             if (_bind$15 === undefined) {
-              break _L$9;
+              break _L$6;
             } else {
               const _Some = _bind$15;
               const _r = _Some;
               if (_bind$16 === undefined) {
-                break _L$9;
+                break _L$6;
               } else {
                 const _Some$2 = _bind$16;
                 const _c = _Some$2;
                 r = _r;
                 c = _c;
-                break _L$10;
+                break _L$7;
               }
             }
           }
           _bind$14 = { _0: r, _1: c };
-          break _L$8;
+          break _L$5;
         }
         let anchor;
-        _L$10: {
+        _L$7: {
           const _bind$15 = "x:Anchor";
           const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
           if (_bind$16 === undefined) {
@@ -62858,7 +61369,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
             const _Some = _bind$16;
             const _anchor = _Some;
             anchor = _anchor;
-            break _L$10;
+            break _L$7;
           }
         }
         const parts = [];
@@ -62866,7 +61377,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
         const _it$2 = _M0MPC16string6String5split(anchor, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
         while (true) {
           let part;
-          _L$11: {
+          _L$8: {
             const _bind$16 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it$2);
             if (_bind$16 === undefined) {
               break;
@@ -62874,7 +61385,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
               const _Some = _bind$16;
               const _part = _Some;
               part = _part;
-              break _L$11;
+              break _L$8;
             }
           }
           _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(parts, part);
@@ -62885,8 +61396,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
         }
         let col0$2;
         let _try_err;
-        _L$11: {
-          _L$12: {
+        _L$8: {
+          _L$9: {
             const _bind$16 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string10StringView4trim(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend3app5SheetE(parts, 0), undefined), 10);
             if (_bind$16.$tag === 1) {
               const _ok = _bind$16;
@@ -62894,16 +61405,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
             } else {
               const _err = _bind$16;
               _try_err = _err._0;
-              break _L$12;
+              break _L$9;
             }
-            break _L$11;
+            break _L$8;
           }
           continue;
         }
         let row0$2;
         let _try_err$2;
-        _L$12: {
-          _L$13: {
+        _L$9: {
+          _L$10: {
             const _bind$16 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string10StringView4trim(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend3app5SheetE(parts, 2), undefined), 10);
             if (_bind$16.$tag === 1) {
               const _ok = _bind$16;
@@ -62911,9 +61422,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
             } else {
               const _err = _bind$16;
               _try_err$2 = _err._0;
-              break _L$13;
+              break _L$10;
             }
-            break _L$12;
+            break _L$9;
           }
           continue;
         }
@@ -62923,7 +61434,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       const _col0 = _bind$14._1;
       row0 = _row0;
       col0 = _col0;
-      break _L$7;
+      break _L$4;
     }
     const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx15cell__ref__from(row0 + 1 | 0, col0 + 1 | 0);
     let cell;
@@ -62935,7 +61446,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
     }
     let textbox_text;
     let paragraph;
-    _L$8: {
+    _L$5: {
       const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx19parse__vml__textbox(chunk);
       let _bind$16;
       if (_bind$15.$tag === 1) {
@@ -62948,7 +61459,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       const _paragraph = _bind$16._1;
       textbox_text = _textbox_text;
       paragraph = _paragraph;
-      break _L$8;
+      break _L$5;
     }
     let text;
     if (_M0IP016_24default__implPB2Eq10not__equalGsE(textbox_text, "")) {
@@ -62966,8 +61477,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
     }
     let control;
     let _try_err;
-    _L$9: {
-      _L$10: {
+    _L$6: {
+      _L$7: {
         const _bind$15 = _M0MP38bobzhang8mbtexcel4xlsx11FormControl11new_2einner(cell, object_type, text);
         if (_bind$15.$tag === 1) {
           const _ok = _bind$15;
@@ -62975,16 +61486,16 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
         } else {
           const _err = _bind$15;
           _try_err = _err._0;
-          break _L$10;
+          break _L$7;
         }
-        break _L$9;
+        break _L$6;
       }
       continue;
     }
     control.paragraph = paragraph;
     let v$3;
-    _L$10: {
-      _L$11: {
+    _L$7: {
+      _L$8: {
         const _bind$15 = "x:FmlaMacro";
         const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
         if (_bind$16 === undefined) {
@@ -62992,15 +61503,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$16;
           const _v = _Some;
           v$3 = _v;
-          break _L$11;
+          break _L$8;
         }
-        break _L$10;
+        break _L$7;
       }
       control.macro_name = v$3 === "" ? undefined : v$3;
     }
     let v$4;
-    _L$11: {
-      _L$12: {
+    _L$8: {
+      _L$9: {
         const _bind$15 = "x:FmlaLink";
         const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
         if (_bind$16 === undefined) {
@@ -63008,15 +61519,15 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$16;
           const _v = _Some;
           v$4 = _v;
-          break _L$12;
+          break _L$9;
         }
-        break _L$11;
+        break _L$8;
       }
       control.cell_link = v$4 === "" ? undefined : v$4;
     }
     let v$5;
-    _L$12: {
-      _L$13: {
+    _L$9: {
+      _L$10: {
         const _bind$15 = "x:Val";
         const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
         if (_bind$16 === undefined) {
@@ -63024,6 +61535,111 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$16;
           const _v = _Some;
           v$5 = _v;
+          break _L$10;
+        }
+        break _L$9;
+      }
+      let n;
+      let _try_err$2;
+      _L$11: {
+        _L$12: {
+          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$5, undefined), 10);
+          if (_bind$15.$tag === 1) {
+            const _ok = _bind$15;
+            n = _ok._0;
+          } else {
+            const _err = _bind$15;
+            _try_err$2 = _err._0;
+            break _L$12;
+          }
+          break _L$11;
+        }
+        n = 0;
+      }
+      if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
+        control.current_val = n;
+      }
+    }
+    let v$6;
+    _L$10: {
+      _L$11: {
+        const _bind$15 = "x:Min";
+        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
+        if (_bind$16 === undefined) {
+        } else {
+          const _Some = _bind$16;
+          const _v = _Some;
+          v$6 = _v;
+          break _L$11;
+        }
+        break _L$10;
+      }
+      let n;
+      let _try_err$2;
+      _L$12: {
+        _L$13: {
+          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$6, undefined), 10);
+          if (_bind$15.$tag === 1) {
+            const _ok = _bind$15;
+            n = _ok._0;
+          } else {
+            const _err = _bind$15;
+            _try_err$2 = _err._0;
+            break _L$13;
+          }
+          break _L$12;
+        }
+        n = 0;
+      }
+      if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
+        control.min_val = n;
+      }
+    }
+    let v$7;
+    _L$11: {
+      _L$12: {
+        const _bind$15 = "x:Max";
+        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
+        if (_bind$16 === undefined) {
+        } else {
+          const _Some = _bind$16;
+          const _v = _Some;
+          v$7 = _v;
+          break _L$12;
+        }
+        break _L$11;
+      }
+      let n;
+      let _try_err$2;
+      _L$13: {
+        _L$14: {
+          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$7, undefined), 10);
+          if (_bind$15.$tag === 1) {
+            const _ok = _bind$15;
+            n = _ok._0;
+          } else {
+            const _err = _bind$15;
+            _try_err$2 = _err._0;
+            break _L$14;
+          }
+          break _L$13;
+        }
+        n = 0;
+      }
+      if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
+        control.max_val = n;
+      }
+    }
+    let v$8;
+    _L$12: {
+      _L$13: {
+        const _bind$15 = "x:Inc";
+        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
+        if (_bind$16 === undefined) {
+        } else {
+          const _Some = _bind$16;
+          const _v = _Some;
+          v$8 = _v;
           break _L$13;
         }
         break _L$12;
@@ -63032,7 +61648,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       let _try_err$2;
       _L$14: {
         _L$15: {
-          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$5, undefined), 10);
+          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$8, undefined), 10);
           if (_bind$15.$tag === 1) {
             const _ok = _bind$15;
             n = _ok._0;
@@ -63046,19 +61662,19 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
         n = 0;
       }
       if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
-        control.current_val = n;
+        control.inc_change = n;
       }
     }
-    let v$6;
+    let v$9;
     _L$13: {
       _L$14: {
-        const _bind$15 = "x:Min";
+        const _bind$15 = "x:Page";
         const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
         if (_bind$16 === undefined) {
         } else {
           const _Some = _bind$16;
           const _v = _Some;
-          v$6 = _v;
+          v$9 = _v;
           break _L$14;
         }
         break _L$13;
@@ -63067,7 +61683,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       let _try_err$2;
       _L$15: {
         _L$16: {
-          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$6, undefined), 10);
+          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$9, undefined), 10);
           if (_bind$15.$tag === 1) {
             const _ok = _bind$15;
             n = _ok._0;
@@ -63081,111 +61697,6 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
         n = 0;
       }
       if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
-        control.min_val = n;
-      }
-    }
-    let v$7;
-    _L$14: {
-      _L$15: {
-        const _bind$15 = "x:Max";
-        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-        if (_bind$16 === undefined) {
-        } else {
-          const _Some = _bind$16;
-          const _v = _Some;
-          v$7 = _v;
-          break _L$15;
-        }
-        break _L$14;
-      }
-      let n;
-      let _try_err$2;
-      _L$16: {
-        _L$17: {
-          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$7, undefined), 10);
-          if (_bind$15.$tag === 1) {
-            const _ok = _bind$15;
-            n = _ok._0;
-          } else {
-            const _err = _bind$15;
-            _try_err$2 = _err._0;
-            break _L$17;
-          }
-          break _L$16;
-        }
-        n = 0;
-      }
-      if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
-        control.max_val = n;
-      }
-    }
-    let v$8;
-    _L$15: {
-      _L$16: {
-        const _bind$15 = "x:Inc";
-        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-        if (_bind$16 === undefined) {
-        } else {
-          const _Some = _bind$16;
-          const _v = _Some;
-          v$8 = _v;
-          break _L$16;
-        }
-        break _L$15;
-      }
-      let n;
-      let _try_err$2;
-      _L$17: {
-        _L$18: {
-          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$8, undefined), 10);
-          if (_bind$15.$tag === 1) {
-            const _ok = _bind$15;
-            n = _ok._0;
-          } else {
-            const _err = _bind$15;
-            _try_err$2 = _err._0;
-            break _L$18;
-          }
-          break _L$17;
-        }
-        n = 0;
-      }
-      if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
-        control.inc_change = n;
-      }
-    }
-    let v$9;
-    _L$16: {
-      _L$17: {
-        const _bind$15 = "x:Page";
-        const _bind$16 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$15, 0, _bind$15.length));
-        if (_bind$16 === undefined) {
-        } else {
-          const _Some = _bind$16;
-          const _v = _Some;
-          v$9 = _v;
-          break _L$17;
-        }
-        break _L$16;
-      }
-      let n;
-      let _try_err$2;
-      _L$18: {
-        _L$19: {
-          const _bind$15 = _M0FPC17strconv18parse__int_2einner(_M0MPC16string6String4trim(v$9, undefined), 10);
-          if (_bind$15.$tag === 1) {
-            const _ok = _bind$15;
-            n = _ok._0;
-          } else {
-            const _err = _bind$15;
-            _try_err$2 = _err._0;
-            break _L$19;
-          }
-          break _L$18;
-        }
-        n = 0;
-      }
-      if (n >= 0 && n <= _M0FP38bobzhang8mbtexcel4xlsx25max__form__control__value) {
         control.page_change = n;
       }
     }
@@ -63194,8 +61705,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       control.horizontally = true;
     }
     let v$10;
-    _L$17: {
-      _L$18: {
+    _L$14: {
+      _L$15: {
         const _bind$16 = "x:PrintObject";
         const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
         if (_bind$17 === undefined) {
@@ -63203,9 +61714,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$17;
           const _v = _Some;
           v$10 = _v;
-          break _L$18;
+          break _L$15;
         }
-        break _L$17;
+        break _L$14;
       }
       const s = _M0MPC16string10StringView9to__lower(_M0MPC16string6String4trim(v$10, undefined));
       let _tmp$3;
@@ -63249,8 +61760,8 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
       }
     }
     let v$11;
-    _L$18: {
-      _L$19: {
+    _L$15: {
+      _L$16: {
         const _bind$17 = "x:Checked";
         const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx23extract__xml__text__tag(body, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length));
         if (_bind$18 === undefined) {
@@ -63258,9 +61769,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx26parse__form__controls__vml(xml) {
           const _Some = _bind$18;
           const _v = _Some;
           v$11 = _v;
-          break _L$19;
+          break _L$16;
         }
-        break _L$18;
+        break _L$15;
       }
       const checked_text = _M0MPC16string10StringView9to__lower(_M0MPC16string6String4trim(v$11, undefined));
       let _tmp$4;
@@ -63350,11 +61861,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx32parse__header__footer__shape__id(id) {
   }
   let suffix;
   if (id_norm.length > 2) {
-    let view;
-    _L$3: {
-      view = _M0MPC16string6String11sub_2einner(id_norm, 2, undefined);
-      break _L$3;
-    }
+    const view = _M0MPC16string6String11sub_2einner(id_norm, 2, undefined);
     suffix = _M0IPC16string10StringViewPB4Show10to__string(view);
   } else {
     suffix = "";
@@ -63392,11 +61899,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__style__value(style, key) {
     }
   }
   start = pos + needle.length | 0;
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(style_str, start, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(style_str, start, undefined);
   let end;
   const _bind$5 = ";";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -63407,11 +61910,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__style__value(style, key) {
     const _pos = _Some;
     end = _pos;
   }
-  let slice;
-  _L$3: {
-    slice = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const slice = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   const trimmed = _M0MPC16string6String4trim(_M0IPC16string10StringViewPB4Show10to__string(slice), undefined);
   const value = _M0IPC16string10StringViewPB4Show10to__string(trimmed);
   return value === "" ? undefined : value;
@@ -63455,44 +61954,37 @@ function _M0FP38bobzhang8mbtexcel4xlsx40parse__header__footer__images__from__vml
         const _tmp$3 = new _M0TPC16string10StringView(shape, 0, shape.length);
         const _bind$7 = "v:shape";
         const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$3, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
-        } else {
-          return _bind$8;
-        }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _value = _Some;
           shape_attrs = _value;
         }
         let shape_id;
         const _tmp$4 = new _M0TPC16string10StringView(shape_attrs, 0, shape_attrs.length);
-        const _bind$10 = "id";
-        const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
-        let _bind$12;
-        if (_bind$11.$tag === 1) {
-          const _ok = _bind$11;
-          _bind$12 = _ok._0;
+        const _bind$9 = "id";
+        const _bind$10 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$4, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
+        let _bind$11;
+        if (_bind$10.$tag === 1) {
+          const _ok = _bind$10;
+          _bind$11 = _ok._0;
         } else {
-          return _bind$11;
+          return _bind$10;
         }
-        if (_bind$12 === undefined) {
+        if (_bind$11 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$12;
+          const _Some = _bind$11;
           const _value = _Some;
           shape_id = _value;
         }
         let info;
-        const _bind$13 = _M0FP38bobzhang8mbtexcel4xlsx32parse__header__footer__shape__id(new _M0TPC16string10StringView(shape_id, 0, shape_id.length));
-        if (_bind$13 === undefined) {
+        const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx32parse__header__footer__shape__id(new _M0TPC16string10StringView(shape_id, 0, shape_id.length));
+        if (_bind$12 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$13;
+          const _Some = _bind$12;
           const _value = _Some;
           info = _value;
         }
@@ -63510,139 +62002,132 @@ function _M0FP38bobzhang8mbtexcel4xlsx40parse__header__footer__images__from__vml
         }
         let style;
         const _tmp$5 = new _M0TPC16string10StringView(shape_attrs, 0, shape_attrs.length);
-        const _bind$14 = "style";
-        const _bind$15 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$5, new _M0TPC16string10StringView(_bind$14, 0, _bind$14.length));
-        let _bind$16;
-        if (_bind$15.$tag === 1) {
-          const _ok = _bind$15;
-          _bind$16 = _ok._0;
+        const _bind$13 = "style";
+        const _bind$14 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$5, new _M0TPC16string10StringView(_bind$13, 0, _bind$13.length));
+        let _bind$15;
+        if (_bind$14.$tag === 1) {
+          const _ok = _bind$14;
+          _bind$15 = _ok._0;
         } else {
-          return _bind$15;
+          return _bind$14;
         }
-        if (_bind$16 === undefined) {
+        if (_bind$15 === undefined) {
           style = "";
         } else {
-          const _Some = _bind$16;
+          const _Some = _bind$15;
           const _value = _Some;
           style = _value;
         }
         let width;
         const _tmp$6 = new _M0TPC16string10StringView(style, 0, style.length);
-        const _bind$17 = "width";
-        const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx19parse__style__value(_tmp$6, new _M0TPC16string10StringView(_bind$17, 0, _bind$17.length));
-        if (_bind$18 === undefined) {
+        const _bind$16 = "width";
+        const _bind$17 = _M0FP38bobzhang8mbtexcel4xlsx19parse__style__value(_tmp$6, new _M0TPC16string10StringView(_bind$16, 0, _bind$16.length));
+        if (_bind$17 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$18;
+          const _Some = _bind$17;
           const _value = _Some;
           width = _value;
         }
         let height;
         const _tmp$7 = new _M0TPC16string10StringView(style, 0, style.length);
-        const _bind$19 = "height";
-        const _bind$20 = _M0FP38bobzhang8mbtexcel4xlsx19parse__style__value(_tmp$7, new _M0TPC16string10StringView(_bind$19, 0, _bind$19.length));
-        if (_bind$20 === undefined) {
+        const _bind$18 = "height";
+        const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx19parse__style__value(_tmp$7, new _M0TPC16string10StringView(_bind$18, 0, _bind$18.length));
+        if (_bind$19 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$20;
+          const _Some = _bind$19;
           const _value = _Some;
           height = _value;
         }
         let imagedata_attrs;
         const _tmp$8 = new _M0TPC16string10StringView(shape, 0, shape.length);
-        const _bind$21 = "v:imagedata";
-        const _bind$22 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$8, new _M0TPC16string10StringView(_bind$21, 0, _bind$21.length));
-        let _bind$23;
-        if (_bind$22.$tag === 1) {
-          const _ok = _bind$22;
-          _bind$23 = _ok._0;
-        } else {
-          return _bind$22;
-        }
-        if (_bind$23 === undefined) {
+        const _bind$20 = "v:imagedata";
+        const _bind$21 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$8, new _M0TPC16string10StringView(_bind$20, 0, _bind$20.length));
+        if (_bind$21 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$23;
+          const _Some = _bind$21;
           const _value = _Some;
           imagedata_attrs = _value;
         }
         let rel_id;
         const _tmp$9 = new _M0TPC16string10StringView(imagedata_attrs, 0, imagedata_attrs.length);
-        const _bind$24 = "o:relid";
-        const _bind$25 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$24, 0, _bind$24.length));
-        let _bind$26;
-        if (_bind$25.$tag === 1) {
-          const _ok = _bind$25;
-          _bind$26 = _ok._0;
+        const _bind$22 = "o:relid";
+        const _bind$23 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$9, new _M0TPC16string10StringView(_bind$22, 0, _bind$22.length));
+        let _bind$24;
+        if (_bind$23.$tag === 1) {
+          const _ok = _bind$23;
+          _bind$24 = _ok._0;
         } else {
-          return _bind$25;
+          return _bind$23;
         }
-        if (_bind$26 === undefined) {
+        if (_bind$24 === undefined) {
           const _tmp$10 = new _M0TPC16string10StringView(imagedata_attrs, 0, imagedata_attrs.length);
-          const _bind$27 = "r:id";
-          const _bind$28 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$27, 0, _bind$27.length));
-          let _bind$29;
-          if (_bind$28.$tag === 1) {
-            const _ok = _bind$28;
-            _bind$29 = _ok._0;
+          const _bind$25 = "r:id";
+          const _bind$26 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$10, new _M0TPC16string10StringView(_bind$25, 0, _bind$25.length));
+          let _bind$27;
+          if (_bind$26.$tag === 1) {
+            const _ok = _bind$26;
+            _bind$27 = _ok._0;
           } else {
-            return _bind$28;
+            return _bind$26;
           }
-          if (_bind$29 === undefined) {
+          if (_bind$27 === undefined) {
             break _L$2;
           } else {
-            const _Some = _bind$29;
+            const _Some = _bind$27;
             const _value = _Some;
             rel_id = _value;
           }
         } else {
-          const _Some = _bind$26;
+          const _Some = _bind$24;
           const _value = _Some;
           rel_id = _value;
         }
         let target;
-        const _bind$27 = _M0MPB3Map3getGssE(rel_targets, rel_id);
-        if (_bind$27 === undefined) {
+        const _bind$25 = _M0MPB3Map3getGssE(rel_targets, rel_id);
+        if (_bind$25 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx17HeaderFooterImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("header/footer image relationship missing"));
         } else {
-          const _Some = _bind$27;
+          const _Some = _bind$25;
           const _value = _Some;
           target = _value;
         }
         const _tmp$10 = new _M0TPC16string10StringView(target, 0, target.length);
-        const _bind$28 = "drawings";
-        const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx20resolve__rel__target(_tmp$10, new _M0TPC16string10StringView(_bind$28, 0, _bind$28.length));
+        const _bind$26 = "drawings";
+        const _bind$27 = _M0FP38bobzhang8mbtexcel4xlsx20resolve__rel__target(_tmp$10, new _M0TPC16string10StringView(_bind$26, 0, _bind$26.length));
         let image_path;
-        if (_bind$29.$tag === 1) {
-          const _ok = _bind$29;
+        if (_bind$27.$tag === 1) {
+          const _ok = _bind$27;
           image_path = _ok._0;
         } else {
-          return _bind$29;
+          return _bind$27;
         }
         let image_bytes;
-        const _bind$30 = _M0MP38bobzhang8mbtexcel3zip7Archive3get(archive, new _M0TPC16string10StringView(image_path, 0, image_path.length));
-        if (_bind$30 === undefined) {
+        const _bind$28 = _M0MP38bobzhang8mbtexcel3zip7Archive3get(archive, new _M0TPC16string10StringView(image_path, 0, image_path.length));
+        if (_bind$28 === undefined) {
           return new _M0DTPC16result6ResultGRPB5ArrayGRP38bobzhang8mbtexcel4xlsx17HeaderFooterImageERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error52bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eMissingPart(image_path));
         } else {
-          const _Some = _bind$30;
+          const _Some = _bind$28;
           const _value = _Some;
           image_bytes = _value;
         }
         let extension;
-        const _bind$31 = _M0FP38bobzhang8mbtexcel4xlsx21extension__from__path(new _M0TPC16string10StringView(image_path, 0, image_path.length));
-        if (_bind$31 === undefined) {
+        const _bind$29 = _M0FP38bobzhang8mbtexcel4xlsx21extension__from__path(new _M0TPC16string10StringView(image_path, 0, image_path.length));
+        if (_bind$29 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$31;
+          const _Some = _bind$29;
           const _value = _Some;
           extension = _value;
         }
         let content_type;
-        const _bind$32 = _M0FP38bobzhang8mbtexcel4xlsx20image__content__type(new _M0TPC16string10StringView(extension, 0, extension.length));
-        if (_bind$32 === undefined) {
+        const _bind$30 = _M0FP38bobzhang8mbtexcel4xlsx20image__content__type(new _M0TPC16string10StringView(extension, 0, extension.length));
+        if (_bind$30 === undefined) {
           break _L$2;
         } else {
-          const _Some = _bind$32;
+          const _Some = _bind$30;
           const _value = _Some;
           content_type = _value;
         }
@@ -63651,12 +62136,12 @@ function _M0FP38bobzhang8mbtexcel4xlsx40parse__header__footer__images__from__vml
         let idx;
         _L$4: {
           _L$5: {
-            const _bind$33 = _M0MPB3Map3getGsiE(index_by_id, key);
-            if (_bind$33 === undefined) {
+            const _bind$31 = _M0MPB3Map3getGsiE(index_by_id, key);
+            if (_bind$31 === undefined) {
               _M0MPB3Map3setGsiE(index_by_id, key, images.length);
               _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(images, image);
             } else {
-              const _Some = _bind$33;
+              const _Some = _bind$31;
               const _idx = _Some;
               idx = _idx;
               break _L$5;
@@ -63677,58 +62162,40 @@ function _M0FP38bobzhang8mbtexcel4xlsx40parse__header__footer__images__from__vml
 }
 function _M0FP38bobzhang8mbtexcel4xlsx21parse__id__from__path(path, prefix) {
   const path_str = _M0IPC16string10StringViewPB4Show10to__string(path);
-  const prefix_str = _M0IPC16string10StringViewPB4Show10to__string(prefix);
-  let _tmp$2;
-  if (!_M0MPC16string6String11has__prefix(path_str, new _M0TPC16string10StringView(prefix_str, 0, prefix_str.length))) {
-    _tmp$2 = true;
+  let num;
+  let rest;
+  _L: {
+    const _bind$5 = _M0MPC16string6String13strip__prefix(path_str, prefix);
+    if (_bind$5 === undefined) {
+      return 0;
+    } else {
+      const _Some = _bind$5;
+      const _rest = _Some;
+      rest = _rest;
+      break _L;
+    }
+  }
+  const _tmp$2 = _M0IPC16string10StringViewPB4Show10to__string(rest);
+  const _bind$5 = ".xml";
+  const _bind$6 = _M0MPC16string6String13strip__suffix(_tmp$2, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+  if (_bind$6 === undefined) {
+    return 0;
   } else {
-    const _bind$5 = ".xml";
-    _tmp$2 = !_M0MPC16string6String11has__suffix(path_str, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  }
-  if (_tmp$2) {
-    return 0;
-  }
-  const start = prefix_str.length;
-  const end = path_str.length - 4 | 0;
-  if (start > end) {
-    return 0;
-  }
-  const sb = _M0MPB13StringBuilder11new_2einner(0);
-  const _it = _M0MPC16string6String5iter2(path_str);
-  while (true) {
-    let i;
-    let ch;
-    _L: {
-      const _bind$5 = _M0MPB5Iter24nextGicE(_it);
-      if (_bind$5 === undefined) {
-        break;
-      } else {
-        const _Some = _bind$5;
-        const _x = _Some;
-        const _i = _x._0;
-        const _ch = _x._1;
-        i = _i;
-        ch = _ch;
-        break _L;
-      }
-    }
-    if (i >= start && i < end) {
-      const _bind$5 = _M0IPC14char4CharPB4Show10to__string(ch);
-      _M0IPB13StringBuilderPB6Logger11write__view(sb, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-    }
-    continue;
+    const _Some = _bind$6;
+    const _n = _Some;
+    num = _n;
   }
   let _try_err;
-  _L: {
-    const _bind$5 = _M0MPB13StringBuilder10to__string(sb);
-    const _bind$6 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length), 10);
-    if (_bind$6.$tag === 1) {
-      const _ok = _bind$6;
+  _L$2: {
+    const _bind$7 = _M0IPC16string10StringViewPB4Show10to__string(num);
+    const _bind$8 = _M0FPC17strconv18parse__int_2einner(new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length), 10);
+    if (_bind$8.$tag === 1) {
+      const _ok = _bind$8;
       return _ok._0;
     } else {
-      const _err = _bind$6;
+      const _err = _bind$8;
       _try_err = _err._0;
-      break _L;
+      break _L$2;
     }
   }
   return 0;
@@ -63791,14 +62258,10 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let sqref;
     let value;
-    _L$3: {
+    _L$2: {
       const _bind$11 = "sqref";
       const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
       let _bind$13;
@@ -63814,14 +62277,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
         const _Some = _bind$13;
         const _value = _Some;
         value = _value;
-        break _L$3;
+        break _L$2;
       }
     }
     sqref = _M0FP38bobzhang8mbtexcel4xlsx19unescape__xml__text(new _M0TPC16string10StringView(value, 0, value.length));
     let _tmp$2;
     let value$2;
-    _L$4: {
-      _L$5: {
+    _L$3: {
+      _L$4: {
         const _bind$11 = "evalError";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63837,17 +62300,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$2 = _value;
-          break _L$5;
+          break _L$4;
         }
-        break _L$4;
+        break _L$3;
       }
       _tmp$2 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$2, 0, value$2.length));
     }
     const _tmp$3 = _tmp$2;
     let _tmp$4;
     let value$3;
-    _L$5: {
-      _L$6: {
+    _L$4: {
+      _L$5: {
         const _bind$11 = "twoDigitTextYear";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63863,17 +62326,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$3 = _value;
-          break _L$6;
+          break _L$5;
         }
-        break _L$5;
+        break _L$4;
       }
       _tmp$4 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$3, 0, value$3.length));
     }
     const _tmp$5 = _tmp$4;
     let _tmp$6;
     let value$4;
-    _L$6: {
-      _L$7: {
+    _L$5: {
+      _L$6: {
         const _bind$11 = "numberStoredAsText";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63889,17 +62352,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$4 = _value;
-          break _L$7;
+          break _L$6;
         }
-        break _L$6;
+        break _L$5;
       }
       _tmp$6 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$4, 0, value$4.length));
     }
     const _tmp$7 = _tmp$6;
     let _tmp$8;
     let value$5;
-    _L$7: {
-      _L$8: {
+    _L$6: {
+      _L$7: {
         const _bind$11 = "formula";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63915,17 +62378,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$5 = _value;
-          break _L$8;
+          break _L$7;
         }
-        break _L$7;
+        break _L$6;
       }
       _tmp$8 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$5, 0, value$5.length));
     }
     const _tmp$9 = _tmp$8;
     let _tmp$10;
     let value$6;
-    _L$8: {
-      _L$9: {
+    _L$7: {
+      _L$8: {
         const _bind$11 = "formulaRange";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63941,17 +62404,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$6 = _value;
-          break _L$9;
+          break _L$8;
         }
-        break _L$8;
+        break _L$7;
       }
       _tmp$10 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$6, 0, value$6.length));
     }
     const _tmp$11 = _tmp$10;
     let _tmp$12;
     let value$7;
-    _L$9: {
-      _L$10: {
+    _L$8: {
+      _L$9: {
         const _bind$11 = "unlockedFormula";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63967,17 +62430,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$7 = _value;
-          break _L$10;
+          break _L$9;
         }
-        break _L$9;
+        break _L$8;
       }
       _tmp$12 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$7, 0, value$7.length));
     }
     const _tmp$13 = _tmp$12;
     let _tmp$14;
     let value$8;
-    _L$10: {
-      _L$11: {
+    _L$9: {
+      _L$10: {
         const _bind$11 = "emptyCellReference";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -63993,17 +62456,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$8 = _value;
-          break _L$11;
+          break _L$10;
         }
-        break _L$10;
+        break _L$9;
       }
       _tmp$14 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$8, 0, value$8.length));
     }
     const _tmp$15 = _tmp$14;
     let _tmp$16;
     let value$9;
-    _L$11: {
-      _L$12: {
+    _L$10: {
+      _L$11: {
         const _bind$11 = "listDataValidation";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -64019,17 +62482,17 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$9 = _value;
-          break _L$12;
+          break _L$11;
         }
-        break _L$11;
+        break _L$10;
       }
       _tmp$16 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$9, 0, value$9.length));
     }
     const _tmp$17 = _tmp$16;
     let _tmp$18;
     let value$10;
-    _L$12: {
-      _L$13: {
+    _L$11: {
+      _L$12: {
         const _bind$11 = "calculatedColumn";
         const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
         let _bind$13;
@@ -64045,9 +62508,9 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__ignored__errors(xml) {
           const _Some = _bind$13;
           const _value = _Some;
           value$10 = _value;
-          break _L$13;
+          break _L$12;
         }
-        break _L$12;
+        break _L$11;
       }
       _tmp$18 = _M0FP38bobzhang8mbtexcel4xlsx17parse__bool__attr(new _M0TPC16string10StringView(value$10, 0, value$10.length));
     }
@@ -64061,32 +62524,25 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__indexed__colors(xml) {
   let body;
   const _bind$5 = "indexedColors";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
-  } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
+  if (_bind$6 === undefined) {
     return new _M0DTPC16result6ResultGORPB5ArrayGsERP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__);
   } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     body = _value;
   }
   const colors = [];
   const first = new _M0TPB8MutLocalGbE(true);
-  const _bind$8 = "<rgbColor";
-  const _it = _M0MPC16string6String5split(body, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
+  const _bind$7 = "<rgbColor";
+  const _it = _M0MPC16string6String5split(body, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
   while (true) {
     let chunk;
     _L: {
-      const _bind$9 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it);
-      if (_bind$9 === undefined) {
+      const _bind$8 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_it);
+      if (_bind$8 === undefined) {
         break;
       } else {
-        const _Some = _bind$9;
+        const _Some = _bind$8;
         const _chunk = _Some;
         chunk = _chunk;
         break _L;
@@ -64098,48 +62554,44 @@ function _M0FP38bobzhang8mbtexcel4xlsx22parse__indexed__colors(xml) {
     }
     const text = _M0IPC16string10StringViewPB4Show10to__string(chunk);
     let end;
-    const _bind$9 = "/>";
-    const _bind$10 = _M0MPC16string6String4find(text, new _M0TPC16string10StringView(_bind$9, 0, _bind$9.length));
-    if (_bind$10 === undefined) {
-      const _bind$11 = ">";
-      const _bind$12 = _M0MPC16string6String4find(text, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-      if (_bind$12 === undefined) {
+    const _bind$8 = "/>";
+    const _bind$9 = _M0MPC16string6String4find(text, new _M0TPC16string10StringView(_bind$8, 0, _bind$8.length));
+    if (_bind$9 === undefined) {
+      const _bind$10 = ">";
+      const _bind$11 = _M0MPC16string6String4find(text, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+      if (_bind$11 === undefined) {
         return new _M0DTPC16result6ResultGORPB5ArrayGsERP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml("indexedColors tag invalid"));
       } else {
-        const _Some = _bind$12;
+        const _Some = _bind$11;
         const _pos = _Some;
         end = _pos;
       }
     } else {
-      const _Some = _bind$10;
+      const _Some = _bind$9;
       const _pos = _Some;
       end = _pos;
     }
-    let tag;
-    _L$2: {
-      tag = _M0MPC16string6String11sub_2einner(text, 0, end);
-      break _L$2;
-    }
+    const tag = _M0MPC16string6String11sub_2einner(text, 0, end);
     let value;
-    _L$3: {
-      _L$4: {
-        const _bind$11 = "rgb";
-        const _bind$12 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$11, 0, _bind$11.length));
-        let _bind$13;
-        if (_bind$12.$tag === 1) {
-          const _ok = _bind$12;
-          _bind$13 = _ok._0;
+    _L$2: {
+      _L$3: {
+        const _bind$10 = "rgb";
+        const _bind$11 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(tag, new _M0TPC16string10StringView(_bind$10, 0, _bind$10.length));
+        let _bind$12;
+        if (_bind$11.$tag === 1) {
+          const _ok = _bind$11;
+          _bind$12 = _ok._0;
         } else {
-          return _bind$12;
+          return _bind$11;
         }
-        if (_bind$13 === undefined) {
+        if (_bind$12 === undefined) {
         } else {
-          const _Some = _bind$13;
+          const _Some = _bind$12;
           const _value = _Some;
           value = _value;
-          break _L$4;
+          break _L$3;
         }
-        break _L$3;
+        break _L$2;
       }
       _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend3app5SheetE(colors, _M0FP38bobzhang8mbtexcel4xlsx19normalize__rgb__hex(new _M0TPC16string10StringView(value, 0, value.length)));
     }
@@ -64151,37 +62603,23 @@ function _M0FP38bobzhang8mbtexcel4xlsx23parse__mru__colors__xml(xml) {
   let body;
   const _bind$5 = "mruColors";
   const _bind$6 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
-  let _bind$7;
-  if (_bind$6.$tag === 1) {
-    const _ok = _bind$6;
-    _bind$7 = _ok._0;
+  if (_bind$6 === undefined) {
+    return undefined;
   } else {
-    return _bind$6;
-  }
-  if (_bind$7 === undefined) {
-    return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
-  } else {
-    const _Some = _bind$7;
+    const _Some = _bind$6;
     const _value = _Some;
     body = _value;
   }
   const text = body;
-  return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(text === "" ? undefined : text);
+  return text === "" ? undefined : text;
 }
 function _M0FP38bobzhang8mbtexcel4xlsx19parse__theme__color(xml, tag_name) {
   let body;
   const _bind$5 = _M0FP38bobzhang8mbtexcel4xlsx24extract__tag__body__from(xml, tag_name);
-  let _bind$6;
-  if (_bind$5.$tag === 1) {
-    const _ok = _bind$5;
-    _bind$6 = _ok._0;
-  } else {
-    return _bind$5;
-  }
-  if (_bind$6 === undefined) {
+  if (_bind$5 === undefined) {
     return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(undefined);
   } else {
-    const _Some = _bind$6;
+    const _Some = _bind$5;
     const _value = _Some;
     body = _value;
   }
@@ -64189,18 +62627,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__theme__color(xml, tag_name) {
   _L: {
     _L$2: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$7 = "a:srgbClr";
-      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-      let _bind$9;
-      if (_bind$8.$tag === 1) {
-        const _ok = _bind$8;
-        _bind$9 = _ok._0;
+      const _bind$6 = "a:srgbClr";
+      const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
+      if (_bind$7 === undefined) {
       } else {
-        return _bind$8;
-      }
-      if (_bind$9 === undefined) {
-      } else {
-        const _Some = _bind$9;
+        const _Some = _bind$7;
         const _attrs = _Some;
         attrs = _attrs;
         break _L$2;
@@ -64211,18 +62642,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__theme__color(xml, tag_name) {
     _L$3: {
       _L$4: {
         const _tmp$2 = new _M0TPC16string10StringView(attrs, 0, attrs.length);
-        const _bind$7 = "val";
-        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
+        const _bind$6 = "val";
+        const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
+        let _bind$8;
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
+          _bind$8 = _ok._0;
         } else {
-          return _bind$8;
+          return _bind$7;
         }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _value = _Some;
           value = _value;
           break _L$4;
@@ -64236,18 +62667,11 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__theme__color(xml, tag_name) {
   _L$2: {
     _L$3: {
       const _tmp$2 = new _M0TPC16string10StringView(body, 0, body.length);
-      const _bind$7 = "a:sysClr";
-      const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-      let _bind$9;
-      if (_bind$8.$tag === 1) {
-        const _ok = _bind$8;
-        _bind$9 = _ok._0;
+      const _bind$6 = "a:sysClr";
+      const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx19tag__attributes__in(_tmp$2, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
+      if (_bind$7 === undefined) {
       } else {
-        return _bind$8;
-      }
-      if (_bind$9 === undefined) {
-      } else {
-        const _Some = _bind$9;
+        const _Some = _bind$7;
         const _attrs = _Some;
         attrs$2 = _attrs;
         break _L$3;
@@ -64258,18 +62682,18 @@ function _M0FP38bobzhang8mbtexcel4xlsx19parse__theme__color(xml, tag_name) {
     _L$4: {
       _L$5: {
         const _tmp$2 = new _M0TPC16string10StringView(attrs$2, 0, attrs$2.length);
-        const _bind$7 = "lastClr";
-        const _bind$8 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$7, 0, _bind$7.length));
-        let _bind$9;
-        if (_bind$8.$tag === 1) {
-          const _ok = _bind$8;
-          _bind$9 = _ok._0;
+        const _bind$6 = "lastClr";
+        const _bind$7 = _M0FP38bobzhang8mbtexcel4xlsx11attr__value(_tmp$2, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
+        let _bind$8;
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
+          _bind$8 = _ok._0;
         } else {
-          return _bind$8;
+          return _bind$7;
         }
-        if (_bind$9 === undefined) {
+        if (_bind$8 === undefined) {
         } else {
-          const _Some = _bind$9;
+          const _Some = _bind$8;
           const _value = _Some;
           value = _value;
           break _L$5;
@@ -64540,21 +62964,14 @@ function _M0FP38bobzhang8mbtexcel4xlsx24read__zip__bytes_2einner(bytes, options,
       } else {
         return _bind$17;
       }
-      const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx23parse__mru__colors__xml(new _M0TPC16string10StringView(styles_xml, 0, styles_xml.length));
-      let mru_colors_xml$2;
+      const mru_colors_xml$2 = _M0FP38bobzhang8mbtexcel4xlsx23parse__mru__colors__xml(new _M0TPC16string10StringView(styles_xml, 0, styles_xml.length));
+      const _bind$18 = _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(new _M0TPC16string10StringView(styles_xml, 0, styles_xml.length));
+      let styles_ext_lst_xml$2;
       if (_bind$18.$tag === 1) {
         const _ok = _bind$18;
-        mru_colors_xml$2 = _ok._0;
-      } else {
-        return _bind$18;
-      }
-      const _bind$19 = _M0FP38bobzhang8mbtexcel4xlsx28parse__styles__ext__lst__xml(new _M0TPC16string10StringView(styles_xml, 0, styles_xml.length));
-      let styles_ext_lst_xml$2;
-      if (_bind$19.$tag === 1) {
-        const _ok = _bind$19;
         styles_ext_lst_xml$2 = _ok._0;
       } else {
-        return _bind$19;
+        return _bind$18;
       }
       _bind$15 = { _0: styles$2, _1: conditional_styles$2, _2: _M0FP38bobzhang8mbtexcel4xlsx20parse__default__font(new _M0TPC16string10StringView(styles_xml, 0, styles_xml.length)), _3: default_table_style$2, _4: default_pivot_style$2, _5: indexed_colors$2, _6: mru_colors_xml$2, _7: styles_ext_lst_xml$2 };
     }
@@ -65332,11 +63749,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx24read__zip__bytes_2einner(bytes, options,
             }
           }
           if ((pos + 1 | 0) < path_text.length) {
-            let view;
-            _L$17: {
-              view = _M0MPC16string6String11sub_2einner(path_text, pos + 1 | 0, undefined);
-              break _L$17;
-            }
+            const view = _M0MPC16string6String11sub_2einner(path_text, pos + 1 | 0, undefined);
             extension = _M0MPC16string6String9to__lower(_M0IPC16string10StringViewPB4Show10to__string(view));
           } else {
             return new _M0DTPC16result6ResultGRP38bobzhang8mbtexcel4xlsx8WorkbookRP38bobzhang8mbtexcel4xlsx9XlsxErrorE3Err(new _M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetBackground("image extension missing"));
@@ -67056,11 +65469,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx15tag__attributes(xml, tag_name) {
       break _L;
     }
   }
-  let rest;
-  _L$2: {
-    rest = _M0MPC16string6String11sub_2einner(xml_str, start + needle.length | 0, undefined);
-    break _L$2;
-  }
+  const rest = _M0MPC16string6String11sub_2einner(xml_str, start + needle.length | 0, undefined);
   let end;
   const _bind$5 = ">";
   const _bind$6 = _M0MPC16string10StringView4find(rest, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
@@ -67071,11 +65480,7 @@ function _M0FP38bobzhang8mbtexcel4xlsx15tag__attributes(xml, tag_name) {
     const _pos = _Some;
     end = _pos;
   }
-  let tag;
-  _L$3: {
-    tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
-    break _L$3;
-  }
+  const tag = _M0MPC16string10StringView11sub_2einner(rest, 0, end);
   return new _M0DTPC16result6ResultGOsRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok(_M0IPC16string10StringViewPB4Show10to__string(tag));
 }
 function _M0FP38bobzhang8mbtexcel4xlsx23parse__encryption__info(xml) {
@@ -69694,7 +68099,7 @@ function _M0FP48bobzhang11spreadsheet8frontend7formula13parse__factor(state, loo
     _M0MP48bobzhang11spreadsheet8frontend7formula10ParseState7advance(state);
     return _M0FP48bobzhang11spreadsheet8frontend7formula17parse__func__call(state, name, lookup);
   }
-  return _M0FPB4failGUOsORPC16string10StringViewEE("unexpected token", "@bobzhang/spreadsheet/frontend/formula:formula.mbt:430:10-430:34");
+  return _M0FPB4failGUOsORPC16string10StringViewEE("unexpected token", "@bobzhang/spreadsheet/frontend/formula:formula.mbt:448:10-448:34");
 }
 function _M0FP48bobzhang11spreadsheet8frontend7formula17parse__func__call(state, name, lookup) {
   _L: {
@@ -70245,27 +68650,35 @@ function _M0FP48bobzhang11spreadsheet8frontend7formula8evaluate(raw, lookup) {
     return _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Empty__;
   }
   const trimmed_str = _M0IPC16string10StringViewPB4Show10to__string(trimmed);
-  $bound_check(trimmed_str, 0);
-  if (_M0IPC16uint166UInt16PB2Eq5equal(trimmed_str.charCodeAt(0), 61)) {
-    const expr = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String4trim(_M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(trimmed_str, 1, undefined)), undefined));
-    return _M0FP48bobzhang11spreadsheet8frontend7formula16parse__and__eval(expr, lookup);
-  } else {
-    let _try_err;
-    _L: {
-      const _bind$5 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(trimmed_str, 0, trimmed_str.length));
-      let n;
-      if (_bind$5.$tag === 1) {
-        const _ok = _bind$5;
-        n = _ok._0;
-      } else {
-        const _err = _bind$5;
-        _try_err = _err._0;
-        break _L;
+  let rest;
+  _L: {
+    const _bind$5 = "=";
+    const _bind$6 = _M0MPC16string6String13strip__prefix(trimmed_str, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+    if (_bind$6 === undefined) {
+      let _try_err;
+      _L$2: {
+        const _bind$7 = _M0FPC17strconv13parse__double(new _M0TPC16string10StringView(trimmed_str, 0, trimmed_str.length));
+        let n;
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
+          n = _ok._0;
+        } else {
+          const _err = _bind$7;
+          _try_err = _err._0;
+          break _L$2;
+        }
+        return new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value3Num(n);
       }
-      return new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value3Num(n);
+      return new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value4Text(trimmed_str);
+    } else {
+      const _Some = _bind$6;
+      const _rest = _Some;
+      rest = _rest;
+      break _L;
     }
-    return new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value4Text(trimmed_str);
   }
+  const expr = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String4trim(_M0IPC16string10StringViewPB4Show10to__string(rest), undefined));
+  return _M0FP48bobzhang11spreadsheet8frontend7formula16parse__and__eval(expr, lookup);
 }
 function _M0MP319moonbit_2dcommunity7rabbita2js5Value10cast__fromGsE(value) {
   return value;
@@ -75540,19 +73953,25 @@ function _M0FP48bobzhang11spreadsheet8frontend3app20export__sheet__cells(wb, ws,
         break _L$2;
       }
     }
-    let _tmp$2;
-    if (cell.raw.length > 0) {
-      const _tmp$3 = cell.raw;
-      $bound_check(_tmp$3, 0);
-      _tmp$2 = _M0IPC16uint166UInt16PB2Eq5equal(_tmp$3.charCodeAt(0), 61);
-    } else {
-      _tmp$2 = false;
-    }
-    if (_tmp$2) {
-      const formula = _M0FP48bobzhang11spreadsheet8frontend3app18normalize__formula(_M0MPC16string6String17substring_2einner(cell.raw, 1, undefined));
+    let rest;
+    _L$3: {
+      _L$4: {
+        const _tmp$2 = cell.raw;
+        const _bind$6 = "=";
+        const _bind$7 = _M0MPC16string6String13strip__prefix(_tmp$2, new _M0TPC16string10StringView(_bind$6, 0, _bind$6.length));
+        if (_bind$7 === undefined) {
+        } else {
+          const _Some = _bind$7;
+          const _rest = _Some;
+          rest = _rest;
+          break _L$4;
+        }
+        break _L$3;
+      }
+      const formula = _M0FP48bobzhang11spreadsheet8frontend3app18normalize__formula(_M0IPC16string10StringViewPB4Show10to__string(rest));
       let _try_err$2;
-      _L$3: {
-        _L$4: {
+      _L$5: {
+        _L$6: {
           const _bind$6 = _M0MP38bobzhang8mbtexcel4xlsx9Worksheet26set__cell__formula_2einner(ws, key, formula, "");
           if (_bind$6.$tag === 1) {
             const _ok = _bind$6;
@@ -75560,9 +73979,9 @@ function _M0FP48bobzhang11spreadsheet8frontend3app20export__sheet__cells(wb, ws,
           } else {
             const _err = _bind$6;
             _try_err$2 = _err._0;
-            break _L$4;
+            break _L$6;
           }
-          break _L$3;
+          break _L$5;
         }
       }
     }
@@ -75578,7 +73997,7 @@ function _M0FP48bobzhang11spreadsheet8frontend3app20export__sheet__cells(wb, ws,
       const style = _M0FP48bobzhang11spreadsheet8frontend3app18build__xlsx__style(cell);
       const style_id = _M0MP38bobzhang8mbtexcel4xlsx8Workbook10new__style(wb, style);
       let _try_err$2;
-      _L$3: {
+      _L$4: {
         const _bind$7 = _M0MP38bobzhang8mbtexcel4xlsx9Worksheet16set__cell__style(ws, key, style_id);
         if (_bind$7.$tag === 1) {
           const _ok = _bind$7;
@@ -75587,7 +74006,7 @@ function _M0FP48bobzhang11spreadsheet8frontend3app20export__sheet__cells(wb, ws,
         } else {
           const _err = _bind$7;
           _try_err$2 = _err._0;
-          break _L$3;
+          break _L$4;
         }
       }
       return;
@@ -75941,23 +74360,24 @@ function _M0FP48bobzhang11spreadsheet8frontend3app16get__xlsx__style(wb, sheet_n
   return { _0: bold, _1: italic, _2: align, _3: bg_color };
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app12split__colon(s) {
-  const chars = _M0MPC16string6String9to__array(s);
-  let _tmp$2 = 0;
-  while (true) {
-    const i = _tmp$2;
-    if (i < chars.length) {
-      if (_M0MPC15array5Array2atGcE(chars, i) === 58) {
-        const left = _M0MPC16string6String17substring_2einner(s, 0, i);
-        const right = _M0MPC16string6String17substring_2einner(s, i + 1 | 0, undefined);
-        return { _0: left, _1: right };
-      }
-      _tmp$2 = i + 1 | 0;
-      continue;
+  let left;
+  let right;
+  _L: {
+    const _bind$5 = ":";
+    const _bind$6 = _M0MPC16string6String11split__once(s, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length));
+    if (_bind$6 === undefined) {
+      return undefined;
     } else {
-      break;
+      const _Some = _bind$6;
+      const _x = _Some;
+      const _left = _x._0;
+      const _right = _x._1;
+      left = _left;
+      right = _right;
+      break _L;
     }
   }
-  return undefined;
+  return { _0: _M0IPC16string10StringViewPB4Show10to__string(left), _1: _M0IPC16string10StringViewPB4Show10to__string(right) };
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app20import__sheet__cells(wb, sheet_name, sheet, dim) {
   const parts = _M0FP48bobzhang11spreadsheet8frontend3app12split__colon(dim);

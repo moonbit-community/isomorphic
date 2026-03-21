@@ -626,7 +626,7 @@ fn parse_if(
   // Evaluate condition: truthy if Num != 0
   let is_true = match condition {
     Num(n) => n != 0.0
-    Text(s) => s.length() > 0
+    Text(s) => !s.is_empty()
     _ => false
   }
   if is_true {

@@ -23,7 +23,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
       Text(s) => s
       _ => ""
     }
-    if name == "" {
+    if name.is_empty() {
       continue
     }
     products.push(name)
@@ -193,7 +193,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       Text(s) => s
       _ => ""
     }
-    if name == "" {
+    if name.is_empty() {
       continue
     }
     products.push(name)

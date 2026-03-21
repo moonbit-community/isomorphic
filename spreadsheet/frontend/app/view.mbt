@@ -214,7 +214,7 @@ fn view_color_palette(
   ]
   let swatches : Array[@rabbita.Html] = []
   for c in colors {
-    let swatch_bg = if c == "" { "#fff" } else { c }
+    let swatch_bg = if c.is_empty() { "#fff" } else { c }
     let is_active = c == current_bg
     let border = if is_active {
       "2px solid #1a73e8"
@@ -402,7 +402,7 @@ fn Model::view_grid(
   let sel_cell = self.selected_cell()
   let formula_src = if self.editing { self.edit_value } else { sel_cell.raw }
   let highlighted_refs : Map[String, Bool] = {}
-  if formula_src.length() > 0 && formula_src[0] == '=' {
+  if !formula_src.is_empty() && formula_src[0] == '=' {
     let refs = @formula.extract_references(formula_src)
     for cell_ref in refs {
       highlighted_refs[cell_ref] = true
@@ -519,7 +519,7 @@ fn Model::view_grid(
           Some(_) => true
           None => false
         }
-        let cell_bg = if cell.bg_color != "" {
+        let cell_bg = if !cell.bg_color.is_empty() {
           cell.bg_color
         } else if is_selected {
           "#e8f0fe"
@@ -532,16 +532,16 @@ fn Model::view_grid(
         } else {
           ""
         }
-        let heat_shadow = if heat_bg != "" {
+        let heat_shadow = if !heat_bg.is_empty() {
           "inset 0 0 0 100px \{heat_bg}"
         } else {
           ""
         }
-        let heat_overlay = if ref_shadow != "" && heat_shadow != "" {
+        let heat_overlay = if !ref_shadow.is_empty() && !heat_shadow.is_empty() {
           "box-shadow: \{ref_shadow}, \{heat_shadow}"
-        } else if ref_shadow != "" {
+        } else if !ref_shadow.is_empty() {
           "box-shadow: \{ref_shadow}"
-        } else if heat_shadow != "" {
+        } else if !heat_shadow.is_empty() {
           "box-shadow: \{heat_shadow}"
         } else {
           ""
@@ -559,7 +559,7 @@ fn Model::view_grid(
           Error(_) => true
           _ => false
         }
-        let color = if cell.text_color != "" {
+        let color = if !cell.text_color.is_empty() {
           cell.text_color
         } else if is_error {
           "#d93025"
@@ -577,7 +577,7 @@ fn Model::view_grid(
           c == 8 &&
           r >= 1 &&
           r <= 5 &&
-          cell.raw == ""
+          cell.raw.is_empty()
         let cell_content : @rabbita.Html = if is_sparkline {
           view_sparkline(sheet, r)
         } else {
@@ -727,7 +727,7 @@ fn Model::view_status_bar(self : Model) -> @rabbita.Html {
   let sheet_name = self.current_sheet().name
   let mut cell_count = 0
   self.current_sheet().cells.each(fn(_k, c) {
-    if c.raw != "" {
+    if !c.raw.is_empty() {
       cell_count = cell_count + 1
     }
   })
