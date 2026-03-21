@@ -33,12 +33,9 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
     q4.push(get_num(sheet, 4, r))
   }
   if products.is_empty() {
-    return @html.div(
-      style=[
+    return @html.div(style=[
         "padding: 20px", "text-align: center", "color: #5f6368", "font-size: 13px",
-      ],
-      "No chart data available. Add product names in column A and numbers in columns B-E.",
-    )
+      ]) <| "No chart data available. Add product names in column A and numbers in columns B-E."
   }
   // Chart dimensions
   let chart_w = 680
@@ -208,7 +205,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     totals.push(row_total)
   }
   if products.is_empty() {
-    return @html.span("")
+    return @html.span() <| ""
   }
   // Chart dimensions
   let size = 220
@@ -223,7 +220,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     grand_total = grand_total + t
   }
   if grand_total == 0.0 {
-    return @html.span("")
+    return @html.span() <| ""
   }
   let circumference = 2.0 * 3.14159265 * radius.to_double()
   let circ_int = circumference.to_int()

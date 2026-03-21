@@ -4,32 +4,29 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(
-    style=[
-      "font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-      "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa",
-      "user-select: none", "color: #202124",
-    ],
-    [
-      self.view_toolbar(dispatch),
-      self.view_formula_bar(dispatch),
-      if self.show_chart {
-        @html.div(
-          style=[
-            "display: flex", "justify-content: center", "gap: 24px", "padding: 12px 16px",
-            "align-items: flex-start", "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
-            "animation: chartSlideIn 0.4s ease-out",
-          ],
-          [self.view_chart(), self.view_donut_chart()],
-        )
-      } else {
-        @html.span("")
-      },
-      self.view_grid(dispatch),
-      self.view_sheet_tabs(dispatch),
-      self.view_status_bar(),
-    ],
-  )
+  @html.div(style=[
+    "font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa",
+    "user-select: none", "color: #202124",
+  ]) <| [
+    self.view_toolbar(dispatch),
+    self.view_formula_bar(dispatch),
+    if self.show_chart {
+      @html.div(style=[
+        "display: flex", "justify-content: center", "gap: 24px", "padding: 12px 16px",
+        "align-items: flex-start", "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
+        "animation: chartSlideIn 0.4s ease-out",
+      ]) <| [
+        self.view_chart(),
+        self.view_donut_chart(),
+      ]
+    } else {
+      @html.span() <| ""
+    },
+    self.view_grid(dispatch),
+    self.view_sheet_tabs(dispatch),
+    self.view_status_bar(),
+  ]
 }
 
 // --- Toolbar ---
@@ -60,116 +57,103 @@ fn Model::view_toolbar(
     Percent => true
     _ => false
   }
-  @html.div(
-    style=[
-      "display: flex", "align-items: center", "gap: 2px", "padding: 6px 12px", "background: linear-gradient(180deg, #f9fbfd 0%, #eef1f5 100%)",
-      "border-bottom: 1px solid #dadce0", "min-height: 44px", "flex-wrap: wrap",
+  @html.div(style=[
+    "display: flex", "align-items: center", "gap: 2px", "padding: 6px 12px", "background: linear-gradient(180deg, #f9fbfd 0%, #eef1f5 100%)",
+    "border-bottom: 1px solid #dadce0", "min-height: 44px", "flex-wrap: wrap",
+  ]) <| [
+    // App icon + title
+    @html.div(style=[
+      "display: flex", "align-items: center", "gap: 8px", "margin-right: 16px",
+    ]) <| [
+      @html.div(style=[
+        "width: 28px", "height: 28px", "border-radius: 4px", "background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%)",
+        "display: flex", "align-items: center", "justify-content: center", "color: white",
+        "font-weight: 600", "font-size: 14px", "box-shadow: 0 1px 3px rgba(15, 157, 88, 0.3)",
+      ]) <| "\u{229E}",
+      @html.span(style=[
+        "font-weight: 600", "font-size: 15px", "color: #202124", "letter-spacing: -0.3px",
+      ]) <| "MoonBit Sheets",
     ],
-    [
-      // App icon + title
-      @html.div(
-        style=[
-          "display: flex", "align-items: center", "gap: 8px", "margin-right: 16px",
-        ],
-        [
-          @html.div(
-            style=[
-              "width: 28px", "height: 28px", "border-radius: 4px", "background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%)",
-              "display: flex", "align-items: center", "justify-content: center",
-              "color: white", "font-weight: 600", "font-size: 14px", "box-shadow: 0 1px 3px rgba(15, 157, 88, 0.3)",
-            ],
-            "\u{229E}",
-          ),
-          @html.span(
-            style=[
-              "font-weight: 600", "font-size: 15px", "color: #202124", "letter-spacing: -0.3px",
-            ],
-            "MoonBit Sheets",
-          ),
-        ],
-      ),
-      view_separator(),
-      // --- Font style group ---
-      toolbar_button(
-        "B",
-        cell.bold,
-        "font-weight:700;font-size:13px;font-family:serif",
-        dispatch(ToggleBold),
-      ),
-      toolbar_button(
-        "I",
-        cell.italic,
-        "font-style:italic;font-size:13px;font-family:serif",
-        dispatch(ToggleItalic),
-      ),
-      view_separator(),
-      // --- Alignment group ---
-      toolbar_button(
-        "\u{2261}",
-        is_left,
-        "font-size:14px",
-        dispatch(SetAlign(Left)),
-      ),
-      toolbar_button(
-        "\u{2263}",
-        is_center,
-        "font-size:14px",
-        dispatch(SetAlign(Center)),
-      ),
-      toolbar_button(
-        "\u{2262}",
-        is_right,
-        "font-size:14px",
-        dispatch(SetAlign(Right)),
-      ),
-      view_separator(),
-      // --- Number format group ---
-      toolbar_button(
-        "$",
-        is_currency,
-        "font-size:13px;font-weight:500",
-        dispatch(SetFormat(Currency)),
-      ),
-      toolbar_button(
-        "%",
-        is_percent,
-        "font-size:13px;font-weight:500",
-        dispatch(SetFormat(Percent)),
-      ),
-      view_separator(),
-      // --- Color group ---
-      view_color_palette(cell.bg_color, dispatch),
-      view_separator(),
-      // --- Heat map toggle ---
-      toolbar_button(
-        "\u{2593}",
-        self.heat_map,
-        "font-size:14px",
-        dispatch(ToggleHeatMap),
-      ),
-      // --- Chart toggle ---
-      toolbar_button(
-        "\u{2584}",
-        self.show_chart,
-        "font-size:14px",
-        dispatch(ToggleChart),
-      ),
-      view_separator(),
-      // --- Import / Export ---
-      toolbar_button_text("Import", false, dispatch(RequestImport)),
-      toolbar_button_text("Export", false, dispatch(ExportExcel)),
-      // --- Clear ---
-      toolbar_button_text("Clear", false, dispatch(ClearCell)),
-    ],
-  )
+    view_separator(),
+    // --- Font style group ---
+    toolbar_button(
+      "B",
+      cell.bold,
+      "font-weight:700;font-size:13px;font-family:serif",
+      dispatch(ToggleBold),
+    ),
+    toolbar_button(
+      "I",
+      cell.italic,
+      "font-style:italic;font-size:13px;font-family:serif",
+      dispatch(ToggleItalic),
+    ),
+    view_separator(),
+    // --- Alignment group ---
+    toolbar_button(
+      "\u{2261}",
+      is_left,
+      "font-size:14px",
+      dispatch(SetAlign(Left)),
+    ),
+    toolbar_button(
+      "\u{2263}",
+      is_center,
+      "font-size:14px",
+      dispatch(SetAlign(Center)),
+    ),
+    toolbar_button(
+      "\u{2262}",
+      is_right,
+      "font-size:14px",
+      dispatch(SetAlign(Right)),
+    ),
+    view_separator(),
+    // --- Number format group ---
+    toolbar_button(
+      "$",
+      is_currency,
+      "font-size:13px;font-weight:500",
+      dispatch(SetFormat(Currency)),
+    ),
+    toolbar_button(
+      "%",
+      is_percent,
+      "font-size:13px;font-weight:500",
+      dispatch(SetFormat(Percent)),
+    ),
+    view_separator(),
+    // --- Color group ---
+    view_color_palette(cell.bg_color, dispatch),
+    view_separator(),
+    // --- Heat map toggle ---
+    toolbar_button(
+      "\u{2593}",
+      self.heat_map,
+      "font-size:14px",
+      dispatch(ToggleHeatMap),
+    ),
+    // --- Chart toggle ---
+    toolbar_button(
+      "\u{2584}",
+      self.show_chart,
+      "font-size:14px",
+      dispatch(ToggleChart),
+    ),
+    view_separator(),
+    // --- Import / Export ---
+    toolbar_button_text("Import", false, dispatch(RequestImport)),
+    toolbar_button_text("Export", false, dispatch(ExportExcel)),
+    // --- Clear ---
+    toolbar_button_text("Clear", false, dispatch(ClearCell)),
+  ]
 }
 
 ///|
 fn view_separator() -> @rabbita.Html {
-  @html.div(
-    style=["width: 1px", "height: 24px", "background: #dadce0", "margin: 0 6px"],
-    "",
-  )
+  @html.div(style=[
+    "width: 1px", "height: 24px", "background: #dadce0", "margin: 0 6px",
+  ]) <| ""
 }
 
 ///|
@@ -191,8 +175,7 @@ fn toolbar_button(
       bg, extra_style,
     ],
     on_click=action,
-    label,
-  )
+  ) <| label
 }
 
 ///|
@@ -209,8 +192,7 @@ fn toolbar_button_text(
       "color: #444746", "font-weight: 500",
     ],
     on_click=action,
-    label,
-  )
+  ) <| label
 }
 
 ///|
@@ -252,14 +234,10 @@ fn view_color_palette(
           "transition: transform 0.1s ease",
         ],
         on_click=dispatch(SetBgColor(color)),
-        "",
-      ),
+      ) <| "",
     )
   }
-  @html.div(
-    style=["display: flex", "align-items: center", "gap: 3px"],
-    swatches,
-  )
+  @html.div(style=["display: flex", "align-items: center", "gap: 3px"]) <| swatches
 }
 
 // --- Formula Bar ---
@@ -272,45 +250,36 @@ fn Model::view_formula_bar(
   let cell_name = @cell.make_key(self.sel_col, self.sel_row)
   let cell = self.selected_cell()
   let display_value = if self.editing { self.edit_value } else { cell.raw }
-  @html.div(
-    style=[
-      "display: flex", "align-items: center", "padding: 4px 8px", "background: #fff",
-      "border-bottom: 1px solid #e0e0e0", "min-height: 36px",
-    ],
-    [
-      // Cell name box
-      @html.div(
-        style=[
-          "min-width: 64px", "height: 28px", "text-align: center", "font-weight: 500",
-          "font-size: 13px", "color: #202124", "border: 1px solid #dadce0", "border-radius: 4px",
-          "display: flex", "align-items: center", "justify-content: center", "margin-right: 8px",
-          "background: #f8f9fa", "padding: 0 8px",
-        ],
-        cell_name,
-      ),
-      // fx icon
-      @html.span(
-        style=[
-          "font-size: 13px", "color: #70757a", "margin-right: 8px", "font-style: italic",
-          "font-weight: 500",
-        ],
-        "fx",
-      ),
-      // Formula input
-      @html.input(
-        input_type=Text,
-        style=[
-          "flex: 1", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
-          "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
-          "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
-        ],
-        value=display_value,
-        on_input=value => dispatch(UpdateEdit(value)),
-        on_change=_value => dispatch(CommitEdit),
-        "",
-      ),
-    ],
-  )
+  @html.div(style=[
+    "display: flex", "align-items: center", "padding: 4px 8px", "background: #fff",
+    "border-bottom: 1px solid #e0e0e0", "min-height: 36px",
+  ]) <| [
+    // Cell name box
+    @html.div(style=[
+      "min-width: 64px", "height: 28px", "text-align: center", "font-weight: 500",
+      "font-size: 13px", "color: #202124", "border: 1px solid #dadce0", "border-radius: 4px",
+      "display: flex", "align-items: center", "justify-content: center", "margin-right: 8px",
+      "background: #f8f9fa", "padding: 0 8px",
+    ]) <| cell_name,
+    // fx icon
+    @html.span(style=[
+      "font-size: 13px", "color: #70757a", "margin-right: 8px", "font-style: italic",
+      "font-weight: 500",
+    ]) <| "fx",
+    // Formula input
+    @html.input(
+      input_type=Text,
+      style=[
+        "flex: 1", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
+        "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
+        "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
+      ],
+      value=display_value,
+      on_input=value => dispatch(UpdateEdit(value)),
+      on_change=_value => dispatch(CommitEdit),
+      "",
+    ),
+  ]
 }
 
 // --- Heat Map ---
@@ -449,14 +418,11 @@ fn Model::view_grid(
   // Column headers row
   let header_cells : Array[@rabbita.Html] = []
   header_cells.push(
-    @html.div(
-      style=[
-        "background: #f8f9fa", "border-bottom: 1px solid #c7c7c7", "border-right: 1px solid #c7c7c7",
-        "display: flex", "align-items: center", "justify-content: center", "position: sticky",
-        "left: 0", "z-index: 3",
-      ],
-      "",
-    ),
+    @html.div(style=[
+      "background: #f8f9fa", "border-bottom: 1px solid #c7c7c7", "border-right: 1px solid #c7c7c7",
+      "display: flex", "align-items: center", "justify-content: center", "position: sticky",
+      "left: 0", "z-index: 3",
+    ]) <| "",
   )
   for c = 0; c < num_cols; c = c + 1 {
     let is_sel_col = c == self.sel_col
@@ -464,35 +430,29 @@ fn Model::view_grid(
     let fw = if is_sel_col { "600" } else { "500" }
     let color = if is_sel_col { "#1a73e8" } else { "#444746" }
     header_cells.push(
-      @html.div(
-        style=[
-          "background: \{bg}",
-          "border-bottom: 1px solid #c7c7c7",
-          "border-right: 1px solid #e0e0e0",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-          "font-size: 12px",
-          "font-weight: \{fw}",
-          "color: \{color}",
-          "transition: background 0.1s ease",
-        ],
-        @cell.col_to_letter(c),
-      ),
+      @html.div(style=[
+        "background: \{bg}",
+        "border-bottom: 1px solid #c7c7c7",
+        "border-right: 1px solid #e0e0e0",
+        "display: flex",
+        "align-items: center",
+        "justify-content: center",
+        "font-size: 12px",
+        "font-weight: \{fw}",
+        "color: \{color}",
+        "transition: background 0.1s ease",
+      ]) <| @cell.col_to_letter(c),
     )
   }
   rows.push(
-    @html.div(
-      style=[
-        "display: grid",
-        "grid-template-columns: \{cols_template}",
-        "height: \{row_h}",
-        "position: sticky",
-        "top: 0",
-        "z-index: 2",
-      ],
-      header_cells,
-    ),
+    @html.div(style=[
+      "display: grid",
+      "grid-template-columns: \{cols_template}",
+      "height: \{row_h}",
+      "position: sticky",
+      "top: 0",
+      "z-index: 2",
+    ]) <| header_cells,
   )
 
   // Data rows
@@ -504,24 +464,21 @@ fn Model::view_grid(
     let row_color = if is_sel_row { "#1a73e8" } else { "#444746" }
     // Row header
     row_cells.push(
-      @html.div(
-        style=[
-          "background: \{row_bg}",
-          "border-right: 1px solid #c7c7c7",
-          "border-bottom: 1px solid #e0e0e0",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-          "font-size: 12px",
-          "color: \{row_color}",
-          "font-weight: \{row_fw}",
-          "position: sticky",
-          "left: 0",
-          "z-index: 1",
-          "transition: background 0.1s ease",
-        ],
-        (r + 1).to_string(),
-      ),
+      @html.div(style=[
+        "background: \{row_bg}",
+        "border-right: 1px solid #c7c7c7",
+        "border-bottom: 1px solid #e0e0e0",
+        "display: flex",
+        "align-items: center",
+        "justify-content: center",
+        "font-size: 12px",
+        "color: \{row_color}",
+        "font-weight: \{row_fw}",
+        "position: sticky",
+        "left: 0",
+        "z-index: 1",
+        "transition: background 0.1s ease",
+      ]) <| (r + 1).to_string(),
     )
     // Data cells
     for c = 0; c < num_cols; c = c + 1 {
@@ -626,7 +583,7 @@ fn Model::view_grid(
         let cell_content : @rabbita.Html = if is_sparkline {
           view_sparkline(sheet, r)
         } else {
-          @html.span(display)
+          @html.span() <| display
         }
         row_cells.push(
           @html.div(
@@ -650,20 +607,18 @@ fn Model::view_grid(
               heat_overlay,
             ],
             on_click=dispatch(SelectCell(col, row)),
-            [cell_content],
-          ),
+          ) <| [
+            cell_content,
+          ],
         )
       }
     }
     rows.push(
-      @html.div(
-        style=[
-          "display: grid",
-          "grid-template-columns: \{cols_template}",
-          "height: \{row_h}",
-        ],
-        row_cells,
-      ),
+      @html.div(style=[
+        "display: grid",
+        "grid-template-columns: \{cols_template}",
+        "height: \{row_h}",
+      ]) <| row_cells,
     )
   }
 
@@ -694,8 +649,7 @@ fn Model::view_grid(
       }
     },
     attrs=@html.Attrs::build().tabindex(0),
-    rows,
-  )
+  ) <| rows
 }
 
 // --- Sheet Tabs ---
@@ -735,23 +689,21 @@ fn Model::view_sheet_tabs(
           "transition: all 0.15s ease",
         ],
         on_click=dispatch(SelectSheet(idx)),
-        [
-          @html.span(sheet.name),
-          if self.sheets.length() > 1 {
-            @html.button(
-              style=[
-                "color: #9aa0a6", "font-size: 11px", "cursor: pointer", "background: none",
-                "border: none", "padding: 2px 4px", "border-radius: 50%", "line-height: 1",
-                "transition: all 0.15s ease",
-              ],
-              on_click=dispatch(DeleteSheet(idx)),
-              "\u{2715}",
-            )
-          } else {
-            @html.span("")
-          },
-        ],
-      ),
+      ) <| [
+        @html.span() <| sheet.name,
+        if self.sheets.length() > 1 {
+          @html.button(
+            style=[
+              "color: #9aa0a6", "font-size: 11px", "cursor: pointer", "background: none",
+              "border: none", "padding: 2px 4px", "border-radius: 50%", "line-height: 1",
+              "transition: all 0.15s ease",
+            ],
+            on_click=dispatch(DeleteSheet(idx)),
+          ) <| "\u{2715}"
+        } else {
+          @html.span() <| ""
+        },
+      ],
     )
   }
   tabs.push(
@@ -761,15 +713,11 @@ fn Model::view_sheet_tabs(
         "display: flex", "align-items: center", "transition: color 0.15s ease", "font-weight: 300",
       ],
       on_click=dispatch(AddSheet),
-      "+",
-    ),
+    ) <| "+",
   )
-  @html.div(
-    style=[
-      "display: flex", "background: #f0f0f0", "border-top: 1px solid #dadce0", "min-height: 38px",
-    ],
-    tabs,
-  )
+  @html.div(style=[
+    "display: flex", "background: #f0f0f0", "border-top: 1px solid #dadce0", "min-height: 38px",
+  ]) <| tabs
 }
 
 // --- Status Bar ---
@@ -786,17 +734,12 @@ fn Model::view_status_bar(self : Model) -> @rabbita.Html {
       cell_count = cell_count + 1
     }
   })
-  @html.div(
-    style=[
-      "display: flex", "justify-content: space-between", "padding: 4px 12px", "background: #f8f9fa",
-      "border-top: 1px solid #dadce0", "font-size: 12px", "color: #5f6368", "min-height: 28px",
-      "align-items: center",
-    ],
-    [
-      @html.span("\{sheet_name} \u{2022} \{cell_name}: \{val_str}"),
-      @html.span(
-        "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{num_cols}\u{00D7}\{num_rows} grid",
-      ),
-    ],
-  )
+  @html.div(style=[
+    "display: flex", "justify-content: space-between", "padding: 4px 12px", "background: #f8f9fa",
+    "border-top: 1px solid #dadce0", "font-size: 12px", "color: #5f6368", "min-height: 28px",
+    "align-items: center",
+  ]) <| [
+    @html.span() <| "\{sheet_name} \u{2022} \{cell_name}: \{val_str}",
+    @html.span() <| "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{num_cols}\u{00D7}\{num_rows} grid",
+  ]
 }
