@@ -11,7 +11,8 @@ fn Model::view_palette(
   // Tab buttons
   let tabs : Array[@rabbita.Html] = []
   for i, cat in categories {
-    let active = self.palette_cat == cat || (self.palette_cat == "" && i == 0)
+    let active = self.palette_cat == cat ||
+      (self.palette_cat.is_empty() && i == 0)
     tabs.push(
       @html.button(
         style=[
@@ -32,7 +33,7 @@ fn Model::view_palette(
     )
   }
   // Node buttons for selected category
-  let active_cat = if self.palette_cat == "" {
+  let active_cat = if self.palette_cat.is_empty() {
     "math"
   } else {
     self.palette_cat

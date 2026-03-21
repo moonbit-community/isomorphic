@@ -21,7 +21,7 @@ fn Model::view_error(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  if self.error.length() == 0 {
+  if self.error.is_empty() {
     return @html.text("")
   }
   @html.div(style=[

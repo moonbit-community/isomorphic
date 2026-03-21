@@ -74,7 +74,7 @@ pub fn would_create_cycle(
 ) -> Bool {
   let visited : Array[Int] = []
   let stack : Array[Int] = [to_id]
-  while stack.length() > 0 {
+  while !stack.is_empty() {
     let current = stack.pop().unwrap()
     if current == from_id {
       return true
@@ -273,16 +273,16 @@ fn evaluate_node(
     ConstString => Ok([VString(config)])
     ConstBool => Ok([VBool(config == "true")])
     ConstColor =>
-      Ok([VColor(if config.length() > 0 { config } else { "#000000" })])
+      Ok([VColor(if !config.is_empty() { config } else { "#000000" })])
     DisplayNumber =>
       // Pass-through: display nodes just forward their input
-      if inputs.length() > 0 {
+      if !inputs.is_empty() {
         Ok([inputs[0]])
       } else {
         Ok([VNone])
       }
     DisplayText =>
-      if inputs.length() > 0 {
+      if !inputs.is_empty() {
         Ok([inputs[0]])
       } else {
         Ok([VNone])

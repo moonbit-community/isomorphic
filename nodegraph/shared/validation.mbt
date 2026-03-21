@@ -60,7 +60,7 @@ pub fn validate_connection(
 ///|
 /// Check that a graph name is non-empty and within the 100-character limit.
 pub fn validate_graph_name(name : String) -> Bool {
-  name.length() > 0 && name.length() <= 100
+  !name.is_empty() && name.length() <= 100
 }
 
 ///|

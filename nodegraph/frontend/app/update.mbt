@@ -84,7 +84,7 @@ pub fn Model::update(
       )
     // ── Graph list ────────────────────────────────────────────────
     GotGraphs(Ok(graphs)) =>
-      if self.first_load && graphs.length() > 0 {
+      if self.first_load && !graphs.is_empty() {
         // Auto-open first graph on initial load
         (
           {

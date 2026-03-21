@@ -265,7 +265,7 @@ fn Model::view_single_node(
     ConstNumber | ConstString | ConstBool | ConstColor => true
     _ => false
   }
-  let has_output = node_vals.length() > 0
+  let has_output = !node_vals.is_empty()
   @html.div(style=[
     "min-width: 190px",
     "max-width: 250px",
@@ -367,7 +367,7 @@ fn Model::view_const_config(
       ],
       on_click=dispatch(StartEditConfig(node.id, node.config)),
     ) <| [
-      @html.span() <| (if node.config.length() > 0 {
+      @html.span() <| (if !node.config.is_empty() {
         node.config
       } else {
         "(click to set)"
