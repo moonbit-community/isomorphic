@@ -87,11 +87,11 @@ fn Model::view_searchable_select(
   let ss = self.searchable_select
   let filtered : Array[SelectOption] = []
   for opt in ss.options {
-    if ss.query == "" || opt.label.to_lower().contains(ss.query.to_lower()) {
+    if ss.query.is_empty() || opt.label.to_lower().contains(ss.query.to_lower()) {
       filtered.push(opt)
     }
   }
-  let selected_label = if ss.selected == "" {
+  let selected_label = if ss.selected.is_empty() {
     "Select an option..."
   } else {
     let mut found = ss.selected
@@ -149,7 +149,7 @@ fn Model::view_searchable_select(
           ],
           @html.div(style=["max-height: 200px", "overflow-y: auto"]) <| ({
             let opt_els : Array[@rabbita.Html] = []
-            if filtered.length() == 0 {
+            if filtered.is_empty() {
               opt_els.push(
                 @html.div(style=[
                   "padding: 10px 14px",
@@ -446,7 +446,7 @@ fn Model::view_form_wizard(
     @html.div(style=["display: flex", "flex-direction: column", "gap: 12px"]) <| ({
       let field_els : Array[@rabbita.Html] = []
       for fidx, field in current_step.fields {
-        let inp_border = if field.error != "" { danger } else { border }
+        let inp_border = if !field.error.is_empty() { danger } else { border }
         field_els.push(
           @html.div(style=[
             "display: flex", "flex-direction: column", "gap: 4px",
@@ -469,7 +469,7 @@ fn Model::view_form_wizard(
                 "box-sizing: border-box",
               ],
             ) <| "",
-            if field.error != "" {
+            if !field.error.is_empty() {
               @html.span(style=["font-size: 12px", "color: \{danger}"]) <| field.error
             } else {
               @html.nothing

@@ -12,7 +12,7 @@ fn Model::view_text_input(
       on_input=s => dispatch(TextInputChanged(s)),
       style=input_style,
     ) <| "",
-    if self.text_input.error != "" {
+    if !self.text_input.error.is_empty() {
       @html.span(style=["color: \{danger}", "font-size: 12px"]) <| self.text_input.error
     } else {
       let n = self.text_input.value.char_length()
@@ -116,7 +116,7 @@ fn Model::view_select(
     @html.label(style=label_style) <| "Select",
     @html.select(style=input_style, on_change=v => dispatch(SelectChanged(v))) <| ({
       let opts : Array[@rabbita.Html] = [
-        @html.option(value="", selected=self.select.selected == "") <| "-- Choose --",
+        @html.option(value="", selected=self.select.selected.is_empty()) <| "-- Choose --",
       ]
       for opt in self.select.options {
         opts.push(
@@ -125,7 +125,7 @@ fn Model::view_select(
       }
       opts
     }),
-    if self.select.selected != "" {
+    if !self.select.selected.is_empty() {
       @html.span(style=["color: \{text_secondary}", "font-size: 13px"]) <| "Selected: \{self.select.selected}"
     } else {
       @html.nothing

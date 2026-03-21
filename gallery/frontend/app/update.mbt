@@ -470,7 +470,7 @@ pub fn Model::update(
     TextInputChanged(v) => {
       let error = if v.char_length() > 50 {
         "Maximum 50 characters"
-      } else if v != "" && v.char_length() < 3 {
+      } else if !v.is_empty() && v.char_length() < 3 {
         "Minimum 3 characters"
       } else {
         ""
@@ -569,7 +569,7 @@ pub fn Model::update(
       ({ ..self, tag: { ..self.tag, input: v } }, @rabbita.none)
     TagAdd => {
       let t = self.tag.input
-      if t == "" {
+      if t.is_empty() {
         return (self, @rabbita.none)
       }
       let tags = self.tag.tags.copy()
@@ -935,7 +935,7 @@ pub fn Model::update(
       // Validate current step
       let mut has_error = false
       let fields = step.fields.mapi(fn(_, f) {
-        if f.value == "" {
+        if f.value.is_empty() {
           has_error = true
           { ..f, error: "\{f.label} is required" }
         } else {
@@ -1201,12 +1201,12 @@ pub fn Model::update(
         val
       }
       digits[idx] = d
-      let next_focus = if d != "" && idx < digits.length() - 1 {
+      let next_focus = if !d.is_empty() && idx < digits.length() - 1 {
         idx + 1
       } else {
         idx
       }
-      let all_filled = digits.iter().all(fn(s) { s != "" })
+      let all_filled = digits.iter().all(fn(s) { !s.is_empty() })
       let verified = if all_filled {
         digits.iter().fold(init="", fn(acc, s) { acc + s }) == "1234"
       } else {
@@ -1252,7 +1252,7 @@ pub fn Model::update(
 
     // ── TagAutocomplete ──────────────────────
     TagAutoInputChanged(v) => {
-      let show = v != ""
+      let show = !v.is_empty()
       (
         {
           ..self,
@@ -1267,7 +1267,7 @@ pub fn Model::update(
       )
     }
     TagAutoAdd(v) => {
-      if v == "" {
+      if v.is_empty() {
         return (self, @rabbita.none)
       }
       let tags = self.tag_auto.tags.copy()
@@ -1431,7 +1431,7 @@ pub fn Model::update(
     }
     UndoUndo => {
       let us = self.undo_snackbar
-      if us.last_removed == "" {
+      if us.last_removed.is_empty() {
         return (self, @rabbita.none)
       }
       let items = us.items.copy()

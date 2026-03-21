@@ -174,7 +174,7 @@ fn view_tree_node(
   depth : Int,
 ) -> @rabbita.Html {
   let is_expanded = expanded.contains(node.id)
-  let has_children = node.children.length() > 0
+  let has_children = !node.children.is_empty()
   let indent = depth * 20
   let icon = if !has_children { "." } else if is_expanded { "v" } else { ">" }
   @html.div(style=["padding-left: \{indent}px"]) <| [

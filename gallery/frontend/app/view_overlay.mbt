@@ -49,7 +49,7 @@ fn Model::view_toast(
         on_click=dispatch(ShowToast("Info", "Here is some info.", "info")),
       ) <| "Info",
     ],
-    if self.toast.items.length() > 0 {
+    if !self.toast.items.is_empty() {
       let n = self.toast.items.length()
       @html.span(style=["font-size: 13px", "color: \{text_muted}"]) <| "\{n} toast(s) active"
     } else {
@@ -63,7 +63,7 @@ fn Model::view_toast_container(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  if self.toast.items.length() == 0 {
+  if self.toast.items.is_empty() {
     return @html.nothing
   }
   @html.div(style=[
@@ -218,7 +218,7 @@ fn Model::view_command_palette_overlay(
   let filtered : Array[CommandAction] = []
   for action in cp.actions {
     let q = cp.query.to_lower()
-    if q == "" ||
+    if q.is_empty() ||
       action.label.to_lower().contains(q) ||
       action.category.to_lower().contains(q) {
       filtered.push(action)
@@ -271,7 +271,7 @@ fn Model::view_command_palette_overlay(
       ],
       @html.div(style=["max-height: 320px", "overflow-y: auto"]) <| ({
         let action_els : Array[@rabbita.Html] = []
-        if filtered.length() == 0 {
+        if filtered.is_empty() {
           action_els.push(
             @html.div(style=[
               "padding: 20px",

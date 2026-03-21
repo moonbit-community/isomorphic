@@ -207,7 +207,7 @@ fn Model::view_undo_snackbar(
       "font-weight:600",
       "color:\{text_primary}",
     ]) <| "Undo Snackbar",
-    if s.items.length() == 0 {
+    if s.items.is_empty() {
       @html.p(style=[
         "color:\{text_muted}",
         "font-size:14px",
@@ -234,7 +234,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
   let nodes : Array[@rabbita.Html] = []
   let list_items : Array[@rabbita.Html] = []
   fn flush_list() {
-    if list_items.length() > 0 {
+    if !list_items.is_empty() {
       let items = list_items.copy()
       nodes.push(@html.ul(style=["margin:8px 0", "padding-left:24px"]) <| items)
       list_items.clear()
@@ -271,7 +271,7 @@ fn parse_markdown(source : String) -> @rabbita.Html {
     } else if line.has_prefix("- ") {
       let text = line.strip_prefix("- ").unwrap().to_string()
       list_items.push(@html.li(style=["margin:2px 0"]) <| text)
-    } else if line == "" {
+    } else if line.is_empty() {
       flush_list()
       nodes.push(@html.br())
     } else {

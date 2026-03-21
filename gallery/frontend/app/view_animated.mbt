@@ -143,7 +143,7 @@ fn Model::view_carousel(
   let items = self.carousel.items
   let current = self.carousel.current
   let auto_playing = self.carousel.auto_playing
-  let current_item = if items.length() > 0 { items[current] } else { "" }
+  let current_item = if !items.is_empty() { items[current] } else { "" }
   let dots = Array::make(items.length(), 0)
   let dot_nodes = dots.mapi(fn(i, _) {
     let dot_width = if i == current { "24px" } else { "8px" }

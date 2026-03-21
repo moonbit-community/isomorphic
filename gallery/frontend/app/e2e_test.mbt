@@ -271,7 +271,7 @@ test "E2E: modal open, confirm, shows result" {
   // Check for confirmed indicator (could be "confirmed", "Confirmed", or a checkmark)
   assert_true(m4.modal.confirmed)
   // The view should contain some indication — just verify it renders
-  assert_true(html2.length() > 0)
+  assert_true(!html2.is_empty())
 }
 
 ///|

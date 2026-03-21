@@ -245,9 +245,11 @@ fn Model::view_tag_auto(
     ]) <| tag_pill_nodes
   let filtered = suggestions.filter(fn(s) {
     !tags.contains(s) &&
-    (input_val == "" || s.to_lower().contains(input_val.to_lower()))
+    (input_val.is_empty() || s.to_lower().contains(input_val.to_lower()))
   })
-  let dropdown = if show_suggestions && input_val != "" && !filtered.is_empty() {
+  let dropdown = if show_suggestions &&
+    !input_val.is_empty() &&
+    !filtered.is_empty() {
     let suggestion_nodes : Array[@rabbita.Html] = []
     for i, s in filtered {
       let idx = i
