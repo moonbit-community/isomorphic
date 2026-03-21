@@ -46,10 +46,7 @@ pub(all) struct Contact {
   email : String
   phone : String
   favorite : Bool
-}
-pub impl ToJson for Contact
-pub impl @debug.Debug for Contact
-pub impl @json.FromJson for Contact
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

@@ -1,0 +1,20 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/spreadsheet/frontend/formula"
+
+import {
+  "bobzhang/spreadsheet/frontend/cell",
+}
+
+// Values
+pub fn evaluate(String, (String) -> @cell.Value) -> @cell.Value
+
+pub fn extract_references(String) -> Array[String]
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

@@ -238,34 +238,19 @@ pub(all) struct Activity {
   to_status : String
   timestamp : String
   user_name : String
-}
-pub impl Eq for Activity
-pub impl Show for Activity
-pub impl ToJson for Activity
-pub impl @debug.Debug for Activity
-pub impl @json.FromJson for Activity
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Attachment {
   id : Int
   task_id : Int
   url : String
   label : String
-}
-pub impl Eq for Attachment
-pub impl Show for Attachment
-pub impl ToJson for Attachment
-pub impl @debug.Debug for Attachment
-pub impl @json.FromJson for Attachment
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct AuthResponse {
   user : User
   message : String
-}
-pub impl Eq for AuthResponse
-pub impl Show for AuthResponse
-pub impl ToJson for AuthResponse
-pub impl @debug.Debug for AuthResponse
-pub impl @json.FromJson for AuthResponse
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Board {
   tasks : Array[Task]
@@ -281,12 +266,7 @@ pub(all) struct Board {
   projects : Array[Project]
   task_projects : Array[TaskProject]
   today : String
-}
-pub impl Eq for Board
-pub impl Show for Board
-pub impl ToJson for Board
-pub impl @debug.Debug for Board
-pub impl @json.FromJson for Board
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Comment {
   id : Int
@@ -294,87 +274,47 @@ pub(all) struct Comment {
   author : String
   text : String
   created_at : String
-}
-pub impl Eq for Comment
-pub impl Show for Comment
-pub impl ToJson for Comment
-pub impl @debug.Debug for Comment
-pub impl @json.FromJson for Comment
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Dependency {
   task_id : Int
   depends_on_id : Int
-}
-pub impl Eq for Dependency
-pub impl Show for Dependency
-pub impl ToJson for Dependency
-pub impl @debug.Debug for Dependency
-pub impl @json.FromJson for Dependency
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Label {
   id : Int
   name : String
   color : String
-}
-pub impl Eq for Label
-pub impl Show for Label
-pub impl ToJson for Label
-pub impl @debug.Debug for Label
-pub impl @json.FromJson for Label
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum Lang {
   En
   Zh
-}
-pub impl Eq for Lang
-pub impl Show for Lang
-pub impl ToJson for Lang
-pub impl @debug.Debug for Lang
-pub impl @json.FromJson for Lang
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Member {
   id : Int
   name : String
   color : String
-}
-pub impl Eq for Member
-pub impl Show for Member
-pub impl ToJson for Member
-pub impl @debug.Debug for Member
-pub impl @json.FromJson for Member
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Project {
   id : Int
   name : String
   color : String
-}
-pub impl Eq for Project
-pub impl Show for Project
-pub impl ToJson for Project
-pub impl @debug.Debug for Project
-pub impl @json.FromJson for Project
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct RecurrenceRule {
   task_id : Int
   interval : String
-}
-pub impl Eq for RecurrenceRule
-pub impl Show for RecurrenceRule
-pub impl ToJson for RecurrenceRule
-pub impl @debug.Debug for RecurrenceRule
-pub impl @json.FromJson for RecurrenceRule
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Subtask {
   id : Int
   task_id : Int
   title : String
   done : Bool
-}
-pub impl Eq for Subtask
-pub impl Show for Subtask
-pub impl ToJson for Subtask
-pub impl @debug.Debug for Subtask
-pub impl @json.FromJson for Subtask
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Task {
   id : Int
@@ -385,32 +325,17 @@ pub(all) struct Task {
   assignee_id : Int
   due_date : String
   created_at : String
-}
-pub impl Eq for Task
-pub impl Show for Task
-pub impl ToJson for Task
-pub impl @debug.Debug for Task
-pub impl @json.FromJson for Task
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct TaskLabel {
   task_id : Int
   label_id : Int
-}
-pub impl Eq for TaskLabel
-pub impl Show for TaskLabel
-pub impl ToJson for TaskLabel
-pub impl @debug.Debug for TaskLabel
-pub impl @json.FromJson for TaskLabel
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct TaskProject {
   task_id : Int
   project_id : Int
-}
-pub impl Eq for TaskProject
-pub impl Show for TaskProject
-pub impl ToJson for TaskProject
-pub impl @debug.Debug for TaskProject
-pub impl @json.FromJson for TaskProject
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct TimeEntry {
   id : Int
@@ -418,24 +343,14 @@ pub(all) struct TimeEntry {
   minutes : Int
   note : String
   created_at : String
-}
-pub impl Eq for TimeEntry
-pub impl Show for TimeEntry
-pub impl ToJson for TimeEntry
-pub impl @debug.Debug for TimeEntry
-pub impl @json.FromJson for TimeEntry
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct User {
   id : Int
   username : String
   color : String
   role : String
-}
-pub impl Eq for User
-pub impl Show for User
-pub impl ToJson for User
-pub impl @debug.Debug for User
-pub impl @json.FromJson for User
+} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

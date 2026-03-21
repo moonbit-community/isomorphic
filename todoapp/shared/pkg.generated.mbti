@@ -24,10 +24,7 @@ pub(all) struct Todo {
   id : Int
   text : String
   done : Bool
-}
-pub impl ToJson for Todo
-pub impl @debug.Debug for Todo
-pub impl @json.FromJson for Todo
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

@@ -32,11 +32,7 @@ pub(all) struct Comment {
   author : String
   content : String
   created_at : String
-}
-pub impl Show for Comment
-pub impl ToJson for Comment
-pub impl @debug.Debug for Comment
-pub impl @json.FromJson for Comment
+} derive(Show, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Post {
   id : Int
@@ -44,11 +40,7 @@ pub(all) struct Post {
   content : String
   created_at : String
   updated_at : String
-}
-pub impl Show for Post
-pub impl ToJson for Post
-pub impl @debug.Debug for Post
-pub impl @json.FromJson for Post
+} derive(Show, ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

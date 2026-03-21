@@ -1,0 +1,41 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/compose-demo/frontend/calendar"
+
+import {
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Date {
+  year : Int
+  month : Int
+  day : Int
+} derive(Eq)
+pub fn Date::to_string(Self) -> String
+
+pub struct Model {
+  view_year : Int
+  view_month : Int
+  selected : Date?
+  today : Date
+}
+pub fn Model::new(today~ : Date) -> Self
+pub fn Model::update(Self, Msg) -> Self
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+
+pub(all) enum Msg {
+  PrevMonth
+  NextMonth
+  SelectDay(Int)
+  Clear
+}
+
+// Type aliases
+
+// Traits
+

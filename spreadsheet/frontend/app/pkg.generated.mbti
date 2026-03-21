@@ -1,0 +1,69 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/spreadsheet/frontend/app"
+
+import {
+  "bobzhang/spreadsheet/frontend/cell",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+}
+
+// Values
+pub let num_cols : Int
+
+pub let num_rows : Int
+
+// Errors
+
+// Types and methods
+pub struct Model {
+  sheets : Array[Sheet]
+  active_sheet : Int
+  sel_col : Int
+  sel_row : Int
+  editing : Bool
+  edit_value : String
+  show_chart : Bool
+  heat_map : Bool
+}
+pub fn Model::current_sheet(Self) -> Sheet
+pub fn Model::new() -> Self
+pub fn Model::selected_cell(Self) -> @cell.Cell
+pub fn Model::update(Self, (Msg) -> @runtime.Cmd, Msg) -> (@runtime.Cmd, Self)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+
+pub(all) enum Msg {
+  SelectCell(Int, Int)
+  MoveSelection(Int, Int)
+  StartEdit
+  StartEditWith(String)
+  UpdateEdit(String)
+  CommitEdit
+  CancelEdit
+  SelectSheet(Int)
+  AddSheet
+  DeleteSheet(Int)
+  ToggleBold
+  ToggleItalic
+  SetAlign(@cell.Align)
+  SetFormat(@cell.NumFormat)
+  SetBgColor(String)
+  SetTextColor(String)
+  ClearCell
+  ToggleChart
+  ToggleHeatMap
+  RequestImport
+  ImportExcel(Bytes)
+  ExportExcel
+}
+
+pub struct Sheet {
+  name : String
+  cells : Map[String, @cell.Cell]
+}
+pub fn Sheet::get(Self, String) -> @cell.Cell
+pub fn Sheet::new(String) -> Self
+
+// Type aliases
+
+// Traits
+

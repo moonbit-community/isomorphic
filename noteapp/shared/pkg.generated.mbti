@@ -41,19 +41,13 @@ pub(all) struct Note {
   title : String
   content : String
   pinned : Bool
-}
-pub impl ToJson for Note
-pub impl @debug.Debug for Note
-pub impl @json.FromJson for Note
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct NoteStats {
   word_count : Int
   char_count : Int
   reading_time_secs : Int
-}
-pub impl ToJson for NoteStats
-pub impl @debug.Debug for NoteStats
-pub impl @json.FromJson for NoteStats
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

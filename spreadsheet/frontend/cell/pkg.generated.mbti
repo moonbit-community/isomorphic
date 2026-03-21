@@ -1,0 +1,52 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/spreadsheet/frontend/cell"
+
+// Values
+pub fn col_to_letter(Int) -> String
+
+pub fn make_key(Int, Int) -> String
+
+pub fn parse_ref(String) -> (Int, Int)?
+
+// Errors
+
+// Types and methods
+pub(all) enum Align {
+  Auto
+  Left
+  Center
+  Right
+}
+
+pub(all) struct Cell {
+  raw : String
+  value : Value
+  bold : Bool
+  italic : Bool
+  align : Align
+  format : NumFormat
+  bg_color : String
+  text_color : String
+}
+pub fn Cell::empty() -> Self
+
+pub(all) enum NumFormat {
+  General
+  Currency
+  Percent
+  Fixed
+}
+
+pub(all) enum Value {
+  Empty
+  Num(Double)
+  Text(String)
+  Error(String)
+}
+pub fn Value::format_with(Self, NumFormat) -> String
+pub fn Value::to_display(Self) -> String
+
+// Type aliases
+
+// Traits
+

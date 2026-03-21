@@ -1,0 +1,18 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/compose-demo/frontend/stress_test"
+
+import {
+  "moonbit-community/rabbita",
+}
+
+// Values
+pub fn make() -> @rabbita.Cell
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

@@ -74,10 +74,9 @@ pub(all) struct Model {
   undo_msg : String
   undo_task_id : Int
   undo_old_status : String
-}
+} derive(@debug.Debug)
 pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
 pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
-pub impl @debug.Debug for Model
 
 pub(all) enum Msg {
   Init
@@ -135,8 +134,7 @@ pub(all) enum Msg {
   KeyPressed(String)
   DismissError
   SetLang(@shared.Lang)
-}
-pub impl @debug.Debug for Msg
+} derive(@debug.Debug)
 
 pub(all) struct Theme {
   bg : String
@@ -150,8 +148,7 @@ pub(all) struct Theme {
   filter_bg : String
   filter_inactive : String
   column_bg : String
-}
-pub impl @debug.Debug for Theme
+} derive(@debug.Debug)
 
 // Type aliases
 

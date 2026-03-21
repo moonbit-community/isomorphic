@@ -18,10 +18,9 @@ pub(all) struct Model {
   title_input : String
   content_input : String
   selected_note_id : Int
-}
+} derive(@debug.Debug)
 pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
 pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
-pub impl @debug.Debug for Model
 
 pub(all) enum Msg {
   Init
@@ -36,8 +35,7 @@ pub(all) enum Msg {
   NotePinToggled(Result[@shared.Note, String])
   DeleteNote(Int)
   NoteDeleted(Result[Int, String])
-}
-pub impl @debug.Debug for Msg
+} derive(@debug.Debug)
 
 // Type aliases
 

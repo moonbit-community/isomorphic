@@ -17,10 +17,9 @@ pub(all) struct Model {
   todos : Array[@shared.Todo]
   input : String
   loading : Bool
-}
+} derive(@debug.Debug)
 pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
 pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
-pub impl @debug.Debug for Model
 
 pub(all) enum Msg {
   Init
@@ -32,8 +31,7 @@ pub(all) enum Msg {
   TodoToggled(Result[@shared.Todo, String])
   DeleteTodo(Int)
   TodoDeleted(Result[Int, String])
-}
-pub impl @debug.Debug for Msg
+} derive(@debug.Debug)
 
 // Type aliases
 

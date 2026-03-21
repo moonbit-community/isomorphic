@@ -1,0 +1,91 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/finapp/frontend/app"
+
+import {
+  "bobzhang/finapp/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  page : Page
+  accounts : Array[@shared.Account]
+  transactions : Array[@shared.Transaction]
+  categories : Array[@shared.Category]
+  budgets : Array[@shared.Budget]
+  dashboard : @shared.DashboardData?
+  form_amount : String
+  form_desc : String
+  form_date : String
+  form_account_id : Int
+  form_category_id : Int
+  form_type : @shared.TransactionType
+  acct_name : String
+  acct_type : @shared.AccountType
+  budget_cat_id : Int
+  budget_amount : String
+  budget_month : String
+  filter_account : Int
+  filter_type : String
+  current_month : String
+  show_form : Bool
+  error : String
+  loading : Bool
+} derive(@debug.Debug)
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+
+pub(all) enum Msg {
+  Init
+  GoTo(Page)
+  GotDashboard(Result[@shared.DashboardData, String])
+  GotAccounts(Result[Array[@shared.Account], String])
+  GotTransactions(Result[Array[@shared.Transaction], String])
+  GotCategories(Result[Array[@shared.Category], String])
+  GotBudgets(Result[Array[@shared.Budget], String])
+  SetFormAmount(String)
+  SetFormDesc(String)
+  SetFormDate(String)
+  SetFormAccountId(String)
+  SetFormCategoryId(String)
+  SetFormType(String)
+  SubmitTransaction
+  TransactionCreated(Result[@shared.Transaction, String])
+  DeleteTransaction(Int)
+  TransactionDeleted(Result[Int, String])
+  SetAcctName(String)
+  SetAcctType(String)
+  SubmitAccount
+  AccountCreated(Result[@shared.Account, String])
+  DeleteAccount(Int)
+  AccountDeleted(Result[Int, String])
+  SetBudgetCatId(String)
+  SetBudgetAmount(String)
+  SetBudgetMonth(String)
+  SubmitBudget
+  BudgetCreated(Result[@shared.Budget, String])
+  DeleteBudget(Int)
+  BudgetDeleted(Result[Int, String])
+  SetFilterAccount(String)
+  SetFilterType(String)
+  ToggleForm
+  ClearError
+} derive(@debug.Debug)
+
+pub(all) enum Page {
+  Dashboard
+  Transactions
+  Accounts
+  Budgets
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+

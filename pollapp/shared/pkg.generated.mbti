@@ -36,28 +36,19 @@ pub(all) struct Poll {
   id : Int
   question : String
   options : Array[PollOption]
-}
-pub impl ToJson for Poll
-pub impl @debug.Debug for Poll
-pub impl @json.FromJson for Poll
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PollOption {
   id : Int
   text : String
   votes : Int
-}
-pub impl ToJson for PollOption
-pub impl @debug.Debug for PollOption
-pub impl @json.FromJson for PollOption
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PollResults {
   poll : Poll
   total_votes : Int
   percentages : Array[(String, Int)]
-}
-pub impl ToJson for PollResults
-pub impl @debug.Debug for PollResults
-pub impl @json.FromJson for PollResults
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

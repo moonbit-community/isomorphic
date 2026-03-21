@@ -23,10 +23,9 @@ pub(all) struct Model {
   comment_author : String
   comment_content : String
   loading : Bool
-}
+} derive(@debug.Debug)
 pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
 pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
-pub impl @debug.Debug for Model
 
 pub(all) enum Msg {
   GoToList
@@ -58,8 +57,7 @@ pub(all) enum Page {
   ViewPost(Int)
   NewPost
   EditPost(Int)
-}
-pub impl @debug.Debug for Page
+} derive(@debug.Debug)
 
 // Type aliases
 

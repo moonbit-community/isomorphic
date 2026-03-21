@@ -7,11 +7,6 @@ import {
 }
 
 // Values
-pub fn initial() -> Model
-
-pub fn update(Msg, Model) -> Model
-
-pub fn view((Msg) -> @runtime.Cmd, Model, label~ : String) -> @html.Html
 
 // Errors
 
@@ -19,6 +14,9 @@ pub fn view((Msg) -> @runtime.Cmd, Model, label~ : String) -> @html.Html
 pub struct Model {
   count : Int
 }
+pub fn Model::new() -> Self
+pub fn Model::update(Self, Msg) -> Self
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd, label~ : String) -> @html.Html
 
 pub(all) enum Msg {
   Increment

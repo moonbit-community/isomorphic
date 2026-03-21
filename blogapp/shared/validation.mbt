@@ -15,7 +15,7 @@ pub fn normalize_author(author : String) -> String {
 ///|
 /// Returns true if the title is non-empty.
 pub fn validate_title(title : String) -> Bool {
-  not(title.is_empty())
+  !title.is_empty()
 }
 
 ///|

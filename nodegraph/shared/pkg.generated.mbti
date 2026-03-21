@@ -68,29 +68,19 @@ pub(all) struct Connection {
   from_port : Int
   to_node_id : Int
   to_port : Int
-}
-pub impl Eq for Connection
-pub impl ToJson for Connection
-pub impl @debug.Debug for Connection
-pub impl @json.FromJson for Connection
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct EvalResult {
   node_outputs : Array[(Int, Array[Value])]
   errors : Array[(Int, String)]
   eval_order : Array[Int]
   has_cycle : Bool
-}
-pub impl ToJson for EvalResult
-pub impl @debug.Debug for EvalResult
-pub impl @json.FromJson for EvalResult
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Graph {
   nodes : Array[Node]
   connections : Array[Connection]
-}
-pub impl ToJson for Graph
-pub impl @debug.Debug for Graph
-pub impl @json.FromJson for Graph
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Node {
   id : Int
@@ -99,11 +89,7 @@ pub(all) struct Node {
   y : Int
   label : String
   config : String
-}
-pub impl Eq for Node
-pub impl ToJson for Node
-pub impl @debug.Debug for Node
-pub impl @json.FromJson for Node
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum NodeKind {
   MathAdd
@@ -129,39 +115,24 @@ pub(all) enum NodeKind {
   ConstColor
   DisplayNumber
   DisplayText
-}
-pub impl Eq for NodeKind
-pub impl ToJson for NodeKind
-pub impl @debug.Debug for NodeKind
-pub impl @json.FromJson for NodeKind
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PortDef {
   name : String
   port_type : PortType
-}
-pub impl Eq for PortDef
-pub impl ToJson for PortDef
-pub impl @debug.Debug for PortDef
-pub impl @json.FromJson for PortDef
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum PortType {
   TNumber
   TString
   TBool
   TColor
-}
-pub impl Eq for PortType
-pub impl ToJson for PortType
-pub impl @debug.Debug for PortType
-pub impl @json.FromJson for PortType
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct SavedGraph {
   id : Int
   name : String
-}
-pub impl ToJson for SavedGraph
-pub impl @debug.Debug for SavedGraph
-pub impl @json.FromJson for SavedGraph
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum Value {
   VNumber(Int)
@@ -170,11 +141,7 @@ pub(all) enum Value {
   VColor(String)
   VError(String)
   VNone
-}
-pub impl Eq for Value
-pub impl ToJson for Value
-pub impl @debug.Debug for Value
-pub impl @json.FromJson for Value
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

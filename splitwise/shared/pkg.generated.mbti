@@ -38,10 +38,7 @@ pub(all) struct AppState {
   people : Array[Person]
   expenses : Array[Expense]
   settlements : Array[Settlement]
-}
-pub impl ToJson for AppState
-pub impl @debug.Debug for AppState
-pub impl @json.FromJson for AppState
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Expense {
   id : Int
@@ -49,18 +46,12 @@ pub(all) struct Expense {
   amount : Int
   paid_by : Int
   split_among : Array[Int]
-}
-pub impl ToJson for Expense
-pub impl @debug.Debug for Expense
-pub impl @json.FromJson for Expense
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Person {
   id : Int
   name : String
-}
-pub impl ToJson for Person
-pub impl @debug.Debug for Person
-pub impl @json.FromJson for Person
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Settlement {
   from_id : Int
@@ -68,10 +59,7 @@ pub(all) struct Settlement {
   to_id : Int
   to_name : String
   amount : Int
-}
-pub impl ToJson for Settlement
-pub impl @debug.Debug for Settlement
-pub impl @json.FromJson for Settlement
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

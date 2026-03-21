@@ -21,10 +21,9 @@ pub(all) struct Model {
   desc_input : String
   amount_input : String
   paid_by_input : Int
-}
+} derive(@debug.Debug)
 pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
 pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
-pub impl @debug.Debug for Model
 
 pub(all) enum Msg {
   Init
@@ -39,8 +38,7 @@ pub(all) enum Msg {
   ExpenseAdded(Result[@shared.Expense, String])
   DeleteExpense(Int)
   ExpenseDeleted(Result[Int, String])
-}
-pub impl @debug.Debug for Msg
+} derive(@debug.Debug)
 
 // Type aliases
 

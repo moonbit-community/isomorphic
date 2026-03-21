@@ -1,0 +1,99 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/nodegraph/frontend/app"
+
+import {
+  "bobzhang/nodegraph/shared",
+  "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/internal/runtime",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn canvas_size(Array[(Int, Int, Int)]) -> (Int, Int)
+
+pub fn compute_layout(Array[@shared.Node], Array[@shared.Connection]) -> Array[(Int, Int, Int)]
+
+pub fn get_pos(Array[(Int, Int, Int)], Int) -> (Int, Int)
+
+// Errors
+
+// Types and methods
+pub(all) struct Model {
+  page : Page
+  graphs : Array[@shared.SavedGraph]
+  current_graph_id : Int
+  nodes : Array[@shared.Node]
+  connections : Array[@shared.Connection]
+  eval_result : @shared.EvalResult?
+  auto_eval : Bool
+  dragging_node : Int
+  drag_offset_x : Int
+  drag_offset_y : Int
+  connecting_from_node : Int
+  connecting_from_port : Int
+  wire_mouse_x : Int
+  wire_mouse_y : Int
+  wire_start_cx : Int
+  wire_start_cy : Int
+  wire_origin_x : Int
+  wire_origin_y : Int
+  editing_node : Int
+  config_value : String
+  new_graph_name : String
+  show_palette : Bool
+  palette_cat : String
+  first_load : Bool
+  loading : Bool
+  error : String
+} derive(@debug.Debug)
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
+pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+
+pub(all) enum Msg {
+  Init
+  GoToList
+  GoToEditor(Int)
+  GotGraphs(Result[Array[@shared.SavedGraph], String])
+  SetGraphName(String)
+  CreateGraph
+  GraphCreated(Result[@shared.SavedGraph, String])
+  DeleteGraph(Int)
+  GraphDeleted(Result[Int, String])
+  GotGraph(Result[@shared.Graph, String])
+  TogglePalette
+  SetPaletteCat(String)
+  AddNode(@shared.NodeKind)
+  NodeAdded(Result[@shared.Node, String])
+  DeleteNode(Int)
+  NodeDeleted(Result[Int, String])
+  StartEditConfig(Int, String)
+  SetConfigValue(String)
+  SaveConfig
+  CancelEditConfig
+  ConfigSaved(Result[Unit, String])
+  StartDrag(Int, Int, Int)
+  Drag(Int, Int)
+  EndDrag
+  NodePositionSaved(Result[Unit, String])
+  StartConnect(Int, Int)
+  WireMove(Int, Int)
+  CompleteConnect(Int, Int)
+  CancelConnect
+  ConnectionAdded(Result[@shared.Connection, String])
+  DeleteConnection(Int)
+  ConnectionDeleted(Result[Int, String])
+  Evaluate
+  GotEvalResult(Result[@shared.EvalResult, String])
+  ToggleAutoEval
+  ClearError
+} derive(@debug.Debug)
+
+pub(all) enum Page {
+  GraphList
+  Editor
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+

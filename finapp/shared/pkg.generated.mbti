@@ -48,41 +48,28 @@ pub(all) struct Account {
   id : Int
   name : String
   account_type : AccountType
-}
-pub impl ToJson for Account
-pub impl @debug.Debug for Account
-pub impl @json.FromJson for Account
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct AccountBalance {
   account : Account
   balance : Int
-}
-pub impl ToJson for AccountBalance
-pub impl @debug.Debug for AccountBalance
-pub impl @json.FromJson for AccountBalance
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum AccountType {
   Checking
   Savings
   CreditCard
-}
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn AccountType::from_string(String) -> Self
 pub fn AccountType::to_db_string(Self) -> String
 pub fn AccountType::to_label(Self) -> String
-pub impl Eq for AccountType
-pub impl ToJson for AccountType
-pub impl @debug.Debug for AccountType
-pub impl @json.FromJson for AccountType
 
 pub(all) struct Budget {
   id : Int
   category_id : Int
   amount_limit : Int
   month : String
-}
-pub impl ToJson for Budget
-pub impl @debug.Debug for Budget
-pub impl @json.FromJson for Budget
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct BudgetStatus {
   budget : Budget
@@ -90,10 +77,7 @@ pub(all) struct BudgetStatus {
   category_color : String
   category_icon : String
   spent : Int
-}
-pub impl ToJson for BudgetStatus
-pub impl @debug.Debug for BudgetStatus
-pub impl @json.FromJson for BudgetStatus
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Category {
   id : Int
@@ -101,10 +85,7 @@ pub(all) struct Category {
   icon : String
   color : String
   cat_type : TransactionType
-}
-pub impl ToJson for Category
-pub impl @debug.Debug for Category
-pub impl @json.FromJson for Category
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct DashboardData {
   account_balances : Array[AccountBalance]
@@ -112,19 +93,13 @@ pub(all) struct DashboardData {
   budget_statuses : Array[BudgetStatus]
   recent_transactions : Array[Transaction]
   category_totals : Array[(String, String, Int)]
-}
-pub impl ToJson for DashboardData
-pub impl @debug.Debug for DashboardData
-pub impl @json.FromJson for DashboardData
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct MonthSummary {
   month : String
   income : Int
   expenses : Int
-}
-pub impl ToJson for MonthSummary
-pub impl @debug.Debug for MonthSummary
-pub impl @json.FromJson for MonthSummary
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Transaction {
   id : Int
@@ -134,22 +109,15 @@ pub(all) struct Transaction {
   txn_type : TransactionType
   description : String
   date : String
-}
-pub impl ToJson for Transaction
-pub impl @debug.Debug for Transaction
-pub impl @json.FromJson for Transaction
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum TransactionType {
   Income
   Expense
-}
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn TransactionType::from_string(String) -> Self
 pub fn TransactionType::to_db_string(Self) -> String
 pub fn TransactionType::to_label(Self) -> String
-pub impl Eq for TransactionType
-pub impl ToJson for TransactionType
-pub impl @debug.Debug for TransactionType
-pub impl @json.FromJson for TransactionType
 
 // Type aliases
 
