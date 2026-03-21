@@ -6,5 +6,6 @@
     "bobzhang/mbtexcel": "0.1.3"
   },
   "repository": "https://github.com/moonbit-community/isomorphic",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "warn-list": "+missing_doc+unnecessary_annotation"
 }

@@ -1,0 +1,157 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/finapp/shared"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn api_account(Int) -> String
+
+pub let api_accounts : String
+
+pub fn api_budget(Int) -> String
+
+pub let api_budgets : String
+
+pub let api_categories : String
+
+pub let api_dashboard : String
+
+pub fn api_transaction(Int) -> String
+
+pub let api_transactions : String
+
+pub fn budget_progress(Int, Int) -> (Int, Bool)
+
+pub fn category_spending(Array[Transaction], Array[Category], String) -> Array[(String, String, Int)]
+
+pub fn compute_balance(Array[Transaction], Int) -> Int
+
+pub fn format_amount(Int) -> String
+
+pub fn monthly_totals(Array[Transaction], String) -> MonthSummary
+
+pub fn parse_amount(String) -> Int
+
+pub fn spent_in_category(Array[Transaction], Int, String) -> Int
+
+pub fn validate_account_name(String) -> String?
+
+pub fn validate_transaction(Int, String, String) -> String?
+
+// Errors
+
+// Types and methods
+pub(all) struct Account {
+  id : Int
+  name : String
+  account_type : AccountType
+}
+pub impl ToJson for Account
+pub impl @debug.Debug for Account
+pub impl @json.FromJson for Account
+
+pub(all) struct AccountBalance {
+  account : Account
+  balance : Int
+}
+pub impl ToJson for AccountBalance
+pub impl @debug.Debug for AccountBalance
+pub impl @json.FromJson for AccountBalance
+
+pub(all) enum AccountType {
+  Checking
+  Savings
+  CreditCard
+}
+pub fn AccountType::from_string(String) -> Self
+pub fn AccountType::to_db_string(Self) -> String
+pub fn AccountType::to_label(Self) -> String
+pub impl Eq for AccountType
+pub impl ToJson for AccountType
+pub impl @debug.Debug for AccountType
+pub impl @json.FromJson for AccountType
+
+pub(all) struct Budget {
+  id : Int
+  category_id : Int
+  amount_limit : Int
+  month : String
+}
+pub impl ToJson for Budget
+pub impl @debug.Debug for Budget
+pub impl @json.FromJson for Budget
+
+pub(all) struct BudgetStatus {
+  budget : Budget
+  category_name : String
+  category_color : String
+  category_icon : String
+  spent : Int
+}
+pub impl ToJson for BudgetStatus
+pub impl @debug.Debug for BudgetStatus
+pub impl @json.FromJson for BudgetStatus
+
+pub(all) struct Category {
+  id : Int
+  name : String
+  icon : String
+  color : String
+  cat_type : TransactionType
+}
+pub impl ToJson for Category
+pub impl @debug.Debug for Category
+pub impl @json.FromJson for Category
+
+pub(all) struct DashboardData {
+  account_balances : Array[AccountBalance]
+  month_summary : MonthSummary
+  budget_statuses : Array[BudgetStatus]
+  recent_transactions : Array[Transaction]
+  category_totals : Array[(String, String, Int)]
+}
+pub impl ToJson for DashboardData
+pub impl @debug.Debug for DashboardData
+pub impl @json.FromJson for DashboardData
+
+pub(all) struct MonthSummary {
+  month : String
+  income : Int
+  expenses : Int
+}
+pub impl ToJson for MonthSummary
+pub impl @debug.Debug for MonthSummary
+pub impl @json.FromJson for MonthSummary
+
+pub(all) struct Transaction {
+  id : Int
+  account_id : Int
+  category_id : Int
+  amount : Int
+  txn_type : TransactionType
+  description : String
+  date : String
+}
+pub impl ToJson for Transaction
+pub impl @debug.Debug for Transaction
+pub impl @json.FromJson for Transaction
+
+pub(all) enum TransactionType {
+  Income
+  Expense
+}
+pub fn TransactionType::from_string(String) -> Self
+pub fn TransactionType::to_db_string(Self) -> String
+pub fn TransactionType::to_label(Self) -> String
+pub impl Eq for TransactionType
+pub impl ToJson for TransactionType
+pub impl @debug.Debug for TransactionType
+pub impl @json.FromJson for TransactionType
+
+// Type aliases
+
+// Traits
+
