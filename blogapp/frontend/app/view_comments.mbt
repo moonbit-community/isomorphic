@@ -43,7 +43,7 @@ fn Model::view_comments_section(
       ]) <| "Post Comment",
     ],
     // Comment list
-    if self.comments.length() == 0 {
+    if self.comments.is_empty() {
       @html.p(style=["color: #94a3b8", "font-size: 14px", "padding: 8px 0"]) <| "No comments yet. Be the first!"
     } else {
       @html.div() <| self.comments.map(fn(comment) {

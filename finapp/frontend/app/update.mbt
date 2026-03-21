@@ -266,7 +266,7 @@ pub fn Model::update(
       if self.budget_cat_id == 0 {
         return ({ ..self, error: "Select a category" }, @rabbita.none)
       }
-      let month = if self.budget_month.length() > 0 {
+      let month = if !self.budget_month.is_empty() {
         self.budget_month
       } else {
         self.current_month

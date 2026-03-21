@@ -8,7 +8,7 @@ fn view_color_picker(
   @html.div(style=[
     "display: flex", "gap: 4px", "margin-bottom: 8px", "flex-wrap: wrap",
   ]) <| @shared.valid_colors.map(fn(c) {
-    let bg = if c == "" { "#f1f5f9" } else { @shared.color_to_css(c) }
+    let bg = if c.is_empty() { "#f1f5f9" } else { @shared.color_to_css(c) }
     let is_selected = c == current
     let border = if is_selected {
       "2px solid #1a1a2e"
@@ -95,7 +95,7 @@ fn Model::view_card_item(
       ]) <| [
         @html.text(card.title),
       ],
-      if card.description != "" {
+      if !card.description.is_empty() {
         @html.div(style=[
           "font-size: 12px", "color: #64748b", "margin-bottom: 6px", "line-height: 1.4",
         ]) <| [

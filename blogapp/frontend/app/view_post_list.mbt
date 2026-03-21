@@ -30,7 +30,7 @@ fn Model::view_post_list(
       ]) <| [
         @html.text("Loading..."),
       ]
-    } else if self.posts.length() == 0 {
+    } else if self.posts.is_empty() {
       @html.div(style=[
         "text-align: center", "padding: 80px 0", "color: #94a3b8",
       ]) <| [

@@ -188,7 +188,7 @@ pub fn Model::update(
     }
     PostDeleted(Err(_)) => (self, @rabbita.none)
     AddComment(post_id) => {
-      if self.comment_content == "" {
+      if self.comment_content.is_empty() {
         return (self, @rabbita.none)
       }
       let author = @shared.normalize_author(self.comment_author)

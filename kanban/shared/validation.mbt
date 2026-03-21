@@ -36,7 +36,7 @@ pub let valid_colors : Array[String] = [
 /// }
 /// ```
 pub fn validate_card_title(title : String) -> Bool {
-  title != "" && title.char_length() <= max_card_title
+  !title.is_empty() && title.char_length() <= max_card_title
 }
 
 ///|
@@ -49,7 +49,7 @@ pub fn validate_card_description(desc : String) -> Bool {
 ///|
 /// Validate a column title: non-empty and at most `max_column_title` characters.
 pub fn validate_column_title(title : String) -> Bool {
-  title != "" && title.char_length() <= max_column_title
+  !title.is_empty() && title.char_length() <= max_column_title
 }
 
 ///|

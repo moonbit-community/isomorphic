@@ -38,7 +38,7 @@ pub fn format_phone(phone : String) -> String {
 ///|
 /// Check if a contact matches a search query (case-insensitive across name, email, phone).
 pub fn match_search(contact : Contact, query : String) -> Bool {
-  if query == "" {
+  if query.is_empty() {
     return true
   }
   let q = to_lower(query)
@@ -80,7 +80,7 @@ pub fn sort_contacts(contacts : Array[Contact]) -> Array[Contact] {
 ///|
 /// Get the initials from a name (first letter of first and last name, uppercase).
 pub fn get_initials(name : String) -> String {
-  if name == "" {
+  if name.is_empty() {
     return "?"
   }
   let chars : Array[Char] = name.iter().collect()

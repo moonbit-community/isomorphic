@@ -170,7 +170,7 @@ fn Model::view_transaction_list(
     let acct_ok = self.filter_account == 0 ||
       t.account_id == self.filter_account
     let type_ok = self.filter_type == "all" ||
-      self.filter_type == "" ||
+      self.filter_type.is_empty() ||
       t.txn_type.to_db_string() == self.filter_type
     acct_ok && type_ok
   })

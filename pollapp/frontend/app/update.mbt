@@ -51,7 +51,9 @@ pub fn Model::update(
         return (self, @rabbita.none)
       }
       // Filter out empty options and validate
-      let valid_options = self.option_inputs.filter(fn(text) { text != "" })
+      let valid_options = self.option_inputs.filter(fn(text) {
+        !text.is_empty()
+      })
       if valid_options.length() < @shared.min_options {
         return (self, @rabbita.none)
       }

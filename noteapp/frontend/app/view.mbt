@@ -129,7 +129,7 @@ pub fn Model::view(
           ],
         )
         // Notes list
-        if self.notes.length() > 0 {
+        if !self.notes.is_empty() {
           sections.push(
             view_card("All Notes") <| self.notes.map(fn(note) {
               let preview = @shared.truncate(note.content, 80)

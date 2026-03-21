@@ -78,7 +78,7 @@ pub fn Model::view(
         ],
       )
       // Favorites section
-      if favorites.length() > 0 {
+      if !favorites.is_empty() {
         sections.push(
           view_card("Favorites") <| favorites.map(fn(c) {
             view_contact_row(dispatch, c)
@@ -86,25 +86,25 @@ pub fn Model::view(
         )
       }
       // All contacts section
-      if non_favorites.length() > 0 {
+      if !non_favorites.is_empty() {
         sections.push(
           view_card(
-            if favorites.length() > 0 {
+            if !favorites.is_empty() {
               "Other Contacts"
             } else {
               "All Contacts"
             },
           ) <| non_favorites.map(fn(c) { view_contact_row(dispatch, c) }),
         )
-      } else if favorites.length() == 0 &&
-        self.contacts.length() > 0 &&
-        self.search_query != "" {
+      } else if favorites.is_empty() &&
+        !self.contacts.is_empty() &&
+        !self.search_query.is_empty() {
         sections.push(
           view_card("Contacts") <| [
             @html.p(style=empty_msg_style) <| "No contacts match your search",
           ],
         )
-      } else if self.contacts.length() == 0 {
+      } else if self.contacts.is_empty() {
         sections.push(
           view_card("Contacts") <| [
             @html.p(style=empty_msg_style) <| "No contacts yet. Add your first contact!",

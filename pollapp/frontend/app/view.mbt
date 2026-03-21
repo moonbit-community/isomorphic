@@ -26,7 +26,7 @@ pub fn Model::view(
       sections.push(self.view_poll_card(dispatch, poll))
     }
     // Empty state
-    if self.polls.length() == 0 {
+    if self.polls.is_empty() {
       sections.push(
         view_card("Polls") <| [
           @html.p(style=empty_polls_style) <| "No polls yet. Create one above!",
@@ -183,7 +183,7 @@ fn Model::view_poll_card(
 fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
   @html.div(style=card_style) <| ({
     let all : Array[@rabbita.Html] = []
-    if title != "" {
+    if !title.is_empty() {
       all.push(@html.h2(style=card_title_style) <| title)
     }
     for child in children {
