@@ -27,28 +27,25 @@ fn Model::view_star_rating(
           .on_mouseenter(fn(_) { dispatch(StarHover(index)) })
           .on_mouseleave(fn(_) { dispatch(StarLeave) }),
         if is_filled {
-          "★"
+          "\u{2605}"
         } else {
-          "☆"
+          "\u{2606}"
         },
       ),
     )
   }
-  let stars = @html.div(
-    style=["display:flex", "gap:4px", "align-items:center"],
-    star_buttons,
-  )
+  let stars = @html.div(style=["display:flex", "gap:4px", "align-items:center"]) <| star_buttons
   let label_text = if rating == 0 { "No rating" } else { "\{rating}/5 stars" }
-  let label = @html.div(
-    style=["font-size:13px", "color:\{text_secondary}", "margin-top:8px"],
-    label_text,
-  )
-  @html.div(
-    style=[
-      "display:flex", "flex-direction:column", "align-items:flex-start", "gap:4px",
-    ],
-    [stars, label],
-  )
+  let label = @html.div(style=[
+      "font-size:13px",
+      "color:\{text_secondary}",
+      "margin-top:8px",
+    ]) <| label_text
+  @html.div(style=[
+    "display:flex", "flex-direction:column", "align-items:flex-start", "gap:4px",
+  ]) <| [
+    stars, label,
+  ]
 }
 
 ///|
@@ -58,10 +55,11 @@ fn Model::view_pin_input(
 ) -> @rabbita.Html {
   let digits = self.pin_input.digits
   let verified = self.pin_input.verified
-  let hint = @html.div(
-    style=["font-size:12px", "color:\{text_muted}", "margin-bottom:10px"],
-    "Enter PIN: 1234",
-  )
+  let hint = @html.div(style=[
+      "font-size:12px",
+      "color:\{text_muted}",
+      "margin-bottom:10px",
+    ]) <| "Enter PIN: 1234"
   let pin_inputs : Array[@rabbita.Html] = []
   for i, _d in digits {
     let index = i
@@ -89,35 +87,34 @@ fn Model::view_pin_input(
       ),
     )
   }
-  let inputs = @html.div(
-    style=["display:flex", "gap:10px", "align-items:center"],
-    pin_inputs,
-  )
+  let inputs = @html.div(style=[
+      "display:flex", "gap:10px", "align-items:center",
+    ]) <| pin_inputs
   let status = if verified {
-    @html.div(
-      style=[
-        "display:flex",
-        "align-items:center",
-        "gap:6px",
-        "margin-top:10px",
-        "color:\{success}",
-        "font-size:14px",
-        "font-weight:600",
-      ],
-      [@html.span(style=["font-size:18px"], "✓"), @html.span("PIN verified!")],
-    )
+    @html.div(style=[
+      "display:flex",
+      "align-items:center",
+      "gap:6px",
+      "margin-top:10px",
+      "color:\{success}",
+      "font-size:14px",
+      "font-weight:600",
+    ]) <| [
+      @html.span(style=["font-size:18px"]) <| "\u{2713}",
+      @html.span() <| "PIN verified!",
+    ]
   } else {
-    @html.div(style=["height:30px"], "")
+    @html.div(style=["height:30px"]) <| ""
   }
   let clear_btn = @html.button(
-    style=[..btn_outline_style, ..btn_sm_style, "margin-top:12px"],
-    on_click=dispatch(PinClear),
-    "Clear",
-  )
-  @html.div(
-    style=["display:flex", "flex-direction:column", "align-items:flex-start"],
-    [hint, inputs, status, clear_btn],
-  )
+      style=[..btn_outline_style, ..btn_sm_style, "margin-top:12px"],
+      on_click=dispatch(PinClear),
+    ) <| "Clear"
+  @html.div(style=[
+    "display:flex", "flex-direction:column", "align-items:flex-start",
+  ]) <| [
+    hint, inputs, status, clear_btn,
+  ]
 }
 
 ///|
@@ -164,9 +161,9 @@ fn Model::view_password_strength(
   } else {
     "100%"
   }
-  let input_row = @html.div(
-    style=["display:flex", "gap:8px", "align-items:center"],
-    [
+  let input_row = @html.div(style=[
+      "display:flex", "gap:8px", "align-items:center",
+    ]) <| [
       @html.input(
         input_type=if visible { Text } else { Password },
         value=password,
@@ -180,47 +177,37 @@ fn Model::view_password_strength(
         ],
         on_click=dispatch(PasswordToggleVisible),
         if visible {
-          "🙈"
+          "\u{1F648}"
         } else {
-          "👁"
+          "\u{1F441}"
         },
       ),
-    ],
-  )
-  let bar_bg = @html.div(
-    style=[
+    ]
+  let bar_bg = @html.div(style=[
       "height:6px",
       "border-radius:\{radius_full}",
       "background:\{border}",
       "margin-top:10px",
       "overflow:hidden",
-    ],
-    [
-      @html.div(
-        style=[
-          "height:100%",
-          "width:\{bar_width}",
-          "background:\{strength_color}",
-          "border-radius:\{radius_full}",
-          "transition:width 0.3s, background 0.3s",
-        ],
-        "",
-      ),
-    ],
-  )
-  let bar_label = @html.div(
-    style=[
+    ]) <| [
+      @html.div(style=[
+        "height:100%",
+        "width:\{bar_width}",
+        "background:\{strength_color}",
+        "border-radius:\{radius_full}",
+        "transition:width 0.3s, background 0.3s",
+      ]) <| "",
+    ]
+  let bar_label = @html.div(style=[
       "font-size:12px",
       "color:\{strength_color}",
       "margin-top:4px",
       "font-weight:600",
       "min-height:18px",
-    ],
-    strength_label,
-  )
-  @html.div(style=["display:flex", "flex-direction:column", "width:100%"], [
+    ]) <| strength_label
+  @html.div(style=["display:flex", "flex-direction:column", "width:100%"]) <| [
     input_row, bar_bg, bar_label,
-  ])
+  ]
 }
 
 ///|
@@ -236,45 +223,38 @@ fn Model::view_tag_auto(
   for i, tag in tags {
     let idx = i
     tag_pill_nodes.push(
-      @html.div(
-        style=[
-          "display:inline-flex",
-          "align-items:center",
-          "gap:4px",
-          "padding:4px 10px",
-          "background:\{primary_light}",
-          "color:\{primary}",
-          "border-radius:\{radius_full}",
-          "font-size:13px",
-          "font-weight:500",
-        ],
-        [
-          @html.span(style=[], tag),
-          @html.button(
-            style=[
-              "background:none",
-              "border:none",
-              "cursor:pointer",
-              "color:\{primary}",
-              "font-size:14px",
-              "line-height:1",
-              "padding:0 0 0 2px",
-              "display:flex",
-              "align-items:center",
-            ],
-            on_click=dispatch(TagAutoRemove(idx)),
-            "×",
-          ),
-        ],
-      ),
+      @html.div(style=[
+        "display:inline-flex",
+        "align-items:center",
+        "gap:4px",
+        "padding:4px 10px",
+        "background:\{primary_light}",
+        "color:\{primary}",
+        "border-radius:\{radius_full}",
+        "font-size:13px",
+        "font-weight:500",
+      ]) <| [
+        @html.span(style=[]) <| tag,
+        @html.button(
+          style=[
+            "background:none",
+            "border:none",
+            "cursor:pointer",
+            "color:\{primary}",
+            "font-size:14px",
+            "line-height:1",
+            "padding:0 0 0 2px",
+            "display:flex",
+            "align-items:center",
+          ],
+          on_click=dispatch(TagAutoRemove(idx)),
+        ) <| "\u{00D7}",
+      ],
     )
   }
-  let tag_pills = @html.div(
-    style=[
+  let tag_pills = @html.div(style=[
       "display:flex", "flex-wrap:wrap", "gap:6px", "margin-bottom:10px", "min-height:32px",
-    ],
-    tag_pill_nodes,
-  )
+    ]) <| tag_pill_nodes
   let filtered = suggestions.filter(fn(s) {
     !tags.contains(s) &&
     (input_val == "" || s.to_lower().contains(input_val.to_lower()))
@@ -302,42 +282,38 @@ fn Model::view_tag_auto(
           attrs=@html.Attrs::build().on_mouseenter(fn(_) {
             dispatch(TagAutoFocus(idx))
           }),
-          suggestion,
-        ),
+        ) <| suggestion,
       )
     }
-    @html.div(
-      style=[
-        "position:absolute",
-        "top:100%",
-        "left:0",
-        "right:0",
-        "background:\{surface}",
-        "border:1px solid \{border}",
-        "border-radius:\{radius}",
-        "margin-top:4px",
-        "z-index:10",
-        "box-shadow:0 4px 16px rgba(0,0,0,0.1)",
-        "overflow:hidden",
-      ],
-      suggestion_nodes,
-    )
+    @html.div(style=[
+      "position:absolute",
+      "top:100%",
+      "left:0",
+      "right:0",
+      "background:\{surface}",
+      "border:1px solid \{border}",
+      "border-radius:\{radius}",
+      "margin-top:4px",
+      "z-index:10",
+      "box-shadow:0 4px 16px rgba(0,0,0,0.1)",
+      "overflow:hidden",
+    ]) <| suggestion_nodes
   } else {
-    @html.div(style=["display:none"], "")
+    @html.div(style=["display:none"]) <| ""
   }
-  let input_wrapper = @html.div(style=["position:relative", "width:100%"], [
-    @html.input(
-      input_type=Text,
-      value=input_val,
-      style=[..input_style, "width:100%", "box-sizing:border-box"],
-      on_input=s => dispatch(TagAutoInputChanged(s)),
-      "",
-    ),
-    dropdown,
-  ])
-  @html.div(style=["display:flex", "flex-direction:column", "width:100%"], [
+  let input_wrapper = @html.div(style=["position:relative", "width:100%"]) <| [
+      @html.input(
+        input_type=Text,
+        value=input_val,
+        style=[..input_style, "width:100%", "box-sizing:border-box"],
+        on_input=s => dispatch(TagAutoInputChanged(s)),
+        "",
+      ),
+      dropdown,
+    ]
+  @html.div(style=["display:flex", "flex-direction:column", "width:100%"]) <| [
     tag_pills, input_wrapper,
-  ])
+  ]
 }
 
 ///|
@@ -354,30 +330,25 @@ fn Model::view_inline_edit(
     let editing = pair.1
     if editing {
       item_nodes.push(
-        @html.div(
-          style=[
-            "display:flex", "gap:8px", "align-items:center", "padding:6px 0",
-          ],
-          [
-            @html.input(
-              input_type=Text,
-              value=edit_value,
-              style=[..input_style, "flex:1", "font-size:14px"],
-              on_input=s => dispatch(InlineEditChanged(s)),
-              "",
-            ),
-            @html.button(
-              style=[..btn_style, ..btn_sm_style],
-              on_click=dispatch(InlineSaveEdit(idx)),
-              "Save",
-            ),
-            @html.button(
-              style=[..btn_outline_style, ..btn_sm_style],
-              on_click=dispatch(InlineCancelEdit(idx)),
-              "Cancel",
-            ),
-          ],
-        ),
+        @html.div(style=[
+          "display:flex", "gap:8px", "align-items:center", "padding:6px 0",
+        ]) <| [
+          @html.input(
+            input_type=Text,
+            value=edit_value,
+            style=[..input_style, "flex:1", "font-size:14px"],
+            on_input=s => dispatch(InlineEditChanged(s)),
+            "",
+          ),
+          @html.button(
+            style=[..btn_style, ..btn_sm_style],
+            on_click=dispatch(InlineSaveEdit(idx)),
+          ) <| "Save",
+          @html.button(
+            style=[..btn_outline_style, ..btn_sm_style],
+            on_click=dispatch(InlineCancelEdit(idx)),
+          ) <| "Cancel",
+        ],
       )
     } else {
       item_nodes.push(
@@ -394,22 +365,18 @@ fn Model::view_inline_edit(
             "transition:border-color 0.15s",
           ],
           on_click=dispatch(InlineStartEdit(idx)),
-          [
-            @html.span(
-              style=["font-size:14px", "color:\{text_primary}", "flex:1"],
-              text,
-            ),
-            @html.span(
-              style=["font-size:12px", "color:\{text_muted}", "margin-left:8px"],
-              "✎ edit",
-            ),
-          ],
-        ),
+        ) <| [
+          @html.span(style=["font-size:14px", "color:\{text_primary}", "flex:1"]) <| text,
+          @html.span(style=[
+            "font-size:12px",
+            "color:\{text_muted}",
+            "margin-left:8px",
+          ]) <| "\u{270E} edit",
+        ],
       )
     }
   }
-  @html.div(
-    style=["display:flex", "flex-direction:column", "gap:8px", "width:100%"],
-    item_nodes,
-  )
+  @html.div(style=[
+    "display:flex", "flex-direction:column", "gap:8px", "width:100%",
+  ]) <| item_nodes
 }

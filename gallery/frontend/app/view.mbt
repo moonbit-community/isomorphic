@@ -4,7 +4,7 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=layout_style, [
+  @html.div(style=layout_style) <| [
     self.view_sidebar(dispatch),
     self.view_content(dispatch),
     self.view_toast_container(dispatch),
@@ -18,7 +18,7 @@ pub fn Model::view(
     } else {
       @html.nothing
     },
-  ])
+  ]
 }
 
 ///|
@@ -30,12 +30,12 @@ fn Model::view_sidebar(
     style=sidebar_style,
     {
       let items : Array[@rabbita.Html] = [
-        @html.div(style=sidebar_header_style, "Gallery"),
+        @html.div(style=sidebar_header_style) <| "Gallery",
       ]
       for section in all_sections() {
         let components = section_components(section)
         items.push(
-          @html.div(style=sidebar_section_style, section_label(section)),
+          @html.div(style=sidebar_section_style) <| section_label(section),
         )
         for i, comp in components {
           let is_active = self.section == section && self.component == i
@@ -59,8 +59,7 @@ fn Model::view_sidebar(
                 dispatch(ChangeSection(section)),
                 dispatch(ChangeComponent(i)),
               ]),
-              comp,
-            ),
+            ) <| comp,
           )
         }
       }
@@ -80,16 +79,18 @@ fn Model::view_content(
   } else {
     "Unknown"
   }
-  @html.main_(style=content_style, [
-    @html.div(style=card_style, [
-      @html.h1(style=component_title_style, name),
-      @html.p(
-        style=component_desc_style,
-        component_description(self.section, self.component),
+  @html.main_(style=content_style) <| [
+    @html.div(style=card_style) <| [
+      @html.h1(style=component_title_style) <| name,
+      @html.p(style=component_desc_style) <| component_description(
+        self.section,
+        self.component,
       ),
-      @html.div(style=demo_section_style, [self.render_component(dispatch)]),
-    ]),
-  ])
+      @html.div(style=demo_section_style) <| [
+        self.render_component(dispatch),
+      ],
+    ],
+  ]
 }
 
 ///|
