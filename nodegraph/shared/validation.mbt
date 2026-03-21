@@ -18,21 +18,12 @@ pub fn validate_connection(
     return Some("Cannot connect a node to itself")
   }
   // Find source and target nodes
-  let mut from_node : Node? = None
-  let mut to_node : Node? = None
-  for n in graph.nodes {
-    if n.id == from_node_id {
-      from_node = Some(n)
-    }
-    if n.id == to_node_id {
-      to_node = Some(n)
-    }
-  }
-  let from_n = match from_node {
+  let from_n = match
+    graph.nodes.iter().find_first(fn(n) { n.id == from_node_id }) {
     Some(n) => n
     None => return Some("Source node not found")
   }
-  let to_n = match to_node {
+  let to_n = match graph.nodes.iter().find_first(fn(n) { n.id == to_node_id }) {
     Some(n) => n
     None => return Some("Target node not found")
   }
@@ -54,10 +45,10 @@ pub fn validate_connection(
     )
   }
   // Each input port accepts exactly one connection
-  for c in graph.connections {
-    if c.to_node_id == to_node_id && c.to_port == to_port {
-      return Some("Input port already connected")
-    }
+  if graph.connections.any(fn(c) {
+      c.to_node_id == to_node_id && c.to_port == to_port
+    }) {
+    return Some("Input port already connected")
   }
   // Cycle detection
   if would_create_cycle(graph.connections, from_node_id, to_node_id) {

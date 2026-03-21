@@ -61,13 +61,7 @@ pub fn would_create_cycle(
     if current == from_id {
       return true
     }
-    let mut already_visited = false
-    for v in visited {
-      if v == current {
-        already_visited = true
-      }
-    }
-    if already_visited {
+    if visited.contains(current) {
       continue
     }
     visited.push(current)
@@ -93,13 +87,7 @@ pub fn evaluate_graph(
   let errors : Array[(Int, String)] = []
   for node_id in order {
     // Find the node
-    let mut node : Node? = None
-    for n in nodes {
-      if n.id == node_id {
-        node = Some(n)
-      }
-    }
-    let n = match node {
+    let n = match nodes.iter().find_first(fn(n) { n.id == node_id }) {
       Some(n) => n
       None => continue
     }
@@ -409,11 +397,8 @@ pub fn format_value(v : Value) -> String {
 ///|
 /// Get output values for a node from eval result.
 pub fn get_node_outputs(result : EvalResult, node_id : Int) -> Array[Value] {
-  for out in result.node_outputs {
-    let (id, vals) = out
-    if id == node_id {
-      return vals
-    }
+  match result.node_outputs.iter().find_first(fn(out) { out.0 == node_id }) {
+    Some(out) => out.1
+    None => []
   }
-  []
 }
