@@ -1,4 +1,5 @@
 ///|
+/// Render the top-level node graph view, delegating to the graph list or editor based on the current page.
 pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -84,16 +85,13 @@ fn Model::view_graph_list(
     // Hero header
     @html.div(
       style=[
-        "text-align: center", "padding: 32px 20px 24px",
-        "background: linear-gradient(135deg, #16213e, #0f3460, #1a1a2e)",
-        "border-radius: 12px", "margin-bottom: 20px",
-        "border: 1px solid #e9456030",
+        "text-align: center", "padding: 32px 20px 24px", "background: linear-gradient(135deg, #16213e, #0f3460, #1a1a2e)",
+        "border-radius: 12px", "margin-bottom: 20px", "border: 1px solid #e9456030",
       ],
       [
         @html.h1(
           style=[
-            "font-size: 1.8em", "letter-spacing: 4px", "color: #e94560",
-            "margin-bottom: 6px",
+            "font-size: 1.8em", "letter-spacing: 4px", "color: #e94560", "margin-bottom: 6px",
           ],
           "NODE GRAPH",
         ),
@@ -104,8 +102,7 @@ fn Model::view_graph_list(
         // Port type legend
         @html.div(
           style=[
-            "display: flex", "gap: 16px", "justify-content: center",
-            "margin-top: 14px",
+            "display: flex", "gap: 16px", "justify-content: center", "margin-top: 14px",
           ],
           [
             port_legend_dot("#4CAF50", "Number"),
@@ -155,20 +152,17 @@ fn Model::view_graph_list(
 
 ///|
 fn port_legend_dot(color : String, label : String) -> @rabbita.Html {
-  @html.div(
-    style=["display: flex", "align-items: center", "gap: 4px"],
-    [
-      @html.div(
-        style=[
-          "width: 8px", "height: 8px", "border-radius: 50%",
-          "background: \{color}", "box-shadow: 0 0 6px \{color}60",
-        ],
-        "",
-      ),
-      @html.span(
-        style=["font-size: 0.7em", "color: \{color}"],
-        label,
-      ),
-    ],
-  )
+  @html.div(style=["display: flex", "align-items: center", "gap: 4px"], [
+    @html.div(
+      style=[
+        "width: 8px",
+        "height: 8px",
+        "border-radius: 50%",
+        "background: \{color}",
+        "box-shadow: 0 0 6px \{color}60",
+      ],
+      "",
+    ),
+    @html.span(style=["font-size: 0.7em", "color: \{color}"], label),
+  ])
 }

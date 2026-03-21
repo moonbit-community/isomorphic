@@ -1,4 +1,5 @@
 ///|
+/// Navigation pages for the personal finance application.
 pub(all) enum Page {
   Dashboard
   Transactions
@@ -7,6 +8,7 @@ pub(all) enum Page {
 } derive(Debug)
 
 ///|
+/// Frontend state for the finance app, including accounts, transactions, budgets, form inputs, and filters.
 pub(all) struct Model {
   page : Page
   // Data
@@ -40,6 +42,7 @@ pub(all) struct Model {
 } derive(Debug)
 
 ///|
+/// Messages that drive finance app state transitions, covering navigation, CRUD operations, form input, and filters.
 pub(all) enum Msg {
   // Init
   Init

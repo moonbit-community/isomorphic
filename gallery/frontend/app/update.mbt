@@ -1,4 +1,5 @@
 ///|
+/// Creates the initial application state with all component demos populated with sample data.
 pub fn initial_model() -> Model {
   {
     section: Inputs,
@@ -454,6 +455,7 @@ pub fn initial_model() -> Model {
 }
 
 ///|
+/// Processes a message and returns the updated model along with any side-effect commands.
 pub fn Model::update(
   self : Model,
   msg~ : Msg,

@@ -8,20 +8,24 @@
 pub let num_cols : Int = 26 // A-Z
 
 ///|
+/// Number of rows in each sheet grid.
 pub let num_rows : Int = 30
 
 ///|
+/// A single worksheet containing a named grid of cells.
 pub struct Sheet {
   name : String
   cells : Map[String, @cell.Cell]
 }
 
 ///|
+/// Create an empty sheet with the given name and no cells.
 pub fn Sheet::new(name : String) -> Sheet {
   { name, cells: {} }
 }
 
 ///|
+/// Look up a cell by its key (e.g. "A1"), returning an empty cell if not found.
 pub fn Sheet::get(self : Sheet, key : String) -> @cell.Cell {
   match self.cells.get(key) {
     Some(c) => c
@@ -30,6 +34,7 @@ pub fn Sheet::get(self : Sheet, key : String) -> @cell.Cell {
 }
 
 ///|
+/// Top-level application state: all sheets, the active sheet index, selection, and editing state.
 pub struct Model {
   sheets : Array[Sheet]
   active_sheet : Int
@@ -42,6 +47,7 @@ pub struct Model {
 }
 
 ///|
+/// All user actions the spreadsheet can handle: navigation, editing, formatting, sheet management, and import/export.
 pub(all) enum Msg {
   // Navigation
   SelectCell(Int, Int)
@@ -73,6 +79,7 @@ pub(all) enum Msg {
 }
 
 ///|
+/// Initialize the spreadsheet with demo sheets pre-populated with sample data and evaluated formulas.
 pub fn Model::new() -> Model {
   let sheet1 = Sheet::new("Sales Dashboard")
   let sheet2 = Sheet::new("Team Metrics")
@@ -349,11 +356,13 @@ fn populate_team_metrics(sheet : Sheet) -> Unit {
 }
 
 ///|
+/// Return the currently active sheet.
 pub fn Model::current_sheet(self : Model) -> Sheet {
   self.sheets[self.active_sheet]
 }
 
 ///|
+/// Return the cell at the current selection position.
 pub fn Model::selected_cell(self : Model) -> @cell.Cell {
   let key = @cell.make_key(self.sel_col, self.sel_row)
   self.current_sheet().get(key)

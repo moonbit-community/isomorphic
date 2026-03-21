@@ -1,10 +1,12 @@
 ///|
+/// Navigation pages for the node graph editor.
 pub(all) enum Page {
   GraphList
   Editor
 } derive(Debug)
 
 ///|
+/// Frontend state for the node graph editor, including graph data, drag/wire state, and UI controls.
 pub(all) struct Model {
   page : Page
   graphs : Array[@shared.SavedGraph]
@@ -41,6 +43,7 @@ pub(all) struct Model {
 } derive(Debug)
 
 ///|
+/// Messages that drive node graph editor state transitions, covering navigation, node/connection CRUD, dragging, and evaluation.
 pub(all) enum Msg {
   Init
   // Navigation
@@ -70,12 +73,12 @@ pub(all) enum Msg {
   ConfigSaved(Result[Unit, String])
   // Node dragging
   StartDrag(Int, Int, Int) // node_id, mouse_x, mouse_y
-  Drag(Int, Int)           // mouse_x, mouse_y
+  Drag(Int, Int) // mouse_x, mouse_y
   EndDrag
   NodePositionSaved(Result[Unit, String])
   // Connection wire dragging
-  StartConnect(Int, Int)   // node_id, port_idx
-  WireMove(Int, Int)       // mouse_x, mouse_y
+  StartConnect(Int, Int) // node_id, port_idx
+  WireMove(Int, Int) // mouse_x, mouse_y
   CompleteConnect(Int, Int) // node_id, port_idx
   CancelConnect
   ConnectionAdded(Result[@shared.Connection, String])

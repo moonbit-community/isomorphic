@@ -12,6 +12,7 @@ priv struct KnobModel {
 }
 
 ///|
+#warnings("-unused_constructor")
 priv enum KnobMsg {
   Increment
   Decrement

@@ -30,7 +30,11 @@ fn Model::view_nodes(
         "left: \{x}px",
         "top: \{y}px",
         "width: \{node_w}px",
-        if self.dragging_node == n.id { "z-index: 100; opacity: 0.9" } else { "z-index: 1" },
+        if self.dragging_node == n.id {
+          "z-index: 100; opacity: 0.9"
+        } else {
+          "z-index: 1"
+        },
       ],
       [self.view_single_node(n, dispatch)],
     )
@@ -46,10 +50,16 @@ fn Model::view_nodes(
   // Outer scroller with mouse events for dragging
   @html.div(
     style=[
-      "overflow: auto", "margin-bottom: 16px",
-      "border-radius: 8px", "border: 1px solid #1b2838",
+      "overflow: auto",
+      "margin-bottom: 16px",
+      "border-radius: 8px",
+      "border: 1px solid #1b2838",
       "max-height: 600px",
-      if self.dragging_node != 0 { "cursor: grabbing" } else { "" },
+      if self.dragging_node != 0 {
+        "cursor: grabbing"
+      } else {
+        ""
+      },
     ],
     [
       @html.div(
@@ -97,7 +107,8 @@ fn Model::view_temp_wire(
   w : Int,
   h : Int,
 ) -> @rabbita.Html {
-  if self.connecting_from_node == 0 || (self.wire_mouse_x == 0 && self.wire_mouse_y == 0) {
+  if self.connecting_from_node == 0 ||
+    (self.wire_mouse_x == 0 && self.wire_mouse_y == 0) {
     return @html.text("")
   }
   let (from_x, from_y) = get_pos(layout, self.connecting_from_node)
@@ -119,7 +130,13 @@ fn Model::view_temp_wire(
     0
   }
   let x1 = from_x + node_w
-  let y1 = from_y + header_h + from_config_h + from_inputs_h + 16 + self.connecting_from_port * port_stride + 8
+  let y1 = from_y +
+    header_h +
+    from_config_h +
+    from_inputs_h +
+    16 +
+    self.connecting_from_port * port_stride +
+    8
   let x2 = self.wire_mouse_x
   let y2 = self.wire_mouse_y
   let diff = x2 - x1
@@ -180,7 +197,13 @@ fn Model::view_svg_wires(
       0
     }
     let x1 = from_x + node_w
-    let y1 = from_y + header_h + from_config_h + from_inputs_h + 16 + c.from_port * port_stride + 8
+    let y1 = from_y +
+      header_h +
+      from_config_h +
+      from_inputs_h +
+      16 +
+      c.from_port * port_stride +
+      8
     // Target node: input ports come after header + config
     let to_has_config = match to_kind {
       ConstNumber | ConstString | ConstBool | ConstColor => true
@@ -276,8 +299,11 @@ fn Model::view_single_node(
         style=[
           "background: linear-gradient(135deg, \{cat_color}, \{cat_color}bb)",
           "padding: 7px 12px",
-          "display: flex", "justify-content: space-between", "align-items: center",
-          "cursor: grab", "user-select: none",
+          "display: flex",
+          "justify-content: space-between",
+          "align-items: center",
+          "cursor: grab",
+          "user-select: none",
         ],
         on_mousedown=fn(m) {
           let pos = m.client_pos()
@@ -285,7 +311,10 @@ fn Model::view_single_node(
         },
         [
           @html.span(
-            style=["font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)", "pointer-events: none"],
+            style=[
+              "font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)",
+              "pointer-events: none",
+            ],
             node.label,
           ),
           @html.button(
@@ -433,9 +462,15 @@ fn Model::view_input_ports(
     items.push(
       @html.div(
         style=[
-          "display: flex", "align-items: center", "gap: 4px",
+          "display: flex",
+          "align-items: center",
+          "gap: 4px",
           "margin-bottom: 3px",
-          if incompatible { "opacity: 0.5" } else { "" },
+          if incompatible {
+            "opacity: 0.5"
+          } else {
+            ""
+          },
         ],
         [
           @html.div(style=[dot_style], ""),
@@ -443,19 +478,21 @@ fn Model::view_input_ports(
           if compatible {
             @html.div(
               style=[
-                "padding: 3px 8px", "background: \{color}", "color: #fff",
-                "border: none", "border-radius: 4px", "cursor: crosshair",
-                "font-size: 0.65em", "font-weight: 700",
+                "padding: 3px 8px",
+                "background: \{color}",
+                "color: #fff",
+                "border: none",
+                "border-radius: 4px",
+                "cursor: crosshair",
+                "font-size: 0.65em",
+                "font-weight: 700",
                 "animation: breathe 1.5s infinite",
               ],
               on_mouseup=fn(_m) { dispatch(CompleteConnect(node.id, i)) },
               "\u{2192} drop here",
             )
           } else if incompatible {
-            @html.span(
-              style=["font-size: 0.6em", "color: #f44336"],
-              "\u{2715}",
-            )
+            @html.span(style=["font-size: 0.6em", "color: #f44336"], "\u{2715}")
           } else {
             @html.text("")
           },
@@ -499,10 +536,14 @@ fn Model::view_output_ports(
         [
           @html.div(
             style=[
-              "padding: 2px 6px", "background: \{color}30",
-              "color: \{color}", "border: 1px solid \{color}",
-              "border-radius: 3px", "cursor: crosshair",
-              "font-size: 0.6em", "font-weight: 700",
+              "padding: 2px 6px",
+              "background: \{color}30",
+              "color: \{color}",
+              "border: 1px solid \{color}",
+              "border-radius: 3px",
+              "cursor: crosshair",
+              "font-size: 0.6em",
+              "font-weight: 700",
               "user-select: none",
             ],
             on_mousedown=fn(m) {

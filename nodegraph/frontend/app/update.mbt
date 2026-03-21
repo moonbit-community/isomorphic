@@ -7,10 +7,11 @@ fn api(path : String) -> String {
 fn fetch_graphs(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @http.get(
     api(@shared.api_graphs),
-    expect=Json(
-      fn(r) { dispatch(GotGraphs(r)) },
-      fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
-    ),
+    expect=Json(fn(r) { dispatch(GotGraphs(r)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("decode error")
+      }
+    }),
   )
 }
 
@@ -18,10 +19,11 @@ fn fetch_graphs(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 fn fetch_graph(dispatch : @rabbita.Dispatch[Msg], id : Int) -> @rabbita.Cmd {
   @http.get(
     api(@shared.api_graph(id)),
-    expect=Json(
-      fn(r) { dispatch(GotGraph(r)) },
-      fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
-    ),
+    expect=Json(fn(r) { dispatch(GotGraph(r)) }, fn(json) {
+      Ok(@json.from_json(json)) catch {
+        _ => Err("decode error")
+      }
+    }),
   )
 }
 
@@ -54,6 +56,7 @@ fn auto_eval_cmd(
 }
 
 ///|
+/// Process a node graph editor message, returning the updated model and any side-effect commands.
 #warnings("-unresolved_type_variable")
 pub fn Model::update(
   self : Model,
@@ -97,8 +100,7 @@ pub fn Model::update(
       } else {
         ({ ..self, graphs, loading: false, first_load: false }, @rabbita.none)
       }
-    GotGraphs(Err(e)) =>
-      ({ ..self, error: e, loading: false }, @rabbita.none)
+    GotGraphs(Err(e)) => ({ ..self, error: e, loading: false }, @rabbita.none)
     SetGraphName(v) => ({ ..self, new_graph_name: v }, @rabbita.none)
     CreateGraph => {
       if !@shared.validate_graph_name(self.new_graph_name) {
@@ -159,17 +161,16 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         api(@shared.api_graph_nodes(self.current_graph_id)),
-        Json(
-          {
-            "kind": @shared.kind_to_string(kind).to_json(),
-            "label": label.to_json(),
-            "config": config.to_json(),
-          },
-        ),
-        expect=Json(
-          fn(r) { dispatch(NodeAdded(r)) },
-          fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
-        ),
+        Json({
+          "kind": @shared.kind_to_string(kind).to_json(),
+          "label": label.to_json(),
+          "config": config.to_json(),
+        }),
+        expect=Json(fn(r) { dispatch(NodeAdded(r)) }, fn(json) {
+          Ok(@json.from_json(json)) catch {
+            _ => Err("decode error")
+          }
+        }),
       )
       ({ ..self, show_palette: false, error: "" }, cmd)
     }
@@ -231,7 +232,7 @@ pub fn Model::update(
           n
         }
       })
-      ({ ..self, nodes }, @rabbita.none)
+      ({ ..self, nodes, }, @rabbita.none)
     }
     EndDrag => {
       if self.dragging_node == 0 {
@@ -249,18 +250,14 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         api(@shared.api_graph_node(self.current_graph_id, node_id)),
-        Json(
-          {
-            "config": "".to_json(),
-            "label": "".to_json(),
-            "x": nx.to_json(),
-            "y": ny.to_json(),
-          },
-        ),
+        Json({
+          "config": "".to_json(),
+          "label": "".to_json(),
+          "x": nx.to_json(),
+          "y": ny.to_json(),
+        }),
         expect=Json(
-          fn(r) {
-            dispatch(NodePositionSaved(r.map(fn(_j : Json) { () })))
-          },
+          fn(r) { dispatch(NodePositionSaved(r.map(fn(_j : Json) { () }))) },
           fn(json) { Ok(json) },
         ),
       )
@@ -279,12 +276,10 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         api(@shared.api_graph_node(self.current_graph_id, self.editing_node)),
-        Json(
-          {
-            "config": self.config_value.to_json(),
-            "label": self.config_value.to_json(),
-          },
-        ),
+        Json({
+          "config": self.config_value.to_json(),
+          "label": self.config_value.to_json(),
+        }),
         expect=Json(
           fn(r) { dispatch(ConfigSaved(r.map(fn(_json : Json) { () }))) },
           fn(json) { Ok(json) },
@@ -318,7 +313,7 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    WireMove(client_x, client_y) => {
+    WireMove(client_x, client_y) =>
       // On first move, calibrate: record clientX and compute port canvas pos
       if self.wire_start_cx == 0 && self.wire_start_cy == 0 {
         // Compute the output port's canvas position
@@ -333,8 +328,18 @@ pub fn Model::update(
               _ => false
             }
             let cfg_h = if has_cfg { 32 } else { 0 }
-            let ins_h = if in_count > 0 { 16 + in_count * port_stride } else { 0 }
-            oy = n.y + header_h + cfg_h + ins_h + 16 + self.connecting_from_port * port_stride + 8
+            let ins_h = if in_count > 0 {
+              16 + in_count * port_stride
+            } else {
+              0
+            }
+            oy = n.y +
+              header_h +
+              cfg_h +
+              ins_h +
+              16 +
+              self.connecting_from_port * port_stride +
+              8
           }
         }
         (
@@ -355,7 +360,6 @@ pub fn Model::update(
         let wy = self.wire_origin_y + (client_y - self.wire_start_cy)
         ({ ..self, wire_mouse_x: wx, wire_mouse_y: wy }, @rabbita.none)
       }
-    }
     CancelConnect =>
       (
         {
@@ -391,26 +395,20 @@ pub fn Model::update(
       }
       let cmd = @http.post(
         api(@shared.api_graph_connections(self.current_graph_id)),
-        Json(
-          {
-            "from_node_id": from_node.to_json(),
-            "from_port": from_port.to_json(),
-            "to_node_id": to_node.to_json(),
-            "to_port": to_port.to_json(),
-          },
-        ),
-        expect=Json(
-          fn(r) { dispatch(ConnectionAdded(r)) },
-          fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
-        ),
+        Json({
+          "from_node_id": from_node.to_json(),
+          "from_port": from_port.to_json(),
+          "to_node_id": to_node.to_json(),
+          "to_port": to_port.to_json(),
+        }),
+        expect=Json(fn(r) { dispatch(ConnectionAdded(r)) }, fn(json) {
+          Ok(@json.from_json(json)) catch {
+            _ => Err("decode error")
+          }
+        }),
       )
       (
-        {
-          ..self,
-          connecting_from_node: 0,
-          connecting_from_port: 0,
-          error: "",
-        },
+        { ..self, connecting_from_node: 0, connecting_from_port: 0, error: "" },
         cmd,
       )
     }
@@ -424,9 +422,7 @@ pub fn Model::update(
     DeleteConnection(id) => {
       let cmd = @http.delete(
         api(@shared.api_graph_connection(self.current_graph_id, id)),
-        expect=Text(fn(r) {
-          dispatch(ConnectionDeleted(r.map(fn(_) { id })))
-        }),
+        expect=Text(fn(r) { dispatch(ConnectionDeleted(r.map(fn(_) { id }))) }),
       )
       (self, cmd)
     }

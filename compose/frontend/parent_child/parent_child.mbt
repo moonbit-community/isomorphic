@@ -28,6 +28,7 @@ priv enum ParentMsg {
 }
 
 ///|
+/// Create a parent cell with two child counter cells, connected via dispatch handles for cross-cell reset.
 pub fn make() -> @rabbita.Cell {
   // Create children — get back Dispatch handles
   let (dispatch_a, cell_a) = @rabbita.simple_cell_with_dispatch(
@@ -48,10 +49,7 @@ pub fn make() -> @rabbita.Cell {
       match msg {
         ResetAll => {
           // Send Reset to both children via their dispatch handles
-          let cmd = @rabbita.batch([
-            dispatch_a(@counter.Msg::Reset),
-            dispatch_b(@counter.Msg::Reset),
-          ])
+          let cmd = @rabbita.batch([dispatch_a(Reset), dispatch_b(Reset)])
           (cmd, { total_resets: model.total_resets + 1 })
         }
       }

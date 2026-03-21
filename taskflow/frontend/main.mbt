@@ -24,24 +24,24 @@ fn main {
   let saved_dark = load_pref("taskflow_dark") == "1"
   let (dispatch, app_cell) = @rabbita.cell_with_dispatch(
     model=@app.Model::{
-      current_user: None,
+      current_user: (None : @shared.User?),
       auth_screen: "login",
       auth_username: "",
       auth_password: "",
       auth_error: "",
       auth_loading: false,
-      tasks: [],
-      members: [],
-      activities: [],
-      dependencies: [],
-      labels: [],
-      task_labels: [],
-      subtasks: [],
-      time_entries: [],
-      recurrence_rules: [],
-      attachments: [],
-      projects: [],
-      task_projects: [],
+      tasks: ([] : Array[@shared.Task]),
+      members: ([] : Array[@shared.Member]),
+      activities: ([] : Array[@shared.Activity]),
+      dependencies: ([] : Array[@shared.Dependency]),
+      labels: ([] : Array[@shared.Label]),
+      task_labels: ([] : Array[@shared.TaskLabel]),
+      subtasks: ([] : Array[@shared.Subtask]),
+      time_entries: ([] : Array[@shared.TimeEntry]),
+      recurrence_rules: ([] : Array[@shared.RecurrenceRule]),
+      attachments: ([] : Array[@shared.Attachment]),
+      projects: ([] : Array[@shared.Project]),
+      task_projects: ([] : Array[@shared.TaskProject]),
       today: "",
       new_attach_url: "",
       new_attach_label: "",
@@ -69,7 +69,7 @@ fn main {
       edit_due_date: "",
       dark_mode: saved_dark,
       viewing_comments: 0,
-      comments: [],
+      comments: ([] : Array[@shared.Comment]),
       new_comment: "",
       new_subtask: "",
       new_time_minutes: "",
@@ -77,8 +77,8 @@ fn main {
       confirm_delete: 0,
       error_msg: "",
       loading: false,
-      lang: @shared.Lang::En,
-      selected_tasks: [],
+      lang: En,
+      selected_tasks: ([] : Array[Int]),
       dragging_task_id: 0,
       drag_over_status: "",
       undo_msg: "",
@@ -92,6 +92,6 @@ fn main {
     view=fn(dispatch, model) { model.view(dispatch) },
   )
   let app = @rabbita.new(app_cell)
-  app.with_init(dispatch(@app.Init))
+  app.with_init(dispatch(Init))
   app.mount("app")
 }

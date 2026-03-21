@@ -97,9 +97,8 @@ fn Model::view_editor(
     // Branding footer
     @html.div(
       style=[
-        "text-align: center", "padding: 12px", "margin-top: 8px",
-        "font-size: 0.65em", "color: #444", "letter-spacing: 1px",
-        "border-top: 1px solid #1b2838",
+        "text-align: center", "padding: 12px", "margin-top: 8px", "font-size: 0.65em",
+        "color: #444", "letter-spacing: 1px", "border-top: 1px solid #1b2838",
       ],
       "Built with MoonBit + TEA \u{00B7} Type-safe visual dataflow \u{00B7} Same validation runs on frontend & backend",
     ),
@@ -133,27 +132,32 @@ fn Model::view_connect_banner(
   }
   @html.div(
     style=[
-      "background: #0f3460", "padding: 10px 16px", "border-radius: 6px",
-      "margin-bottom: 10px", "display: flex", "justify-content: space-between",
-      "align-items: center", "border: 2px solid \{port_color}",
+      "background: #0f3460",
+      "padding: 10px 16px",
+      "border-radius: 6px",
+      "margin-bottom: 10px",
+      "display: flex",
+      "justify-content: space-between",
+      "align-items: center",
+      "border: 2px solid \{port_color}",
       "animation: fadeIn 0.2s ease",
     ],
     [
-      @html.div(
-        style=["display: flex", "align-items: center", "gap: 8px"],
-        [
-          @html.div(
-            style=[
-              "width: 12px", "height: 12px", "border-radius: 50%",
-              "background: \{port_color}", "animation: pulseGlow 1s infinite",
-            ],
-            "",
-          ),
-          @html.span(
-            "Connecting \{type_label} from \{from_label}.\{port_label} \u{2192} click a compatible input port",
-          ),
-        ],
-      ),
+      @html.div(style=["display: flex", "align-items: center", "gap: 8px"], [
+        @html.div(
+          style=[
+            "width: 12px",
+            "height: 12px",
+            "border-radius: 50%",
+            "background: \{port_color}",
+            "animation: pulseGlow 1s infinite",
+          ],
+          "",
+        ),
+        @html.span(
+          "Connecting \{type_label} from \{from_label}.\{port_label} \u{2192} click a compatible input port",
+        ),
+      ]),
       @html.button(
         style=[
           "padding: 4px 12px", "background: #e94560", "color: #fff", "border: none",

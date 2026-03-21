@@ -83,6 +83,7 @@ fn parse_int_or(s : String, default : Int) -> Int {
 }
 
 ///|
+/// Process a finance app message, returning the updated model and any side-effect commands.
 #warnings("-unresolved_type_variable")
 pub fn Model::update(
   self : Model,

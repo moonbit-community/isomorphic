@@ -1,4 +1,5 @@
 ///|
+/// Renders the full gallery layout including sidebar, content area, and overlay layers.
 pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -158,6 +159,7 @@ fn component_description(section : Section, index : Int) -> String {
 }
 
 ///|
+/// Dispatches rendering to the appropriate component view based on the active section and index.
 pub fn Model::render_component(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],

@@ -29,6 +29,7 @@ pub(all) struct Date {
 } derive(Eq)
 
 ///|
+/// Format the date as an ISO-style "YYYY-MM-DD" string.
 pub fn Date::to_string(self : Date) -> String {
   let m = if self.month < 10 {
     "0\{self.month}"
@@ -40,6 +41,7 @@ pub fn Date::to_string(self : Date) -> String {
 }
 
 ///|
+/// Calendar component state: the currently displayed month, selected date, and today's date.
 pub struct Model {
   view_year : Int
   view_month : Int // 1-12 — the month currently displayed
@@ -48,6 +50,7 @@ pub struct Model {
 }
 
 ///|
+/// Messages for calendar interaction: month navigation, day selection, and clearing the selection.
 pub(all) enum Msg {
   PrevMonth
   NextMonth
@@ -56,11 +59,13 @@ pub(all) enum Msg {
 }
 
 ///|
+/// Create a new calendar model initialized to the given date's month with no selection.
 pub fn Model::new(today~ : Date) -> Model {
   { view_year: today.year, view_month: today.month, selected: None, today }
 }
 
 ///|
+/// Process a calendar message and return the updated model.
 pub fn Model::update(self : Model, msg : Msg) -> Model {
   match msg {
     PrevMonth => {
@@ -142,6 +147,7 @@ fn month_name(m : Int) -> String {
 // --- View ---
 
 ///|
+/// Render the calendar as an interactive month grid with navigation, day selection, and a footer.
 pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],

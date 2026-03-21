@@ -109,6 +109,7 @@ fn DashboardModel::view(
 }
 
 ///|
+/// Create the studio dashboard cell with a mixer panel, color mixer, and dark mode toggle.
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
     model=(

@@ -73,7 +73,7 @@ pub fn extract_references(raw : String) -> Array[String] {
 pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
   let trimmed = raw.trim()
   if trimmed.is_empty() {
-    return @cell.Value::Empty
+    return Empty
   }
   let trimmed_str = trimmed.to_string()
   match trimmed_str.strip_prefix("=") {
@@ -85,9 +85,9 @@ pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
       // Try number
       try {
         let n = @strconv.parse_double(trimmed_str)
-        @cell.Value::Num(n)
+        Num(n)
       } catch {
-        _ => @cell.Value::Text(trimmed_str)
+        _ => Text(trimmed_str)
       }
   }
 }
@@ -104,7 +104,7 @@ fn parse_and_eval(
     let result = parse_comparison(state, lookup)
     result
   } catch {
-    _ => @cell.Value::Error("PARSE")
+    _ => Error("PARSE")
   }
 }
 
@@ -407,11 +407,11 @@ fn parse_factor(
   match state.peek() {
     Some(TNum(n)) => {
       state.advance()
-      @cell.Value::Num(n)
+      Num(n)
     }
     Some(TStr(s)) => {
       state.advance()
-      @cell.Value::Text(s)
+      Text(s)
     }
     Some(TRef(r)) => {
       state.advance()
@@ -424,9 +424,9 @@ fn parse_factor(
               state.advance()
               // Shouldn't happen in factor context, treat as error
               let _ = r2
-              @cell.Value::Error("RANGE")
+              Error("RANGE")
             }
-            _ => @cell.Value::Error("RANGE")
+            _ => Error("RANGE")
           }
         }
         _ => lookup(r)
@@ -459,7 +459,7 @@ fn parse_func_call(
   // Expect '('
   match state.peek() {
     Some(TLParen) => state.advance()
-    _ => return @cell.Value::Error("FUNC")
+    _ => return Error("FUNC")
   }
   // Dispatch by function name
   match name {
@@ -487,13 +487,13 @@ fn parse_if(
   // Expect comma
   match state.peek() {
     Some(TComma) => state.advance()
-    _ => return @cell.Value::Error("IF:ARGS")
+    _ => return Error("IF:ARGS")
   }
   let true_val = parse_comparison(state, lookup)
   // Expect comma
   match state.peek() {
     Some(TComma) => state.advance()
-    _ => return @cell.Value::Error("IF:ARGS")
+    _ => return Error("IF:ARGS")
   }
   let false_val = parse_comparison(state, lookup)
   // Expect ')'
@@ -691,7 +691,7 @@ fn expand_range(
 ///|
 fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
   if values.is_empty() {
-    return @cell.Value::Num(0.0)
+    return Num(0.0)
   }
   match name {
     "SUM" => {
@@ -699,14 +699,14 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
       for v in values {
         sum = sum + v
       }
-      @cell.Value::Num(sum)
+      Num(sum)
     }
     "AVG" | "AVERAGE" => {
       let mut sum = 0.0
       for v in values {
         sum = sum + v
       }
-      @cell.Value::Num(sum / values.length().to_double())
+      Num(sum / values.length().to_double())
     }
     "MIN" => {
       let mut min = values[0]
@@ -715,7 +715,7 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
           min = v
         }
       }
-      @cell.Value::Num(min)
+      Num(min)
     }
     "MAX" => {
       let mut max = values[0]
@@ -724,10 +724,10 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
           max = v
         }
       }
-      @cell.Value::Num(max)
+      Num(max)
     }
-    "COUNT" => @cell.Value::Num(values.length().to_double())
-    _ => @cell.Value::Error("FUNC?\{name}")
+    "COUNT" => Num(values.length().to_double())
+    _ => Error("FUNC?\{name}")
   }
 }
 
@@ -736,16 +736,16 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
   match name {
     "ABS" => {
       if args.length() < 1 {
-        return @cell.Value::Error("ABS:ARGS")
+        return Error("ABS:ARGS")
       }
       match to_num(args[0]) {
-        Some(n) => @cell.Value::Num(if n < 0.0 { 0.0 - n } else { n })
-        None => @cell.Value::Error("TYPE")
+        Some(n) => Num(if n < 0.0 { 0.0 - n } else { n })
+        None => Error("TYPE")
       }
     }
     "ROUND" => {
       if args.length() < 1 {
-        return @cell.Value::Error("ROUND:ARGS")
+        return Error("ROUND:ARGS")
       }
       let decimals = if args.length() >= 2 {
         match to_num(args[1]) {
@@ -761,58 +761,58 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
           // Use floor(x + 0.5) for correct rounding of negatives
           let scaled = n * factor
           let rounded = (scaled + 0.5).floor() / factor
-          @cell.Value::Num(rounded)
+          Num(rounded)
         }
-        None => @cell.Value::Error("TYPE")
+        None => Error("TYPE")
       }
     }
     "POWER" => {
       if args.length() < 2 {
-        return @cell.Value::Error("POWER:ARGS")
+        return Error("POWER:ARGS")
       }
       match (to_num(args[0]), to_num(args[1])) {
         (Some(base), Some(exponent)) => {
           // Guard: negative base with fractional exp, or zero base with negative exp
           if (base < 0.0 && exponent.to_int().to_double() != exponent) ||
             (base == 0.0 && exponent < 0.0) {
-            return @cell.Value::Error("POWER")
+            return Error("POWER")
           }
           // Check if exponent is an integer for exact calculation
           let exp_int = exponent.to_int()
           if exp_int.to_double() == exponent {
-            @cell.Value::Num(pow(base, exp_int))
+            Num(pow(base, exp_int))
           } else {
-            @cell.Value::Num(@math.pow(base, exponent))
+            Num(@math.pow(base, exponent))
           }
         }
-        _ => @cell.Value::Error("TYPE")
+        _ => Error("TYPE")
       }
     }
     "MOD" => {
       if args.length() < 2 {
-        return @cell.Value::Error("MOD:ARGS")
+        return Error("MOD:ARGS")
       }
       match (to_num(args[0]), to_num(args[1])) {
-        (Some(_), Some(0.0)) => @cell.Value::Error("DIV/0")
+        (Some(_), Some(0.0)) => Error("DIV/0")
         (Some(a), Some(b)) => {
           // Excel MOD: result has same sign as divisor
           let result = a - (a / b).floor() * b
-          @cell.Value::Num(result)
+          Num(result)
         }
-        _ => @cell.Value::Error("TYPE")
+        _ => Error("TYPE")
       }
     }
     "INT" => {
       if args.length() < 1 {
-        return @cell.Value::Error("INT:ARGS")
+        return Error("INT:ARGS")
       }
       match to_num(args[0]) {
         // INT floors toward negative infinity (Excel behavior)
-        Some(n) => @cell.Value::Num(n.floor())
-        None => @cell.Value::Error("TYPE")
+        Some(n) => Num(n.floor())
+        None => Error("TYPE")
       }
     }
-    _ => @cell.Value::Error("FUNC?\{name}")
+    _ => Error("FUNC?\{name}")
   }
 }
 
@@ -841,30 +841,30 @@ fn apply_string_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
       for arg in args {
         sb.write_string(value_to_string(arg))
       }
-      @cell.Value::Text(sb.to_string())
+      Text(sb.to_string())
     }
     "LEN" => {
       if args.length() < 1 {
-        return @cell.Value::Num(0.0)
+        return Num(0.0)
       }
       let s = value_to_string(args[0])
-      @cell.Value::Num(s.length().to_double())
+      Num(s.length().to_double())
     }
     "UPPER" => {
       if args.length() < 1 {
-        return @cell.Value::Text("")
+        return Text("")
       }
       let s = value_to_string(args[0])
-      @cell.Value::Text(to_upper(s))
+      Text(to_upper(s))
     }
     "LOWER" => {
       if args.length() < 1 {
-        return @cell.Value::Text("")
+        return Text("")
       }
       let s = value_to_string(args[0])
-      @cell.Value::Text(to_lower(s))
+      Text(to_lower(s))
     }
-    _ => @cell.Value::Error("FUNC?\{name}")
+    _ => Error("FUNC?\{name}")
   }
 }
 
@@ -882,33 +882,33 @@ fn to_num(v : @cell.Value) -> Double? {
 ///|
 fn add_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) => @cell.Value::Num(x + y)
-    _ => @cell.Value::Error("TYPE")
+    (Some(x), Some(y)) => Num(x + y)
+    _ => Error("TYPE")
   }
 }
 
 ///|
 fn sub_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) => @cell.Value::Num(x - y)
-    _ => @cell.Value::Error("TYPE")
+    (Some(x), Some(y)) => Num(x - y)
+    _ => Error("TYPE")
   }
 }
 
 ///|
 fn mul_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) => @cell.Value::Num(x * y)
-    _ => @cell.Value::Error("TYPE")
+    (Some(x), Some(y)) => Num(x * y)
+    _ => Error("TYPE")
   }
 }
 
 ///|
 fn div_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
-    (Some(_), Some(0.0)) => @cell.Value::Error("DIV/0")
-    (Some(x), Some(y)) => @cell.Value::Num(x / y)
-    _ => @cell.Value::Error("TYPE")
+    (Some(_), Some(0.0)) => Error("DIV/0")
+    (Some(x), Some(y)) => Num(x / y)
+    _ => Error("TYPE")
   }
 }
 
@@ -920,8 +920,7 @@ fn compare_values(
 ) -> @cell.Value {
   // Try numeric comparison first
   match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) =>
-      return @cell.Value::Num(if cmp(x, y) { 1.0 } else { 0.0 })
+    (Some(x), Some(y)) => return Num(if cmp(x, y) { 1.0 } else { 0.0 })
     _ => ()
   }
   // Try text equality comparison (for IF conditions with strings)
@@ -935,9 +934,9 @@ fn compare_values(
       } else {
         cmp(1.0, 0.0)
       }
-      @cell.Value::Num(if result { 1.0 } else { 0.0 })
+      Num(if result { 1.0 } else { 0.0 })
     }
-    _ => @cell.Value::Error("TYPE")
+    _ => Error("TYPE")
   }
 }
 

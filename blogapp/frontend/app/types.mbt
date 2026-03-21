@@ -1,4 +1,5 @@
 ///|
+/// Navigation pages for the blog application.
 pub(all) enum Page {
   PostList
   ViewPost(Int)
@@ -7,6 +8,7 @@ pub(all) enum Page {
 } derive(Debug)
 
 ///|
+/// Frontend state for the blog app, including posts, comments, form inputs, and current page.
 pub(all) struct Model {
   posts : Array[@shared.Post]
   current_post : @shared.Post?
@@ -20,6 +22,7 @@ pub(all) struct Model {
 } derive(Debug)
 
 ///|
+/// Messages that drive blog app state transitions, covering navigation, CRUD operations, and form input.
 pub(all) enum Msg {
   // Navigation
   GoToList

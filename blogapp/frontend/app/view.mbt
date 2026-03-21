@@ -1,4 +1,5 @@
 ///|
+/// Render the top-level blog view, delegating to the appropriate sub-view based on the current page.
 pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],

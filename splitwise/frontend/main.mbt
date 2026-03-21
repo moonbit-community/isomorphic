@@ -18,6 +18,6 @@ fn main {
     view=fn(dispatch, model) { model.view(dispatch) },
   )
   let app = @rabbita.new(app_cell)
-  app.with_init(dispatch(@app.Init))
+  app.with_init(dispatch(Init))
   app.mount("app")
 }

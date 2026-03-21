@@ -22,6 +22,7 @@ let header_h : Int = 35
 let port_stride : Int = 28
 
 ///|
+/// Compute auto-layout positions for nodes using topological layering. Returns an array of (node_id, x, y) tuples.
 pub fn compute_layout(
   nodes : Array[@shared.Node],
   connections : Array[@shared.Connection],
@@ -79,6 +80,7 @@ fn find_idx(ids : Array[Int], id : Int) -> Int {
 }
 
 ///|
+/// Look up a node's (x, y) position in the layout by its ID, defaulting to (0, 0) if not found.
 pub fn get_pos(layout : Array[(Int, Int, Int)], node_id : Int) -> (Int, Int) {
   for entry in layout {
     let (id, x, y) = entry
@@ -90,6 +92,7 @@ pub fn get_pos(layout : Array[(Int, Int, Int)], node_id : Int) -> (Int, Int) {
 }
 
 ///|
+/// Compute the minimum canvas dimensions needed to contain all laid-out nodes.
 pub fn canvas_size(layout : Array[(Int, Int, Int)]) -> (Int, Int) {
   let mut max_x = 600
   let mut max_y = 400

@@ -70,7 +70,6 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
     sheets[i] = recalc(sheets[i])
   }
   {
-    ..model,
     sheets,
     active_sheet: 0,
     sel_col: 0,
@@ -244,7 +243,7 @@ fn get_xlsx_style(
                 let c = colors[0]
                 // Excel colors may be "FFRRGGBB" (8-char ARGB) — convert to #RRGGBB
                 if c.length() == 8 {
-                  "#\{c.substring(start=2)}"
+                  "#\{c[2:].to_string()}"
                 } else if c.length() == 6 {
                   "#\{c}"
                 } else {
@@ -378,7 +377,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
   if cell.bg_color != "" {
     // Convert "#RRGGBB" to "FFRRGGBB"
     let color = if cell.bg_color.length() == 7 && cell.bg_color[0] == '#' {
-      "FF\{cell.bg_color.substring(start=1)}"
+      "FF\{cell.bg_color[1:].to_string()}"
     } else {
       cell.bg_color
     }

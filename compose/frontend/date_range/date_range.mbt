@@ -73,6 +73,7 @@ fn RangeModel::view(
 }
 
 ///|
+/// Create a date-range picker cell composed of two independent calendar instances.
 pub fn make() -> @rabbita.Cell {
   let today : @calendar.Date = { year: 2026, month: 3, day: 20 }
   @rabbita.simple_cell(

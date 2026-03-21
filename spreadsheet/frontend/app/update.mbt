@@ -34,6 +34,7 @@ fn recalc(sheet : Sheet) -> Sheet {
 }
 
 ///|
+/// Process a message and return the updated model with any side-effect commands.
 pub fn Model::update(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],

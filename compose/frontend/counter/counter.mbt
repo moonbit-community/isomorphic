@@ -8,6 +8,7 @@ pub struct Model {
 }
 
 ///|
+/// Messages for counter actions: increment, decrement, or reset to zero.
 pub(all) enum Msg {
   Increment
   Decrement
@@ -15,11 +16,13 @@ pub(all) enum Msg {
 }
 
 ///|
+/// Create a new counter initialized to zero.
 pub fn Model::new() -> Model {
   { count: 0 }
 }
 
 ///|
+/// Process a counter message and return the updated model.
 pub fn Model::update(self : Model, msg : Msg) -> Model {
   match msg {
     Increment => { count: self.count + 1 }

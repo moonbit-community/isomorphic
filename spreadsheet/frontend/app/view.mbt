@@ -1,4 +1,5 @@
 ///|
+/// Render the full spreadsheet UI: toolbar, formula bar, optional charts, cell grid, sheet tabs, and status bar.
 pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -107,19 +108,19 @@ fn Model::view_toolbar(
         "\u{2261}",
         is_left,
         "font-size:14px",
-        dispatch(SetAlign(@cell.Align::Left)),
+        dispatch(SetAlign(Left)),
       ),
       toolbar_button(
         "\u{2263}",
         is_center,
         "font-size:14px",
-        dispatch(SetAlign(@cell.Align::Center)),
+        dispatch(SetAlign(Center)),
       ),
       toolbar_button(
         "\u{2262}",
         is_right,
         "font-size:14px",
-        dispatch(SetAlign(@cell.Align::Right)),
+        dispatch(SetAlign(Right)),
       ),
       view_separator(),
       // --- Number format group ---
@@ -127,13 +128,13 @@ fn Model::view_toolbar(
         "$",
         is_currency,
         "font-size:13px;font-weight:500",
-        dispatch(SetFormat(@cell.NumFormat::Currency)),
+        dispatch(SetFormat(Currency)),
       ),
       toolbar_button(
         "%",
         is_percent,
         "font-size:13px;font-weight:500",
-        dispatch(SetFormat(@cell.NumFormat::Percent)),
+        dispatch(SetFormat(Percent)),
       ),
       view_separator(),
       // --- Color group ---

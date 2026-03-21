@@ -8,6 +8,7 @@ pub(all) enum Value {
 }
 
 ///|
+/// Convert a cell value to its plain display string without number formatting.
 pub fn Value::to_display(self : Value) -> String {
   match self {
     Empty => ""
@@ -25,6 +26,7 @@ pub fn Value::to_display(self : Value) -> String {
 }
 
 ///|
+/// Horizontal alignment of cell content.
 pub(all) enum Align {
   Auto // left for text, right for numbers
   Left
@@ -33,6 +35,7 @@ pub(all) enum Align {
 }
 
 ///|
+/// Display format applied when rendering numeric cell values.
 pub(all) enum NumFormat {
   General // auto display
   Currency // $1,234.56
@@ -41,6 +44,7 @@ pub(all) enum NumFormat {
 }
 
 ///|
+/// A single spreadsheet cell with its raw input, computed value, and visual styling.
 pub(all) struct Cell {
   raw : String // what the user typed
   value : Value // computed result
@@ -53,6 +57,7 @@ pub(all) struct Cell {
 }
 
 ///|
+/// Create a blank cell with no content and default styling.
 pub fn Cell::empty() -> Cell {
   {
     raw: "",
@@ -67,6 +72,7 @@ pub fn Cell::empty() -> Cell {
 }
 
 ///|
+/// Format a cell value for display using the specified number format (currency, percent, etc.).
 pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
   match self {
     Empty => ""
