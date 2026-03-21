@@ -108,7 +108,7 @@ fn handle_post_expenses(
         "Amount must be positive",
       )
     }
-    if split_among.length() == 0 {
+    if split_among.is_empty() {
       println("  -> 400 No participants")
       return @mocket.HttpResponse::new(BadRequest).body(
         "Must split among at least one person",

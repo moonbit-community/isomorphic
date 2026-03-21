@@ -14,7 +14,7 @@ pub fn Model::view(
       ],
     )
     // Total banner (only when there are expenses)
-    if self.expenses.length() > 0 {
+    if !self.expenses.is_empty() {
       let total = compute_total(self.expenses)
       sections.push(
         @html.div(style=total_banner_style) <| [
@@ -30,13 +30,13 @@ pub fn Model::view(
       sections.push(self.view_expense_form(dispatch))
     }
     // Expenses list
-    if self.expenses.length() > 0 {
+    if !self.expenses.is_empty() {
       sections.push(self.view_expenses_list(dispatch))
     }
     // Settlements
-    if self.settlements.length() > 0 {
+    if !self.settlements.is_empty() {
       sections.push(self.view_settlements())
-    } else if self.expenses.length() > 0 {
+    } else if !self.expenses.is_empty() {
       sections.push(
         view_card("Settlements") <| [
           @html.p(style=settled_up_style) <| "All settled up!",
@@ -64,7 +64,7 @@ fn Model::view_people_card(
       ) <| "",
       @html.button(type_="submit", style=add_btn_style) <| "Add",
     ],
-    if self.people.length() > 0 {
+    if !self.people.is_empty() {
       @html.div(style=people_chips_style) <| self.people.map(fn(p) {
         let initial = p.name.iter().collect()[0].to_string().to_upper()
         let color = person_color(p.id)

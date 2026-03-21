@@ -110,7 +110,7 @@ pub fn Model::update(
       if !@shared.validate_amount(cents) {
         return (self, @rabbita.none)
       }
-      if self.people.length() == 0 {
+      if self.people.is_empty() {
         return (self, @rabbita.none)
       }
       let paid_by = if self.paid_by_input == 0 {
