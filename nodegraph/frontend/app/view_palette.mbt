@@ -29,8 +29,7 @@ fn Model::view_palette(
           },
         ],
         on_click=dispatch(SetPaletteCat(cat)),
-        cat_labels[i],
-      ),
+      ) <| cat_labels[i],
     )
   }
   // Node buttons for selected category
@@ -48,30 +47,24 @@ fn Model::view_palette(
       let port_info : Array[@rabbita.Html] = []
       for p in ins {
         port_info.push(
-          @html.span(
-            style=[
-              "font-size: 0.6em",
-              "padding: 1px 4px",
-              "border-radius: 3px",
-              "background: \{@shared.port_type_color(p.port_type)}30",
-              "color: \{@shared.port_type_color(p.port_type)}",
-            ],
-            "\u{2192}\{@shared.port_type_label(p.port_type)}",
-          ),
+          @html.span(style=[
+            "font-size: 0.6em",
+            "padding: 1px 4px",
+            "border-radius: 3px",
+            "background: \{@shared.port_type_color(p.port_type)}30",
+            "color: \{@shared.port_type_color(p.port_type)}",
+          ]) <| "\u{2192}\{@shared.port_type_label(p.port_type)}",
         )
       }
       for p in outs {
         port_info.push(
-          @html.span(
-            style=[
-              "font-size: 0.6em",
-              "padding: 1px 4px",
-              "border-radius: 3px",
-              "background: \{@shared.port_type_color(p.port_type)}30",
-              "color: \{@shared.port_type_color(p.port_type)}",
-            ],
-            "\{@shared.port_type_label(p.port_type)}\u{2192}",
-          ),
+          @html.span(style=[
+            "font-size: 0.6em",
+            "padding: 1px 4px",
+            "border-radius: 3px",
+            "background: \{@shared.port_type_color(p.port_type)}30",
+            "color: \{@shared.port_type_color(p.port_type)}",
+          ]) <| "\{@shared.port_type_label(p.port_type)}\u{2192}",
         )
       }
       node_buttons.push(
@@ -83,36 +76,22 @@ fn Model::view_palette(
             "gap: 3px",
           ],
           on_click=dispatch(AddNode(kind)),
-          [
-            @html.span(
-              style=["font-weight: 600", "font-size: 0.85em"],
-              @shared.node_label(kind),
-            ),
-            @html.div(
-              style=["display: flex", "gap: 3px", "flex-wrap: wrap"],
-              port_info,
-            ),
-          ],
-        ),
+        ) <| [
+          @html.span(style=["font-weight: 600", "font-size: 0.85em"]) <| @shared.node_label(
+            kind,
+          ),
+          @html.div(style=["display: flex", "gap: 3px", "flex-wrap: wrap"]) <| port_info,
+        ],
       )
     }
   }
-  @html.div(
-    style=[
-      "background: #0d1b2a", "padding: 12px", "border-radius: 8px", "margin-bottom: 12px",
-      "border: 1px solid #1b2838",
-    ],
-    [
-      @html.div(
-        style=[
-          "display: flex", "gap: 4px", "margin-bottom: 8px", "flex-wrap: wrap",
-        ],
-        tabs,
-      ),
-      @html.div(
-        style=["display: flex", "gap: 6px", "flex-wrap: wrap"],
-        node_buttons,
-      ),
-    ],
-  )
+  @html.div(style=[
+    "background: #0d1b2a", "padding: 12px", "border-radius: 8px", "margin-bottom: 12px",
+    "border: 1px solid #1b2838",
+  ]) <| [
+    @html.div(style=[
+      "display: flex", "gap: 4px", "margin-bottom: 8px", "flex-wrap: wrap",
+    ]) <| tabs,
+    @html.div(style=["display: flex", "gap: 6px", "flex-wrap: wrap"]) <| node_buttons,
+  ]
 }

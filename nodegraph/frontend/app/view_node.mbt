@@ -4,10 +4,9 @@ fn Model::view_nodes(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   if self.nodes.is_empty() {
-    return @html.div(
-      style=["text-align: center", "color: #555", "padding: 40px"],
-      "No nodes yet. Open the palette to add some!",
-    )
+    return @html.div(style=[
+        "text-align: center", "color: #555", "padding: 40px",
+      ]) <| "No nodes yet. Open the palette to add some!"
   }
   // Use auto-layout for nodes that haven't been positioned (x=0, y=0)
   let auto = compute_layout(self.nodes, self.connections)
@@ -24,20 +23,19 @@ fn Model::view_nodes(
   // Build node cards with absolute positions
   let cards : Array[@rabbita.Html] = self.nodes.map(fn(n) {
     let (x, y) = get_pos(layout, n.id)
-    @html.div(
-      style=[
-        "position: absolute",
-        "left: \{x}px",
-        "top: \{y}px",
-        "width: \{node_w}px",
-        if self.dragging_node == n.id {
-          "z-index: 100; opacity: 0.9"
-        } else {
-          "z-index: 1"
-        },
-      ],
-      [self.view_single_node(n, dispatch)],
-    )
+    @html.div(style=[
+      "position: absolute",
+      "left: \{x}px",
+      "top: \{y}px",
+      "width: \{node_w}px",
+      if self.dragging_node == n.id {
+        "z-index: 100; opacity: 0.9"
+      } else {
+        "z-index: 1"
+      },
+    ]) <| [
+      self.view_single_node(n, dispatch),
+    ]
   })
   // Build SVG wires (established connections + temporary drag wire)
   let wires = self.view_svg_wires(layout, cw, ch)
@@ -48,54 +46,50 @@ fn Model::view_nodes(
     children.push(card)
   }
   // Outer scroller with mouse events for dragging
-  @html.div(
-    style=[
-      "overflow: auto",
-      "margin-bottom: 16px",
-      "border-radius: 8px",
-      "border: 1px solid #1b2838",
-      "max-height: 600px",
-      if self.dragging_node != 0 {
-        "cursor: grabbing"
-      } else {
-        ""
+  @html.div(style=[
+    "overflow: auto",
+    "margin-bottom: 16px",
+    "border-radius: 8px",
+    "border: 1px solid #1b2838",
+    "max-height: 600px",
+    if self.dragging_node != 0 {
+      "cursor: grabbing"
+    } else {
+      ""
+    },
+  ]) <| [
+    @html.div(
+      style=[
+        "position: relative",
+        "min-height: \{ch}px",
+        "min-width: \{cw}px",
+        "background: #0a0a1a",
+      ],
+      on_mouseup=fn(_m) {
+        if self.dragging_node != 0 {
+          dispatch(EndDrag)
+        } else if self.connecting_from_node != 0 {
+          dispatch(CancelConnect)
+        } else {
+          @rabbita.none
+        }
       },
-    ],
-    [
-      @html.div(
-        style=[
-          "position: relative",
-          "min-height: \{ch}px",
-          "min-width: \{cw}px",
-          "background: #0a0a1a",
-        ],
-        on_mouseup=fn(_m) {
-          if self.dragging_node != 0 {
-            dispatch(EndDrag)
-          } else if self.connecting_from_node != 0 {
-            dispatch(CancelConnect)
-          } else {
-            @rabbita.none
-          }
-        },
-        on_mousedown=fn(_m) { @rabbita.none },
-        attrs=@html.Attrs::build().on_mousemove(fn(ev) {
-          // Use clientX/clientY — viewport-relative, never changes
-          // reference element when mouse passes over child nodes
-          let cx = ev.get_client_x()
-          let cy = ev.get_client_y()
-          if self.dragging_node != 0 {
-            dispatch(Drag(cx, cy))
-          } else if self.connecting_from_node != 0 {
-            dispatch(WireMove(cx, cy))
-          } else {
-            @rabbita.none
-          }
-        }),
-        children,
-      ),
-    ],
-  )
+      on_mousedown=fn(_m) { @rabbita.none },
+      attrs=@html.Attrs::build().on_mousemove(fn(ev) {
+        // Use clientX/clientY — viewport-relative, never changes
+        // reference element when mouse passes over child nodes
+        let cx = ev.get_client_x()
+        let cy = ev.get_client_y()
+        if self.dragging_node != 0 {
+          dispatch(Drag(cx, cy))
+        } else if self.connecting_from_node != 0 {
+          dispatch(WireMove(cx, cy))
+        } else {
+          @rabbita.none
+        }
+      }),
+    ) <| children,
+  ]
 }
 
 ///|
@@ -278,73 +272,65 @@ fn Model::view_single_node(
     _ => false
   }
   let has_output = node_vals.length() > 0
-  @html.div(
-    style=[
-      "min-width: 190px",
-      "max-width: 250px",
-      "background: #16213e",
-      "border: 2px solid \{cat_color}",
-      "border-radius: 10px",
-      "overflow: hidden",
-      "animation: fadeIn 0.3s ease",
-      if has_output {
-        "box-shadow: 0 0 12px \{cat_color}40"
-      } else {
-        "box-shadow: 0 2px 8px rgba(0,0,0,0.4)"
+  @html.div(style=[
+    "min-width: 190px",
+    "max-width: 250px",
+    "background: #16213e",
+    "border: 2px solid \{cat_color}",
+    "border-radius: 10px",
+    "overflow: hidden",
+    "animation: fadeIn 0.3s ease",
+    if has_output {
+      "box-shadow: 0 0 12px \{cat_color}40"
+    } else {
+      "box-shadow: 0 2px 8px rgba(0,0,0,0.4)"
+    },
+  ]) <| [
+    // Header with gradient — draggable
+    @html.div(
+      style=[
+        "background: linear-gradient(135deg, \{cat_color}, \{cat_color}bb)",
+        "padding: 7px 12px",
+        "display: flex",
+        "justify-content: space-between",
+        "align-items: center",
+        "cursor: grab",
+        "user-select: none",
+      ],
+      on_mousedown=fn(m) {
+        let pos = m.client_pos()
+        dispatch(StartDrag(node.id, pos.x, pos.y))
       },
-    ],
-    [
-      // Header with gradient — draggable
-      @html.div(
+    ) <| [
+      @html.span(style=[
+        "font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)",
+        "pointer-events: none",
+      ]) <| node.label,
+      @html.button(
         style=[
-          "background: linear-gradient(135deg, \{cat_color}, \{cat_color}bb)",
-          "padding: 7px 12px",
-          "display: flex",
-          "justify-content: space-between",
-          "align-items: center",
-          "cursor: grab",
-          "user-select: none",
+          "background: rgba(0,0,0,0.2)", "border: none", "color: rgba(255,255,255,0.8)",
+          "cursor: pointer", "font-size: 0.75em", "width: 20px", "height: 20px",
+          "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center",
         ],
-        on_mousedown=fn(m) {
-          let pos = m.client_pos()
-          dispatch(StartDrag(node.id, pos.x, pos.y))
-        },
-        [
-          @html.span(
-            style=[
-              "font-weight: 700", "font-size: 0.85em", "color: #fff", "text-shadow: 0 1px 2px rgba(0,0,0,0.3)",
-              "pointer-events: none",
-            ],
-            node.label,
-          ),
-          @html.button(
-            style=[
-              "background: rgba(0,0,0,0.2)", "border: none", "color: rgba(255,255,255,0.8)",
-              "cursor: pointer", "font-size: 0.75em", "width: 20px", "height: 20px",
-              "border-radius: 50%", "display: flex", "align-items: center", "justify-content: center",
-            ],
-            on_click=dispatch(DeleteNode(node.id)),
-            "\u{2715}",
-          ),
-        ],
-      ),
-      // Body
-      @html.div(style=["padding: 8px"], [
-        // Config editing for constant nodes
-        if is_const {
-          self.view_const_config(node, dispatch)
-        } else {
-          @html.text("")
-        },
-        // Input ports
-        self.view_input_ports(node, in_ports, dispatch),
-        // Output ports
-        self.view_output_ports(node, out_ports, dispatch),
-        // Eval result display
-        self.view_node_values(node, node_vals),
-      ]),
+        on_click=dispatch(DeleteNode(node.id)),
+      ) <| "\u{2715}",
     ],
-  )
+    // Body
+    @html.div(style=["padding: 8px"]) <| [
+      // Config editing for constant nodes
+      if is_const {
+        self.view_const_config(node, dispatch)
+      } else {
+        @html.text("")
+      },
+      // Input ports
+      self.view_input_ports(node, in_ports, dispatch),
+      // Output ports
+      self.view_output_ports(node, out_ports, dispatch),
+      // Eval result display
+      self.view_node_values(node, node_vals),
+    ],
+  ]
 }
 
 ///|
@@ -354,7 +340,7 @@ fn Model::view_const_config(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   if self.editing_node == node.id {
-    @html.div(style=["display: flex", "gap: 4px", "margin-bottom: 6px"], [
+    @html.div(style=["display: flex", "gap: 4px", "margin-bottom: 6px"]) <| [
       @html.input(
         input_type=Text,
         value=self.config_value,
@@ -371,17 +357,15 @@ fn Model::view_const_config(
           "border-radius: 3px", "cursor: pointer", "font-size: 0.7em",
         ],
         on_click=dispatch(SaveConfig),
-        "\u{2713}",
-      ),
+      ) <| "\u{2713}",
       @html.button(
         style=[
           "padding: 4px 8px", "background: #555", "color: #ccc", "border: none",
           "border-radius: 3px", "cursor: pointer", "font-size: 0.7em",
         ],
         on_click=dispatch(CancelEditConfig),
-        "\u{2715}",
-      ),
-    ])
+      ) <| "\u{2715}",
+    ]
   } else {
     @html.div(
       style=[
@@ -389,16 +373,15 @@ fn Model::view_const_config(
         "border-radius: 3px", "font-size: 0.8em", "color: #ccc", "text-align: center",
       ],
       on_click=dispatch(StartEditConfig(node.id, node.config)),
-      [
-        @html.span(
-          if node.config.length() > 0 {
-            node.config
-          } else {
-            "(click to set)"
-          },
-        ),
-      ],
-    )
+    ) <| [
+      @html.span(
+        if node.config.length() > 0 {
+          node.config
+        } else {
+          "(click to set)"
+        },
+      ),
+    ]
   }
 }
 
@@ -460,56 +443,49 @@ fn Model::view_input_ports(
       "font-size: 0.7em; color: #aaa; flex: 1"
     }
     items.push(
-      @html.div(
-        style=[
-          "display: flex",
-          "align-items: center",
-          "gap: 4px",
-          "margin-bottom: 3px",
-          if incompatible {
-            "opacity: 0.5"
-          } else {
-            ""
-          },
-        ],
-        [
-          @html.div(style=[dot_style], ""),
-          @html.span(style=[name_style], p.name),
-          if compatible {
-            @html.div(
-              style=[
-                "padding: 3px 8px",
-                "background: \{color}",
-                "color: #fff",
-                "border: none",
-                "border-radius: 4px",
-                "cursor: crosshair",
-                "font-size: 0.65em",
-                "font-weight: 700",
-                "animation: breathe 1.5s infinite",
-              ],
-              on_mouseup=fn(_m) { dispatch(CompleteConnect(node.id, i)) },
-              "\u{2192} drop here",
-            )
-          } else if incompatible {
-            @html.span(style=["font-size: 0.6em", "color: #f44336"], "\u{2715}")
-          } else {
-            @html.text("")
-          },
-        ],
-      ),
+      @html.div(style=[
+        "display: flex",
+        "align-items: center",
+        "gap: 4px",
+        "margin-bottom: 3px",
+        if incompatible {
+          "opacity: 0.5"
+        } else {
+          ""
+        },
+      ]) <| [
+        @html.div(style=[dot_style]) <| "",
+        @html.span(style=[name_style]) <| p.name,
+        if compatible {
+          @html.div(
+            style=[
+              "padding: 3px 8px",
+              "background: \{color}",
+              "color: #fff",
+              "border: none",
+              "border-radius: 4px",
+              "cursor: crosshair",
+              "font-size: 0.65em",
+              "font-weight: 700",
+              "animation: breathe 1.5s infinite",
+            ],
+            on_mouseup=fn(_m) { dispatch(CompleteConnect(node.id, i)) },
+          ) <| "\u{2192} drop here"
+        } else if incompatible {
+          @html.span(style=["font-size: 0.6em", "color: #f44336"]) <| "\u{2715}"
+        } else {
+          @html.text("")
+        },
+      ],
     )
   }
   let children : Array[@rabbita.Html] = [
-    @html.div(
-      style=["font-size: 0.6em", "color: #666", "margin-bottom: 2px"],
-      "INPUTS",
-    ),
+    @html.div(style=["font-size: 0.6em", "color: #666", "margin-bottom: 2px"]) <| "INPUTS",
   ]
   for item in items {
     children.push(item)
   }
-  @html.div(style=["margin-bottom: 4px"], children)
+  @html.div(style=["margin-bottom: 4px"]) <| children
 }
 
 ///|
@@ -528,58 +504,48 @@ fn Model::view_output_ports(
     let p = ports[i]
     let color = @shared.port_type_color(p.port_type)
     items.push(
-      @html.div(
-        style=[
-          "display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px",
-          "justify-content: flex-end",
-        ],
-        [
-          @html.div(
-            style=[
-              "padding: 2px 6px",
-              "background: \{color}30",
-              "color: \{color}",
-              "border: 1px solid \{color}",
-              "border-radius: 3px",
-              "cursor: crosshair",
-              "font-size: 0.6em",
-              "font-weight: 700",
-              "user-select: none",
-            ],
-            on_mousedown=fn(m) {
-              let _ = m
-              dispatch(StartConnect(node.id, i))
-            },
-            "\u{25CF} drag \u{2192}",
-          ),
-          @html.span(style=["font-size: 0.7em", "color: #aaa"], p.name),
-          @html.div(
-            style=[
-              "width: 10px",
-              "height: 10px",
-              "border-radius: 50%",
-              "background: \{color}",
-              "flex-shrink: 0",
-              "border: 1px solid \{color}50",
-            ],
-            "",
-          ),
-        ],
-      ),
+      @html.div(style=[
+        "display: flex", "align-items: center", "gap: 4px", "margin-bottom: 3px",
+        "justify-content: flex-end",
+      ]) <| [
+        @html.div(
+          style=[
+            "padding: 2px 6px",
+            "background: \{color}30",
+            "color: \{color}",
+            "border: 1px solid \{color}",
+            "border-radius: 3px",
+            "cursor: crosshair",
+            "font-size: 0.6em",
+            "font-weight: 700",
+            "user-select: none",
+          ],
+          on_mousedown=fn(m) {
+            let _ = m
+            dispatch(StartConnect(node.id, i))
+          },
+        ) <| "\u{25CF} drag \u{2192}",
+        @html.span(style=["font-size: 0.7em", "color: #aaa"]) <| p.name,
+        @html.div(style=[
+          "width: 10px",
+          "height: 10px",
+          "border-radius: 50%",
+          "background: \{color}",
+          "flex-shrink: 0",
+          "border: 1px solid \{color}50",
+        ]) <| "",
+      ],
     )
   }
   let children2 : Array[@rabbita.Html] = [
-    @html.div(
-      style=[
-        "font-size: 0.6em", "color: #666", "margin-bottom: 2px", "text-align: right",
-      ],
-      "OUTPUTS",
-    ),
+    @html.div(style=[
+      "font-size: 0.6em", "color: #666", "margin-bottom: 2px", "text-align: right",
+    ]) <| "OUTPUTS",
   ]
   for item in items {
     children2.push(item)
   }
-  @html.div(children2)
+  @html.div() <| children2
 }
 
 ///|
@@ -595,30 +561,21 @@ fn Model::view_node_values(
   let items : Array[@rabbita.Html] = vals.map(fn(v) {
     match v {
       VColor(hex) =>
-        @html.div(
-          style=[
-            "display: flex", "align-items: center", "gap: 8px", "padding: 4px",
-          ],
-          [
-            @html.div(
-              style=[
-                "width: 40px",
-                "height: 40px",
-                "border-radius: 6px",
-                "background: \{hex}",
-                "border: 2px solid #555",
-                "box-shadow: 0 0 12px \{hex}60",
-              ],
-              "",
-            ),
-            @html.span(
-              style=[
-                "font-size: 0.75em", "color: #ccc", "font-family: monospace",
-              ],
-              hex,
-            ),
-          ],
-        )
+        @html.div(style=[
+          "display: flex", "align-items: center", "gap: 8px", "padding: 4px",
+        ]) <| [
+          @html.div(style=[
+            "width: 40px",
+            "height: 40px",
+            "border-radius: 6px",
+            "background: \{hex}",
+            "border: 2px solid #555",
+            "box-shadow: 0 0 12px \{hex}60",
+          ]) <| "",
+          @html.span(style=[
+            "font-size: 0.75em", "color: #ccc", "font-family: monospace",
+          ]) <| hex,
+        ]
       VBool(b) =>
         @html.div(
           style=[
@@ -640,47 +597,32 @@ fn Model::view_node_values(
           },
         )
       VNumber(n) =>
-        @html.div(
-          style=[
-            "font-size: 1.1em", "color: #76FF03", "font-family: monospace", "font-weight: 700",
-            "text-shadow: 0 0 8px #76FF0340",
-          ],
-          n.to_string(),
-        )
+        @html.div(style=[
+          "font-size: 1.1em", "color: #76FF03", "font-family: monospace", "font-weight: 700",
+          "text-shadow: 0 0 8px #76FF0340",
+        ]) <| n.to_string()
       VString(s) =>
-        @html.div(
-          style=[
-            "font-size: 0.8em", "color: #FF9800", "font-family: monospace", "padding: 2px 6px",
-            "background: #FF980010", "border-radius: 3px", "border: 1px solid #FF980030",
-          ],
-          "\"\{s}\"",
-        )
+        @html.div(style=[
+          "font-size: 0.8em", "color: #FF9800", "font-family: monospace", "padding: 2px 6px",
+          "background: #FF980010", "border-radius: 3px", "border: 1px solid #FF980030",
+        ]) <| "\"\{s}\""
       VError(e) =>
-        @html.div(
-          style=[
-            "font-size: 0.7em", "color: #ff5252", "padding: 2px 6px", "background: #ff525210",
-            "border-radius: 3px",
-          ],
-          "\u{26A0} \{e}",
-        )
-      VNone => @html.div(style=["font-size: 0.7em", "color: #555"], "(none)")
+        @html.div(style=[
+          "font-size: 0.7em", "color: #ff5252", "padding: 2px 6px", "background: #ff525210",
+          "border-radius: 3px",
+        ]) <| "\u{26A0} \{e}"
+      VNone => @html.div(style=["font-size: 0.7em", "color: #555"]) <| "(none)"
     }
   })
   let result_children : Array[@rabbita.Html] = [
-    @html.div(
-      style=[
-        "font-size: 0.55em", "color: #555", "margin-bottom: 3px", "letter-spacing: 1px",
-      ],
-      "RESULT",
-    ),
+    @html.div(style=[
+      "font-size: 0.55em", "color: #555", "margin-bottom: 3px", "letter-spacing: 1px",
+    ]) <| "RESULT",
   ]
   for item in items {
     result_children.push(item)
   }
-  @html.div(
-    style=[
-      "margin-top: 6px", "padding-top: 6px", "border-top: 1px solid #ffffff10",
-    ],
-    result_children,
-  )
+  @html.div(style=[
+    "margin-top: 6px", "padding-top: 6px", "border-top: 1px solid #ffffff10",
+  ]) <| result_children
 }
