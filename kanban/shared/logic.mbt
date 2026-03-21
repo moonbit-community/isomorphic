@@ -14,13 +14,8 @@ pub let position_gap : Int = 1000
 /// }
 /// ```
 pub fn next_position(existing_positions : Array[Int]) -> Int {
-  let mut max = 0
-  for p in existing_positions {
-    if p > max {
-      max = p
-    }
-  }
-  max + position_gap
+  existing_positions.fold(init=0, fn(acc, p) { if p > acc { p } else { acc } }) +
+  position_gap
 }
 
 ///|

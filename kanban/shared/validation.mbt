@@ -66,10 +66,5 @@ pub fn validate_column_title(title : String) -> Bool {
 /// }
 /// ```
 pub fn validate_color(color : String) -> Bool {
-  for c in valid_colors {
-    if c == color {
-      return true
-    }
-  }
-  false
+  valid_colors.contains(color)
 }
