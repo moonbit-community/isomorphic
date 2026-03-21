@@ -167,12 +167,10 @@ fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
     style=card_style,
     {
       let all : Array[@rabbita.Html] = []
-      if title != "" {
+      if !title.is_empty() {
         all.push(@html.h2(style=card_title_style) <| title)
       }
-      for child in children {
-        all.push(child)
-      }
+      all.append(children[:])
       all
     },
   )

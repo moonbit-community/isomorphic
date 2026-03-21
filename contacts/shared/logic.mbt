@@ -1,21 +1,7 @@
 ///|
-/// Convert a character to its ASCII lowercase equivalent.
-fn to_lower_char(ch : Char) -> Char {
-  if ch >= 'A' && ch <= 'Z' {
-    (ch.to_int() + 32).unsafe_to_char()
-  } else {
-    ch
-  }
-}
-
-///|
-/// Convert a string to lowercase (ASCII).
+/// Convert a string to lowercase.
 pub fn to_lower(s : String) -> String {
-  let buf = StringBuilder::new()
-  for ch in s {
-    buf.write_char(to_lower_char(ch))
-  }
-  buf.to_string()
+  s.to_lower()
 }
 
 ///|
