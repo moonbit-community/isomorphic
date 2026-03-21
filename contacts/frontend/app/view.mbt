@@ -15,14 +15,14 @@ pub fn Model::view(
       let sections : Array[@rabbita.Html] = []
       // Header
       sections.push(
-        @html.div(style=header_style, [
-          @html.h1(style=header_title_style, "Contacts"),
-          @html.p(style=header_subtitle_style, "Your address book"),
-        ]),
+        @html.div(style=header_style) <| [
+          @html.h1(style=header_title_style) <| "Contacts",
+          @html.p(style=header_subtitle_style) <| "Your address book",
+        ],
       )
       // Search bar
       sections.push(
-        @html.div(style=search_wrapper_style, [
+        @html.div(style=search_wrapper_style) <| [
           @html.input(
             input_type=Text,
             placeholder="Search contacts...",
@@ -31,12 +31,12 @@ pub fn Model::view(
             style=search_input_style,
             "",
           ),
-        ]),
+        ],
       )
       // Contact count + Add button
       sections.push(
         view_card("", [
-          @html.div(style=toolbar_style, [
+          @html.div(style=toolbar_style) <| [
             @html.span(
               style=contact_count_style,
               {
@@ -54,10 +54,10 @@ pub fn Model::view(
                 "+ Add Contact"
               },
             ),
-          ]),
+          ],
           // Add contact form (toggled)
           if self.show_form {
-            @html.form(on_submit=dispatch(AddContact), style=form_style, [
+            @html.form(on_submit=dispatch(AddContact), style=form_style) <| [
               @html.input(
                 input_type=Text,
                 placeholder="Name",
@@ -82,14 +82,10 @@ pub fn Model::view(
                 style=input_style,
                 "",
               ),
-              @html.button(
-                type_="submit",
-                style=submit_btn_style,
-                "Save Contact",
-              ),
-            ])
+              @html.button(type_="submit", style=submit_btn_style) <| "Save Contact",
+            ]
           } else {
-            @html.div(style=[], "")
+            @html.div(style=[]) <| ""
           },
         ]),
       )
@@ -119,16 +115,13 @@ pub fn Model::view(
         self.search_query != "" {
         sections.push(
           view_card("Contacts", [
-            @html.p(style=empty_msg_style, "No contacts match your search"),
+            @html.p(style=empty_msg_style) <| "No contacts match your search",
           ]),
         )
       } else if self.contacts.length() == 0 {
         sections.push(
           view_card("Contacts", [
-            @html.p(
-              style=empty_msg_style,
-              "No contacts yet. Add your first contact!",
-            ),
+            @html.p(style=empty_msg_style) <| "No contacts yet. Add your first contact!",
           ]),
         )
       }
@@ -145,30 +138,29 @@ fn view_contact_row(
 ) -> @rabbita.Html {
   let color = person_color(contact.id)
   let initials = @shared.get_initials(contact.name)
-  @html.div(style=contact_row_style, [
+  @html.div(style=contact_row_style) <| [
     // Avatar circle with initials
-    @html.div(
-      style=[
-        "width: 42px",
-        "height: 42px",
-        "border-radius: 50%",
-        "flex-shrink: 0",
-        "background: \{color}",
-        "color: white",
-        "font-size: 15px",
-        "font-weight: 700",
-        "display: flex",
-        "align-items: center",
-        "justify-content: center",
-      ],
-      initials,
-    ),
+    @html.div(style=[
+      "width: 42px",
+      "height: 42px",
+      "border-radius: 50%",
+      "flex-shrink: 0",
+      "background: \{color}",
+      "color: white",
+      "font-size: 15px",
+      "font-weight: 700",
+      "display: flex",
+      "align-items: center",
+      "justify-content: center",
+    ]) <| initials,
     // Name, email, phone
-    @html.div(style=contact_info_style, [
-      @html.div(style=contact_name_style, contact.name),
-      @html.div(style=contact_email_style, contact.email),
-      @html.div(style=contact_phone_style, @shared.format_phone(contact.phone)),
-    ]),
+    @html.div(style=contact_info_style) <| [
+      @html.div(style=contact_name_style) <| contact.name,
+      @html.div(style=contact_email_style) <| contact.email,
+      @html.div(style=contact_phone_style) <| @shared.format_phone(
+        contact.phone,
+      ),
+    ],
     // Favorite star button
     @html.button(
       on_click=dispatch(ToggleFavorite(contact.id)),
@@ -183,9 +175,8 @@ fn view_contact_row(
     @html.button(
       on_click=dispatch(DeleteContact(contact.id)),
       style=delete_btn_style,
-      "X",
-    ),
-  ])
+    ) <| "X",
+  ]
 }
 
 ///|
@@ -196,7 +187,7 @@ fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
     {
       let all : Array[@rabbita.Html] = []
       if title != "" {
-        all.push(@html.h2(style=card_title_style, title))
+        all.push(@html.h2(style=card_title_style) <| title)
       }
       for child in children {
         all.push(child)
