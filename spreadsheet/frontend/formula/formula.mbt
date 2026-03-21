@@ -1,20 +1,56 @@
 ///|
-/// Formula parser and evaluator.
+/// Formula parser and evaluator for the spreadsheet engine.
 ///
-/// Supports:
-///   - Numbers: 42, 3.14
-///   - Cell references: A1, B2, Z30
-///   - Arithmetic: +, -, *, /
-///   - Parentheses: (A1 + B1) * 2
-///   - Aggregation: SUM, AVG/AVERAGE, MIN, MAX, COUNT
-///   - Math: ABS, ROUND, POWER, MOD, INT
-///   - Logic: IF(cond, true_val, false_val)
-///   - Comparison: >, <, >=, <=, = (within IF conditions)
-///   - String: CONCAT, LEN, UPPER, LOWER
+/// # Architecture
+///
+/// The formula engine uses a three-stage pipeline:
+///   1. **Tokenizer** (`tokenize`) — converts a raw expression string into a flat
+///      array of `Token` values (numbers, cell refs, operators, function names).
+///   2. **Parser** (recursive-descent) — consumes the token stream and evaluates
+///      in a single pass (no intermediate AST). Operator precedence is encoded
+///      in the call chain: `parse_comparison` > `parse_expr` > `parse_term` >
+///      `parse_factor`.
+///   3. **Evaluator** — evaluation is interleaved with parsing; each `parse_*`
+///      function returns a `@cell.Value` directly. Cell references are resolved
+///      via a caller-supplied `lookup` callback.
+///
+/// # Grammar (EBNF)
+///
+/// ```
+/// comparison = expr (( '>' | '<' | '>=' | '<=' | '=' ) expr)?
+/// expr       = term  (( '+' | '-' ) term)*
+/// term       = factor (( '*' | '/' ) factor)*
+/// factor     = NUMBER | STRING | CELL_REF | func_call | '(' comparison ')'
+/// func_call  = FUNC_NAME '(' arg_list ')'
+/// arg_list   = comparison (',' comparison)*
+///            | CELL_REF ':' CELL_REF            -- range argument
+/// ```
+///
+/// # Supported expressions
+///
+///   - **Numbers**: integer and decimal literals (`42`, `3.14`, `-7`)
+///   - **Cell references**: single-letter column + row number (`A1`, `Z30`)
+///   - **Cell ranges**: two refs joined by colon (`A1:B5`, `C2:C10`)
+///   - **Arithmetic**: `+`, `-`, `*`, `/` with standard precedence
+///   - **Parentheses**: grouping for override precedence (`(A1 + B1) * 2`)
+///   - **Comparison**: `>`, `<`, `>=`, `<=`, `=` — returns 1.0 (true) or 0.0 (false)
+///   - **Aggregation functions**: `SUM`, `AVG`/`AVERAGE`, `MIN`, `MAX`, `COUNT`
+///   - **Math functions**: `ABS(x)`, `ROUND(x, n)`, `POWER(x, y)`, `MOD(x, y)`, `INT(x)`
+///   - **Logic**: `IF(condition, true_value, false_value)`
+///   - **String functions**: `CONCAT(a, b, ...)`, `LEN(s)`, `UPPER(s)`, `LOWER(s)`
+///   - **String literals**: double-quoted text inside formulas (`"hello"`)
 
 ///|
-/// Extract all cell references from a formula string.
-/// Returns individual cell keys like ["B2", "C2", "D2", "E2"] with ranges expanded.
+/// Extract all cell references from a formula string, expanding ranges into
+/// individual cell keys.
+///
+/// Given `"=SUM(A1:A3) + B4"`, returns `["A1", "A2", "A3", "B4"]`.
+/// Ranges like `A1:B2` are expanded to every cell in the rectangular region
+/// (A1, A2, B1, B2). Non-formula strings (those not starting with `=`) return
+/// an empty array.
+///
+/// This is used by the dependency tracker to know which cells a formula
+/// depends on so that recalculation can propagate changes.
 pub fn extract_references(raw : String) -> Array[String] {
   let trimmed = raw.trim().to_string()
   if trimmed.is_empty() || trimmed[0] != '=' {
@@ -68,8 +104,17 @@ pub fn extract_references(raw : String) -> Array[String] {
 }
 
 ///|
-/// Evaluate a raw cell string. If it starts with '=', parse as formula.
-/// Otherwise try to parse as number, or treat as text.
+/// Evaluate a raw cell input string and return the computed value.
+///
+/// The evaluation strategy depends on the input:
+///   - Strings starting with `=` are parsed as formulas (the `=` prefix is
+///     stripped, then the remainder is tokenized, parsed, and evaluated).
+///   - Numeric strings are parsed to `Num(Double)`.
+///   - Everything else becomes `Text(String)`.
+///   - Empty/whitespace-only input becomes `Empty`.
+///
+/// The `lookup` callback resolves cell references (e.g. `"A1"`) to their
+/// current computed value, enabling formulas to read other cells.
 pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
   let trimmed = raw.trim()
   if trimmed.is_empty() {
@@ -93,7 +138,11 @@ pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
 }
 
 ///|
-/// Parse and evaluate an expression string.
+/// Parse and evaluate an expression string (without the leading `=`).
+///
+/// Creates a `ParseState` from the tokenized input and invokes the top-level
+/// grammar rule (`parse_comparison`). Returns `Error("PARSE")` if any
+/// parsing step raises an error.
 fn parse_and_eval(
   expr : String,
   lookup : (String) -> @cell.Value,
@@ -109,8 +158,24 @@ fn parse_and_eval(
 }
 
 // --- Tokenizer ---
+//
+// Converts a raw expression string into a flat `Array[Token]`.
+// Whitespace is skipped. The tokenizer distinguishes cell references from
+// function names by look-ahead: an uppercase sequence followed by a digit is
+// a cell reference (e.g. `A1`, `AB12`); otherwise it is a function name
+// (e.g. `SUM`, `IF`). Negative number literals are recognized when a `-`
+// appears at the start of the token stream or immediately after an operator,
+// open parenthesis, or comma.
 
 ///|
+/// Token variants produced by the tokenizer.
+///
+/// - `TNum` — numeric literal (including negative numbers)
+/// - `TRef` — cell reference like `"A1"` or `"Z30"`
+/// - `TFunc` — function name like `"SUM"` or `"IF"`
+/// - `TStr` — double-quoted string literal
+/// - Operator and punctuation tokens for arithmetic, comparison, grouping,
+///   range (`:`) and argument separation (`,`)
 priv enum Token {
   TNum(Double)
   TRef(String) // cell reference like "A1"
@@ -132,6 +197,17 @@ priv enum Token {
 }
 
 ///|
+/// Tokenize a formula expression string into an array of tokens.
+///
+/// Scans left-to-right, consuming one token per iteration:
+///   - Whitespace is skipped.
+///   - `"..."` produces `TStr`.
+///   - `-` is treated as a negative-number prefix when it appears at the start
+///     or after an operator/`(`/`,`; otherwise it produces `TMinus`.
+///   - `>=` and `<=` are two-character tokens (`TGte`, `TLte`).
+///   - Uppercase letter sequences followed by digits become `TRef`; those not
+///     followed by digits become `TFunc`.
+///   - Unrecognized characters are silently skipped.
 fn tokenize(s : String) -> Array[Token] {
   let tokens : Array[Token] = []
   let chars = s.to_array()
@@ -290,14 +366,28 @@ fn tokenize(s : String) -> Array[Token] {
 }
 
 // --- Parser (recursive descent) ---
+//
+// The parser is a hand-written recursive-descent evaluator. Rather than
+// building an AST, it evaluates eagerly: each `parse_*` function returns a
+// `@cell.Value` directly. Operator precedence is encoded in the call depth:
+//
+//   parse_comparison  (lowest precedence:  >, <, >=, <=, =)
+//       -> parse_expr      (addition / subtraction)
+//           -> parse_term      (multiplication / division)
+//               -> parse_factor     (atoms: numbers, refs, strings, parens, calls)
+//
+// Function calls are dispatched by name in `parse_func_call` into specialized
+// sub-parsers for IF, aggregate, math, and string functions.
 
 ///|
+/// Mutable parser state: holds the token array and the current read position.
 priv struct ParseState {
   tokens : Array[Token]
   mut pos : Int
 }
 
 ///|
+/// Return the current token without consuming it, or `None` if at end-of-input.
 fn ParseState::peek(self : ParseState) -> Token? {
   if self.pos < self.tokens.length() {
     Some(self.tokens[self.pos])
@@ -307,12 +397,19 @@ fn ParseState::peek(self : ParseState) -> Token? {
 }
 
 ///|
+/// Consume the current token and advance the position by one.
 fn ParseState::advance(self : ParseState) -> Unit {
   self.pos = self.pos + 1
 }
 
 ///|
-/// comparison = expr (('>' | '<' | '>=' | '<=' | '=') expr)?
+/// Parse the lowest-precedence rule: an expression optionally followed by a
+/// single comparison operator and a second expression.
+///
+/// Grammar: `comparison = expr (('>' | '<' | '>=' | '<=' | '=') expr)?`
+///
+/// Comparisons yield `Num(1.0)` for true and `Num(0.0)` for false, which is
+/// consistent with how `IF` interprets its condition argument.
 fn parse_comparison(
   state : ParseState,
   lookup : (String) -> @cell.Value,
@@ -349,7 +446,9 @@ fn parse_comparison(
 }
 
 ///|
-/// expr = term (('+' | '-') term)*
+/// Parse addition and subtraction (left-associative).
+///
+/// Grammar: `expr = term (('+' | '-') term)*`
 fn parse_expr(
   state : ParseState,
   lookup : (String) -> @cell.Value,
@@ -374,7 +473,10 @@ fn parse_expr(
 }
 
 ///|
-/// term = factor (('*' | '/') factor)*
+/// Parse multiplication and division (left-associative, higher precedence
+/// than addition/subtraction).
+///
+/// Grammar: `term = factor (('*' | '/') factor)*`
 fn parse_term(
   state : ParseState,
   lookup : (String) -> @cell.Value,
@@ -399,7 +501,15 @@ fn parse_term(
 }
 
 ///|
-/// factor = number | string | cell_ref | func_call | '(' expr ')'
+/// Parse an atomic value — the highest-precedence rule.
+///
+/// Grammar: `factor = NUMBER | STRING | CELL_REF | func_call | '(' comparison ')'`
+///
+/// - `TNum` and `TStr` are returned directly as `Num` / `Text`.
+/// - `TRef` is resolved via the `lookup` callback. A bare range (`A1:B2`)
+///   appearing outside an aggregate function context returns `Error("RANGE")`.
+/// - `TFunc` delegates to `parse_func_call`.
+/// - `TLParen` recurses into `parse_comparison` for grouped sub-expressions.
 fn parse_factor(
   state : ParseState,
   lookup : (String) -> @cell.Value,
@@ -450,7 +560,15 @@ fn parse_factor(
 }
 
 ///|
-/// Parse function call — dispatches to specialized parsers for IF/string funcs
+/// Parse a function call: consume the opening `(`, dispatch to the appropriate
+/// sub-parser based on function name, which will consume arguments and the
+/// closing `)`.
+///
+/// Dispatch rules:
+///   - `"IF"` -> `parse_if` (ternary conditional)
+///   - `"CONCAT"`, `"LEN"`, `"UPPER"`, `"LOWER"` -> `parse_string_func`
+///   - `"ABS"`, `"ROUND"`, `"POWER"`, `"MOD"`, `"INT"` -> `parse_math_func`
+///   - Everything else -> `parse_aggregate_func` (SUM, AVG, MIN, MAX, COUNT)
 fn parse_func_call(
   state : ParseState,
   name : String,
@@ -478,7 +596,11 @@ fn parse_func_call(
 }
 
 ///|
-/// Parse IF(condition, true_value, false_value)
+/// Parse `IF(condition, true_value, false_value)`.
+///
+/// All three arguments are eagerly evaluated (no short-circuit). The condition
+/// is considered truthy if it is a non-zero number or a non-empty string;
+/// `Empty` and `Error` are falsy.
 fn parse_if(
   state : ParseState,
   lookup : (String) -> @cell.Value,
@@ -515,7 +637,14 @@ fn parse_if(
 }
 
 ///|
-/// Parse math functions with 1-2 numeric args: ABS(x), ROUND(x, n), POWER(x, y), MOD(x, y), INT(x)
+/// Parse math functions that take 1-2 numeric arguments.
+///
+/// Supported functions:
+///   - `ABS(x)` — absolute value
+///   - `ROUND(x, n)` — round `x` to `n` decimal places (default 0)
+///   - `POWER(x, y)` — exponentiation; uses integer fast-path when possible
+///   - `MOD(x, y)` — modulo with Excel semantics (result sign matches divisor)
+///   - `INT(x)` — floor toward negative infinity (Excel behavior)
 fn parse_math_func(
   state : ParseState,
   name : String,
@@ -541,7 +670,16 @@ fn parse_math_func(
 }
 
 ///|
-/// Parse string functions: CONCAT(a, b, ...), LEN(s), UPPER(s), LOWER(s)
+/// Parse string functions that take one or more arguments.
+///
+/// Supported functions:
+///   - `CONCAT(a, b, ...)` — concatenate all arguments as strings
+///   - `LEN(s)` — character count of the string representation
+///   - `UPPER(s)` — convert ASCII lowercase to uppercase
+///   - `LOWER(s)` — convert ASCII uppercase to lowercase
+///
+/// Non-string values are coerced to their display representation before the
+/// string operation is applied.
 fn parse_string_func(
   state : ParseState,
   name : String,
@@ -575,7 +713,17 @@ fn parse_string_func(
 }
 
 ///|
-/// Parse aggregate functions: SUM, AVG, MIN, MAX, COUNT with range support
+/// Parse aggregate functions that operate over a collection of numeric values.
+///
+/// Supported functions: `SUM`, `AVG`/`AVERAGE`, `MIN`, `MAX`, `COUNT`.
+///
+/// Arguments can be:
+///   - A cell range (`A1:A10`) which is expanded to all cells in the rectangle
+///   - A comma-separated list of expressions (`SUM(A1, B1, 42)`)
+///   - A single expression
+///
+/// Non-numeric values in the range are silently skipped (not counted).
+/// An empty argument list yields `Num(0.0)`.
 fn parse_aggregate_func(
   state : ParseState,
   name : String,
@@ -660,6 +808,11 @@ fn parse_aggregate_func(
 }
 
 ///|
+/// Expand a cell range (e.g. `"A1"` to `"C3"`) into individual numeric values.
+///
+/// Iterates over every cell in the rectangular region defined by the two corner
+/// references, looks up each cell via the `lookup` callback, and appends its
+/// numeric value to `values`. Non-numeric cells are silently skipped.
 fn expand_range(
   r1 : String,
   r2 : String,
@@ -689,6 +842,10 @@ fn expand_range(
 }
 
 ///|
+/// Apply an aggregate function to a pre-collected array of numeric values.
+///
+/// Returns `Num(0.0)` for an empty input array.
+/// Returns `Error("FUNC?<name>")` for unrecognized function names.
 fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
   if values.is_empty() {
     return Num(0.0)
@@ -732,6 +889,11 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
 }
 
 ///|
+/// Apply a math function to its evaluated argument values.
+///
+/// Returns typed errors for missing arguments (`"ABS:ARGS"`), type mismatches
+/// (`"TYPE"`), division by zero in MOD (`"DIV/0"`), or invalid POWER domains
+/// (negative base with fractional exponent).
 fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
   match name {
     "ABS" => {
@@ -817,6 +979,13 @@ fn apply_math_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
 }
 
 ///|
+/// Convert a cell value to its string representation for use in string functions.
+///
+/// - `Empty` becomes `""`.
+/// - `Num` is formatted as an integer if it has no fractional part, otherwise
+///   as a decimal.
+/// - `Text` is returned as-is.
+/// - `Error` is formatted as `"#ERR: <code>"`.
 fn value_to_string(v : @cell.Value) -> String {
   match v {
     Empty => ""
@@ -834,6 +1003,10 @@ fn value_to_string(v : @cell.Value) -> String {
 }
 
 ///|
+/// Apply a string function to its evaluated argument values.
+///
+/// All arguments are first coerced to strings via `value_to_string`.
+/// Returns `Text` for all string functions, except `LEN` which returns `Num`.
 fn apply_string_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
   match name {
     "CONCAT" => {
@@ -869,8 +1042,14 @@ fn apply_string_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
 }
 
 // --- Arithmetic helpers ---
+//
+// Binary arithmetic on `@cell.Value`. Both operands are coerced to `Double`
+// via `to_num`; if either operand is non-numeric (text or error), the result
+// is `Error("TYPE")`. Division by zero yields `Error("DIV/0")`.
 
 ///|
+/// Coerce a cell value to a number. `Num` returns its payload, `Empty` is
+/// treated as zero (spreadsheet convention), and everything else yields `None`.
 fn to_num(v : @cell.Value) -> Double? {
   match v {
     Num(n) => Some(n)
@@ -880,6 +1059,7 @@ fn to_num(v : @cell.Value) -> Double? {
 }
 
 ///|
+/// Add two cell values. Returns `Error("TYPE")` if either is non-numeric.
 fn add_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
     (Some(x), Some(y)) => Num(x + y)
@@ -888,6 +1068,7 @@ fn add_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
 }
 
 ///|
+/// Subtract two cell values. Returns `Error("TYPE")` if either is non-numeric.
 fn sub_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
     (Some(x), Some(y)) => Num(x - y)
@@ -896,6 +1077,7 @@ fn sub_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
 }
 
 ///|
+/// Multiply two cell values. Returns `Error("TYPE")` if either is non-numeric.
 fn mul_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
     (Some(x), Some(y)) => Num(x * y)
@@ -904,6 +1086,8 @@ fn mul_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
 }
 
 ///|
+/// Divide two cell values. Returns `Error("DIV/0")` for division by zero,
+/// or `Error("TYPE")` if either operand is non-numeric.
 fn div_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
   match (to_num(a), to_num(b)) {
     (Some(_), Some(0.0)) => Error("DIV/0")
@@ -913,6 +1097,11 @@ fn div_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
 }
 
 ///|
+/// Compare two cell values using the given comparison function.
+///
+/// Tries numeric comparison first (via `to_num`). Falls back to lexicographic
+/// string comparison for two `Text` values. Returns `Num(1.0)` for true,
+/// `Num(0.0)` for false, or `Error("TYPE")` on type mismatch.
 fn compare_values(
   a : @cell.Value,
   b : @cell.Value,
@@ -943,6 +1132,8 @@ fn compare_values(
 // --- Math helpers ---
 
 ///|
+/// Compute 10 raised to the power `n` by repeated multiplication.
+/// Used by `ROUND` to scale values before and after rounding.
 fn pow10(n : Int) -> Double {
   let mut result = 1.0
   for _i = 0; _i < n; _i = _i + 1 {
@@ -952,6 +1143,8 @@ fn pow10(n : Int) -> Double {
 }
 
 ///|
+/// Integer exponentiation by repeated multiplication.
+/// Handles negative exponents by computing the reciprocal of the positive result.
 fn pow(base : Double, exp : Int) -> Double {
   if exp == 0 {
     return 1.0
@@ -970,6 +1163,8 @@ fn pow(base : Double, exp : Int) -> Double {
 }
 
 ///|
+/// Convert ASCII lowercase letters (a-z) to uppercase. Non-ASCII characters
+/// are passed through unchanged.
 fn to_upper(s : String) -> String {
   let sb = StringBuilder::new()
   for c in s {
@@ -983,6 +1178,8 @@ fn to_upper(s : String) -> String {
 }
 
 ///|
+/// Convert ASCII uppercase letters (A-Z) to lowercase. Non-ASCII characters
+/// are passed through unchanged.
 fn to_lower(s : String) -> String {
   let sb = StringBuilder::new()
   for c in s {

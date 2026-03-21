@@ -1,6 +1,16 @@
 ///|
-/// Recalculate all cells in the active sheet.
-/// Simple approach: iterate all cells and re-evaluate formulas.
+/// Recalculate all formula cells in a sheet.
+///
+/// Uses a simple multi-pass convergence strategy: copy all cells, then iterate
+/// three times, re-evaluating every formula cell on each pass. This handles
+/// dependency chains up to three levels deep without needing an explicit
+/// topological sort. Each pass reads the latest computed values from previous
+/// iterations.
+///
+/// If re-evaluation of a formula produces an `Error` but the cell already holds
+/// a non-`Empty` value (e.g. a cached xlsx result), the existing value is
+/// preserved. This ensures imported data remains visible even when our formula
+/// engine does not support every Excel function.
 fn recalc(sheet : Sheet) -> Sheet {
   let new_cells : Map[String, @cell.Cell] = {}
   // First pass: copy all cells
@@ -34,7 +44,28 @@ fn recalc(sheet : Sheet) -> Sheet {
 }
 
 ///|
-/// Process a message and return the updated model with any side-effect commands.
+/// Central message handler (TEA update function).
+///
+/// Processes a single `Msg` and returns the updated `Model` along with any
+/// side-effect `Cmd` (e.g. file picker dialogs). Most messages produce
+/// `@rabbita.none` (no side effects).
+///
+/// Key behaviors:
+///   - **Navigation** (`SelectCell`, `MoveSelection`): commits any in-progress
+///     edit before moving the selection, then clamps to grid bounds.
+///   - **Editing** (`StartEdit`, `StartEditWith`, `UpdateEdit`, `CommitEdit`,
+///     `CancelEdit`): manages the edit lifecycle. `CommitEdit` writes the
+///     edited value to the cell, re-evaluates formulas, and recalculates the
+///     entire sheet.
+///   - **Formatting** (`ToggleBold`, `ToggleItalic`, `SetAlign`, `SetFormat`,
+///     `SetBgColor`, `SetTextColor`): updates styling on the currently
+///     selected cell without triggering recalculation.
+///   - **Sheet management** (`SelectSheet`, `AddSheet`, `DeleteSheet`):
+///     switches, creates, or removes sheets. Cannot delete the last sheet.
+///   - **Import/Export** (`RequestImport`, `ImportExcel`, `ExportExcel`):
+///     `RequestImport` issues an async command to open a file picker;
+///     `ImportExcel` replaces the model with parsed xlsx data;
+///     `ExportExcel` serializes and downloads the workbook.
 pub fn Model::update(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -147,6 +178,10 @@ pub fn Model::update(
 }
 
 ///|
+/// Apply a transformation function to the currently selected cell and return
+/// the updated model. The transformation receives the current cell and returns
+/// a modified copy. Does not trigger recalculation (suitable for style-only
+/// changes like bold, italic, alignment, and colors).
 fn Model::update_selected_cell(
   self : Model,
   f : (@cell.Cell) -> @cell.Cell,
@@ -162,6 +197,12 @@ fn Model::update_selected_cell(
 }
 
 ///|
+/// Commit the current edit: write `edit_value` into the selected cell, evaluate
+/// it through the formula engine, recalculate the entire sheet to propagate
+/// dependent formula updates, and exit editing mode.
+///
+/// The cell's existing styling (bold, italic, align, format, colors) is
+/// preserved; only `raw` and `value` are updated.
 fn Model::commit_edit(self : Model) -> Model {
   let key = @cell.make_key(self.sel_col, self.sel_row)
   let sheet = self.current_sheet()
@@ -177,6 +218,7 @@ fn Model::commit_edit(self : Model) -> Model {
 }
 
 ///|
+/// Clamp an integer to the inclusive range `[min, max]`.
 fn clamp(v : Int, min : Int, max : Int) -> Int {
   if v < min {
     min

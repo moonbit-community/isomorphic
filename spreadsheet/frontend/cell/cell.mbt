@@ -1,5 +1,15 @@
 ///|
-/// Cell types for the spreadsheet.
+/// The computed result of a spreadsheet cell.
+///
+/// Every cell holds one of four value kinds:
+///   - `Empty` — the cell has no content (displays as blank).
+///   - `Num(Double)` — a numeric value, either entered directly or computed
+///     by a formula. Displayed as an integer when the fractional part is zero.
+///   - `Text(String)` — a string value, either literal text or the result of
+///     a string function like `CONCAT`.
+///   - `Error(String)` — a formula evaluation error. The payload is a short
+///     error code such as `"DIV/0"`, `"TYPE"`, `"PARSE"`, or `"FUNC?name"`.
+///     Displayed as `"#ERR: <code>"`.
 pub(all) enum Value {
   Empty
   Num(Double)
@@ -8,7 +18,9 @@ pub(all) enum Value {
 }
 
 ///|
-/// Convert a cell value to its plain display string without number formatting.
+/// Convert a cell value to its plain display string without applying any
+/// number format (currency, percent, etc.). Integers are displayed without
+/// a decimal point; doubles use their default string representation.
 pub fn Value::to_display(self : Value) -> String {
   match self {
     Empty => ""
@@ -27,6 +39,10 @@ pub fn Value::to_display(self : Value) -> String {
 
 ///|
 /// Horizontal alignment of cell content.
+///
+/// `Auto` follows the spreadsheet convention: text is left-aligned and numbers
+/// are right-aligned. Explicit values (`Left`, `Center`, `Right`) override
+/// the automatic behavior.
 pub(all) enum Align {
   Auto // left for text, right for numbers
   Left
@@ -36,6 +52,17 @@ pub(all) enum Align {
 
 ///|
 /// Display format applied when rendering numeric cell values.
+///
+/// The format only affects how `Num` values are displayed; `Text`, `Empty`,
+/// and `Error` values pass through unchanged.
+///
+///   - `General` — integers get comma-separated thousands; decimals use default
+///     representation.
+///   - `Currency` — formatted as `$1,234.56` with two decimal places and
+///     thousands separators. Negative values get a leading `-`.
+///   - `Percent` — the value is multiplied by 100 and suffixed with `%`,
+///     displayed to one decimal place.
+///   - `Fixed` — always shows exactly two decimal places (e.g. `1234.56`).
 pub(all) enum NumFormat {
   General // auto display
   Currency // $1,234.56
@@ -44,16 +71,22 @@ pub(all) enum NumFormat {
 }
 
 ///|
-/// A single spreadsheet cell with its raw input, computed value, and visual styling.
+/// A single spreadsheet cell combining raw input, computed value, and visual styling.
+///
+/// The `raw` field stores the original user input (e.g. `"=SUM(A1:A5)"` or
+/// `"hello"`). The `value` field holds the result of evaluating `raw` through
+/// the formula engine. Styling fields (`bold`, `italic`, `align`, `format`,
+/// `bg_color`, `text_color`) are orthogonal to the cell's data and are
+/// preserved across recalculations.
 pub(all) struct Cell {
-  raw : String // what the user typed
-  value : Value // computed result
+  raw : String // what the user typed (formula strings start with '=')
+  value : Value // computed result from formula evaluation
   bold : Bool
   italic : Bool
   align : Align
   format : NumFormat
-  bg_color : String // "" = default, otherwise hex like "#fce4ec"
-  text_color : String // "" = default, otherwise hex
+  bg_color : String // "" = default, otherwise CSS hex like "#fce4ec"
+  text_color : String // "" = default, otherwise CSS hex
 }
 
 ///|
@@ -72,7 +105,11 @@ pub fn Cell::empty() -> Cell {
 }
 
 ///|
-/// Format a cell value for display using the specified number format (currency, percent, etc.).
+/// Format a cell value for display using the specified number format.
+///
+/// Only `Num` values are affected by the format; `Text`, `Empty`, and `Error`
+/// are rendered the same regardless of the format. Rounding uses
+/// `floor(x + 0.5)` for correct behavior with negative numbers.
 pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
   match self {
     Empty => ""
@@ -128,6 +165,8 @@ pub fn Value::format_with(self : Value, fmt : NumFormat) -> String {
 }
 
 ///|
+/// Format an integer with thousands-separator commas (e.g. `1234567` becomes
+/// `"1,234,567"`). Handles negative numbers by prepending a `-` sign.
 fn format_with_commas(n : Int) -> String {
   let is_neg = n < 0
   let abs_n = if is_neg { 0 - n } else { n }
@@ -151,15 +190,20 @@ fn format_with_commas(n : Int) -> String {
 }
 
 ///|
-/// Convert column index (0-25) to letter (A-Z).
+/// Convert a zero-based column index (0-25) to its letter representation (A-Z).
+/// Column 0 is `"A"`, column 25 is `"Z"`. Only single-letter columns are supported.
 pub fn col_to_letter(col : Int) -> String {
   let c = (65 + col).unsafe_to_char() // 'A' = 65
   c.to_string()
 }
 
 ///|
-/// Convert a cell reference string like "A1" to (col, row).
-/// Returns None if invalid.
+/// Parse a cell reference string like `"A1"` into a zero-based `(col, row)` tuple.
+///
+/// The column letter (A-Z) is converted to 0-25 and the row number (1-based
+/// in the reference) is converted to 0-based. Returns `None` for strings that
+/// are too short, start with a non-uppercase letter, or have an invalid row
+/// number. Only single-letter columns (A-Z) are supported.
 pub fn parse_ref(s : String) -> (Int, Int)? {
   if s.length() < 2 {
     return None
@@ -184,7 +228,10 @@ pub fn parse_ref(s : String) -> (Int, Int)? {
 }
 
 ///|
-/// Make a cell key string from (col, row): "A1", "B2", etc.
+/// Construct a cell key string from zero-based `(col, row)` coordinates.
+///
+/// Examples: `make_key(0, 0)` returns `"A1"`, `make_key(2, 9)` returns `"C10"`.
+/// This is the inverse of `parse_ref`.
 pub fn make_key(col : Int, row : Int) -> String {
   "\{col_to_letter(col)}\{row + 1}"
 }

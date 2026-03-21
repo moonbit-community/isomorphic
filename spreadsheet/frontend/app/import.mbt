@@ -1,10 +1,28 @@
 ///|
-/// Import/Export Excel (.xlsx) files using mbtexcel library.
-/// JS FFI handles file picking and downloads; parsing runs in the browser.
+/// Import/Export Excel (.xlsx) files using the mbtexcel library.
+///
+/// The workflow is split between JavaScript FFI and MoonBit:
+///
+/// **Import flow:**
+///   1. `RequestImport` message triggers `import_xlsx_cmd`, which calls a JS FFI
+///      to open a native file picker and read the selected file as `Bytes`.
+///   2. The bytes are dispatched as `ImportExcel(bytes)` back into the update loop.
+///   3. `load_xlsx` parses the bytes via `@xlsx.read`, iterates over all sheets,
+///      imports cells (values, formulas, styles), and recalculates the workbook.
+///
+/// **Export flow:**
+///   1. `ExportExcel` message triggers `export_xlsx`, which builds an `@xlsx.Workbook`
+///      from the current model, writes it to bytes, and triggers a browser download
+///      via JS FFI.
+///
+/// Style mapping covers bold, italic, horizontal alignment, and background fill
+/// color. Font color and number formats are not round-tripped through xlsx.
 
 ///|
-/// JavaScript FFI: opens a file picker dialog and reads the selected .xlsx file
-/// as a Uint8Array (which maps to MoonBit Bytes on the JS target).
+/// JavaScript FFI: opens a native file picker dialog restricted to `.xlsx`/`.xls`
+/// files, reads the selected file into memory as a `Uint8Array` (mapped to
+/// MoonBit `Bytes` on the JS target), and invokes `on_success` with the bytes.
+/// If no file is selected or reading fails, `on_error` is called with a message.
 extern "js" fn pick_xlsx_file(
   on_success : (Bytes) -> Unit,
   on_error : (String) -> Unit,
@@ -25,8 +43,11 @@ extern "js" fn pick_xlsx_file(
   #| }
 
 ///|
-/// Creates a Cmd that opens a file picker and dispatches ImportExcel(bytes)
-/// when a file is selected and read.
+/// Create a Rabbita side-effect command that opens a file picker dialog.
+///
+/// When the user selects a file and it is successfully read, the command
+/// dispatches `ImportExcel(bytes)` back into the update loop. Errors from
+/// the file picker are silently ignored (the model stays unchanged).
 fn import_xlsx_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @rabbita.attempt(
     fn(result) {
@@ -47,7 +68,15 @@ fn import_xlsx_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
-/// Parse an XLSX file and replace the current model's sheets with imported data.
+/// Parse an XLSX file from raw bytes and replace the entire model with the
+/// imported workbook.
+///
+/// Each sheet in the workbook becomes a `Sheet` in the model. Cell values,
+/// formulas, and styles (bold, italic, alignment, background color) are
+/// imported. After importing, all sheets are recalculated so that formula
+/// dependencies are resolved.
+///
+/// If parsing fails, the original model is returned unchanged.
 fn load_xlsx(model : Model, bytes : Bytes) -> Model {
   // Try parsing — on failure, return model unchanged
   let wb = @xlsx.read(bytes[:]) catch { _ => return model }
@@ -82,7 +111,17 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
 }
 
 ///|
-/// Import cells from an xlsx sheet into our Sheet model.
+/// Import cells from a single xlsx worksheet into the corresponding Sheet model.
+///
+/// The `dim` parameter is the used-range dimension string (e.g. `"A1:H14"`)
+/// from the xlsx file. The function iterates over every cell in that range,
+/// clamped to the grid size (`num_cols` x `num_rows`):
+///
+///   1. Reads the cell formula (if any) and raw value from the workbook.
+///   2. Reads style properties (bold, italic, alignment, background color).
+///   3. Formulas take priority over raw values for the `raw` field.
+///   4. Evaluates the cell; if a formula fails to evaluate, falls back to
+///      the cached xlsx value so that imported data is still visible.
 fn import_sheet_cells(
   wb : @xlsx.Workbook,
   sheet_name : String,
@@ -162,7 +201,11 @@ fn import_sheet_cells(
 }
 
 ///|
-/// Convert xlsx CellValue to our Value type (for cached formula results).
+/// Convert an xlsx `CellValue` to our internal `Value` type.
+///
+/// Used as a fallback when a formula cannot be re-evaluated: the cached
+/// result from the xlsx file is used instead. Boolean values are converted
+/// to the text strings `"TRUE"` / `"FALSE"`.
 fn cell_value_to_value(cv : @xlsx.CellValue?) -> @cell.Value {
   match cv {
     None => Empty
@@ -174,7 +217,9 @@ fn cell_value_to_value(cv : @xlsx.CellValue?) -> @cell.Value {
 }
 
 ///|
-/// Convert xlsx CellValue to a raw string for our cell model.
+/// Convert an xlsx `CellValue` to a raw input string suitable for the `Cell.raw`
+/// field. Numeric values are formatted as integers when possible to avoid
+/// unnecessary decimals. `None` maps to the empty string.
 fn cell_value_to_raw(cv : @xlsx.CellValue?) -> String {
   match cv {
     None => ""
@@ -193,7 +238,15 @@ fn cell_value_to_raw(cv : @xlsx.CellValue?) -> String {
 }
 
 ///|
-/// Extract basic style info from xlsx cell.
+/// Extract basic style properties from an xlsx cell's style definition.
+///
+/// Returns a tuple of `(bold, italic, align, bg_color)`. The function
+/// navigates the xlsx style hierarchy: cell -> style ID -> Style object,
+/// extracting font properties, horizontal alignment, and fill pattern color.
+///
+/// Excel uses 8-character ARGB color strings (`"FFRRGGBB"`); these are
+/// converted to CSS-compatible 7-character hex (`"#RRGGBB"`) by stripping
+/// the alpha channel prefix.
 fn get_xlsx_style(
   wb : @xlsx.Workbook,
   sheet_name : String,
@@ -264,7 +317,10 @@ fn get_xlsx_style(
 // --- Export ---
 
 ///|
-/// JavaScript FFI: trigger a file download in the browser.
+/// JavaScript FFI: trigger a file download in the browser by creating a
+/// temporary Blob URL, programmatically clicking an `<a>` element, and
+/// revoking the URL immediately after. The MIME type is set to the standard
+/// OpenXML spreadsheet type.
 extern "js" fn download_bytes(bytes : Bytes, filename : String) =
   #| (bytes, filename) => {
   #|   const blob = new Blob([bytes], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
@@ -277,7 +333,11 @@ extern "js" fn download_bytes(bytes : Bytes, filename : String) =
   #| }
 
 ///|
-/// Export the current spreadsheet as an .xlsx file download.
+/// Export the current spreadsheet model as an `.xlsx` file download.
+///
+/// Creates a new `@xlsx.Workbook`, populates it with all sheets (cell values,
+/// formulas, and styles), serializes to bytes, and triggers a browser download
+/// named `"spreadsheet.xlsx"`. Silently returns on serialization failure.
 fn export_xlsx(model : Model) -> Unit {
   let wb = @xlsx.Workbook::new()
   // Create all sheets
@@ -293,7 +353,15 @@ fn export_xlsx(model : Model) -> Unit {
 }
 
 ///|
-/// Populate an xlsx worksheet from our Sheet model.
+/// Populate an xlsx worksheet from a Sheet model.
+///
+/// For each non-empty cell:
+///   1. Sets the cell value (numeric, string, or error).
+///   2. If the cell's `raw` starts with `=`, writes the formula (with the
+///      leading `=` stripped and `AVG` normalized to `AVERAGE` for Excel
+///      compatibility).
+///   3. If the cell has any styling (bold, italic, alignment, or background
+///      color), creates an xlsx `Style` and applies it.
 fn export_sheet_cells(
   wb : @xlsx.Workbook,
   ws : @xlsx.Worksheet,
@@ -349,7 +417,12 @@ fn export_sheet_cells(
 }
 
 ///|
-/// Build an xlsx Style from our Cell formatting.
+/// Build an xlsx `Style` object from a cell's formatting properties.
+///
+/// Maps our internal styling model to the xlsx library's style representation:
+///   - `bold` / `italic` -> `@xlsx.Font`
+///   - `align` (Left/Center/Right) -> `@xlsx.Alignment`
+///   - `bg_color` (`"#RRGGBB"`) -> `@xlsx.Fill` with `"FFRRGGBB"` ARGB color
 fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
   let mut style = @xlsx.Style::new()
   // Font
@@ -387,7 +460,13 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
 }
 
 ///|
-/// Normalize formula aliases for Excel compatibility (e.g. AVG→AVERAGE).
+/// Normalize formula text for Excel compatibility before export.
+///
+/// Currently handles one transformation: standalone `AVG(` is replaced with
+/// `AVERAGE(` (the standard Excel function name). The replacement is only
+/// performed outside double-quoted string literals and only when `AVG` is
+/// not preceded by another uppercase letter (to avoid mangling names like
+/// `NAVG`).
 fn normalize_formula(formula : String) -> String {
   let sb = StringBuilder::new()
   let chars = formula.to_array()
@@ -422,7 +501,8 @@ fn normalize_formula(formula : String) -> String {
 }
 
 ///|
-/// Split a string on ':' into two parts.
+/// Split a string on the first `:` into two parts. Returns `None` if no colon
+/// is present. Used to parse dimension strings like `"A1:H14"`.
 fn split_colon(s : String) -> (String, String)? {
   match s.split_once(":") {
     Some((left, right)) => Some((left.to_string(), right.to_string()))
