@@ -3,7 +3,7 @@
   "version": "0.3.1",
   "deps": {
     "moonbit-community/rabbita": "0.11.5",
-    "oboard/mocket": "0.6.10",
+    "oboard/mocket": "0.6.11",
     "myfreess/sqlite3": "0.1.1",
     "moonbitlang/x": "0.4.40",
     "moonbitlang/async": "0.16.8"

@@ -404,6 +404,10 @@ pub fn Model::update(
           fn(json) { Ok(@json.from_json(json)) catch { _ => Err("decode error") } },
         ),
       )
+      (
+        { ..self, connecting_from_node: 0, connecting_from_port: 0 },
+        cmd,
+      )
     }
     ConnectionAdded(Ok(c)) => {
       let connections = self.connections.copy()

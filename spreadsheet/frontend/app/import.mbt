@@ -425,6 +425,8 @@ fn normalize_formula(formula : String) -> String {
 ///|
 /// Split a string on ':' into two parts.
 fn split_colon(s : String) -> (String, String)? {
-  let (left, right) = s.split_once(":")?
-  Some((left.to_string(), right.to_string()))
+  match s.split_once(":") {
+    Some((left, right)) => Some((left.to_string(), right.to_string()))
+    None => None
+  }
 }

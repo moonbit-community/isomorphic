@@ -13,7 +13,6 @@
     "./spreadsheet",
     "./finapp",
     "./nodegraph",
-    "./mbtexcel",
-    "./lib/mocket"
+    "./mbtexcel"
   ]
 }
