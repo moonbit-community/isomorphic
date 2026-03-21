@@ -1,11 +1,7 @@
 ///|
 /// Compute the total number of votes across all options in a poll.
 pub fn compute_total_votes(options : Array[PollOption]) -> Int {
-  let mut total = 0
-  for opt in options {
-    total += opt.votes
-  }
-  total
+  options.fold(init=0, fn(acc, opt) { acc + opt.votes })
 }
 
 ///|

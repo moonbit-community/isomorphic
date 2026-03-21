@@ -42,12 +42,8 @@ pub fn Model::update(
       if self.option_inputs.length() <= @shared.min_options {
         return (self, @rabbita.none)
       }
-      let new_opts : Array[String] = []
-      for i in 0..<self.option_inputs.length() {
-        if i != idx {
-          new_opts.push(self.option_inputs[i])
-        }
-      }
+      let new_opts = self.option_inputs.copy()
+      ignore(new_opts.remove(idx))
       ({ ..self, option_inputs: new_opts }, @rabbita.none)
     }
     CreatePoll => {
@@ -55,13 +51,7 @@ pub fn Model::update(
         return (self, @rabbita.none)
       }
       // Filter out empty options and validate
-      let valid_options : Array[String] = []
-      for text in self.option_inputs {
-        let trimmed = text
-        if trimmed != "" {
-          valid_options.push(trimmed)
-        }
-      }
+      let valid_options = self.option_inputs.filter(fn(text) { text != "" })
       if valid_options.length() < @shared.min_options {
         return (self, @rabbita.none)
       }
@@ -98,10 +88,8 @@ pub fn Model::update(
     PollCreated(Err(_)) => (self, @rabbita.none)
     Vote(poll_id, option_id) => {
       // Check if already voted
-      for v in self.voted {
-        if v == poll_id {
-          return (self, @rabbita.none)
-        }
+      if self.voted.contains(poll_id) {
+        return (self, @rabbita.none)
       }
       let body : Json = { "option_id": option_id.to_double() }
       let cmd = @http.post(

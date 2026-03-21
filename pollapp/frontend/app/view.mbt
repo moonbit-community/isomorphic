@@ -1,12 +1,7 @@
 ///|
 /// Check if the user has voted on a specific poll.
 fn Model::has_voted(self : Model, poll_id : Int) -> Bool {
-  for v in self.voted {
-    if v == poll_id {
-      return true
-    }
-  }
-  false
+  self.voted.contains(poll_id)
 }
 
 ///|
