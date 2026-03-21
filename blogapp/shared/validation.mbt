@@ -5,7 +5,7 @@ pub let default_author : String = "Anonymous"
 ///|
 /// Returns `default_author` when the given author string is empty, otherwise returns it unchanged.
 pub fn normalize_author(author : String) -> String {
-  if author == "" {
+  if author.is_empty() {
     default_author
   } else {
     author
@@ -15,7 +15,7 @@ pub fn normalize_author(author : String) -> String {
 ///|
 /// Returns true if the title is non-empty.
 pub fn validate_title(title : String) -> Bool {
-  title != ""
+  not(title.is_empty())
 }
 
 ///|
