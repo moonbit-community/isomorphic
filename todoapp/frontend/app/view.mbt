@@ -50,11 +50,11 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=card_style, [
-    @html.h1(style=heading_style, "Todo List"),
+  @html.div(style=card_style) <| [
+    @html.h1(style=heading_style) <| "Todo List",
     self.view_form(dispatch),
     self.view_todos(dispatch),
-  ])
+  ]
 }
 
 ///|
@@ -63,7 +63,7 @@ fn Model::view_form(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.form(on_submit=dispatch(AddTodo), style=form_style, [
+  @html.form(on_submit=dispatch(AddTodo), style=form_style) <| [
     @html.input(
       input_type=Text,
       placeholder="What needs to be done?",
@@ -72,8 +72,8 @@ fn Model::view_form(
       style=input_style,
       "",
     ),
-    @html.button(type_="submit", style=add_btn_style, "Add"),
-  ])
+    @html.button(type_="submit", style=add_btn_style) <| "Add",
+  ]
 }
 
 ///|
@@ -83,18 +83,14 @@ fn Model::view_todos(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   if self.loading {
-    return @html.p(style=muted_style, "Loading...")
+    return @html.p(style=muted_style) <| "Loading..."
   }
   if self.todos is [] {
-    return @html.p(
-      style=["text-align: center", "color: #999", "padding: 20px"],
-      "No todos yet. Add one above!",
-    )
+    return @html.p(style=["text-align: center", "color: #999", "padding: 20px"]) <| "No todos yet. Add one above!"
   }
-  @html.ul(
-    style=["list-style: none"],
-    self.todos.map(todo => todo.view_todo_item(dispatch)),
-  )
+  @html.ul(style=["list-style: none"]) <| self.todos.map(todo => {
+    todo.view_todo_item(dispatch)
+  })
 }
 
 ///|
@@ -108,7 +104,7 @@ fn @shared.Todo::view_todo_item(
   } else {
     ["flex: 1"]
   }
-  @html.li(style=todo_item_style, [
+  @html.li(style=todo_item_style) <| [
     @html.input(
       input_type=Checkbox,
       checked=todo.done,
@@ -116,11 +112,7 @@ fn @shared.Todo::view_todo_item(
       style=["margin-right: 12px", "cursor: pointer"],
       "",
     ),
-    @html.span(style=text_style, todo.text),
-    @html.button(
-      on_click=dispatch(DeleteTodo(todo.id)),
-      style=delete_btn_style,
-      "Delete",
-    ),
-  ])
+    @html.span(style=text_style) <| todo.text,
+    @html.button(on_click=dispatch(DeleteTodo(todo.id)), style=delete_btn_style) <| "Delete",
+  ]
 }
