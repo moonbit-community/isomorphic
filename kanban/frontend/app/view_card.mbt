@@ -56,8 +56,7 @@ fn Model::view_card_item(
           "width: 100%", "padding: 6px 8px", "border: 1px solid #e2e8f0", "border-radius: 4px",
           "font-size: 13px", "outline: none", "margin-bottom: 6px",
         ],
-        "",
-      ),
+      ) <| "",
       @html.textarea(
         placeholder="Description (optional)",
         value=self.edit_desc,
@@ -68,8 +67,7 @@ fn Model::view_card_item(
           "font-size: 12px", "outline: none", "resize: vertical", "font-family: inherit",
           "margin-bottom: 6px",
         ],
-        "",
-      ),
+      ) <| "",
       view_color_picker(dispatch, self.edit_color, fn(c) { EditColorChanged(c) }),
       @html.div(style=["display: flex", "gap: 6px"]) <| [
         @html.button(on_click=dispatch(SaveEditCard), style=[
@@ -110,23 +108,15 @@ fn Model::view_card_item(
         {
           let move_bg = if is_moving { "#0d9488" } else { "#f8fafc" }
           let move_fg = if is_moving { "white" } else { "#64748b" }
-          @html.button(
-            on_click=dispatch(SelectCardToMove(card.id)),
-            style=[
-              "padding: 3px 8px",
-              "font-size: 11px",
-              "cursor: pointer",
-              "border-radius: 4px",
-              "border: 1px solid #e2e8f0",
-              "background: \{move_bg}",
-              "color: \{move_fg}",
-            ],
-            if is_moving {
-              "Moving..."
-            } else {
-              "Move"
-            },
-          )
+          @html.button(on_click=dispatch(SelectCardToMove(card.id)), style=[
+            "padding: 3px 8px",
+            "font-size: 11px",
+            "cursor: pointer",
+            "border-radius: 4px",
+            "border: 1px solid #e2e8f0",
+            "background: \{move_bg}",
+            "color: \{move_fg}",
+          ]) <| (if is_moving { "Moving..." } else { "Move" })
         },
         @html.button(on_click=dispatch(StartEditCard(card)), style=[
           "padding: 3px 8px", "font-size: 11px", "cursor: pointer", "border-radius: 4px",

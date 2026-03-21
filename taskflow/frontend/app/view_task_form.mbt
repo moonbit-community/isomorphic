@@ -36,8 +36,7 @@ fn view_add_task_form(
         "background: \{theme.input_bg}",
         "color: \{theme.text}",
       ],
-      "",
-    ),
+    ) <| "",
     @html.textarea(
       placeholder=@shared.t(model.lang, "desc_placeholder"),
       value=model.new_desc,
@@ -56,8 +55,7 @@ fn view_add_task_form(
         "background: \{theme.input_bg}",
         "color: \{theme.text}",
       ],
-      "",
-    ),
+    ) <| "",
     @html.div(style=[
       "display: flex", "gap: 16px", "margin-bottom: 8px", "flex-wrap: wrap",
     ]) <| [
@@ -69,12 +67,11 @@ fn view_add_task_form(
         ]) <| [
           @html.text(@shared.t(model.lang, "priority")),
         ],
-        view_priority_picker(
-          dispatch,
-          model.new_priority,
-          fn(p) { NewPriorityChanged(p) },
-          lang=model.lang,
-        ),
+        view_priority_picker(dispatch, model.new_priority, lang=model.lang) <| fn(
+          p,
+        ) {
+          NewPriorityChanged(p)
+        },
       ],
       @html.div(style=[]) <| [
         @html.div(style=[
@@ -84,11 +81,11 @@ fn view_add_task_form(
         ]) <| [
           @html.text(@shared.t(model.lang, "assignee")),
         ],
-        view_assignee_picker(dispatch, model.members, model.new_assignee, fn(
+        view_assignee_picker(dispatch, model.members, model.new_assignee) <| fn(
           id,
         ) {
           NewAssigneeChanged(id)
-        }),
+        },
       ],
       @html.div(style=[]) <| [
         @html.div(style=[
@@ -113,8 +110,7 @@ fn view_add_task_form(
             "background: \{theme.input_bg}",
             "color: \{theme.text}",
           ],
-          "",
-        ),
+        ) <| "",
       ],
     ],
     @html.div(style=["display: flex", "gap: 6px"]) <| [
@@ -165,8 +161,7 @@ fn view_edit_task_form(
         "background: \{theme.input_bg}",
         "color: \{theme.text}",
       ],
-      "",
-    ),
+    ) <| "",
     @html.textarea(
       placeholder=@shared.t(model.lang, "desc_placeholder"),
       value=model.edit_desc,
@@ -185,8 +180,7 @@ fn view_edit_task_form(
         "background: \{theme.input_bg}",
         "color: \{theme.text}",
       ],
-      "",
-    ),
+    ) <| "",
     @html.div(style=[
       "display: flex", "gap: 12px", "margin-bottom: 6px", "flex-wrap: wrap",
     ]) <| [
@@ -198,12 +192,11 @@ fn view_edit_task_form(
         ]) <| [
           @html.text(@shared.t(model.lang, "priority")),
         ],
-        view_priority_picker(
-          dispatch,
-          model.edit_priority,
-          fn(p) { EditPriorityChanged(p) },
-          lang=model.lang,
-        ),
+        view_priority_picker(dispatch, model.edit_priority, lang=model.lang) <| fn(
+          p,
+        ) {
+          EditPriorityChanged(p)
+        },
       ],
       @html.div(style=[]) <| [
         @html.div(style=[
@@ -213,11 +206,11 @@ fn view_edit_task_form(
         ]) <| [
           @html.text(@shared.t(model.lang, "assignee")),
         ],
-        view_assignee_picker(dispatch, model.members, model.edit_assignee, fn(
+        view_assignee_picker(dispatch, model.members, model.edit_assignee) <| fn(
           id,
         ) {
           EditAssigneeChanged(id)
-        }),
+        },
       ],
       @html.div(style=[]) <| [
         @html.div(style=[
@@ -242,8 +235,7 @@ fn view_edit_task_form(
             "background: \{theme.input_bg}",
             "color: \{theme.text}",
           ],
-          "",
-        ),
+        ) <| "",
       ],
     ],
     @html.div(style=["display: flex", "gap: 6px"]) <| [

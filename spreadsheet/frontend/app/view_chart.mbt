@@ -170,8 +170,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
     height=chart_h,
     view_box="0 0 \{chart_w} \{chart_h}",
     style=["background: #fff", "border-radius: 8px"],
-    elements,
-  )
+  ) <| elements
 }
 
 ///|
@@ -319,13 +318,9 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     )
   }
   let total_h = size + products.length() * 16
-  @svg.svg(
-    width=size,
-    height=total_h,
-    view_box="0 0 \{size} \{total_h}",
-    style=["background: #fff", "border-radius: 8px"],
-    elements,
-  )
+  @svg.svg(width=size, height=total_h, view_box="0 0 \{size} \{total_h}", style=[
+    "background: #fff", "border-radius: 8px",
+  ]) <| elements
 }
 
 ///|
@@ -415,13 +410,7 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   // Max dot (green)
   let (max_x, max_y) = points[max_idx]
   elements.push(@svg.circle(cx=max_x, cy=max_y, r=2, fill="#34a853"))
-  @svg.svg(
-    width=w,
-    height=h,
-    view_box="0 0 \{w} \{h}",
-    style=["display: block"],
-    elements,
-  )
+  @svg.svg(width=w, height=h, view_box="0 0 \{w} \{h}", style=["display: block"]) <| elements
 }
 
 ///|

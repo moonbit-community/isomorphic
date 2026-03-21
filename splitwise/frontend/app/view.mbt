@@ -4,50 +4,47 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(
-    style=container_style,
-    {
-      let sections : Array[@rabbita.Html] = []
-      // Header
+  @html.div(style=container_style) <| ({
+    let sections : Array[@rabbita.Html] = []
+    // Header
+    sections.push(
+      @html.div(style=header_style) <| [
+        @html.h1(style=header_title_style) <| "Splitwise",
+        @html.p(style=header_subtitle_style) <| "Split expenses with friends",
+      ],
+    )
+    // Total banner (only when there are expenses)
+    if self.expenses.length() > 0 {
+      let total = compute_total(self.expenses)
       sections.push(
-        @html.div(style=header_style) <| [
-          @html.h1(style=header_title_style) <| "Splitwise",
-          @html.p(style=header_subtitle_style) <| "Split expenses with friends",
+        @html.div(style=total_banner_style) <| [
+          @html.div(style=total_label_style) <| "Total Expenses",
+          @html.div(style=total_amount_style) <| "$\{@shared.format_amount(total)}",
         ],
       )
-      // Total banner (only when there are expenses)
-      if self.expenses.length() > 0 {
-        let total = compute_total(self.expenses)
-        sections.push(
-          @html.div(style=total_banner_style) <| [
-            @html.div(style=total_label_style) <| "Total Expenses",
-            @html.div(style=total_amount_style) <| "$\{@shared.format_amount(total)}",
-          ],
-        )
-      }
-      // People card
-      sections.push(self.view_people_card(dispatch))
-      // Add expense card (only when >= 2 people)
-      if self.people.length() >= 2 {
-        sections.push(self.view_expense_form(dispatch))
-      }
-      // Expenses list
-      if self.expenses.length() > 0 {
-        sections.push(self.view_expenses_list(dispatch))
-      }
-      // Settlements
-      if self.settlements.length() > 0 {
-        sections.push(self.view_settlements())
-      } else if self.expenses.length() > 0 {
-        sections.push(
-          view_card("Settlements", [
-            @html.p(style=settled_up_style) <| "All settled up!",
-          ]),
-        )
-      }
-      sections
-    },
-  )
+    }
+    // People card
+    sections.push(self.view_people_card(dispatch))
+    // Add expense card (only when >= 2 people)
+    if self.people.length() >= 2 {
+      sections.push(self.view_expense_form(dispatch))
+    }
+    // Expenses list
+    if self.expenses.length() > 0 {
+      sections.push(self.view_expenses_list(dispatch))
+    }
+    // Settlements
+    if self.settlements.length() > 0 {
+      sections.push(self.view_settlements())
+    } else if self.expenses.length() > 0 {
+      sections.push(
+        view_card("Settlements") <| [
+          @html.p(style=settled_up_style) <| "All settled up!",
+        ],
+      )
+    }
+    sections
+  })
 }
 
 ///|
@@ -56,7 +53,7 @@ fn Model::view_people_card(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  view_card("People", [
+  view_card("People") <| [
     @html.form(on_submit=dispatch(AddPerson), style=people_form_style) <| [
       @html.input(
         input_type=Text,
@@ -64,8 +61,7 @@ fn Model::view_people_card(
         value=self.person_input,
         on_input=fn(v) { dispatch(PersonInputChanged(v)) },
         style=text_input_style,
-        "",
-      ),
+      ) <| "",
       @html.button(type_="submit", style=add_btn_style) <| "Add",
     ],
     if self.people.length() > 0 {
@@ -91,7 +87,7 @@ fn Model::view_people_card(
     } else {
       @html.p(style=empty_people_style) <| "Add at least 2 people to get started"
     },
-  ])
+  ]
 }
 
 ///|
@@ -100,7 +96,7 @@ fn Model::view_expense_form(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  view_card("Add Expense", [
+  view_card("Add Expense") <| [
     @html.form(on_submit=dispatch(AddExpense), style=expense_form_style) <| [
       @html.input(
         input_type=Text,
@@ -108,8 +104,7 @@ fn Model::view_expense_form(
         value=self.desc_input,
         on_input=fn(v) { dispatch(DescInputChanged(v)) },
         style=input_style,
-        "",
-      ),
+      ) <| "",
       @html.div(style=amount_row_style) <| [
         @html.input(
           input_type=Text,
@@ -117,8 +112,7 @@ fn Model::view_expense_form(
           value=self.amount_input,
           on_input=fn(v) { dispatch(AmountInputChanged(v)) },
           style=amount_input_style,
-          "",
-        ),
+        ) <| "",
         @html.select(
           on_change=fn(v) { dispatch(PaidByChanged(parse_int(v))) },
           style=select_style,
@@ -133,7 +127,7 @@ fn Model::view_expense_form(
       @html.div(style=split_hint_style) <| "Split equally among all \{self.people.length()} people",
       @html.button(type_="submit", style=submit_btn_style) <| "Add Expense",
     ],
-  ])
+  ]
 }
 
 ///|
@@ -142,109 +136,98 @@ fn Model::view_expenses_list(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  view_card(
-    "Expenses",
-    self.expenses.map(fn(expense) {
-      let payer_color = person_color(expense.paid_by)
-      let payer_initial = {
-        let name = find_person_name(self.people, expense.paid_by)
-        name.iter().collect()[0].to_string().to_upper()
-      }
-      @html.div(style=expense_row_style) <| [
-        // Payer avatar
-        @html.div(style=[
-          "width: 36px",
-          "height: 36px",
-          "border-radius: 50%",
-          "flex-shrink: 0",
-          "background: \{payer_color}",
-          "color: white",
-          "font-size: 14px",
-          "font-weight: 700",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-        ]) <| payer_initial,
-        // Description + subtitle
-        @html.div(style=expense_info_style) <| [
-          @html.div(style=expense_desc_style) <| expense.description,
-          @html.div(style=expense_sub_style) <| "\{find_person_name(self.people, expense.paid_by)} paid · \{expense.split_among.length()} way split",
-        ],
-        // Amount
-        @html.span(style=expense_amount_style) <| "$\{@shared.format_amount(expense.amount)}",
-        // Delete
-        @html.button(
-          on_click=dispatch(DeleteExpense(expense.id)),
-          style=delete_btn_style,
-        ) <| "X",
-      ]
-    }),
-  )
+  view_card("Expenses") <| self.expenses.map(fn(expense) {
+    let payer_color = person_color(expense.paid_by)
+    let payer_initial = {
+      let name = find_person_name(self.people, expense.paid_by)
+      name.iter().collect()[0].to_string().to_upper()
+    }
+    @html.div(style=expense_row_style) <| [
+      // Payer avatar
+      @html.div(style=[
+        "width: 36px",
+        "height: 36px",
+        "border-radius: 50%",
+        "flex-shrink: 0",
+        "background: \{payer_color}",
+        "color: white",
+        "font-size: 14px",
+        "font-weight: 700",
+        "display: flex",
+        "align-items: center",
+        "justify-content: center",
+      ]) <| payer_initial,
+      // Description + subtitle
+      @html.div(style=expense_info_style) <| [
+        @html.div(style=expense_desc_style) <| expense.description,
+        @html.div(style=expense_sub_style) <| "\{find_person_name(self.people, expense.paid_by)} paid · \{expense.split_among.length()} way split",
+      ],
+      // Amount
+      @html.span(style=expense_amount_style) <| "$\{@shared.format_amount(expense.amount)}",
+      // Delete
+      @html.button(
+        on_click=dispatch(DeleteExpense(expense.id)),
+        style=delete_btn_style,
+      ) <| "X",
+    ]
+  })
 }
 
 ///|
 /// Render the settlements card.
 fn Model::view_settlements(self : Model) -> @rabbita.Html {
-  view_card(
-    "Who Owes Who",
-    self.settlements.map(fn(s) {
-      @html.div(style=settlement_row_style) <| [
-        // From person
-        @html.div(style=settlement_person_style) <| [
-          @html.div(style=[
-            "width: 30px",
-            "height: 30px",
-            "border-radius: 50%",
-            "background: \{person_color(s.from_id)}",
-            "color: white",
-            "font-size: 12px",
-            "font-weight: 700",
-            "display: flex",
-            "align-items: center",
-            "justify-content: center",
-          ]) <| s.from_name.iter().collect()[0].to_string().to_upper(),
-          @html.span(style=settlement_name_style) <| s.from_name,
-        ],
-        // Arrow
-        @html.div(style=settlement_arrow_style) <| "->",
-        // To person
-        @html.div(style=settlement_person_style) <| [
-          @html.div(style=[
-            "width: 30px",
-            "height: 30px",
-            "border-radius: 50%",
-            "background: \{person_color(s.to_id)}",
-            "color: white",
-            "font-size: 12px",
-            "font-weight: 700",
-            "display: flex",
-            "align-items: center",
-            "justify-content: center",
-          ]) <| s.to_name.iter().collect()[0].to_string().to_upper(),
-          @html.span(style=settlement_name_style) <| s.to_name,
-        ],
-        // Amount
-        @html.span(style=settlement_amount_style) <| "$\{@shared.format_amount(s.amount)}",
-      ]
-    }),
-  )
+  view_card("Who Owes Who") <| self.settlements.map(fn(s) {
+    @html.div(style=settlement_row_style) <| [
+      // From person
+      @html.div(style=settlement_person_style) <| [
+        @html.div(style=[
+          "width: 30px",
+          "height: 30px",
+          "border-radius: 50%",
+          "background: \{person_color(s.from_id)}",
+          "color: white",
+          "font-size: 12px",
+          "font-weight: 700",
+          "display: flex",
+          "align-items: center",
+          "justify-content: center",
+        ]) <| s.from_name.iter().collect()[0].to_string().to_upper(),
+        @html.span(style=settlement_name_style) <| s.from_name,
+      ],
+      // Arrow
+      @html.div(style=settlement_arrow_style) <| "->",
+      // To person
+      @html.div(style=settlement_person_style) <| [
+        @html.div(style=[
+          "width: 30px",
+          "height: 30px",
+          "border-radius: 50%",
+          "background: \{person_color(s.to_id)}",
+          "color: white",
+          "font-size: 12px",
+          "font-weight: 700",
+          "display: flex",
+          "align-items: center",
+          "justify-content: center",
+        ]) <| s.to_name.iter().collect()[0].to_string().to_upper(),
+        @html.span(style=settlement_name_style) <| s.to_name,
+      ],
+      // Amount
+      @html.span(style=settlement_amount_style) <| "$\{@shared.format_amount(s.amount)}",
+    ]
+  })
 }
 
 ///|
 /// Render a white card with a section title.
 fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
-  @html.div(
-    style=card_style,
-    {
-      let all : Array[@rabbita.Html] = [
-        @html.h2(style=card_title_style) <| title,
-      ]
-      for child in children {
-        all.push(child)
-      }
-      all
-    },
-  )
+  @html.div(style=card_style) <| ({
+    let all : Array[@rabbita.Html] = [@html.h2(style=card_title_style) <| title]
+    for child in children {
+      all.push(child)
+    }
+    all
+  })
 }
 
 ///|

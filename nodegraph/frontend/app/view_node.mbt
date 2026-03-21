@@ -137,21 +137,18 @@ fn Model::view_temp_wire(
   let abs_diff = if diff < 0 { -diff } else { diff }
   let dx = if abs_diff < 80 { 50 } else { abs_diff / 2 }
   let path_d = "M \{x1} \{y1} C \{x1 + dx} \{y1}, \{x2 - dx} \{y2}, \{x2} \{y2}"
-  @svg.svg(
-    width=w,
-    height=h,
-    style=["position: absolute", "top: 0", "left: 0", "pointer-events: none"],
-    [
-      @svg.path(
-        d=path_d,
-        fill="none",
-        stroke="#e94560",
-        stroke_width=2,
-        attrs=@svg.Attrs::build().stroke_dasharray("8 4"),
-        style=["animation: flowDash 0.5s linear infinite"],
-      ),
-    ],
-  )
+  @svg.svg(width=w, height=h, style=[
+    "position: absolute", "top: 0", "left: 0", "pointer-events: none",
+  ]) <| [
+    @svg.path(
+      d=path_d,
+      fill="none",
+      stroke="#e94560",
+      stroke_width=2,
+      attrs=@svg.Attrs::build().stroke_dasharray("8 4"),
+      style=["animation: flowDash 0.5s linear infinite"],
+    ),
+  ]
 }
 
 ///|
@@ -237,12 +234,9 @@ fn Model::view_svg_wires(
       ),
     )
   }
-  @svg.svg(
-    width=w,
-    height=h,
-    style=["position: absolute", "top: 0", "left: 0", "pointer-events: none"],
-    paths,
-  )
+  @svg.svg(width=w, height=h, style=[
+    "position: absolute", "top: 0", "left: 0", "pointer-events: none",
+  ]) <| paths
 }
 
 ///|
@@ -349,8 +343,7 @@ fn Model::view_const_config(
           "flex: 1", "padding: 4px 6px", "background: #0d1b2a", "border: 1px solid #e94560",
           "border-radius: 3px", "color: #eee", "font-family: inherit", "font-size: 0.8em",
         ],
-        "",
-      ),
+      ) <| "",
       @html.button(
         style=[
           "padding: 4px 8px", "background: #4CAF50", "color: #fff", "border: none",
@@ -374,13 +367,11 @@ fn Model::view_const_config(
       ],
       on_click=dispatch(StartEditConfig(node.id, node.config)),
     ) <| [
-      @html.span(
-        if node.config.length() > 0 {
-          node.config
-        } else {
-          "(click to set)"
-        },
-      ),
+      @html.span() <| (if node.config.length() > 0 {
+        node.config
+      } else {
+        "(click to set)"
+      }),
     ]
   }
 }
@@ -577,25 +568,18 @@ fn Model::view_node_values(
           ]) <| hex,
         ]
       VBool(b) =>
-        @html.div(
-          style=[
-            "display: inline-block",
-            "padding: 3px 10px",
-            "border-radius: 12px",
-            "font-size: 0.75em",
-            "font-weight: 700",
-            if b {
-              "background: #4CAF5030; color: #76FF03; border: 1px solid #4CAF50"
-            } else {
-              "background: #f4433630; color: #ff5252; border: 1px solid #f44336"
-            },
-          ],
+        @html.div(style=[
+          "display: inline-block",
+          "padding: 3px 10px",
+          "border-radius: 12px",
+          "font-size: 0.75em",
+          "font-weight: 700",
           if b {
-            "true"
+            "background: #4CAF5030; color: #76FF03; border: 1px solid #4CAF50"
           } else {
-            "false"
+            "background: #f4433630; color: #ff5252; border: 1px solid #f44336"
           },
-        )
+        ]) <| (if b { "true" } else { "false" })
       VNumber(n) =>
         @html.div(style=[
           "font-size: 1.1em", "color: #76FF03", "font-family: monospace", "font-weight: 700",

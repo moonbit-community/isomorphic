@@ -325,8 +325,7 @@ fn Model::view_markdown(
           value=s.source,
           rows=12,
           on_input=src => dispatch(MarkdownChanged(src)),
-          "",
-        ),
+        ) <| "",
       ],
       @html.div(style=["display:flex", "flex-direction:column", "gap:6px"]) <| [
         @html.label(style=label_style) <| "Preview",
@@ -417,8 +416,7 @@ fn Model::view_spreadsheet(
             "padding:0",
           ],
           on_input=v => dispatch(SpreadsheetEditChanged(v)),
-          "",
-        )
+        ) <| ""
       } else {
         @html.span(style=["font-size:13px", "color:\{text_primary}"]) <| cell.value
       }
@@ -461,14 +459,15 @@ fn Model::view_spreadsheet(
         on_click=dispatch(SpreadsheetStartEdit),
         disabled=s.selected_row < 0,
       ) <| "Edit Cell",
-      @html.span(
-        style=["font-size:12px", "color:\{text_muted}", "align-self:center"],
-        if s.selected_row >= 0 {
-          "Selected: \{col_headers[s.selected_col]}\{s.selected_row + 1}"
-        } else {
-          "Click a cell to select"
-        },
-      ),
+      @html.span(style=[
+        "font-size:12px",
+        "color:\{text_muted}",
+        "align-self:center",
+      ]) <| (if s.selected_row >= 0 {
+        "Selected: \{col_headers[s.selected_col]}\{s.selected_row + 1}"
+      } else {
+        "Click a cell to select"
+      }),
     ]
   }
   @html.div(style=[

@@ -26,12 +26,7 @@ fn Model::view_budgets(
           },
         ],
         on_click=dispatch(ToggleForm),
-        if self.show_form {
-          "Cancel"
-        } else {
-          "+ Set Budget"
-        },
-      ),
+      ) <| (if self.show_form { "Cancel" } else { "+ Set Budget" }),
     ],
     // Form
     if self.show_form {
@@ -65,13 +60,9 @@ fn Model::view_budget_form(
   ]) <| [
     @html.div(style=["flex: 2"]) <| [
       @html.div(style=["font-size: 0.75em", "color: #666", "margin-bottom: 4px"]) <| "Category",
-      @html.select(
-        on_change=fn(v) { dispatch(SetBudgetCatId(v)) },
-        style=[
-          "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-        ],
-        expense_cats,
-      ),
+      @html.select(on_change=fn(v) { dispatch(SetBudgetCatId(v)) }, style=[
+        "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+      ]) <| expense_cats,
     ],
     @html.div(style=["flex: 1"]) <| [
       @html.div(style=["font-size: 0.75em", "color: #666", "margin-bottom: 4px"]) <| "Monthly Limit",
@@ -83,8 +74,7 @@ fn Model::view_budget_form(
         style=[
           "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
         ],
-        "",
-      ),
+      ) <| "",
     ],
     @html.button(type_="submit", style=[
       "padding: 8px 20px", "background: #1a73e8", "color: #fff", "border: none",
@@ -158,21 +148,18 @@ fn Model::view_budget_list(
         ]) <| "",
       ],
       // Status text
-      @html.div(
-        style=[
-          "font-size: 0.75em",
-          if over {
-            "color: #c62828"
-          } else {
-            "color: #666"
-          },
-        ],
+      @html.div(style=[
+        "font-size: 0.75em",
         if over {
-          "Over budget by \{@shared.format_amount(-remaining)}"
+          "color: #c62828"
         } else {
-          "\{@shared.format_amount(remaining)} remaining (\{pct}% used)"
+          "color: #666"
         },
-      ),
+      ]) <| (if over {
+        "Over budget by \{@shared.format_amount(-remaining)}"
+      } else {
+        "\{@shared.format_amount(remaining)} remaining (\{pct}% used)"
+      }),
     ]
   })
   @html.div() <| items

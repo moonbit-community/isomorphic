@@ -15,34 +15,31 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(
-    style=container_style,
-    {
-      let sections : Array[@rabbita.Html] = []
-      // Header
+  @html.div(style=container_style) <| ({
+    let sections : Array[@rabbita.Html] = []
+    // Header
+    sections.push(
+      @html.div(style=header_style) <| [
+        @html.h1(style=header_title_style) <| "Poll App",
+        @html.p(style=header_subtitle_style) <| "Create polls and vote",
+      ],
+    )
+    // Create Poll card
+    sections.push(self.view_create_poll(dispatch))
+    // Poll cards
+    for poll in self.polls {
+      sections.push(self.view_poll_card(dispatch, poll))
+    }
+    // Empty state
+    if self.polls.length() == 0 {
       sections.push(
-        @html.div(style=header_style) <| [
-          @html.h1(style=header_title_style) <| "Poll App",
-          @html.p(style=header_subtitle_style) <| "Create polls and vote",
+        view_card("Polls") <| [
+          @html.p(style=empty_polls_style) <| "No polls yet. Create one above!",
         ],
       )
-      // Create Poll card
-      sections.push(self.view_create_poll(dispatch))
-      // Poll cards
-      for poll in self.polls {
-        sections.push(self.view_poll_card(dispatch, poll))
-      }
-      // Empty state
-      if self.polls.length() == 0 {
-        sections.push(
-          view_card("Polls", [
-            @html.p(style=empty_polls_style) <| "No polls yet. Create one above!",
-          ]),
-        )
-      }
-      sections
-    },
-  )
+    }
+    sections
+  })
 }
 
 ///|
@@ -62,8 +59,7 @@ fn Model::view_create_poll(
           value=self.option_inputs[idx],
           on_input=fn(v) { dispatch(OptionInputChanged(idx, v)) },
           style=option_input_style,
-          "",
-        ),
+        ) <| "",
         if self.option_inputs.length() > @shared.min_options {
           @html.button(
             on_click=dispatch(RemoveOptionInput(idx)),
@@ -76,42 +72,37 @@ fn Model::view_create_poll(
       ],
     )
   }
-  view_card("Create Poll", [
-    @html.form(
-      on_submit=dispatch(CreatePoll),
-      style=form_style,
-      {
-        let children : Array[@rabbita.Html] = []
+  view_card("Create Poll") <| [
+    @html.form(on_submit=dispatch(CreatePoll), style=form_style) <| ({
+      let children : Array[@rabbita.Html] = []
+      children.push(
+        @html.input(
+          input_type=Text,
+          placeholder="What's your question?",
+          value=self.question_input,
+          on_input=fn(v) { dispatch(QuestionInputChanged(v)) },
+          style=input_style,
+        ) <| "",
+      )
+      children.push(@html.div(style=options_label_style) <| "Options")
+      for field in option_fields {
+        children.push(field)
+      }
+      if self.option_inputs.length() < @shared.max_options {
         children.push(
-          @html.input(
-            input_type=Text,
-            placeholder="What's your question?",
-            value=self.question_input,
-            on_input=fn(v) { dispatch(QuestionInputChanged(v)) },
-            style=input_style,
-            "",
-          ),
+          @html.button(
+            on_click=dispatch(AddOptionInput),
+            type_="button",
+            style=add_option_btn_style,
+          ) <| "+ Add Option",
         )
-        children.push(@html.div(style=options_label_style) <| "Options")
-        for field in option_fields {
-          children.push(field)
-        }
-        if self.option_inputs.length() < @shared.max_options {
-          children.push(
-            @html.button(
-              on_click=dispatch(AddOptionInput),
-              type_="button",
-              style=add_option_btn_style,
-            ) <| "+ Add Option",
-          )
-        }
-        children.push(
-          @html.button(type_="submit", style=submit_btn_style) <| "Create Poll",
-        )
-        children
-      },
-    ),
-  ])
+      }
+      children.push(
+        @html.button(type_="submit", style=submit_btn_style) <| "Create Poll",
+      )
+      children
+    }),
+  ]
 }
 
 ///|
@@ -162,53 +153,47 @@ fn Model::view_poll_card(
       )
     }
   }
-  view_card(
-    "",
-    {
-      let children : Array[@rabbita.Html] = []
-      // Poll question as title
+  view_card("") <| ({
+    let children : Array[@rabbita.Html] = []
+    // Poll question as title
+    children.push(
+      @html.div(style=poll_header_style) <| [
+        @html.h3(style=poll_question_style) <| poll.question,
+        @html.button(
+          on_click=dispatch(DeletePoll(poll.id)),
+          style=delete_btn_style,
+        ) <| "X",
+      ],
+    )
+    for bar in option_bars {
+      children.push(bar)
+    }
+    // Total votes footer
+    if total > 0 {
       children.push(
-        @html.div(style=poll_header_style) <| [
-          @html.h3(style=poll_question_style) <| poll.question,
-          @html.button(
-            on_click=dispatch(DeletePoll(poll.id)),
-            style=delete_btn_style,
-          ) <| "X",
-        ],
+        @html.div(style=total_votes_style) <| "\{total} total votes",
       )
-      for bar in option_bars {
-        children.push(bar)
-      }
-      // Total votes footer
-      if total > 0 {
-        children.push(
-          @html.div(style=total_votes_style) <| "\{total} total votes",
-        )
-      }
-      if !voted && total == 0 {
-        children.push(
-          @html.div(style=vote_hint_style) <| "Click an option to vote",
-        )
-      }
-      children
-    },
-  )
+    }
+    if !voted && total == 0 {
+      children.push(
+        @html.div(style=vote_hint_style) <| "Click an option to vote",
+      )
+    }
+    children
+  })
 }
 
 ///|
 /// Render a white card with a section title.
 fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
-  @html.div(
-    style=card_style,
-    {
-      let all : Array[@rabbita.Html] = []
-      if title != "" {
-        all.push(@html.h2(style=card_title_style) <| title)
-      }
-      for child in children {
-        all.push(child)
-      }
-      all
-    },
-  )
+  @html.div(style=card_style) <| ({
+    let all : Array[@rabbita.Html] = []
+    if title != "" {
+      all.push(@html.h2(style=card_title_style) <| title)
+    }
+    for child in children {
+      all.push(child)
+    }
+    all
+  })
 }

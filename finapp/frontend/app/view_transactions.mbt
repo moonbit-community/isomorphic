@@ -26,12 +26,7 @@ fn Model::view_transactions(
           },
         ],
         on_click=dispatch(ToggleForm),
-        if self.show_form {
-          "Cancel"
-        } else {
-          "+ Add Transaction"
-        },
-      ),
+      ) <| (if self.show_form { "Cancel" } else { "+ Add Transaction" }),
     ],
     // Form (conditional)
     if self.show_form {
@@ -82,30 +77,18 @@ fn Model::view_transaction_form(
   ]) <| [
     // Type selector
     @html.div(style=["display: flex", "gap: 8px"]) <| [
-      @html.select(
-        on_change=fn(v) { dispatch(SetFormType(v)) },
-        style=[
-          "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-        ],
-        type_options,
-      ),
-      @html.select(
-        on_change=fn(v) { dispatch(SetFormAccountId(v)) },
-        style=[
-          "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-        ],
-        account_options,
-      ),
+      @html.select(on_change=fn(v) { dispatch(SetFormType(v)) }, style=[
+        "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+      ]) <| type_options,
+      @html.select(on_change=fn(v) { dispatch(SetFormAccountId(v)) }, style=[
+        "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+      ]) <| account_options,
     ],
     // Category + amount
     @html.div(style=["display: flex", "gap: 8px"]) <| [
-      @html.select(
-        on_change=fn(v) { dispatch(SetFormCategoryId(v)) },
-        style=[
-          "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-        ],
-        category_options,
-      ),
+      @html.select(on_change=fn(v) { dispatch(SetFormCategoryId(v)) }, style=[
+        "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+      ]) <| category_options,
       @html.input(
         input_type=Text,
         placeholder="Amount (e.g. 42.50)",
@@ -114,8 +97,7 @@ fn Model::view_transaction_form(
         style=[
           "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
         ],
-        "",
-      ),
+      ) <| "",
     ],
     // Description + date
     @html.div(style=["display: flex", "gap: 8px"]) <| [
@@ -127,8 +109,7 @@ fn Model::view_transaction_form(
         style=[
           "flex: 2", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
         ],
-        "",
-      ),
+      ) <| "",
       @html.input(
         input_type=Date,
         value=self.form_date,
@@ -136,8 +117,7 @@ fn Model::view_transaction_form(
         style=[
           "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
         ],
-        "",
-      ),
+      ) <| "",
     ],
     @html.button(type_="submit", style=[
       "padding: 10px", "background: #1a73e8", "color: #fff", "border: none", "border-radius: 6px",
@@ -165,20 +145,12 @@ fn Model::view_transaction_filters(
   @html.div(style=[
     "display: flex", "gap: 8px", "margin-bottom: 12px", "padding-bottom: 12px", "border-bottom: 1px solid #eee",
   ]) <| [
-    @html.select(
-      on_change=fn(v) { dispatch(SetFilterAccount(v)) },
-      style=[
-        "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
-      ],
-      account_options,
-    ),
-    @html.select(
-      on_change=fn(v) { dispatch(SetFilterType(v)) },
-      style=[
-        "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
-      ],
-      type_options,
-    ),
+    @html.select(on_change=fn(v) { dispatch(SetFilterAccount(v)) }, style=[
+      "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
+    ]) <| account_options,
+    @html.select(on_change=fn(v) { dispatch(SetFilterType(v)) }, style=[
+      "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
+    ]) <| type_options,
   ]
 }
 

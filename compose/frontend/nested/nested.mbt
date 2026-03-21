@@ -78,19 +78,16 @@ fn PairModel::view(
       @html.button(
         style=["padding: 8px 24px", "font-size: 1.1em"],
         on_click=dispatch(ToggleSync),
-        if self.sync_mode {
-          "Sync: ON (click to turn off)"
-        } else {
-          "Sync: OFF (click to turn on)"
-        },
-      ),
-      @html.p(
-        if self.sync_mode {
-          "Both counters move together \u{2014} any button affects both"
-        } else {
-          "Counters are independent"
-        },
-      ),
+      ) <| (if self.sync_mode {
+        "Sync: ON (click to turn off)"
+      } else {
+        "Sync: OFF (click to turn on)"
+      }),
+      @html.p() <| (if self.sync_mode {
+        "Both counters move together \u{2014} any button affects both"
+      } else {
+        "Counters are independent"
+      }),
     ],
   ]
 }

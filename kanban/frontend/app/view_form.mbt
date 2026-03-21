@@ -17,8 +17,7 @@ fn Model::view_add_column_form(
         "width: 100%", "padding: 8px 10px", "border: 1px solid #e2e8f0", "border-radius: 6px",
         "font-size: 14px", "outline: none", "margin-bottom: 8px",
       ],
-      "",
-    ),
+    ) <| "",
     @html.div(style=["display: flex", "gap: 6px"]) <| [
       @html.button(on_click=dispatch(AddColumn), style=[
         "padding: 6px 14px", "background: #0d9488", "color: white", "border: none",
@@ -51,8 +50,7 @@ fn Model::view_add_card_form(
         "width: 100%", "padding: 6px 8px", "border: 1px solid #e2e8f0", "border-radius: 4px",
         "font-size: 13px", "outline: none", "margin-bottom: 6px",
       ],
-      "",
-    ),
+    ) <| "",
     @html.textarea(
       placeholder="Description (optional)",
       value=self.new_card_desc,
@@ -63,8 +61,7 @@ fn Model::view_add_card_form(
         "font-size: 12px", "outline: none", "resize: vertical", "font-family: inherit",
         "margin-bottom: 6px",
       ],
-      "",
-    ),
+    ) <| "",
     view_color_picker(dispatch, self.new_card_color, fn(c) {
       NewCardColorChanged(c)
     }),

@@ -29,31 +29,22 @@ pub fn Model::view(
             value=self.search_query,
             on_input=fn(v) { dispatch(SearchChanged(v)) },
             style=search_input_style,
-            "",
-          ),
+          ) <| "",
         ],
       )
       // Contact count + Add button
       sections.push(
-        view_card("", [
+        view_card("") <| [
           @html.div(style=toolbar_style) <| [
-            @html.span(
-              style=contact_count_style,
-              {
-                let count = self.contacts.length()
-                let suffix = if count != 1 { "s" } else { "" }
-                "\{count} contact\{suffix}"
-              },
-            ),
+            @html.span(style=contact_count_style) <| ({
+              let count = self.contacts.length()
+              let suffix = if count != 1 { "s" } else { "" }
+              "\{count} contact\{suffix}"
+            }),
             @html.button(
               on_click=dispatch(ToggleForm),
               style=add_contact_btn_style,
-              if self.show_form {
-                "Cancel"
-              } else {
-                "+ Add Contact"
-              },
-            ),
+            ) <| (if self.show_form { "Cancel" } else { "+ Add Contact" }),
           ],
           // Add contact form (toggled)
           if self.show_form {
@@ -64,38 +55,34 @@ pub fn Model::view(
                 value=self.name_input,
                 on_input=fn(v) { dispatch(NameInputChanged(v)) },
                 style=input_style,
-                "",
-              ),
+              ) <| "",
               @html.input(
                 input_type=Text,
                 placeholder="Email",
                 value=self.email_input,
                 on_input=fn(v) { dispatch(EmailInputChanged(v)) },
                 style=input_style,
-                "",
-              ),
+              ) <| "",
               @html.input(
                 input_type=Text,
                 placeholder="Phone",
                 value=self.phone_input,
                 on_input=fn(v) { dispatch(PhoneInputChanged(v)) },
                 style=input_style,
-                "",
-              ),
+              ) <| "",
               @html.button(type_="submit", style=submit_btn_style) <| "Save Contact",
             ]
           } else {
             @html.div(style=[]) <| ""
           },
-        ]),
+        ],
       )
       // Favorites section
       if favorites.length() > 0 {
         sections.push(
-          view_card(
-            "Favorites",
-            favorites.map(fn(c) { view_contact_row(dispatch, c) }),
-          ),
+          view_card("Favorites") <| favorites.map(fn(c) {
+            view_contact_row(dispatch, c)
+          }),
         )
       }
       // All contacts section
@@ -107,22 +94,21 @@ pub fn Model::view(
             } else {
               "All Contacts"
             },
-            non_favorites.map(fn(c) { view_contact_row(dispatch, c) }),
-          ),
+          ) <| non_favorites.map(fn(c) { view_contact_row(dispatch, c) }),
         )
       } else if favorites.length() == 0 &&
         self.contacts.length() > 0 &&
         self.search_query != "" {
         sections.push(
-          view_card("Contacts", [
+          view_card("Contacts") <| [
             @html.p(style=empty_msg_style) <| "No contacts match your search",
-          ]),
+          ],
         )
       } else if self.contacts.length() == 0 {
         sections.push(
-          view_card("Contacts", [
+          view_card("Contacts") <| [
             @html.p(style=empty_msg_style) <| "No contacts yet. Add your first contact!",
-          ]),
+          ],
         )
       }
       sections
@@ -165,12 +151,7 @@ fn view_contact_row(
     @html.button(
       on_click=dispatch(ToggleFavorite(contact.id)),
       style=fav_btn_style,
-      if contact.favorite {
-        "\u{2605}"
-      } else {
-        "\u{2606}"
-      },
-    ),
+    ) <| (if contact.favorite { "\u{2605}" } else { "\u{2606}" }),
     // Delete button
     @html.button(
       on_click=dispatch(DeleteContact(contact.id)),

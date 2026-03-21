@@ -22,8 +22,7 @@ fn Model::view_comments_section(
             "width: 100%", "padding: 10px 14px", "border: 1px solid #e2e8f0", "border-radius: 8px",
             "font-size: 14px", "outline: none", "background: white",
           ],
-          "",
-        ),
+        ) <| "",
       ],
       @html.div(style=["margin-bottom: 12px"]) <| [
         @html.textarea(
@@ -36,8 +35,7 @@ fn Model::view_comments_section(
             "font-size: 14px", "outline: none", "resize: vertical", "font-family: inherit",
             "background: white",
           ],
-          "",
-        ),
+        ) <| "",
       ],
       @html.button(on_click=dispatch(AddComment(post_id)), style=[
         "padding: 10px 20px", "background: #1a1a2e", "color: white", "border: none",

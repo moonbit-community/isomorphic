@@ -119,12 +119,7 @@ fn MixerModel::view(
           },
         ],
         on_click=dispatch(ToggleLink),
-        if self.link {
-          "LINK: ON"
-        } else {
-          "LINK: OFF"
-        },
-      ),
+      ) <| (if self.link { "LINK: ON" } else { "LINK: OFF" }),
     ],
     // Channels + Master
     @html.div(style=[

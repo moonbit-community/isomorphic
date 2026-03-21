@@ -35,12 +35,7 @@ fn Model::view_editor(
           },
         ],
         on_click=dispatch(ToggleAutoEval),
-        if self.auto_eval {
-          "Auto: ON"
-        } else {
-          "Auto: OFF"
-        },
-      ),
+      ) <| (if self.auto_eval { "Auto: ON" } else { "Auto: OFF" }),
       @html.button(
         style=[
           "padding: 6px 14px", "background: #e94560", "color: #fff", "border: none",
@@ -61,12 +56,7 @@ fn Model::view_editor(
           },
         ],
         on_click=dispatch(TogglePalette),
-        if self.show_palette {
-          "Close Palette"
-        } else {
-          "+ Add Node"
-        },
-      ),
+      ) <| (if self.show_palette { "Close Palette" } else { "+ Add Node" }),
     ],
     // Connection mode banner
     if self.connecting_from_node != 0 {

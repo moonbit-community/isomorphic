@@ -66,62 +66,59 @@ fn Model::view_toast_container(
   if self.toast.items.length() == 0 {
     return @html.nothing
   }
-  @html.div(
-    style=[
-      "position: fixed", "top: 20px", "right: 20px", "z-index: 9999", "display: flex",
-      "flex-direction: column", "gap: 10px",
-    ],
-    {
-      let toast_els : Array[@rabbita.Html] = []
-      for item in self.toast.items {
-        let border_color = match item.kind {
-          "success" => success
-          "warning" => warning
-          "error" => danger
-          _ => primary
-        }
-        toast_els.push(
-          @html.div(style=[
-            "background: \{surface}",
-            "border-radius: \{radius}",
-            "box-shadow: 0 4px 20px rgba(0,0,0,0.12)",
-            "border-left: 4px solid \{border_color}",
-            "padding: 12px 16px",
-            "min-width: 260px",
-            "display: flex",
-            "align-items: flex-start",
-            "gap: 10px",
-          ]) <| [
-            @html.div(style=["flex: 1"]) <| [
-              @html.p(style=[
-                "margin: 0 0 2px",
-                "font-weight: 600",
-                "font-size: 14px",
-                "color: \{text_primary}",
-              ]) <| item.title,
-              @html.p(style=[
-                "margin: 0",
-                "font-size: 13px",
-                "color: \{text_secondary}",
-              ]) <| item.message,
-            ],
-            @html.button(
-              style=[
-                "background: none",
-                "border: none",
-                "cursor: pointer",
-                "color: \{text_muted}",
-                "font-size: 16px",
-                "padding: 0",
-              ],
-              on_click=dispatch(DismissToast(item.id)),
-            ) <| "x",
-          ],
-        )
+  @html.div(style=[
+    "position: fixed", "top: 20px", "right: 20px", "z-index: 9999", "display: flex",
+    "flex-direction: column", "gap: 10px",
+  ]) <| ({
+    let toast_els : Array[@rabbita.Html] = []
+    for item in self.toast.items {
+      let border_color = match item.kind {
+        "success" => success
+        "warning" => warning
+        "error" => danger
+        _ => primary
       }
-      toast_els
-    },
-  )
+      toast_els.push(
+        @html.div(style=[
+          "background: \{surface}",
+          "border-radius: \{radius}",
+          "box-shadow: 0 4px 20px rgba(0,0,0,0.12)",
+          "border-left: 4px solid \{border_color}",
+          "padding: 12px 16px",
+          "min-width: 260px",
+          "display: flex",
+          "align-items: flex-start",
+          "gap: 10px",
+        ]) <| [
+          @html.div(style=["flex: 1"]) <| [
+            @html.p(style=[
+              "margin: 0 0 2px",
+              "font-weight: 600",
+              "font-size: 14px",
+              "color: \{text_primary}",
+            ]) <| item.title,
+            @html.p(style=[
+              "margin: 0",
+              "font-size: 13px",
+              "color: \{text_secondary}",
+            ]) <| item.message,
+          ],
+          @html.button(
+            style=[
+              "background: none",
+              "border: none",
+              "cursor: pointer",
+              "color: \{text_muted}",
+              "font-size: 16px",
+              "padding: 0",
+            ],
+            on_click=dispatch(DismissToast(item.id)),
+          ) <| "x",
+        ],
+      )
+    }
+    toast_els
+  })
 }
 
 ///|
@@ -260,8 +257,7 @@ fn Model::view_command_palette_overlay(
             "color: \{text_primary}",
             "background: transparent",
           ],
-          "",
-        ),
+        ) <| "",
         @html.button(
           style=[
             "background: none",
@@ -273,47 +269,44 @@ fn Model::view_command_palette_overlay(
           on_click=dispatch(CommandPaletteToggle),
         ) <| "Close",
       ],
-      @html.div(
-        style=["max-height: 320px", "overflow-y: auto"],
-        {
-          let action_els : Array[@rabbita.Html] = []
-          if filtered.length() == 0 {
+      @html.div(style=["max-height: 320px", "overflow-y: auto"]) <| ({
+        let action_els : Array[@rabbita.Html] = []
+        if filtered.length() == 0 {
+          action_els.push(
+            @html.div(style=[
+              "padding: 20px",
+              "text-align: center",
+              "color: \{text_muted}",
+              "font-size: 14px",
+            ]) <| "No actions found",
+          )
+        } else {
+          for i, action in filtered {
+            let is_focused = i == cp.focus_index
+            let item_bg = if is_focused { primary_light } else { surface }
+            let item_fg = if is_focused { primary } else { text_primary }
             action_els.push(
-              @html.div(style=[
-                "padding: 20px",
-                "text-align: center",
-                "color: \{text_muted}",
-                "font-size: 14px",
-              ]) <| "No actions found",
+              @html.button(
+                style=[
+                  "display: flex",
+                  "align-items: center",
+                  "justify-content: space-between",
+                  "width: 100%",
+                  "padding: 10px 16px",
+                  "border: none",
+                  "background: \{item_bg}",
+                  "color: \{item_fg}",
+                  "font-size: 14px",
+                  "cursor: pointer",
+                  "text-align: left",
+                ],
+                on_click=dispatch(CommandPaletteSelect(action.id)),
+              ) <| action.label,
             )
-          } else {
-            for i, action in filtered {
-              let is_focused = i == cp.focus_index
-              let item_bg = if is_focused { primary_light } else { surface }
-              let item_fg = if is_focused { primary } else { text_primary }
-              action_els.push(
-                @html.button(
-                  style=[
-                    "display: flex",
-                    "align-items: center",
-                    "justify-content: space-between",
-                    "width: 100%",
-                    "padding: 10px 16px",
-                    "border: none",
-                    "background: \{item_bg}",
-                    "color: \{item_fg}",
-                    "font-size: 14px",
-                    "cursor: pointer",
-                    "text-align: left",
-                  ],
-                  on_click=dispatch(CommandPaletteSelect(action.id)),
-                ) <| action.label,
-              )
-            }
           }
-          action_els
-        },
-      ),
+        }
+        action_els
+      }),
     ],
   ]
 }

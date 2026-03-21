@@ -70,8 +70,7 @@ fn Model::view_form(
       value=self.input,
       on_input=value => dispatch(InputChanged(value)),
       style=input_style,
-      "",
-    ),
+    ) <| "",
     @html.button(type_="submit", style=add_btn_style) <| "Add",
   ]
 }
@@ -110,8 +109,7 @@ fn @shared.Todo::view_todo_item(
       checked=todo.done,
       on_change=_ => dispatch(ToggleTodo(todo.id)),
       style=["margin-right: 12px", "cursor: pointer"],
-      "",
-    ),
+    ) <| "",
     @html.span(style=text_style) <| todo.text,
     @html.button(on_click=dispatch(DeleteTodo(todo.id)), style=delete_btn_style) <| "Delete",
   ]

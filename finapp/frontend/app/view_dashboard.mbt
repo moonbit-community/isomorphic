@@ -6,14 +6,9 @@ fn Model::view_dashboard(
   let data = match self.dashboard {
     Some(d) => d
     None =>
-      return @html.div(
-        style=["padding: 40px", "text-align: center", "color: #999"],
-        if self.loading {
-          "Loading..."
-        } else {
-          "No data yet"
-        },
-      )
+      return @html.div(style=[
+          "padding: 40px", "text-align: center", "color: #999",
+        ]) <| (if self.loading { "Loading..." } else { "No data yet" })
   }
   @html.div(style=[
     "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",

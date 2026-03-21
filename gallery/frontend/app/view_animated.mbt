@@ -29,15 +29,11 @@ fn Model::view_stopwatch(
       "letter-spacing:2px",
     ]) <| time_str,
     @html.div(style=["display:flex", "gap:12px"]) <| [
-      @html.button(
-        style=btn_style,
-        on_click=dispatch(StopwatchToggle),
-        if running {
-          "Stop"
-        } else {
-          "Start"
-        },
-      ),
+      @html.button(style=btn_style, on_click=dispatch(StopwatchToggle)) <| (if running {
+        "Stop"
+      } else {
+        "Start"
+      }),
       @html.button(style=btn_outline_style, on_click=dispatch(StopwatchReset)) <| "Reset",
     ],
   ]
@@ -77,33 +73,21 @@ fn Model::view_countdown(
         value="\{target}",
         style=["width:200px", "accent-color:\{primary}"],
         on_input=fn(v) { dispatch(CountdownSet(v)) },
-        "",
-      ),
+      ) <| "",
     ],
-    @html.div(
-      style=[
-        "font-size:64px",
-        "font-weight:700",
-        "font-variant-numeric:tabular-nums",
-        "color:\{countdown_color}",
-        "letter-spacing:2px",
-      ],
-      if finished {
-        "Time's up!"
-      } else {
-        time_str
-      },
-    ),
+    @html.div(style=[
+      "font-size:64px",
+      "font-weight:700",
+      "font-variant-numeric:tabular-nums",
+      "color:\{countdown_color}",
+      "letter-spacing:2px",
+    ]) <| (if finished { "Time's up!" } else { time_str }),
     @html.div(style=["display:flex", "gap:12px"]) <| [
-      @html.button(
-        style=btn_style,
-        on_click=dispatch(CountdownToggle),
-        if running {
-          "Stop"
-        } else {
-          "Start"
-        },
-      ),
+      @html.button(style=btn_style, on_click=dispatch(CountdownToggle)) <| (if running {
+        "Stop"
+      } else {
+        "Start"
+      }),
       @html.button(style=btn_outline_style, on_click=dispatch(CountdownReset)) <| "Reset",
     ],
   ]
@@ -145,12 +129,7 @@ fn Model::view_typewriter(
         } else {
           dispatch(TypewriterStart)
         },
-        if running {
-          "Pause"
-        } else {
-          "Start"
-        },
-      ),
+      ) <| (if running { "Pause" } else { "Start" }),
       @html.button(style=btn_outline_style, on_click=dispatch(TypewriterReset)) <| "Reset",
     ],
   ]
@@ -237,12 +216,7 @@ fn Model::view_carousel(
       @html.button(
         style=btn_outline_style,
         on_click=dispatch(CarouselAutoToggle),
-        if auto_playing {
-          "Pause Auto"
-        } else {
-          "Auto Play"
-        },
-      ),
+      ) <| (if auto_playing { "Pause Auto" } else { "Auto Play" }),
     ],
   ]
 }

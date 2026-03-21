@@ -96,8 +96,7 @@ fn view_auth(
             "box-sizing: border-box",
             "outline: none",
           ],
-          "",
-        ),
+        ) <| "",
       ],
       // Password
       @html.div(style=["margin-bottom: 20px"]) <| [
@@ -126,35 +125,26 @@ fn view_auth(
             "box-sizing: border-box",
             "outline: none",
           ],
-          "",
-        ),
+        ) <| "",
       ],
       // Submit button
-      @html.button(
-        on_click=on_submit,
-        style=[
-          "width: 100%",
-          "padding: 12px",
-          "border: none",
-          "border-radius: 8px",
-          "cursor: pointer",
-          "font-size: 14px",
-          "font-weight: 600",
-          "color: white",
-          "background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
-          "margin-bottom: 12px",
-          if model.auth_loading {
-            "opacity: 0.7"
-          } else {
-            "opacity: 1"
-          },
-        ],
+      @html.button(on_click=on_submit, style=[
+        "width: 100%",
+        "padding: 12px",
+        "border: none",
+        "border-radius: 8px",
+        "cursor: pointer",
+        "font-size: 14px",
+        "font-weight: 600",
+        "color: white",
+        "background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
+        "margin-bottom: 12px",
         if model.auth_loading {
-          "..."
+          "opacity: 0.7"
         } else {
-          submit_label
+          "opacity: 1"
         },
-      ),
+      ]) <| (if model.auth_loading { "..." } else { submit_label }),
       // Switch link
       @html.div(style=["text-align: center"]) <| [
         @html.button(on_click=on_switch, style=[
@@ -170,12 +160,7 @@ fn view_auth(
             "background: none", "border: 1px solid #6366f1", "color: #6366f1", "cursor: pointer",
             "font-size: 12px", "padding: 4px 12px", "border-radius: 12px",
           ],
-          if lang == En {
-            "中文"
-          } else {
-            "EN"
-          },
-        ),
+        ) <| (if lang == En { "中文" } else { "EN" }),
       ],
     ],
   ]

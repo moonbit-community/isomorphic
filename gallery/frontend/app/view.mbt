@@ -26,46 +26,43 @@ fn Model::view_sidebar(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.nav(
-    style=sidebar_style,
-    {
-      let items : Array[@rabbita.Html] = [
-        @html.div(style=sidebar_header_style) <| "Gallery",
-      ]
-      for section in all_sections() {
-        let components = section_components(section)
-        items.push(
-          @html.div(style=sidebar_section_style) <| section_label(section),
-        )
-        for i, comp in components {
-          let is_active = self.section == section && self.component == i
-          let item_style : Array[String] = if is_active {
-            [
-              "display: block", "padding: 8px 16px", "cursor: pointer", "font-size: 13px",
-              "color: white", "background: #6366f1", "border: none", "width: 100%",
-              "text-align: left", "border-left: 3px solid #818cf8",
-            ]
-          } else {
-            [
-              "display: block", "padding: 8px 16px", "cursor: pointer", "font-size: 13px",
-              "color: #cbd5e1", "background: transparent", "border: none", "width: 100%",
-              "text-align: left", "border-left: 3px solid transparent",
-            ]
-          }
-          items.push(
-            @html.button(
-              style=item_style,
-              on_click=@rabbita.batch([
-                dispatch(ChangeSection(section)),
-                dispatch(ChangeComponent(i)),
-              ]),
-            ) <| comp,
-          )
+  @html.nav(style=sidebar_style) <| ({
+    let items : Array[@rabbita.Html] = [
+      @html.div(style=sidebar_header_style) <| "Gallery",
+    ]
+    for section in all_sections() {
+      let components = section_components(section)
+      items.push(
+        @html.div(style=sidebar_section_style) <| section_label(section),
+      )
+      for i, comp in components {
+        let is_active = self.section == section && self.component == i
+        let item_style : Array[String] = if is_active {
+          [
+            "display: block", "padding: 8px 16px", "cursor: pointer", "font-size: 13px",
+            "color: white", "background: #6366f1", "border: none", "width: 100%",
+            "text-align: left", "border-left: 3px solid #818cf8",
+          ]
+        } else {
+          [
+            "display: block", "padding: 8px 16px", "cursor: pointer", "font-size: 13px",
+            "color: #cbd5e1", "background: transparent", "border: none", "width: 100%",
+            "text-align: left", "border-left: 3px solid transparent",
+          ]
         }
+        items.push(
+          @html.button(
+            style=item_style,
+            on_click=@rabbita.batch([
+              dispatch(ChangeSection(section)),
+              dispatch(ChangeComponent(i)),
+            ]),
+          ) <| comp,
+        )
       }
-      items
-    },
-  )
+    }
+    items
+  })
 }
 
 ///|
@@ -216,6 +213,6 @@ pub fn Model::render_component(
     (Feedback, 0) => self.view_confirm_button(dispatch)
     (Feedback, 1) => self.view_copy_clipboard(dispatch)
     (Feedback, 2) => self.view_undo_snackbar(dispatch)
-    _ => @html.p("Component not found")
+    _ => @html.p() <| "Component not found"
   }
 }

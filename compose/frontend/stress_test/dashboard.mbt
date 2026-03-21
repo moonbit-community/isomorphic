@@ -75,12 +75,7 @@ fn DashboardModel::view(
           },
         ],
         on_click=dispatch(ToggleDarkMode),
-        if self.dark_mode {
-          "LIGHT MODE"
-        } else {
-          "DARK MODE"
-        },
-      ),
+      ) <| (if self.dark_mode { "LIGHT MODE" } else { "DARK MODE" }),
     ],
     // Mixer panel
     self.mixer.view(fn(msg) { dispatch(Mixer(msg)) }),

@@ -40,8 +40,7 @@ fn Model::view_post_form(
                 "width: 100%", "padding: 12px 16px", "border: 1px solid #e2e8f0",
                 "border-radius: 8px", "font-size: 16px", "outline: none", "background: #f8f9fc",
               ],
-              "",
-            ),
+            ) <| "",
           ],
           @html.div(style=["margin-bottom: 24px"]) <| [
             @html.label(style=[
@@ -58,8 +57,7 @@ fn Model::view_post_form(
                 "border-radius: 8px", "font-size: 15px", "line-height: 1.7", "outline: none",
                 "resize: vertical", "font-family: inherit", "background: #f8f9fc",
               ],
-              "",
-            ),
+            ) <| "",
           ],
           @html.div(style=["display: flex", "gap: 10px"]) <| [
             @html.button(

@@ -62,12 +62,7 @@ fn EffectModel::view(
         },
       ],
       on_click=dispatch(ToggleEnabled),
-      if self.enabled {
-        "\u{25CF}"
-      } else {
-        "\u{25CB}"
-      },
-    ),
+    ) <| (if self.enabled { "\u{25CF}" } else { "\u{25CB}" }),
     self.intensity.view(
       fn(msg) { dispatch(Intensity(msg)) },
       label=self.name,

@@ -4,83 +4,79 @@ fn Model::view_kanban(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let ks = self.kanban
-  @html.div(
-    style=["display: flex", "gap: 16px", "align-items: flex-start"],
-    {
-      let col_els : Array[@rabbita.Html] = []
-      for col_idx, col in ks.columns {
-        let col_name = col.0
-        let cards = col.1
-        let num_cols = ks.columns.length()
-        col_els.push(
+  @html.div(style=["display: flex", "gap: 16px", "align-items: flex-start"]) <| ({
+    let col_els : Array[@rabbita.Html] = []
+    for col_idx, col in ks.columns {
+      let col_name = col.0
+      let cards = col.1
+      let num_cols = ks.columns.length()
+      col_els.push(
+        @html.div(style=[
+          "flex: 1",
+          "min-width: 0",
+          "background: \{surface_alt}",
+          "border-radius: \{radius}",
+          "padding: 16px",
+          "border: 1px solid \{border}",
+        ]) <| [
           @html.div(style=[
-            "flex: 1",
-            "min-width: 0",
-            "background: \{surface_alt}",
-            "border-radius: \{radius}",
-            "padding: 16px",
-            "border: 1px solid \{border}",
-          ]) <| [
-            @html.div(style=[
-              "font-size: 13px",
-              "font-weight: 700",
-              "color: \{text_secondary}",
-              "margin-bottom: 12px",
-            ]) <| "\{col_name} (\{cards.length()})",
-            @html.div(
-              style=["display: flex", "flex-direction: column", "gap: 10px"],
-              {
-                let card_els : Array[@rabbita.Html] = []
-                for card in cards {
-                  card_els.push(
-                    @html.div(style=[
-                      "background: \{surface}",
-                      "border-radius: \{radius}",
-                      "padding: 12px",
-                      "border: 1px solid \{border}",
-                      "border-left: 4px solid \{card.color}",
-                    ]) <| [
-                      @html.span(style=[
-                        "font-size: 14px",
-                        "font-weight: 600",
-                        "color: \{text_primary}",
-                        "display: block",
-                        "margin-bottom: 8px",
-                      ]) <| card.title,
-                      @html.div(style=["display: flex", "gap: 6px"]) <| [
-                        if col_idx > 0 {
-                          @html.button(
-                            style=btn_sm_style,
-                            on_click=dispatch(
-                              KanbanMoveCard(card.id, col_idx, col_idx - 1),
-                            ),
-                          ) <| "< Back"
-                        } else {
-                          @html.nothing
-                        },
-                        if col_idx < num_cols - 1 {
-                          @html.button(
-                            style=btn_sm_style,
-                            on_click=dispatch(
-                              KanbanMoveCard(card.id, col_idx, col_idx + 1),
-                            ),
-                          ) <| "Forward >"
-                        } else {
-                          @html.nothing
-                        },
-                      ],
-                    ],
-                  )
-                }
-                card_els
-              },
-            ),
-          ],
-        )
-      }
-      col_els
-    },
-  )
+            "font-size: 13px",
+            "font-weight: 700",
+            "color: \{text_secondary}",
+            "margin-bottom: 12px",
+          ]) <| "\{col_name} (\{cards.length()})",
+          @html.div(style=[
+            "display: flex", "flex-direction: column", "gap: 10px",
+          ]) <| ({
+            let card_els : Array[@rabbita.Html] = []
+            for card in cards {
+              card_els.push(
+                @html.div(style=[
+                  "background: \{surface}",
+                  "border-radius: \{radius}",
+                  "padding: 12px",
+                  "border: 1px solid \{border}",
+                  "border-left: 4px solid \{card.color}",
+                ]) <| [
+                  @html.span(style=[
+                    "font-size: 14px",
+                    "font-weight: 600",
+                    "color: \{text_primary}",
+                    "display: block",
+                    "margin-bottom: 8px",
+                  ]) <| card.title,
+                  @html.div(style=["display: flex", "gap: 6px"]) <| [
+                    if col_idx > 0 {
+                      @html.button(
+                        style=btn_sm_style,
+                        on_click=dispatch(
+                          KanbanMoveCard(card.id, col_idx, col_idx - 1),
+                        ),
+                      ) <| "< Back"
+                    } else {
+                      @html.nothing
+                    },
+                    if col_idx < num_cols - 1 {
+                      @html.button(
+                        style=btn_sm_style,
+                        on_click=dispatch(
+                          KanbanMoveCard(card.id, col_idx, col_idx + 1),
+                        ),
+                      ) <| "Forward >"
+                    } else {
+                      @html.nothing
+                    },
+                  ],
+                ],
+              )
+            }
+            card_els
+          }),
+        ],
+      )
+    }
+    col_els
+  })
 }
 
 ///|
@@ -149,56 +145,52 @@ fn Model::view_searchable_select(
               placeholder="Search...",
               on_input=s => dispatch(SearchableQueryChanged(s)),
               style=input_style,
-              "",
-            ),
+            ) <| "",
           ],
-          @html.div(
-            style=["max-height: 200px", "overflow-y: auto"],
-            {
-              let opt_els : Array[@rabbita.Html] = []
-              if filtered.length() == 0 {
-                opt_els.push(
-                  @html.div(style=[
-                    "padding: 10px 14px",
-                    "font-size: 14px",
-                    "color: \{text_muted}",
-                  ]) <| "No results",
-                )
-              } else {
-                for i, opt in filtered {
-                  let is_sel = opt.value == ss.selected
-                  let is_focused = i == ss.focus_index
-                  let opt_bg = if is_sel {
-                    primary_light
-                  } else if is_focused {
-                    surface_alt
-                  } else {
-                    surface
-                  }
-                  let opt_fg = if is_sel { primary } else { text_primary }
-                  let opt_fw = if is_sel { "600" } else { "400" }
-                  opt_els.push(
-                    @html.button(
-                      style=[
-                        "display: block",
-                        "width: 100%",
-                        "padding: 9px 14px",
-                        "border: none",
-                        "cursor: pointer",
-                        "font-size: 14px",
-                        "text-align: left",
-                        "background: \{opt_bg}",
-                        "color: \{opt_fg}",
-                        "font-weight: \{opt_fw}",
-                      ],
-                      on_click=dispatch(SearchableSelect_(opt.value)),
-                    ) <| opt.label,
-                  )
+          @html.div(style=["max-height: 200px", "overflow-y: auto"]) <| ({
+            let opt_els : Array[@rabbita.Html] = []
+            if filtered.length() == 0 {
+              opt_els.push(
+                @html.div(style=[
+                  "padding: 10px 14px",
+                  "font-size: 14px",
+                  "color: \{text_muted}",
+                ]) <| "No results",
+              )
+            } else {
+              for i, opt in filtered {
+                let is_sel = opt.value == ss.selected
+                let is_focused = i == ss.focus_index
+                let opt_bg = if is_sel {
+                  primary_light
+                } else if is_focused {
+                  surface_alt
+                } else {
+                  surface
                 }
+                let opt_fg = if is_sel { primary } else { text_primary }
+                let opt_fw = if is_sel { "600" } else { "400" }
+                opt_els.push(
+                  @html.button(
+                    style=[
+                      "display: block",
+                      "width: 100%",
+                      "padding: 9px 14px",
+                      "border: none",
+                      "cursor: pointer",
+                      "font-size: 14px",
+                      "text-align: left",
+                      "background: \{opt_bg}",
+                      "color: \{opt_fg}",
+                      "font-weight: \{opt_fw}",
+                    ],
+                    on_click=dispatch(SearchableSelect_(opt.value)),
+                  ) <| opt.label,
+                )
               }
-              opt_els
-            },
-          ),
+            }
+            opt_els
+          }),
         ]
       } else {
         @html.nothing
@@ -308,76 +300,73 @@ fn Model::view_date_range(
         on_click=dispatch(DateRangeNextMonth),
       ) <| ">",
     ],
-    @html.div(
-      style=[
-        "display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px",
-      ],
-      {
-        let cells : Array[@rabbita.Html] = []
-        for dl in day_labels {
-          cells.push(
-            @html.div(style=[
+    @html.div(style=[
+      "display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px",
+    ]) <| ({
+      let cells : Array[@rabbita.Html] = []
+      for dl in day_labels {
+        cells.push(
+          @html.div(style=[
+            "text-align: center",
+            "font-size: 11px",
+            "font-weight: 600",
+            "color: \{text_muted}",
+            "padding: 4px 0",
+          ]) <| dl,
+        )
+      }
+      for _ in 0..<first_dow {
+        cells.push(@html.div(style=["padding: 4px"]) <| "")
+      }
+      for d = 1; d <= num_days; d = d + 1 {
+        let lo = if dr.start_day < dr.end_day {
+          dr.start_day
+        } else {
+          dr.end_day
+        }
+        let hi = if dr.start_day > dr.end_day {
+          dr.start_day
+        } else {
+          dr.end_day
+        }
+        let is_start = d == dr.start_day
+        let is_end = d == dr.end_day
+        let in_range = d >= lo && d <= hi && lo > 0 && hi > 0
+        let dd = d
+        let day_bg = if is_start || is_end {
+          primary
+        } else if in_range {
+          primary_light
+        } else {
+          "transparent"
+        }
+        let day_fg = if is_start || is_end {
+          "white"
+        } else if in_range {
+          primary
+        } else {
+          text_primary
+        }
+        let day_fw = if is_start || is_end { "700" } else { "400" }
+        cells.push(
+          @html.button(
+            style=[
               "text-align: center",
-              "font-size: 11px",
-              "font-weight: 600",
-              "color: \{text_muted}",
-              "padding: 4px 0",
-            ]) <| dl,
-          )
-        }
-        for _ in 0..<first_dow {
-          cells.push(@html.div(style=["padding: 4px"]) <| "")
-        }
-        for d = 1; d <= num_days; d = d + 1 {
-          let lo = if dr.start_day < dr.end_day {
-            dr.start_day
-          } else {
-            dr.end_day
-          }
-          let hi = if dr.start_day > dr.end_day {
-            dr.start_day
-          } else {
-            dr.end_day
-          }
-          let is_start = d == dr.start_day
-          let is_end = d == dr.end_day
-          let in_range = d >= lo && d <= hi && lo > 0 && hi > 0
-          let dd = d
-          let day_bg = if is_start || is_end {
-            primary
-          } else if in_range {
-            primary_light
-          } else {
-            "transparent"
-          }
-          let day_fg = if is_start || is_end {
-            "white"
-          } else if in_range {
-            primary
-          } else {
-            text_primary
-          }
-          let day_fw = if is_start || is_end { "700" } else { "400" }
-          cells.push(
-            @html.button(
-              style=[
-                "text-align: center",
-                "padding: 6px 0",
-                "border: none",
-                "cursor: pointer",
-                "font-size: 13px",
-                "border-radius: \{radius_sm}",
-                "background: \{day_bg}",
-                "color: \{day_fg}",
-                "font-weight: \{day_fw}",
-              ],
-              on_click=dispatch(DateRangeSelectDay(dd)),
-            ) <| "\{dd}",
-          )
-        }
-        cells
-      },
-    ),
+              "padding: 6px 0",
+              "border: none",
+              "cursor: pointer",
+              "font-size: 13px",
+              "border-radius: \{radius_sm}",
+              "background: \{day_bg}",
+              "color: \{day_fg}",
+              "font-weight: \{day_fw}",
+            ],
+            on_click=dispatch(DateRangeSelectDay(dd)),
+          ) <| "\{dd}",
+        )
+      }
+      cells
+    }),
   ]
 }
 
@@ -408,99 +397,88 @@ fn Model::view_form_wizard(
   @html.div(style=[
     "display: flex", "flex-direction: column", "gap: 20px", "max-width: 480px",
   ]) <| [
-    @html.div(
-      style=["display: flex", "align-items: center", "gap: 8px"],
-      {
-        let indicators : Array[@rabbita.Html] = []
-        for idx, step in fw.steps {
-          let is_done = idx < fw.current
-          let is_cur = idx == fw.current
-          let circle_bg = if is_done {
-            success
-          } else if is_cur {
-            primary
-          } else {
-            border
-          }
-          let circle_fg = if is_done || is_cur { "white" } else { text_muted }
-          let step_label = if is_done { "" } else { "\{idx + 1}" }
-          let title_color = if is_cur { primary } else { text_muted }
-          indicators.push(
-            @html.div(style=["display: flex", "align-items: center", "gap: 4px"]) <| [
-              @html.div(style=[
-                "width: 28px",
-                "height: 28px",
-                "border-radius: 50%",
-                "display: flex",
-                "align-items: center",
-                "justify-content: center",
-                "font-size: 13px",
-                "font-weight: 700",
-                "background: \{circle_bg}",
-                "color: \{circle_fg}",
-              ]) <| step_label,
-              @html.span(style=["font-size: 12px", "color: \{title_color}"]) <| step.title,
-            ],
-          )
-          if idx < total - 1 {
-            indicators.push(
-              @html.div(style=[
-                "flex: 1",
-                "height: 1px",
-                "background: \{border}",
-              ]) <| "",
-            )
-          }
+    @html.div(style=["display: flex", "align-items: center", "gap: 8px"]) <| ({
+      let indicators : Array[@rabbita.Html] = []
+      for idx, step in fw.steps {
+        let is_done = idx < fw.current
+        let is_cur = idx == fw.current
+        let circle_bg = if is_done {
+          success
+        } else if is_cur {
+          primary
+        } else {
+          border
         }
-        indicators
-      },
-    ),
+        let circle_fg = if is_done || is_cur { "white" } else { text_muted }
+        let step_label = if is_done { "" } else { "\{idx + 1}" }
+        let title_color = if is_cur { primary } else { text_muted }
+        indicators.push(
+          @html.div(style=["display: flex", "align-items: center", "gap: 4px"]) <| [
+            @html.div(style=[
+              "width: 28px",
+              "height: 28px",
+              "border-radius: 50%",
+              "display: flex",
+              "align-items: center",
+              "justify-content: center",
+              "font-size: 13px",
+              "font-weight: 700",
+              "background: \{circle_bg}",
+              "color: \{circle_fg}",
+            ]) <| step_label,
+            @html.span(style=["font-size: 12px", "color: \{title_color}"]) <| step.title,
+          ],
+        )
+        if idx < total - 1 {
+          indicators.push(
+            @html.div(style=["flex: 1", "height: 1px", "background: \{border}"]) <| "",
+          )
+        }
+      }
+      indicators
+    }),
     @html.h4(style=[
       "margin: 0",
       "font-size: 16px",
       "font-weight: 700",
       "color: \{text_primary}",
     ]) <| current_step.title,
-    @html.div(
-      style=["display: flex", "flex-direction: column", "gap: 12px"],
-      {
-        let field_els : Array[@rabbita.Html] = []
-        for fidx, field in current_step.fields {
-          let inp_border = if field.error != "" { danger } else { border }
-          field_els.push(
-            @html.div(style=[
-              "display: flex", "flex-direction: column", "gap: 4px",
-            ]) <| [
-              @html.label(style=label_style) <| field.label,
-              @html.input(
-                input_type=Text,
-                value=field.value,
-                placeholder=field.label,
-                on_input=v => dispatch(WizardFieldChanged(fidx, v)),
-                style=[
-                  "width: 100%",
-                  "padding: 8px 12px",
-                  "border: 1px solid \{inp_border}",
-                  "border-radius: \{radius}",
-                  "font-size: 14px",
-                  "outline: none",
-                  "color: \{text_primary}",
-                  "background: white",
-                  "box-sizing: border-box",
-                ],
-                "",
-              ),
-              if field.error != "" {
-                @html.span(style=["font-size: 12px", "color: \{danger}"]) <| field.error
-              } else {
-                @html.nothing
-              },
-            ],
-          )
-        }
-        field_els
-      },
-    ),
+    @html.div(style=["display: flex", "flex-direction: column", "gap: 12px"]) <| ({
+      let field_els : Array[@rabbita.Html] = []
+      for fidx, field in current_step.fields {
+        let inp_border = if field.error != "" { danger } else { border }
+        field_els.push(
+          @html.div(style=[
+            "display: flex", "flex-direction: column", "gap: 4px",
+          ]) <| [
+            @html.label(style=label_style) <| field.label,
+            @html.input(
+              input_type=Text,
+              value=field.value,
+              placeholder=field.label,
+              on_input=v => dispatch(WizardFieldChanged(fidx, v)),
+              style=[
+                "width: 100%",
+                "padding: 8px 12px",
+                "border: 1px solid \{inp_border}",
+                "border-radius: \{radius}",
+                "font-size: 14px",
+                "outline: none",
+                "color: \{text_primary}",
+                "background: white",
+                "box-sizing: border-box",
+              ],
+            ) <| "",
+            if field.error != "" {
+              @html.span(style=["font-size: 12px", "color: \{danger}"]) <| field.error
+            } else {
+              @html.nothing
+            },
+          ],
+        )
+      }
+      field_els
+    }),
     @html.div(style=[
       "display: flex", "justify-content: space-between", "align-items: center",
     ]) <| [

@@ -77,8 +77,7 @@ fn view_comments_panel(
               "background: \{theme.input_bg}",
               "color: \{theme.text}",
             ],
-            "",
-          ),
+          ) <| "",
           @html.button(on_click=dispatch(AddComment), style=[
             "padding: 8px 14px", "background: #4f46e5", "color: white", "border: none",
             "border-radius: 6px", "cursor: pointer", "font-size: 13px",

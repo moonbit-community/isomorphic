@@ -37,8 +37,7 @@ fn view_filters(
           "background: \{theme.input_bg}",
           "color: \{theme.text}",
         ],
-        "",
-      ),
+      ) <| "",
     ],
     // Status filter
     @html.div(style=["display: flex", "gap: 4px", "align-items: center"]) <| ({

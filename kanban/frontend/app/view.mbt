@@ -53,21 +53,18 @@ pub fn Model::view(
         @html.text("Loading..."),
       ]
     } else {
-      @html.div(
-        style=[
-          "display: flex", "gap: 16px", "overflow-x: auto", "padding-bottom: 16px",
-          "align-items: flex-start",
-        ],
-        {
-          let cols : Array[@rabbita.Html] = sorted_columns.mapi(fn(i, col) {
-            self.view_column(dispatch, col, i, sorted_columns.length())
-          })
-          if self.adding_column {
-            cols.push(self.view_add_column_form(dispatch))
-          }
-          cols
-        },
-      )
+      @html.div(style=[
+        "display: flex", "gap: 16px", "overflow-x: auto", "padding-bottom: 16px",
+        "align-items: flex-start",
+      ]) <| ({
+        let cols : Array[@rabbita.Html] = sorted_columns.mapi(fn(i, col) {
+          self.view_column(dispatch, col, i, sorted_columns.length())
+        })
+        if self.adding_column {
+          cols.push(self.view_add_column_form(dispatch))
+        }
+        cols
+      })
     },
   ]
 }

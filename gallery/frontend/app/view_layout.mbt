@@ -85,8 +85,7 @@ fn Model::view_split_pane(
         value="\{sp.left_percent}",
         style=["flex:1", "accent-color:\{primary}"],
         on_input=s => dispatch(SplitPaneResize(s)),
-        "",
-      ),
+      ) <| "",
       @html.span(style=[
         "font-size:13px",
         "color:\{text_muted}",
@@ -184,8 +183,7 @@ fn Model::view_virtual_list(
         value="\{vl.scroll_top}",
         style=["flex:1", "accent-color:\{primary}"],
         on_input=s => dispatch(VirtualScroll(s)),
-        "",
-      ),
+      ) <| "",
     ],
     @html.div(style=["font-size:13px", "color:\{text_muted}"]) <| "Showing \{start_index + 1}-\{end_index + 1} of \{vl.total_items} items",
     @html.div(style=[

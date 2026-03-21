@@ -39,8 +39,7 @@ fn Model::view_column(
             "width: 100%", "padding: 6px 8px", "border: 1px solid #0d9488", "border-radius: 4px",
             "font-size: 14px", "outline: none", "font-weight: 600",
           ],
-          "",
-        ),
+        ) <| "",
         @html.div(style=["display: flex", "gap: 4px", "margin-top: 4px"]) <| [
           @html.button(on_click=dispatch(ConfirmRenameColumn), style=[
             "padding: 3px 10px", "background: #0d9488", "color: white", "border: none",
@@ -93,23 +92,20 @@ fn Model::view_column(
       ]
     },
     // Cards list with optional drop zones
-    @html.div(
-      style=["flex: 1", "overflow-y: auto"],
-      {
-        let items : Array[@rabbita.Html] = []
-        for i, card in col_cards {
-          if is_moving {
-            items.push(view_drop_zone(dispatch, column.id, i))
-          }
-          items.push(self.view_card_item(dispatch, card))
-        }
-        // Bottom drop zone
+    @html.div(style=["flex: 1", "overflow-y: auto"]) <| ({
+      let items : Array[@rabbita.Html] = []
+      for i, card in col_cards {
         if is_moving {
-          items.push(view_drop_zone(dispatch, column.id, col_cards.length()))
+          items.push(view_drop_zone(dispatch, column.id, i))
         }
-        items
-      },
-    ),
+        items.push(self.view_card_item(dispatch, card))
+      }
+      // Bottom drop zone
+      if is_moving {
+        items.push(view_drop_zone(dispatch, column.id, col_cards.length()))
+      }
+      items
+    }),
     // Add card button/form
     if self.adding_to_column == column.id {
       self.view_add_card_form(dispatch)

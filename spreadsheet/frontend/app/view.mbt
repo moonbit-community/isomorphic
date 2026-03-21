@@ -277,8 +277,7 @@ fn Model::view_formula_bar(
       value=display_value,
       on_input=value => dispatch(UpdateEdit(value)),
       on_change=_value => dispatch(CommitEdit),
-      "",
-    ),
+    ) <| "",
   ]
 }
 
@@ -500,8 +499,7 @@ fn Model::view_grid(
             value=self.edit_value,
             on_input=value => dispatch(UpdateEdit(value)),
             autofocus=true,
-            "",
-          ),
+          ) <| "",
         )
       } else {
         let display = cell.value.format_with(cell.format)

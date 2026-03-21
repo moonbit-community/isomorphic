@@ -26,12 +26,7 @@ fn Model::view_accounts(
           },
         ],
         on_click=dispatch(ToggleForm),
-        if self.show_form {
-          "Cancel"
-        } else {
-          "+ Add Account"
-        },
-      ),
+      ) <| (if self.show_form { "Cancel" } else { "+ Add Account" }),
     ],
     // Form
     if self.show_form {
@@ -63,22 +58,17 @@ fn Model::view_account_form(
         style=[
           "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
         ],
-        "",
-      ),
+      ) <| "",
     ],
     @html.div(style=["flex: 1"]) <| [
       @html.div(style=["font-size: 0.75em", "color: #666", "margin-bottom: 4px"]) <| "Type",
-      @html.select(
-        on_change=fn(v) { dispatch(SetAcctType(v)) },
-        style=[
-          "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-        ],
-        [
-          @html.option(value="checking") <| "Checking",
-          @html.option(value="savings") <| "Savings",
-          @html.option(value="credit_card") <| "Credit Card",
-        ],
-      ),
+      @html.select(on_change=fn(v) { dispatch(SetAcctType(v)) }, style=[
+        "width: 100%", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+      ]) <| [
+        @html.option(value="checking") <| "Checking",
+        @html.option(value="savings") <| "Savings",
+        @html.option(value="credit_card") <| "Credit Card",
+      ],
     ],
     @html.button(type_="submit", style=[
       "padding: 8px 20px", "background: #1a73e8", "color: #fff", "border: none",

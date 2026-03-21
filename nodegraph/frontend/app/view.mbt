@@ -102,8 +102,7 @@ fn Model::view_graph_list(
           "flex: 1", "padding: 10px", "background: #16213e", "border: 1px solid #0f3460",
           "border-radius: 6px", "color: #eee", "font-family: inherit",
         ],
-        "",
-      ),
+      ) <| "",
       @html.button(type_="submit", style=[
         "padding: 10px 20px", "background: #e94560", "color: #fff", "border: none",
         "border-radius: 6px", "cursor: pointer", "font-weight: 600",

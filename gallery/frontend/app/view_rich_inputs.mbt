@@ -26,12 +26,7 @@ fn Model::view_star_rating(
         attrs=@html.Attrs::build()
           .on_mouseenter(fn(_) { dispatch(StarHover(index)) })
           .on_mouseleave(fn(_) { dispatch(StarLeave) }),
-        if is_filled {
-          "\u{2605}"
-        } else {
-          "\u{2606}"
-        },
-      ),
+      ) <| (if is_filled { "\u{2605}" } else { "\u{2606}" }),
     )
   }
   let stars = @html.div(style=["display:flex", "gap:4px", "align-items:center"]) <| star_buttons
@@ -83,8 +78,7 @@ fn Model::view_pin_input(
           "transition:border-color 0.15s",
         ],
         on_input=s => dispatch(PinDigitChanged(index, s)),
-        "",
-      ),
+      ) <| "",
     )
   }
   let inputs = @html.div(style=[
@@ -169,19 +163,13 @@ fn Model::view_password_strength(
         value=password,
         style=[..input_style, "flex:1", "font-size:15px"],
         on_input=s => dispatch(PasswordChanged(s)),
-        "",
-      ),
+      ) <| "",
       @html.button(
         style=[
           ..btn_outline_style, "padding:8px 12px", "font-size:16px", "flex-shrink:0",
         ],
         on_click=dispatch(PasswordToggleVisible),
-        if visible {
-          "\u{1F648}"
-        } else {
-          "\u{1F441}"
-        },
-      ),
+      ) <| (if visible { "\u{1F648}" } else { "\u{1F441}" }),
     ]
   let bar_bg = @html.div(style=[
       "height:6px",
@@ -307,8 +295,7 @@ fn Model::view_tag_auto(
         value=input_val,
         style=[..input_style, "width:100%", "box-sizing:border-box"],
         on_input=s => dispatch(TagAutoInputChanged(s)),
-        "",
-      ),
+      ) <| "",
       dropdown,
     ]
   @html.div(style=["display:flex", "flex-direction:column", "width:100%"]) <| [
@@ -338,8 +325,7 @@ fn Model::view_inline_edit(
             value=edit_value,
             style=[..input_style, "flex:1", "font-size:14px"],
             on_input=s => dispatch(InlineEditChanged(s)),
-            "",
-          ),
+          ) <| "",
           @html.button(
             style=[..btn_style, ..btn_sm_style],
             on_click=dispatch(InlineSaveEdit(idx)),

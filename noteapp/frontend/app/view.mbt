@@ -73,7 +73,7 @@ pub fn Model::view(
           Some(note) => {
             let stats = @shared.compute_stats(note.content)
             sections.push(
-              view_card("Note Detail", [
+              view_card("Note Detail") <| [
                 // Back button
                 @html.button(
                   on_click=dispatch(DeselectNote),
@@ -107,7 +107,7 @@ pub fn Model::view(
                     "#e8f5e9",
                   ),
                 ],
-              ]),
+              ],
             )
           }
           None => ()
@@ -115,7 +115,7 @@ pub fn Model::view(
       } else {
         // New Note card
         sections.push(
-          view_card("New Note", [
+          view_card("New Note") <| [
             @html.form(on_submit=dispatch(SaveNote), style=form_style) <| [
               @html.input(
                 input_type=Text,
@@ -123,83 +123,73 @@ pub fn Model::view(
                 value=self.title_input,
                 on_input=fn(v) { dispatch(TitleInputChanged(v)) },
                 style=input_style,
-                "",
-              ),
+              ) <| "",
               @html.textarea(
                 placeholder="Write your note...",
                 value=self.content_input,
                 on_input=fn(v) { dispatch(ContentInputChanged(v)) },
                 rows=5,
                 style=textarea_style,
-                "",
-              ),
+              ) <| "",
               @html.button(type_="submit", style=submit_btn_style) <| "Save Note",
             ],
-          ]),
+          ],
         )
         // Notes list
         if self.notes.length() > 0 {
           sections.push(
-            view_card(
-              "All Notes",
-              self.notes.map(fn(note) {
-                let preview = @shared.truncate(note.content, 80)
-                let stats = @shared.compute_stats(note.content)
-                let bg = if note.pinned {
-                  "background: #fffdf5"
-                } else {
-                  "background: white"
-                }
-                @html.div(style=note_item_style) <| [
-                  @html.div(style=note_row_style) <| [
-                    // Main content area (clickable)
-                    @html.div(style=[
-                      "flex: 1", "min-width: 0", "cursor: pointer", "padding: 8px 12px",
-                      "border-radius: 10px", bg,
-                    ]) <| [
-                      // Title row
-                      @html.div(style=title_row_style) <| [
-                        if note.pinned {
-                          @html.span(style=pin_indicator_style) <| "* "
-                        } else {
-                          @html.nothing
-                        },
-                        @html.button(
-                          on_click=dispatch(SelectNote(note.id)),
-                          style=note_title_btn_style,
-                        ) <| note.title,
-                      ],
-                      // Preview
-                      @html.div(style=preview_style) <| preview,
-                      // Word count badge
-                      @html.span(style=word_badge_style) <| "\{stats.word_count} words",
-                    ],
-                    // Action buttons
-                    @html.div(style=action_col_style) <| [
-                      // Pin button
+            view_card("All Notes") <| self.notes.map(fn(note) {
+              let preview = @shared.truncate(note.content, 80)
+              let stats = @shared.compute_stats(note.content)
+              let bg = if note.pinned {
+                "background: #fffdf5"
+              } else {
+                "background: white"
+              }
+              @html.div(style=note_item_style) <| [
+                @html.div(style=note_row_style) <| [
+                  // Main content area (clickable)
+                  @html.div(style=[
+                    "flex: 1", "min-width: 0", "cursor: pointer", "padding: 8px 12px",
+                    "border-radius: 10px", bg,
+                  ]) <| [
+                    // Title row
+                    @html.div(style=title_row_style) <| [
+                      if note.pinned {
+                        @html.span(style=pin_indicator_style) <| "* "
+                      } else {
+                        @html.nothing
+                      },
                       @html.button(
-                        on_click=dispatch(TogglePin(note.id)),
-                        style=if note.pinned {
-                          pin_btn_active_style
-                        } else {
-                          pin_btn_inactive_style
-                        },
-                        if note.pinned {
-                          "*"
-                        } else {
-                          "o"
-                        },
-                      ),
-                      // Delete button
-                      @html.button(
-                        on_click=dispatch(DeleteNote(note.id)),
-                        style=delete_btn_style,
-                      ) <| "X",
+                        on_click=dispatch(SelectNote(note.id)),
+                        style=note_title_btn_style,
+                      ) <| note.title,
                     ],
+                    // Preview
+                    @html.div(style=preview_style) <| preview,
+                    // Word count badge
+                    @html.span(style=word_badge_style) <| "\{stats.word_count} words",
                   ],
-                ]
-              }),
-            ),
+                  // Action buttons
+                  @html.div(style=action_col_style) <| [
+                    // Pin button
+                    @html.button(
+                      on_click=dispatch(TogglePin(note.id)),
+                      style=if note.pinned {
+                        pin_btn_active_style
+                      } else {
+                        pin_btn_inactive_style
+                      },
+                    ) <| (if note.pinned { "*" } else { "o" }),
+                    // Delete button
+                    @html.button(
+                      on_click=dispatch(DeleteNote(note.id)),
+                      style=delete_btn_style,
+                    ) <| "X",
+                  ],
+                ],
+              ]
+            }),
           )
         }
       }
