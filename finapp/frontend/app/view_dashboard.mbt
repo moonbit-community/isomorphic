@@ -162,13 +162,14 @@ fn Model::view_spending_breakdown(
   if data.category_totals.is_empty() {
     return @html.text() <| ""
   }
-  let mut max_amount = 0
-  for ct in data.category_totals {
+  let max_amount = data.category_totals.fold(init=0, fn(max, ct) {
     let (_, _, amount) = ct
-    if amount > max_amount {
-      max_amount = amount
+    if amount > max {
+      amount
+    } else {
+      max
     }
-  }
+  })
   let bars : Array[@rabbita.Html] = data.category_totals.map(fn(ct) {
     let (name, color, amount) = ct
     let pct = if max_amount > 0 { amount * 100 / max_amount } else { 0 }

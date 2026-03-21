@@ -70,7 +70,7 @@ fn Model::view_error(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  if self.error.length() == 0 {
+  if self.error.is_empty() {
     return @html.text() <| ""
   }
   @html.div(style=[
@@ -93,12 +93,7 @@ fn find_category(
   categories : Array[@shared.Category],
   id : Int,
 ) -> @shared.Category? {
-  for c in categories {
-    if c.id == id {
-      return Some(c)
-    }
-  }
-  None
+  categories.iter().find_first(fn(c) { c.id == id })
 }
 
 ///|
@@ -106,10 +101,5 @@ fn find_account(
   accounts : Array[@shared.Account],
   id : Int,
 ) -> @shared.Account? {
-  for a in accounts {
-    if a.id == id {
-      return Some(a)
-    }
-  }
-  None
+  accounts.iter().find_first(fn(a) { a.id == id })
 }

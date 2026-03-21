@@ -96,12 +96,9 @@ fn Model::view_account_list(
       CreditCard => "\u{1F4B3}"
     }
     // Count transactions for this account
-    let mut txn_count = 0
-    for t in self.transactions {
-      if t.account_id == a.id {
-        txn_count = txn_count + 1
-      }
-    }
+    let txn_count = self.transactions
+      .filter(fn(t) { t.account_id == a.id })
+      .length()
     @html.div(style=[
       "display: flex", "align-items: center", "padding: 14px", "background: #f8f9fa",
       "border-radius: 8px", "gap: 12px", "margin-bottom: 8px",

@@ -32,7 +32,7 @@ pub fn parse_amount(s : String) -> Int {
       dollar_str = dollar_str + c.to_string()
     }
   }
-  if dollar_str.length() > 0 {
+  if !dollar_str.is_empty() {
     dollars = @strconv.parse_int(dollar_str) catch { _ => 0 }
   }
   if after_dot.length() == 1 {
@@ -51,16 +51,14 @@ pub fn compute_balance(
   transactions : Array[Transaction],
   account_id : Int,
 ) -> Int {
-  let mut balance = 0
-  for t in transactions {
-    if t.account_id == account_id {
-      match t.txn_type {
-        Income => balance = balance + t.amount
-        Expense => balance = balance - t.amount
-      }
+  transactions
+  .filter(fn(t) { t.account_id == account_id })
+  .fold(init=0, fn(acc, t) {
+    match t.txn_type {
+      Income => acc + t.amount
+      Expense => acc - t.amount
     }
-  }
-  balance
+  })
 }
 
 ///|
@@ -126,16 +124,14 @@ pub fn spent_in_category(
   category_id : Int,
   month : String,
 ) -> Int {
-  let mut total = 0
-  for t in transactions {
-    if t.category_id == category_id &&
-      t.txn_type == Expense &&
-      t.date.length() >= 7 &&
-      t.date[0:7].to_string() == month {
-      total = total + t.amount
-    }
-  }
-  total
+  transactions
+  .filter(fn(t) {
+    t.category_id == category_id &&
+    t.txn_type == Expense &&
+    t.date.length() >= 7 &&
+    t.date[0:7].to_string() == month
+  })
+  .fold(init=0, fn(acc, t) { acc + t.amount })
 }
 
 ///|
@@ -148,7 +144,7 @@ pub fn validate_transaction(
   if amount <= 0 {
     return Some("Amount must be positive")
   }
-  if description.length() == 0 {
+  if description.is_empty() {
     return Some("Description is required")
   }
   if date.length() != 10 {
@@ -160,7 +156,7 @@ pub fn validate_transaction(
 ///|
 /// Validate an account name, returning an error message if invalid.
 pub fn validate_account_name(name : String) -> String? {
-  if name.length() == 0 {
+  if name.is_empty() {
     return Some("Account name is required")
   }
   if name.length() > 50 {
