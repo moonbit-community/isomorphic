@@ -556,7 +556,7 @@ pub fn Model::update(
     // ── Progress ─────────────────────────────
     ProgressChanged(v) => {
       let n = @strconv.parse_int(v) catch { _ => self.progress.value }
-      let clamped = if n < 0 { 0 } else if n > 100 { 100 } else { n }
+      let clamped = n.clamp(min=0, max=100)
       ({ ..self, progress: { ..self.progress, value: clamped } }, @rabbita.none)
     }
 
@@ -640,7 +640,7 @@ pub fn Model::update(
       } else {
         (total - 1) / self.data_table.page_size
       }
-      let clamped = if p < 0 { 0 } else if p > max_page { max_page } else { p }
+      let clamped = p.clamp(min=0, max=max_page)
       (
         { ..self, data_table: { ..self.data_table, page: clamped } },
         @rabbita.none,
@@ -1001,7 +1001,7 @@ pub fn Model::update(
     // ── Countdown ────────────────────────────
     CountdownSet(v) => {
       let n = @strconv.parse_int(v) catch { _ => self.countdown.target_seconds }
-      let clamped = if n < 1 { 1 } else if n > 3600 { 3600 } else { n }
+      let clamped = n.clamp(min=1, max=3600)
       (
         {
           ..self,
@@ -1353,7 +1353,7 @@ pub fn Model::update(
     // ── SplitPane ────────────────────────────
     SplitPaneResize(v) => {
       let n = @strconv.parse_int(v) catch { _ => self.split_pane.left_percent }
-      let clamped = if n < 10 { 10 } else if n > 90 { 90 } else { n }
+      let clamped = n.clamp(min=10, max=90)
       ({ ..self, split_pane: { left_percent: clamped } }, @rabbita.none)
     }
 
