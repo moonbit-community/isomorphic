@@ -10,8 +10,7 @@ fn Model::view_palette(
   ]
   // Tab buttons
   let tabs : Array[@rabbita.Html] = []
-  for i = 0; i < categories.length(); i = i + 1 {
-    let cat = categories[i]
+  for i, cat in categories {
     let active = self.palette_cat == cat || (self.palette_cat == "" && i == 0)
     tabs.push(
       @html.button(

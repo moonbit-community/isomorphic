@@ -387,8 +387,7 @@ fn Model::view_input_ports(
     return @html.text("")
   }
   let items : Array[@rabbita.Html] = []
-  for i = 0; i < ports.length(); i = i + 1 {
-    let p = ports[i]
+  for i, p in ports {
     let color = @shared.port_type_color(p.port_type)
     // Check if already connected
     let mut connected = false
@@ -491,8 +490,7 @@ fn Model::view_output_ports(
     return @html.text("")
   }
   let items : Array[@rabbita.Html] = []
-  for i = 0; i < ports.length(); i = i + 1 {
-    let p = ports[i]
+  for i, p in ports {
     let color = @shared.port_type_color(p.port_type)
     items.push(
       @html.div(style=[

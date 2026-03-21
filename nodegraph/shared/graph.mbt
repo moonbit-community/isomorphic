@@ -20,7 +20,7 @@ pub fn topological_sort(
   // Compute in-degree for each node
   let in_degree : Array[Int] = Array::make(n, 0)
   for conn in connections {
-    for i = 0; i < n; i = i + 1 {
+    for i in 0..<n {
       if ids[i] == conn.to_node_id {
         in_degree[i] = in_degree[i] + 1
       }
@@ -28,7 +28,7 @@ pub fn topological_sort(
   }
   // Initialize queue with zero in-degree nodes
   let queue : Array[Int] = []
-  for i = 0; i < n; i = i + 1 {
+  for i in 0..<n {
     if in_degree[i] == 0 {
       queue.push(i)
     }
@@ -42,7 +42,7 @@ pub fn topological_sort(
     // For each outgoing edge from this node
     for conn in connections {
       if conn.from_node_id == ids[idx] {
-        for j = 0; j < n; j = j + 1 {
+        for j in 0..<n {
           if ids[j] == conn.to_node_id {
             in_degree[j] = in_degree[j] - 1
             if in_degree[j] == 0 {

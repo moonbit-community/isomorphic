@@ -55,7 +55,7 @@ pub fn compute_layout(
   let ids : Array[Int] = nodes.map(fn(nd) { nd.id })
   let layers : Array[Int] = Array::make(n, 0)
   // Iterative relaxation (simple BFS-like)
-  for _pass = 0; _pass < n; _pass = _pass + 1 {
+  for _ in 0..<n {
     for c in connections {
       let from_idx = find_idx(ids, c.from_node_id)
       let to_idx = find_idx(ids, c.to_node_id)
@@ -75,9 +75,9 @@ pub fn compute_layout(
     }
   }
   let positions : Array[(Int, Int, Int)] = []
-  for layer = 0; layer <= max_layer; layer = layer + 1 {
+  for layer in 0..<=max_layer {
     let mut row = 0
-    for i = 0; i < n; i = i + 1 {
+    for i in 0..<n {
       if layers[i] == layer {
         let x = pad_x + layer * node_stride_x
         let y = pad_y + row * node_stride_y
@@ -93,7 +93,7 @@ pub fn compute_layout(
 /// Linear search for `id` in the `ids` array. Returns the index if found, or
 /// -1 if absent. The -1 sentinel is checked by callers before array access.
 fn find_idx(ids : Array[Int], id : Int) -> Int {
-  for i = 0; i < ids.length(); i = i + 1 {
+  for i in 0..<ids.length() {
     if ids[i] == id {
       return i
     }
