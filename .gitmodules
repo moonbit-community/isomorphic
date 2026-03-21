@@ -1,3 +1,6 @@
 [submodule "mbtexcel"]
 	path = mbtexcel
 	url = git@github.com:moonbitlang/mbtexcel.git
+[submodule "rabbita"]
+	path = rabbita
+	url = git@github.com:moonbit-community/rabbita.git

@@ -13,6 +13,7 @@
     "./spreadsheet",
     "./finapp",
     "./nodegraph",
-    "./mbtexcel"
+    "./mbtexcel",
+    "./rabbita/rabbita"
   ]
 }
