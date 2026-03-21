@@ -405,7 +405,12 @@ pub fn Model::update(
         ),
       )
       (
-        { ..self, connecting_from_node: 0, connecting_from_port: 0 },
+        {
+          ..self,
+          connecting_from_node: 0,
+          connecting_from_port: 0,
+          error: "",
+        },
         cmd,
       )
     }
