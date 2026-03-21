@@ -602,7 +602,7 @@ fn handle_create_label(
       { "name": String(n), .. } => n
       _ => return @mocket.HttpResponse::new(BadRequest).body("Missing name")
     }
-    if name == "" {
+    if name.is_empty() {
       return @mocket.HttpResponse::new(BadRequest).body("Label name is empty")
     }
     let color = match json {

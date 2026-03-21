@@ -68,7 +68,7 @@ fn view_error_toast(
   dispatch : @rabbita.Dispatch[Msg],
   model : Model,
 ) -> @rabbita.Html {
-  if model.error_msg == "" {
+  if model.error_msg.is_empty() {
     return @html.text("")
   }
   @html.div(style=[

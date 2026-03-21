@@ -703,7 +703,7 @@ fn handle_recurrence_on_done(
   task_id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let interval = @shared.get_recurrence(get_all_recurrence_rules(conn), task_id)
-  if interval == "" {
+  if interval.is_empty() {
     return
   }
   // Get the completed task

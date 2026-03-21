@@ -131,7 +131,7 @@ pub fn member_initial(name : String) -> String {
 /// }
 /// ```
 pub fn is_overdue(due_date : String, today : String) -> Bool {
-  due_date != "" && due_date < today
+  !due_date.is_empty() && due_date < today
 }
 
 ///|
@@ -151,7 +151,7 @@ pub fn is_overdue(due_date : String, today : String) -> Bool {
 /// }
 /// ```
 pub fn urgency_label(due_date : String, today : String) -> String {
-  if due_date == "" {
+  if due_date.is_empty() {
     return "No deadline"
   }
   if due_date < today {
@@ -178,7 +178,9 @@ pub fn urgency_label(due_date : String, today : String) -> String {
 /// ```
 pub fn count_overdue(tasks : Array[Task], today : String) -> Int {
   tasks
-  .filter(fn(t) { t.status != "done" && t.due_date != "" && t.due_date < today })
+  .filter(fn(t) {
+    t.status != "done" && !t.due_date.is_empty() && t.due_date < today
+  })
   .length()
 }
 
@@ -362,11 +364,11 @@ pub fn sort_tasks_by(
     let cmp = match sort_by {
       "title" => a.title.to_lower().compare(b.title.to_lower())
       "due_date" =>
-        if a.due_date == "" && b.due_date == "" {
+        if a.due_date.is_empty() && b.due_date.is_empty() {
           0
-        } else if a.due_date == "" {
+        } else if a.due_date.is_empty() {
           1
-        } else if b.due_date == "" {
+        } else if b.due_date.is_empty() {
           -1
         } else {
           a.due_date.compare(b.due_date)
@@ -378,11 +380,11 @@ pub fn sort_tasks_by(
         let pb = priority_weight(b.priority)
         if pa != pb {
           pa - pb
-        } else if a.due_date == "" && b.due_date == "" {
+        } else if a.due_date.is_empty() && b.due_date.is_empty() {
           0
-        } else if a.due_date == "" {
+        } else if a.due_date.is_empty() {
           1
-        } else if b.due_date == "" {
+        } else if b.due_date.is_empty() {
           -1
         } else {
           a.due_date.compare(b.due_date)
@@ -412,13 +414,13 @@ pub fn sort_tasks(tasks : Array[Task]) -> Array[Task] {
     }
     let da = a.due_date
     let db = b.due_date
-    if da == "" && db == "" {
+    if da.is_empty() && db.is_empty() {
       return a.id - b.id
     }
-    if da == "" {
+    if da.is_empty() {
       return 1
     }
-    if db == "" {
+    if db.is_empty() {
       return -1
     }
     let dc = da.compare(db)
@@ -455,7 +457,7 @@ pub fn sort_tasks(tasks : Array[Task]) -> Array[Task] {
 pub fn format_activity(act : Activity) -> String {
   let from = status_label(act.from_status)
   let to = status_label(act.to_status)
-  if act.user_name != "" {
+  if !act.user_name.is_empty() {
     "\{act.user_name}: \{act.task_title}: \{from} → \{to}"
   } else {
     "\{act.task_title}: \{from} → \{to}"
@@ -572,8 +574,8 @@ pub fn matches_urgency(task : Task, urgency : String, today : String) -> Bool {
     "" => true
     "overdue" => is_overdue(task.due_date, today)
     "due_today" => task.due_date == today
-    "has_deadline" => task.due_date != ""
-    "no_deadline" => task.due_date == ""
+    "has_deadline" => !task.due_date.is_empty()
+    "no_deadline" => task.due_date.is_empty()
     _ => true
   }
 }
@@ -604,7 +606,7 @@ pub fn matches_urgency(task : Task, urgency : String, today : String) -> Bool {
 /// }
 /// ```
 pub fn search_matches(task : Task, query : String) -> Bool {
-  if query == "" {
+  if query.is_empty() {
     return true
   }
   let q = query.to_lower()
@@ -672,9 +674,9 @@ pub fn filter_tasks(
   today? : String = "",
 ) -> Array[Task] {
   tasks.filter(fn(t) {
-    (status == "" || t.status == status) &&
+    (status.is_empty() || t.status == status) &&
     (assignee_id == 0 || t.assignee_id == assignee_id) &&
-    (priority == "" || t.priority == priority) &&
+    (priority.is_empty() || t.priority == priority) &&
     search_matches(t, query) &&
     matches_urgency(t, urgency, today)
   })

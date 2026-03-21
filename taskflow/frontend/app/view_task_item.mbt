@@ -46,7 +46,7 @@ fn view_task_item(
       ]
   }
   // Due date display
-  let due_html = if task.due_date != "" {
+  let due_html = if !task.due_date.is_empty() {
     let urgency = @shared.urgency_label(task.due_date, model.today)
     let due_color = match urgency {
       "Overdue" => "#ef4444"
@@ -66,7 +66,7 @@ fn view_task_item(
     model.tasks,
     task.id,
   )
-  let dep_html = if dep_ids.length() > 0 {
+  let dep_html = if !dep_ids.is_empty() {
     let dep_names : Array[String] = []
     for did in dep_ids {
       for t in model.tasks {
@@ -112,7 +112,7 @@ fn view_task_item(
         ]) <| [
           @html.text(task.title),
         ],
-        if task.description != "" {
+        if !task.description.is_empty() {
           @html.div(style=[
             "font-size: 12px",
             "color: \{theme.text_secondary}",

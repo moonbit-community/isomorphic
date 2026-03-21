@@ -48,7 +48,7 @@ fn view_filters(
           "margin-right: 4px",
         ]) <| @shared.t(model.lang, "status"),
         {
-          let is_sel = model.filter_status == ""
+          let is_sel = model.filter_status.is_empty()
           let bg = if is_sel { "#4f46e5" } else { theme.filter_inactive }
           let fg = if is_sel { "white" } else { theme.text_secondary }
           @html.button(on_click=dispatch(SetFilterStatus("")), style=[
@@ -93,7 +93,7 @@ fn view_filters(
           "margin-right: 4px",
         ]) <| @shared.t(model.lang, "priority_filter"),
         {
-          let is_sel = model.filter_priority == ""
+          let is_sel = model.filter_priority.is_empty()
           let bg = if is_sel { "#4f46e5" } else { theme.filter_inactive }
           let fg = if is_sel { "white" } else { theme.text_secondary }
           @html.button(on_click=dispatch(SetFilterPriority("")), style=[

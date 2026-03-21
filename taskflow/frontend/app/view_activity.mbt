@@ -3,7 +3,7 @@
 fn view_activity_feed(model : Model) -> @rabbita.Html {
   let theme = get_theme(model.dark_mode)
   let activities = @shared.recent_activities(model.activities, 10)
-  if activities.length() == 0 {
+  if activities.is_empty() {
     return @html.text("")
   }
   @html.div(style=[
@@ -26,7 +26,7 @@ fn view_activity_feed(model : Model) -> @rabbita.Html {
     for act in activities {
       let desc = @shared.t_activity(model.lang, act)
       let to_color = @shared.status_color(act.to_status)
-      let label = if act.from_status == "" {
+      let label = if act.from_status.is_empty() {
         @shared.t(model.lang, "created")
       } else {
         @shared.t_transition(model.lang, act.from_status, act.to_status)

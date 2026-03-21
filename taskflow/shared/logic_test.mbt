@@ -1760,7 +1760,7 @@ test "tasks_in_project filters by project" {
 
 ///|
 test "label_colors is non-empty" {
-  assert_true(@shared.label_colors.length() > 0)
+  assert_true(!@shared.label_colors.is_empty())
   // All entries should be hex colors
   for c in @shared.label_colors {
     assert_true(c.has_prefix("#"))

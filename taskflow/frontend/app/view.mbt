@@ -6,7 +6,7 @@ pub fn Model::view(
 ) -> @rabbita.Html {
   let model = self
   let theme = get_theme(model.dark_mode)
-  if model.auth_screen != "" {
+  if !model.auth_screen.is_empty() {
     return view_auth(dispatch, model, theme)
   }
   let filtered = @shared.filter_tasks(
@@ -55,7 +55,7 @@ pub fn Model::view(
         },
         if model.view_mode == "kanban" {
           view_kanban(dispatch, model, sorted)
-        } else if sorted.length() == 0 {
+        } else if sorted.is_empty() {
           @html.div(style=[
             "text-align: center",
             "padding: 40px 0",

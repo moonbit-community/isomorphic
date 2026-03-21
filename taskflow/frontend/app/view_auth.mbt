@@ -59,7 +59,7 @@ fn view_auth(
         @html.text(title),
       ],
       // Error message
-      if model.auth_error != "" {
+      if !model.auth_error.is_empty() {
         @html.div(style=[
           "background: #fef2f2", "color: #dc2626", "padding: 10px 14px", "border-radius: 8px",
           "font-size: 13px", "margin-bottom: 16px", "border: 1px solid #fecaca",

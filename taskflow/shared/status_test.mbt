@@ -102,7 +102,7 @@ test "transition completeness: every allowed transition has a label" {
   for s in @shared.valid_statuses {
     for t in @shared.allowed_transitions(s) {
       let label = @shared.transition_label(s, t)
-      assert_true(label != "")
+      assert_true(!label.is_empty())
     }
   }
 }
@@ -166,7 +166,7 @@ test "transition graph: no status can reach itself in one step" {
 test "transition graph: every non-terminal status has at least one forward transition" {
   for s in @shared.valid_statuses {
     if !@shared.is_terminal(s) {
-      assert_true(@shared.allowed_transitions(s).length() > 0)
+      assert_true(!@shared.allowed_transitions(s).is_empty())
     }
   }
 }

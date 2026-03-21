@@ -344,7 +344,7 @@ pub fn t_transition(lang : Lang, from : String, to : String) -> String {
 pub fn t_urgency(lang : Lang, due_date : String, today : String) -> String {
   match lang {
     Zh =>
-      if due_date == "" {
+      if due_date.is_empty() {
         "无截止日期"
       } else if due_date < today {
         "已逾期"
@@ -362,7 +362,7 @@ pub fn t_urgency(lang : Lang, due_date : String, today : String) -> String {
 pub fn t_activity(lang : Lang, act : Activity) -> String {
   let from = t_status(lang, act.from_status)
   let to = t_status(lang, act.to_status)
-  if act.user_name != "" {
+  if !act.user_name.is_empty() {
     "\{act.user_name}: \{act.task_title}: \{from} → \{to}"
   } else {
     "\{act.task_title}: \{from} → \{to}"

@@ -85,7 +85,7 @@ fn view_comments_panel(
         ],
       ]
       // Comment list
-      if model.comments.length() == 0 {
+      if model.comments.is_empty() {
         items.push(
           @html.div(style=[
             "text-align: center",
@@ -182,7 +182,7 @@ fn view_comments_panel(
               ],
             )
           }
-          if dep_ids.length() == 0 {
+          if dep_ids.is_empty() {
             dep_items.push(
               @html.div(style=[
                 "font-size: 12px",
@@ -197,7 +197,7 @@ fn view_comments_panel(
           let other_tasks = model.tasks.filter(fn(t) {
             t.id != task_id && !dep_ids.contains(t.id)
           })
-          if other_tasks.length() > 0 {
+          if !other_tasks.is_empty() {
             dep_items.push(
               @html.div(style=[
                 "font-size: 11px",

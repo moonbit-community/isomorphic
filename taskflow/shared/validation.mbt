@@ -88,7 +88,7 @@ pub let max_tasks : Int = 100
 /// }
 /// ```
 pub fn validate_task_title(title : String) -> Bool {
-  title != "" && title.char_length() <= max_task_title
+  !title.is_empty() && title.char_length() <= max_task_title
 }
 
 ///|
@@ -134,7 +134,7 @@ pub fn validate_priority(priority : String) -> Bool {
 /// assert_false(@shared.validate_comment_text(""))
 /// ```
 pub fn validate_comment_text(text : String) -> Bool {
-  text != "" && text.char_length() <= max_comment_text
+  !text.is_empty() && text.char_length() <= max_comment_text
 }
 
 ///|
@@ -149,7 +149,7 @@ pub fn validate_comment_text(text : String) -> Bool {
 /// assert_false(@shared.validate_due_date("March 12"))
 /// ```
 pub fn validate_due_date(date : String) -> Bool {
-  if date == "" {
+  if date.is_empty() {
     return true
   }
   if date.char_length() != 10 {
@@ -249,5 +249,5 @@ pub let max_project_name : Int = 50
 /// assert_false(@shared.validate_project_name(""))
 /// ```
 pub fn validate_project_name(name : String) -> Bool {
-  name != "" && name.char_length() <= max_project_name
+  !name.is_empty() && name.char_length() <= max_project_name
 }

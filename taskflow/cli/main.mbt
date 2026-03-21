@@ -17,7 +17,7 @@ let tests_failed : Ref[Int] = Ref::new(0)
 /// Build headers with session cookie if available.
 fn auth_headers() -> Map[String, String] {
   let headers : Map[String, String] = { "Content-Type": "application/json" }
-  if session_cookie.val != "" {
+  if !session_cookie.val.is_empty() {
     headers["Cookie"] = "session=\{session_cookie.val}"
   }
   headers
@@ -37,7 +37,7 @@ fn extract_session_cookie(resp : @mocket.HttpResponse) -> Unit {
             Some(v) => v.to_string()
             None => rest_str
           }
-          if value != "" {
+          if !value.is_empty() {
             session_cookie.val = value
           }
         }
@@ -55,7 +55,7 @@ fn assert_test(name : String, condition : Bool, detail? : String = "") -> Unit {
     println("  PASS: \{name}")
   } else {
     tests_failed.val += 1
-    let msg = if detail != "" { " (\{detail})" } else { "" }
+    let msg = if !detail.is_empty() { " (\{detail})" } else { "" }
     println("  FAIL: \{name}\{msg}")
   }
 }
@@ -91,7 +91,7 @@ async fn test_register() -> Unit {
   let status = resp.status_code.to_int()
   assert_test("register status 201", status == 201, detail="\{status}")
   extract_session_cookie(resp)
-  assert_test("session cookie set", session_cookie.val != "")
+  assert_test("session cookie set", !session_cookie.val.is_empty())
   let body : Json = resp.read_body()
   match body {
     { "user": { "username": String(u), .. }, "message": String(_), .. } =>
@@ -154,7 +154,7 @@ async fn test_login() -> Unit {
   let status = resp.status_code.to_int()
   assert_test("login status 200", status == 200, detail="\{status}")
   extract_session_cookie(resp)
-  assert_test("login sets session cookie", session_cookie.val != "")
+  assert_test("login sets session cookie", !session_cookie.val.is_empty())
 }
 
 ///|
@@ -316,9 +316,9 @@ async fn test_board() -> Unit {
   assert_test("board status 200", status == 200, detail="\{status}")
   let body : Json = resp.read_body()
   let board : @shared.Board = @json.from_json(body)
-  assert_test("board has tasks", board.tasks.length() > 0)
-  assert_test("board has members", board.members.length() > 0)
-  assert_test("board has today", board.today != "")
+  assert_test("board has tasks", !board.tasks.is_empty())
+  assert_test("board has members", !board.members.is_empty())
+  assert_test("board has today", !board.today.is_empty())
   // Check activities include user name
   let mut found_user_activity = false
   for act in board.activities {

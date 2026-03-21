@@ -113,7 +113,7 @@ pub fn Model::update(
     AuthUsernameChanged(v) => ({ ..self, auth_username: v }, @rabbita.none)
     AuthPasswordChanged(v) => ({ ..self, auth_password: v }, @rabbita.none)
     SubmitLogin => {
-      if self.auth_username == "" || self.auth_password == "" {
+      if self.auth_username.is_empty() || self.auth_password.is_empty() {
         return (
           { ..self, auth_error: @shared.t(self.lang, "fill_all_fields") },
           @rabbita.none,
@@ -473,7 +473,7 @@ pub fn Model::update(
         if self.confirm_delete != 0 {
           return ({ ..self, confirm_delete: 0 }, @rabbita.none)
         }
-        if self.error_msg != "" {
+        if !self.error_msg.is_empty() {
           return ({ ..self, error_msg: "" }, @rabbita.none)
         }
         return (self, @rabbita.none)

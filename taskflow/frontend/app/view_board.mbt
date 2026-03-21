@@ -63,7 +63,7 @@ fn view_kanban_card(
       assignee_html,
     ],
     // Due date
-    if task.due_date != "" {
+    if !task.due_date.is_empty() {
       let urgency = @shared.urgency_label(task.due_date, model.today)
       let due_color = match urgency {
         "Overdue" => "#ef4444"
