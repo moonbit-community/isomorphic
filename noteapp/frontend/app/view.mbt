@@ -12,12 +12,7 @@ fn format_reading_time(secs : Int) -> String {
 ///|
 /// Find a note by id.
 fn find_note(notes : Array[@shared.Note], id : Int) -> @shared.Note? {
-  for n in notes {
-    if n.id == id {
-      return Some(n)
-    }
-  }
-  None
+  notes.iter().find_first(fn(n) { n.id == id })
 }
 
 ///|
@@ -42,9 +37,7 @@ fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
       let all : Array[@rabbita.Html] = [
         @html.h2(style=card_title_style) <| title,
       ]
-      for child in children {
-        all.push(child)
-      }
+      all.append(children[:])
       all
     },
   )

@@ -1,7 +1,7 @@
 ///|
 /// Count words by splitting on whitespace.
 pub fn word_count(text : String) -> Int {
-  if text == "" {
+  if text.is_empty() {
     return 0
   }
   let mut count = 0
