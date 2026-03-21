@@ -49,27 +49,24 @@ fn RangeModel::view(
     None => "..."
   }
 
-  @html.div([
-    @html.div(style=["display: flex", "gap: 24px", "flex-wrap: wrap"], [
-      @html.div([
-        @html.h4("Start Date"),
+  @html.div() <| [
+    @html.div(style=["display: flex", "gap: 24px", "flex-wrap: wrap"]) <| [
+      @html.div() <| [
+        @html.h4() <| "Start Date",
         // Reuse calendar component — just map dispatch
         self.start_cal.view(msg => dispatch(Start(msg))),
-      ]),
-      @html.div([
-        @html.h4("End Date"),
+      ],
+      @html.div() <| [
+        @html.h4() <| "End Date",
         // Same component, second instance
         self.end_cal.view(msg => dispatch(End(msg))),
-      ]),
-    ]),
-    @html.div(
-      style=[
-        "margin-top: 16px", "padding: 12px", "background: #f0f0f0", "border-radius: 8px",
-        "text-align: center", "font-size: 1.1em",
       ],
-      "Range: \{start_str} \u{2192} \{end_str}",
-    ),
-  ])
+    ],
+    @html.div(style=[
+      "margin-top: 16px", "padding: 12px", "background: #f0f0f0", "border-radius: 8px",
+      "text-align: center", "font-size: 1.1em",
+    ]) <| "Range: \{start_str} \u{2192} \{end_str}",
+  ]
 }
 
 ///|

@@ -38,25 +38,16 @@ pub fn Model::view(
   dispatch : @rabbita.Dispatch[Msg],
   label~ : String,
 ) -> @rabbita.Html {
-  @html.div(
-    style=[
-      "border: 1px solid #ccc", "padding: 16px", "border-radius: 8px", "text-align: center",
-      "min-width: 150px",
+  @html.div(style=[
+    "border: 1px solid #ccc", "padding: 16px", "border-radius: 8px", "text-align: center",
+    "min-width: 150px",
+  ]) <| [
+    @html.h3() <| label,
+    @html.div(style=["font-size: 2em", "margin: 8px 0"]) <| self.count.to_string(),
+    @html.div(style=["display: flex", "gap: 8px", "justify-content: center"]) <| [
+      @html.button(on_click=dispatch(Decrement)) <| "\u{2212}",
+      @html.button(on_click=dispatch(Reset)) <| "0",
+      @html.button(on_click=dispatch(Increment)) <| "+",
     ],
-    [
-      @html.h3(label),
-      @html.div(
-        style=["font-size: 2em", "margin: 8px 0"],
-        self.count.to_string(),
-      ),
-      @html.div(
-        style=["display: flex", "gap: 8px", "justify-content: center"],
-        [
-          @html.button(on_click=dispatch(Decrement), "\u{2212}"),
-          @html.button(on_click=dispatch(Reset), "0"),
-          @html.button(on_click=dispatch(Increment), "+"),
-        ],
-      ),
-    ],
-  )
+  ]
 }

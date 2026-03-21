@@ -68,13 +68,13 @@ fn PairModel::view(
   self : PairModel,
   dispatch : @rabbita.Dispatch[PairMsg],
 ) -> @rabbita.Html {
-  @html.div([
-    @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
+  @html.div() <| [
+    @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"]) <| [
       // Map child dispatch: Counter.Msg → PairMsg via Left/Right
       self.left.view(msg => dispatch(Left(msg)), label="Left"),
       self.right.view(msg => dispatch(Right(msg)), label="Right"),
-    ]),
-    @html.div(style=["text-align: center"], [
+    ],
+    @html.div(style=["text-align: center"]) <| [
       @html.button(
         style=["padding: 8px 24px", "font-size: 1.1em"],
         on_click=dispatch(ToggleSync),
@@ -91,8 +91,8 @@ fn PairModel::view(
           "Counters are independent"
         },
       ),
-    ]),
-  ])
+    ],
+  ]
 }
 
 ///|

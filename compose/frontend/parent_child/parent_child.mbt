@@ -55,20 +55,19 @@ pub fn make() -> @rabbita.Cell {
       }
     },
     view=(dispatch, model) => {
-      @html.div([
-        @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"], [
+      @html.div() <| [
+        @html.div(style=["display: flex", "gap: 16px", "margin-bottom: 16px"]) <| [
           cell_a.view(),
           cell_b.view(),
-        ]),
-        @html.div(style=["text-align: center"], [
+        ],
+        @html.div(style=["text-align: center"]) <| [
           @html.button(
             style=["padding: 8px 24px", "font-size: 1.1em"],
             on_click=dispatch(ResetAll),
-            "Reset Both (parent \u{2192} children)",
-          ),
-          @html.p("Parent tracked \{model.total_resets} resets"),
-        ]),
-      ])
+          ) <| "Reset Both (parent \u{2192} children)",
+          @html.p() <| "Parent tracked \{model.total_resets} resets",
+        ],
+      ]
     },
   )
 }

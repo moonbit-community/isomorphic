@@ -57,53 +57,39 @@ fn KnobModel::view(
   } else {
     0
   }
-  @html.div(style=["min-width: 80px"], [
-    @html.div(
-      style=["font-size: 0.7em", "color: #999", "margin-bottom: 2px"],
-      label,
-    ),
-    @html.div(style=["display: flex", "align-items: center", "gap: 2px"], [
+  @html.div(style=["min-width: 80px"]) <| [
+    @html.div(style=["font-size: 0.7em", "color: #999", "margin-bottom: 2px"]) <| label,
+    @html.div(style=["display: flex", "align-items: center", "gap: 2px"]) <| [
       @html.button(
         style=[
           "width: 22px", "height: 22px", "font-size: 0.75em", "border: 1px solid #555",
           "background: #2a2a2a", "color: #fff", "cursor: pointer", "border-radius: 3px",
         ],
         on_click=dispatch(Decrement),
-        "\u{2212}",
-      ),
-      @html.div(
-        style=[
-          "flex: 1", "height: 8px", "background: #333", "border-radius: 4px", "overflow: hidden",
-        ],
-        [
-          @html.div(
-            style=[
-              "height: 100%",
-              "width: " + pct.to_string() + "%",
-              "background: " + color,
-              "border-radius: 4px",
-              "transition: width 0.1s",
-            ],
-            "",
-          ),
-        ],
-      ),
+      ) <| "\u{2212}",
+      @html.div(style=[
+        "flex: 1", "height: 8px", "background: #333", "border-radius: 4px", "overflow: hidden",
+      ]) <| [
+        @html.div(style=[
+          "height: 100%",
+          "width: " + pct.to_string() + "%",
+          "background: " + color,
+          "border-radius: 4px",
+          "transition: width 0.1s",
+        ]) <| "",
+      ],
       @html.button(
         style=[
           "width: 22px", "height: 22px", "font-size: 0.75em", "border: 1px solid #555",
           "background: #2a2a2a", "color: #fff", "cursor: pointer", "border-radius: 3px",
         ],
         on_click=dispatch(Increment),
-        "+",
-      ),
-    ]),
-    @html.div(
-      style=[
-        "text-align: center", "font-size: 0.8em", "font-weight: bold", "color: #ccc",
-      ],
-      self.value.to_string(),
-    ),
-  ])
+      ) <| "+",
+    ],
+    @html.div(style=[
+      "text-align: center", "font-size: 0.8em", "font-weight: bold", "color: #ccc",
+    ]) <| self.value.to_string(),
+  ]
 }
 
 // ── StepGrid: 8-step toggle pattern (drum machine) ───────────────
@@ -161,9 +147,8 @@ fn StepModel::view(
           },
         ],
         on_click=dispatch(Toggle(i)),
-        "",
-      ),
+      ) <| "",
     )
   }
-  @html.div(style=["display: flex", "gap: 2px"], buttons)
+  @html.div(style=["display: flex", "gap: 2px"]) <| buttons
 }

@@ -158,7 +158,7 @@ pub fn Model::view(
   // Build grid cells: blank leading cells + day cells
   let cells : Array[@rabbita.Html] = []
   for i = 0; i < first_dow; i = i + 1 {
-    cells.push(@html.div(style=["padding: 8px"], ""))
+    cells.push(@html.div(style=["padding: 8px"]) <| "")
   }
   for d = 1; d <= total_days; d = d + 1 {
     let date : Date = { year: self.view_year, month: self.view_month, day: d }
@@ -187,8 +187,7 @@ pub fn Model::view(
           "transition: background 0.15s",
         ],
         on_click=dispatch(SelectDay(day)),
-        day.to_string(),
-      ),
+      ) <| day.to_string(),
     )
   }
 
@@ -198,58 +197,38 @@ pub fn Model::view(
     None => "None"
   }
 
-  @html.div(
-    style=[
-      "border: 1px solid #ccc", "border-radius: 8px", "padding: 16px", "min-width: 280px",
-      "max-width: 320px", "font-family: system-ui, sans-serif",
+  @html.div(style=[
+    "border: 1px solid #ccc", "border-radius: 8px", "padding: 16px", "min-width: 280px",
+    "max-width: 320px", "font-family: system-ui, sans-serif",
+  ]) <| [
+    // Header: < Month Year >
+    @html.div(style=[
+      "display: flex", "justify-content: space-between", "align-items: center", "margin-bottom: 12px",
+    ]) <| [
+      @html.button(on_click=dispatch(PrevMonth)) <| "\u{25C0}",
+      @html.span(style=["font-weight: bold"]) <| "\{month_name(self.view_month)} \{self.view_year}",
+      @html.button(on_click=dispatch(NextMonth)) <| "\u{25B6}",
     ],
-    [
-      // Header: < Month Year >
-      @html.div(
-        style=[
-          "display: flex", "justify-content: space-between", "align-items: center",
-          "margin-bottom: 12px",
-        ],
-        [
-          @html.button(on_click=dispatch(PrevMonth), "\u{25C0}"),
-          @html.span(
-            style=["font-weight: bold"],
-            "\{month_name(self.view_month)} \{self.view_year}",
-          ),
-          @html.button(on_click=dispatch(NextMonth), "\u{25B6}"),
-        ],
-      ),
-      // Day-of-week headers
-      @html.div(
-        style=[
-          "display: grid", "grid-template-columns: repeat(7, 1fr)", "text-align: center",
-          "font-size: 0.85em", "color: #888", "margin-bottom: 4px",
-        ],
-        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => {
-          @html.div(style=["padding: 4px"], d)
-        }),
-      ),
-      // Day grid
-      @html.div(
-        style=[
-          "display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px",
-        ],
-        cells,
-      ),
-      // Footer: selected date + clear
-      @html.div(
-        style=[
-          "margin-top: 12px", "text-align: center", "font-size: 0.9em", "color: #555",
-        ],
-        [
-          @html.span("Selected: \{selected_text}"),
-          @html.button(
-            style=["margin-left: 8px", "font-size: 0.85em"],
-            on_click=dispatch(Clear),
-            "Clear",
-          ),
-        ],
-      ),
+    // Day-of-week headers
+    @html.div(style=[
+      "display: grid", "grid-template-columns: repeat(7, 1fr)", "text-align: center",
+      "font-size: 0.85em", "color: #888", "margin-bottom: 4px",
+    ]) <| ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => {
+      @html.div(style=["padding: 4px"]) <| d
+    }),
+    // Day grid
+    @html.div(style=[
+      "display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px",
+    ]) <| cells,
+    // Footer: selected date + clear
+    @html.div(style=[
+      "margin-top: 12px", "text-align: center", "font-size: 0.9em", "color: #555",
+    ]) <| [
+      @html.span() <| "Selected: \{selected_text}",
+      @html.button(
+        style=["margin-left: 8px", "font-size: 0.85em"],
+        on_click=dispatch(Clear),
+      ) <| "Clear",
     ],
-  )
+  ]
 }
