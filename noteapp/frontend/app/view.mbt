@@ -23,17 +23,14 @@ fn find_note(notes : Array[@shared.Note], id : Int) -> @shared.Note? {
 ///|
 /// Render a stat badge with colored text and background.
 fn view_stat_badge(text : String, color : String, bg : String) -> @rabbita.Html {
-  @html.span(
-    style=[
-      "font-size: 12px",
-      "font-weight: 600",
-      "color: \{color}",
-      "background: \{bg}",
-      "padding: 4px 10px",
-      "border-radius: 10px",
-    ],
-    text,
-  )
+  @html.span(style=[
+    "font-size: 12px",
+    "font-weight: 600",
+    "color: \{color}",
+    "background: \{bg}",
+    "padding: 4px 10px",
+    "border-radius: 10px",
+  ]) <| text
 }
 
 ///|
@@ -42,7 +39,9 @@ fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
   @html.div(
     style=card_style,
     {
-      let all : Array[@rabbita.Html] = [@html.h2(style=card_title_style, title)]
+      let all : Array[@rabbita.Html] = [
+        @html.h2(style=card_title_style) <| title,
+      ]
       for child in children {
         all.push(child)
       }
@@ -63,10 +62,10 @@ pub fn Model::view(
       let sections : Array[@rabbita.Html] = []
       // Header
       sections.push(
-        @html.div(style=header_style, [
-          @html.h1(style=header_title_style, "Notes"),
-          @html.p(style=header_subtitle_style, "Quick thoughts, organized"),
-        ]),
+        @html.div(style=header_style) <| [
+          @html.h1(style=header_title_style) <| "Notes",
+          @html.p(style=header_subtitle_style) <| "Quick thoughts, organized",
+        ],
       )
       // Note detail view (when a note is selected)
       if self.selected_note_id != 0 {
@@ -79,20 +78,19 @@ pub fn Model::view(
                 @html.button(
                   on_click=dispatch(DeselectNote),
                   style=back_btn_style,
-                  "Back",
-                ),
+                ) <| "Back",
                 // Title
-                @html.h1(style=detail_title_style, note.title),
+                @html.h1(style=detail_title_style) <| note.title,
                 // Pinned badge
                 if note.pinned {
-                  @html.div(style=pinned_badge_style, "Pinned")
+                  @html.div(style=pinned_badge_style) <| "Pinned"
                 } else {
                   @html.nothing
                 },
                 // Content
-                @html.div(style=detail_content_style, note.content),
+                @html.div(style=detail_content_style) <| note.content,
                 // Stats bar
-                @html.div(style=stats_bar_style, [
+                @html.div(style=stats_bar_style) <| [
                   view_stat_badge(
                     "\{stats.word_count} words",
                     "#667eea",
@@ -108,7 +106,7 @@ pub fn Model::view(
                     "#43a047",
                     "#e8f5e9",
                   ),
-                ]),
+                ],
               ]),
             )
           }
@@ -118,7 +116,7 @@ pub fn Model::view(
         // New Note card
         sections.push(
           view_card("New Note", [
-            @html.form(on_submit=dispatch(SaveNote), style=form_style, [
+            @html.form(on_submit=dispatch(SaveNote), style=form_style) <| [
               @html.input(
                 input_type=Text,
                 placeholder="Note title...",
@@ -135,8 +133,8 @@ pub fn Model::view(
                 style=textarea_style,
                 "",
               ),
-              @html.button(type_="submit", style=submit_btn_style, "Save Note"),
-            ]),
+              @html.button(type_="submit", style=submit_btn_style) <| "Save Note",
+            ],
           ]),
         )
         // Notes list
@@ -152,39 +150,32 @@ pub fn Model::view(
                 } else {
                   "background: white"
                 }
-                @html.div(style=note_item_style, [
-                  @html.div(style=note_row_style, [
+                @html.div(style=note_item_style) <| [
+                  @html.div(style=note_row_style) <| [
                     // Main content area (clickable)
-                    @html.div(
-                      style=[
-                        "flex: 1", "min-width: 0", "cursor: pointer", "padding: 8px 12px",
-                        "border-radius: 10px", bg,
+                    @html.div(style=[
+                      "flex: 1", "min-width: 0", "cursor: pointer", "padding: 8px 12px",
+                      "border-radius: 10px", bg,
+                    ]) <| [
+                      // Title row
+                      @html.div(style=title_row_style) <| [
+                        if note.pinned {
+                          @html.span(style=pin_indicator_style) <| "* "
+                        } else {
+                          @html.nothing
+                        },
+                        @html.button(
+                          on_click=dispatch(SelectNote(note.id)),
+                          style=note_title_btn_style,
+                        ) <| note.title,
                       ],
-                      [
-                        // Title row
-                        @html.div(style=title_row_style, [
-                          if note.pinned {
-                            @html.span(style=pin_indicator_style, "* ")
-                          } else {
-                            @html.nothing
-                          },
-                          @html.button(
-                            on_click=dispatch(SelectNote(note.id)),
-                            style=note_title_btn_style,
-                            note.title,
-                          ),
-                        ]),
-                        // Preview
-                        @html.div(style=preview_style, preview),
-                        // Word count badge
-                        @html.span(
-                          style=word_badge_style,
-                          "\{stats.word_count} words",
-                        ),
-                      ],
-                    ),
+                      // Preview
+                      @html.div(style=preview_style) <| preview,
+                      // Word count badge
+                      @html.span(style=word_badge_style) <| "\{stats.word_count} words",
+                    ],
                     // Action buttons
-                    @html.div(style=action_col_style, [
+                    @html.div(style=action_col_style) <| [
                       // Pin button
                       @html.button(
                         on_click=dispatch(TogglePin(note.id)),
@@ -203,11 +194,10 @@ pub fn Model::view(
                       @html.button(
                         on_click=dispatch(DeleteNote(note.id)),
                         style=delete_btn_style,
-                        "X",
-                      ),
-                    ]),
-                  ]),
-                ])
+                      ) <| "X",
+                    ],
+                  ],
+                ]
               }),
             ),
           )
