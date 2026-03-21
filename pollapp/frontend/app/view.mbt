@@ -21,10 +21,10 @@ pub fn Model::view(
       let sections : Array[@rabbita.Html] = []
       // Header
       sections.push(
-        @html.div(style=header_style, [
-          @html.h1(style=header_title_style, "Poll App"),
-          @html.p(style=header_subtitle_style, "Create polls and vote"),
-        ]),
+        @html.div(style=header_style) <| [
+          @html.h1(style=header_title_style) <| "Poll App",
+          @html.p(style=header_subtitle_style) <| "Create polls and vote",
+        ],
       )
       // Create Poll card
       sections.push(self.view_create_poll(dispatch))
@@ -36,7 +36,7 @@ pub fn Model::view(
       if self.polls.length() == 0 {
         sections.push(
           view_card("Polls", [
-            @html.p(style=empty_polls_style, "No polls yet. Create one above!"),
+            @html.p(style=empty_polls_style) <| "No polls yet. Create one above!",
           ]),
         )
       }
@@ -55,7 +55,7 @@ fn Model::view_create_poll(
   for i in 0..<self.option_inputs.length() {
     let idx = i
     option_fields.push(
-      @html.div(style=option_row_style, [
+      @html.div(style=option_row_style) <| [
         @html.input(
           input_type=Text,
           placeholder="Option \{idx + 1}",
@@ -69,12 +69,11 @@ fn Model::view_create_poll(
             on_click=dispatch(RemoveOptionInput(idx)),
             type_="button",
             style=remove_option_btn_style,
-            "-",
-          )
+          ) <| "-"
         } else {
-          @html.span(style=[], "")
+          @html.span(style=[]) <| ""
         },
-      ]),
+      ],
     )
   }
   view_card("Create Poll", [
@@ -93,7 +92,7 @@ fn Model::view_create_poll(
             "",
           ),
         )
-        children.push(@html.div(style=options_label_style, "Options"))
+        children.push(@html.div(style=options_label_style) <| "Options")
         for field in option_fields {
           children.push(field)
         }
@@ -103,12 +102,11 @@ fn Model::view_create_poll(
               on_click=dispatch(AddOptionInput),
               type_="button",
               style=add_option_btn_style,
-              "+ Add Option",
-            ),
+            ) <| "+ Add Option",
           )
         }
         children.push(
-          @html.button(type_="submit", style=submit_btn_style, "Create Poll"),
+          @html.button(type_="submit", style=submit_btn_style) <| "Create Poll",
         )
         children
       },
@@ -133,27 +131,24 @@ fn Model::view_poll_card(
     if voted {
       // Show results bar (non-clickable)
       option_bars.push(
-        @html.div(style=result_bar_style, [
+        @html.div(style=result_bar_style) <| [
           // Fill bar
-          @html.div(
-            style=[
-              "position: absolute",
-              "top: 0",
-              "left: 0",
-              "bottom: 0",
-              "width: \{pct}%",
-              "background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2))",
-              "border-radius: 10px",
-              "transition: width 0.3s ease",
-            ],
-            "",
-          ),
+          @html.div(style=[
+            "position: absolute",
+            "top: 0",
+            "left: 0",
+            "bottom: 0",
+            "width: \{pct}%",
+            "background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2))",
+            "border-radius: 10px",
+            "transition: width 0.3s ease",
+          ]) <| "",
           // Text content
-          @html.div(style=result_content_style, [
-            @html.span(style=option_text_style, opt.text),
-            @html.span(style=vote_count_style, "\{opt.votes} votes (\{pct}%)"),
-          ]),
-        ]),
+          @html.div(style=result_content_style) <| [
+            @html.span(style=option_text_style) <| opt.text,
+            @html.span(style=vote_count_style) <| "\{opt.votes} votes (\{pct}%)",
+          ],
+        ],
       )
     } else {
       // Clickable vote bar
@@ -161,8 +156,9 @@ fn Model::view_poll_card(
         @html.div(
           on_click=dispatch(Vote(poll_id, option_id)),
           style=vote_bar_style,
-          [@html.span(style=option_text_style, opt.text)],
-        ),
+        ) <| [
+          @html.span(style=option_text_style) <| opt.text,
+        ],
       )
     }
   }
@@ -172,14 +168,13 @@ fn Model::view_poll_card(
       let children : Array[@rabbita.Html] = []
       // Poll question as title
       children.push(
-        @html.div(style=poll_header_style, [
-          @html.h3(style=poll_question_style, poll.question),
+        @html.div(style=poll_header_style) <| [
+          @html.h3(style=poll_question_style) <| poll.question,
           @html.button(
             on_click=dispatch(DeletePoll(poll.id)),
             style=delete_btn_style,
-            "X",
-          ),
-        ]),
+          ) <| "X",
+        ],
       )
       for bar in option_bars {
         children.push(bar)
@@ -187,12 +182,12 @@ fn Model::view_poll_card(
       // Total votes footer
       if total > 0 {
         children.push(
-          @html.div(style=total_votes_style, "\{total} total votes"),
+          @html.div(style=total_votes_style) <| "\{total} total votes",
         )
       }
       if !voted && total == 0 {
         children.push(
-          @html.div(style=vote_hint_style, "Click an option to vote"),
+          @html.div(style=vote_hint_style) <| "Click an option to vote",
         )
       }
       children
@@ -208,7 +203,7 @@ fn view_card(title : String, children : Array[@rabbita.Html]) -> @rabbita.Html {
     {
       let all : Array[@rabbita.Html] = []
       if title != "" {
-        all.push(@html.h2(style=card_title_style, title))
+        all.push(@html.h2(style=card_title_style) <| title)
       }
       for child in children {
         all.push(child)
