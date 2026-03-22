@@ -7,7 +7,7 @@ pub(all) struct Post {
   content : String
   created_at : String
   updated_at : String
-} derive(FromJson, ToJson, Show, Debug)
+} derive(FromJson, ToJson, Debug)
 
 ///|
 /// A comment on a blog post, attributed to an author.
@@ -18,4 +18,4 @@ pub(all) struct Comment {
   author : String
   content : String
   created_at : String
-} derive(FromJson, ToJson, Show, Debug)
+} derive(FromJson, ToJson, Debug)
