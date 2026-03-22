@@ -16,7 +16,7 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   let q2 : Array[Double] = []
   let q3 : Array[Double] = []
   let q4 : Array[Double] = []
-  for r = 1; r < 6; r = r + 1 {
+  for r in 1..<6 {
     let name_key = @cell.make_key(0, r)
     let name_cell = sheet.get(name_key)
     let name = match name_cell.value {
@@ -180,7 +180,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
   // Collect annual totals per product from B-E (same source as bar chart)
   let products : Array[String] = []
   let totals : Array[Double] = []
-  for r = 1; r < 6; r = r + 1 {
+  for r in 1..<6 {
     let name_cell = sheet.get(@cell.make_key(0, r))
     let name = match name_cell.value {
       Text(s) => s
@@ -321,7 +321,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
 /// Renders a tiny sparkline SVG for a single row's Q1-Q4 data.
 fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let vals : Array[Double] = []
-  for c = 1; c <= 4; c = c + 1 {
+  for c in 1..<=4 {
     vals.push(get_num(sheet, c, row))
   }
   let w = 80
