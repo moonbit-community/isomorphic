@@ -75292,7 +75292,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__formula__bar(sel
       const item_bg = is_active ? "#d2e3fc" : "#fff";
       const item_fw = is_active ? "600" : "400";
       const name = suggestion;
-      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(dropdown_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["padding: 6px 12px", "cursor: pointer", "font-size: 13px", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", `background: ${_M0IPC16string6StringPB4Show10to__string(item_bg)}`, `font-weight: ${_M0IPC16string6StringPB4Show10to__string(item_fw)}`, "color: #202124", "transition: background 0.1s ease", "border-bottom: 1px solid #f0f0f0"], undefined, undefined, undefined, -1, dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg18AutocompleteSelect(name)), undefined, undefined, undefined, undefined, undefined, undefined, `${_M0IPC16string6StringPB4Show10to__string(suggestion)}()`));
+      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(dropdown_items, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["padding: 6px 12px", "cursor: pointer", "font-size: 13px", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", `background: ${_M0IPC16string6StringPB4Show10to__string(item_bg)}`, `font-weight: ${_M0IPC16string6StringPB4Show10to__string(item_fw)}`, "color: #202124", "transition: background 0.1s ease", "border-bottom: 1px solid #f0f0f0"], undefined, undefined, undefined, -1, undefined, (_discard_) => dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg18AutocompleteSelect(name)), undefined, undefined, undefined, undefined, undefined, `${_M0IPC16string6StringPB4Show10to__string(suggestion)}()`));
       _tmp$2 = i + 1 | 0;
       continue;
     } else {
@@ -76163,7 +76163,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
                                 _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, key, _M0MP48bobzhang11spreadsheet8frontend4cell4Cell3new(undefined, undefined, -1, -1, undefined, undefined, undefined, undefined));
                                 const sheets$2 = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
                                 _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets$2, self.active_sheet, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(new _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(sheet.name, new_cells)));
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets$2, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
+                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets$2, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, [], -1) };
                               }
                               case 19: {
                                 return { _0: _M0FP48bobzhang11spreadsheet8frontend3app17import__xlsx__cmd(dispatch), _1: self };
@@ -76194,10 +76194,10 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
                             }
                           }
                           const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(col, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(row, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index) };
+                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(col, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(row, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1) };
                         }
                         const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(model.sel_col + dc | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(model.sel_row + dr | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index) };
+                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(model.sel_col + dc | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(model.sel_row + dr | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1) };
                       }
                       return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, true, ch, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
                     }
@@ -76205,7 +76205,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
                     return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, v, self.show_chart, self.heat_map, suggestions, -1) };
                   }
                   const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, i$2, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index) };
+                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, i$2, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, [], -1) };
                 }
                 if (self.sheets.length <= 1) {
                   return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };

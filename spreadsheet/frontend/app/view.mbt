@@ -267,7 +267,9 @@ fn Model::view_formula_bar(
           "color: #202124", "transition: background 0.1s ease",
           "border-bottom: 1px solid #f0f0f0",
         ],
-        on_click=dispatch(AutocompleteSelect(name)),
+        // mousedown fires before the input's blur/on_change, preventing
+        // the commit-before-select race condition
+        on_mousedown=fn(_) { dispatch(AutocompleteSelect(name)) },
       ) <| "\{suggestion}()",
     )
   }
@@ -331,6 +333,7 @@ fn Model::view_formula_bar(
       "font-weight: 500",
     ]) <| "fx",
     // Formula input wrapper with keyboard handling for autocomplete
+    // on_keydown is on the wrapper div; keystrokes from the focused input bubble up
     @html.div(
       style=["flex: 1", "position: relative"],
       on_keydown=kb => {

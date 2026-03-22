@@ -36,6 +36,8 @@ pub fn Model::update(
           sel_col: col.clamp(min=0, max=@sheet.num_cols - 1),
           sel_row: row.clamp(min=0, max=@sheet.num_rows - 1),
           editing: false,
+          autocomplete_suggestions: [],
+          autocomplete_index: -1,
         },
       )
     }
@@ -48,6 +50,8 @@ pub fn Model::update(
           sel_col: (model.sel_col + dc).clamp(min=0, max=@sheet.num_cols - 1),
           sel_row: (model.sel_row + dr).clamp(min=0, max=@sheet.num_rows - 1),
           editing: false,
+          autocomplete_suggestions: [],
+          autocomplete_index: -1,
         },
       )
     }
@@ -84,7 +88,7 @@ pub fn Model::update(
       )
     SelectSheet(i) => {
       let model = if self.editing { self.commit_edit() } else { self }
-      (@rabbita.none, { ..model, active_sheet: i })
+      (@rabbita.none, { ..model, active_sheet: i, autocomplete_suggestions: [], autocomplete_index: -1 })
     }
     AddSheet => {
       let name = "Sheet \{self.sheets.length() + 1}"
@@ -142,7 +146,7 @@ pub fn Model::update(
       new_cells[key] = Cell()
       let sheets = self.sheets.copy()
       sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
-      (@rabbita.none, { ..self, sheets, })
+      (@rabbita.none, { ..self, sheets, autocomplete_suggestions: [], autocomplete_index: -1 })
     }
     RequestImport => (import_xlsx_cmd(dispatch), self)
     ImportExcel(bytes) => (@rabbita.none, load_xlsx(self, bytes))
