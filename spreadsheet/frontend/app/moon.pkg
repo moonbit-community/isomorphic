@@ -2,7 +2,7 @@ import {
   "bobzhang/spreadsheet/frontend/cell",
   "bobzhang/spreadsheet/frontend/formula",
   "bobzhang/spreadsheet/frontend/sheet",
-  "bobzhang/mbtexcel/xlsx",
+  "bobzhang/spreadsheet/frontend/xlsx" @xlsx_io,
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",
   "moonbit-community/rabbita/js" @js,
