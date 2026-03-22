@@ -10,29 +10,29 @@ fn Model::view_connections(
   }
   let rows : Array[@rabbita.Html] = self.connections.map(fn(c) {
     // Find source and target node info
-    let mut from_label = "#\{c.from_node_id}"
-    let mut from_port_name = "[\{c.from_port}]"
-    let mut from_color = "#888"
-    let mut to_label = "#\{c.to_node_id}"
-    let mut to_port_name = "[\{c.to_port}]"
-    let mut to_color = "#888"
-    for n in self.nodes {
+    let (from_label, from_port_name, from_color) = for n in self.nodes {
       if n.id == c.from_node_id {
-        from_label = n.label
         let ports = @shared.output_ports(n.kind)
-        if c.from_port < ports.length() {
-          from_port_name = ports[c.from_port].name
-          from_color = @shared.port_type_color(ports[c.from_port].port_type)
+        break if c.from_port < ports.length() {
+          (n.label, ports[c.from_port].name, @shared.port_type_color(ports[c.from_port].port_type))
+        } else {
+          (n.label, "[\{c.from_port}]", "#888")
         }
       }
+    } nobreak {
+      ("#\{c.from_node_id}", "[\{c.from_port}]", "#888")
+    }
+    let (to_label, to_port_name, to_color) = for n in self.nodes {
       if n.id == c.to_node_id {
-        to_label = n.label
         let ports = @shared.input_ports(n.kind)
-        if c.to_port < ports.length() {
-          to_port_name = ports[c.to_port].name
-          to_color = @shared.port_type_color(ports[c.to_port].port_type)
+        break if c.to_port < ports.length() {
+          (n.label, ports[c.to_port].name, @shared.port_type_color(ports[c.to_port].port_type))
+        } else {
+          (n.label, "[\{c.to_port}]", "#888")
         }
       }
+    } nobreak {
+      ("#\{c.to_node_id}", "[\{c.to_port}]", "#888")
     }
     @html.div(style=[
       "display: flex", "align-items: center", "gap: 6px", "padding: 6px 10px", "background: #16213e",

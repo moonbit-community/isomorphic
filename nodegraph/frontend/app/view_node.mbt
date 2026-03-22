@@ -106,11 +106,12 @@ fn Model::view_temp_wire(
     return @html.text("")
   }
   let (from_x, from_y) = get_pos(layout, self.connecting_from_node)
-  let mut from_kind : @shared.NodeKind = ConstNumber
-  for n in self.nodes {
+  let from_kind : @shared.NodeKind = for n in self.nodes {
     if n.id == self.connecting_from_node {
-      from_kind = n.kind
+      break n.kind
     }
+  } nobreak {
+    ConstNumber
   }
   let from_in_count = @shared.input_ports(from_kind).length()
   let from_has_config = match from_kind {
@@ -164,15 +165,19 @@ fn Model::view_svg_wires(
     let (from_x, from_y) = get_pos(layout, c.from_node_id)
     let (to_x, to_y) = get_pos(layout, c.to_node_id)
     // Look up node kinds
-    let mut from_kind : @shared.NodeKind = ConstNumber
-    let mut to_kind : @shared.NodeKind = ConstNumber
-    for n in self.nodes {
+    let from_kind : @shared.NodeKind = for n in self.nodes {
       if n.id == c.from_node_id {
-        from_kind = n.kind
+        break n.kind
       }
+    } nobreak {
+      ConstNumber
+    }
+    let to_kind : @shared.NodeKind = for n in self.nodes {
       if n.id == c.to_node_id {
-        to_kind = n.kind
+        break n.kind
       }
+    } nobreak {
+      ConstNumber
     }
     // Compute Y offsets accounting for variable card content
     // Source node: output ports come after header + config + inputs section
@@ -204,14 +209,15 @@ fn Model::view_svg_wires(
     let x2 = to_x
     let y2 = to_y + header_h + to_config_h + 16 + c.to_port * port_stride + 8
     // Determine color from output port type
-    let mut color = "#888"
-    for n in self.nodes {
+    let color = for n in self.nodes {
       if n.id == c.from_node_id {
         let ports = @shared.output_ports(n.kind)
         if c.from_port < ports.length() {
-          color = @shared.port_type_color(ports[c.from_port].port_type)
+          break @shared.port_type_color(ports[c.from_port].port_type)
         }
       }
+    } nobreak {
+      "#888"
     }
     // Bezier control offset
     let diff = x2 - x1
@@ -390,32 +396,33 @@ fn Model::view_input_ports(
   for i, p in ports {
     let color = @shared.port_type_color(p.port_type)
     // Check if already connected
-    let mut connected = false
-    for c in self.connections {
+    let connected = for c in self.connections {
       if c.to_node_id == node.id && c.to_port == i {
-        connected = true
+        break true
       }
+    } nobreak {
+      false
     }
     // In connection mode, show clickable targets
     let in_connect_mode = self.connecting_from_node != 0 &&
       self.connecting_from_node != node.id
-    let mut compatible = false
-    let mut incompatible = false
-    if in_connect_mode && !connected {
-      let mut compat = false
-      for n in self.nodes {
+    let (compatible, incompatible) = if in_connect_mode && !connected {
+      let compat = for n in self.nodes {
         if n.id == self.connecting_from_node {
           let out_ports = @shared.output_ports(n.kind)
           if self.connecting_from_port < out_ports.length() {
-            compat = @shared.types_compatible(
+            break @shared.types_compatible(
               out_ports[self.connecting_from_port].port_type,
               p.port_type,
             )
           }
         }
+      } nobreak {
+        false
       }
-      compatible = compat
-      incompatible = !compat
+      (compat, !compat)
+    } else {
+      (false, false)
     }
     // Port dot style changes based on connection mode
     let dot_style = if compatible {

@@ -200,13 +200,12 @@ pub fn Model::update(
     // ── Node dragging ────────────────────────────────────────────
     StartDrag(node_id, client_x, client_y) => {
       // Store offset = clientPos - nodePos (so nodePos = clientPos - offset)
-      let mut nx = 0
-      let mut ny = 0
-      for n in self.nodes {
+      let (nx, ny) = for n in self.nodes {
         if n.id == node_id {
-          nx = n.x
-          ny = n.y
+          break (n.x, n.y)
         }
+      } nobreak {
+        (0, 0)
       }
       (
         {
@@ -240,13 +239,12 @@ pub fn Model::update(
       }
       // Save position to backend
       let node_id = self.dragging_node
-      let mut nx = 0
-      let mut ny = 0
-      for n in self.nodes {
+      let (nx, ny) = for n in self.nodes {
         if n.id == node_id {
-          nx = n.x
-          ny = n.y
+          break (n.x, n.y)
         }
+      } nobreak {
+        (0, 0)
       }
       let cmd = @http.post(
         api(@shared.api_graph_node(self.current_graph_id, node_id)),
@@ -317,11 +315,8 @@ pub fn Model::update(
       // On first move, calibrate: record clientX and compute port canvas pos
       if self.wire_start_cx == 0 && self.wire_start_cy == 0 {
         // Compute the output port's canvas position
-        let mut ox = 0
-        let mut oy = 0
-        for n in self.nodes {
+        let (ox, oy) = for n in self.nodes {
           if n.id == self.connecting_from_node {
-            ox = n.x + node_w
             let in_count = @shared.input_ports(n.kind).length()
             let has_cfg = match n.kind {
               ConstNumber | ConstString | ConstBool | ConstColor => true
@@ -333,14 +328,19 @@ pub fn Model::update(
             } else {
               0
             }
-            oy = n.y +
-              header_h +
-              cfg_h +
-              ins_h +
-              16 +
-              self.connecting_from_port * port_stride +
-              8
+            break (
+              n.x + node_w,
+              n.y +
+                header_h +
+                cfg_h +
+                ins_h +
+                16 +
+                self.connecting_from_port * port_stride +
+                8,
+            )
           }
+        } nobreak {
+          (0, 0)
         }
         (
           {

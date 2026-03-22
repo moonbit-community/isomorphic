@@ -90,24 +90,22 @@ fn Model::view_connect_banner(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   // Find the source node info
-  let mut from_label = "?"
-  let mut port_label = "?"
-  let mut port_color = "#888"
-  let mut type_label = "?"
-  for n in self.nodes {
+  let (from_label, port_label, port_color, type_label) = for n in self.nodes {
     if n.id == self.connecting_from_node {
-      from_label = n.label
       let ports = @shared.output_ports(n.kind)
       if self.connecting_from_port < ports.length() {
-        port_label = ports[self.connecting_from_port].name
-        port_color = @shared.port_type_color(
-          ports[self.connecting_from_port].port_type,
+        break (
+          n.label,
+          ports[self.connecting_from_port].name,
+          @shared.port_type_color(ports[self.connecting_from_port].port_type),
+          @shared.port_type_label(ports[self.connecting_from_port].port_type),
         )
-        type_label = @shared.port_type_label(
-          ports[self.connecting_from_port].port_type,
-        )
+      } else {
+        break (n.label, "?", "#888", "?")
       }
     }
+  } nobreak {
+    ("?", "?", "#888", "?")
   }
   @html.div(style=[
     "background: #0f3460",

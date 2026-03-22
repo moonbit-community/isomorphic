@@ -68,21 +68,21 @@ pub fn compute_layout(
     }
   }
   // Group by layer, compute y positions within each layer
-  let mut max_layer = 0
-  for l in layers {
-    if l > max_layer {
-      max_layer = l
-    }
+  let max_layer = for l in layers; max_layer = 0 {
+    continue if l > max_layer { l } else { max_layer }
+  } nobreak {
+    max_layer
   }
   let positions : Array[(Int, Int, Int)] = []
   for layer in 0..<=max_layer {
-    let mut row = 0
-    for i in 0..<n {
+    for i in 0..<n; row = 0 {
       if layers[i] == layer {
         let x = pad_x + layer * node_stride_x
         let y = pad_y + row * node_stride_y
         positions.push((ids[i], x, y))
-        row = row + 1
+        continue row + 1
+      } else {
+        continue row
       }
     }
   }
@@ -116,16 +116,12 @@ pub fn get_pos(layout : Array[(Int, Int, Int)], node_id : Int) -> (Int, Int) {
 ///|
 /// Compute the minimum canvas dimensions needed to contain all laid-out nodes.
 pub fn canvas_size(layout : Array[(Int, Int, Int)]) -> (Int, Int) {
-  let mut max_x = 600
-  let mut max_y = 400
-  for entry in layout {
+  for entry in layout; max_x = 600, max_y = 400 {
     let (_, x, y) = entry
-    if x + node_w + pad_x > max_x {
-      max_x = x + node_w + pad_x
-    }
-    if y + node_stride_y > max_y {
-      max_y = y + node_stride_y
-    }
+    let new_x = if x + node_w + pad_x > max_x { x + node_w + pad_x } else { max_x }
+    let new_y = if y + node_stride_y > max_y { y + node_stride_y } else { max_y }
+    continue new_x, new_y
+  } nobreak {
+    (max_x, max_y)
   }
-  (max_x, max_y)
 }
