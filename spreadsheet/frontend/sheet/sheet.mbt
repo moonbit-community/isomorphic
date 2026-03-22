@@ -31,14 +31,14 @@ pub fn Sheet::new(name : String) -> Sheet {
 pub fn Sheet::get(self : Sheet, key : String) -> @cell.Cell {
   match self.cells.get(key) {
     Some(c) => c
-    None => @cell.Cell::empty()
+    None => @cell.Cell::new()
   }
 }
 
 ///|
 /// Store a plain cell with the given raw text, evaluating formulas if present.
 pub fn Sheet::set_cell(self : Sheet, key : String, raw : String) -> Unit {
-  let value = @formula.evaluate(raw, fn(r) { self.get(r).value })
+  let value = @formula.evaluate(raw, r => self.get(r).value)
   self.cells[key] = {
     raw,
     value,
@@ -329,7 +329,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
         let value = @formula.evaluate(c.raw, fn(r) {
           let cell = match new_cells.get(r) {
             Some(c) => c
-            None => @cell.Cell::empty()
+            None => @cell.Cell::new()
           }
           cell.value
         })
