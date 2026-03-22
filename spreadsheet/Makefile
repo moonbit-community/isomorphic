@@ -1,15 +1,21 @@
-.PHONY: build serve open clean
+.PHONY: build-frontend build-backend build serve open clean
 
-build:
+build-frontend:
 	moon build --target js
 	cp ../_build/js/debug/build/bobzhang/spreadsheet/frontend/frontend.js public/frontend.js
 
+build-backend:
+	moon build --target native
+
+build: build-frontend build-backend
+
+PORT ?= 4012
 serve: build
-	cd public && python3 -m http.server 4012
+	moon run backend --target native -- --port $(PORT)
 
 open: build
 	open public/index.html
 
 clean:
-	rm -f public/frontend.js
+	rm -f public/frontend.js spreadsheet.db
 	moon clean
