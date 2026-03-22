@@ -1,122 +1,247 @@
 ///|
-/// Entry point: parse args, open DB, register routes, start HTTP server.
-///
-/// Routes:
-/// - `GET /`              — serves the HTML shell that loads the frontend
-/// - `GET /frontend.js`   — serves the compiled frontend bundle from `public/`
-/// - `GET /api/load`      — load the saved workbook data (JSON)
-/// - `POST /api/save`     — save workbook data (JSON) to SQLite
-fn main raise {
-  guard @argparse.parse(
-      Command("spreadsheet-server", about="Spreadsheet backend server", options=[
-        OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
-          "4012",
-        ]),
-      ]),
-    )
-    is { values: { "port": [port], .. }, .. } else {
-    println("Failed to parse arguments")
-    return
-  }
-  let port = @strconv.parse_int(port)
+/// Connected WebSocket clients for real-time broadcast.
+let ws_clients : Array[@websocket.Conn] = []
 
+///|
+/// Broadcast a "refresh" message to all connected WebSocket clients.
+/// Removes disconnected clients from the list.
+async fn broadcast_refresh() -> Unit {
+  let to_remove : Array[Int] = []
+  for i, client in ws_clients {
+    try {
+      client.send_text("{\"type\":\"refresh\"}")
+    } catch {
+      _ => to_remove.push(i)
+    }
+  }
+  // Remove disconnected clients in reverse order to preserve indices
+  for j = to_remove.length() - 1; j >= 0; j = j - 1 {
+    ignore(ws_clients.remove(to_remove[j]))
+  }
+}
+
+///|
+/// CORS headers applied to every HTTP response.
+let cors_headers : Map[String, String] = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+}
+
+///|
+/// Merge CORS headers with additional headers.
+fn with_cors(extra : Map[String, String]) -> Map[String, String] {
+  let merged : Map[String, String] = {}
+  for k, v in cors_headers {
+    merged[k] = v
+  }
+  for k, v in extra {
+    merged[k] = v
+  }
+  merged
+}
+
+///|
+/// Entry point: open DB, start async HTTP+WebSocket server on port 4012.
+async fn main {
   let conn = @sqlite3.Connection::open("spreadsheet.db")
   println("Database opened: spreadsheet.db")
-
-  init_db(conn)
+  try {
+    init_db(conn)
+  } catch {
+    e => {
+      println("Failed to initialize database: \{e}")
+      return
+    }
+  }
   println("Database initialized")
+  let server = @http.Server::new(@socket.Addr::parse("0.0.0.0:4012"))
+  println("Server running at http://localhost:4012")
+  server.run_forever(async fn(request, body, sconn) {
+    match (request.meth, request.path) {
+      (Options, _) => {
+        // Handle CORS preflight
+        sconn
+        ..send_response(204, "No Content", extra_headers=cors_headers)
+        .end_response()
+      }
+      (Get, "/") => {
+        println("GET /")
+        let html =
+          #|<!DOCTYPE html>
+          #|<html lang="en">
+          #|<head>
+          #|  <meta charset="UTF-8">
+          #|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          #|  <title>MoonBit Spreadsheet</title>
+          #|  <link rel="preconnect" href="https://fonts.googleapis.com">
+          #|  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+          #|  <style>
+          #|    * { margin: 0; padding: 0; box-sizing: border-box; }
+          #|    body { overflow: hidden; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+          #|    input:focus { outline: 2px solid #1a73e8; outline-offset: -2px; }
+          #|    ::-webkit-scrollbar { width: 10px; height: 10px; }
+          #|    ::-webkit-scrollbar-track { background: #f1f3f4; }
+          #|    ::-webkit-scrollbar-thumb { background: #bdc1c6; border-radius: 5px; }
+          #|    ::-webkit-scrollbar-thumb:hover { background: #9aa0a6; }
+          #|    ::-webkit-scrollbar-corner { background: #f1f3f4; }
+          #|    ::selection { background: #d2e3fc; }
+          #|    @keyframes barGrow { from { transform: scaleY(0); opacity: 0.3; } to { transform: scaleY(1); opacity: 1; } }
+          #|    @keyframes chartSlideIn { from { transform: translateY(-12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+          #|    @keyframes cellPulse { 0%, 100% { box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2); } 50% { box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.4); } }
+          #|    @keyframes donutDraw { from { stroke-dashoffset: var(--circumference); } to { stroke-dashoffset: var(--dash-offset); } }
+          #|  </style>
+          #|</head>
+          #|<body>
+          #|  <div id="app"></div>
+          #|  <script src="/frontend.js"></script>
+          #|</body>
+          #|</html>
+        sconn
+        ..send_response(
+          200,
+          "OK",
+          extra_headers=with_cors({ "Content-Type": "text/html; charset=utf-8" }),
+        )
+        ..write(@utf8.encode(html))
+        .end_response()
+      }
+      (Get, "/frontend.js") => {
+        println("GET /frontend.js")
+        try {
+          let bytes = @fs.read_file_to_bytes("./public/frontend.js")
+          sconn
+          ..send_response(
+            200,
+            "OK",
+            extra_headers=with_cors({
+              "Content-Type": "application/javascript; charset=utf-8",
+            }),
+          )
+          ..write(bytes)
+          .end_response()
+        } catch {
+          _ => {
+            println("  -> 404 Not Found")
+            sconn
+            ..send_response(404, "Not Found", extra_headers=cors_headers)
+            ..write("Not Found")
+            .end_response()
+          }
+        }
+      }
+      (Get, "/api/load") => {
+        println("GET /api/load")
+        try {
+          let data = load_workbook(conn)
+          println("  -> 200 (\{data.length()} bytes)")
+          sconn
+          ..send_response(
+            200,
+            "OK",
+            extra_headers=with_cors({
+              "Content-Type": "application/json; charset=utf-8",
+            }),
+          )
+          ..write(@utf8.encode(data))
+          .end_response()
+        } catch {
+          e => {
+            println("  -> 500 \{e}")
+            sconn
+            ..send_response(
+              500,
+              "Internal Server Error",
+              extra_headers=cors_headers,
+            )
+            ..write("\{e}")
+            .end_response()
+          }
+        }
+      }
+      (Post, "/api/save") => {
+        println("POST /api/save")
+        try {
+          let raw : &@io.Data = body.read_all()
+          let text = raw.text()
+          let json : Json = @json.parse(text)
+          let data = json.stringify()
+          save_workbook(conn, data)
+          println("  -> 200 saved (\{data.length()} bytes)")
+          // Broadcast refresh to all WebSocket clients
+          broadcast_refresh()
+          sconn
+          ..send_response(
+            200,
+            "OK",
+            extra_headers=with_cors({
+              "Content-Type": "application/json; charset=utf-8",
+            }),
+          )
+          ..write("{\"ok\":true}")
+          .end_response()
+        } catch {
+          e => {
+            println("  -> 500 \{e}")
+            sconn
+            ..send_response(
+              500,
+              "Internal Server Error",
+              extra_headers=cors_headers,
+            )
+            ..write("\{e}")
+            .end_response()
+          }
+        }
+      }
+      (Get, "/ws") => {
+        let addr = sconn.client_addr()
+        println("WS upgrade from \{addr}")
+        let ws = @websocket.from_http_server(request, sconn)
+        ws_clients.push(ws)
+        let total = ws_clients.length()
+        println("  -> WebSocket connected (total: \{total})")
+        try {
+          // Keep the connection alive by reading messages in a loop
+          for ;; {
+            let msg = ws.recv()
+            // Read and discard the message content
+            let _ = msg.read_all()
 
-  let app = @mocket.new()
-  app
-  ..use_middleware(@cors.handle_cors())
-  ..get("/", fn(_event) noraise {
-    println("GET /")
-    let html =
-      #|<!DOCTYPE html>
-      #|<html lang="en">
-      #|<head>
-      #|  <meta charset="UTF-8">
-      #|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      #|  <title>MoonBit Spreadsheet</title>
-      #|  <link rel="preconnect" href="https://fonts.googleapis.com">
-      #|  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-      #|  <style>
-      #|    * { margin: 0; padding: 0; box-sizing: border-box; }
-      #|    body { overflow: hidden; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-      #|    input:focus { outline: 2px solid #1a73e8; outline-offset: -2px; }
-      #|    ::-webkit-scrollbar { width: 10px; height: 10px; }
-      #|    ::-webkit-scrollbar-track { background: #f1f3f4; }
-      #|    ::-webkit-scrollbar-thumb { background: #bdc1c6; border-radius: 5px; }
-      #|    ::-webkit-scrollbar-thumb:hover { background: #9aa0a6; }
-      #|    ::-webkit-scrollbar-corner { background: #f1f3f4; }
-      #|    ::selection { background: #d2e3fc; }
-      #|    @keyframes barGrow { from { transform: scaleY(0); opacity: 0.3; } to { transform: scaleY(1); opacity: 1; } }
-      #|    @keyframes chartSlideIn { from { transform: translateY(-12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-      #|    @keyframes cellPulse { 0%, 100% { box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2); } 50% { box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.4); } }
-      #|    @keyframes donutDraw { from { stroke-dashoffset: var(--circumference); } to { stroke-dashoffset: var(--dash-offset); } }
-      #|  </style>
-      #|</head>
-      #|<body>
-      #|  <div id="app"></div>
-      #|  <script src="/frontend.js"></script>
-      #|</body>
-      #|</html>
-    @mocket.HttpResponse::new(
-      OK,
-      headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
-    )
-  })
-  ..get("/frontend.js", fn(_event) noraise {
-    println("GET /frontend.js")
-    try {
-      let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
-        OK,
-        headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
-      )
-    } catch {
+          }
+        } catch {
+          @websocket.ConnectionClosed(_, reason) => {
+            let r = reason.unwrap_or("normal")
+            let remaining = ws_clients.length()
+            println(
+              "  -> WebSocket disconnected: \{r} (remaining: \{remaining})",
+            )
+          }
+          _ => ()
+        }
+        // Remove from clients list on disconnect
+        let new_clients : Array[@websocket.Conn] = []
+        for c in ws_clients {
+          if !physical_equal(c, ws) {
+            new_clients.push(c)
+          }
+        }
+        ws_clients.clear()
+        for c in new_clients {
+          ws_clients.push(c)
+        }
+        let remaining = ws_clients.length()
+        println("  -> Cleaned up WS client (remaining: \{remaining})")
+      }
       _ => {
-        println("  -> 404 Not Found")
-        @mocket.HttpResponse::new(NotFound).body("Not Found")
+        println("\{request.meth} \{request.path} -> 404")
+        sconn
+        ..send_response(404, "Not Found", extra_headers=cors_headers)
+        ..write("Not Found")
+        .end_response()
       }
     }
   })
-  ..get("/api/load", fn(_event) noraise {
-    println("GET /api/load")
-    try {
-      let data = load_workbook(conn)
-      println("  -> 200 (\{data.length()} bytes)")
-      @mocket.HttpResponse::new(
-        OK,
-        headers={ "Content-Type": "application/json; charset=utf-8" },
-        raw_body=@utf8.encode(data),
-      )
-    } catch {
-      e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
-      }
-    }
-  })
-  .post("/api/save", fn(event) noraise {
-    println("POST /api/save")
-    try {
-      let json : Json = event.req.body()
-      let data = json.stringify()
-      save_workbook(conn, data)
-      println("  -> 200 saved (\{data.length()} bytes)")
-      @mocket.HttpResponse::new(OK).json({ "ok": true })
-    } catch {
-      e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
-      }
-    }
-  })
-  println("Server running at http://localhost:\{port}")
-  app.serve(port~)
 }
 
 ///|

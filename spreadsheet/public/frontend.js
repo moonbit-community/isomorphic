@@ -4133,6 +4133,22 @@ function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcomm
   this._0 = param0;
 }
 _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text.prototype.$tag = 1;
+const _M0FP48bobzhang11spreadsheet8frontend3app11connect__ws = (function(on_message) {
+  function doConnect() {
+    try {
+      var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
+      ws.onmessage = function(event) { on_message(event.data); };
+      ws.onclose = function() {
+        setTimeout(doConnect, 2000);
+      };
+      ws.onerror = function() { ws.close(); };
+    } catch(e) {
+      setTimeout(doConnect, 2000);
+    }
+  }
+  doConnect();
+});
 const _M0FP0215moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fspreadsheet_2ffrontend_2fapp_2fModel_2c_20bobzhang_2fspreadsheet_2ffrontend_2fapp_2fMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell = { method_0: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4stepGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_1: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4viewGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_2: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell5flagsGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char };
 const _M0FP0133moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2fSandbox_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eScheduler = { method_0: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler3add, method_1: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler17add__url__changed };
@@ -80049,6 +80065,17 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 1, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 1)));
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index, model.save_status);
 }
+function _M0FP48bobzhang11spreadsheet8frontend3app8init__ws(dispatch) {
+  _M0FP48bobzhang11spreadsheet8frontend3app11connect__ws((data) => {
+    const _bind$5 = "refresh";
+    if (_M0MPC16string6String8contains(data, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length))) {
+      dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__);
+      return;
+    } else {
+      return;
+    }
+  });
+}
 (() => {
   let dispatch;
   let app_cell;
@@ -80062,6 +80089,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   }
   const app = _M0FP219moonbit_2dcommunity7rabbita3new(app_cell);
   _M0MP219moonbit_2dcommunity7rabbita3App10with__init(app, dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__));
+  _M0FP48bobzhang11spreadsheet8frontend3app8init__ws(dispatch);
   _M0MP219moonbit_2dcommunity7rabbita3App5mount(app, "app");
 })();
 //# sourceMappingURL=frontend.js.map

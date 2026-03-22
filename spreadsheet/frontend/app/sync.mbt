@@ -33,3 +33,36 @@ fn save_workbook(
     expect=Text(fn(_result) { dispatch(SavedToBackend) }),
   )
 }
+
+///|
+/// Connect a WebSocket to the backend for real-time refresh notifications.
+/// When a "refresh" message is received, dispatches LoadFromBackend.
+extern "js" fn connect_ws(on_message : (String) -> Unit) -> Unit =
+  #|(function(on_message) {
+  #|  function doConnect() {
+  #|    try {
+  #|      var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  #|      var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
+  #|      ws.onmessage = function(event) { on_message(event.data); };
+  #|      ws.onclose = function() {
+  #|        setTimeout(doConnect, 2000);
+  #|      };
+  #|      ws.onerror = function() { ws.close(); };
+  #|    } catch(e) {
+  #|      setTimeout(doConnect, 2000);
+  #|    }
+  #|  }
+  #|  doConnect();
+  #|})
+
+///|
+/// Initialize WebSocket connection for real-time collaboration.
+/// Dispatches LoadFromBackend when a refresh notification arrives.
+pub fn init_ws(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
+  connect_ws(fn(data) {
+    // Parse the message — if it contains "refresh", reload data
+    if data.contains("refresh") {
+      ignore(dispatch(LoadFromBackend))
+    }
+  })
+}

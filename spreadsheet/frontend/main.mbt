@@ -8,5 +8,6 @@ fn main {
   )
   let app = @rabbita.new(app_cell)
   app.with_init(dispatch(LoadFromBackend))
+  @app.init_ws(dispatch)
   app.mount("app")
 }
