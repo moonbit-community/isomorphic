@@ -872,12 +872,11 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
       Num(min)
     }
     "MAX" => {
-      let max = for v in values; max = values[0] {
+       for v in values; max = values[0] {
         continue if v > max { v } else { max }
       } nobreak {
-        max
-      }
-      Num(max)
+        Num(max)
+      }      
     }
     "COUNT" => Num(values.length().to_double())
     _ => Error("FUNC?\{name}")

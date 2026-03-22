@@ -343,16 +343,23 @@ fn collect_heat_range(sheet : Sheet) -> (Double, Double) {
   // Revenue data: rows 1-5 (B2:E6), totals row 7 (B8:E8)
   let rows = [1, 2, 3, 4, 5, 7]
   for r in rows; min_val = 1.0e18, max_val = -1.0e18 {
-    let (min_val, max_val) = for c in 1..<=4; min_val = min_val, max_val = max_val {
+    let (min_val, max_val) = for
+      c in 1..<=4
+      min_val = min_val, max_val = max_val {
       let key = @cell.make_key(c, r)
       let cell = sheet.get(key)
       match cell.value {
         Num(n) =>
-          continue if n < min_val { n } else { min_val }, if n > max_val {
-            n
-          } else {
-            max_val
-          }
+          continue if n < min_val {
+              n
+            } else {
+              min_val
+            },
+            if n > max_val {
+              n
+            } else {
+              max_val
+            }
         _ => continue min_val, max_val
       }
     } nobreak {

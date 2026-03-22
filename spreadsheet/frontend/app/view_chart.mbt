@@ -27,10 +27,10 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
       continue
     }
     products.push(name)
-    q1.push(get_num(sheet, 1, r))
-    q2.push(get_num(sheet, 2, r))
-    q3.push(get_num(sheet, 3, r))
-    q4.push(get_num(sheet, 4, r))
+    q1.push(sheet.get_num(1, r))
+    q2.push(sheet.get_num(2, r))
+    q3.push(sheet.get_num(3, r))
+    q4.push(sheet.get_num(4, r))
   }
   if products.is_empty() {
     return @html.div(style=[
@@ -190,10 +190,10 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       continue
     }
     products.push(name)
-    let row_total = get_num(sheet, 1, r) +
-      get_num(sheet, 2, r) +
-      get_num(sheet, 3, r) +
-      get_num(sheet, 4, r)
+    let row_total = sheet.get_num(1, r) +
+      sheet.get_num(2, r) +
+      sheet.get_num(3, r) +
+      sheet.get_num(4, r)
     totals.push(row_total)
   }
   if products.is_empty() {
@@ -322,7 +322,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
 fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let vals : Array[Double] = []
   for c in 1..<=4 {
-    vals.push(get_num(sheet, c, row))
+    vals.push(sheet.get_num(c, row))
   }
   let w = 80
   let h = 22
@@ -330,7 +330,16 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let pw = w - pad * 2
   let ph = h - pad * 2
   let (min_v, max_v) = for v in vals; min_v = vals[0], max_v = vals[0] {
-    continue if v < min_v { v } else { min_v }, if v > max_v { v } else { max_v }
+    continue if v < min_v {
+        v
+      } else {
+        min_v
+      },
+      if v > max_v {
+        v
+      } else {
+        max_v
+      }
   } nobreak {
     (min_v, max_v)
   }
@@ -341,11 +350,16 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
     let x = pad + pw * i / 3
     let y = pad + ph - ((v - min_v) / range * ph.to_double()).to_int()
     points.push((x, y))
-    continue if v <= vals[min_idx] { i } else { min_idx }, if v >= vals[max_idx] {
-      i
-    } else {
-      max_idx
-    }
+    continue if v <= vals[min_idx] {
+        i
+      } else {
+        min_idx
+      },
+      if v >= vals[max_idx] {
+        i
+      } else {
+        max_idx
+      }
   } nobreak {
     (min_idx, max_idx)
   }
@@ -402,9 +416,9 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
 }
 
 ///|
-fn get_num(sheet : Sheet, col : Int, row : Int) -> Double {
+fn Sheet::get_num(self : Sheet, col : Int, row : Int) -> Double {
   let key = @cell.make_key(col, row)
-  match sheet.get(key).value {
+  match self.get(key).value {
     Num(n) => n
     _ => 0.0
   }
