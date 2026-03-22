@@ -754,7 +754,17 @@ fn Model::view_grid(
     style=["flex: 1", "overflow: auto", "background: #fff", "outline: none"],
     on_keydown=kb => {
       let key = kb.key()
-      if key == "ArrowUp" {
+      // When already editing, only handle Escape and Enter from the grid.
+      // Other keystrokes should go to the inline editor's on_input.
+      if self.editing {
+        if key == "Escape" {
+          dispatch(CancelEdit)
+        } else if key == "Enter" {
+          dispatch(CommitEdit)
+        } else {
+          @rabbita.none
+        }
+      } else if key == "ArrowUp" {
         dispatch(MoveSelection(0, -1))
       } else if key == "ArrowDown" {
         dispatch(MoveSelection(0, 1))

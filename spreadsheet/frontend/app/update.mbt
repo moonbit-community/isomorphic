@@ -60,7 +60,12 @@ pub fn Model::update(
       (@rabbita.none, { ..self, editing: true, edit_value: cell.raw })
     }
     StartEditWith(ch) =>
-      (@rabbita.none, { ..self, editing: true, edit_value: ch })
+      if self.editing {
+        // Already editing — append character to current edit value
+        (@rabbita.none, { ..self, edit_value: self.edit_value + ch })
+      } else {
+        (@rabbita.none, { ..self, editing: true, edit_value: ch })
+      }
     UpdateEdit(v) => {
       let suggestions = compute_autocomplete(v)
       (
