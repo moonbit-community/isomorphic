@@ -759,7 +759,7 @@ function _M0TPB5EntryGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(
   this.key = param4;
   this.value = param5;
 }
-function _M0TPB5EntryGssE(param0, param1, param2, param3, param4, param5) {
+function _M0TPB5EntryGsRPB4JsonE(param0, param1, param2, param3, param4, param5) {
   this.prev = param0;
   this.next = param1;
   this.psl = param2;
@@ -767,7 +767,7 @@ function _M0TPB5EntryGssE(param0, param1, param2, param3, param4, param5) {
   this.key = param4;
   this.value = param5;
 }
-function _M0TPB5EntryGsRPB4JsonE(param0, param1, param2, param3, param4, param5) {
+function _M0TPB5EntryGssE(param0, param1, param2, param3, param4, param5) {
   this.prev = param0;
   this.next = param1;
   this.psl = param2;
@@ -5579,14 +5579,14 @@ function _M0IP016_24default__implPB4Show10to__stringGiE(self) {
   _M0IPC13int3IntPB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
   return _M0MPB13StringBuilder10to__string(logger);
 }
-function _M0IP016_24default__implPB4Show10to__stringGdE(self) {
-  const logger = _M0MPB13StringBuilder11new_2einner(0);
-  _M0IPC16double6DoublePB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
-  return _M0MPB13StringBuilder10to__string(logger);
-}
 function _M0IP016_24default__implPB4Show10to__stringGRPB9SourceLocE(self) {
   const logger = _M0MPB13StringBuilder11new_2einner(0);
   _M0IPB9SourceLocPB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
+  return _M0MPB13StringBuilder10to__string(logger);
+}
+function _M0IP016_24default__implPB4Show10to__stringGdE(self) {
+  const logger = _M0MPB13StringBuilder11new_2einner(0);
+  _M0IPC16double6DoublePB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
   return _M0MPB13StringBuilder10to__string(logger);
 }
 function _M0IP016_24default__implPB4Show10to__stringGRPC15error5ErrorE(self) {
@@ -6295,13 +6295,13 @@ function _M0MPC15array5Array11new_2einnerGyE(capacity) {
 function _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
-function _M0MPC15array5Array4pushGdE(self, value) {
-  _M0MPB7JSArray4push(self, value);
-}
 function _M0MPC15array5Array4pushGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
 function _M0MPC15array5Array4pushGcE(self, value) {
+  _M0MPB7JSArray4push(self, value);
+}
+function _M0MPC15array5Array4pushGdE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
 function _M0MPC15array5Array4pushGRPB5ArrayGUiRP38bobzhang8mbtexcel4xlsx5TableEEE(self, value) {
@@ -8790,54 +8790,6 @@ function _M0MPB3Map15set__with__hashGsRP419moonbit_2dcommunity7rabbita8internal7
     }
   }
 }
-function _M0MPB3Map15set__with__hashGssE(self, key, value, hash) {
-  let _tmp$2 = 0;
-  let _tmp$3 = hash & self.capacity_mask;
-  while (true) {
-    const psl = _tmp$2;
-    const idx = _tmp$3;
-    const _tmp$4 = self.entries;
-    $bound_check(_tmp$4, idx);
-    const _bind$5 = _tmp$4[idx];
-    if (_bind$5 === undefined) {
-      if (self.size >= self.grow_at) {
-        _M0MPB3Map4growGssE(self);
-        _tmp$2 = 0;
-        _tmp$3 = hash & self.capacity_mask;
-        continue;
-      }
-      const _bind$6 = self.tail;
-      const _bind$7 = undefined;
-      const entry = new _M0TPB5EntryGssE(_bind$6, _bind$7, psl, hash, key, value);
-      _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
-      return undefined;
-    } else {
-      const _Some = _bind$5;
-      const _curr_entry = _Some;
-      if (_curr_entry.hash === hash && _curr_entry.key === key) {
-        _curr_entry.value = value;
-        return undefined;
-      }
-      if (psl > _curr_entry.psl) {
-        if (self.size >= self.grow_at) {
-          _M0MPB3Map4growGssE(self);
-          _tmp$2 = 0;
-          _tmp$3 = hash & self.capacity_mask;
-          continue;
-        }
-        _M0MPB3Map10push__awayGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, _curr_entry);
-        const _bind$6 = self.tail;
-        const _bind$7 = undefined;
-        const entry = new _M0TPB5EntryGssE(_bind$6, _bind$7, psl, hash, key, value);
-        _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
-        return undefined;
-      }
-      _tmp$2 = psl + 1 | 0;
-      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
-      continue;
-    }
-  }
-}
 function _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, hash) {
   let _tmp$2 = 0;
   let _tmp$3 = hash & self.capacity_mask;
@@ -8877,6 +8829,54 @@ function _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, hash) {
         const _bind$6 = self.tail;
         const _bind$7 = undefined;
         const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
+        _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
+        return undefined;
+      }
+      _tmp$2 = psl + 1 | 0;
+      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
+      continue;
+    }
+  }
+}
+function _M0MPB3Map15set__with__hashGssE(self, key, value, hash) {
+  let _tmp$2 = 0;
+  let _tmp$3 = hash & self.capacity_mask;
+  while (true) {
+    const psl = _tmp$2;
+    const idx = _tmp$3;
+    const _tmp$4 = self.entries;
+    $bound_check(_tmp$4, idx);
+    const _bind$5 = _tmp$4[idx];
+    if (_bind$5 === undefined) {
+      if (self.size >= self.grow_at) {
+        _M0MPB3Map4growGssE(self);
+        _tmp$2 = 0;
+        _tmp$3 = hash & self.capacity_mask;
+        continue;
+      }
+      const _bind$6 = self.tail;
+      const _bind$7 = undefined;
+      const entry = new _M0TPB5EntryGssE(_bind$6, _bind$7, psl, hash, key, value);
+      _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
+      return undefined;
+    } else {
+      const _Some = _bind$5;
+      const _curr_entry = _Some;
+      if (_curr_entry.hash === hash && _curr_entry.key === key) {
+        _curr_entry.value = value;
+        return undefined;
+      }
+      if (psl > _curr_entry.psl) {
+        if (self.size >= self.grow_at) {
+          _M0MPB3Map4growGssE(self);
+          _tmp$2 = 0;
+          _tmp$3 = hash & self.capacity_mask;
+          continue;
+        }
+        _M0MPB3Map10push__awayGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, _curr_entry);
+        const _bind$6 = self.tail;
+        const _bind$7 = undefined;
+        const entry = new _M0TPB5EntryGssE(_bind$6, _bind$7, psl, hash, key, value);
         _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
         return undefined;
       }
@@ -9858,34 +9858,6 @@ function _M0MPB3Map4growGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INod
     }
   }
 }
-function _M0MPB3Map4growGssE(self) {
-  const old_head = self.head;
-  const new_capacity = self.capacity << 1;
-  self.entries = $make_array_len_and_init(new_capacity, undefined);
-  self.capacity = new_capacity;
-  self.capacity_mask = new_capacity - 1 | 0;
-  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
-  self.size = 0;
-  self.head = undefined;
-  self.tail = -1;
-  let _tmp$2 = old_head;
-  while (true) {
-    const _param = _tmp$2;
-    if (_param === undefined) {
-      return;
-    } else {
-      const _Some = _param;
-      const _x = _Some;
-      const _next = _x.next;
-      const _key = _x.key;
-      const _value = _x.value;
-      const _hash = _x.hash;
-      _M0MPB3Map15set__with__hashGssE(self, _key, _value, _hash);
-      _tmp$2 = _next;
-      continue;
-    }
-  }
-}
 function _M0MPB3Map4growGsRPB4JsonE(self) {
   const old_head = self.head;
   const new_capacity = self.capacity << 1;
@@ -9909,6 +9881,34 @@ function _M0MPB3Map4growGsRPB4JsonE(self) {
       const _value = _x.value;
       const _hash = _x.hash;
       _M0MPB3Map15set__with__hashGsRPB4JsonE(self, _key, _value, _hash);
+      _tmp$2 = _next;
+      continue;
+    }
+  }
+}
+function _M0MPB3Map4growGssE(self) {
+  const old_head = self.head;
+  const new_capacity = self.capacity << 1;
+  self.entries = $make_array_len_and_init(new_capacity, undefined);
+  self.capacity = new_capacity;
+  self.capacity_mask = new_capacity - 1 | 0;
+  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
+  self.size = 0;
+  self.head = undefined;
+  self.tail = -1;
+  let _tmp$2 = old_head;
+  while (true) {
+    const _param = _tmp$2;
+    if (_param === undefined) {
+      return;
+    } else {
+      const _Some = _param;
+      const _x = _Some;
+      const _next = _x.next;
+      const _key = _x.key;
+      const _value = _x.value;
+      const _hash = _x.hash;
+      _M0MPB3Map15set__with__hashGssE(self, _key, _value, _hash);
       _tmp$2 = _next;
       continue;
     }
@@ -10361,11 +10361,11 @@ function _M0MPB3Map3setGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5Even
 function _M0MPB3Map3setGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
-function _M0MPB3Map3setGssE(self, key, value) {
-  _M0MPB3Map15set__with__hashGssE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
-}
 function _M0MPB3Map3setGsRPB4JsonE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
+}
+function _M0MPB3Map3setGssE(self, key, value) {
+  _M0MPB3Map15set__with__hashGssE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
 function _M0MPB3Map3setGsRP319moonbit_2dcommunity7rabbita7variant7VariantE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRP319moonbit_2dcommunity7rabbita7variant7VariantE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
@@ -12449,7 +12449,7 @@ function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita4html4HtmlRP419
   }
   return arr;
 }
-function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita3svg3SvgRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE(self, f) {
+function _M0MPC15array5Array3mapGUiiEsE(self, f) {
   const arr = new Array(self.length);
   const _bind$5 = self.length;
   let _tmp$2 = 0;
@@ -12466,7 +12466,7 @@ function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita3svg3SvgRP419mo
   }
   return arr;
 }
-function _M0MPC15array5Array3mapGUiiEsE(self, f) {
+function _M0MPC15array5Array3mapGRP319moonbit_2dcommunity7rabbita3svg3SvgRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeE(self, f) {
   const arr = new Array(self.length);
   const _bind$5 = self.length;
   let _tmp$2 = 0;
@@ -78452,6 +78452,126 @@ function _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2y2(self, value) {
   _M0MPB3Map3setGssE(self.attrs, "y2", value);
   return self;
 }
+function _M0FP48bobzhang11spreadsheet8frontend3app15view__sparkline(sheet, row) {
+  const vals = [];
+  const _bind$5 = 1;
+  const _bind$6 = 4;
+  let _tmp$2 = _bind$5;
+  while (true) {
+    const c = _tmp$2;
+    if (c <= _bind$6) {
+      _M0MPC15array5Array4pushGdE(vals, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet8get__num(sheet, c, row));
+      _tmp$2 = c + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const w = 80;
+  const h = 22;
+  const pad = 3;
+  const pw = w - (Math.imul(pad, 2) | 0) | 0;
+  const ph = h - (Math.imul(pad, 2) | 0) | 0;
+  let min_v;
+  let max_v;
+  _L: {
+    const _bind$7 = vals.length;
+    let _tmp$3 = 0;
+    let _tmp$4 = _M0MPC15array5Array2atGdE(vals, 0);
+    let _tmp$5 = _M0MPC15array5Array2atGdE(vals, 0);
+    while (true) {
+      const _ = _tmp$3;
+      const min_v$2 = _tmp$4;
+      const max_v$2 = _tmp$5;
+      if (_ < _bind$7) {
+        const v = vals[_];
+        _tmp$3 = _ + 1 | 0;
+        _tmp$4 = v < min_v$2 ? v : min_v$2;
+        _tmp$5 = v > max_v$2 ? v : max_v$2;
+        continue;
+      } else {
+        min_v = min_v$2;
+        max_v = max_v$2;
+        break _L;
+      }
+    }
+  }
+  const range = max_v > min_v ? max_v - min_v : 1;
+  const points = [];
+  let min_idx;
+  let max_idx;
+  _L$2: {
+    const _bind$7 = vals.length;
+    let _tmp$3 = 0;
+    let _tmp$4 = 0;
+    let _tmp$5 = 0;
+    while (true) {
+      const i = _tmp$3;
+      const min_idx$2 = _tmp$4;
+      const max_idx$2 = _tmp$5;
+      if (i < _bind$7) {
+        const v = vals[i];
+        if (3 === 0) {
+          $panic();
+        }
+        const x = pad + ((Math.imul(pw, i) | 0) / 3 | 0) | 0;
+        const y = (pad + ph | 0) - _M0MPC16double6Double7to__int((v - min_v) / range * (ph + 0)) | 0;
+        _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, { _0: x, _1: y });
+        _tmp$3 = i + 1 | 0;
+        _tmp$4 = v <= _M0MPC15array5Array2atGdE(vals, min_idx$2) ? i : min_idx$2;
+        _tmp$5 = v >= _M0MPC15array5Array2atGdE(vals, max_idx$2) ? i : max_idx$2;
+        continue;
+      } else {
+        min_idx = min_idx$2;
+        max_idx = max_idx$2;
+        break _L$2;
+      }
+    }
+  }
+  const area_points = [];
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(area_points, { _0: _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, 0)._0, _1: h - pad | 0 });
+  const _bind$7 = points.length;
+  let _tmp$3 = 0;
+  while (true) {
+    const _ = _tmp$3;
+    if (_ < _bind$7) {
+      const p = points[_];
+      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(area_points, p);
+      _tmp$3 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(area_points, { _0: _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, points.length - 1 | 0)._0, _1: h - pad | 0 });
+  const elements = [];
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg4defs(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, [_M0FP319moonbit_2dcommunity7rabbita3svg16linear__gradient("sparkGrad", undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2y2(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2x2(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2y1(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2x1(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "0"), "0"), "0"), "1"), [_M0FP319moonbit_2dcommunity7rabbita3svg4stop(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs13stop__opacity(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs11stop__color(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs6offset(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "0%"), "#34a853"), "0.3")), _M0FP319moonbit_2dcommunity7rabbita3svg4stop(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs13stop__opacity(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs11stop__color(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs6offset(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "100%"), "#34a853"), "0.05"))])]));
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg8polyline(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, area_points, undefined, "url(#sparkGrad)", undefined, undefined, undefined, undefined, undefined, undefined));
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg8polyline(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, points, undefined, "none", "#34a853", 2, undefined, undefined, undefined, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs16stroke__linejoin(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "round")));
+  let min_x;
+  let min_y;
+  _L$3: {
+    const _bind$8 = _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, min_idx);
+    const _min_x = _bind$8._0;
+    const _min_y = _bind$8._1;
+    min_x = _min_x;
+    min_y = _min_y;
+    break _L$3;
+  }
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg6circle(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, min_x, min_y, 2, "#ea4335", undefined, undefined, undefined, undefined, undefined, undefined));
+  let max_x;
+  let max_y;
+  _L$4: {
+    const _bind$8 = _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, max_idx);
+    const _max_x = _bind$8._0;
+    const _max_y = _bind$8._1;
+    max_x = _max_x;
+    max_y = _max_y;
+    break _L$4;
+  }
+  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg6circle(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, max_x, max_y, 2, "#34a853", undefined, undefined, undefined, undefined, undefined, undefined));
+  return _M0FP319moonbit_2dcommunity7rabbita3svg3svg(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["display: block"]), w, h, `0 0 ${_M0IP016_24default__implPB4Show10to__stringGiE(w)} ${_M0IP016_24default__implPB4Show10to__stringGiE(h)}`, undefined, undefined, elements);
+}
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self) {
   return _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets, self.active_sheet);
 }
@@ -78733,23 +78853,21 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__donut__chart(sel
   const _bind$10 = 0;
   const _bind$11 = products.length;
   let _tmp$6 = _bind$10;
-  let _tmp$7 = -90;
+  let _tmp$7 = 0;
   while (true) {
     const i = _tmp$6;
-    const offset_angle = _tmp$7;
+    const offset = _tmp$7;
     if (i < _bind$11) {
       const fraction = _M0MPC15array5Array2atGdE(totals, i) / grand_total;
-      const arc_len = _M0MPC16double6Double7to__int(circumference * fraction);
-      const gap_len = circ_int + 1 | 0;
-      const rotation = offset_angle;
-      const delay = Math.imul(i, 150) | 0;
+      const arc_len = circumference * fraction;
       if (colors.length === 0) {
         $panic();
       }
       const color_idx = i % colors.length | 0;
-      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg6circle(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["transform-origin: center", `transform: rotate(${_M0IP016_24default__implPB4Show10to__stringGdE(rotation)}deg)`, `--circumference: ${_M0IP016_24default__implPB4Show10to__stringGiE(arc_len)}`, "--dash-offset: 0", `animation: donutDraw 0.8s ease-out ${_M0IP016_24default__implPB4Show10to__stringGiE(delay)}ms both`]), cx, cy, radius, "none", _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(colors, color_idx), stroke_w, undefined, undefined, undefined, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs18stroke__dashoffset(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs17stroke__dasharray(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), `${_M0IP016_24default__implPB4Show10to__stringGiE(arc_len)} ${_M0IP016_24default__implPB4Show10to__stringGiE(gap_len)}`), _M0IP016_24default__implPB4Show10to__stringGiE(arc_len))));
+      const dash_offset = -offset;
+      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg6circle(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["transform-origin: center", "transform: rotate(-90deg)"]), cx, cy, radius, "none", _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(colors, color_idx), stroke_w, undefined, undefined, undefined, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs18stroke__dashoffset(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs17stroke__dasharray(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), `${_M0IP016_24default__implPB4Show10to__stringGiE(_M0MPC16double6Double7to__int(arc_len))} ${_M0IP016_24default__implPB4Show10to__stringGiE(circ_int)}`), _M0IP016_24default__implPB4Show10to__stringGiE(_M0MPC16double6Double7to__int(dash_offset)))));
       _tmp$6 = i + 1 | 0;
-      _tmp$7 = offset_angle + fraction * 360;
+      _tmp$7 = offset + arc_len;
       continue;
     } else {
       break;
@@ -78782,125 +78900,62 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__donut__chart(sel
   const total_h = size + (Math.imul(products.length, 16) | 0) | 0;
   return _M0FP319moonbit_2dcommunity7rabbita3svg3svg(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["background: #fff", "border-radius: 8px"]), size, total_h, `0 0 ${_M0IP016_24default__implPB4Show10to__stringGiE(size)} ${_M0IP016_24default__implPB4Show10to__stringGiE(total_h)}`, undefined, undefined, elements);
 }
-function _M0FP48bobzhang11spreadsheet8frontend3app15view__sparkline(sheet, row) {
-  const vals = [];
-  const _bind$5 = 1;
-  const _bind$6 = 4;
-  let _tmp$2 = _bind$5;
+function _M0MP48bobzhang11spreadsheet8frontend3app5Model15view__dashboard(self) {
+  const _bind$5 = self.sheets;
+  const _bind$6 = _bind$5.length;
+  let sheet;
+  let _tmp$2 = 0;
   while (true) {
-    const c = _tmp$2;
-    if (c <= _bind$6) {
-      _M0MPC15array5Array4pushGdE(vals, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet8get__num(sheet, c, row));
-      _tmp$2 = c + 1 | 0;
+    const _ = _tmp$2;
+    if (_ < _bind$6) {
+      const s = _bind$5[_];
+      if (s.name === "Sales Dashboard") {
+        sheet = s;
+        break;
+      }
+      _tmp$2 = _ + 1 | 0;
       continue;
     } else {
+      sheet = _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self);
       break;
     }
   }
-  const w = 80;
-  const h = 22;
-  const pad = 3;
-  const pw = w - (Math.imul(pad, 2) | 0) | 0;
-  const ph = h - (Math.imul(pad, 2) | 0) | 0;
-  let min_v;
-  let max_v;
-  _L: {
-    const _bind$7 = vals.length;
-    let _tmp$3 = 0;
-    let _tmp$4 = _M0MPC15array5Array2atGdE(vals, 0);
-    let _tmp$5 = _M0MPC15array5Array2atGdE(vals, 0);
-    while (true) {
-      const _ = _tmp$3;
-      const min_v$2 = _tmp$4;
-      const max_v$2 = _tmp$5;
-      if (_ < _bind$7) {
-        const v = vals[_];
-        _tmp$3 = _ + 1 | 0;
-        _tmp$4 = v < min_v$2 ? v : min_v$2;
-        _tmp$5 = v > max_v$2 ? v : max_v$2;
-        continue;
-      } else {
-        min_v = min_v$2;
-        max_v = max_v$2;
+  const _tmp$3 = ["flex: 1", "overflow: auto", "padding: 24px", "background: #f0f2f5", "display: flex", "flex-direction: column", "gap: 20px"];
+  const _tmp$4 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 20px", "font-weight: 600", "color: #202124", "padding: 0 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "Sales Dashboard");
+  const _tmp$5 = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "gap: 20px", "align-items: flex-start"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["flex: 2", "background: #fff", "border-radius: 12px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "Quarterly Revenue by Product"), _M0MP48bobzhang11spreadsheet8frontend3app5Model11view__chart(self)]), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["flex: 1", "background: #fff", "border-radius: 12px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "Revenue Share"), _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__donut__chart(self)])]);
+  const _tmp$6 = ["display: flex", "gap: 16px", "flex-wrap: wrap"];
+  const cards = [];
+  const _bind$7 = 1;
+  const _bind$8 = 6;
+  let _tmp$7 = _bind$7;
+  while (true) {
+    const r = _tmp$7;
+    if (r < _bind$8) {
+      _L: {
+        let name;
+        const _bind$9 = _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3get(sheet, _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(0, r)).value;
+        if (_bind$9.$tag === 2) {
+          const _Text = _bind$9;
+          const _s = _Text._0;
+          name = _s;
+        } else {
+          name = "";
+        }
+        if (_M0MPC16string6String9is__empty(name)) {
+          break _L;
+        }
+        const total = _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet8get__num(sheet, 1, r) + _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet8get__num(sheet, 2, r) + _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet8get__num(sheet, 3, r) + _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet8get__num(sheet, 4, r);
+        const total_k = _M0MPC16double6Double7to__int(total / 1000 + 0.5);
+        _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(cards, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["flex: 1", "min-width: 160px", "background: #fff", "border-radius: 12px", "padding: 16px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 12px", "color: #5f6368", "margin-bottom: 4px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, name), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["font-size: 22px", "font-weight: 600", "color: #202124", "margin-bottom: 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, `$${_M0IP016_24default__implPB4Show10to__stringGiE(total_k)}k`), _M0FP48bobzhang11spreadsheet8frontend3app15view__sparkline(sheet, r)]));
         break _L;
       }
-    }
-  }
-  const range = max_v > min_v ? max_v - min_v : 1;
-  const points = [];
-  let min_idx;
-  let max_idx;
-  _L$2: {
-    const _bind$7 = vals.length;
-    let _tmp$3 = 0;
-    let _tmp$4 = 0;
-    let _tmp$5 = 0;
-    while (true) {
-      const i = _tmp$3;
-      const min_idx$2 = _tmp$4;
-      const max_idx$2 = _tmp$5;
-      if (i < _bind$7) {
-        const v = vals[i];
-        if (3 === 0) {
-          $panic();
-        }
-        const x = pad + ((Math.imul(pw, i) | 0) / 3 | 0) | 0;
-        const y = (pad + ph | 0) - _M0MPC16double6Double7to__int((v - min_v) / range * (ph + 0)) | 0;
-        _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, { _0: x, _1: y });
-        _tmp$3 = i + 1 | 0;
-        _tmp$4 = v <= _M0MPC15array5Array2atGdE(vals, min_idx$2) ? i : min_idx$2;
-        _tmp$5 = v >= _M0MPC15array5Array2atGdE(vals, max_idx$2) ? i : max_idx$2;
-        continue;
-      } else {
-        min_idx = min_idx$2;
-        max_idx = max_idx$2;
-        break _L$2;
-      }
-    }
-  }
-  const area_points = [];
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(area_points, { _0: _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, 0)._0, _1: h - pad | 0 });
-  const _bind$7 = points.length;
-  let _tmp$3 = 0;
-  while (true) {
-    const _ = _tmp$3;
-    if (_ < _bind$7) {
-      const p = points[_];
-      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(area_points, p);
-      _tmp$3 = _ + 1 | 0;
+      _tmp$7 = r + 1 | 0;
       continue;
     } else {
       break;
     }
   }
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(area_points, { _0: _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, points.length - 1 | 0)._0, _1: h - pad | 0 });
-  const elements = [];
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg4defs(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, [_M0FP319moonbit_2dcommunity7rabbita3svg16linear__gradient("sparkGrad", undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2y2(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2x2(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2y1(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs2x1(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "0"), "0"), "0"), "1"), [_M0FP319moonbit_2dcommunity7rabbita3svg4stop(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs13stop__opacity(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs11stop__color(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs6offset(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "0%"), "#34a853"), "0.3")), _M0FP319moonbit_2dcommunity7rabbita3svg4stop(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs13stop__opacity(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs11stop__color(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs6offset(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "100%"), "#34a853"), "0.05"))])]));
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg8polyline(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, area_points, undefined, "url(#sparkGrad)", undefined, undefined, undefined, undefined, undefined, undefined));
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg8polyline(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, points, undefined, "none", "#34a853", 2, undefined, undefined, undefined, _M0MP319moonbit_2dcommunity7rabbita3svg5Attrs16stroke__linejoin(_M0MP319moonbit_2dcommunity7rabbita3svg5Attrs5build(), "round")));
-  let min_x;
-  let min_y;
-  _L$3: {
-    const _bind$8 = _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, min_idx);
-    const _min_x = _bind$8._0;
-    const _min_y = _bind$8._1;
-    min_x = _min_x;
-    min_y = _min_y;
-    break _L$3;
-  }
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg6circle(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, min_x, min_y, 2, "#ea4335", undefined, undefined, undefined, undefined, undefined, undefined));
-  let max_x;
-  let max_y;
-  _L$4: {
-    const _bind$8 = _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(points, max_idx);
-    const _max_x = _bind$8._0;
-    const _max_y = _bind$8._1;
-    max_x = _max_x;
-    max_y = _max_y;
-    break _L$4;
-  }
-  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(elements, _M0FP319moonbit_2dcommunity7rabbita3svg6circle(undefined, undefined, _M0DTPC16option6OptionGRPB5ArrayGsEE4None__, max_x, max_y, 2, "#34a853", undefined, undefined, undefined, undefined, undefined, undefined));
-  return _M0FP319moonbit_2dcommunity7rabbita3svg3svg(undefined, undefined, new _M0DTPC16option6OptionGRPB5ArrayGsEE4Some(["display: block"]), w, h, `0 0 ${_M0IP016_24default__implPB4Show10to__stringGiE(w)} ${_M0IP016_24default__implPB4Show10to__stringGiE(h)}`, undefined, undefined, elements);
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$3, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_tmp$4, _tmp$5, _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(_tmp$6, undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, cards)]);
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model14selected__cell(self) {
   const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
@@ -79508,7 +79563,8 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model13view__toolbar(self, di
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 2px", "padding: 6px 12px", "background: linear-gradient(180deg, #f9fbfd 0%, #eef1f5 100%)", "border-bottom: 1px solid #dadce0", "min-height: 44px", "flex-wrap: wrap"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "gap: 8px", "margin-right: 16px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["width: 28px", "height: 28px", "border-radius: 4px", "background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%)", "display: flex", "align-items: center", "justify-content: center", "color: white", "font-weight: 600", "font-size: 14px", "box-shadow: 0 1px 3px rgba(15, 157, 88, 0.3)"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "⊞"), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-weight: 600", "font-size: 15px", "color: #202124", "letter-spacing: -0.3px"], undefined, undefined, undefined, -1, undefined, "MoonBit Sheets")]), _M0FP48bobzhang11spreadsheet8frontend3app15view__separator(), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("B", cell.bold, "font-weight:700;font-size:13px;font-family:serif", dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10ToggleBold__)), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("I", cell.italic, "font-style:italic;font-size:13px;font-family:serif", dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg12ToggleItalic__)), _M0FP48bobzhang11spreadsheet8frontend3app15view__separator(), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("≡", is_left, "font-size:14px", dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg8SetAlign(1))), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("≣", is_center, "font-size:14px", dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg8SetAlign(2))), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("≢", is_right, "font-size:14px", dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg8SetAlign(3))), _M0FP48bobzhang11spreadsheet8frontend3app15view__separator(), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("$", is_currency, "font-size:13px;font-weight:500", dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg9SetFormat(1))), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("%", is_percent, "font-size:13px;font-weight:500", dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg9SetFormat(2))), _M0FP48bobzhang11spreadsheet8frontend3app15view__separator(), _M0FP48bobzhang11spreadsheet8frontend3app20view__color__palette(cell.bg_color, dispatch), _M0FP48bobzhang11spreadsheet8frontend3app15view__separator(), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("▓", self.heat_map, "font-size:14px", dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg13ToggleHeatMap__)), _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button("▄", self.show_chart, "font-size:14px", dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg11ToggleChart__)), _M0FP48bobzhang11spreadsheet8frontend3app15view__separator(), _M0FP48bobzhang11spreadsheet8frontend3app21toolbar__button__text("Import", false, dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg13RequestImport__)), _M0FP48bobzhang11spreadsheet8frontend3app21toolbar__button__text("Export", false, dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg11ExportExcel__)), _M0FP48bobzhang11spreadsheet8frontend3app21toolbar__button__text("Clear", false, dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9ClearCell__))]);
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model4view(self, dispatch) {
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa", "user-select: none", "color: #202124"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang11spreadsheet8frontend3app5Model13view__toolbar(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__formula__bar(self, dispatch), self.show_chart ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: center", "gap: 24px", "padding: 12px 16px", "align-items: flex-start", "background: #f8f9fa", "border-bottom: 1px solid #dadce0", "animation: chartSlideIn 0.4s ease-out"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang11spreadsheet8frontend3app5Model11view__chart(self), _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__donut__chart(self)]) : _M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, ""), _M0MP48bobzhang11spreadsheet8frontend3app5Model10view__grid(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__sheet__tabs(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__status__bar(self)]);
+  const is_dashboard = _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self).name === "Sales Dashboard" && self.show_chart;
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa", "user-select: none", "color: #202124"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang11spreadsheet8frontend3app5Model13view__toolbar(self, dispatch), is_dashboard ? _M0MP48bobzhang11spreadsheet8frontend3app5Model15view__dashboard(self) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-direction: column", "flex: 1", "overflow: hidden"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang11spreadsheet8frontend3app5Model18view__formula__bar(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model10view__grid(self, dispatch)]), _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__sheet__tabs(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__status__bar(self)]);
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app16extract__partial(value) {
   let _tmp$2;
