@@ -75,8 +75,8 @@ pub fn make() -> @rabbita.Cell {
   let today : @calendar.Date = { year: 2026, month: 3, day: 20 }
   @rabbita.simple_cell(
     model={
-      start_cal: @calendar.Model(today~),
-      end_cal: @calendar.Model(today~),
+      start_cal: Model(today~),
+      end_cal: Model(today~),
     },
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch),

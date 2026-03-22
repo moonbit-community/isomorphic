@@ -97,8 +97,8 @@ fn PairModel::view(
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
     model={
-      left: @counter.Model(),
-      right: @counter.Model(),
+      left: Model(),
+      right: Model(),
       sync_mode: false,
     },
     update=(msg, model) => model.update(msg),

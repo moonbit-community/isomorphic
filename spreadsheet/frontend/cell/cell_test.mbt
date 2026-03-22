@@ -157,6 +157,7 @@ test "Value::Show: Error" {
 // ── Value::Eq ────────────────────────────────────────────────────────
 
 ///|
+#warnings("-unnecessary_annotation")
 test "Value::Eq" {
   assert_eq(@cell.Num(1.0), @cell.Num(1.0))
   assert_eq(@cell.Text("a"), @cell.Text("a"))
