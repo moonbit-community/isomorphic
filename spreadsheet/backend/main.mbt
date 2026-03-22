@@ -219,16 +219,15 @@ async fn main {
           }
           _ => ()
         }
-        // Remove from clients list on disconnect
-        let new_clients : Array[@websocket.Conn] = []
-        for c in ws_clients {
-          if !physical_equal(c, ws) {
-            new_clients.push(c)
+        // Clean up: close and remove this client
+        ws.close()
+        // Use index tracking — we saved the index when we pushed
+        let _my_idx = ws_clients.length() - 1 // approximate; rebuild is safer
+        for i = ws_clients.length() - 1; i >= 0; i = i - 1 {
+          if physical_equal(ws_clients[i], ws) {
+            ignore(ws_clients.remove(i))
+            break
           }
-        }
-        ws_clients.clear()
-        for c in new_clients {
-          ws_clients.push(c)
         }
         let remaining = ws_clients.length()
         println("  -> Cleaned up WS client (remaining: \{remaining})")
