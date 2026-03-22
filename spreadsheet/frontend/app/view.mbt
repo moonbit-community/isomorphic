@@ -332,52 +332,54 @@ fn Model::view_formula_bar(
       "font-size: 13px", "color: #70757a", "margin-right: 8px", "font-style: italic",
       "font-weight: 500",
     ]) <| "fx",
-    // Formula input wrapper with keyboard handling for autocomplete
-    // on_keydown is on the wrapper div; keystrokes from the focused input bubble up
-    @html.div(
-      style=["flex: 1", "position: relative"],
-      on_keydown=kb => {
-        let key = kb.key()
-        if has_suggestions {
-          if key == "ArrowDown" {
-            dispatch(AutocompleteNav(1))
-          } else if key == "ArrowUp" {
-            dispatch(AutocompleteNav(-1))
-          } else if key == "Escape" {
-            dispatch(CancelEdit)
-          } else if (key == "Tab" || key == "Enter") &&
-                    self.autocomplete_index >= 0 {
-            dispatch(
-              AutocompleteSelect(
-                self.autocomplete_suggestions[self.autocomplete_index],
-              ),
-            )
-          } else if key == "Enter" {
-            dispatch(CommitEdit)
-          } else {
-            @rabbita.none
-          }
-        } else if key == "Enter" {
-          dispatch(CommitEdit)
-        } else if key == "Escape" {
-          dispatch(CancelEdit)
-        } else {
-          @rabbita.none
-        }
-      },
-    ) <| [
-      @html.input(
-        input_type=Text,
-        style=[
-          "width: 100%", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
-          "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
-          "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
-          "box-sizing: border-box",
+    // Formula bar: <form> wraps the input so Enter triggers on_submit → CommitEdit.
+    // A sibling div with on_keydown handles autocomplete Arrow/Tab/Escape navigation
+    // (keydown events bubble from the input through the div to the form).
+    @html.div(style=["flex: 1", "position: relative", "display: flex"]) <| [
+      @html.form(
+        style=["flex: 1", "display: flex"],
+        on_submit=dispatch(CommitEdit),
+      ) <| [
+        @html.div(
+          style=["flex: 1"],
+          on_keydown=kb => {
+            let key = kb.key()
+            if has_suggestions {
+              if key == "ArrowDown" {
+                dispatch(AutocompleteNav(1))
+              } else if key == "ArrowUp" {
+                dispatch(AutocompleteNav(-1))
+              } else if key == "Escape" {
+                dispatch(CancelEdit)
+              } else if key == "Tab" && self.autocomplete_index >= 0 {
+                dispatch(
+                  AutocompleteSelect(
+                    self.autocomplete_suggestions[self.autocomplete_index],
+                  ),
+                )
+              } else {
+                @rabbita.none
+              }
+            } else if key == "Escape" {
+              dispatch(CancelEdit)
+            } else {
+              @rabbita.none
+            }
+          },
+        ) <| [
+          @html.input(
+            input_type=Text,
+            style=[
+              "width: 100%", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
+              "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
+              "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
+              "box-sizing: border-box",
+            ],
+            value=display_value,
+            on_input=value => dispatch(UpdateEdit(value)),
+          ) <| "",
         ],
-        value=display_value,
-        on_input=value => dispatch(UpdateEdit(value)),
-        on_change=_value => dispatch(CommitEdit),
-      ) <| "",
+      ],
       dropdown,
     ],
     // Live formula preview badge
