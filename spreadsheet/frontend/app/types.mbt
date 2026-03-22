@@ -1,6 +1,6 @@
 ///|
 /// Top-level application state: all sheets, the active sheet index, selection, and editing state.
-pub struct Model {
+pub(all) struct Model {
   sheets : Array[@sheet.Sheet]
   active_sheet : Int
   sel_col : Int
