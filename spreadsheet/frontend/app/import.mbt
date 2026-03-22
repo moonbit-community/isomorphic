@@ -431,27 +431,23 @@ fn export_sheet_cells(
 ///   - `align` (Left/Center/Right) -> `@xlsx.Alignment`
 ///   - `bg_color` (`"#RRGGBB"`) -> `@xlsx.Fill` with `"FFRRGGBB"` ARGB color
 fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
-  let mut style = @xlsx.Style::new()
+  let style = @xlsx.Style::new()
   // Font
-  if cell.bold || cell.italic {
+  let style = if cell.bold || cell.italic {
     let font = @xlsx.Font::with_values(bold=cell.bold, italic=cell.italic)
-    style = style.with_font(font)
+    style.with_font(font)
+  } else {
+    style
   }
   // Alignment
-  match cell.align {
+  let style = match cell.align {
     Left =>
-      style = style.with_alignment(
-        @xlsx.Alignment::with_values(horizontal="left"),
-      )
+      style.with_alignment(@xlsx.Alignment::with_values(horizontal="left"))
     Center =>
-      style = style.with_alignment(
-        @xlsx.Alignment::with_values(horizontal="center"),
-      )
+      style.with_alignment(@xlsx.Alignment::with_values(horizontal="center"))
     Right =>
-      style = style.with_alignment(
-        @xlsx.Alignment::with_values(horizontal="right"),
-      )
-    Auto => ()
+      style.with_alignment(@xlsx.Alignment::with_values(horizontal="right"))
+    Auto => style
   }
   // Fill color
   if !cell.bg_color.is_empty() {
@@ -461,9 +457,10 @@ fn build_xlsx_style(cell : @cell.Cell) -> @xlsx.Style {
     } else {
       cell.bg_color
     }
-    style = style.with_fill(@xlsx.Fill::pattern(color~))
+    style.with_fill(@xlsx.Fill::pattern(color~))
+  } else {
+    style
   }
-  style
 }
 
 ///|

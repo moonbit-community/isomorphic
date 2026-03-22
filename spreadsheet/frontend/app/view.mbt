@@ -340,28 +340,28 @@ fn heat_color(value : Double, min_val : Double, max_val : Double) -> String {
 ///|
 /// Collect min/max values from revenue cells (B2:E6, B8:E8) for heat map scaling.
 fn collect_heat_range(sheet : Sheet) -> (Double, Double) {
-  let mut min_val = 1.0e18
-  let mut max_val = -1.0e18
   // Revenue data: rows 1-5 (B2:E6), totals row 7 (B8:E8)
   let rows = [1, 2, 3, 4, 5, 7]
-  for r in rows {
-    for c = 1; c <= 4; c = c + 1 {
+  for r in rows; min_val = 1.0e18, max_val = -1.0e18 {
+    let (min_val, max_val) = for c = 1, min_val = min_val, max_val = max_val; c <= 4; {
       let key = @cell.make_key(c, r)
       let cell = sheet.get(key)
       match cell.value {
-        Num(n) => {
-          if n < min_val {
-            min_val = n
+        Num(n) =>
+          continue c + 1, if n < min_val { n } else { min_val }, if n > max_val {
+            n
+          } else {
+            max_val
           }
-          if n > max_val {
-            max_val = n
-          }
-        }
-        _ => ()
+        _ => continue c + 1, min_val, max_val
       }
+    } nobreak {
+      (min_val, max_val)
     }
+    continue min_val, max_val
+  } nobreak {
+    (min_val, max_val)
   }
-  (min_val, max_val)
 }
 
 ///|

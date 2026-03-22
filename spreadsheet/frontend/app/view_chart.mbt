@@ -3,12 +3,12 @@
 /// Reads rows 2-6, columns A (label) and B-E (Q1-Q4 values).
 fn Model::view_chart(self : Model) -> @rabbita.Html {
   // Find Sales Dashboard by name, fall back to current sheet
-  let mut sheet = self.current_sheet()
-  for s in self.sheets {
+  let sheet = for s in self.sheets {
     if s.name == "Sales Dashboard" {
-      sheet = s
-      break
+      break s
     }
+  } nobreak {
+    self.current_sheet()
   }
   // Collect product data from rows 2-6
   let products : Array[String] = []
@@ -47,23 +47,16 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   let plot_w = chart_w - pad_left - pad_right
   let plot_h = chart_h - pad_top - pad_bottom
   // Find max value for scaling
-  let mut max_val = 1.0
-  for i in 0..<products.length() {
-    if q1[i] > max_val {
-      max_val = q1[i]
-    }
-    if q2[i] > max_val {
-      max_val = q2[i]
-    }
-    if q3[i] > max_val {
-      max_val = q3[i]
-    }
-    if q4[i] > max_val {
-      max_val = q4[i]
-    }
+  let max_val = for i in 0..<products.length(); max_val = 1.0 {
+    let m = max_val
+    let m = if q1[i] > m { q1[i] } else { m }
+    let m = if q2[i] > m { q2[i] } else { m }
+    let m = if q3[i] > m { q3[i] } else { m }
+    continue if q4[i] > m { q4[i] } else { m }
+  } nobreak {
+    // Round max up to nearest nice number
+    max_val * 1.1
   }
-  // Round max up to nearest nice number
-  max_val = max_val * 1.1
   let n = products.length()
   let group_w = plot_w / n
   let bar_w = group_w / 6 // 4 bars + 2 gaps
@@ -177,12 +170,12 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
 /// Renders an animated donut chart showing revenue share by product.
 fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
   // Find Sales Dashboard sheet
-  let mut sheet = self.current_sheet()
-  for s in self.sheets {
+  let sheet = for s in self.sheets {
     if s.name == "Sales Dashboard" {
-      sheet = s
-      break
+      break s
     }
+  } nobreak {
+    self.current_sheet()
   }
   // Collect annual totals per product from B-E (same source as bar chart)
   let products : Array[String] = []
@@ -214,9 +207,10 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
   let stroke_w = 32
   let colors = ["#4285f4", "#34a853", "#fbbc04", "#ea4335", "#9c27b0"]
   // Compute total
-  let mut grand_total = 0.0
-  for t in totals {
-    grand_total = grand_total + t
+  let grand_total = for t in totals; grand_total = 0.0 {
+    continue grand_total + t
+  } nobreak {
+    grand_total
   }
   if grand_total == 0.0 {
     return @html.span() <| ""
@@ -236,8 +230,8 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     ),
   )
   // Donut segments — each circle uses dasharray to show only its arc
-  let mut offset_angle = -90.0 // start from top
-  for i in 0..<products.length() {
+  for i in 0..<products.length(); offset_angle = -90.0 {
+    // start from top
     let fraction = totals[i] / grand_total
     let arc_len = (circumference * fraction).to_int()
     let gap_len = circ_int + 1 // oversized gap avoids sub-pixel seam from rounding
@@ -265,7 +259,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
           .stroke_dashoffset("\{arc_len}"),
       ),
     )
-    offset_angle = offset_angle + fraction * 360.0
+    continue offset_angle + fraction * 360.0
   }
   // Center text: grand total
   let total_k = (grand_total / 1000.0 + 0.5).to_int()
@@ -335,31 +329,25 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   let pad = 3
   let pw = w - pad * 2
   let ph = h - pad * 2
-  let mut min_v = vals[0]
-  let mut max_v = vals[0]
-  for v in vals {
-    if v < min_v {
-      min_v = v
-    }
-    if v > max_v {
-      max_v = v
-    }
+  let (min_v, max_v) = for v in vals; min_v = vals[0], max_v = vals[0] {
+    continue if v < min_v { v } else { min_v }, if v > max_v { v } else { max_v }
+  } nobreak {
+    (min_v, max_v)
   }
   let range = if max_v > min_v { max_v - min_v } else { 1.0 }
   // Compute polyline points
   let points : Array[(Int, Int)] = []
-  let mut min_idx = 0
-  let mut max_idx = 0
-  for i, v in vals {
+  let (min_idx, max_idx) = for i, v in vals; min_idx = 0, max_idx = 0 {
     let x = pad + pw * i / 3
     let y = pad + ph - ((v - min_v) / range * ph.to_double()).to_int()
     points.push((x, y))
-    if v <= vals[min_idx] {
-      min_idx = i
+    continue if v <= vals[min_idx] { i } else { min_idx }, if v >= vals[max_idx] {
+      i
+    } else {
+      max_idx
     }
-    if v >= vals[max_idx] {
-      max_idx = i
-    }
+  } nobreak {
+    (min_idx, max_idx)
   }
   // Build area fill path (polygon under the line)
   let area_points : Array[(Int, Int)] = []
