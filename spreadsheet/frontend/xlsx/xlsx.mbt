@@ -383,7 +383,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @mbtexcel_xlsx.Style {
 /// performed outside double-quoted string literals and only when `AVG` is
 /// not preceded by another uppercase letter (to avoid mangling names like
 /// `NAVG`).
-pub fn normalize_formula(formula : String) -> String {
+fn normalize_formula(formula : String) -> String {
   let sb = StringBuilder::new()
   let chars = formula.to_array()
   let len = chars.length()
@@ -419,7 +419,7 @@ pub fn normalize_formula(formula : String) -> String {
 ///|
 /// Split a string on the first `:` into two parts. Returns `None` if no colon
 /// is present. Used to parse dimension strings like `"A1:H14"`.
-pub fn split_colon(s : String) -> (String, String)? {
+fn split_colon(s : String) -> (String, String)? {
   match s.split_once(":") {
     Some((left, right)) => Some((left.to_string(), right.to_string()))
     None => None
