@@ -759,7 +759,7 @@ function _M0TPB5EntryGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(
   this.key = param4;
   this.value = param5;
 }
-function _M0TPB5EntryGsRPB4JsonE(param0, param1, param2, param3, param4, param5) {
+function _M0TPB5EntryGssE(param0, param1, param2, param3, param4, param5) {
   this.prev = param0;
   this.next = param1;
   this.psl = param2;
@@ -767,7 +767,7 @@ function _M0TPB5EntryGsRPB4JsonE(param0, param1, param2, param3, param4, param5)
   this.key = param4;
   this.value = param5;
 }
-function _M0TPB5EntryGssE(param0, param1, param2, param3, param4, param5) {
+function _M0TPB5EntryGsRPB4JsonE(param0, param1, param2, param3, param4, param5) {
   this.prev = param0;
   this.next = param1;
   this.psl = param2;
@@ -8790,54 +8790,6 @@ function _M0MPB3Map15set__with__hashGsRP419moonbit_2dcommunity7rabbita8internal7
     }
   }
 }
-function _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, hash) {
-  let _tmp$2 = 0;
-  let _tmp$3 = hash & self.capacity_mask;
-  while (true) {
-    const psl = _tmp$2;
-    const idx = _tmp$3;
-    const _tmp$4 = self.entries;
-    $bound_check(_tmp$4, idx);
-    const _bind$5 = _tmp$4[idx];
-    if (_bind$5 === undefined) {
-      if (self.size >= self.grow_at) {
-        _M0MPB3Map4growGsRPB4JsonE(self);
-        _tmp$2 = 0;
-        _tmp$3 = hash & self.capacity_mask;
-        continue;
-      }
-      const _bind$6 = self.tail;
-      const _bind$7 = undefined;
-      const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
-      _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
-      return undefined;
-    } else {
-      const _Some = _bind$5;
-      const _curr_entry = _Some;
-      if (_curr_entry.hash === hash && _curr_entry.key === key) {
-        _curr_entry.value = value;
-        return undefined;
-      }
-      if (psl > _curr_entry.psl) {
-        if (self.size >= self.grow_at) {
-          _M0MPB3Map4growGsRPB4JsonE(self);
-          _tmp$2 = 0;
-          _tmp$3 = hash & self.capacity_mask;
-          continue;
-        }
-        _M0MPB3Map10push__awayGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, _curr_entry);
-        const _bind$6 = self.tail;
-        const _bind$7 = undefined;
-        const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
-        _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
-        return undefined;
-      }
-      _tmp$2 = psl + 1 | 0;
-      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
-      continue;
-    }
-  }
-}
 function _M0MPB3Map15set__with__hashGssE(self, key, value, hash) {
   let _tmp$2 = 0;
   let _tmp$3 = hash & self.capacity_mask;
@@ -8877,6 +8829,54 @@ function _M0MPB3Map15set__with__hashGssE(self, key, value, hash) {
         const _bind$6 = self.tail;
         const _bind$7 = undefined;
         const entry = new _M0TPB5EntryGssE(_bind$6, _bind$7, psl, hash, key, value);
+        _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
+        return undefined;
+      }
+      _tmp$2 = psl + 1 | 0;
+      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
+      continue;
+    }
+  }
+}
+function _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, hash) {
+  let _tmp$2 = 0;
+  let _tmp$3 = hash & self.capacity_mask;
+  while (true) {
+    const psl = _tmp$2;
+    const idx = _tmp$3;
+    const _tmp$4 = self.entries;
+    $bound_check(_tmp$4, idx);
+    const _bind$5 = _tmp$4[idx];
+    if (_bind$5 === undefined) {
+      if (self.size >= self.grow_at) {
+        _M0MPB3Map4growGsRPB4JsonE(self);
+        _tmp$2 = 0;
+        _tmp$3 = hash & self.capacity_mask;
+        continue;
+      }
+      const _bind$6 = self.tail;
+      const _bind$7 = undefined;
+      const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
+      _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
+      return undefined;
+    } else {
+      const _Some = _bind$5;
+      const _curr_entry = _Some;
+      if (_curr_entry.hash === hash && _curr_entry.key === key) {
+        _curr_entry.value = value;
+        return undefined;
+      }
+      if (psl > _curr_entry.psl) {
+        if (self.size >= self.grow_at) {
+          _M0MPB3Map4growGsRPB4JsonE(self);
+          _tmp$2 = 0;
+          _tmp$3 = hash & self.capacity_mask;
+          continue;
+        }
+        _M0MPB3Map10push__awayGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, _curr_entry);
+        const _bind$6 = self.tail;
+        const _bind$7 = undefined;
+        const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
         _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
         return undefined;
       }
@@ -9858,34 +9858,6 @@ function _M0MPB3Map4growGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INod
     }
   }
 }
-function _M0MPB3Map4growGsRPB4JsonE(self) {
-  const old_head = self.head;
-  const new_capacity = self.capacity << 1;
-  self.entries = $make_array_len_and_init(new_capacity, undefined);
-  self.capacity = new_capacity;
-  self.capacity_mask = new_capacity - 1 | 0;
-  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
-  self.size = 0;
-  self.head = undefined;
-  self.tail = -1;
-  let _tmp$2 = old_head;
-  while (true) {
-    const _param = _tmp$2;
-    if (_param === undefined) {
-      return;
-    } else {
-      const _Some = _param;
-      const _x = _Some;
-      const _next = _x.next;
-      const _key = _x.key;
-      const _value = _x.value;
-      const _hash = _x.hash;
-      _M0MPB3Map15set__with__hashGsRPB4JsonE(self, _key, _value, _hash);
-      _tmp$2 = _next;
-      continue;
-    }
-  }
-}
 function _M0MPB3Map4growGssE(self) {
   const old_head = self.head;
   const new_capacity = self.capacity << 1;
@@ -9909,6 +9881,34 @@ function _M0MPB3Map4growGssE(self) {
       const _value = _x.value;
       const _hash = _x.hash;
       _M0MPB3Map15set__with__hashGssE(self, _key, _value, _hash);
+      _tmp$2 = _next;
+      continue;
+    }
+  }
+}
+function _M0MPB3Map4growGsRPB4JsonE(self) {
+  const old_head = self.head;
+  const new_capacity = self.capacity << 1;
+  self.entries = $make_array_len_and_init(new_capacity, undefined);
+  self.capacity = new_capacity;
+  self.capacity_mask = new_capacity - 1 | 0;
+  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
+  self.size = 0;
+  self.head = undefined;
+  self.tail = -1;
+  let _tmp$2 = old_head;
+  while (true) {
+    const _param = _tmp$2;
+    if (_param === undefined) {
+      return;
+    } else {
+      const _Some = _param;
+      const _x = _Some;
+      const _next = _x.next;
+      const _key = _x.key;
+      const _value = _x.value;
+      const _hash = _x.hash;
+      _M0MPB3Map15set__with__hashGsRPB4JsonE(self, _key, _value, _hash);
       _tmp$2 = _next;
       continue;
     }
@@ -10361,11 +10361,11 @@ function _M0MPB3Map3setGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5Even
 function _M0MPB3Map3setGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
-function _M0MPB3Map3setGsRPB4JsonE(self, key, value) {
-  _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
-}
 function _M0MPB3Map3setGssE(self, key, value) {
   _M0MPB3Map15set__with__hashGssE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
+}
+function _M0MPB3Map3setGsRPB4JsonE(self, key, value) {
+  _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
 function _M0MPB3Map3setGsRP319moonbit_2dcommunity7rabbita7variant7VariantE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRP319moonbit_2dcommunity7rabbita7variant7VariantE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
@@ -10544,28 +10544,6 @@ function _M0MPB3Map11from__arrayGsbE(arr) {
   }
   return m;
 }
-function _M0MPB3Map11from__arrayGsRPB4JsonE(arr) {
-  const length = _M0MPC15array9ArrayView6lengthGURP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEEE(arr);
-  let capacity = _M0MPC13int3Int20next__power__of__two(length);
-  if (length > _M0FPB21calc__grow__threshold(capacity)) {
-    capacity = Math.imul(capacity, 2) | 0;
-  }
-  const m = _M0MPB3Map11new_2einnerGsRP48bobzhang11spreadsheet8frontend4cell4CellE(capacity);
-  const _bind$5 = arr.end - arr.start | 0;
-  let _tmp$2 = 0;
-  while (true) {
-    const _ = _tmp$2;
-    if (_ < _bind$5) {
-      const e = arr.buf[arr.start + _ | 0];
-      _M0MPB3Map3setGsRPB4JsonE(m, e._0, e._1);
-      _tmp$2 = _ + 1 | 0;
-      continue;
-    } else {
-      break;
-    }
-  }
-  return m;
-}
 function _M0MPB3Map11from__arrayGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkE(arr) {
   const length = _M0MPC15array9ArrayView6lengthGURP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEEE(arr);
   let capacity = _M0MPC13int3Int20next__power__of__two(length);
@@ -10668,6 +10646,28 @@ function _M0MPB3Map11from__arrayGsWRP319moonbit_2dcommunity7rabbita3dom5EventRP4
     if (_ < _bind$5) {
       const e = arr.buf[arr.start + _ | 0];
       _M0MPB3Map3setGsWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuE(m, e._0, e._1);
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return m;
+}
+function _M0MPB3Map11from__arrayGsRPB4JsonE(arr) {
+  const length = _M0MPC15array9ArrayView6lengthGURP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEEE(arr);
+  let capacity = _M0MPC13int3Int20next__power__of__two(length);
+  if (length > _M0FPB21calc__grow__threshold(capacity)) {
+    capacity = Math.imul(capacity, 2) | 0;
+  }
+  const m = _M0MPB3Map11new_2einnerGsRP48bobzhang11spreadsheet8frontend4cell4CellE(capacity);
+  const _bind$5 = arr.end - arr.start | 0;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind$5) {
+      const e = arr.buf[arr.start + _ | 0];
+      _M0MPB3Map3setGsRPB4JsonE(m, e._0, e._1);
       _tmp$2 = _ + 1 | 0;
       continue;
     } else {
@@ -79684,8 +79684,7 @@ function _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(model, bytes) {
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, 0, 0, 0, false, "", true, false, [], -1, "");
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, sheets) {
-  const _bind$5 = [{ _0: "sheets", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets) }];
-  return _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$5, 0, 1)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__)));
+  return _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__)));
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) {
   const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);

@@ -26,9 +26,10 @@ fn save_workbook(
   dispatch : @rabbita.Dispatch[Msg],
   sheets : Array[@sheet.Sheet],
 ) -> @rabbita.Cmd {
+  // Save sheets as a plain JSON array (no wrapper object)
   @http.post(
     api_save,
-    Json({"sheets": sheets.to_json()}),
+    Json(sheets.to_json()),
     expect=Text(fn(_result) { dispatch(SavedToBackend) }),
   )
 }
