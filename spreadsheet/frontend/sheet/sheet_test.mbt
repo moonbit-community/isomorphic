@@ -497,6 +497,36 @@ test "recalc: preserves cached xlsx value when formula engine fails" {
 }
 
 ///|
+test "recalc: false cycle from unsupported formula preserves cached value" {
+  let sheet = @sheet.Sheet("Test")
+  // A1 has XLOOKUP(B1,...) with cached value — creates false dep on B1
+  // B1 has =A1+1 — depends on A1
+  // extract_references sees A1→B1 and B1→A1, creating a false cycle
+  // But A1 has a cached value that should be preserved
+  sheet.cells["A1"] = Cell(raw="=XLOOKUP(B1,C1:C10,D1:D10)", value=Num(42.0))
+  set_formula(sheet, "B1", "=A1+1")
+  let r = sheet.recalc()
+  // A1 should preserve its cached value (not be overwritten with CIRCULAR)
+  match r.get("A1").value {
+    Num(n) => assert_eq(n, 42.0)
+    _ => fail("A1: expected preserved Num(42.0), not CIRCULAR")
+  }
+}
+
+///|
+test "recalc: true cycle with no cached value gets CIRCULAR" {
+  let sheet = @sheet.Sheet("Test")
+  // A1=B1, B1=A1 — true cycle, no cached values
+  set_formula(sheet, "A1", "=B1")
+  set_formula(sheet, "B1", "=A1")
+  let r = sheet.recalc()
+  match r.get("A1").value {
+    Error(msg) => assert_eq(msg, "CIRCULAR")
+    _ => fail("A1: expected CIRCULAR")
+  }
+}
+
+///|
 test "recalc: error propagated when original value is Empty" {
   let sheet = @sheet.Sheet("Test")
   sheet.cells["A1"] = Cell(raw="=UNKNOWNFUNC(1)")

@@ -69141,6 +69141,52 @@ function _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet23populate__team__metr
   _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet9set__cell(self, "A11", "Power Check");
   _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet9set__cell(self, "B11", "=POWER(2, 10)");
 }
+function _M0FP48bobzhang11spreadsheet8frontend5sheet13reaches__self(start, deps, unresolved_set) {
+  const _bind$5 = [];
+  const visited = _M0MPB3Map11from__arrayGsbE(new _M0TPB9ArrayViewGUsbEE(_bind$5, 0, 0));
+  const stack = [start];
+  while (true) {
+    if (stack.length > 0) {
+      const node = _M0MPC15array5Array11unsafe__popGsE(stack);
+      let node_deps;
+      _L: {
+        _L$2: {
+          const _bind$6 = _M0MPB3Map3getGsRPB5ArrayGsEE(deps, node);
+          if (_bind$6.$tag === 1) {
+            const _Some = _bind$6;
+            const _node_deps = _Some._0;
+            node_deps = _node_deps;
+            break _L$2;
+          }
+          break _L;
+        }
+        const _bind$6 = node_deps.length;
+        let _tmp$2 = 0;
+        while (true) {
+          const _ = _tmp$2;
+          if (_ < _bind$6) {
+            const dep = node_deps[_];
+            if (dep === start) {
+              return true;
+            }
+            if (_M0MPC16option6Option10unwrap__orGbE(_M0MPB3Map3getGsbE(unresolved_set, dep), false) && !_M0MPC16option6Option10unwrap__orGbE(_M0MPB3Map3getGsbE(visited, dep), false)) {
+              _M0MPB3Map3setGsbE(visited, dep, true);
+              _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(stack, dep);
+            }
+            _tmp$2 = _ + 1 | 0;
+            continue;
+          } else {
+            break;
+          }
+        }
+      }
+      continue;
+    } else {
+      break;
+    }
+  }
+  return false;
+}
 function _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(self) {
   const new_cells = _M0MPB3Map4copyGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self.cells);
   const _bind$5 = [];
@@ -69409,52 +69455,7 @@ function _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(self) {
     const _ = _tmp$4;
     if (_ < _bind$14) {
       const start = unresolved[_];
-      const _bind$15 = [];
-      const visited = _M0MPB3Map11from__arrayGsbE(new _M0TPB9ArrayViewGUsbEE(_bind$15, 0, 0));
-      const stack = [start];
-      const found_cycle = new _M0TPB8MutLocalGbE(false);
-      while (true) {
-        if (stack.length > 0) {
-          const node = _M0MPC15array5Array11unsafe__popGsE(stack);
-          let node_deps;
-          _L: {
-            _L$2: {
-              const _bind$16 = _M0MPB3Map3getGsRPB5ArrayGsEE(deps, node);
-              if (_bind$16.$tag === 1) {
-                const _Some = _bind$16;
-                const _node_deps = _Some._0;
-                node_deps = _node_deps;
-                break _L$2;
-              }
-              break _L;
-            }
-            const _bind$16 = node_deps.length;
-            let _tmp$5 = 0;
-            while (true) {
-              const _$2 = _tmp$5;
-              if (_$2 < _bind$16) {
-                const dep = node_deps[_$2];
-                if (dep === start) {
-                  found_cycle.val = true;
-                  break;
-                }
-                if (_M0MPC16option6Option10unwrap__orGbE(_M0MPB3Map3getGsbE(unresolved_set, dep), false) && !_M0MPC16option6Option10unwrap__orGbE(_M0MPB3Map3getGsbE(visited, dep), false)) {
-                  _M0MPB3Map3setGsbE(visited, dep, true);
-                  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(stack, dep);
-                }
-                _tmp$5 = _$2 + 1 | 0;
-                continue;
-              } else {
-                break;
-              }
-            }
-          }
-          continue;
-        } else {
-          break;
-        }
-      }
-      if (found_cycle.val) {
+      if (_M0FP48bobzhang11spreadsheet8frontend5sheet13reaches__self(start, deps, unresolved_set)) {
         _M0MPB3Map3setGsbE(is_cycle_member, start, true);
       }
       _tmp$4 = _ + 1 | 0;
@@ -69491,7 +69492,14 @@ function _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(self) {
         }
         break _L$2;
       }
-      _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, k, new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error("CIRCULAR"), c.bold, c.italic, c.align, c.format, c.bg_color, c.text_color));
+      const _bind$15 = c.value;
+      let value;
+      if (_bind$15.$tag === 0) {
+        value = new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error("CIRCULAR");
+      } else {
+        value = c.value;
+      }
+      _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, k, new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, value, c.bold, c.italic, c.align, c.format, c.bg_color, c.text_color));
     }
     continue;
   }
