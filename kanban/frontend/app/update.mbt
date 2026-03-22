@@ -100,12 +100,12 @@ pub fn Model::update(
     ColumnDeleted => (self, fetch_board(dispatch))
     MoveColumnLeft(id) | MoveColumnRight(id) => {
       let sorted = @shared.sort_by_position(self.columns, fn(c) { c.position })
-      let mut idx = -1
-      for i, c in sorted {
+      let idx = for i, c in sorted {
         if c.id == id {
-          idx = i
-          break
+          break i
         }
+      } nobreak {
+        -1
       }
       let target_idx = match msg {
         MoveColumnLeft(_) => idx - 1

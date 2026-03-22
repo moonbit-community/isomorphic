@@ -668,11 +668,10 @@ pub fn Model::update(
 
     // ── Calendar ─────────────────────────────
     CalendarPrevMonth => {
-      let mut m = self.calendar.month - 1
-      let mut y = self.calendar.year
-      if m < 1 {
-        m = 12
-        y = y - 1
+      let (m, y) = if self.calendar.month - 1 < 1 {
+        (12, self.calendar.year - 1)
+      } else {
+        (self.calendar.month - 1, self.calendar.year)
       }
       (
         { ..self, calendar: { ..self.calendar, year: y, month: m } },
@@ -680,11 +679,10 @@ pub fn Model::update(
       )
     }
     CalendarNextMonth => {
-      let mut m = self.calendar.month + 1
-      let mut y = self.calendar.year
-      if m > 12 {
-        m = 1
-        y = y + 1
+      let (m, y) = if self.calendar.month + 1 > 12 {
+        (1, self.calendar.year + 1)
+      } else {
+        (self.calendar.month + 1, self.calendar.year)
       }
       (
         { ..self, calendar: { ..self.calendar, year: y, month: m } },
@@ -839,11 +837,10 @@ pub fn Model::update(
     DateRangePrevMonth => {
       let dr = self.date_range
       // Navigate the viewing month without touching start/end dates
-      let mut m = dr.start_month - 1
-      let mut y = dr.start_year
-      if m < 1 {
-        m = 12
-        y = y - 1
+      let (m, y) = if dr.start_month - 1 < 1 {
+        (12, dr.start_year - 1)
+      } else {
+        (dr.start_month - 1, dr.start_year)
       }
       (
         { ..self, date_range: { ..dr, start_year: y, start_month: m } },
@@ -852,11 +849,10 @@ pub fn Model::update(
     }
     DateRangeNextMonth => {
       let dr = self.date_range
-      let mut m = dr.start_month + 1
-      let mut y = dr.start_year
-      if m > 12 {
-        m = 1
-        y = y + 1
+      let (m, y) = if dr.start_month + 1 > 12 {
+        (1, dr.start_year + 1)
+      } else {
+        (dr.start_month + 1, dr.start_year)
       }
       (
         { ..self, date_range: { ..dr, start_year: y, start_month: m } },

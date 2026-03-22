@@ -94,13 +94,13 @@ fn Model::view_searchable_select(
   let selected_label = if ss.selected.is_empty() {
     "Select an option..."
   } else {
-    let mut found = ss.selected
     for opt in ss.options {
       if opt.value == ss.selected {
-        found = opt.label
+        break opt.label
       }
+    } nobreak {
+      ss.selected
     }
-    found
   }
   let open_border = if ss.open { primary } else { border }
   let arrow = if ss.open { "^" } else { "v" }

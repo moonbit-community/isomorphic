@@ -113,12 +113,7 @@ fn days_in_month(year : Int, month : Int) -> Int {
 ///|
 /// Zeller's formula — returns 0=Sun, 1=Mon, ..., 6=Sat.
 fn day_of_week(year : Int, month : Int, day : Int) -> Int {
-  let mut y = year
-  let mut m = month
-  if m < 3 {
-    m = m + 12
-    y = y - 1
-  }
+  let (y, m) = if month < 3 { (year - 1, month + 12) } else { (year, month) }
   let q = day
   let k = y % 100
   let j = y / 100

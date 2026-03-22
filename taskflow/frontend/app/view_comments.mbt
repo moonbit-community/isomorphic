@@ -8,12 +8,12 @@ fn view_comments_panel(
     return @html.text("")
   }
   let theme = get_theme(model.dark_mode)
-  let mut task_title = "Task"
-  for t in model.tasks {
+  let task_title = for t in model.tasks {
     if t.id == model.viewing_comments {
-      task_title = t.title
-      break
+      break t.title
     }
+  } nobreak {
+    "Task"
   }
   @html.div(style=[
     "position: fixed", "top: 0", "left: 0", "right: 0", "bottom: 0", "background: rgba(0,0,0,0.4)",
@@ -144,14 +144,12 @@ fn view_comments_panel(
           ]
           // Show current deps with remove button
           for did in dep_ids {
-            let mut dep_name = ""
-            let mut dep_done = false
-            for t in model.tasks {
+            let (dep_name, dep_done) = for t in model.tasks {
               if t.id == did {
-                dep_name = t.title
-                dep_done = t.status == "done"
-                break
+                break (t.title, t.status == "done")
               }
+            } nobreak {
+              ("", false)
             }
             let color = if dep_done { "#22c55e" } else { "#ef4444" }
             let status_text = if dep_done { " (done)" } else { "" }

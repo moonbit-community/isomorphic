@@ -8,12 +8,12 @@ fn view_delete_confirm(
     return @html.text("")
   }
   let theme = get_theme(model.dark_mode)
-  let mut task_title = "this task"
-  for t in model.tasks {
+  let task_title = for t in model.tasks {
     if t.id == model.confirm_delete {
-      task_title = t.title
-      break
+      break t.title
     }
+  } nobreak {
+    "this task"
   }
   @html.div(style=[
     "position: fixed", "top: 0", "left: 0", "right: 0", "bottom: 0", "background: rgba(0,0,0,0.4)",

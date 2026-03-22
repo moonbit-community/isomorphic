@@ -320,12 +320,12 @@ async fn test_board() -> Unit {
   assert_test("board has members", !board.members.is_empty())
   assert_test("board has today", !board.today.is_empty())
   // Check activities include user name
-  let mut found_user_activity = false
-  for act in board.activities {
+  let found_user_activity = for act in board.activities {
     if act.user_name == "testuser" {
-      found_user_activity = true
-      break
+      break true
     }
+  } nobreak {
+    false
   }
   assert_test("activities have user_name", found_user_activity)
 }
@@ -339,11 +339,12 @@ async fn test_members() -> Unit {
   assert_test("members status 200", status == 200, detail="\{status}")
   let body : Json = resp.read_body()
   let members : Array[@shared.Member] = @json.from_json(body)
-  let mut found = false
-  for m in members {
+  let found = for m in members {
     if m.name == "testuser" {
-      found = true
+      break true
     }
+  } nobreak {
+    false
   }
   assert_test("members includes testuser", found)
 }

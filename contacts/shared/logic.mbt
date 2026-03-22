@@ -86,11 +86,14 @@ pub fn get_initials(name : String) -> String {
   let chars : Array[Char] = name.iter().collect()
   let first = chars[0]
   // Find last space and get char after it
-  let mut last_space_idx = -1
-  for i in 0..<chars.length() {
+  let last_space_idx = for i in 0..<chars.length(); last_space_idx = -1 {
     if chars[i] == ' ' {
-      last_space_idx = i
+      continue i
+    } else {
+      continue last_space_idx
     }
+  } nobreak {
+    last_space_idx
   }
   let buf = StringBuilder::new()
   buf.write_char(to_upper_char(first))

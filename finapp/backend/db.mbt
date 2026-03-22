@@ -385,15 +385,12 @@ fn get_dashboard(
   let budget_statuses : Array[@shared.BudgetStatus] = []
   for b in budgets {
     let spent = @shared.spent_in_category(transactions, b.category_id, month)
-    let mut cat_name = ""
-    let mut cat_color = "#888"
-    let mut cat_icon = ""
-    for c in categories {
+    let (cat_name, cat_color, cat_icon) = for c in categories {
       if c.id == b.category_id {
-        cat_name = c.name
-        cat_color = c.color
-        cat_icon = c.icon
+        break (c.name, c.color, c.icon)
       }
+    } nobreak {
+      ("", "#888", "")
     }
     budget_statuses.push({
       budget: b,

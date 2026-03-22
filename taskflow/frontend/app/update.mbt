@@ -329,12 +329,12 @@ pub fn Model::update(
     TaskUpdated => (self, fetch_board(dispatch))
     // ---- Status change ----
     ChangeStatus(id, new_status) => {
-      let mut current_status = ""
-      for t in self.tasks {
+      let current_status = for t in self.tasks {
         if t.id == id {
-          current_status = t.status
-          break
+          break t.status
         }
+      } nobreak {
+        ""
       }
       if !@shared.is_valid_transition(current_status, new_status) {
         return (self, @rabbita.none)

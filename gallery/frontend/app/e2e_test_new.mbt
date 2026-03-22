@@ -510,13 +510,12 @@ test "E2E: navigate through all 10 sections" {
     Layout,
     Feedback,
   ]
-  let mut m = initial_model()
-  for section in sections {
+  for section in sections; m = initial_model() {
     let (next, _) = m.update(msg=ChangeSection(section), dispatch=nd2)
-    m = next
-    let html = render2(m.view(nd2))
+    let html = render2(next.view(nd2))
     // Each section should render the sidebar with "Gallery" and show component content
     assert_true(html.contains("Gallery"))
     assert_true(html.length() > 500)
+    continue next
   }
 }

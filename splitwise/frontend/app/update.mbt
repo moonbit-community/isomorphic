@@ -14,42 +14,44 @@ fn fetch_state(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 ///|
 /// Parse a string of digits into an integer.
 fn parse_int(input : String) -> Int {
-  let mut result = 0
-  for ch in input {
+  for ch in input; result = 0 {
     if ch >= '0' && ch <= '9' {
-      result = result * 10 + (ch.to_int() - '0'.to_int())
+      continue result * 10 + (ch.to_int() - '0'.to_int())
+    } else {
+      continue result
     }
+  } nobreak {
+    result
   }
-  result
 }
 
 ///|
 /// Parse a dollar string like "12.50" or "7" into cents.
 fn parse_dollars_to_cents(input : String) -> Int {
   // Split on '.'
-  let mut dollars = 0
-  let mut cents = 0
-  let mut after_dot = false
-  let mut cent_digits = 0
-  for ch in input {
+  let (dollars, cents, cent_digits) = for ch in input
+    ; dollars = 0, cents = 0, after_dot = false, cent_digits = 0 {
     if ch == '.' {
-      after_dot = true
+      continue dollars, cents, true, cent_digits
     } else if ch >= '0' && ch <= '9' {
       let digit = ch.to_int() - '0'.to_int()
       if after_dot {
         if cent_digits < 2 {
-          cents = cents * 10 + digit
-          cent_digits += 1
+          continue dollars, cents * 10 + digit, after_dot, cent_digits + 1
+        } else {
+          continue dollars, cents, after_dot, cent_digits
         }
       } else {
-        dollars = dollars * 10 + digit
+        continue dollars * 10 + digit, cents, after_dot, cent_digits
       }
+    } else {
+      continue dollars, cents, after_dot, cent_digits
     }
+  } nobreak {
+    (dollars, cents, cent_digits)
   }
   // If user typed "12.5", treat as "12.50"
-  if cent_digits == 1 {
-    cents = cents * 10
-  }
+  let cents = if cent_digits == 1 { cents * 10 } else { cents }
   dollars * 100 + cents
 }
 

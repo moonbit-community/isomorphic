@@ -22,17 +22,20 @@ pub fn validate_email(email : String) -> Bool {
   if email.is_empty() || email.char_length() > max_email_length {
     return false
   }
-  let mut found_at = false
-  let mut dot_after_at = false
-  for ch in email {
+  let (found_at, dot_after_at) = for ch in email
+    ; found_at = false, dot_after_at = false {
     if ch == '@' {
       if found_at {
         return false
       }
-      found_at = true
+      continue true, dot_after_at
     } else if ch == '.' && found_at {
-      dot_after_at = true
+      continue found_at, true
+    } else {
+      continue found_at, dot_after_at
     }
+  } nobreak {
+    (found_at, dot_after_at)
   }
   found_at && dot_after_at
 }

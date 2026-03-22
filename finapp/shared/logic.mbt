@@ -17,30 +17,34 @@ pub fn format_amount(cents : Int) -> String {
 /// Parse a dollar amount string to cents (e.g., "10.50" -> 1050, "5" -> 500).
 pub fn parse_amount(s : String) -> Int {
   // Split on '.'
-  let mut dollars = 0
-  let mut cents = 0
-  let mut found_dot = false
-  let mut after_dot = ""
   let chars = s.to_array()
-  let mut dollar_str = ""
-  for c in chars {
+  let (dollar_str, after_dot) = for c in chars
+    ; found_dot = false, dollar_str = "", after_dot = "" {
     if c == '.' {
-      found_dot = true
+      continue true, dollar_str, after_dot
     } else if found_dot {
-      after_dot = after_dot + c.to_string()
+      continue found_dot, dollar_str, after_dot + c.to_string()
     } else if c >= '0' && c <= '9' {
-      dollar_str = dollar_str + c.to_string()
+      continue found_dot, dollar_str + c.to_string(), after_dot
+    } else {
+      continue found_dot, dollar_str, after_dot
     }
+  } nobreak {
+    (dollar_str, after_dot)
   }
-  if !dollar_str.is_empty() {
-    dollars = @strconv.parse_int(dollar_str) catch { _ => 0 }
+  let dollars = if !dollar_str.is_empty() {
+    @strconv.parse_int(dollar_str) catch { _ => 0 }
+  } else {
+    0
   }
-  if after_dot.length() == 1 {
+  let cents = if after_dot.length() == 1 {
     let v = @strconv.parse_int(after_dot) catch { _ => 0 }
-    cents = v * 10
+    v * 10
   } else if after_dot.length() >= 2 {
     let two = after_dot[0:2].to_string()
-    cents = @strconv.parse_int(two) catch { _ => 0 }
+    @strconv.parse_int(two) catch { _ => 0 }
+  } else {
+    0
   }
   dollars * 100 + cents
 }
@@ -67,15 +71,17 @@ pub fn monthly_totals(
   transactions : Array[Transaction],
   month : String,
 ) -> MonthSummary {
-  let mut income = 0
-  let mut expenses = 0
-  for t in transactions {
+  let (income, expenses) = for t in transactions; income = 0, expenses = 0 {
     if t.date.length() >= 7 && t.date[0:7].to_string() == month {
       match t.txn_type {
-        Income => income = income + t.amount
-        Expense => expenses = expenses + t.amount
+        Income => continue income + t.amount, expenses
+        Expense => continue income, expenses + t.amount
       }
+    } else {
+      continue income, expenses
     }
+  } nobreak {
+    (income, expenses)
   }
   { month, income, expenses }
 }
@@ -90,14 +96,17 @@ pub fn category_spending(
   let result : Array[(String, String, Int)] = []
   for cat in categories {
     if cat.cat_type == Expense {
-      let mut total = 0
-      for t in transactions {
+      let total = for t in transactions; total = 0 {
         if t.category_id == cat.id &&
           t.txn_type == Expense &&
           t.date.length() >= 7 &&
           t.date[0:7].to_string() == month {
-          total = total + t.amount
+          continue total + t.amount
+        } else {
+          continue total
         }
+      } nobreak {
+        total
       }
       if total > 0 {
         result.push((cat.name, cat.color, total))

@@ -4,22 +4,20 @@ pub fn word_count(text : String) -> Int {
   if text.is_empty() {
     return 0
   }
-  let mut count = 0
-  let mut in_word = false
-  for ch in text {
+  let (count, in_word) = for ch in text; count = 0, in_word = false {
     if ch == ' ' || ch == '\n' || ch == '\t' || ch == '\r' {
       if in_word {
-        count += 1
-        in_word = false
+        continue count + 1, false
+      } else {
+        continue count, in_word
       }
     } else {
-      in_word = true
+      continue count, true
     }
+  } nobreak {
+    (count, in_word)
   }
-  if in_word {
-    count += 1
-  }
-  count
+  if in_word { count + 1 } else { count }
 }
 
 ///|
@@ -57,18 +55,13 @@ pub fn truncate(text : String, max_len : Int) -> String {
   if text.char_length() <= max_len {
     text
   } else {
-    let chars : Array[Char] = []
-    let mut i = 0
-    for ch in text {
+    let buf = StringBuilder::new()
+    for ch in text; i = 0 {
       if i >= max_len {
         break
       }
-      chars.push(ch)
-      i += 1
-    }
-    let buf = StringBuilder::new()
-    for ch in chars {
       buf.write_char(ch)
+      continue i + 1
     }
     buf.write_string("...")
     buf.to_string()
