@@ -20,7 +20,7 @@ test {
     position: 1000,
   }
   let decoded : @shared.Card = @json.from_json(card.to_json())
-  assert_eq(decoded, card)
+  assert_true(decoded == card)
 }
 ```
 
@@ -35,7 +35,7 @@ test {
     new_position: 1500,
   }
   let decoded : @shared.MoveCardRequest = @json.from_json(req.to_json())
-  assert_eq(decoded, req)
+  assert_true(decoded == req)
 }
 ```
 

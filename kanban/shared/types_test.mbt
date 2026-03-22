@@ -9,14 +9,14 @@ test "Card JSON round-trip" {
     position: 1000,
   }
   let decoded : @shared.Card = @json.from_json(card.to_json())
-  assert_eq(decoded, card)
+  assert_true(decoded == card)
 }
 
 ///|
 test "Column JSON round-trip" {
   let col : @shared.Column = { id: 3, title: "In Progress", position: 2000 }
   let decoded : @shared.Column = @json.from_json(col.to_json())
-  assert_eq(decoded, col)
+  assert_true(decoded == col)
 }
 
 ///|
@@ -38,7 +38,7 @@ test "Board JSON round-trip" {
     ],
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
-  assert_eq(decoded, board)
+  assert_true(decoded == board)
 }
 
 ///|
@@ -49,7 +49,7 @@ test "MoveCardRequest JSON round-trip" {
     new_position: 1500,
   }
   let decoded : @shared.MoveCardRequest = @json.from_json(req.to_json())
-  assert_eq(decoded, req)
+  assert_true(decoded == req)
 }
 
 ///|
@@ -63,14 +63,14 @@ test "Card with unicode title JSON round-trip" {
     position: 1000,
   }
   let decoded : @shared.Card = @json.from_json(card.to_json())
-  assert_eq(decoded, card)
+  assert_true(decoded == card)
 }
 
 ///|
 test "Board with empty columns and cards" {
   let board : @shared.Board = { columns: [], cards: [] }
   let decoded : @shared.Board = @json.from_json(board.to_json())
-  assert_eq(decoded, board)
+  assert_true(decoded == board)
 }
 
 ///|
