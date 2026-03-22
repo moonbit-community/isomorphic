@@ -386,7 +386,58 @@ test "workflow: board JSON round-trip preserves full state" {
   // Round-trip through JSON
   let json = board.to_json()
   let decoded : @shared.Board = @json.from_json(json)
-  assert_true(decoded == board)
+  debug_inspect(decoded, content=(
+    
+    #|{
+    #|  tasks: [
+    #|    {
+    #|      id: 1,
+    #|      title: "Fix bug",
+    #|      description: "Critical auth issue",
+    #|      status: "in_progress",
+    #|      priority: "urgent",
+    #|      assignee_id: 1,
+    #|      due_date: "2026-03-15",
+    #|      created_at: "2026-03-12",
+    #|    },
+    #|    {
+    #|      id: 2,
+    #|      title: "Write tests",
+    #|      description: "",
+    #|      status: "todo",
+    #|      priority: "medium",
+    #|      assignee_id: 2,
+    #|      due_date: "",
+    #|      created_at: "2026-03-13",
+    #|    },
+    #|  ],
+    #|  members: [
+    #|    { id: 1, name: "Alice", color: "blue" },
+    #|    { id: 2, name: "Bob", color: "red" },
+    #|  ],
+    #|  activities: [
+    #|    {
+    #|      id: 1,
+    #|      task_id: 1,
+    #|      task_title: "Fix bug",
+    #|      from_status: "todo",
+    #|      to_status: "in_progress",
+    #|      timestamp: "2026-03-12 10:00",
+    #|      user_name: "Alice",
+    #|    },
+    #|  ],
+    #|  dependencies: [{ task_id: 2, depends_on_id: 1 }],
+    #|  labels: [],
+    #|  task_labels: [],
+    #|  subtasks: [],
+    #|  time_entries: [],
+    #|  recurrence_rules: [],
+    #|  attachments: [],
+    #|  projects: [],
+    #|  task_projects: [],
+    #|  today: "2026-03-13",
+    #|}
+  ))
   // Verify we can use the decoded board with logic functions
   inspect(@shared.completion_percent(decoded.tasks), content="0")
   inspect(

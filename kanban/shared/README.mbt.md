@@ -20,7 +20,17 @@ test {
     position: 1000,
   }
   let decoded : @shared.Card = @json.from_json(card.to_json())
-  assert_true(decoded == card)
+  debug_inspect(decoded, content=(
+    
+    #|{
+    #|  id: 1,
+    #|  column_id: 1,
+    #|  title: "Implement login",
+    #|  description: "OAuth2 flow",
+    #|  color: "blue",
+    #|  position: 1000,
+    #|}
+  ))
 }
 ```
 
@@ -35,7 +45,9 @@ test {
     new_position: 1500,
   }
   let decoded : @shared.MoveCardRequest = @json.from_json(req.to_json())
-  assert_true(decoded == req)
+  debug_inspect(decoded, content=(
+    #|{ card_id: 1, target_column_id: 2, new_position: 1500 }
+  ))
 }
 ```
 
