@@ -88,7 +88,7 @@ test "format_with: empty/text/error pass through" {
 
 ///|
 test "Cell::empty defaults" {
-  let c = @cell.Cell::new()
+  let c = @cell.Cell()
   inspect(c.raw, content="")
   inspect(c.value.to_display(), content="")
   inspect(c.bold, content="false")

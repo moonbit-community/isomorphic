@@ -418,7 +418,8 @@ fn Model::view_grid(
   let col_w = "100px"
   let row_h = "28px"
   let header_w = "46px"
-  let cols_template = "\{header_w} " + Array::make(@sheet.num_cols, col_w).join(" ")
+  let cols_template = "\{header_w} " +
+    Array::make(@sheet.num_cols, col_w).join(" ")
   let rows : Array[@rabbita.Html] = []
 
   // Column headers row

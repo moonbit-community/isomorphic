@@ -87,20 +87,32 @@ pub(all) struct Cell {
   format : NumFormat
   bg_color : String // "" = default, otherwise CSS hex like "#fce4ec"
   text_color : String // "" = default, otherwise CSS hex
+
+  fn new(raw? : String, value? : Value, bold? : Bool, italic? : Bool, align? : Align, format? : NumFormat, bg_color? : String, text_color? : String ) -> Cell
 }
 
 ///|
 /// Create a blank cell with no content and default styling.
-pub fn Cell::empty() -> Cell {
+fn Cell::new(
+  raw? : String = "",
+  value? : Value = Empty,
+  bold? : Bool = false,
+  italic? : Bool = false,
+  align? : Align = Auto,
+  format? : NumFormat = General,
+  bg_color? : String = "",
+  text_color? : String = ""
+
+) -> Cell {
   {
-    raw: "",
-    value: Empty,
-    bold: false,
-    italic: false,
-    align: Auto,
-    format: General,
-    bg_color: "",
-    text_color: "",
+    raw,
+    value,
+    bold,
+    italic,
+    align,
+    format,
+    bg_color,
+    text_color,
   }
 }
 
@@ -214,7 +226,7 @@ pub fn parse_ref(s : String) -> (Int, Int)? {
   }
   let col = first.to_int() - 65
   // Parse the rest as row number
-  let rest = s[1:].to_string()
+  let rest = s[1:]
   try {
     let row = @strconv.parse_int(rest) - 1 // 1-indexed to 0-indexed
     if row >= 0 {

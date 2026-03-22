@@ -117,7 +117,7 @@ pub fn Model::update(
       let key = @cell.make_key(self.sel_col, self.sel_row)
       let sheet = self.current_sheet()
       let new_cells = sheet.cells
-      new_cells[key] = @cell.Cell::new()
+      new_cells[key] = Cell()
       let sheets = self.sheets.copy()
       sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
       (@rabbita.none, { ..self, sheets, })

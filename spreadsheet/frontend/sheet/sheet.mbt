@@ -31,7 +31,7 @@ pub fn Sheet::new(name : String) -> Sheet {
 pub fn Sheet::get(self : Sheet, key : String) -> @cell.Cell {
   match self.cells.get(key) {
     Some(c) => c
-    None => @cell.Cell::new()
+    None => Cell()
   }
 }
 
@@ -329,7 +329,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
         let value = @formula.evaluate(c.raw, fn(r) {
           let cell = match new_cells.get(r) {
             Some(c) => c
-            None => @cell.Cell::new()
+            None => Cell()
           }
           cell.value
         })

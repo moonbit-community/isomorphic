@@ -147,8 +147,16 @@ fn import_sheet_cells(
       }
   }
   // Clamp to our grid size
-  let end_col = if max_col < @sheet.num_cols { max_col } else { @sheet.num_cols - 1 }
-  let end_row = if max_row < @sheet.num_rows { max_row } else { @sheet.num_rows - 1 }
+  let end_col = if max_col < @sheet.num_cols {
+    max_col
+  } else {
+    @sheet.num_cols - 1
+  }
+  let end_row = if max_row < @sheet.num_rows {
+    max_row
+  } else {
+    @sheet.num_rows - 1
+  }
   for r = min_row; r <= end_row; r = r + 1 {
     for c = min_col; c <= end_col; c = c + 1 {
       let key = @cell.make_key(c, r)

@@ -414,4 +414,3 @@ fn view_sparkline(sheet : @sheet.Sheet, row : Int) -> @rabbita.Html {
   elements.push(@svg.circle(cx=max_x, cy=max_y, r=2, fill="#34a853"))
   @svg.svg(width=w, height=h, view_box="0 0 \{w} \{h}", style=["display: block"]) <| elements
 }
-

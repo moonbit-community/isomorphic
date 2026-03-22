@@ -453,7 +453,7 @@ fn parse_expr(
   state : ParseState,
   lookup : (String) -> @cell.Value,
 ) -> @cell.Value raise Error {
-  for left = parse_term(state, lookup); ; {
+  for left = parse_term(state, lookup) {
     match state.peek() {
       Some(TPlus) => {
         state.advance()
@@ -479,7 +479,7 @@ fn parse_term(
   state : ParseState,
   lookup : (String) -> @cell.Value,
 ) -> @cell.Value raise Error {
-  for left = parse_factor(state, lookup); ; {
+  for left = parse_factor(state, lookup) {
     match state.peek() {
       Some(TMul) => {
         state.advance()
@@ -871,13 +871,12 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
       }
       Num(min)
     }
-    "MAX" => {
-       for v in values; max = values[0] {
+    "MAX" =>
+      for v in values; max = values[0] {
         continue if v > max { v } else { max }
       } nobreak {
         Num(max)
-      }      
-    }
+      }
     "COUNT" => Num(values.length().to_double())
     _ => Error("FUNC?\{name}")
   }

@@ -27,8 +27,9 @@ pub(all) struct Cell {
   format : NumFormat
   bg_color : String
   text_color : String
+
+  fn new(raw? : String, value? : Value, bold? : Bool, italic? : Bool, align? : Align, format? : NumFormat, bg_color? : String, text_color? : String) -> Cell
 }
-pub fn Cell::empty() -> Self
 
 pub(all) enum NumFormat {
   General
