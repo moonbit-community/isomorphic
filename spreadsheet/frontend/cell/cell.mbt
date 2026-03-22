@@ -15,7 +15,7 @@ pub(all) enum Value {
   Num(Double)
   Text(String)
   Error(String)
-}
+} derive(Debug)
 
 ///|
 /// Display a Value for debugging and test output.
