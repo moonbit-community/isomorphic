@@ -47,6 +47,8 @@ pub struct Model {
   view_month : Int // 1-12 — the month currently displayed
   selected : Date? // the selected date, if any
   today : Date
+
+  fn new(today~ : Date) -> Model
 }
 
 ///|

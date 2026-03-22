@@ -32,12 +32,12 @@ priv enum ParentMsg {
 pub fn make() -> @rabbita.Cell {
   // Create children — get back Dispatch handles
   let (dispatch_a, cell_a) = @rabbita.simple_cell_with_dispatch(
-    model=@counter.Model::new(),
+    model=@counter.Model(),
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch, label="Child A"),
   )
   let (dispatch_b, cell_b) = @rabbita.simple_cell_with_dispatch(
-    model=@counter.Model::new(),
+    model=@counter.Model(),
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch, label="Child B"),
   )

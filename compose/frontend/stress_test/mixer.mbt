@@ -9,6 +9,8 @@ priv struct MixerModel {
   ch4 : ChannelModel
   master : KnobModel
   link : Bool
+
+  fn new() -> MixerModel
 }
 
 ///|
@@ -24,11 +26,11 @@ priv enum MixerMsg {
 ///|
 fn MixerModel::new() -> MixerModel {
   {
-    ch1: ChannelModel::new(volume=75),
-    ch2: ChannelModel::new(volume=60),
-    ch3: ChannelModel::new(volume=85),
-    ch4: ChannelModel::new(volume=50),
-    master: KnobModel::new(value=80, max=100, step=5),
+    ch1: ChannelModel(volume=75),
+    ch2: ChannelModel(volume=60),
+    ch3: ChannelModel(volume=85),
+    ch4: ChannelModel(volume=50),
+    master: KnobModel(value=80, max=100, step=5),
     link: false,
   }
 }

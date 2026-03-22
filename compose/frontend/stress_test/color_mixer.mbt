@@ -6,6 +6,8 @@ priv struct ColorModel {
   red : KnobModel
   green : KnobModel
   blue : KnobModel
+
+  fn new() -> ColorModel
 }
 
 ///|
@@ -18,9 +20,9 @@ priv enum ColorMsg {
 ///|
 fn ColorModel::new() -> ColorModel {
   {
-    red: KnobModel::new(value=100, max=255, step=5),
-    green: KnobModel::new(value=150, max=255, step=5),
-    blue: KnobModel::new(value=200, max=255, step=5),
+    red: KnobModel(value=100, max=255, step=5),
+    green: KnobModel(value=150, max=255, step=5),
+    blue: KnobModel(value=200, max=255, step=5),
   }
 }
 

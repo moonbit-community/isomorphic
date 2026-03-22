@@ -5,6 +5,8 @@
 /// Each pattern decides how to wire it differently.
 pub struct Model {
   count : Int
+
+  fn new() -> Model
 }
 
 ///|

@@ -9,6 +9,8 @@ priv struct EffectModel {
   intensity : KnobModel
   enabled : Bool
   name : String
+
+  fn new(name~ : String, intensity? : Int) -> EffectModel
 }
 
 ///|
@@ -20,7 +22,7 @@ priv enum EffectMsg {
 ///|
 fn EffectModel::new(name~ : String, intensity? : Int = 50) -> EffectModel {
   {
-    intensity: KnobModel::new(value=intensity, max=100, step=5),
+    intensity: KnobModel(value=intensity, max=100, step=5),
     enabled: false,
     name,
   }
@@ -78,6 +80,8 @@ priv struct EffectRackModel {
   fx1 : EffectModel
   fx2 : EffectModel
   fx3 : EffectModel
+
+  fn new() -> EffectRackModel
 }
 
 ///|
@@ -90,9 +94,9 @@ priv enum EffectRackMsg {
 ///|
 fn EffectRackModel::new() -> EffectRackModel {
   {
-    fx1: EffectModel::new(name="REV"),
-    fx2: EffectModel::new(name="DLY", intensity=30),
-    fx3: EffectModel::new(name="CHR", intensity=60),
+    fx1: EffectModel(name="REV"),
+    fx2: EffectModel(name="DLY", intensity=30),
+    fx3: EffectModel(name="CHR", intensity=60),
   }
 }
 

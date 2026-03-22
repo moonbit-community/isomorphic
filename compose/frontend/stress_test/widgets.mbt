@@ -9,6 +9,8 @@ priv struct KnobModel {
   min_val : Int
   max_val : Int
   step : Int
+
+  fn new(value? : Int, min? : Int, max? : Int, step? : Int) -> KnobModel
 }
 
 ///|
@@ -97,6 +99,8 @@ fn KnobModel::view(
 ///|
 priv struct StepModel {
   steps : FixedArray[Bool]
+
+  fn new() -> StepModel
 }
 
 ///|

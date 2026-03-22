@@ -96,7 +96,7 @@ fn DashboardModel::view(
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
     model=(
-      { mixer: MixerModel::new(), color: ColorModel::new(), dark_mode: true } :
+      { mixer: MixerModel(), color: ColorModel(), dark_mode: true } :
       DashboardModel),
     update=fn(msg, model) { model.update(msg) },
     view=fn(dispatch, model) { model.view(dispatch) },
