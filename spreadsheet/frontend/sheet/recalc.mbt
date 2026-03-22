@@ -141,29 +141,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   // set AND form a cycle. Use iterative reachability from each unresolved cell.
   let is_cycle_member : Map[String, Bool] = {}
   for start in unresolved {
-    // BFS/DFS from start, following only unresolved deps
-    let visited : Map[String, Bool] = {}
-    let stack : Array[String] = [start]
-    let mut found_cycle = false
-    while stack.length() > 0 {
-      let node = stack.unsafe_pop()
-      match deps.get(node) {
-        Some(node_deps) =>
-          for dep in node_deps {
-            if dep == start {
-              found_cycle = true
-              break
-            }
-            if unresolved_set.get(dep).unwrap_or(false) &&
-              !(visited.get(dep).unwrap_or(false)) {
-              visited[dep] = true
-              stack.push(dep)
-            }
-          }
-        None => ()
-      }
-    }
-    if found_cycle {
+    if reaches_self(start, deps, unresolved_set) {
       is_cycle_member[start] = true
     }
   }
@@ -249,4 +227,33 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   }
 
   self.clone(cells=new_cells)
+}
+
+///|
+/// Check if `start` can reach itself by following dependencies restricted to `unresolved_set`.
+fn reaches_self(
+  start : String,
+  deps : Map[String, Array[String]],
+  unresolved_set : Map[String, Bool],
+) -> Bool {
+  let visited : Map[String, Bool] = {}
+  let stack : Array[String] = [start]
+  while stack.length() > 0 {
+    let node = stack.unsafe_pop()
+    match deps.get(node) {
+      Some(node_deps) =>
+        for dep in node_deps {
+          if dep == start {
+            return true
+          }
+          if unresolved_set.get(dep).unwrap_or(false) &&
+            !(visited.get(dep).unwrap_or(false)) {
+            visited[dep] = true
+            stack.push(dep)
+          }
+        }
+      None => ()
+    }
+  }
+  false
 }
