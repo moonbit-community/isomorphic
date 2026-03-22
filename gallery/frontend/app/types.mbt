@@ -23,7 +23,7 @@ pub(all) enum Section {
   Layout
   /// Components that communicate action outcomes to the user, such as confirmations and undo.
   Feedback
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 // ── Sub-model structs ────────────────────────────────────────────────
 
@@ -174,7 +174,7 @@ pub(all) struct TableRow {
   role : String
   /// Current status such as "Active" or "Inactive".
   status : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a data table with sorting, pagination, and row selection.
@@ -221,7 +221,7 @@ pub(all) struct TimelineEvent {
   time : String
   /// Accent color for the timeline marker dot.
   color : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a vertical timeline showing chronological events.
@@ -239,7 +239,7 @@ pub(all) struct TreeNode {
   label : String
   /// Nested child nodes forming the tree hierarchy.
   children : Array[TreeNode]
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for an expandable/collapsible tree view of hierarchical data.
@@ -259,7 +259,7 @@ pub(all) struct KanbanCard {
   title : String
   /// Left-border accent color indicating card category.
   color : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a kanban board with named columns containing movable cards.
@@ -277,7 +277,7 @@ pub(all) struct ChartBar {
   value : Int
   /// Fill color of the bar.
   color : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for an SVG bar chart showing categorical data.
@@ -299,7 +299,7 @@ pub(all) struct ToastItem {
   message : String
   /// Severity category such as "success", "error", or "info".
   kind : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for the toast notification system managing active notifications.
@@ -344,7 +344,7 @@ pub(all) struct SelectOption {
   label : String
   /// Programmatic identifier submitted when this option is chosen.
   value : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a select dropdown with type-ahead filtering and keyboard navigation.
@@ -391,7 +391,7 @@ pub(all) struct CommandAction {
   shortcut : String
   /// Grouping category for organizing actions in the palette.
   category : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a keyboard-driven command palette (Cmd+K style).
@@ -415,7 +415,7 @@ pub(all) struct WizardField {
   value : String
   /// Validation error message, empty when the field is valid.
   error : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// One step in a multi-step form wizard containing related fields.
@@ -424,7 +424,7 @@ pub(all) struct WizardStep {
   title : String
   /// Input fields the user must complete in this step.
   fields : Array[WizardField]
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a multi-step form wizard with per-step validation.
@@ -599,7 +599,7 @@ pub(all) struct MasonryItem {
   height : Int
   /// Background color of the card.
   color : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for a masonry grid that distributes variable-height cards across columns.
@@ -661,7 +661,7 @@ pub(all) struct MarkdownState {
 pub(all) struct SpreadsheetCell {
   /// Text content of the cell.
   value : String
-} derive(Debug, Eq, Show)
+} derive(Debug, Eq)
 
 ///|
 /// State for an editable spreadsheet grid with cell selection and inline editing.

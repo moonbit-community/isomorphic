@@ -16,7 +16,7 @@ test "ChangeSection updates section and resets component" {
     msg=ChangeSection(Display),
     dispatch=noop_dispatch,
   )
-  inspect(model.section, content="Display")
+  debug_inspect(model.section, content="Display")
   inspect(model.component, content="0")
 }
 

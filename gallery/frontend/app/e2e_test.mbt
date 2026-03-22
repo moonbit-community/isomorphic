@@ -391,7 +391,7 @@ test "E2E: command palette navigates to Inputs" {
   // Execute "Go to Inputs" (id=1)
   let (m3, _) = m2.update(msg=CommandPaletteSelect(1), dispatch=noop)
   assert_false(m3.command_palette.open)
-  inspect(m3.section, content="Inputs")
+  debug_inspect(m3.section, content="Inputs")
 }
 
 // ── E2E: DateRange pick start and end ───────────────────────────────
