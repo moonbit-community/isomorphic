@@ -64,6 +64,7 @@ pub(all) struct Board {
   columns : Array[Column]
   cards : Array[Card]
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub impl Show for Board
 
 pub(all) struct Card {
   id : Int
@@ -73,12 +74,14 @@ pub(all) struct Card {
   color : String
   position : Int
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub impl Show for Card
 
 pub(all) struct Column {
   id : Int
   title : String
   position : Int
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub impl Show for Column
 
 pub(all) struct MoveCardRequest {
   card_id : Int

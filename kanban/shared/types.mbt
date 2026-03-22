@@ -11,6 +11,12 @@ pub(all) struct Card {
 } derive(ToJson, FromJson, Eq, Debug)
 
 ///|
+/// Display a Card as `Card(#id "title" col=column_id)`.
+pub impl Show for Card with output(self, logger) {
+  logger.write_string("Card(#\{self.id} \"\{self.title}\" col=\{self.column_id})")
+}
+
+///|
 /// A column (lane) on the board. Contains cards; ordered by position.
 #warnings("-unnecessary_annotation")
 pub(all) struct Column {
@@ -20,12 +26,24 @@ pub(all) struct Column {
 } derive(ToJson, FromJson, Eq, Debug)
 
 ///|
+/// Display a Column as `Column(#id "title")`.
+pub impl Show for Column with output(self, logger) {
+  logger.write_string("Column(#\{self.id} \"\{self.title}\")")
+}
+
+///|
 /// Full board state: all columns and all cards, as returned by `GET /api/board`.
 #warnings("-unnecessary_annotation")
 pub(all) struct Board {
   columns : Array[Column]
   cards : Array[Card]
 } derive(ToJson, FromJson, Eq, Debug)
+
+///|
+/// Display a Board as `Board(N columns, M cards)`.
+pub impl Show for Board with output(self, logger) {
+  logger.write_string("Board(\{self.columns.length()} columns, \{self.cards.length()} cards)")
+}
 
 ///|
 /// Request body for `POST /api/cards/:id/move`.

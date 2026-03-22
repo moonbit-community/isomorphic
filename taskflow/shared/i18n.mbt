@@ -7,6 +7,15 @@ pub(all) enum Lang {
 } derive(Eq, ToJson, FromJson, Debug)
 
 ///|
+/// Display the language code.
+pub impl Show for Lang with output(self, logger) {
+  match self {
+    En => logger.write_string("en")
+    Zh => logger.write_string("zh")
+  }
+}
+
+///|
 /// Translate a UI string key to the current language.
 pub fn t(lang : Lang, key : String) -> String {
   match (lang, key) {

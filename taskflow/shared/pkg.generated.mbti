@@ -291,6 +291,7 @@ pub(all) enum Lang {
   En
   Zh
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub impl Show for Lang
 
 pub(all) struct Member {
   id : Int
@@ -326,6 +327,7 @@ pub(all) struct Task {
   due_date : String
   created_at : String
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub impl Show for Task
 
 pub(all) struct TaskLabel {
   task_id : Int
@@ -351,6 +353,7 @@ pub(all) struct User {
   color : String
   role : String
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub impl Show for User
 
 // Type aliases
 

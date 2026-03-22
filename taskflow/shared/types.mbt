@@ -9,6 +9,12 @@ pub(all) struct User {
 } derive(ToJson, FromJson, Eq, Debug)
 
 ///|
+/// Display a User as `User(#id "username" role)`.
+pub impl Show for User with output(self, logger) {
+  logger.write_string("User(#\{self.id} \"\{self.username}\" \{self.role})")
+}
+
+///|
 /// A team member who can be assigned tasks.
 /// Now derived from User for backward compatibility.
 #warnings("-unnecessary_annotation")
@@ -39,6 +45,12 @@ pub(all) struct Task {
   due_date : String
   created_at : String
 } derive(ToJson, FromJson, Eq, Debug)
+
+///|
+/// Display a Task as `Task(#id "title" status=... priority=...)`.
+pub impl Show for Task with output(self, logger) {
+  logger.write_string("Task(#\{self.id} \"\{self.title}\" status=\{self.status} priority=\{self.priority})")
+}
 
 ///|
 /// A recorded status change for audit/history tracking.
