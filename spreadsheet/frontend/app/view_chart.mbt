@@ -319,7 +319,7 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
 
 ///|
 /// Renders a tiny sparkline SVG for a single row's Q1-Q4 data.
-fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
+fn view_sparkline(sheet : @sheet.Sheet, row : Int) -> @rabbita.Html {
   let vals : Array[Double] = []
   for c in 1..<=4 {
     vals.push(sheet.get_num(c, row))
@@ -415,11 +415,3 @@ fn view_sparkline(sheet : Sheet, row : Int) -> @rabbita.Html {
   @svg.svg(width=w, height=h, view_box="0 0 \{w} \{h}", style=["display: block"]) <| elements
 }
 
-///|
-fn Sheet::get_num(self : Sheet, col : Int, row : Int) -> Double {
-  let key = @cell.make_key(col, row)
-  match self.get(key).value {
-    Num(n) => n
-    _ => 0.0
-  }
-}

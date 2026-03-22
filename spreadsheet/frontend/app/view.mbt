@@ -339,7 +339,7 @@ fn heat_color(value : Double, min_val : Double, max_val : Double) -> String {
 
 ///|
 /// Collect min/max values from revenue cells (B2:E6, B8:E8) for heat map scaling.
-fn collect_heat_range(sheet : Sheet) -> (Double, Double) {
+fn collect_heat_range(sheet : @sheet.Sheet) -> (Double, Double) {
   // Revenue data: rows 1-5 (B2:E6), totals row 7 (B8:E8)
   let rows = [1, 2, 3, 4, 5, 7]
   for r in rows; min_val = 1.0e18, max_val = -1.0e18 {
@@ -418,7 +418,7 @@ fn Model::view_grid(
   let col_w = "100px"
   let row_h = "28px"
   let header_w = "46px"
-  let cols_template = "\{header_w} " + Array::make(num_cols, col_w).join(" ")
+  let cols_template = "\{header_w} " + Array::make(@sheet.num_cols, col_w).join(" ")
   let rows : Array[@rabbita.Html] = []
 
   // Column headers row
@@ -430,7 +430,7 @@ fn Model::view_grid(
       "left: 0", "z-index: 3",
     ]) <| "",
   )
-  for c in 0..<num_cols {
+  for c in 0..<@sheet.num_cols {
     let is_sel_col = c == self.sel_col
     let bg = if is_sel_col { "#d3e3fd" } else { "#f8f9fa" }
     let fw = if is_sel_col { "600" } else { "500" }
@@ -462,7 +462,7 @@ fn Model::view_grid(
   )
 
   // Data rows
-  for r in 0..<num_rows {
+  for r in 0..<@sheet.num_rows {
     let row_cells : Array[@rabbita.Html] = []
     let is_sel_row = r == self.sel_row
     let row_bg = if is_sel_row { "#d3e3fd" } else { "#f8f9fa" }
@@ -487,7 +487,7 @@ fn Model::view_grid(
       ]) <| (r + 1).to_string(),
     )
     // Data cells
-    for c in 0..<num_cols {
+    for c in 0..<@sheet.num_cols {
       let key = @cell.make_key(c, r)
       let cell = sheet.get(key)
       let is_selected = c == self.sel_col && r == self.sel_row
@@ -744,6 +744,6 @@ fn Model::view_status_bar(self : Model) -> @rabbita.Html {
     "align-items: center",
   ]) <| [
     @html.span() <| "\{sheet_name} \u{2022} \{cell_name}: \{val_str}",
-    @html.span() <| "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{num_cols}\u{00D7}\{num_rows} grid",
+    @html.span() <| "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{@sheet.num_cols}\u{00D7}\{@sheet.num_rows} grid",
   ]
 }

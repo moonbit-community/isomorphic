@@ -1,6 +1,7 @@
 import {
   "bobzhang/spreadsheet/frontend/cell",
   "bobzhang/spreadsheet/frontend/formula",
+  "bobzhang/spreadsheet/frontend/sheet",
   "bobzhang/mbtexcel/xlsx",
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",

@@ -1,0 +1,6 @@
+import {
+  "bobzhang/spreadsheet/frontend/cell",
+  "bobzhang/spreadsheet/frontend/formula",
+}
+
+supported_targets = "js"

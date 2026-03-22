@@ -84,9 +84,9 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
   if sheet_names.is_empty() {
     return model
   }
-  let sheets : Array[Sheet] = []
+  let sheets : Array[@sheet.Sheet] = []
   for name in sheet_names {
-    let sheet = Sheet::new(name)
+    let sheet = @sheet.Sheet::new(name)
     // Get the used range dimension (e.g. "A1:H14")
     let dim = wb.get_sheet_dimension(name) catch { _ => "" }
     if !dim.is_empty() {
@@ -96,7 +96,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
   }
   // Recalculate all sheets
   for i in 0..<sheets.length() {
-    sheets[i] = recalc(sheets[i])
+    sheets[i] = sheets[i].recalc()
   }
   {
     sheets,
@@ -115,7 +115,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
 ///
 /// The `dim` parameter is the used-range dimension string (e.g. `"A1:H14"`)
 /// from the xlsx file. The function iterates over every cell in that range,
-/// clamped to the grid size (`num_cols` x `num_rows`):
+/// clamped to the grid size (`@sheet.num_cols` x `@sheet.num_rows`):
 ///
 ///   1. Reads the cell formula (if any) and raw value from the workbook.
 ///   2. Reads style properties (bold, italic, alignment, background color).
@@ -125,7 +125,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
 fn import_sheet_cells(
   wb : @xlsx.Workbook,
   sheet_name : String,
-  sheet : Sheet,
+  sheet : @sheet.Sheet,
   dim : String,
 ) -> Unit {
   // Parse dimension like "A1:H14" to get bounds
@@ -137,18 +137,18 @@ fn import_sheet_cells(
       let e = @cell.parse_ref(end)
       match (s, e) {
         (Some((c1, r1)), Some((c2, r2))) => (c1, r1, c2, r2)
-        _ => (0, 0, num_cols - 1, num_rows - 1)
+        _ => (0, 0, @sheet.num_cols - 1, @sheet.num_rows - 1)
       }
     }
     None =>
       match @cell.parse_ref(dim) {
         Some((c, r)) => (c, r, c, r)
-        None => (0, 0, num_cols - 1, num_rows - 1)
+        None => (0, 0, @sheet.num_cols - 1, @sheet.num_rows - 1)
       }
   }
   // Clamp to our grid size
-  let end_col = if max_col < num_cols { max_col } else { num_cols - 1 }
-  let end_row = if max_row < num_rows { max_row } else { num_rows - 1 }
+  let end_col = if max_col < @sheet.num_cols { max_col } else { @sheet.num_cols - 1 }
+  let end_row = if max_row < @sheet.num_rows { max_row } else { @sheet.num_rows - 1 }
   for r = min_row; r <= end_row; r = r + 1 {
     for c = min_col; c <= end_col; c = c + 1 {
       let key = @cell.make_key(c, r)
@@ -369,7 +369,7 @@ fn export_xlsx(model : Model) -> Unit {
 fn export_sheet_cells(
   wb : @xlsx.Workbook,
   ws : @xlsx.Worksheet,
-  sheet : Sheet,
+  sheet : @sheet.Sheet,
 ) -> Unit {
   sheet.cells.each(fn(key, cell) {
     let has_align = match cell.align {

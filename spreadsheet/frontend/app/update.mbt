@@ -1,49 +1,4 @@
 ///|
-/// Recalculate all formula cells in a sheet.
-///
-/// Uses a simple multi-pass convergence strategy: copy all cells, then iterate
-/// three times, re-evaluating every formula cell on each pass. This handles
-/// dependency chains up to three levels deep without needing an explicit
-/// topological sort. Each pass reads the latest computed values from previous
-/// iterations.
-///
-/// If re-evaluation of a formula produces an `Error` but the cell already holds
-/// a non-`Empty` value (e.g. a cached xlsx result), the existing value is
-/// preserved. This ensures imported data remains visible even when our formula
-/// engine does not support every Excel function.
-fn recalc(sheet : Sheet) -> Sheet {
-  let new_cells : Map[String, @cell.Cell] = {}
-  // First pass: copy all cells
-  sheet.cells.each(fn(k, v) { new_cells[k] = v })
-  // Second pass: evaluate formulas
-  // We do multiple passes to handle dependencies (simple convergence)
-  for _ in 0..<3 {
-    sheet.cells.each(fn(k, c) {
-      if !c.raw.is_empty() && c.raw[0] == '=' {
-        let value = @formula.evaluate(c.raw, fn(r) {
-          let cell = match new_cells.get(r) {
-            Some(c) => c
-            None => @cell.Cell::empty()
-          }
-          cell.value
-        })
-        // Keep existing value if re-evaluation fails (preserves cached xlsx results)
-        let final_value = match value {
-          Error(_) =>
-            match c.value {
-              Empty => value
-              _ => c.value
-            }
-          _ => value
-        }
-        new_cells[k] = { ..c, value: final_value }
-      }
-    })
-  }
-  { ..sheet, cells: new_cells }
-}
-
-///|
 /// Central message handler (TEA update function).
 ///
 /// Processes a single `Msg` and returns the updated `Model` along with any
@@ -78,8 +33,8 @@ pub fn Model::update(
         @rabbita.none,
         {
           ..model,
-          sel_col: col.clamp(min=0, max=num_cols - 1),
-          sel_row: row.clamp(min=0, max=num_rows - 1),
+          sel_col: col.clamp(min=0, max=@sheet.num_cols - 1),
+          sel_row: row.clamp(min=0, max=@sheet.num_rows - 1),
           editing: false,
         },
       )
@@ -90,8 +45,8 @@ pub fn Model::update(
         @rabbita.none,
         {
           ..model,
-          sel_col: (model.sel_col + dc).clamp(min=0, max=num_cols - 1),
-          sel_row: (model.sel_row + dr).clamp(min=0, max=num_rows - 1),
+          sel_col: (model.sel_col + dc).clamp(min=0, max=@sheet.num_cols - 1),
+          sel_row: (model.sel_row + dr).clamp(min=0, max=@sheet.num_rows - 1),
           editing: false,
         },
       )
@@ -112,7 +67,7 @@ pub fn Model::update(
     AddSheet => {
       let name = "Sheet \{self.sheets.length() + 1}"
       let sheets = self.sheets.copy()
-      sheets.push(Sheet::new(name))
+      sheets.push(@sheet.Sheet::new(name))
       (@rabbita.none, { ..self, sheets, })
     }
     DeleteSheet(i) => {
@@ -164,7 +119,7 @@ pub fn Model::update(
       let new_cells = sheet.cells
       new_cells[key] = @cell.Cell::empty()
       let sheets = self.sheets.copy()
-      sheets[self.active_sheet] = recalc({ ..sheet, cells: new_cells })
+      sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
       (@rabbita.none, { ..self, sheets, })
     }
     RequestImport => (import_xlsx_cmd(dispatch), self)
@@ -211,7 +166,7 @@ fn Model::commit_edit(self : Model) -> Model {
   let new_cell = { ..old_cell, raw: self.edit_value, value }
   let new_cells = sheet.cells
   new_cells[key] = new_cell
-  let new_sheet = recalc({ ..sheet, cells: new_cells })
+  let new_sheet = { ..sheet, cells: new_cells }.recalc()
   let sheets = self.sheets.copy()
   sheets[self.active_sheet] = new_sheet
   { ..self, sheets, editing: false, edit_value: "" }
