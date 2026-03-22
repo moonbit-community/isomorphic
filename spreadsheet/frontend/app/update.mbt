@@ -57,9 +57,31 @@ pub fn Model::update(
     }
     StartEditWith(ch) =>
       (@rabbita.none, { ..self, editing: true, edit_value: ch })
-    UpdateEdit(v) => (@rabbita.none, { ..self, edit_value: v })
-    CommitEdit => (@rabbita.none, self.commit_edit())
-    CancelEdit => (@rabbita.none, { ..self, editing: false, edit_value: "" })
+    UpdateEdit(v) => {
+      let suggestions = compute_autocomplete(v)
+      (
+        @rabbita.none,
+        {
+          ..self,
+          edit_value: v,
+          autocomplete_suggestions: suggestions,
+          autocomplete_index: -1,
+        },
+      )
+    }
+    CommitEdit =>
+      (@rabbita.none, { ..self.commit_edit(), autocomplete_suggestions: [], autocomplete_index: -1 })
+    CancelEdit =>
+      (
+        @rabbita.none,
+        {
+          ..self,
+          editing: false,
+          edit_value: "",
+          autocomplete_suggestions: [],
+          autocomplete_index: -1,
+        },
+      )
     SelectSheet(i) => {
       let model = if self.editing { self.commit_edit() } else { self }
       (@rabbita.none, { ..model, active_sheet: i })
@@ -129,6 +151,30 @@ pub fn Model::update(
       export_xlsx(model)
       (@rabbita.none, model)
     }
+    AutocompleteSelect(name) => {
+      let new_value = insert_autocomplete(self.edit_value, name)
+      (
+        @rabbita.none,
+        {
+          ..self,
+          edit_value: new_value,
+          autocomplete_suggestions: [],
+          autocomplete_index: -1,
+        },
+      )
+    }
+    AutocompleteNav(delta) => {
+      let len = self.autocomplete_suggestions.length()
+      if len == 0 {
+        return (@rabbita.none, self)
+      }
+      let new_idx = if self.autocomplete_index == -1 && delta < 0 {
+        len - 1
+      } else {
+        (self.autocomplete_index + delta).clamp(min=0, max=len - 1)
+      }
+      (@rabbita.none, { ..self, autocomplete_index: new_idx })
+    }
   }
 }
 
@@ -170,4 +216,89 @@ fn Model::commit_edit(self : Model) -> Model {
   let sheets = self.sheets.copy()
   sheets[self.active_sheet] = new_sheet
   { ..self, sheets, editing: false, edit_value: "" }
+}
+
+///|
+/// Known formula function names for auto-completion.
+let formula_functions : Array[String] = [
+  "SUM", "AVG", "AVERAGE", "MIN", "MAX", "COUNT", "IF", "ABS", "ROUND",
+  "POWER", "MOD", "INT", "CONCAT", "LEN", "UPPER", "LOWER",
+]
+
+///|
+/// Extract the partial function name being typed at the end of a formula.
+/// The partial is the text after the last operator or delimiter character.
+/// Returns an empty string if no partial is being typed.
+fn extract_partial(value : String) -> String {
+  if value.is_empty() || value[0] != '=' {
+    return ""
+  }
+  let chars = value.to_array()
+  let len = chars.length()
+  // Scan backwards to find the start of the current token
+  let end = len
+  let mut i = len - 1
+  while i >= 0 {
+    let c = chars[i]
+    if c == '=' || c == '(' || c == '+' || c == '-' || c == '*' || c == '/' ||
+       c == ',' || c == '>' || c == '<' || c == ')' || c == ':' || c == ' ' {
+      break
+    }
+    i = i - 1
+  }
+  let start = i + 1
+  if start >= end {
+    return ""
+  }
+  // Build the partial string
+  let sb = StringBuilder::new()
+  for j = start; j < end; j = j + 1 {
+    sb.write_char(chars[j])
+  }
+  let partial = sb.to_string()
+  // Only return if it looks like a function name prefix (all uppercase letters)
+  for ch in partial {
+    if ch < 'A' || ch > 'Z' {
+      return ""
+    }
+  }
+  partial
+}
+
+///|
+/// Compute autocomplete suggestions based on the current edit value.
+/// Returns matching function names if a partial name is being typed.
+fn compute_autocomplete(value : String) -> Array[String] {
+  let partial = extract_partial(value)
+  if partial.is_empty() {
+    return []
+  }
+  let suggestions : Array[String] = []
+  for func in formula_functions {
+    if func.has_prefix(partial) && func != partial {
+      suggestions.push(func)
+    }
+  }
+  suggestions
+}
+
+///|
+/// Insert the selected autocomplete function name into the edit value.
+/// Replaces the partial text at the end with the full function name and
+/// appends an opening parenthesis.
+fn insert_autocomplete(value : String, name : String) -> String {
+  let partial = extract_partial(value)
+  if partial.is_empty() {
+    return value + name + "("
+  }
+  // Remove the partial from the end and append the full name
+  let prefix_len = value.length() - partial.length()
+  let chars = value.to_array()
+  let sb = StringBuilder::new()
+  for i = 0; i < prefix_len; i = i + 1 {
+    sb.write_char(chars[i])
+  }
+  sb.write_string(name)
+  sb.write_char('(')
+  sb.to_string()
 }

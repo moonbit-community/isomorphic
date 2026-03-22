@@ -104,6 +104,72 @@ pub fn extract_references(raw : String) -> Array[String] {
 }
 
 ///|
+/// Extract all cell references from a formula string, grouped by their source
+/// expression. Each entry maps a cell key to a group index. Cells from the same
+/// range (e.g. `A1:B2`) share the same group index, while individual refs get
+/// their own group. This enables multi-color highlighting in the UI.
+///
+/// Given `"=SUM(A1:A3) + B4"`, returns:
+///   `[("A1", 0), ("A2", 0), ("A3", 0), ("B4", 1)]`
+pub fn extract_reference_groups(raw : String) -> Array[(String, Int)] {
+  let trimmed = raw.trim().to_string()
+  if trimmed.is_empty() || trimmed[0] != '=' {
+    return []
+  }
+  let expr = trimmed[1:].to_string().trim().to_string()
+  let tokens = tokenize(expr)
+  let result : Array[(String, Int)] = []
+  let len = tokens.length()
+  let mut i = 0
+  let mut group = 0
+  while i < len {
+    match tokens[i] {
+      TRef(r1) =>
+        // Check for range: TRef TColon TRef
+        if i + 2 < len {
+          match (tokens[i + 1], tokens[i + 2]) {
+            (TColon, TRef(r2)) => {
+              // Expand range into individual refs, all sharing the same group
+              let ref1 = @cell.parse_ref(r1)
+              let ref2 = @cell.parse_ref(r2)
+              match (ref1, ref2) {
+                (Some((c1, row1)), Some((c2, row2))) => {
+                  let min_c = if c1 < c2 { c1 } else { c2 }
+                  let max_c = if c1 > c2 { c1 } else { c2 }
+                  let min_r = if row1 < row2 { row1 } else { row2 }
+                  let max_r = if row1 > row2 { row1 } else { row2 }
+                  for c = min_c; c <= max_c; c = c + 1 {
+                    for r = min_r; r <= max_r; r = r + 1 {
+                      result.push((@cell.make_key(c, r), group))
+                    }
+                  }
+                }
+                _ => {
+                  result.push((r1, group))
+                  result.push((r2, group))
+                }
+              }
+              group = group + 1
+              i = i + 3
+              continue
+            }
+            _ => {
+              result.push((r1, group))
+              group = group + 1
+            }
+          }
+        } else {
+          result.push((r1, group))
+          group = group + 1
+        }
+      _ => ()
+    }
+    i = i + 1
+  }
+  result
+}
+
+///|
 /// Evaluate a raw cell input string and return the computed value.
 ///
 /// The evaluation strategy depends on the input:

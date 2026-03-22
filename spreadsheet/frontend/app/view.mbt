@@ -250,9 +250,42 @@ fn Model::view_formula_bar(
   let cell_name = @cell.make_key(self.sel_col, self.sel_row)
   let cell = self.selected_cell()
   let display_value = if self.editing { self.edit_value } else { cell.raw }
+  let has_suggestions = self.autocomplete_suggestions.length() > 0
+  // Build autocomplete dropdown items
+  let dropdown_items : Array[@rabbita.Html] = []
+  for i, suggestion in self.autocomplete_suggestions {
+    let is_active = i == self.autocomplete_index
+    let item_bg = if is_active { "#d2e3fc" } else { "#fff" }
+    let item_fw = if is_active { "600" } else { "400" }
+    let name = suggestion
+    dropdown_items.push(
+      @html.div(
+        style=[
+          "padding: 6px 12px", "cursor: pointer", "font-size: 13px",
+          "font-family: 'Google Sans Mono', 'Roboto Mono', monospace",
+          "background: \{item_bg}", "font-weight: \{item_fw}",
+          "color: #202124", "transition: background 0.1s ease",
+          "border-bottom: 1px solid #f0f0f0",
+        ],
+        on_click=dispatch(AutocompleteSelect(name)),
+      ) <| "\{suggestion}()",
+    )
+  }
+  // Autocomplete dropdown (positioned absolutely below the formula input)
+  let dropdown : @rabbita.Html = if has_suggestions {
+    @html.div(style=[
+      "position: absolute", "top: 100%", "left: 0", "right: 0", "z-index: 10",
+      "background: #fff", "border: 1px solid #dadce0", "border-top: none",
+      "border-radius: 0 0 4px 4px",
+      "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)",
+      "max-height: 200px", "overflow-y: auto",
+    ]) <| dropdown_items
+  } else {
+    @html.span() <| ""
+  }
   @html.div(style=[
     "display: flex", "align-items: center", "padding: 4px 8px", "background: #fff",
-    "border-bottom: 1px solid #e0e0e0", "min-height: 36px",
+    "border-bottom: 1px solid #e0e0e0", "min-height: 36px", "position: relative",
   ]) <| [
     // Cell name box
     @html.div(style=[
@@ -266,18 +299,53 @@ fn Model::view_formula_bar(
       "font-size: 13px", "color: #70757a", "margin-right: 8px", "font-style: italic",
       "font-weight: 500",
     ]) <| "fx",
-    // Formula input
-    @html.input(
-      input_type=Text,
-      style=[
-        "flex: 1", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
-        "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
-        "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
-      ],
-      value=display_value,
-      on_input=value => dispatch(UpdateEdit(value)),
-      on_change=_value => dispatch(CommitEdit),
-    ) <| "",
+    // Formula input wrapper with keyboard handling for autocomplete
+    @html.div(
+      style=["flex: 1", "position: relative"],
+      on_keydown=kb => {
+        let key = kb.key()
+        if has_suggestions {
+          if key == "ArrowDown" {
+            dispatch(AutocompleteNav(1))
+          } else if key == "ArrowUp" {
+            dispatch(AutocompleteNav(-1))
+          } else if key == "Escape" {
+            dispatch(CancelEdit)
+          } else if (key == "Tab" || key == "Enter") &&
+                    self.autocomplete_index >= 0 {
+            dispatch(
+              AutocompleteSelect(
+                self.autocomplete_suggestions[self.autocomplete_index],
+              ),
+            )
+          } else if key == "Enter" {
+            dispatch(CommitEdit)
+          } else {
+            @rabbita.none
+          }
+        } else if key == "Enter" {
+          dispatch(CommitEdit)
+        } else if key == "Escape" {
+          dispatch(CancelEdit)
+        } else {
+          @rabbita.none
+        }
+      },
+    ) <| [
+      @html.input(
+        input_type=Text,
+        style=[
+          "width: 100%", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px",
+          "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px",
+          "height: 28px", "color: #202124", "transition: border-color 0.15s ease",
+          "box-sizing: border-box",
+        ],
+        value=display_value,
+        on_input=value => dispatch(UpdateEdit(value)),
+        on_change=_value => dispatch(CommitEdit),
+      ) <| "",
+      dropdown,
+    ],
   ]
 }
 
@@ -405,16 +473,27 @@ fn Model::view_grid(
   } else {
     None
   }
-  // Formula highlighting: use edit_value when editing, raw otherwise
+  // Formula highlighting: use edit_value when editing, raw otherwise.
+  // Each referenced cell gets a color index so different refs/ranges have distinct colors.
   let sel_cell = self.selected_cell()
   let formula_src = if self.editing { self.edit_value } else { sel_cell.raw }
-  let highlighted_refs : Map[String, Bool] = {}
+  let highlighted_refs : Map[String, Int] = {}
   if !formula_src.is_empty() && formula_src[0] == '=' {
-    let refs = @formula.extract_references(formula_src)
-    for cell_ref in refs {
-      highlighted_refs[cell_ref] = true
+    let groups = @formula.extract_reference_groups(formula_src)
+    for pair in groups {
+      let (cell_ref, group_idx) = pair
+      // First occurrence wins — avoids overwriting with a later group
+      match highlighted_refs.get(cell_ref) {
+        Some(_) => ()
+        None => highlighted_refs[cell_ref] = group_idx
+      }
     }
   }
+  // Color palette for multi-color reference highlighting (Google Sheets style)
+  let ref_colors : Array[String] = [
+    "#4285f4", "#ea4335", "#fbbc04", "#34a853", "#ff6d01", "#46bdc6", "#9334e6",
+    "#e52592",
+  ]
   let col_w = "100px"
   let row_h = "28px"
   let header_w = "46px"
@@ -523,9 +602,15 @@ fn Model::view_grid(
             }
           None => ""
         }
-        let is_ref_highlighted = match highlighted_refs.get(key) {
+        // Look up reference color index for multi-color highlighting
+        let ref_color_idx = highlighted_refs.get(key)
+        let is_ref_highlighted = match ref_color_idx {
           Some(_) => true
           None => false
+        }
+        let ref_color = match ref_color_idx {
+          Some(idx) => ref_colors[idx % ref_colors.length()]
+          None => ""
         }
         let cell_bg = if !cell.bg_color.is_empty() {
           cell.bg_color
@@ -536,7 +621,7 @@ fn Model::view_grid(
         }
         // Overlays: heat map and/or formula ref highlighting via inset box-shadow
         let ref_shadow = if is_ref_highlighted {
-          "inset 0 0 0 100px #34a85320"
+          "inset 0 0 0 100px \{ref_color}20"
         } else {
           ""
         }
@@ -557,7 +642,7 @@ fn Model::view_grid(
         let border = if is_selected {
           "2px solid #1a73e8"
         } else if is_ref_highlighted {
-          "2px solid #34a853"
+          "2px solid \{ref_color}"
         } else {
           "1px solid #e0e0e0"
         }

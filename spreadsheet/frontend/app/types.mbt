@@ -17,6 +17,10 @@ pub(all) struct Model {
   show_chart : Bool
   /// Whether the heat map overlay is active.
   heat_map : Bool
+  /// Auto-completion suggestions for formula functions.
+  autocomplete_suggestions : Array[String]
+  /// Index of the currently highlighted suggestion (-1 for none).
+  autocomplete_index : Int
 
   fn new() -> Model
 }
@@ -51,6 +55,9 @@ pub(all) enum Msg {
   RequestImport
   ImportExcel(Bytes)
   ExportExcel
+  // Auto-completion
+  AutocompleteSelect(String) // User clicks a suggestion
+  AutocompleteNav(Int) // Arrow up/down delta in suggestion list
 }
 
 ///|
@@ -71,6 +78,8 @@ pub fn Model::new() -> Model {
     edit_value: "",
     show_chart: true,
     heat_map: true,
+    autocomplete_suggestions: [],
+    autocomplete_index: -1,
   }
   // Recalculate all sheets so formulas are evaluated
   let sheets = model.sheets.copy()

@@ -76,6 +76,8 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
     edit_value: "",
     show_chart: true,
     heat_map: false,
+    autocomplete_suggestions: [],
+    autocomplete_index: -1,
   }
 }
 
