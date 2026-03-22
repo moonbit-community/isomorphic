@@ -1,13 +1,21 @@
 ///|
 /// Top-level application state: all sheets, the active sheet index, selection, and editing state.
 pub(all) struct Model {
+  /// All worksheet tabs in the workbook.
   sheets : Array[@sheet.Sheet]
+  /// Index of the currently visible sheet (0-based).
   active_sheet : Int
+  /// Currently selected column (0-based, A=0).
   sel_col : Int
+  /// Currently selected row (0-based).
   sel_row : Int
+  /// Whether a cell is currently in edit mode.
   editing : Bool
+  /// Text content of the cell being edited.
   edit_value : String
+  /// Whether the bar chart visualization is displayed.
   show_chart : Bool
+  /// Whether the heat map overlay is active.
   heat_map : Bool
 
   fn new() -> Model

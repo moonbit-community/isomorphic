@@ -23,9 +23,12 @@
 ///|
 /// A simple date representation.
 pub(all) struct Date {
+  /// Calendar year (e.g. 2026).
   year : Int
-  month : Int // 1-12
-  day : Int // 1-31
+  /// Month of the year (1-12).
+  month : Int
+  /// Day of the month (1-31).
+  day : Int
 } derive(Eq)
 
 ///|
@@ -43,9 +46,13 @@ pub fn Date::to_string(self : Date) -> String {
 ///|
 /// Calendar component state: the currently displayed month, selected date, and today's date.
 pub struct Model {
+  /// Year of the month currently displayed.
   view_year : Int
-  view_month : Int // 1-12 — the month currently displayed
-  selected : Date? // the selected date, if any
+  /// Month currently displayed (1-12).
+  view_month : Int
+  /// The user-selected date, if any.
+  selected : Date?
+  /// Today's date, used for highlighting.
   today : Date
 
   fn new(today~ : Date) -> Model

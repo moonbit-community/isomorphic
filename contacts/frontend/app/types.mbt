@@ -2,14 +2,17 @@
 /// Application state for the contacts frontend.
 /// Holds the contact list, search query, and add-contact form fields.
 pub(all) struct Model {
+  /// All contacts fetched from the server.
   contacts : Array[@shared.Contact]
-  /// Search query
+  /// Text in the search/filter input field.
   search_query : String
-  /// Add contact form fields
+  /// Name field in the add-contact form.
   name_input : String
+  /// Email field in the add-contact form.
   email_input : String
+  /// Phone field in the add-contact form.
   phone_input : String
-  /// Whether the add contact form is visible
+  /// Whether the add-contact form is visible.
   show_form : Bool
 } derive(Debug)
 

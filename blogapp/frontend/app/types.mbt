@@ -10,14 +10,23 @@ pub(all) enum Page {
 ///|
 /// Frontend state for the blog app, including posts, comments, form inputs, and current page.
 pub(all) struct Model {
+  /// All blog posts fetched from the server.
   posts : Array[@shared.Post]
+  /// The post currently being viewed in detail, if any.
   current_post : @shared.Post?
+  /// Comments on the currently viewed post.
   comments : Array[@shared.Comment]
+  /// The active navigation page.
   page : Page
+  /// Text in the post title input field.
   title_input : String
+  /// Text in the post body content field.
   content_input : String
+  /// Author name for a new comment.
   comment_author : String
+  /// Body text for a new comment.
   comment_content : String
+  /// Whether a network request is in progress.
   loading : Bool
 } derive(Debug)
 

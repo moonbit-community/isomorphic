@@ -1,12 +1,13 @@
 ///|
 /// Application state for the poll app frontend.
 pub(all) struct Model {
+  /// All polls fetched from the server.
   polls : Array[@shared.Poll]
-  /// Create poll form: question input
+  /// Text in the new-poll question input field.
   question_input : String
-  /// Create poll form: option inputs (start with 2 empty strings)
+  /// Text inputs for each poll option (starts with 2 empty strings).
   option_inputs : Array[String]
-  /// Set of poll IDs the user has voted on (tracked client-side)
+  /// IDs of polls the user has already voted on (tracked client-side).
   voted : Array[Int]
 } derive(Debug)
 

@@ -1,11 +1,13 @@
 ///|
 /// Application state for the notes frontend, following the Elm architecture.
 pub(all) struct Model {
+  /// All notes fetched from the server.
   notes : Array[@shared.Note]
-  /// New note form
+  /// Text in the new-note title input field.
   title_input : String
+  /// Text in the new-note content input field.
   content_input : String
-  /// Currently selected note id for detail view (0 = none)
+  /// ID of the note selected for detail view, or 0 if none.
   selected_note_id : Int
 } derive(Debug)
 

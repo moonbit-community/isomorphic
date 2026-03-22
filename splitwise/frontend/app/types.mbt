@@ -1,14 +1,19 @@
 ///|
 /// Application state holding people, expenses, computed settlements, and form inputs.
 pub(all) struct Model {
+  /// All group members.
   people : Array[@shared.Person]
+  /// All recorded shared expenses.
   expenses : Array[@shared.Expense]
+  /// Computed optimal payments to settle all debts.
   settlements : Array[@shared.Settlement]
-  /// Add person form
+  /// Name input for the add-person form.
   person_input : String
-  /// Add expense form
+  /// Description input for the add-expense form.
   desc_input : String
+  /// Amount input for the add-expense form.
   amount_input : String
+  /// ID of the person selected as payer for the new expense.
   paid_by_input : Int
 } derive(Debug)
 

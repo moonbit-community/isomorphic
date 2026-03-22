@@ -4,6 +4,7 @@
 /// This is a plain Model + Msg + update + view, NOT wrapped in a Cell.
 /// Each pattern decides how to wire it differently.
 pub struct Model {
+  /// Current counter value.
   count : Int
 
   fn new() -> Model

@@ -10,34 +10,51 @@ pub(all) enum Page {
 ///|
 /// Frontend state for the finance app, including accounts, transactions, budgets, form inputs, and filters.
 pub(all) struct Model {
+  /// The active navigation page.
   page : Page
-  // Data
+  /// All financial accounts.
   accounts : Array[@shared.Account]
+  /// All transactions across all accounts.
   transactions : Array[@shared.Transaction]
+  /// Available spending categories.
   categories : Array[@shared.Category]
+  /// Monthly budget limits per category.
   budgets : Array[@shared.Budget]
+  /// Aggregated dashboard summary data, if loaded.
   dashboard : @shared.DashboardData?
-  // Transaction form
+  /// Amount input for the new transaction form.
   form_amount : String
+  /// Description input for the new transaction form.
   form_desc : String
+  /// Date input for the new transaction form.
   form_date : String
+  /// Selected account ID for the new transaction.
   form_account_id : Int
+  /// Selected category ID for the new transaction.
   form_category_id : Int
+  /// Income or expense type for the new transaction.
   form_type : @shared.TransactionType
-  // Account form
+  /// Name input for the new account form.
   acct_name : String
+  /// Type selection for the new account form.
   acct_type : @shared.AccountType
-  // Budget form
+  /// Selected category ID for the new budget entry.
   budget_cat_id : Int
+  /// Amount input for the new budget entry.
   budget_amount : String
+  /// Month input for the new budget entry (e.g. "2026-03").
   budget_month : String
-  // Filters
+  /// Account ID filter for the transaction list, or 0 for all.
   filter_account : Int
+  /// Transaction type filter ("income", "expense", or "" for all).
   filter_type : String
-  // UI
+  /// Month string used for budget display (e.g. "2026-03").
   current_month : String
+  /// Whether the add-transaction form is visible.
   show_form : Bool
+  /// Error message to display, or empty if none.
   error : String
+  /// Whether a network request is in progress.
   loading : Bool
 } derive(Debug)
 
