@@ -13,6 +13,8 @@ import {
 // Types and methods
 pub struct Model {
   count : Int
+
+  fn new() -> Model
 }
 pub fn Model::new() -> Self
 pub fn Model::update(Self, Msg) -> Self

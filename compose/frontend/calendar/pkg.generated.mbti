@@ -23,6 +23,8 @@ pub struct Model {
   view_month : Int
   selected : Date?
   today : Date
+
+  fn new(today~ : Date) -> Model
 }
 pub fn Model::new(today~ : Date) -> Self
 pub fn Model::update(Self, Msg) -> Self

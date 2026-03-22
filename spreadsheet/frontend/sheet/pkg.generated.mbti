@@ -19,6 +19,7 @@ pub(all) struct Sheet {
 
   fn new(String) -> Sheet
 }
+pub fn Sheet::clone(Self, cells? : Map[String, @cell.Cell], name? : String) -> Self
 pub fn Sheet::get(Self, String) -> @cell.Cell
 pub fn Sheet::get_num(Self, Int, Int) -> Double
 pub fn Sheet::new(String) -> Self
