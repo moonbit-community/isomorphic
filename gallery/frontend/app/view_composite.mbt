@@ -318,7 +318,7 @@ fn Model::view_date_range(
       for _ in 0..<first_dow {
         cells.push(@html.div(style=["padding: 4px"]) <| "")
       }
-      for d = 1; d <= num_days; d = d + 1 {
+      for d in 1..<=num_days {
         let lo = if dr.start_day < dr.end_day {
           dr.start_day
         } else {

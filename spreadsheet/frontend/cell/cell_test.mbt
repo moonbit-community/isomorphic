@@ -146,12 +146,12 @@ test "Value::Show: float Num" {
 
 ///|
 test "Value::Show: Text" {
-  inspect(@cell.Text("hello"), content="Text(hello)")
+  inspect(@cell.Text("hello"), content="Text(\"hello\")")
 }
 
 ///|
 test "Value::Show: Error" {
-  inspect(@cell.Error("DIV/0"), content="Error(DIV/0)")
+  inspect(@cell.Error("DIV/0"), content="Error(\"DIV/0\")")
 }
 
 // ── Value::Eq ────────────────────────────────────────────────────────

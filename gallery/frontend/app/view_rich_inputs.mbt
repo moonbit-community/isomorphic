@@ -6,7 +6,7 @@ fn Model::view_star_rating(
   let rating = self.star_rating.rating
   let hover = self.star_rating.hover
   let star_buttons : Array[@rabbita.Html] = []
-  for i = 1; i <= 5; i = i + 1 {
+  for i in 1..<=5 {
     let index = i
     let is_filled = if hover > 0 { index <= hover } else { index <= rating }
     let color = if is_filled { "#f59e0b" } else { text_muted }

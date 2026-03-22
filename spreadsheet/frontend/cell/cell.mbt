@@ -15,10 +15,11 @@ pub(all) enum Value {
   Num(Double)
   Text(String)
   Error(String)
-} derive(Eq)
+}
 
 ///|
 /// Display a Value for debugging and test output.
+/// Strings are quoted to avoid ambiguity with special characters.
 pub impl Show for Value with output(self, logger) {
   match self {
     Empty => logger.write_string("Empty")
@@ -30,8 +31,29 @@ pub impl Show for Value with output(self, logger) {
         logger.write_string("Num(\{n})")
       }
     }
-    Text(s) => logger.write_string("Text(\{s})")
-    Error(s) => logger.write_string("Error(\{s})")
+    Text(s) => {
+      logger.write_string("Text(")
+      s.output(logger)
+      logger.write_string(")")
+    }
+    Error(s) => {
+      logger.write_string("Error(")
+      s.output(logger)
+      logger.write_string(")")
+    }
+  }
+}
+
+///|
+/// Value equality that handles NaN correctly (NaN == NaN is true for cell comparison).
+pub impl Eq for Value with equal(self, other) {
+  match (self, other) {
+    (Empty, Empty) => true
+    (Num(a), Num(b)) =>
+      if a.is_nan() && b.is_nan() { true } else { a == b }
+    (Text(a), Text(b)) => a == b
+    (Error(a), Error(b)) => a == b
+    _ => false
   }
 }
 

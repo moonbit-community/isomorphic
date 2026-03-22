@@ -280,7 +280,7 @@ fn Model::view_calendar(
       for _ in 0..<first_dow {
         cells.push(@html.div(style=["padding: 4px"]) <| "")
       }
-      for day = 1; day <= num_days; day = day + 1 {
+      for day in 1..<=num_days {
         let is_today = cal.year == cal.today_year &&
           cal.month == cal.today_month &&
           day == cal.today_day

@@ -118,7 +118,7 @@ fn StepModel::update(self : StepModel, msg : StepMsg) -> StepModel {
   match msg {
     Toggle(i) => {
       let new_steps = FixedArray::make(8, false)
-      for j = 0; j < 8; j = j + 1 {
+      for j in 0..<8 {
         new_steps[j] = if j == i { !self.steps[j] } else { self.steps[j] }
       }
       { steps: new_steps }
@@ -133,7 +133,7 @@ fn StepModel::view(
   color? : String = "#76FF03",
 ) -> @rabbita.Html {
   let buttons : Array[@rabbita.Html] = []
-  for i = 0; i < 8; i = i + 1 {
+  for i in 0..<8 {
     let active = self.steps[i]
     // Alternate inactive shade every 4 steps for beat grouping
     let inactive_bg = if i < 4 { "#3a3a3a" } else { "#444" }

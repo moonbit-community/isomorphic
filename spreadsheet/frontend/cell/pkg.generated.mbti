@@ -43,9 +43,10 @@ pub(all) enum Value {
   Num(Double)
   Text(String)
   Error(String)
-} derive(Eq)
+}
 pub fn Value::format_with(Self, NumFormat) -> String
 pub fn Value::to_display(Self) -> String
+pub impl Eq for Value
 pub impl Show for Value
 
 // Type aliases
