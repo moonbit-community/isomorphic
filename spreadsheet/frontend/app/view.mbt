@@ -754,13 +754,27 @@ fn Model::view_grid(
     style=["flex: 1", "overflow: auto", "background: #fff", "outline: none"],
     on_keydown=kb => {
       let key = kb.key()
-      // When already editing, only handle Escape and Enter from the grid.
-      // Other keystrokes should go to the inline editor's on_input.
+      // When editing, handle keystrokes directly from the grid since
+      // the inline editor may not have received focus (autofocus is
+      // unreliable in virtual DOM re-renders).
       if self.editing {
         if key == "Escape" {
           dispatch(CancelEdit)
         } else if key == "Enter" {
           dispatch(CommitEdit)
+        } else if key == "Tab" {
+          // Commit then move — MoveSelection already commits pending edits
+          dispatch(MoveSelection(1, 0))
+        } else if key == "Backspace" {
+          let v = self.edit_value
+          let new_v = if v.length() > 0 {
+            v[:v.length() - 1].to_string()
+          } else {
+            ""
+          }
+          dispatch(UpdateEdit(new_v))
+        } else if key.length() == 1 {
+          dispatch(UpdateEdit(self.edit_value + key))
         } else {
           @rabbita.none
         }

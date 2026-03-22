@@ -75738,7 +75738,29 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model10view__grid(self, dispa
   }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["flex: 1", "overflow: auto", "background: #fff", "outline: none"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, (kb) => {
     const key = _M0MP319moonbit_2dcommunity7rabbita4html8Keyboard3key(kb);
-    return self.editing ? (key === "Escape" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CancelEdit__) : key === "Enter" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CommitEdit__) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none) : key === "ArrowUp" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(0, -1)) : key === "ArrowDown" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(0, 1)) : key === "ArrowLeft" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(-1, 0)) : key === "ArrowRight" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(1, 0)) : key === "Enter" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9StartEdit__) : key === "Delete" || key === "Backspace" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9ClearCell__) : key === "Tab" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(1, 0)) : key === "Escape" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CancelEdit__) : key.length === 1 ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13StartEditWith(key)) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
+    if (self.editing) {
+      if (key === "Escape") {
+        return dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CancelEdit__);
+      } else {
+        if (key === "Enter") {
+          return dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CommitEdit__);
+        } else {
+          if (key === "Tab") {
+            return dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(1, 0));
+          } else {
+            if (key === "Backspace") {
+              const v = self.edit_value;
+              const new_v = v.length > 0 ? _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(v, 0, v.length - 1 | 0)) : "";
+              return dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg10UpdateEdit(new_v));
+            } else {
+              return key.length === 1 ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg10UpdateEdit(`${self.edit_value}${key}`)) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
+            }
+          }
+        }
+      }
+    } else {
+      return key === "ArrowUp" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(0, -1)) : key === "ArrowDown" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(0, 1)) : key === "ArrowLeft" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(-1, 0)) : key === "ArrowRight" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(1, 0)) : key === "Enter" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9StartEdit__) : key === "Delete" || key === "Backspace" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9ClearCell__) : key === "Tab" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13MoveSelection(1, 0)) : key === "Escape" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CancelEdit__) : key.length === 1 ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg13StartEditWith(key)) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
+    }
   }, undefined, _M0MP319moonbit_2dcommunity7rabbita4html5Attrs8tabindex(_M0MP319moonbit_2dcommunity7rabbita4html5Attrs5build(), 0), rows);
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__sheet__tabs(self, dispatch) {
