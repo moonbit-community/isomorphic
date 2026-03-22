@@ -283,6 +283,37 @@ fn Model::view_formula_bar(
   } else {
     @html.span() <| ""
   }
+  // Live formula preview: evaluate the formula as the user types
+  let preview_text = if self.editing &&
+    !self.edit_value.is_empty() &&
+    self.edit_value[0] == '=' {
+    let sheet = self.current_sheet()
+    let result = @formula.evaluate(self.edit_value, fn(r) {
+      sheet.get(r).value
+    })
+    match result {
+      Num(_) => {
+        let formatted = result.format_with(self.selected_cell().format)
+        Some("= \{formatted}")
+      }
+      Text(s) => Some("= \{s}")
+      Error(_) => None // Don't show errors mid-typing
+      Empty => None
+    }
+  } else {
+    None
+  }
+  let preview_badge : @rabbita.Html = match preview_text {
+    Some(text) =>
+      @html.div(style=[
+        "margin-left: 8px", "padding: 2px 10px", "background: #e8f5e9",
+        "border: 1px solid #a5d6a7", "border-radius: 12px", "font-size: 12px",
+        "color: #2e7d32", "font-weight: 500", "white-space: nowrap",
+        "font-family: 'Google Sans Mono', 'Roboto Mono', monospace",
+        "animation: fadeIn 0.15s ease-out",
+      ]) <| text
+    None => @html.span() <| ""
+  }
   @html.div(style=[
     "display: flex", "align-items: center", "padding: 4px 8px", "background: #fff",
     "border-bottom: 1px solid #e0e0e0", "min-height: 36px", "position: relative",
@@ -346,6 +377,8 @@ fn Model::view_formula_bar(
       ) <| "",
       dropdown,
     ],
+    // Live formula preview badge
+    preview_badge,
   ]
 }
 

@@ -75300,10 +75300,74 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model18view__formula__bar(sel
     }
   }
   const dropdown = has_suggestions ? _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["position: absolute", "top: 100%", "left: 0", "right: 0", "z-index: 10", "background: #fff", "border: 1px solid #dadce0", "border-top: none", "border-radius: 0 0 4px 4px", "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)", "max-height: 200px", "overflow-y: auto"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, dropdown_items) : _M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "");
+  let preview_text;
+  let _tmp$3;
+  if (self.editing) {
+    let _tmp$4;
+    if (!_M0MPC16string6String9is__empty(self.edit_value)) {
+      const _tmp$5 = self.edit_value;
+      $bound_check(_tmp$5, 0);
+      _tmp$4 = _M0IPC16uint166UInt16PB2Eq5equal(_tmp$5.charCodeAt(0), 61);
+    } else {
+      _tmp$4 = false;
+    }
+    _tmp$3 = _tmp$4;
+  } else {
+    _tmp$3 = false;
+  }
+  if (_tmp$3) {
+    const sheet = _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self);
+    const result = _M0FP48bobzhang11spreadsheet8frontend7formula8evaluate(self.edit_value, (r) => _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3get(sheet, r).value);
+    let s;
+    _L: {
+      _L$2: {
+        switch (result.$tag) {
+          case 1: {
+            const formatted = _M0MP48bobzhang11spreadsheet8frontend4cell5Value12format__with(result, _M0MP48bobzhang11spreadsheet8frontend3app5Model14selected__cell(self).format);
+            preview_text = `= ${_M0IPC16string6StringPB4Show10to__string(formatted)}`;
+            break;
+          }
+          case 2: {
+            const _Text = result;
+            const _s = _Text._0;
+            s = _s;
+            break _L$2;
+          }
+          case 3: {
+            preview_text = undefined;
+            break;
+          }
+          default: {
+            preview_text = undefined;
+          }
+        }
+        break _L;
+      }
+      preview_text = `= ${_M0IPC16string6StringPB4Show10to__string(s)}`;
+    }
+  } else {
+    preview_text = undefined;
+  }
+  let preview_badge;
+  let text;
+  _L: {
+    _L$2: {
+      if (preview_text === undefined) {
+        preview_badge = _M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, "");
+      } else {
+        const _Some = preview_text;
+        const _text = _Some;
+        text = _text;
+        break _L$2;
+      }
+      break _L;
+    }
+    preview_badge = _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["margin-left: 8px", "padding: 2px 10px", "background: #e8f5e9", "border: 1px solid #a5d6a7", "border-radius: 12px", "font-size: 12px", "color: #2e7d32", "font-weight: 500", "white-space: nowrap", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "animation: fadeIn 0.15s ease-out"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, text);
+  }
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "align-items: center", "padding: 4px 8px", "background: #fff", "border-bottom: 1px solid #e0e0e0", "min-height: 36px", "position: relative"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGsE(["min-width: 64px", "height: 28px", "text-align: center", "font-weight: 500", "font-size: 13px", "color: #202124", "border: 1px solid #dadce0", "border-radius: 4px", "display: flex", "align-items: center", "justify-content: center", "margin-right: 8px", "background: #f8f9fa", "padding: 0 8px"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, cell_name), _M0FP319moonbit_2dcommunity7rabbita4html12span_2einnerGsE(["font-size: 13px", "color: #70757a", "margin-right: 8px", "font-style: italic", "font-weight: 500"], undefined, undefined, undefined, -1, undefined, "fx"), _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["flex: 1", "position: relative"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, (kb) => {
     const key = _M0MP319moonbit_2dcommunity7rabbita4html8Keyboard3key(kb);
     return has_suggestions ? (key === "ArrowDown" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15AutocompleteNav(1)) : key === "ArrowUp" ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15AutocompleteNav(-1)) : key === "Escape" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CancelEdit__) : (key === "Tab" || key === "Enter") && self.autocomplete_index >= 0 ? dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg18AutocompleteSelect(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.autocomplete_suggestions, self.autocomplete_index))) : key === "Enter" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CommitEdit__) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none) : key === "Enter" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CommitEdit__) : key === "Escape" ? dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CancelEdit__) : _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
-  }, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, display_value, -1, -1, -1, undefined, undefined, undefined, ["width: 100%", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px", "height: 28px", "color: #202124", "transition: border-color 0.15s ease", "box-sizing: border-box"], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, (_value) => dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CommitEdit__), (value) => dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg10UpdateEdit(value)), undefined, ""), dropdown])]);
+  }, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html13input_2einnerGsE(18, undefined, display_value, -1, -1, -1, undefined, undefined, undefined, ["width: 100%", "border: 1px solid #dadce0", "padding: 4px 10px", "font-size: 13px", "font-family: 'Google Sans Mono', 'Roboto Mono', monospace", "border-radius: 4px", "height: 28px", "color: #202124", "transition: border-color 0.15s ease", "box-sizing: border-box"], undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, -1, -1, -1, undefined, undefined, (_value) => dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg10CommitEdit__), (value) => dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg10UpdateEdit(value)), undefined, ""), dropdown]), preview_badge]);
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app20collect__heat__range(sheet) {
   const rows = [1, 2, 3, 4, 5, 7];
