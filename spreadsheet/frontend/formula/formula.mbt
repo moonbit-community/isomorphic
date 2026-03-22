@@ -453,23 +453,21 @@ fn parse_expr(
   state : ParseState,
   lookup : (String) -> @cell.Value,
 ) -> @cell.Value raise Error {
-  let mut left = parse_term(state, lookup)
-  while true {
+  for left = parse_term(state, lookup); ; {
     match state.peek() {
       Some(TPlus) => {
         state.advance()
         let right = parse_term(state, lookup)
-        left = add_values(left, right)
+        continue add_values(left, right)
       }
       Some(TMinus) => {
         state.advance()
         let right = parse_term(state, lookup)
-        left = sub_values(left, right)
+        continue sub_values(left, right)
       }
-      _ => break
+      _ => break left
     }
   }
-  left
 }
 
 ///|
@@ -481,23 +479,21 @@ fn parse_term(
   state : ParseState,
   lookup : (String) -> @cell.Value,
 ) -> @cell.Value raise Error {
-  let mut left = parse_factor(state, lookup)
-  while true {
+  for left = parse_factor(state, lookup); ; {
     match state.peek() {
       Some(TMul) => {
         state.advance()
         let right = parse_factor(state, lookup)
-        left = mul_values(left, right)
+        continue mul_values(left, right)
       }
       Some(TDiv) => {
         state.advance()
         let right = parse_factor(state, lookup)
-        left = div_values(left, right)
+        continue div_values(left, right)
       }
-      _ => break
+      _ => break left
     }
   }
-  left
 }
 
 ///|
@@ -852,34 +848,34 @@ fn apply_aggregate_func(name : String, values : Array[Double]) -> @cell.Value {
   }
   match name {
     "SUM" => {
-      let mut sum = 0.0
-      for v in values {
-        sum = sum + v
+      let sum = for v in values; sum = 0.0 {
+        continue sum + v
+      } nobreak {
+        sum
       }
       Num(sum)
     }
     "AVG" | "AVERAGE" => {
-      let mut sum = 0.0
-      for v in values {
-        sum = sum + v
+      let sum = for v in values; sum = 0.0 {
+        continue sum + v
+      } nobreak {
+        sum
       }
       Num(sum / values.length().to_double())
     }
     "MIN" => {
-      let mut min = values[0]
-      for v in values {
-        if v < min {
-          min = v
-        }
+      let min = for v in values; min = values[0] {
+        continue if v < min { v } else { min }
+      } nobreak {
+        min
       }
       Num(min)
     }
     "MAX" => {
-      let mut max = values[0]
-      for v in values {
-        if v > max {
-          max = v
-        }
+      let max = for v in values; max = values[0] {
+        continue if v > max { v } else { max }
+      } nobreak {
+        max
       }
       Num(max)
     }
@@ -1135,11 +1131,11 @@ fn compare_values(
 /// Compute 10 raised to the power `n` by repeated multiplication.
 /// Used by `ROUND` to scale values before and after rounding.
 fn pow10(n : Int) -> Double {
-  let mut result = 1.0
-  for _ in 0..<n {
-    result = result * 10.0
+  for _ in 0..<n; result = 1.0 {
+    continue result * 10.0
+  } nobreak {
+    result
   }
-  result
 }
 
 ///|
