@@ -621,6 +621,7 @@ fn Model::view_grid(
             ],
             value=self.edit_value,
             on_input=value => dispatch(UpdateEdit(value)),
+            on_change=_value => dispatch(CommitEdit),
             autofocus=true,
           ) <| "",
         )
