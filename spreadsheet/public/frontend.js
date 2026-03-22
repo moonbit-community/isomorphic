@@ -69492,14 +69492,7 @@ function _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(self) {
         }
         break _L$2;
       }
-      const _bind$15 = c.value;
-      let value;
-      if (_bind$15.$tag === 0) {
-        value = new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error("CIRCULAR");
-      } else {
-        value = c.value;
-      }
-      _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, k, new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, value, c.bold, c.italic, c.align, c.format, c.bg_color, c.text_color));
+      _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, k, new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error("CIRCULAR"), c.bold, c.italic, c.align, c.format, c.bg_color, c.text_color));
     }
     continue;
   }

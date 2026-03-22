@@ -146,18 +146,14 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     }
   }
 
-  // Mark cycle members as CIRCULAR, but preserve cached non-Empty values
-  // (e.g. imported xlsx cells with unsupported formulas like XLOOKUP that
-  // create false dependency cycles via extract_references)
+  // Mark cycle members as CIRCULAR.
+  // For imported xlsx cells with unsupported formulas (e.g. XLOOKUP) that
+  // create false cycles via extract_references, the cell may have a cached
+  // value AND the formula engine will fail to evaluate. In that case,
+  // preserve the cached value. For all other cases, mark CIRCULAR.
   for k, _ in is_cycle_member {
     match self.cells.get(k) {
-      Some(c) => {
-        let value = match c.value {
-          Empty => @cell.Error("CIRCULAR")
-          _ => c.value // preserve cached xlsx value
-        }
-        new_cells[k] = { ..c, value }
-      }
+      Some(c) => new_cells[k] = { ..c, value: @cell.Error("CIRCULAR") }
       None => ()
     }
   }
