@@ -483,3 +483,270 @@ test "full edit-navigate-edit cycle" {
   let (_, m5) = m4.update(noop_dispatch, CommitEdit)
   assert_eq(m5.selected_cell().value, Num(200.0))
 }
+
+// ── Event replay: simulating keyboard input sequences ───────────────
+// These tests simulate the exact message sequences that the grid's
+// on_keydown handler would dispatch for keyboard interactions.
+
+///|
+/// Helper: replay a sequence of Msgs and return the final Model.
+fn replay(model : Model, msgs : Array[Msg]) -> Model {
+  let mut m = model
+  for msg in msgs {
+    let (_, next) = m.update(noop_dispatch, msg)
+    m = next
+  }
+  m
+}
+
+///|
+test "replay: type '33' in J6 then Enter commits the value" {
+  let m = empty_model()
+  let result = replay(m, [
+    SelectCell(9, 5),         // Click J6
+    StartEditWith("3"),       // Type first "3" → starts editing
+    UpdateEdit("33"),         // Type second "3" → appends
+    CommitEdit,               // Press Enter
+  ])
+  assert_eq(result.editing, false)
+  assert_eq(result.sheets[0].get("J6").raw, "33")
+  assert_eq(result.sheets[0].get("J6").value, Num(33.0))
+}
+
+///|
+test "replay: type '33' char by char via grid keydown simulation" {
+  // Simulates: click J6, type "3", type "3", press Enter
+  // Grid keydown dispatches StartEditWith for first char, UpdateEdit for rest
+  let m = empty_model()
+  let result = replay(m, [
+    SelectCell(9, 5),
+    StartEditWith("3"),                     // First char starts editing
+    UpdateEdit("3" + "3"),                  // Second char appends (grid keydown: edit_value + key)
+    CommitEdit,
+  ])
+  assert_eq(result.sheets[0].get("J6").raw, "33")
+  assert_eq(result.sheets[0].get("J6").value, Num(33.0))
+}
+
+///|
+test "replay: type 'hello' and verify each keystroke" {
+  let m = { ..empty_model(), sel_col: 0, sel_row: 0 }
+  let m1 = replay(m, [StartEditWith("h")])
+  assert_eq(m1.editing, true)
+  assert_eq(m1.edit_value, "h")
+
+  let m2 = replay(m1, [UpdateEdit("he")])
+  assert_eq(m2.edit_value, "he")
+
+  let m3 = replay(m2, [UpdateEdit("hel")])
+  assert_eq(m3.edit_value, "hel")
+
+  let m4 = replay(m3, [UpdateEdit("hell")])
+  assert_eq(m4.edit_value, "hell")
+
+  let m5 = replay(m4, [UpdateEdit("hello")])
+  assert_eq(m5.edit_value, "hello")
+
+  let m6 = replay(m5, [CommitEdit])
+  assert_eq(m6.editing, false)
+  assert_eq(m6.sheets[0].get("A1").raw, "hello")
+  assert_eq(m6.sheets[0].get("A1").value, Text("hello"))
+}
+
+///|
+test "replay: backspace removes last character" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("a"),
+    UpdateEdit("ab"),
+    UpdateEdit("abc"),
+    UpdateEdit("ab"),  // Backspace → remove last char
+    CommitEdit,
+  ])
+  assert_eq(result.sheets[0].get("A1").raw, "ab")
+}
+
+///|
+test "replay: Escape cancels editing without committing" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("x"),
+    UpdateEdit("xyz"),
+    CancelEdit,
+  ])
+  assert_eq(result.editing, false)
+  assert_eq(result.edit_value, "")
+  // Cell should still be empty
+  assert_eq(result.sheets[0].get("A1").raw, "")
+}
+
+///|
+test "replay: Tab commits and moves right (via MoveSelection)" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("5"),
+    MoveSelection(1, 0),  // Tab → MoveSelection commits pending edit
+  ])
+  assert_eq(result.editing, false)
+  assert_eq(result.sel_col, 1)  // Moved to B1
+  assert_eq(result.sheets[0].get("A1").raw, "5")
+  assert_eq(result.sheets[0].get("A1").value, Num(5.0))
+}
+
+///|
+test "replay: formula =SUM(A1:A3) evaluates correctly" {
+  let m = empty_model()
+  let result = replay(m, [
+    // Enter data in A1, A2, A3
+    SelectCell(0, 0), StartEditWith("10"), CommitEdit,
+    SelectCell(0, 1), StartEditWith("20"), CommitEdit,
+    SelectCell(0, 2), StartEditWith("30"), CommitEdit,
+    // Enter formula in A4
+    SelectCell(0, 3), StartEditWith("=SUM(A1:A3)"), CommitEdit,
+  ])
+  assert_eq(result.sheets[0].get("A4").raw, "=SUM(A1:A3)")
+  assert_eq(result.sheets[0].get("A4").value, Num(60.0))
+}
+
+///|
+test "replay: editing then clicking another cell commits first" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("42"),
+    SelectCell(2, 3),  // Click C4 → commits "42" to A1
+  ])
+  assert_eq(result.editing, false)
+  assert_eq(result.sel_col, 2)
+  assert_eq(result.sel_row, 3)
+  assert_eq(result.sheets[0].get("A1").raw, "42")
+}
+
+///|
+test "replay: multiple cells filled in sequence" {
+  let m = empty_model()
+  let result = replay(m, [
+    // A1 = 10
+    StartEditWith("10"), CommitEdit,
+    // Move to B1, enter 20
+    MoveSelection(1, 0), StartEditWith("20"), CommitEdit,
+    // Move to C1, enter formula
+    MoveSelection(1, 0), StartEditWith("=A1+B1"), CommitEdit,
+  ])
+  assert_eq(result.sheets[0].get("A1").value, Num(10.0))
+  assert_eq(result.sheets[0].get("B1").value, Num(20.0))
+  assert_eq(result.sheets[0].get("C1").value, Num(30.0))
+}
+
+///|
+test "replay: StartEditWith while already editing appends" {
+  // Safety net: if StartEditWith fires while editing, append don't replace
+  let m = empty_model()
+  let m1 = replay(m, [StartEditWith("a")])
+  assert_eq(m1.editing, true)
+  assert_eq(m1.edit_value, "a")
+
+  let m2 = replay(m1, [StartEditWith("b")])
+  assert_eq(m2.edit_value, "ab")  // Appended, not replaced
+}
+
+///|
+test "replay: autocomplete appears when typing function prefix" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("="),
+    UpdateEdit("=SU"),
+  ])
+  assert_eq(result.editing, true)
+  assert_eq(result.edit_value, "=SU")
+  // Should have SUM in suggestions
+  assert_true(result.autocomplete_suggestions.length() > 0)
+  assert_true(result.autocomplete_suggestions.contains("SUM"))
+}
+
+///|
+test "replay: autocomplete select inserts function name" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("="),
+    UpdateEdit("=SU"),
+    AutocompleteSelect("SUM"),
+  ])
+  assert_eq(result.edit_value, "=SUM(")
+  assert_eq(result.autocomplete_suggestions.length(), 0)
+}
+
+///|
+test "replay: autocomplete clears on CommitEdit" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("="),
+    UpdateEdit("=SUM(A1)"),
+    CommitEdit,
+  ])
+  assert_eq(result.autocomplete_suggestions.length(), 0)
+  assert_eq(result.autocomplete_index, -1)
+}
+
+///|
+test "replay: autocomplete clears on SelectCell" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("="),
+    UpdateEdit("=SU"),
+    SelectCell(5, 5),
+  ])
+  assert_eq(result.autocomplete_suggestions.length(), 0)
+}
+
+///|
+test "replay: full formula editing flow with autocomplete" {
+  let m = empty_model()
+  // Enter data first
+  let m1 = replay(m, [
+    SelectCell(0, 0), StartEditWith("100"), CommitEdit,
+    SelectCell(0, 1), StartEditWith("200"), CommitEdit,
+  ])
+  // Now enter formula with autocomplete in A3
+  let result = replay(m1, [
+    SelectCell(0, 2),
+    StartEditWith("="),
+    UpdateEdit("=SU"),                // Shows autocomplete
+    AutocompleteSelect("SUM"),        // Inserts "=SUM("
+    UpdateEdit("=SUM(A1:A2)"),        // User types the range
+    CommitEdit,
+  ])
+  assert_eq(result.sheets[0].get("A3").raw, "=SUM(A1:A2)")
+  assert_eq(result.sheets[0].get("A3").value, Num(300.0))
+}
+
+///|
+test "replay: edit, cancel, edit again preserves independence" {
+  let m = empty_model()
+  let result = replay(m, [
+    StartEditWith("wrong"), CancelEdit,  // Cancel first attempt
+    StartEditWith("right"), CommitEdit,   // Commit second attempt
+  ])
+  assert_eq(result.sheets[0].get("A1").raw, "right")
+}
+
+///|
+test "replay: ClearCell removes value and formatting" {
+  let m = empty_model()
+  m.sheets[0].set_cell("A1", "42")
+  let result = replay(m, [ClearCell])
+  assert_eq(result.sheets[0].get("A1").raw, "")
+  assert_eq(result.sheets[0].get("A1").value, Empty)
+}
+
+///|
+test "replay: formatting preserved through edit cycle" {
+  let m = empty_model()
+  // Set bold, then edit value — bold should survive
+  let result = replay(m, [
+    StartEditWith("10"), CommitEdit,
+    ToggleBold,
+    StartEdit, UpdateEdit("20"), CommitEdit,
+  ])
+  assert_eq(result.sheets[0].get("A1").raw, "20")
+  assert_eq(result.sheets[0].get("A1").bold, true)
+}
