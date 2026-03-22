@@ -15,7 +15,7 @@ pub(all) enum Value {
   Num(Double)
   Text(String)
   Error(String)
-} derive(Debug)
+} derive(Debug, ToJson, FromJson)
 
 ///|
 /// Display a Value for debugging and test output.
@@ -88,7 +88,7 @@ pub(all) enum Align {
   Left
   Center
   Right
-}
+} derive(ToJson, FromJson)
 
 ///|
 /// Display format applied when rendering numeric cell values.
@@ -108,7 +108,7 @@ pub(all) enum NumFormat {
   Currency // $1,234.56
   Percent // 45.2%
   Fixed // 1234.56 (2 decimal places)
-}
+} derive(ToJson, FromJson)
 
 ///|
 /// A single spreadsheet cell combining raw input, computed value, and visual styling.
@@ -138,7 +138,7 @@ pub(all) struct Cell {
     bg_color? : String,
     text_color? : String,
   ) -> Cell
-}
+} derive(ToJson, FromJson)
 
 ///|
 /// Create a blank cell with no content and default styling.

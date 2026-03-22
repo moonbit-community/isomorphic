@@ -1,3 +1,29 @@
+function _M0DTPB4Json4Null() {}
+_M0DTPB4Json4Null.prototype.$tag = 0;
+const _M0DTPB4Json4Null__ = new _M0DTPB4Json4Null();
+function _M0DTPB4Json4True() {}
+_M0DTPB4Json4True.prototype.$tag = 1;
+const _M0DTPB4Json4True__ = new _M0DTPB4Json4True();
+function _M0DTPB4Json5False() {}
+_M0DTPB4Json5False.prototype.$tag = 2;
+const _M0DTPB4Json5False__ = new _M0DTPB4Json5False();
+function _M0DTPB4Json6Number(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPB4Json6Number.prototype.$tag = 3;
+function _M0DTPB4Json6String(param0) {
+  this._0 = param0;
+}
+_M0DTPB4Json6String.prototype.$tag = 4;
+function _M0DTPB4Json5Array(param0) {
+  this._0 = param0;
+}
+_M0DTPB4Json5Array.prototype.$tag = 5;
+function _M0DTPB4Json6Object(param0) {
+  this._0 = param0;
+}
+_M0DTPB4Json6Object.prototype.$tag = 6;
 function _M0TPB15WasmHelperCache(param0, param1) {
   this.tried = param0;
   this.exports = param1;
@@ -209,214 +235,238 @@ _M0DTPC16result6ResultGUOsORPC16string10StringViewERPB7FailureE2Ok.prototype.$ta
 function _M0DTPC15error5Error54moonbit_2dcommunity_2frabbita_2fjs_2eError___2eError__(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error54moonbit_2dcommunity_2frabbita_2fjs_2eError___2eError__.prototype.$tag = 60;
+_M0DTPC15error5Error54moonbit_2dcommunity_2frabbita_2fjs_2eError___2eError__.prototype.$tag = 66;
 function _M0DTPC15error5Error60moonbitlang_2fcore_2fencoding_2futf8_2eMalformed_2eMalformed(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error60moonbitlang_2fcore_2fencoding_2futf8_2eMalformed_2eMalformed.prototype.$tag = 59;
+_M0DTPC15error5Error60moonbitlang_2fcore_2fencoding_2futf8_2eMalformed_2eMalformed.prototype.$tag = 65;
 function _M0DTPC15error5Error61moonbitlang_2fcore_2fencoding_2futf16_2eMalformed_2eMalformed(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error61moonbitlang_2fcore_2fencoding_2futf16_2eMalformed_2eMalformed.prototype.$tag = 58;
+_M0DTPC15error5Error61moonbitlang_2fcore_2fencoding_2futf16_2eMalformed_2eMalformed.prototype.$tag = 64;
 function _M0DTPC15error5Error58moonbitlang_2fcore_2fstrconv_2eStrConvError_2eStrConvError(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58moonbitlang_2fcore_2fstrconv_2eStrConvError_2eStrConvError.prototype.$tag = 57;
+_M0DTPC15error5Error58moonbitlang_2fcore_2fstrconv_2eStrConvError_2eStrConvError.prototype.$tag = 63;
 function _M0DTPC15error5Error56bobzhang_2fmbtexcel_2fooxml_2eParseXmlError_2eInvalidXml(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error56bobzhang_2fmbtexcel_2fooxml_2eParseXmlError_2eInvalidXml.prototype.$tag = 56;
+_M0DTPC15error5Error56bobzhang_2fmbtexcel_2fooxml_2eParseXmlError_2eInvalidXml.prototype.$tag = 62;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fcrypto_2eCryptoError_2eInvalidCrypto(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fcrypto_2eCryptoError_2eInvalidCrypto.prototype.$tag = 55;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fcrypto_2eCryptoError_2eInvalidCrypto.prototype.$tag = 61;
 function _M0DTPC15error5Error52bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eMissingPart(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error52bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eMissingPart.prototype.$tag = 54;
+_M0DTPC15error5Error52bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eMissingPart.prototype.$tag = 60;
 function _M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eSheetNotFound(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eSheetNotFound.prototype.$tag = 53;
+_M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eSheetNotFound.prototype.$tag = 59;
 function _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetName(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetName.prototype.$tag = 52;
+_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetName.prototype.$tag = 58;
 function _M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eSheetAlreadyExists(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eSheetAlreadyExists.prototype.$tag = 51;
+_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eSheetAlreadyExists.prototype.$tag = 57;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetIndex(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetIndex.prototype.$tag = 50;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetIndex.prototype.$tag = 56;
 function _M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetOperation(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetOperation.prototype.$tag = 49;
+_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetOperation.prototype.$tag = 55;
 function _M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml.prototype.$tag = 48;
+_M0DTPC15error5Error51bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidXml.prototype.$tag = 54;
 function _M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidBase64(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidBase64.prototype.$tag = 47;
+_M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidBase64.prototype.$tag = 53;
 function _M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidCellRef(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidCellRef.prototype.$tag = 46;
+_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidCellRef.prototype.$tag = 52;
 function _M0DTPC15error5Error60bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSharedString(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error60bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSharedString.prototype.$tag = 45;
+_M0DTPC15error5Error60bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSharedString.prototype.$tag = 51;
 function _M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidStyleId(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidStyleId.prototype.$tag = 44;
+_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidStyleId.prototype.$tag = 50;
 function _M0DTPC15error5Error53bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidTable(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error53bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidTable.prototype.$tag = 43;
+_M0DTPC15error5Error53bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidTable.prototype.$tag = 49;
 function _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSparkline(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSparkline.prototype.$tag = 42;
+_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSparkline.prototype.$tag = 48;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPivotTable(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPivotTable.prototype.$tag = 41;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPivotTable.prototype.$tag = 47;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidVBAProject(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidVBAProject.prototype.$tag = 40;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidVBAProject.prototype.$tag = 46;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidVmlDrawing(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidVmlDrawing.prototype.$tag = 39;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidVmlDrawing.prototype.$tag = 45;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidAutoFilter(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidAutoFilter.prototype.$tag = 38;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidAutoFilter.prototype.$tag = 44;
 function _M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidDataValidation(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidDataValidation.prototype.$tag = 37;
+_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidDataValidation.prototype.$tag = 43;
 function _M0DTPC15error5Error65bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidConditionalFormat(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error65bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidConditionalFormat.prototype.$tag = 36;
+_M0DTPC15error5Error65bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidConditionalFormat.prototype.$tag = 42;
 function _M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidDefinedName(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidDefinedName.prototype.$tag = 35;
+_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidDefinedName.prototype.$tag = 41;
 function _M0DTPC15error5Error61bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eDefinedNameDuplicate(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error61bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eDefinedNameDuplicate.prototype.$tag = 34;
+_M0DTPC15error5Error61bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eDefinedNameDuplicate.prototype.$tag = 40;
 function _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eDefinedNameScope(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eDefinedNameScope.prototype.$tag = 33;
+_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eDefinedNameScope.prototype.$tag = 39;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPageLayout(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPageLayout.prototype.$tag = 32;
+_M0DTPC15error5Error58bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPageLayout.prototype.$tag = 38;
 function _M0DTPC15error5Error60bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidHeaderFooter(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error60bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidHeaderFooter.prototype.$tag = 31;
+_M0DTPC15error5Error60bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidHeaderFooter.prototype.$tag = 37;
 function _M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetProtection(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetProtection.prototype.$tag = 30;
+_M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetProtection.prototype.$tag = 36;
 function _M0DTPC15error5Error64bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidWorkbookProperty(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error64bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidWorkbookProperty.prototype.$tag = 29;
+_M0DTPC15error5Error64bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidWorkbookProperty.prototype.$tag = 35;
 function _M0DTPC15error5Error66bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidWorkbookProtection(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error66bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidWorkbookProtection.prototype.$tag = 28;
+_M0DTPC15error5Error66bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidWorkbookProtection.prototype.$tag = 34;
 function _M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidOptions(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidOptions.prototype.$tag = 27;
+_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidOptions.prototype.$tag = 33;
 function _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidExcelDate(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidExcelDate.prototype.$tag = 26;
+_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidExcelDate.prototype.$tag = 32;
 function _M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetBackground(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetBackground.prototype.$tag = 25;
+_M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidSheetBackground.prototype.$tag = 31;
 function _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidHyperlink(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidHyperlink.prototype.$tag = 24;
+_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidHyperlink.prototype.$tag = 30;
 function _M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eHyperlinkLimitExceeded(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eHyperlinkLimitExceeded.prototype.$tag = 23;
+_M0DTPC15error5Error63bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eHyperlinkLimitExceeded.prototype.$tag = 29;
 function _M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eCellTextTooLong(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eCellTextTooLong.prototype.$tag = 22;
+_M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eCellTextTooLong.prototype.$tag = 28;
 function _M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eGraphicNameTooLong(param0, param1) {
   this._0 = param0;
   this._1 = param1;
 }
-_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eGraphicNameTooLong.prototype.$tag = 21;
+_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eGraphicNameTooLong.prototype.$tag = 27;
 function _M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eGraphicAltTextTooLong(param0, param1) {
   this._0 = param0;
   this._1 = param1;
 }
-_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eGraphicAltTextTooLong.prototype.$tag = 20;
+_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eGraphicAltTextTooLong.prototype.$tag = 26;
 function _M0DTPC15error5Error61bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eCommentAlreadyExists(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error61bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eCommentAlreadyExists.prototype.$tag = 19;
+_M0DTPC15error5Error61bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eCommentAlreadyExists.prototype.$tag = 25;
 function _M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eTableNotFound(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eTableNotFound.prototype.$tag = 18;
+_M0DTPC15error5Error54bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eTableNotFound.prototype.$tag = 24;
 function _M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamModeConflict(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamModeConflict.prototype.$tag = 17;
+_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamModeConflict.prototype.$tag = 23;
 function _M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamRowOrder(param0, param1) {
   this._0 = param0;
   this._1 = param1;
 }
-_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamRowOrder.prototype.$tag = 16;
+_M0DTPC15error5Error55bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamRowOrder.prototype.$tag = 22;
 function _M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamWriterClosed() {}
-_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamWriterClosed.prototype.$tag = 15;
+_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eStreamWriterClosed.prototype.$tag = 21;
 function _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eEncryptedPackage() {}
-_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eEncryptedPackage.prototype.$tag = 14;
+_M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eEncryptedPackage.prototype.$tag = 20;
 const _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eEncryptedPackage__ = new _M0DTPC15error5Error57bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eEncryptedPackage();
 function _M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidEncryptionInfo(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidEncryptionInfo.prototype.$tag = 13;
+_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidEncryptionInfo.prototype.$tag = 19;
 function _M0DTPC15error5Error64bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidEncryptedPackage(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error64bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidEncryptedPackage.prototype.$tag = 12;
+_M0DTPC15error5Error64bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidEncryptedPackage.prototype.$tag = 18;
 function _M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPassword() {}
-_M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPassword.prototype.$tag = 11;
+_M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPassword.prototype.$tag = 17;
 const _M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPassword__ = new _M0DTPC15error5Error56bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPassword();
 function _M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPasswordLength(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPasswordLength.prototype.$tag = 10;
+_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eInvalidPasswordLength.prototype.$tag = 16;
 function _M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eUnsupportedEncryption(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eUnsupportedEncryption.prototype.$tag = 9;
+_M0DTPC15error5Error62bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eUnsupportedEncryption.prototype.$tag = 15;
 function _M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eUnsupportedFeature(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eUnsupportedFeature.prototype.$tag = 8;
+_M0DTPC15error5Error59bobzhang_2fmbtexcel_2fxlsx_2eXlsxError_2eUnsupportedFeature.prototype.$tag = 14;
+function _M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar.prototype.$tag = 13;
+function _M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof() {}
+_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof.prototype.$tag = 12;
+const _M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__ = new _M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof();
+function _M0DTPC15error5Error54moonbitlang_2fcore_2fjson_2eParseError_2eInvalidNumber(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC15error5Error54moonbitlang_2fcore_2fjson_2eParseError_2eInvalidNumber.prototype.$tag = 11;
+function _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eInvalidIdentEscape(param0) {
+  this._0 = param0;
+}
+_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eInvalidIdentEscape.prototype.$tag = 10;
+function _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded() {}
+_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded.prototype.$tag = 9;
+const _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded__ = new _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded();
+function _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError(param0) {
+  this._0 = param0;
+}
+_M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError.prototype.$tag = 8;
 function _M0DTPC15error5Error58bobzhang_2fmbtexcel_2fbase64_2eBase64Error_2eInvalidBase64(param0) {
   this._0 = param0;
 }
@@ -483,6 +533,22 @@ function _M0TPB9ArrayViewGRP419moonbit_2dcommunity7rabbita8internal7runtime5INod
   this.start = param1;
   this.end = param2;
 }
+function _M0DTPC16result6ResultGusE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGusE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGusE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGusE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok.prototype.$tag = 1;
 function _M0DTPC16option6OptionGRP319moonbit_2dcommunity7rabbita2js5ValueE4None() {}
 _M0DTPC16option6OptionGRP319moonbit_2dcommunity7rabbita2js5ValueE4None.prototype.$tag = 0;
 const _M0DTPC16option6OptionGRP319moonbit_2dcommunity7rabbita2js5ValueE4None__ = new _M0DTPC16option6OptionGRP319moonbit_2dcommunity7rabbita2js5ValueE4None();
@@ -661,6 +727,22 @@ function _M0TPB5EntryGsiE(param0, param1, param2, param3, param4, param5) {
   this.key = param4;
   this.value = param5;
 }
+function _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(param0, param1, param2, param3, param4, param5) {
+  this.prev = param0;
+  this.next = param1;
+  this.psl = param2;
+  this.hash = param3;
+  this.key = param4;
+  this.value = param5;
+}
+function _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(param0, param1, param2, param3, param4, param5) {
+  this.prev = param0;
+  this.next = param1;
+  this.psl = param2;
+  this.hash = param3;
+  this.key = param4;
+  this.value = param5;
+}
 function _M0TPB5EntryGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuEE(param0, param1, param2, param3, param4, param5) {
   this.prev = param0;
   this.next = param1;
@@ -677,15 +759,7 @@ function _M0TPB5EntryGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(
   this.key = param4;
   this.value = param5;
 }
-function _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(param0, param1, param2, param3, param4, param5) {
-  this.prev = param0;
-  this.next = param1;
-  this.psl = param2;
-  this.hash = param3;
-  this.key = param4;
-  this.value = param5;
-}
-function _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(param0, param1, param2, param3, param4, param5) {
+function _M0TPB5EntryGsRPB4JsonE(param0, param1, param2, param3, param4, param5) {
   this.prev = param0;
   this.next = param1;
   this.psl = param2;
@@ -891,6 +965,8 @@ const _M0MPB7MyInt6423reinterpret__as__double = function f(a) {
   view.setUint32(4, a.lo);
   return view.getFloat64(0);
 };
+const $9218868437227405311L = { hi: 2146435071, lo: -1 };
+const $_4503599627370497L = { hi: -1048577, lo: -1 };
 const _M0FPB23try__init__wasm__helper = function() {
   try {
     return new WebAssembly.Instance(new WebAssembly.Module(new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 13, 2, 96, 0, 1, 127, 96, 4, 127, 127, 127, 127, 1, 127, 3, 7, 6, 0, 1, 1, 1, 1, 1, 6, 6, 1, 127, 1, 65, 0, 11, 7, 50, 6, 3, 109, 117, 108, 0, 1, 5, 100, 105, 118, 95, 115, 0, 2, 5, 100, 105, 118, 95, 117, 0, 3, 5, 114, 101, 109, 95, 115, 0, 4, 5, 114, 101, 109, 95, 117, 0, 5, 8, 103, 101, 116, 95, 104, 105, 103, 104, 0, 0, 10, 191, 1, 6, 4, 0, 35, 0, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 126, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 127, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 128, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 129, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 130, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11])), {}).exports;
@@ -952,6 +1028,7 @@ const _M0MPB7MyInt6410compare__u = (a, b) => {
   }
   return 0;
 };
+const _M0MPB7MyInt6419convert__to__double = (a) => a.hi * 4294967296.0 + (a.lo >>> 0);
 const _M0MPB7JSArray4copy = (arr) => arr.slice(0);
 const _M0FPB15ryu__to__string = (number) => number.toString();
 const $bytes_literal$0 = new Uint8Array();
@@ -978,6 +1055,14 @@ function _M0TPB9ArrayViewGiE(param0, param1, param2) {
 const _M0MPB7JSArray11set__length = (arr, len) => { arr.length = len; };
 const _M0MPB7JSArray3pop = (arr) => arr.pop();
 const _M0MPB7JSArray6splice = (arr, idx, cnt) => arr.splice(idx, cnt);
+function _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0TPB9ArrayViewGsE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -1077,6 +1162,159 @@ function _M0TPC17strconv6Number(param0, param1, param2, param3) {
   this.negative = param2;
   this.many_digits = param3;
 }
+function _M0TPC14json8Position(param0, param1) {
+  this.line = param0;
+  this.column = param1;
+}
+function _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGuRPC14json10ParseErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGuRPC14json10ParseErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGuRPC14json10ParseErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGuRPC14json10ParseErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGsRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGsRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGsRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGsRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC14json8JsonPath4Root() {}
+_M0DTPC14json8JsonPath4Root.prototype.$tag = 0;
+const _M0DTPC14json8JsonPath4Root__ = new _M0DTPC14json8JsonPath4Root();
+function _M0DTPC14json8JsonPath3Key(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC14json8JsonPath3Key.prototype.$tag = 1;
+function _M0DTPC14json8JsonPath5Index(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC14json8JsonPath5Index.prototype.$tag = 2;
+function _M0TPC14json12ParseContext(param0, param1, param2, param3) {
+  this.offset = param0;
+  this.input = param1;
+  this.end_offset = param2;
+  this.remaining_available_depth = param3;
+}
+const $9007199254740991L = { hi: 2097151, lo: -1 };
+const $_9007199254740991L = { hi: -2097152, lo: 1 };
+function _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGiRPC14json10ParseErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGiRPC14json10ParseErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGiRPC14json10ParseErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGiRPC14json10ParseErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGsRPC14json10ParseErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGsRPC14json10ParseErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGsRPC14json10ParseErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGsRPC14json10ParseErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC14json5Token4Null() {}
+_M0DTPC14json5Token4Null.prototype.$tag = 0;
+const _M0DTPC14json5Token4Null__ = new _M0DTPC14json5Token4Null();
+function _M0DTPC14json5Token4True() {}
+_M0DTPC14json5Token4True.prototype.$tag = 1;
+const _M0DTPC14json5Token4True__ = new _M0DTPC14json5Token4True();
+function _M0DTPC14json5Token5False() {}
+_M0DTPC14json5Token5False.prototype.$tag = 2;
+const _M0DTPC14json5Token5False__ = new _M0DTPC14json5Token5False();
+function _M0DTPC14json5Token6Number(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC14json5Token6Number.prototype.$tag = 3;
+function _M0DTPC14json5Token6String(param0) {
+  this._0 = param0;
+}
+_M0DTPC14json5Token6String.prototype.$tag = 4;
+function _M0DTPC14json5Token6LBrace() {}
+_M0DTPC14json5Token6LBrace.prototype.$tag = 5;
+const _M0DTPC14json5Token6LBrace__ = new _M0DTPC14json5Token6LBrace();
+function _M0DTPC14json5Token6RBrace() {}
+_M0DTPC14json5Token6RBrace.prototype.$tag = 6;
+const _M0DTPC14json5Token6RBrace__ = new _M0DTPC14json5Token6RBrace();
+function _M0DTPC14json5Token8LBracket() {}
+_M0DTPC14json5Token8LBracket.prototype.$tag = 7;
+const _M0DTPC14json5Token8LBracket__ = new _M0DTPC14json5Token8LBracket();
+function _M0DTPC14json5Token8RBracket() {}
+_M0DTPC14json5Token8RBracket.prototype.$tag = 8;
+const _M0DTPC14json5Token8RBracket__ = new _M0DTPC14json5Token8RBracket();
+function _M0DTPC14json5Token5Comma() {}
+_M0DTPC14json5Token5Comma.prototype.$tag = 9;
+const _M0DTPC14json5Token5Comma__ = new _M0DTPC14json5Token5Comma();
+function _M0DTPC14json10WriteFrame5Array(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC14json10WriteFrame5Array.prototype.$tag = 0;
+function _M0DTPC14json10WriteFrame6Object(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC14json10WriteFrame6Object.prototype.$tag = 1;
+function _M0TPB9ArrayViewGUsRP48bobzhang11spreadsheet8frontend4cell4CellEE(param0, param1, param2) {
+  this.buf = param0;
+  this.start = param1;
+  this.end = param2;
+}
+function _M0DTPC16result6ResultGRPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellERPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellERPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellERPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellERPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0TPC15queue5QueueGRP48bobzhang11spreadsheet8frontend3app3MsgE(param0, param1, param2) {
   this.length = param0;
   this.first = param1;
@@ -1133,16 +1371,22 @@ function _M0DTPC16result6ResultGsRPC28encoding4utf89MalformedE2Ok(param0) {
   this._0 = param0;
 }
 _M0DTPC16result6ResultGsRPC28encoding4utf89MalformedE2Ok.prototype.$tag = 1;
-function _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(param0, param1, param2, param3, param4, param5, param6, param7) {
-  this.raw = param0;
-  this.value = param1;
-  this.bold = param2;
-  this.italic = param3;
-  this.align = param4;
-  this.format = param5;
-  this.bg_color = param6;
-  this.text_color = param7;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
 }
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Empty() {}
 _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Empty.prototype.$tag = 0;
 const _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Empty__ = new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Empty();
@@ -1158,6 +1402,55 @@ function _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error(param0) {
   this._0 = param0;
 }
 _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error.prototype.$tag = 3;
+function _M0TPB8MutLocalGOdE(param0) {
+  this.val = param0;
+}
+function _M0TPB8MutLocalGOsE(param0) {
+  this.val = param0;
+}
+function _M0TPB9ArrayViewGUsRPB4JsonEE(param0, param1, param2) {
+  this.buf = param0;
+  this.start = param1;
+  this.end = param2;
+}
+function _M0TPB8MutLocalGORP48bobzhang11spreadsheet8frontend4cell5ValueE(param0) {
+  this.val = param0;
+}
+function _M0TPB8MutLocalGObE(param0) {
+  this.val = param0;
+}
+function _M0TPB8MutLocalGORP48bobzhang11spreadsheet8frontend4cell9NumFormatE(param0) {
+  this.val = param0;
+}
+function _M0TPB8MutLocalGORP48bobzhang11spreadsheet8frontend4cell5AlignE(param0) {
+  this.val = param0;
+}
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
+function _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(param0, param1, param2, param3, param4, param5, param6, param7) {
+  this.raw = param0;
+  this.value = param1;
+  this.bold = param2;
+  this.italic = param3;
+  this.align = param4;
+  this.format = param5;
+  this.bg_color = param6;
+  this.text_color = param7;
+}
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0DTP48bobzhang11spreadsheet8frontend7formula5Token4TNum(param0) {
   this._0 = param0;
 }
@@ -1225,14 +1518,20 @@ function _M0TP48bobzhang11spreadsheet8frontend7formula10ParseState(param0, param
   this.tokens = param0;
   this.pos = param1;
 }
+function _M0TPB8MutLocalGORPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellEE(param0) {
+  this.val = param0;
+}
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE2Ok.prototype.$tag = 1;
 function _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(param0, param1) {
   this.name = param0;
   this.cells = param1;
-}
-function _M0TPB9ArrayViewGUsRP48bobzhang11spreadsheet8frontend4cell4CellEE(param0, param1, param2) {
-  this.buf = param0;
-  this.start = param1;
-  this.end = param2;
 }
 function _M0TPB9ArrayViewGUsbEE(param0, param1, param2) {
   this.buf = param0;
@@ -1762,9 +2061,6 @@ function _M0TP38bobzhang8mbtexcel4xlsx14BorderXmlEntry(param0, param1, param2) {
   this.diagonal_up = param0;
   this.diagonal_down = param1;
   this.lines = param2;
-}
-function _M0TPB8MutLocalGOsE(param0) {
-  this.val = param0;
 }
 function _M0TPB9ArrayViewGRP38bobzhang8mbtexcel4xlsx6BorderE(param0, param1, param2) {
   this.buf = param0;
@@ -2413,9 +2709,6 @@ function _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx12RichTextFontRP38bob
   this._0 = param0;
 }
 _M0DTPC16result6ResultGORP38bobzhang8mbtexcel4xlsx12RichTextFontRP38bobzhang8mbtexcel4xlsx9XlsxErrorE2Ok.prototype.$tag = 1;
-function _M0TPB8MutLocalGOdE(param0) {
-  this.val = param0;
-}
 function _M0TP38bobzhang8mbtexcel4xlsx12RichTextFont(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17) {
   this.bold = param0;
   this.italic = param1;
@@ -3644,6 +3937,43 @@ function _M0TP219moonbit_2dcommunity7rabbita9TypedCellGRP48bobzhang11spreadsheet
   this.view = param4;
   this.flags = param5;
 }
+const _M0FP319moonbit_2dcommunity7rabbita4http11js__request = (url,method,contentType,body,hasBody,succeed,failed) => {
+   var config = { method: method, headers: { 'Content-Type': contentType } }; 
+   if (hasBody) { config.body = body };
+   fetch(url, config)
+     .then(response => response.text())
+     .then(json => succeed(json))
+     .catch(error => {
+       failed(error.toString())
+     })
+ };
+function _M0DTPC16result6ResultGRPB4JsonsE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB4JsonsE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB4JsonsE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB4JsonsE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGssE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGssE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGssE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGssE2Ok.prototype.$tag = 1;
+function _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(param0) {
+  this._0 = param0;
+}
+_M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json.prototype.$tag = 0;
+function _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Text(param0) {
+  this._0 = param0;
+}
+_M0DTP319moonbit_2dcommunity7rabbita4http4Body4Text.prototype.$tag = 1;
+function _M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty() {}
+_M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty.prototype.$tag = 2;
+const _M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty__ = new _M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty();
 function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg10SelectCell(param0, param1) {
   this._0 = param0;
   this._1 = param1;
@@ -3731,6 +4061,16 @@ function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15AutocompleteNav(param0)
   this._0 = param0;
 }
 _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15AutocompleteNav.prototype.$tag = 23;
+function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend() {}
+_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend.prototype.$tag = 24;
+const _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__ = new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend();
+function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(param0) {
+  this._0 = param0;
+}
+_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData.prototype.$tag = 25;
+function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend() {}
+_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend.prototype.$tag = 26;
+const _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__ = new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend();
 const _M0FP48bobzhang11spreadsheet8frontend3app15download__bytes = (bytes, filename) => {
    const blob = new Blob([bytes], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
    const url = URL.createObjectURL(blob);
@@ -3740,6 +4080,15 @@ const _M0FP48bobzhang11spreadsheet8frontend3app15download__bytes = (bytes, filen
    a.click();
    URL.revokeObjectURL(url);
  };
+function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE4Json(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE4Json.prototype.$tag = 0;
+function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE4Text(param0) {
+  this._0 = param0;
+}
+_M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE4Text.prototype.$tag = 1;
 const _M0FP48bobzhang11spreadsheet8frontend3app16pick__xlsx__file = (s, e) => {
    const input = document.createElement('input');
    input.type = 'file';
@@ -3762,7 +4111,7 @@ function _M0DTPC16result6ResultGOzRP319moonbit_2dcommunity7rabbita2js7Error__E2O
   this._0 = param0;
 }
 _M0DTPC16result6ResultGOzRP319moonbit_2dcommunity7rabbita2js7Error__E2Ok.prototype.$tag = 1;
-function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9) {
+function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10) {
   this.sheets = param0;
   this.active_sheet = param1;
   this.sel_col = param2;
@@ -3773,97 +4122,179 @@ function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2,
   this.heat_map = param7;
   this.autocomplete_suggestions = param8;
   this.autocomplete_index = param9;
+  this.save_status = param10;
 }
+function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Json(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Json.prototype.$tag = 0;
+function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text(param0) {
+  this._0 = param0;
+}
+_M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text.prototype.$tag = 1;
 const _M0FP0215moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fspreadsheet_2ffrontend_2fapp_2fModel_2c_20bobzhang_2fspreadsheet_2ffrontend_2fapp_2fMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell = { method_0: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4stepGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_1: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4viewGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_2: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell5flagsGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char };
 const _M0FP0133moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2fSandbox_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eScheduler = { method_0: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler3add, method_1: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler17add__url__changed };
 function _M0FP15Error10to__string(_e) {
   switch (_e.$tag) {
-    case 45: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
     case 7: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel6base6411Base64ErrorE(_e);
     }
-    case 54: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 18: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 14: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 6: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
-    }
-    case 42: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 5: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
-    }
-    case 9: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 60: {
-      return "moonbit-community/rabbita/js.Error_.Error_";
-    }
-    case 59: {
-      return "moonbitlang/core/encoding/utf8.Malformed.Malformed";
-    }
-    case 56: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel5ooxml13ParseXmlErrorE(_e);
-    }
-    case 43: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 33: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 22: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 37: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 52: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 50: {
+    case 24: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
     case 20: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 11: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 53: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 40: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 23: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 2: {
+    case 6: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
     }
-    case 12: {
+    case 48: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 15: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 65: {
+      return "moonbitlang/core/encoding/utf8.Malformed.Malformed";
+    }
+    case 49: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 39: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 28: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 58: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 56: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 17: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 59: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 46: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 29: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 37: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 45: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 36: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 22: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 3: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
     }
     case 31: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 19: {
+    case 4: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
+    }
+    case 23: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 50: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 1: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
+    }
+    case 38: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 12: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC14json10ParseErrorE(_e);
+    }
+    case 52: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 14: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 8: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC14json15JsonDecodeErrorE(_e);
+    }
+    case 63: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC17strconv12StrConvErrorE(_e);
+    }
+    case 33: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 61: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel6crypto11CryptoErrorE(_e);
+    }
+    case 57: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 21: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
     case 41: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 39: {
+    case 51: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 60: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 5: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
+    }
+    case 66: {
+      return "moonbit-community/rabbita/js.Error_.Error_";
+    }
+    case 62: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel5ooxml13ParseXmlErrorE(_e);
+    }
+    case 43: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 9: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC14json10ParseErrorE(_e);
+    }
+    case 26: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 2: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
+    }
+    case 18: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 25: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 47: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 32: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 0: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPB7FailureE(_e);
+    }
+    case 53: {
+      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    }
+    case 27: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
     case 30: {
@@ -3872,92 +4303,38 @@ function _M0FP15Error10to__string(_e) {
     case 16: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 3: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
+    case 11: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC14json10ParseErrorE(_e);
     }
-    case 26: {
+    case 54: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 25: {
+    case 42: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 4: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
-    }
-    case 0: {
-      return _M0IP016_24default__implPB4Show10to__stringGRPB7FailureE(_e);
-    }
-    case 47: {
+    case 34: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 21: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 24: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 17: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 10: {
+    case 55: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
     case 44: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 48: {
+    case 35: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 1: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel3zip8ZipErrorE(_e);
-    }
-    case 36: {
+    case 19: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
     }
-    case 32: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    case 10: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC14json10ParseErrorE(_e);
     }
-    case 28: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 49: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 46: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 38: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 29: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 13: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 8: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 58: {
+    case 64: {
       return "moonbitlang/core/encoding/utf16.Malformed.Malformed";
     }
-    case 57: {
-      return _M0IP016_24default__implPB4Show10to__stringGRPC17strconv12StrConvErrorE(_e);
-    }
-    case 27: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 55: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel6crypto11CryptoErrorE(_e);
-    }
-    case 34: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 51: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
-    }
-    case 15: {
-      return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
+    case 13: {
+      return _M0IP016_24default__implPB4Show10to__stringGRPC14json10ParseErrorE(_e);
     }
     default: {
       return _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(_e);
@@ -3966,6 +4343,7 @@ function _M0FP15Error10to__string(_e) {
 }
 const _M0MPC16string10StringView4trimN7_2abindS5819 = "\t\n\r ";
 const _M0MPC16string6String4trimN7_2abindS5825 = "\t\n\r ";
+const _M0FPB4null = _M0DTPB4Json4Null__;
 const _M0FPB19wasm__helper__cache = new _M0TPB15WasmHelperCache(false, undefined);
 const _M0FPC17strconv14base__err__str = "invalid base";
 const _M0FPC17strconv15range__err__str = "value out of range";
@@ -3977,73 +4355,77 @@ const _M0FPC17strconv17parse__scientificN8exp__numS244 = $0L;
 const _M0FPC17strconv13parse__numberN11exp__numberS225 = $0L;
 const _M0FPC17strconv12double__info = new _M0TPC17strconv9FloatInfo(52, 11, -1023);
 const _M0FPC17strconv6powtab = [1, 3, 6, 9, 13, 16, 19, 23, 26, 29, 33, 36, 39, 43, 46, 49, 53, 56, 59];
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4497 = { _0: 0, _1: "" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4498 = { _0: 1, _1: "5" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4499 = { _0: 1, _1: "25" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4500 = { _0: 1, _1: "125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4501 = { _0: 2, _1: "625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4502 = { _0: 2, _1: "3125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4503 = { _0: 2, _1: "15625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4504 = { _0: 3, _1: "78125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4505 = { _0: 3, _1: "390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4506 = { _0: 3, _1: "1953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4507 = { _0: 4, _1: "9765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4508 = { _0: 4, _1: "48828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4509 = { _0: 4, _1: "244140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4510 = { _0: 4, _1: "1220703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4511 = { _0: 5, _1: "6103515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4512 = { _0: 5, _1: "30517578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4513 = { _0: 5, _1: "152587890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4514 = { _0: 6, _1: "762939453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4515 = { _0: 6, _1: "3814697265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4516 = { _0: 6, _1: "19073486328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4517 = { _0: 7, _1: "95367431640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4518 = { _0: 7, _1: "476837158203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4519 = { _0: 7, _1: "2384185791015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4520 = { _0: 7, _1: "11920928955078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4521 = { _0: 8, _1: "59604644775390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4522 = { _0: 8, _1: "298023223876953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4523 = { _0: 8, _1: "1490116119384765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4524 = { _0: 9, _1: "7450580596923828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4525 = { _0: 9, _1: "37252902984619140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4526 = { _0: 9, _1: "186264514923095703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4527 = { _0: 10, _1: "931322574615478515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4528 = { _0: 10, _1: "4656612873077392578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4529 = { _0: 10, _1: "23283064365386962890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4530 = { _0: 10, _1: "116415321826934814453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4531 = { _0: 11, _1: "582076609134674072265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4532 = { _0: 11, _1: "2910383045673370361328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4533 = { _0: 11, _1: "14551915228366851806640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4534 = { _0: 12, _1: "72759576141834259033203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4535 = { _0: 12, _1: "363797880709171295166015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4536 = { _0: 12, _1: "1818989403545856475830078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4537 = { _0: 13, _1: "9094947017729282379150390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4538 = { _0: 13, _1: "45474735088646411895751953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4539 = { _0: 13, _1: "227373675443232059478759765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4540 = { _0: 13, _1: "1136868377216160297393798828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4541 = { _0: 14, _1: "5684341886080801486968994140625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4542 = { _0: 14, _1: "28421709430404007434844970703125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4543 = { _0: 14, _1: "142108547152020037174224853515625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4544 = { _0: 15, _1: "710542735760100185871124267578125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4545 = { _0: 15, _1: "3552713678800500929355621337890625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4546 = { _0: 15, _1: "17763568394002504646778106689453125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4547 = { _0: 16, _1: "88817841970012523233890533447265625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4548 = { _0: 16, _1: "444089209850062616169452667236328125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4549 = { _0: 16, _1: "2220446049250313080847263336181640625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4550 = { _0: 16, _1: "11102230246251565404236316680908203125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4551 = { _0: 17, _1: "55511151231257827021181583404541015625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4552 = { _0: 17, _1: "277555756156289135105907917022705078125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4553 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4554 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4555 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4556 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
-const _M0FPC17strconv34left__shift__cheats_2etuple_2f4557 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
-const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f4497, _M0FPC17strconv34left__shift__cheats_2etuple_2f4498, _M0FPC17strconv34left__shift__cheats_2etuple_2f4499, _M0FPC17strconv34left__shift__cheats_2etuple_2f4500, _M0FPC17strconv34left__shift__cheats_2etuple_2f4501, _M0FPC17strconv34left__shift__cheats_2etuple_2f4502, _M0FPC17strconv34left__shift__cheats_2etuple_2f4503, _M0FPC17strconv34left__shift__cheats_2etuple_2f4504, _M0FPC17strconv34left__shift__cheats_2etuple_2f4505, _M0FPC17strconv34left__shift__cheats_2etuple_2f4506, _M0FPC17strconv34left__shift__cheats_2etuple_2f4507, _M0FPC17strconv34left__shift__cheats_2etuple_2f4508, _M0FPC17strconv34left__shift__cheats_2etuple_2f4509, _M0FPC17strconv34left__shift__cheats_2etuple_2f4510, _M0FPC17strconv34left__shift__cheats_2etuple_2f4511, _M0FPC17strconv34left__shift__cheats_2etuple_2f4512, _M0FPC17strconv34left__shift__cheats_2etuple_2f4513, _M0FPC17strconv34left__shift__cheats_2etuple_2f4514, _M0FPC17strconv34left__shift__cheats_2etuple_2f4515, _M0FPC17strconv34left__shift__cheats_2etuple_2f4516, _M0FPC17strconv34left__shift__cheats_2etuple_2f4517, _M0FPC17strconv34left__shift__cheats_2etuple_2f4518, _M0FPC17strconv34left__shift__cheats_2etuple_2f4519, _M0FPC17strconv34left__shift__cheats_2etuple_2f4520, _M0FPC17strconv34left__shift__cheats_2etuple_2f4521, _M0FPC17strconv34left__shift__cheats_2etuple_2f4522, _M0FPC17strconv34left__shift__cheats_2etuple_2f4523, _M0FPC17strconv34left__shift__cheats_2etuple_2f4524, _M0FPC17strconv34left__shift__cheats_2etuple_2f4525, _M0FPC17strconv34left__shift__cheats_2etuple_2f4526, _M0FPC17strconv34left__shift__cheats_2etuple_2f4527, _M0FPC17strconv34left__shift__cheats_2etuple_2f4528, _M0FPC17strconv34left__shift__cheats_2etuple_2f4529, _M0FPC17strconv34left__shift__cheats_2etuple_2f4530, _M0FPC17strconv34left__shift__cheats_2etuple_2f4531, _M0FPC17strconv34left__shift__cheats_2etuple_2f4532, _M0FPC17strconv34left__shift__cheats_2etuple_2f4533, _M0FPC17strconv34left__shift__cheats_2etuple_2f4534, _M0FPC17strconv34left__shift__cheats_2etuple_2f4535, _M0FPC17strconv34left__shift__cheats_2etuple_2f4536, _M0FPC17strconv34left__shift__cheats_2etuple_2f4537, _M0FPC17strconv34left__shift__cheats_2etuple_2f4538, _M0FPC17strconv34left__shift__cheats_2etuple_2f4539, _M0FPC17strconv34left__shift__cheats_2etuple_2f4540, _M0FPC17strconv34left__shift__cheats_2etuple_2f4541, _M0FPC17strconv34left__shift__cheats_2etuple_2f4542, _M0FPC17strconv34left__shift__cheats_2etuple_2f4543, _M0FPC17strconv34left__shift__cheats_2etuple_2f4544, _M0FPC17strconv34left__shift__cheats_2etuple_2f4545, _M0FPC17strconv34left__shift__cheats_2etuple_2f4546, _M0FPC17strconv34left__shift__cheats_2etuple_2f4547, _M0FPC17strconv34left__shift__cheats_2etuple_2f4548, _M0FPC17strconv34left__shift__cheats_2etuple_2f4549, _M0FPC17strconv34left__shift__cheats_2etuple_2f4550, _M0FPC17strconv34left__shift__cheats_2etuple_2f4551, _M0FPC17strconv34left__shift__cheats_2etuple_2f4552, _M0FPC17strconv34left__shift__cheats_2etuple_2f4553, _M0FPC17strconv34left__shift__cheats_2etuple_2f4554, _M0FPC17strconv34left__shift__cheats_2etuple_2f4555, _M0FPC17strconv34left__shift__cheats_2etuple_2f4556, _M0FPC17strconv34left__shift__cheats_2etuple_2f4557];
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4716 = { _0: 0, _1: "" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4717 = { _0: 1, _1: "5" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4718 = { _0: 1, _1: "25" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4719 = { _0: 1, _1: "125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4720 = { _0: 2, _1: "625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4721 = { _0: 2, _1: "3125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4722 = { _0: 2, _1: "15625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4723 = { _0: 3, _1: "78125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4724 = { _0: 3, _1: "390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4725 = { _0: 3, _1: "1953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4726 = { _0: 4, _1: "9765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4727 = { _0: 4, _1: "48828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4728 = { _0: 4, _1: "244140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4729 = { _0: 4, _1: "1220703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4730 = { _0: 5, _1: "6103515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4731 = { _0: 5, _1: "30517578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4732 = { _0: 5, _1: "152587890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4733 = { _0: 6, _1: "762939453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4734 = { _0: 6, _1: "3814697265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4735 = { _0: 6, _1: "19073486328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4736 = { _0: 7, _1: "95367431640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4737 = { _0: 7, _1: "476837158203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4738 = { _0: 7, _1: "2384185791015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4739 = { _0: 7, _1: "11920928955078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4740 = { _0: 8, _1: "59604644775390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4741 = { _0: 8, _1: "298023223876953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4742 = { _0: 8, _1: "1490116119384765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4743 = { _0: 9, _1: "7450580596923828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4744 = { _0: 9, _1: "37252902984619140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4745 = { _0: 9, _1: "186264514923095703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4746 = { _0: 10, _1: "931322574615478515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4747 = { _0: 10, _1: "4656612873077392578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4748 = { _0: 10, _1: "23283064365386962890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4749 = { _0: 10, _1: "116415321826934814453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4750 = { _0: 11, _1: "582076609134674072265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4751 = { _0: 11, _1: "2910383045673370361328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4752 = { _0: 11, _1: "14551915228366851806640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4753 = { _0: 12, _1: "72759576141834259033203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4754 = { _0: 12, _1: "363797880709171295166015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4755 = { _0: 12, _1: "1818989403545856475830078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4756 = { _0: 13, _1: "9094947017729282379150390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4757 = { _0: 13, _1: "45474735088646411895751953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4758 = { _0: 13, _1: "227373675443232059478759765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4759 = { _0: 13, _1: "1136868377216160297393798828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4760 = { _0: 14, _1: "5684341886080801486968994140625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4761 = { _0: 14, _1: "28421709430404007434844970703125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4762 = { _0: 14, _1: "142108547152020037174224853515625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4763 = { _0: 15, _1: "710542735760100185871124267578125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4764 = { _0: 15, _1: "3552713678800500929355621337890625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4765 = { _0: 15, _1: "17763568394002504646778106689453125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4766 = { _0: 16, _1: "88817841970012523233890533447265625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4767 = { _0: 16, _1: "444089209850062616169452667236328125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4768 = { _0: 16, _1: "2220446049250313080847263336181640625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4769 = { _0: 16, _1: "11102230246251565404236316680908203125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4770 = { _0: 17, _1: "55511151231257827021181583404541015625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4771 = { _0: 17, _1: "277555756156289135105907917022705078125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4772 = { _0: 17, _1: "1387778780781445675529539585113525390625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4773 = { _0: 18, _1: "6938893903907228377647697925567626953125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4774 = { _0: 18, _1: "34694469519536141888238489627838134765625" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4775 = { _0: 18, _1: "173472347597680709441192448139190673828125" };
+const _M0FPC17strconv34left__shift__cheats_2etuple_2f4776 = { _0: 19, _1: "867361737988403547205962240695953369140625" };
+const _M0FPC17strconv19left__shift__cheats = [_M0FPC17strconv34left__shift__cheats_2etuple_2f4716, _M0FPC17strconv34left__shift__cheats_2etuple_2f4717, _M0FPC17strconv34left__shift__cheats_2etuple_2f4718, _M0FPC17strconv34left__shift__cheats_2etuple_2f4719, _M0FPC17strconv34left__shift__cheats_2etuple_2f4720, _M0FPC17strconv34left__shift__cheats_2etuple_2f4721, _M0FPC17strconv34left__shift__cheats_2etuple_2f4722, _M0FPC17strconv34left__shift__cheats_2etuple_2f4723, _M0FPC17strconv34left__shift__cheats_2etuple_2f4724, _M0FPC17strconv34left__shift__cheats_2etuple_2f4725, _M0FPC17strconv34left__shift__cheats_2etuple_2f4726, _M0FPC17strconv34left__shift__cheats_2etuple_2f4727, _M0FPC17strconv34left__shift__cheats_2etuple_2f4728, _M0FPC17strconv34left__shift__cheats_2etuple_2f4729, _M0FPC17strconv34left__shift__cheats_2etuple_2f4730, _M0FPC17strconv34left__shift__cheats_2etuple_2f4731, _M0FPC17strconv34left__shift__cheats_2etuple_2f4732, _M0FPC17strconv34left__shift__cheats_2etuple_2f4733, _M0FPC17strconv34left__shift__cheats_2etuple_2f4734, _M0FPC17strconv34left__shift__cheats_2etuple_2f4735, _M0FPC17strconv34left__shift__cheats_2etuple_2f4736, _M0FPC17strconv34left__shift__cheats_2etuple_2f4737, _M0FPC17strconv34left__shift__cheats_2etuple_2f4738, _M0FPC17strconv34left__shift__cheats_2etuple_2f4739, _M0FPC17strconv34left__shift__cheats_2etuple_2f4740, _M0FPC17strconv34left__shift__cheats_2etuple_2f4741, _M0FPC17strconv34left__shift__cheats_2etuple_2f4742, _M0FPC17strconv34left__shift__cheats_2etuple_2f4743, _M0FPC17strconv34left__shift__cheats_2etuple_2f4744, _M0FPC17strconv34left__shift__cheats_2etuple_2f4745, _M0FPC17strconv34left__shift__cheats_2etuple_2f4746, _M0FPC17strconv34left__shift__cheats_2etuple_2f4747, _M0FPC17strconv34left__shift__cheats_2etuple_2f4748, _M0FPC17strconv34left__shift__cheats_2etuple_2f4749, _M0FPC17strconv34left__shift__cheats_2etuple_2f4750, _M0FPC17strconv34left__shift__cheats_2etuple_2f4751, _M0FPC17strconv34left__shift__cheats_2etuple_2f4752, _M0FPC17strconv34left__shift__cheats_2etuple_2f4753, _M0FPC17strconv34left__shift__cheats_2etuple_2f4754, _M0FPC17strconv34left__shift__cheats_2etuple_2f4755, _M0FPC17strconv34left__shift__cheats_2etuple_2f4756, _M0FPC17strconv34left__shift__cheats_2etuple_2f4757, _M0FPC17strconv34left__shift__cheats_2etuple_2f4758, _M0FPC17strconv34left__shift__cheats_2etuple_2f4759, _M0FPC17strconv34left__shift__cheats_2etuple_2f4760, _M0FPC17strconv34left__shift__cheats_2etuple_2f4761, _M0FPC17strconv34left__shift__cheats_2etuple_2f4762, _M0FPC17strconv34left__shift__cheats_2etuple_2f4763, _M0FPC17strconv34left__shift__cheats_2etuple_2f4764, _M0FPC17strconv34left__shift__cheats_2etuple_2f4765, _M0FPC17strconv34left__shift__cheats_2etuple_2f4766, _M0FPC17strconv34left__shift__cheats_2etuple_2f4767, _M0FPC17strconv34left__shift__cheats_2etuple_2f4768, _M0FPC17strconv34left__shift__cheats_2etuple_2f4769, _M0FPC17strconv34left__shift__cheats_2etuple_2f4770, _M0FPC17strconv34left__shift__cheats_2etuple_2f4771, _M0FPC17strconv34left__shift__cheats_2etuple_2f4772, _M0FPC17strconv34left__shift__cheats_2etuple_2f4773, _M0FPC17strconv34left__shift__cheats_2etuple_2f4774, _M0FPC17strconv34left__shift__cheats_2etuple_2f4775, _M0FPC17strconv34left__shift__cheats_2etuple_2f4776];
 const _M0FPC17strconv10int__pow10 = [$1L, $10L, $100L, $1000L, $10000L, $100000L, $1000000L, $10000000L, $100000000L, $1000000000L, $10000000000L, $100000000000L, $1000000000000L, $10000000000000L, $100000000000000L, $1000000000000000L];
 const _M0FPC17strconv25max__exponent__fast__path = $22L;
 const _M0FPC17strconv5table = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1e+12, 1e+13, 1e+14, 1e+15, 1e+16, 1e+17, 1e+18, 1e+19, 1e+20, 1e+21, 1e+22, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const _M0FPC17strconv36max__exponent__disguised__fast__path = $37L;
 const _M0FPC17strconv25min__exponent__fast__path = $_22L;
+const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1059 = ".";
+const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1060 = "e";
+const _M0MPC14json12ParseContext16lex__number__endN7_2abindS1061 = "E";
+const _M0IPC14json8JsonPathPB4Show6outputN7_2abindS1377 = "~/";
 const _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols = 26;
 const _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows = 30;
 const _M0FP38bobzhang8mbtexcel6crypto9sha512__k = [$4794697086780616226L, $8158064640168781261L, $_5349999486874862801L, $_1606136188198331460L, $4131703408338449720L, $6480981068601479193L, $_7908458776815382629L, $_6116909921290321640L, $_2880145864133508542L, $1334009975649890238L, $2608012711638119052L, $6128411473006802146L, $8268148722764581231L, $_9160688886553864527L, $_7215885187991268811L, $_4495734319001033068L, $_1973867731355612462L, $_1171420211273849373L, $1135362057144423861L, $2597628984639134821L, $3308224258029322869L, $5365058923640841347L, $6679025012923562964L, $8573033837759648693L, $_7476448914759557205L, $_6327057829258317296L, $_5763719355590565569L, $_4658551843659510044L, $_4116276920077217854L, $_3051310485924567259L, $489312712824947311L, $1452737877330783856L, $2861767655752347644L, $3322285676063803686L, $5560940570517711597L, $5996557281743188959L, $7280758554555802590L, $8532644243296465576L, $_9096487096722542874L, $_7894198246740708037L, $_6719396339535248540L, $_6333637450476146687L, $_4446306890439682159L, $_4076793802049405392L, $_3345356375505022440L, $_2983346525034927856L, $_860691631967231958L, $1182934255886127544L, $1847814050463011016L, $2177327727835720531L, $2830643537854262169L, $3796741975233480872L, $4115178125766777443L, $5681478168544905931L, $6601373596472566643L, $7507060721942968483L, $8399075790359081724L, $8693463985226723168L, $_8878714635349349518L, $_8302665154208450068L, $_8016688836872298968L, $_6606660893046293015L, $_4685533653050689259L, $_4147400797238176981L, $_3880063495543823972L, $_3348786107499101689L, $_1523767162380948706L, $_757361751448694408L, $500013540394364858L, $748580250866718886L, $1242879168328830382L, $1977374033974150939L, $2944078676154940804L, $3659926193048069267L, $4368137639120453308L, $4836135668995329356L, $5532061633213252278L, $6448918945643986474L, $6902733635092675308L, $7801388544844847127L];
@@ -4167,9 +4549,11 @@ const _M0FP38bobzhang8mbtexcel4xlsx12free__sector = -1;
 const _M0FP319moonbit_2dcommunity7rabbita3dom14namespace__svg = "http://www.w3.org/2000/svg";
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none = _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Empty__;
 const _M0FP48bobzhang11spreadsheet8frontend3app18formula__functions = ["SUM", "AVG", "AVERAGE", "MIN", "MAX", "COUNT", "IF", "ABS", "ROUND", "POWER", "MOD", "INT", "CONCAT", "LEN", "UPPER", "LOWER"];
+const _M0FP48bobzhang11spreadsheet8frontend3app9api__load = "/api/load";
+const _M0FP48bobzhang11spreadsheet8frontend3app9api__save = "/api/save";
 const _M0FP319moonbit_2dcommunity7rabbita3cmd4none = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none;
-const _M0FPB33brute__force__find_2econstr_2f679 = 0;
-const _M0FPB43boyer__moore__horspool__find_2econstr_2f665 = 0;
+const _M0FPB33brute__force__find_2econstr_2f698 = 0;
+const _M0FPB43boyer__moore__horspool__find_2econstr_2f684 = 0;
 const _M0FPB4seed = _M0FPB12random__seed();
 const _M0FP38bobzhang8mbtexcel4xlsx28default__row__height__pixels = _M0FP38bobzhang8mbtexcel4xlsx32convert__row__height__to__pixels(15);
 const _M0FP38bobzhang8mbtexcel4xlsx22default__page__margins = _M0MP38bobzhang8mbtexcel4xlsx24PageLayoutMarginsOptions12with__values(new _M0DTPC16option6OptionGdE4Some(0.75), new _M0DTPC16option6OptionGdE4Some(0.75), new _M0DTPC16option6OptionGdE4Some(0.7), new _M0DTPC16option6OptionGdE4Some(0.7), new _M0DTPC16option6OptionGdE4Some(0.3), new _M0DTPC16option6OptionGdE4Some(0.3), -1, -1);
@@ -4177,7 +4561,7 @@ const _M0FPC16double13neg__infinity = _M0MPC15int645Int6423reinterpret__as__doub
 const _M0FPC16double14not__a__number = _M0MPC15int645Int6423reinterpret__as__double($9221120237041090561L);
 const _M0FPC16double8infinity = _M0MPC15int645Int6423reinterpret__as__double($9218868437227405312L);
 const _M0FPC17strconv25max__mantissa__fast__path = _M0IPC16uint646UInt64PB3Shl3shl($2L, 52);
-const _M0FPC17strconv28checked__mul_2econstr_2f5014 = $0L;
+const _M0FPC17strconv28checked__mul_2econstr_2f5233 = $0L;
 const _M0FP38bobzhang8mbtexcel4xlsx15ole__identifier = _M0MPC15array5Array3mapGiyE([208, 207, 17, 224, 161, 177, 26, 225], (v) => v & 255);
 const _bind = _M0MPC15array5Array3mapGiyE([20, 110, 11, 231, 171, 172, 208, 214], (v) => v & 255);
 const _M0FP38bobzhang8mbtexcel4xlsx10block__key = _M0MPC15bytes5Bytes11from__array(new _M0TPB9ArrayViewGyE(_bind, 0, _bind.length));
@@ -4232,8 +4616,17 @@ function _M0MPB6Logger13write__objectGiE(self, obj) {
 function _M0MPB6Logger13write__objectGsE(self, obj) {
   _M0IPC16string6StringPB4Show6output(obj, self);
 }
+function _M0MPB6Logger13write__objectGRPC14json8JsonPathE(self, obj) {
+  _M0IPC14json8JsonPathPB4Show6output(obj, self);
+}
 function _M0MPB6Logger13write__objectGdE(self, obj) {
   _M0IPC16double6DoublePB4Show6output(obj, self);
+}
+function _M0MPC14json4Json5array(array) {
+  return new _M0DTPB4Json5Array(array);
+}
+function _M0IPC16string6StringPB6ToJson8to__json(self) {
+  return new _M0DTPB4Json6String(self);
 }
 function _M0IPB7FailurePB4Show6output(_x_4702, _x_4703) {
   const _Failure = _x_4702;
@@ -4969,6 +5362,9 @@ function _M0MPB13SourceLocRepr5parse(repr) {
     return $panic();
   }
 }
+function _M0MPB13StringBuilder13write__objectGdE(self, obj) {
+  _M0IPC16double6DoublePB4Show6output(obj, { self: self, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
+}
 function _M0IPB13StringBuilderPB6Logger13write__string(self, str) {
   self.val = `${self.val}${str}`;
 }
@@ -5001,6 +5397,9 @@ function _M0IPC16uint166UInt16PB3Shr3shr(self, that) {
 }
 function _M0IPC16uint166UInt16PB6BitAnd4land(self, that) {
   return self & that & 65535;
+}
+function _M0MPC14json4Json6number(number, repr) {
+  return new _M0DTPB4Json6Number(number, repr);
 }
 function _M0MPB7MyInt649from__int(value) {
   return new _M0TPB7MyInt64(value >> 31 & -1, value | 0);
@@ -5210,9 +5609,19 @@ function _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel6base6
   _M0IP38bobzhang8mbtexcel6base6411Base64ErrorPB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
   return _M0MPB13StringBuilder10to__string(logger);
 }
+function _M0IP016_24default__implPB4Show10to__stringGRPC14json15JsonDecodeErrorE(self) {
+  const logger = _M0MPB13StringBuilder11new_2einner(0);
+  _M0IPC14json15JsonDecodeErrorPB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
+  return _M0MPB13StringBuilder10to__string(logger);
+}
 function _M0IP016_24default__implPB4Show10to__stringGRPB7FailureE(self) {
   const logger = _M0MPB13StringBuilder11new_2einner(0);
   _M0IPB7FailurePB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
+  return _M0MPB13StringBuilder10to__string(logger);
+}
+function _M0IP016_24default__implPB4Show10to__stringGRPC14json10ParseErrorE(self) {
+  const logger = _M0MPB13StringBuilder11new_2einner(0);
+  _M0IPC14json10ParseErrorPB4Show6output(self, { self: logger, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger });
   return _M0MPB13StringBuilder10to__string(logger);
 }
 function _M0IP016_24default__implPB4Show10to__stringGRP38bobzhang8mbtexcel4xlsx9XlsxErrorE(self) {
@@ -5633,7 +6042,7 @@ function _M0FPB28boyer__moore__horspool__find(haystack, needle) {
       return undefined;
     }
   } else {
-    return _M0FPB43boyer__moore__horspool__find_2econstr_2f665;
+    return _M0FPB43boyer__moore__horspool__find_2econstr_2f684;
   }
 }
 function _M0FPB18brute__force__find(haystack, needle) {
@@ -5675,7 +6084,7 @@ function _M0FPB18brute__force__find(haystack, needle) {
       return undefined;
     }
   } else {
-    return _M0FPB33brute__force__find_2econstr_2f679;
+    return _M0FPB33brute__force__find_2econstr_2f698;
   }
 }
 function _M0MPC16string10StringView4find(self, str) {
@@ -5735,6 +6144,31 @@ function _M0FPB33boyer__moore__horspool__rev__find(haystack, needle) {
 }
 function _M0MPC16string6String4find(self, str) {
   return _M0MPC16string10StringView4find(new _M0TPC16string10StringView(self, 0, self.length), str);
+}
+function _M0MPC16string6String6repeat(self, n) {
+  if (n <= 0) {
+    return "";
+  } else {
+    if (n === 1) {
+      return self;
+    } else {
+      const len = self.length;
+      const buf = _M0MPB13StringBuilder11new_2einner(Math.imul(len, n) | 0);
+      const str = self;
+      let _tmp$2 = 0;
+      while (true) {
+        const _ = _tmp$2;
+        if (_ < n) {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, str);
+          _tmp$2 = _ + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      return _M0MPB13StringBuilder10to__string(buf);
+    }
+  }
 }
 function _M0MPC16string10StringView8find__by(self, pred) {
   const _it = _M0MPC16string10StringView5iter2(self);
@@ -5973,6 +6407,34 @@ function _M0MPC16string10StringView14contains__char(self, c) {
   } else {
     return false;
   }
+}
+function _M0MPC16string10StringView13contains__any(self, chars) {
+  if (_M0MPC16string6String24char__length__eq_2einner(chars.str, 0, chars.start, chars.end)) {
+    return false;
+  } else {
+    if (_M0MPC16string6String24char__length__eq_2einner(chars.str, 1, chars.start, chars.end)) {
+      const _c = _M0MPC16string6String16unsafe__char__at(chars.str, _M0MPC16string6String29offset__of__nth__char_2einner(chars.str, 0, chars.start, chars.end));
+      return _M0MPC16string10StringView14contains__char(self, _c);
+    } else {
+      const _it = _M0MPC16string10StringView4iter(self);
+      while (true) {
+        const _bind$5 = _M0MPB4Iter4nextGcE(_it);
+        if (_bind$5 === -1) {
+          return false;
+        } else {
+          const _Some = _bind$5;
+          const _c = _Some;
+          if (_M0MPC16string10StringView14contains__char(chars, _c)) {
+            return true;
+          }
+          continue;
+        }
+      }
+    }
+  }
+}
+function _M0MPC16string6String13contains__any(self, chars) {
+  return _M0MPC16string10StringView13contains__any(new _M0TPC16string10StringView(self, 0, self.length), chars);
 }
 function _M0MPC16string10StringView19trim__start_2einner(self, chars) {
   let _tmp$2 = self;
@@ -6381,6 +6843,23 @@ function _M0MPC16string6String9get__char(self, idx) {
     return -1;
   }
 }
+function _M0MPC16string10StringView9get__char(self, idx) {
+  if (idx >= 0 && idx < _M0MPC16string10StringView6length(self)) {
+    const c = _M0MPC16string10StringView11unsafe__get(self, idx);
+    if (_M0MPC16uint166UInt1622is__leading__surrogate(c)) {
+      if ((idx + 1 | 0) < _M0MPC16string10StringView6length(self)) {
+        const next = _M0MPC16string10StringView11unsafe__get(self, idx + 1 | 0);
+        return _M0MPC16uint166UInt1623is__trailing__surrogate(next) ? _M0FPB32code__point__of__surrogate__pair(c, next) : -1;
+      } else {
+        return -1;
+      }
+    } else {
+      return _M0MPC16uint166UInt1623is__trailing__surrogate(c) ? -1 : _M0MPC16uint166UInt1616unsafe__to__char(c);
+    }
+  } else {
+    return -1;
+  }
+}
 function _M0IPC16string6StringPB12ToStringView16to__string__view(self) {
   return new _M0TPC16string10StringView(self, 0, self.length);
 }
@@ -6451,6 +6930,28 @@ function _M0MPC15array9ArrayView4iterGcE(self) {
 }
 function _M0MPC15array5Array4iterGRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self) {
   return _M0MPC15array9ArrayView4iterGRPC16string10StringViewE(new _M0TPB9ArrayViewGRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, 0, self.length));
+}
+function _M0MPC16result6Result4bindGRPB4JsonsuE(self, g) {
+  if (self.$tag === 1) {
+    const _Ok = self;
+    const _value = _Ok._0;
+    return g(_value);
+  } else {
+    const _Err = self;
+    const _err = _Err._0;
+    return new _M0DTPC16result6ResultGusE3Err(_err);
+  }
+}
+function _M0MPC16result6Result4bindGRPB4JsonsRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(self, g) {
+  if (self.$tag === 1) {
+    const _Ok = self;
+    const _value = _Ok._0;
+    return g(_value);
+  } else {
+    const _Err = self;
+    const _err = _Err._0;
+    return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err(_err);
+  }
 }
 function _M0MPC15array13ReadOnlyArray2atGmE(self, index) {
   $bound_check(self, index);
@@ -6607,6 +7108,9 @@ function _M0MPC16option6Option10unwrap__orGiE(self, default_) {
     return _Some;
   }
 }
+function _M0MPC16option6Option10unwrap__orGcE(self, default_) {
+  return self === -1 ? default_ : self;
+}
 function _M0MPC16option6Option10unwrap__orGRP38bobzhang8mbtexcel4xlsx12ColDimensionE(self, default_) {
   if (self === undefined) {
     return default_;
@@ -6640,6 +7144,15 @@ function _M0MPC16option6Option3mapGRP319moonbit_2dcommunity7rabbita3dom4NodeRP31
     return new _M0DTPC16option6OptionGRP319moonbit_2dcommunity7rabbita2js5ValueE4Some(f(_t));
   } else {
     return _M0DTPC16option6OptionGRP319moonbit_2dcommunity7rabbita2js5ValueE4None__;
+  }
+}
+function _M0MPC16option6Option3mapGRPC16string10StringViewsE(self, f) {
+  if (self === undefined) {
+    return undefined;
+  } else {
+    const _Some = self;
+    const _t = _Some;
+    return f(_t);
   }
 }
 function _M0MPC15array12MutArrayView6lengthGiE(self) {
@@ -7038,7 +7551,7 @@ function _M0MPB3Map20add__entry__to__tailGsiE(self, idx, entry) {
   _tmp$2[idx] = entry;
   self.size = self.size + 1 | 0;
 }
-function _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry) {
+function _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry) {
   const _bind$5 = self.tail;
   if (_bind$5 === -1) {
     self.head = entry;
@@ -7053,7 +7566,7 @@ function _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8inter
   _tmp$2[idx] = entry;
   self.size = self.size + 1 | 0;
 }
-function _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry) {
+function _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry) {
   const _bind$5 = self.tail;
   if (_bind$5 === -1) {
     self.head = entry;
@@ -7248,7 +7761,7 @@ function _M0MPB3Map10set__entryGsiE(self, entry, new_idx) {
     return;
   }
 }
-function _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, entry, new_idx) {
+function _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, entry, new_idx) {
   const _tmp$2 = self.entries;
   $bound_check(_tmp$2, new_idx);
   _tmp$2[new_idx] = entry;
@@ -7263,7 +7776,7 @@ function _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtim
     return;
   }
 }
-function _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, entry, new_idx) {
+function _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, entry, new_idx) {
   const _tmp$2 = self.entries;
   $bound_check(_tmp$2, new_idx);
   _tmp$2[new_idx] = entry;
@@ -7548,39 +8061,6 @@ function _M0MPB3Map10push__awayGsiE(self, idx, entry) {
     }
   }
 }
-function _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry) {
-  let _tmp$2 = entry.psl + 1 | 0;
-  let _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
-  let _tmp$4 = entry;
-  while (true) {
-    const psl = _tmp$2;
-    const idx$2 = _tmp$3;
-    const entry$2 = _tmp$4;
-    const _tmp$5 = self.entries;
-    $bound_check(_tmp$5, idx$2);
-    const _bind$5 = _tmp$5[idx$2];
-    if (_bind$5 === undefined) {
-      entry$2.psl = psl;
-      _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, entry$2, idx$2);
-      return;
-    } else {
-      const _Some = _bind$5;
-      const _curr_entry = _Some;
-      if (psl > _curr_entry.psl) {
-        entry$2.psl = psl;
-        _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, entry$2, idx$2);
-        _tmp$2 = _curr_entry.psl + 1 | 0;
-        _tmp$3 = (idx$2 + 1 | 0) & self.capacity_mask;
-        _tmp$4 = _curr_entry;
-        continue;
-      } else {
-        _tmp$2 = psl + 1 | 0;
-        _tmp$3 = (idx$2 + 1 | 0) & self.capacity_mask;
-        continue;
-      }
-    }
-  }
-}
 function _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry) {
   let _tmp$2 = entry.psl + 1 | 0;
   let _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
@@ -7602,6 +8082,39 @@ function _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtim
       if (psl > _curr_entry.psl) {
         entry$2.psl = psl;
         _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, entry$2, idx$2);
+        _tmp$2 = _curr_entry.psl + 1 | 0;
+        _tmp$3 = (idx$2 + 1 | 0) & self.capacity_mask;
+        _tmp$4 = _curr_entry;
+        continue;
+      } else {
+        _tmp$2 = psl + 1 | 0;
+        _tmp$3 = (idx$2 + 1 | 0) & self.capacity_mask;
+        continue;
+      }
+    }
+  }
+}
+function _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry) {
+  let _tmp$2 = entry.psl + 1 | 0;
+  let _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
+  let _tmp$4 = entry;
+  while (true) {
+    const psl = _tmp$2;
+    const idx$2 = _tmp$3;
+    const entry$2 = _tmp$4;
+    const _tmp$5 = self.entries;
+    $bound_check(_tmp$5, idx$2);
+    const _bind$5 = _tmp$5[idx$2];
+    if (_bind$5 === undefined) {
+      entry$2.psl = psl;
+      _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, entry$2, idx$2);
+      return;
+    } else {
+      const _Some = _bind$5;
+      const _curr_entry = _Some;
+      if (psl > _curr_entry.psl) {
+        entry$2.psl = psl;
+        _M0MPB3Map10set__entryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, entry$2, idx$2);
         _tmp$2 = _curr_entry.psl + 1 | 0;
         _tmp$3 = (idx$2 + 1 | 0) & self.capacity_mask;
         _tmp$4 = _curr_entry;
@@ -8085,6 +8598,102 @@ function _M0MPB3Map15set__with__hashGsiE(self, key, value, hash) {
     }
   }
 }
+function _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, key, value, hash) {
+  let _tmp$2 = 0;
+  let _tmp$3 = hash & self.capacity_mask;
+  while (true) {
+    const psl = _tmp$2;
+    const idx = _tmp$3;
+    const _tmp$4 = self.entries;
+    $bound_check(_tmp$4, idx);
+    const _bind$5 = _tmp$4[idx];
+    if (_bind$5 === undefined) {
+      if (self.size >= self.grow_at) {
+        _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self);
+        _tmp$2 = 0;
+        _tmp$3 = hash & self.capacity_mask;
+        continue;
+      }
+      const _bind$6 = self.tail;
+      const _bind$7 = undefined;
+      const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(_bind$6, _bind$7, psl, hash, key, value);
+      _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry);
+      return undefined;
+    } else {
+      const _Some = _bind$5;
+      const _curr_entry = _Some;
+      if (_curr_entry.hash === hash && _M0IP419moonbit_2dcommunity7rabbita8internal7runtime2IdPB2Eq5equal(_curr_entry.key, key)) {
+        _curr_entry.value = value;
+        return undefined;
+      }
+      if (psl > _curr_entry.psl) {
+        if (self.size >= self.grow_at) {
+          _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self);
+          _tmp$2 = 0;
+          _tmp$3 = hash & self.capacity_mask;
+          continue;
+        }
+        _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, _curr_entry);
+        const _bind$6 = self.tail;
+        const _bind$7 = undefined;
+        const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(_bind$6, _bind$7, psl, hash, key, value);
+        _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry);
+        return undefined;
+      }
+      _tmp$2 = psl + 1 | 0;
+      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
+      continue;
+    }
+  }
+}
+function _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, key, value, hash) {
+  let _tmp$2 = 0;
+  let _tmp$3 = hash & self.capacity_mask;
+  while (true) {
+    const psl = _tmp$2;
+    const idx = _tmp$3;
+    const _tmp$4 = self.entries;
+    $bound_check(_tmp$4, idx);
+    const _bind$5 = _tmp$4[idx];
+    if (_bind$5 === undefined) {
+      if (self.size >= self.grow_at) {
+        _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self);
+        _tmp$2 = 0;
+        _tmp$3 = hash & self.capacity_mask;
+        continue;
+      }
+      const _bind$6 = self.tail;
+      const _bind$7 = undefined;
+      const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(_bind$6, _bind$7, psl, hash, key, value);
+      _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry);
+      return undefined;
+    } else {
+      const _Some = _bind$5;
+      const _curr_entry = _Some;
+      if (_curr_entry.hash === hash && _M0IP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdPB2Eq5equal(_curr_entry.key, key)) {
+        _curr_entry.value = value;
+        return undefined;
+      }
+      if (psl > _curr_entry.psl) {
+        if (self.size >= self.grow_at) {
+          _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self);
+          _tmp$2 = 0;
+          _tmp$3 = hash & self.capacity_mask;
+          continue;
+        }
+        _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, _curr_entry);
+        const _bind$6 = self.tail;
+        const _bind$7 = undefined;
+        const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(_bind$6, _bind$7, psl, hash, key, value);
+        _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry);
+        return undefined;
+      }
+      _tmp$2 = psl + 1 | 0;
+      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
+      continue;
+    }
+  }
+}
 function _M0MPB3Map15set__with__hashGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuEE(self, key, value, hash) {
   let _tmp$2 = 0;
   let _tmp$3 = hash & self.capacity_mask;
@@ -8181,7 +8790,7 @@ function _M0MPB3Map15set__with__hashGsRP419moonbit_2dcommunity7rabbita8internal7
     }
   }
 }
-function _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, key, value, hash) {
+function _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, hash) {
   let _tmp$2 = 0;
   let _tmp$3 = hash & self.capacity_mask;
   while (true) {
@@ -8192,83 +8801,35 @@ function _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7r
     const _bind$5 = _tmp$4[idx];
     if (_bind$5 === undefined) {
       if (self.size >= self.grow_at) {
-        _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self);
+        _M0MPB3Map4growGsRPB4JsonE(self);
         _tmp$2 = 0;
         _tmp$3 = hash & self.capacity_mask;
         continue;
       }
       const _bind$6 = self.tail;
       const _bind$7 = undefined;
-      const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(_bind$6, _bind$7, psl, hash, key, value);
-      _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry);
+      const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
+      _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
       return undefined;
     } else {
       const _Some = _bind$5;
       const _curr_entry = _Some;
-      if (_curr_entry.hash === hash && _M0IP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdPB2Eq5equal(_curr_entry.key, key)) {
+      if (_curr_entry.hash === hash && _curr_entry.key === key) {
         _curr_entry.value = value;
         return undefined;
       }
       if (psl > _curr_entry.psl) {
         if (self.size >= self.grow_at) {
-          _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self);
+          _M0MPB3Map4growGsRPB4JsonE(self);
           _tmp$2 = 0;
           _tmp$3 = hash & self.capacity_mask;
           continue;
         }
-        _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, _curr_entry);
+        _M0MPB3Map10push__awayGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, _curr_entry);
         const _bind$6 = self.tail;
         const _bind$7 = undefined;
-        const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(_bind$6, _bind$7, psl, hash, key, value);
-        _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, idx, entry);
-        return undefined;
-      }
-      _tmp$2 = psl + 1 | 0;
-      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
-      continue;
-    }
-  }
-}
-function _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, key, value, hash) {
-  let _tmp$2 = 0;
-  let _tmp$3 = hash & self.capacity_mask;
-  while (true) {
-    const psl = _tmp$2;
-    const idx = _tmp$3;
-    const _tmp$4 = self.entries;
-    $bound_check(_tmp$4, idx);
-    const _bind$5 = _tmp$4[idx];
-    if (_bind$5 === undefined) {
-      if (self.size >= self.grow_at) {
-        _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self);
-        _tmp$2 = 0;
-        _tmp$3 = hash & self.capacity_mask;
-        continue;
-      }
-      const _bind$6 = self.tail;
-      const _bind$7 = undefined;
-      const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(_bind$6, _bind$7, psl, hash, key, value);
-      _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry);
-      return undefined;
-    } else {
-      const _Some = _bind$5;
-      const _curr_entry = _Some;
-      if (_curr_entry.hash === hash && _M0IP419moonbit_2dcommunity7rabbita8internal7runtime2IdPB2Eq5equal(_curr_entry.key, key)) {
-        _curr_entry.value = value;
-        return undefined;
-      }
-      if (psl > _curr_entry.psl) {
-        if (self.size >= self.grow_at) {
-          _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self);
-          _tmp$2 = 0;
-          _tmp$3 = hash & self.capacity_mask;
-          continue;
-        }
-        _M0MPB3Map10push__awayGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, _curr_entry);
-        const _bind$6 = self.tail;
-        const _bind$7 = undefined;
-        const entry = new _M0TPB5EntryGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(_bind$6, _bind$7, psl, hash, key, value);
-        _M0MPB3Map20add__entry__to__tailGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, idx, entry);
+        const entry = new _M0TPB5EntryGsRPB4JsonE(_bind$6, _bind$7, psl, hash, key, value);
+        _M0MPB3Map20add__entry__to__tailGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, idx, entry);
         return undefined;
       }
       _tmp$2 = psl + 1 | 0;
@@ -9185,6 +9746,62 @@ function _M0MPB3Map4growGsiE(self) {
     }
   }
 }
+function _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self) {
+  const old_head = self.head;
+  const new_capacity = self.capacity << 1;
+  self.entries = $make_array_len_and_init(new_capacity, undefined);
+  self.capacity = new_capacity;
+  self.capacity_mask = new_capacity - 1 | 0;
+  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
+  self.size = 0;
+  self.head = undefined;
+  self.tail = -1;
+  let _tmp$2 = old_head;
+  while (true) {
+    const _param = _tmp$2;
+    if (_param === undefined) {
+      return;
+    } else {
+      const _Some = _param;
+      const _x = _Some;
+      const _next = _x.next;
+      const _key = _x.key;
+      const _value = _x.value;
+      const _hash = _x.hash;
+      _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, _key, _value, _hash);
+      _tmp$2 = _next;
+      continue;
+    }
+  }
+}
+function _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self) {
+  const old_head = self.head;
+  const new_capacity = self.capacity << 1;
+  self.entries = $make_array_len_and_init(new_capacity, undefined);
+  self.capacity = new_capacity;
+  self.capacity_mask = new_capacity - 1 | 0;
+  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
+  self.size = 0;
+  self.head = undefined;
+  self.tail = -1;
+  let _tmp$2 = old_head;
+  while (true) {
+    const _param = _tmp$2;
+    if (_param === undefined) {
+      return;
+    } else {
+      const _Some = _param;
+      const _x = _Some;
+      const _next = _x.next;
+      const _key = _x.key;
+      const _value = _x.value;
+      const _hash = _x.hash;
+      _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, _key, _value, _hash);
+      _tmp$2 = _next;
+      continue;
+    }
+  }
+}
 function _M0MPB3Map4growGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuEE(self) {
   const old_head = self.head;
   const new_capacity = self.capacity << 1;
@@ -9241,7 +9858,7 @@ function _M0MPB3Map4growGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INod
     }
   }
 }
-function _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self) {
+function _M0MPB3Map4growGsRPB4JsonE(self) {
   const old_head = self.head;
   const new_capacity = self.capacity << 1;
   self.entries = $make_array_len_and_init(new_capacity, undefined);
@@ -9263,35 +9880,7 @@ function _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstI
       const _key = _x.key;
       const _value = _x.value;
       const _hash = _x.hash;
-      _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, _key, _value, _hash);
-      _tmp$2 = _next;
-      continue;
-    }
-  }
-}
-function _M0MPB3Map4growGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self) {
-  const old_head = self.head;
-  const new_capacity = self.capacity << 1;
-  self.entries = $make_array_len_and_init(new_capacity, undefined);
-  self.capacity = new_capacity;
-  self.capacity_mask = new_capacity - 1 | 0;
-  self.grow_at = _M0FPB21calc__grow__threshold(self.capacity);
-  self.size = 0;
-  self.head = undefined;
-  self.tail = -1;
-  let _tmp$2 = old_head;
-  while (true) {
-    const _param = _tmp$2;
-    if (_param === undefined) {
-      return;
-    } else {
-      const _Some = _param;
-      const _x = _Some;
-      const _next = _x.next;
-      const _key = _x.key;
-      const _value = _x.value;
-      const _hash = _x.hash;
-      _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, _key, _value, _hash);
+      _M0MPB3Map15set__with__hashGsRPB4JsonE(self, _key, _value, _hash);
       _tmp$2 = _next;
       continue;
     }
@@ -9760,17 +10349,20 @@ function _M0MPB3Map3setGsRPB5ArrayGsEE(self, key, value) {
 function _M0MPB3Map3setGsiE(self, key, value) {
   _M0MPB3Map15set__with__hashGsiE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
+function _M0MPB3Map3setGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, key, value) {
+  _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, key, value, _M0IP016_24default__implPB4Hash4hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(key));
+}
+function _M0MPB3Map3setGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, key, value) {
+  _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, key, value, _M0IP016_24default__implPB4Hash4hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdE(key));
+}
 function _M0MPB3Map3setGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuEE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRPC13ref3RefGWRP319moonbit_2dcommunity7rabbita3dom5EventRP419moonbit_2dcommunity7rabbita8internal7runtime9SchedulerEuEE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
 function _M0MPB3Map3setGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, key, value) {
   _M0MPB3Map15set__with__hashGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
-function _M0MPB3Map3setGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, key, value) {
-  _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self, key, value, _M0IP016_24default__implPB4Hash4hashGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdE(key));
-}
-function _M0MPB3Map3setGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, key, value) {
-  _M0MPB3Map15set__with__hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEE(self, key, value, _M0IP016_24default__implPB4Hash4hashGRP419moonbit_2dcommunity7rabbita8internal7runtime2IdE(key));
+function _M0MPB3Map3setGsRPB4JsonE(self, key, value) {
+  _M0MPB3Map15set__with__hashGsRPB4JsonE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
 }
 function _M0MPB3Map3setGssE(self, key, value) {
   _M0MPB3Map15set__with__hashGssE(self, key, value, _M0IP016_24default__implPB4Hash4hashGsE(key));
@@ -9952,7 +10544,7 @@ function _M0MPB3Map11from__arrayGsbE(arr) {
   }
   return m;
 }
-function _M0MPB3Map11from__arrayGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(arr) {
+function _M0MPB3Map11from__arrayGsRPB4JsonE(arr) {
   const length = _M0MPC15array9ArrayView6lengthGURP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEEE(arr);
   let capacity = _M0MPC13int3Int20next__power__of__two(length);
   if (length > _M0FPB21calc__grow__threshold(capacity)) {
@@ -9965,7 +10557,7 @@ function _M0MPB3Map11from__arrayGsRP419moonbit_2dcommunity7rabbita8internal7runt
     const _ = _tmp$2;
     if (_ < _bind$5) {
       const e = arr.buf[arr.start + _ | 0];
-      _M0MPB3Map3setGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(m, e._0, e._1);
+      _M0MPB3Map3setGsRPB4JsonE(m, e._0, e._1);
       _tmp$2 = _ + 1 | 0;
       continue;
     } else {
@@ -9988,6 +10580,28 @@ function _M0MPB3Map11from__arrayGRP419moonbit_2dcommunity7rabbita8internal7runti
     if (_ < _bind$5) {
       const e = arr.buf[arr.start + _ | 0];
       _M0MPB3Map3setGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkE(m, e._0, e._1);
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return m;
+}
+function _M0MPB3Map11from__arrayGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(arr) {
+  const length = _M0MPC15array9ArrayView6lengthGURP419moonbit_2dcommunity7rabbita8internal7runtime2IdURP419moonbit_2dcommunity7rabbita8internal7runtime6IsCellRPB3MapGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceEEEE(arr);
+  let capacity = _M0MPC13int3Int20next__power__of__two(length);
+  if (length > _M0FPB21calc__grow__threshold(capacity)) {
+    capacity = Math.imul(capacity, 2) | 0;
+  }
+  const m = _M0MPB3Map11new_2einnerGsRP48bobzhang11spreadsheet8frontend4cell4CellE(capacity);
+  const _bind$5 = arr.end - arr.start | 0;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind$5) {
+      const e = arr.buf[arr.start + _ | 0];
+      _M0MPB3Map3setGsRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(m, e._0, e._1);
       _tmp$2 = _ + 1 | 0;
       continue;
     } else {
@@ -10856,6 +11470,33 @@ function _M0MPB3Map3getGiRP38bobzhang8mbtexcel4xlsx12RowDimensionE(self, key) {
     }
   }
 }
+function _M0MPB3Map3getGsRPB4JsonE(self, key) {
+  const hash = _M0IP016_24default__implPB4Hash4hashGsE(key);
+  let _tmp$2 = 0;
+  let _tmp$3 = hash & self.capacity_mask;
+  while (true) {
+    const i = _tmp$2;
+    const idx = _tmp$3;
+    const _tmp$4 = self.entries;
+    $bound_check(_tmp$4, idx);
+    const _bind$5 = _tmp$4[idx];
+    if (_bind$5 === undefined) {
+      return undefined;
+    } else {
+      const _Some = _bind$5;
+      const _entry = _Some;
+      if (_entry.hash === hash && _entry.key === key) {
+        return _entry.value;
+      }
+      if (i > _entry.psl) {
+        return undefined;
+      }
+      _tmp$2 = i + 1 | 0;
+      _tmp$3 = (idx + 1 | 0) & self.capacity_mask;
+      continue;
+    }
+  }
+}
 function _M0MPB3Map3getGiUsRP38bobzhang8mbtexcel4xlsx5TableEE(self, key) {
   const hash = _M0IP016_24default__implPB4Hash4hashGiE(key);
   let _tmp$2 = 0;
@@ -11334,6 +11975,9 @@ function _M0MPB3Map6lengthGiRP38bobzhang8mbtexcel4xlsx12ColDimensionE(self) {
 function _M0MPB3Map9is__emptyGRP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime8InstanceE(self) {
   return self.size === 0;
 }
+function _M0MPB3Map9is__emptyGsRPB4JsonE(self) {
+  return self.size === 0;
+}
 function _M0MPB3Map4eachGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self, f) {
   let _tmp$2 = self.head;
   while (true) {
@@ -11724,6 +12368,18 @@ function _M0MPB3Map4copyGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self) {
 function _M0IPC14byte4BytePB2Eq5equal(self, that) {
   return self === that;
 }
+function _M0MPC14json4Json6string(string) {
+  return new _M0DTPB4Json6String(string);
+}
+function _M0MPC14json4Json7boolean(boolean) {
+  return boolean ? _M0DTPB4Json4True__ : _M0DTPB4Json5False__;
+}
+function _M0MPC14json4Json6object(object) {
+  return new _M0DTPB4Json6Object(object);
+}
+function _M0IPC14bool4BoolPB6ToJson8to__json(self) {
+  return self ? _M0MPC14json4Json7boolean(true) : _M0MPC14json4Json7boolean(false);
+}
 function _M0MPB7MyInt6414extend__i32__u(value) {
   return new _M0TPB7MyInt64(0, value);
 }
@@ -11739,7 +12395,27 @@ function _M0MPC16double6Double15convert__uint64(value) {
 function _M0MPC15int645Int6423reinterpret__as__double(self) {
   return _M0MPB7MyInt6423reinterpret__as__double(self);
 }
+function _M0IPC16double6DoublePB6ToJson8to__json(self) {
+  return self !== self ? _M0MPC14json4Json6string("NaN") : self > _M0MPC15int645Int6423reinterpret__as__double($9218868437227405311L) ? _M0MPC14json4Json6string("Infinity") : self < _M0MPC15int645Int6423reinterpret__as__double($_4503599627370497L) ? _M0MPC14json4Json6string("-Infinity") : _M0MPC14json4Json6number(self, undefined);
+}
 function _M0MPC15array5Array3mapGRP419moonbit_2dcommunity7rabbita8internal7runtime5VNodeRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(self, f) {
+  const arr = new Array(self.length);
+  const _bind$5 = self.length;
+  let _tmp$2 = 0;
+  while (true) {
+    const i = _tmp$2;
+    if (i < _bind$5) {
+      const v = self[i];
+      arr[i] = f(v);
+      _tmp$2 = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}
+function _M0MPC15array5Array3mapGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPB4JsonE(self, f) {
   const arr = new Array(self.length);
   const _bind$5 = self.length;
   let _tmp$2 = 0;
@@ -11823,6 +12499,27 @@ function _M0MPC15array5Array3mapGiyE(self, f) {
     }
   }
   return arr;
+}
+function _M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self) {
+  return new _M0DTPB4Json5Array(_M0MPC15array5Array3mapGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPB4JsonE(self, (x) => _M0IP48bobzhang11spreadsheet8frontend5sheet5SheetPB6ToJson8to__json(x)));
+}
+function _M0IPB3MapPB6ToJson8to__jsonGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self) {
+  const object = _M0MPB3Map11new_2einnerGsRP48bobzhang11spreadsheet8frontend4cell4CellE(self.capacity);
+  const _it = _M0MPB3Map5iter2GsRP48bobzhang11spreadsheet8frontend4cell4CellE(self);
+  while (true) {
+    const _bind$5 = _M0MPB5Iter24nextGsRP48bobzhang11spreadsheet8frontend4cell4CellE(_it);
+    if (_bind$5 === undefined) {
+      break;
+    } else {
+      const _Some = _bind$5;
+      const _x = _Some;
+      const _k = _x._0;
+      const _v = _x._1;
+      _M0MPB3Map3setGsRPB4JsonE(object, _M0IPC16string6StringPB4Show10to__string(_k), _M0IP48bobzhang11spreadsheet8frontend4cell4CellPB6ToJson8to__json(_v));
+      continue;
+    }
+  }
+  return new _M0DTPB4Json6Object(object);
 }
 function _M0MPB4Iter4join(self, sep) {
   const result = _M0MPB13StringBuilder11new_2einner(0);
@@ -12088,6 +12785,12 @@ function _M0IPC15int645Int64PB7Compare7compare(self, other) {
 function _M0MPC15int645Int647to__int(self) {
   return _M0MPB7MyInt647to__int(self);
 }
+function _M0MPC16double6Double14convert__int64(value) {
+  return _M0MPB7MyInt6419convert__to__double(value);
+}
+function _M0MPC15int645Int6410to__double(self) {
+  return _M0MPC16double6Double14convert__int64(self);
+}
 function _M0IPC16uint646UInt64PB3Add3add(self, other) {
   return _M0IPB7MyInt64PB3Add3add(self, other);
 }
@@ -12132,6 +12835,9 @@ function _M0MPC16uint646UInt643clz(self) {
 }
 function _M0MPC13int3Int5clamp(self, min, max) {
   return min <= max ? (self < min ? min : self > max ? max : self) : $panic();
+}
+function _M0MPC13int3Int13is__surrogate(self) {
+  return 55296 <= self && self <= 57343;
 }
 function _M0MPC14byte4Byte8to__uint(self) {
   return self;
@@ -12195,6 +12901,271 @@ function _M0MPC15bytes5Bytes5makei(length, value) {
     }
   }
   return arr;
+}
+function _M0MPC14char4Char7to__hex(char) {
+  const code = char;
+  return code >= 0 && code <= 255 ? _M0MPC14byte4Byte7to__hex(code & 255) : code <= 65535 ? `${_M0MPC14byte4Byte7to__hex(code >> 8 & 255)}${_M0MPC14byte4Byte7to__hex(code & 255)}` : `${_M0MPC14byte4Byte7to__hex(code >> 16 & 255)}${_M0MPC14byte4Byte7to__hex(code >> 8 & 255)}${_M0MPC14byte4Byte7to__hex(code & 255)}`;
+}
+function _M0MPC14char4Char11is__control(self) {
+  return self >= 0 && self <= 31 ? true : self >= 127 && self <= 159;
+}
+function _M0MPC14char4Char13is__printable(self) {
+  if (_M0MPC14char4Char11is__control(self)) {
+    return false;
+  }
+  const self$2 = self;
+  _L: {
+    _L$2: {
+      if (self$2 >= 57344 && self$2 <= 63743) {
+        break _L$2;
+      } else {
+        if (self$2 >= 983040 && self$2 <= 1048573) {
+          break _L$2;
+        } else {
+          if (self$2 >= 1048576 && self$2 <= 1114109) {
+            break _L$2;
+          }
+        }
+      }
+      break _L;
+    }
+    return false;
+  }
+  _L$2: {
+    _L$3: {
+      if (self$2 === 173) {
+        break _L$3;
+      } else {
+        if (self$2 >= 1536 && self$2 <= 1541) {
+          break _L$3;
+        } else {
+          if (self$2 === 1564) {
+            break _L$3;
+          } else {
+            if (self$2 === 1757) {
+              break _L$3;
+            } else {
+              if (self$2 === 1807) {
+                break _L$3;
+              } else {
+                if (self$2 >= 2192 && self$2 <= 2193) {
+                  break _L$3;
+                } else {
+                  if (self$2 === 2274) {
+                    break _L$3;
+                  } else {
+                    if (self$2 === 6158) {
+                      break _L$3;
+                    } else {
+                      if (self$2 >= 8203 && self$2 <= 8207) {
+                        break _L$3;
+                      } else {
+                        if (self$2 >= 8234 && self$2 <= 8238) {
+                          break _L$3;
+                        } else {
+                          if (self$2 >= 8288 && self$2 <= 8292) {
+                            break _L$3;
+                          } else {
+                            if (self$2 >= 8294 && self$2 <= 8303) {
+                              break _L$3;
+                            } else {
+                              if (self$2 === 65279) {
+                                break _L$3;
+                              } else {
+                                if (self$2 >= 65529 && self$2 <= 65531) {
+                                  break _L$3;
+                                } else {
+                                  if (self$2 === 69821) {
+                                    break _L$3;
+                                  } else {
+                                    if (self$2 === 69837) {
+                                      break _L$3;
+                                    } else {
+                                      if (self$2 >= 78896 && self$2 <= 78911) {
+                                        break _L$3;
+                                      } else {
+                                        if (self$2 >= 113824 && self$2 <= 113827) {
+                                          break _L$3;
+                                        } else {
+                                          if (self$2 >= 119155 && self$2 <= 119162) {
+                                            break _L$3;
+                                          } else {
+                                            if (self$2 === 917505) {
+                                              break _L$3;
+                                            } else {
+                                              if (self$2 >= 917536 && self$2 <= 917631) {
+                                                break _L$3;
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      break _L$2;
+    }
+    return false;
+  }
+  if (_M0MPC13int3Int13is__surrogate(self$2)) {
+    return false;
+  }
+  if (self$2 === 8232 || self$2 === 8233) {
+    return false;
+  }
+  _L$3: {
+    _L$4: {
+      if (self$2 >= 64976 && self$2 <= 65007) {
+        break _L$4;
+      } else {
+        if (self$2 >= 65534 && self$2 <= 65535) {
+          break _L$4;
+        } else {
+          if (self$2 >= 131070 && self$2 <= 131071) {
+            break _L$4;
+          } else {
+            if (self$2 >= 196606 && self$2 <= 196607) {
+              break _L$4;
+            } else {
+              if (self$2 >= 262142 && self$2 <= 262143) {
+                break _L$4;
+              } else {
+                if (self$2 >= 327678 && self$2 <= 327679) {
+                  break _L$4;
+                } else {
+                  if (self$2 >= 393214 && self$2 <= 393215) {
+                    break _L$4;
+                  } else {
+                    if (self$2 >= 458750 && self$2 <= 458751) {
+                      break _L$4;
+                    } else {
+                      if (self$2 >= 524286 && self$2 <= 524287) {
+                        break _L$4;
+                      } else {
+                        if (self$2 >= 589822 && self$2 <= 589823) {
+                          break _L$4;
+                        } else {
+                          if (self$2 >= 655358 && self$2 <= 655359) {
+                            break _L$4;
+                          } else {
+                            if (self$2 >= 720894 && self$2 <= 720895) {
+                              break _L$4;
+                            } else {
+                              if (self$2 >= 786430 && self$2 <= 786431) {
+                                break _L$4;
+                              } else {
+                                if (self$2 >= 851966 && self$2 <= 851967) {
+                                  break _L$4;
+                                } else {
+                                  if (self$2 >= 917502 && self$2 <= 917503) {
+                                    break _L$4;
+                                  } else {
+                                    if (self$2 >= 983038 && self$2 <= 983039) {
+                                      break _L$4;
+                                    } else {
+                                      if (self$2 >= 1048574 && self$2 <= 1048575) {
+                                        break _L$4;
+                                      } else {
+                                        if (self$2 >= 1114110 && self$2 <= 1114111) {
+                                          break _L$4;
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      break _L$3;
+    }
+    return false;
+  }
+  return true;
+}
+function _M0MPC14char4Char18escape__to_2einner(self, logger, quote) {
+  if (quote) {
+    logger.method_table.method_3(logger.self, 39);
+  }
+  _L: {
+    _L$2: {
+      if (self === 39) {
+        break _L$2;
+      } else {
+        if (self === 92) {
+          break _L$2;
+        } else {
+          if (self === 10) {
+            logger.method_table.method_0(logger.self, "\\n");
+          } else {
+            if (self === 13) {
+              logger.method_table.method_0(logger.self, "\\r");
+            } else {
+              if (self === 8) {
+                logger.method_table.method_0(logger.self, "\\b");
+              } else {
+                if (self === 9) {
+                  logger.method_table.method_0(logger.self, "\\t");
+                } else {
+                  if (self >= 32 && self <= 126) {
+                    logger.method_table.method_3(logger.self, self);
+                  } else {
+                    if (!_M0MPC14char4Char13is__printable(self)) {
+                      logger.method_table.method_0(logger.self, "\\u{");
+                      logger.method_table.method_0(logger.self, _M0MPC14char4Char7to__hex(self));
+                      logger.method_table.method_3(logger.self, 125);
+                    } else {
+                      logger.method_table.method_3(logger.self, self);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      break _L;
+    }
+    logger.method_table.method_3(logger.self, 92);
+    logger.method_table.method_3(logger.self, self);
+  }
+  if (quote) {
+    logger.method_table.method_3(logger.self, 39);
+    return;
+  } else {
+    return;
+  }
+}
+function _M0MPC14char4Char14escape_2einner(self, quote) {
+  const buf = _M0MPB13StringBuilder11new_2einner(0);
+  _M0MPC14char4Char18escape__to_2einner(self, { self: buf, method_table: _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger }, quote);
+  return _M0MPB13StringBuilder10to__string(buf);
+}
+function _M0MPC14char4Char10utf16__len(self) {
+  const code = self;
+  return code <= 65535 ? 1 : 2;
 }
 function _M0MPC15bytes9BytesView6length(self) {
   return self.end - self.start | 0;
@@ -12881,7 +13852,7 @@ function _M0FPB23fixed__bubble__sort__byGiE(arr, cmp) {
     }
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__2_2f4187(_env, a, b) {
+function _M0FPB41fixed__choose__pivot__by_2esort__2_2f4391(_env, a, b) {
   const swaps = _env._2;
   const cmp = _env._1;
   const arr = _env._0;
@@ -12893,10 +13864,10 @@ function _M0FPB41fixed__choose__pivot__by_2esort__2_2f4187(_env, a, b) {
     return;
   }
 }
-function _M0FPB41fixed__choose__pivot__by_2esort__3_2f4188(_env, a, b, c) {
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4187(_env, a, b);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4187(_env, b, c);
-  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4187(_env, a, b);
+function _M0FPB41fixed__choose__pivot__by_2esort__3_2f4392(_env, a, b, c) {
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4391(_env, a, b);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4391(_env, b, c);
+  _M0FPB41fixed__choose__pivot__by_2esort__2_2f4391(_env, a, b);
 }
 function _M0FPB24fixed__choose__pivot__byGiE(arr, cmp) {
   const len = _M0MPC15array12MutArrayView6lengthGiE(arr);
@@ -12916,11 +13887,11 @@ function _M0FPB24fixed__choose__pivot__byGiE(arr, cmp) {
     const c = Math.imul(len / 4 | 0, 3) | 0;
     const _env = { _0: arr, _1: cmp, _2: swaps };
     if (len > 50) {
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4188(_env, a - 1 | 0, a, a + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4188(_env, b - 1 | 0, b, b + 1 | 0);
-      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4188(_env, c - 1 | 0, c, c + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4392(_env, a - 1 | 0, a, a + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4392(_env, b - 1 | 0, b, b + 1 | 0);
+      _M0FPB41fixed__choose__pivot__by_2esort__3_2f4392(_env, c - 1 | 0, c, c + 1 | 0);
     }
-    _M0FPB41fixed__choose__pivot__by_2esort__3_2f4188(_env, a, b, c);
+    _M0FPB41fixed__choose__pivot__by_2esort__3_2f4392(_env, a, b, c);
   }
   if (swaps.val === 12) {
     _M0MPC15array12MutArrayView14rev__in__placeGiE(arr);
@@ -13235,6 +14206,34 @@ function _M0MPC15array5Array4eachGRP419moonbit_2dcommunity7rabbita8internal7runt
 }
 function _M0MPC15array5Array5clearGRP38bobzhang8mbtexcel4xlsx9SelectionE(self) {
   _M0MPC15array5Array28unsafe__truncate__to__lengthGRP38bobzhang8mbtexcel4xlsx9SelectionE(self, 0);
+}
+function _M0MPC15array5Array4mapiGRPB4JsonRP48bobzhang11spreadsheet8frontend5sheet5SheetEHRPC14json15JsonDecodeError(self, f) {
+  if (self.length === 0) {
+    return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE2Ok([]);
+  }
+  const arr = new Array(self.length);
+  const _bind$5 = self.length;
+  let _tmp$2 = 0;
+  while (true) {
+    const i = _tmp$2;
+    if (i < _bind$5) {
+      const v = self[i];
+      const _bind$6 = f(i, v);
+      let _tmp$3;
+      if (_bind$6.$tag === 1) {
+        const _ok = _bind$6;
+        _tmp$3 = _ok._0;
+      } else {
+        return _bind$6;
+      }
+      arr[i] = _tmp$3;
+      _tmp$2 = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE2Ok(arr);
 }
 function _M0MPC15array5Array9is__emptyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self) {
   return self.length === 0;
@@ -15947,7 +16946,7 @@ function _M0MPC17strconv7Decimal16to__double__priv(self) {
 }
 function _M0FPC17strconv12checked__mul(a, b) {
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $0L) || _M0IPC16uint646UInt64PB2Eq5equal(b, $0L)) {
-    return _M0FPC17strconv28checked__mul_2econstr_2f5014;
+    return _M0FPC17strconv28checked__mul_2econstr_2f5233;
   }
   if (_M0IPC16uint646UInt64PB2Eq5equal(a, $1L)) {
     return b;
@@ -16043,6 +17042,1654 @@ function _M0IPC17strconv12StrConvErrorPB4Show6output(self, logger) {
   const _StrConvError = self;
   const _err = _StrConvError._0;
   logger.method_table.method_0(logger.self, _err);
+}
+function _M0IPC14json15JsonDecodeErrorPB4Show6output(_x_629, _x_630) {
+  const _JsonDecodeError = _x_629;
+  const _$42$arg_631 = _JsonDecodeError._0;
+  _x_630.method_table.method_0(_x_630.self, "JsonDecodeError(");
+  const _$42$x0_632 = _$42$arg_631._0;
+  const _$42$x1_633 = _$42$arg_631._1;
+  _x_630.method_table.method_0(_x_630.self, "(");
+  _M0MPB6Logger13write__objectGRPC14json8JsonPathE(_x_630, _$42$x0_632);
+  _x_630.method_table.method_0(_x_630.self, ", ");
+  _M0MPB6Logger13write__objectGsE(_x_630, _$42$x1_633);
+  _x_630.method_table.method_0(_x_630.self, ")");
+  _x_630.method_table.method_0(_x_630.self, ")");
+}
+function _M0FPC14json20offset__to__position(input, offset) {
+  let _tmp$2 = 0;
+  let _tmp$3 = 1;
+  let _tmp$4 = 0;
+  while (true) {
+    const i = _tmp$2;
+    const line = _tmp$3;
+    const column = _tmp$4;
+    if (i < offset) {
+      if (_M0IPC16uint166UInt16PB2Eq5equal(_M0MPC16string10StringView11unsafe__get(input, i), 10)) {
+        _tmp$2 = i + 1 | 0;
+        _tmp$3 = line + 1 | 0;
+        _tmp$4 = 0;
+        continue;
+      } else {
+        _tmp$2 = i + 1 | 0;
+        _tmp$4 = column + 1 | 0;
+        continue;
+      }
+    } else {
+      return new _M0TPC14json8Position(line, column);
+    }
+  }
+}
+function _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, shift) {
+  const offset = ctx.offset + shift | 0;
+  return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE3Err(new _M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar(_M0FPC14json20offset__to__position(ctx.input, offset), _M0MPC16option6Option10unwrap__orGcE(_M0MPC16string10StringView9get__char(ctx.input, offset), 65533)));
+}
+function _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, shift) {
+  const offset = ctx.offset + shift | 0;
+  return new _M0DTPC16result6ResultGuRPC14json10ParseErrorE3Err(new _M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar(_M0FPC14json20offset__to__position(ctx.input, offset), _M0MPC16option6Option10unwrap__orGcE(_M0MPC16string10StringView9get__char(ctx.input, offset), 65533)));
+}
+function _M0IPC14json10ParseErrorPB4Show6output(self, logger) {
+  switch (self.$tag) {
+    case 13: {
+      const _InvalidChar = self;
+      const _x = _InvalidChar._0;
+      const _line = _x.line;
+      const _column = _x.column;
+      const _c = _InvalidChar._1;
+      logger.method_table.method_0(logger.self, "Invalid character ");
+      logger.method_table.method_0(logger.self, _M0MPC14char4Char14escape_2einner(_c, true));
+      logger.method_table.method_0(logger.self, " at line ");
+      _M0MPB6Logger13write__objectGiE(logger, _line);
+      logger.method_table.method_0(logger.self, ", column ");
+      _M0MPB6Logger13write__objectGiE(logger, _column);
+      return;
+    }
+    case 12: {
+      logger.method_table.method_0(logger.self, "Unexpected end of file");
+      return;
+    }
+    case 11: {
+      const _InvalidNumber = self;
+      const _x$2 = _InvalidNumber._0;
+      const _line$2 = _x$2.line;
+      const _column$2 = _x$2.column;
+      const _s = _InvalidNumber._1;
+      logger.method_table.method_0(logger.self, "Invalid number ");
+      logger.method_table.method_0(logger.self, _s);
+      logger.method_table.method_0(logger.self, " at line ");
+      _M0MPB6Logger13write__objectGiE(logger, _line$2);
+      logger.method_table.method_0(logger.self, ", column ");
+      _M0MPB6Logger13write__objectGiE(logger, _column$2);
+      return;
+    }
+    case 10: {
+      const _InvalidIdentEscape = self;
+      const _x$3 = _InvalidIdentEscape._0;
+      const _line$3 = _x$3.line;
+      const _column$3 = _x$3.column;
+      logger.method_table.method_0(logger.self, "Invalid escape sequence in identifier at line ");
+      _M0MPB6Logger13write__objectGiE(logger, _line$3);
+      logger.method_table.method_0(logger.self, ", column ");
+      _M0MPB6Logger13write__objectGiE(logger, _column$3);
+      return;
+    }
+    default: {
+      logger.method_table.method_0(logger.self, "Depth limit exceeded, please increase the max_nesting_depth parameter");
+      return;
+    }
+  }
+}
+function _M0FPC14json13decode__errorGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(path, msg) {
+  return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: path, _1: msg }));
+}
+function _M0FPC14json13decode__errorGsE(path, msg) {
+  return new _M0DTPC16result6ResultGsRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: path, _1: msg }));
+}
+function _M0FPC14json13decode__errorGbE(path, msg) {
+  return new _M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: path, _1: msg }));
+}
+function _M0FPC14json13decode__errorGdE(path, msg) {
+  return new _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: path, _1: msg }));
+}
+function _M0MPC14json8JsonPath10add__index(self, index) {
+  return new _M0DTPC14json8JsonPath5Index(self, index);
+}
+function _M0MPC14json12ParseContext21lex__skip__whitespace(ctx) {
+  const rest = _M0MPC16string10StringView12view_2einner(ctx.input, ctx.offset, ctx.end_offset);
+  const _data = _M0MPC16string10StringView4data(rest);
+  const _start = _M0MPC16string10StringView13start__offset(rest);
+  const _end = _start + _M0MPC16string10StringView6length(rest) | 0;
+  let _cursor = _start;
+  let accept_state = -1;
+  let match_end = -1;
+  _L: {
+    if (_cursor < _end) {
+      _L$2: {
+        const next_char = _M0MPC16string6String20unsafe__charcode__at(_data, _cursor);
+        _cursor = _cursor + 1 | 0;
+        if (next_char < 13) {
+          if (next_char >= 9 && next_char <= 10) {
+            break _L$2;
+          } else {
+            break _L;
+          }
+        } else {
+          if (next_char > 13) {
+            if (next_char === 32) {
+              break _L$2;
+            } else {
+              break _L;
+            }
+          } else {
+            break _L$2;
+          }
+        }
+      }
+      while (true) {
+        accept_state = 0;
+        match_end = _cursor;
+        if (_cursor < _end) {
+          _L$3: {
+            const next_char = _M0MPC16string6String20unsafe__charcode__at(_data, _cursor);
+            _cursor = _cursor + 1 | 0;
+            if (next_char < 13) {
+              if (next_char >= 9 && next_char <= 10) {
+                break _L$3;
+              } else {
+                break _L;
+              }
+            } else {
+              if (next_char > 13) {
+                if (next_char === 32) {
+                  break _L$3;
+                } else {
+                  break _L;
+                }
+              } else {
+                break _L$3;
+              }
+            }
+          }
+          continue;
+        } else {
+          break _L;
+        }
+      }
+    } else {
+      break _L;
+    }
+  }
+  if (accept_state === 0) {
+    const next = _M0MPC16string6String4view(_data, match_end, _end);
+    ctx.offset = ctx.end_offset - _M0MPC16string10StringView6length(next) | 0;
+    return;
+  } else {
+    return;
+  }
+}
+function _M0MPC14json12ParseContext4make(input, max_nesting_depth) {
+  return new _M0TPC14json12ParseContext(0, input, _M0MPC16string10StringView6length(input), max_nesting_depth);
+}
+function _M0MPC14json12ParseContext19expect__ascii__char(ctx, c) {
+  if (ctx.offset < ctx.end_offset) {
+    const c1 = _M0MPC16string10StringView11unsafe__get(ctx.input, ctx.offset);
+    ctx.offset = ctx.offset + 1 | 0;
+    return c !== c1 ? _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1) : new _M0DTPC16result6ResultGuRPC14json10ParseErrorE2Ok(undefined);
+  } else {
+    return new _M0DTPC16result6ResultGuRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  }
+}
+function _M0MPC14json12ParseContext16lex__number__end(ctx, start, end) {
+  const s = _M0MPC16string10StringView12view_2einner(ctx.input, start, end);
+  if (!_M0MPC16string10StringView8contains(s, new _M0TPC16string10StringView(_M0MPC14json12ParseContext16lex__number__endN7_2abindS1059, 0, _M0MPC14json12ParseContext16lex__number__endN7_2abindS1059.length)) && (!_M0MPC16string10StringView8contains(s, new _M0TPC16string10StringView(_M0MPC14json12ParseContext16lex__number__endN7_2abindS1060, 0, _M0MPC14json12ParseContext16lex__number__endN7_2abindS1060.length)) && !_M0MPC16string10StringView8contains(s, new _M0TPC16string10StringView(_M0MPC14json12ParseContext16lex__number__endN7_2abindS1061, 0, _M0MPC14json12ParseContext16lex__number__endN7_2abindS1061.length)))) {
+    let parsed_int;
+    let _try_err;
+    _L: {
+      _L$2: {
+        const _bind$5 = _M0FPC17strconv20parse__int64_2einner(s, 0);
+        let _tmp$2;
+        if (_bind$5.$tag === 1) {
+          const _ok = _bind$5;
+          _tmp$2 = _ok._0;
+        } else {
+          const _err = _bind$5;
+          _try_err = _err._0;
+          break _L$2;
+        }
+        parsed_int = new _M0DTPC16result6ResultGlRPC17strconv12StrConvErrorE2Ok(_tmp$2);
+        break _L;
+      }
+      parsed_int = new _M0DTPC16result6ResultGlRPC17strconv12StrConvErrorE3Err(_try_err);
+    }
+    _L$2: {
+      if (parsed_int.$tag === 1) {
+        const _Ok = parsed_int;
+        const _i = _Ok._0;
+        if (_M0IP016_24default__implPB7Compare6op__leGlE(_i, $9007199254740991L) && _M0IP016_24default__implPB7Compare6op__geGlE(_i, $_9007199254740991L)) {
+          return { _0: _M0MPC15int645Int6410to__double(_i), _1: undefined };
+        } else {
+          break _L$2;
+        }
+      } else {
+        break _L$2;
+      }
+    }
+    _L$3: {
+      if (_M0MPC16string6String24char__length__ge_2einner(s.str, 1, s.start, s.end)) {
+        const _x = _M0MPC16string6String16unsafe__char__at(s.str, _M0MPC16string6String29offset__of__nth__char_2einner(s.str, 0, s.start, s.end));
+        if (_x === 45) {
+          return { _0: _M0FPC16double13neg__infinity, _1: s };
+        } else {
+          break _L$3;
+        }
+      } else {
+        break _L$3;
+      }
+    }
+    return { _0: _M0FPC16double8infinity, _1: s };
+  } else {
+    let parsed_double;
+    let _try_err;
+    _L: {
+      _L$2: {
+        const _bind$5 = _M0FPC17strconv13parse__double(s);
+        let _tmp$2;
+        if (_bind$5.$tag === 1) {
+          const _ok = _bind$5;
+          _tmp$2 = _ok._0;
+        } else {
+          const _err = _bind$5;
+          _try_err = _err._0;
+          break _L$2;
+        }
+        parsed_double = new _M0DTPC16result6ResultGdRPC17strconv12StrConvErrorE2Ok(_tmp$2);
+        break _L;
+      }
+      parsed_double = new _M0DTPC16result6ResultGdRPC17strconv12StrConvErrorE3Err(_try_err);
+    }
+    if (parsed_double.$tag === 1) {
+      const _Ok = parsed_double;
+      const _d = _Ok._0;
+      return { _0: _d, _1: undefined };
+    } else {
+      _L$2: {
+        if (_M0MPC16string6String24char__length__ge_2einner(s.str, 1, s.start, s.end)) {
+          const _x = _M0MPC16string6String16unsafe__char__at(s.str, _M0MPC16string6String29offset__of__nth__char_2einner(s.str, 0, s.start, s.end));
+          if (_x === 45) {
+            return { _0: _M0FPC16double13neg__infinity, _1: s };
+          } else {
+            break _L$2;
+          }
+        } else {
+          break _L$2;
+        }
+      }
+      return { _0: _M0FPC16double8infinity, _1: s };
+    }
+  }
+}
+function _M0MPC14json12ParseContext10read__char(ctx) {
+  if (ctx.offset < ctx.end_offset) {
+    const c1 = _M0MPC16string10StringView11unsafe__get(ctx.input, ctx.offset);
+    ctx.offset = ctx.offset + 1 | 0;
+    if (c1 >= 55296 && c1 <= 56319) {
+      if (ctx.offset < ctx.end_offset) {
+        const c2 = _M0MPC16string10StringView11unsafe__get(ctx.input, ctx.offset);
+        if (c2 >= 56320 && c2 <= 57343) {
+          ctx.offset = ctx.offset + 1 | 0;
+          const c3 = ((c1 << 10) + c2 | 0) - 56613888 | 0;
+          return c3;
+        }
+      }
+    }
+    return c1;
+  } else {
+    return -1;
+  }
+}
+function _M0MPC14json12ParseContext31lex__decimal__exponent__integer(ctx, start) {
+  while (true) {
+    const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+    if (_bind$5 === -1) {
+      return _M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset);
+    } else {
+      const _Some = _bind$5;
+      const _c = _Some;
+      if (_c >= 48 && _c <= 57) {
+        continue;
+      }
+      ctx.offset = ctx.offset - 1 | 0;
+      return _M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset);
+    }
+  }
+}
+function _M0MPC14json12ParseContext28lex__decimal__exponent__sign(ctx, start) {
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _c = _Some;
+    if (_c >= 48 && _c <= 57) {
+      return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext31lex__decimal__exponent__integer(ctx, start));
+    }
+    ctx.offset = ctx.offset - 1 | 0;
+    return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, 0);
+  }
+}
+function _M0MPC14json12ParseContext22lex__decimal__exponent(ctx, start) {
+  _L: {
+    const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+    if (_bind$5 === -1) {
+      return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+    } else {
+      const _Some = _bind$5;
+      const _x = _Some;
+      switch (_x) {
+        case 43: {
+          break _L;
+        }
+        case 45: {
+          break _L;
+        }
+        default: {
+          if (_x >= 48 && _x <= 57) {
+            return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext31lex__decimal__exponent__integer(ctx, start));
+          }
+          ctx.offset = ctx.offset - 1 | 0;
+          return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, 0);
+        }
+      }
+    }
+  }
+  const _bind$5 = _M0MPC14json12ParseContext28lex__decimal__exponent__sign(ctx, start);
+  let _tmp$2;
+  if (_bind$5.$tag === 1) {
+    const _ok = _bind$5;
+    _tmp$2 = _ok._0;
+  } else {
+    return _bind$5;
+  }
+  return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_tmp$2);
+}
+function _M0MPC14json12ParseContext22lex__decimal__fraction(ctx, start) {
+  let _tmp$2;
+  _L: while (true) {
+    _L$2: {
+      const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+      if (_bind$5 === -1) {
+        return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset));
+      } else {
+        const _Some = _bind$5;
+        const _x = _Some;
+        switch (_x) {
+          case 101: {
+            break _L$2;
+          }
+          case 69: {
+            break _L$2;
+          }
+          default: {
+            if (_x >= 48 && _x <= 57) {
+              continue _L;
+            }
+            ctx.offset = ctx.offset - 1 | 0;
+            return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset));
+          }
+        }
+      }
+    }
+    const _bind$5 = _M0MPC14json12ParseContext22lex__decimal__exponent(ctx, start);
+    let _tmp$3;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$3 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_tmp$3);
+  }
+  return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_tmp$2);
+}
+function _M0MPC14json12ParseContext19lex__decimal__point(ctx, start) {
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _c = _Some;
+    return _c >= 48 && _c <= 57 ? _M0MPC14json12ParseContext22lex__decimal__fraction(ctx, start) : _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+  }
+}
+function _M0MPC14json12ParseContext21lex__decimal__integer(ctx, start) {
+  let _tmp$2;
+  _L: while (true) {
+    _L$2: {
+      const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+      if (_bind$5 === -1) {
+        return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset));
+      } else {
+        const _Some = _bind$5;
+        const _x = _Some;
+        switch (_x) {
+          case 46: {
+            const _bind$6 = _M0MPC14json12ParseContext19lex__decimal__point(ctx, start);
+            let _tmp$3;
+            if (_bind$6.$tag === 1) {
+              const _ok = _bind$6;
+              _tmp$3 = _ok._0;
+            } else {
+              return _bind$6;
+            }
+            return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_tmp$3);
+          }
+          case 101: {
+            break _L$2;
+          }
+          case 69: {
+            break _L$2;
+          }
+          default: {
+            if (_x >= 48 && _x <= 57) {
+              continue _L;
+            }
+            ctx.offset = ctx.offset - 1 | 0;
+            return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset));
+          }
+        }
+      }
+    }
+    const _bind$5 = _M0MPC14json12ParseContext22lex__decimal__exponent(ctx, start);
+    let _tmp$3;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$3 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_tmp$3);
+  }
+  return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_tmp$2);
+}
+function _M0MPC14json12ParseContext16lex__hex__digits(ctx, n) {
+  let _tmp$2;
+  let _tmp$3 = 0;
+  let _tmp$4 = 0;
+  while (true) {
+    const _ = _tmp$3;
+    const r = _tmp$4;
+    if (_ < n) {
+      const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+      if (_bind$5 === -1) {
+        return new _M0DTPC16result6ResultGiRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+      } else {
+        const _Some = _bind$5;
+        const _c = _Some;
+        if (_c >= 65) {
+          const d = ((_c & ~32) - 65 | 0) + 10 | 0;
+          if (d > 15) {
+            const _bind$6 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+            if (_bind$6.$tag === 1) {
+              const _ok = _bind$6;
+              _ok._0;
+            } else {
+              return _bind$6;
+            }
+          }
+          _tmp$3 = _ + 1 | 0;
+          _tmp$4 = r << 4 | d;
+          continue;
+        } else {
+          if (_c >= 48) {
+            const d = _c - 48 | 0;
+            if (d > 9) {
+              const _bind$6 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+              if (_bind$6.$tag === 1) {
+                const _ok = _bind$6;
+                _ok._0;
+              } else {
+                return _bind$6;
+              }
+            }
+            _tmp$3 = _ + 1 | 0;
+            _tmp$4 = r << 4 | d;
+            continue;
+          } else {
+            const _bind$6 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+            if (_bind$6.$tag === 1) {
+              const _ok = _bind$6;
+              _ok._0;
+            } else {
+              return _bind$6;
+            }
+          }
+        }
+      }
+      _tmp$3 = _ + 1 | 0;
+      continue;
+    } else {
+      _tmp$2 = r;
+      break;
+    }
+  }
+  return new _M0DTPC16result6ResultGiRPC14json10ParseErrorE2Ok(_tmp$2);
+}
+function _M0MPC14json12ParseContext11lex__stringN5flushS274(_env, end) {
+  const buf = _env._2;
+  const start = _env._1;
+  const ctx = _env._0;
+  if (start.val > 0 && end > start.val) {
+    _M0IPB13StringBuilderPB6Logger11write__view(buf, _M0MPC16string10StringView11sub_2einner(ctx.input, start.val, end));
+    return;
+  } else {
+    return;
+  }
+}
+function _M0MPC14json12ParseContext11lex__string(ctx) {
+  const buf = _M0MPB13StringBuilder11new_2einner(0);
+  const start = new _M0TPB8MutLocalGiE(ctx.offset);
+  const _env = { _0: ctx, _1: start, _2: buf };
+  _L: while (true) {
+    _L$2: {
+      _L$3: {
+        const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+        if (_bind$5 === -1) {
+          return new _M0DTPC16result6ResultGsRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+        } else {
+          const _Some = _bind$5;
+          const _x = _Some;
+          switch (_x) {
+            case 34: {
+              _M0MPC14json12ParseContext11lex__stringN5flushS274(_env, ctx.offset - 1 | 0);
+              break _L;
+            }
+            case 10: {
+              break _L$3;
+            }
+            case 13: {
+              break _L$3;
+            }
+            case 92: {
+              _M0MPC14json12ParseContext11lex__stringN5flushS274(_env, ctx.offset - 1 | 0);
+              const _bind$6 = _M0MPC14json12ParseContext10read__char(ctx);
+              if (_bind$6 === -1) {
+                return new _M0DTPC16result6ResultGsRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+              } else {
+                const _Some$2 = _bind$6;
+                const _x$2 = _Some$2;
+                switch (_x$2) {
+                  case 98: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 8);
+                    break;
+                  }
+                  case 102: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 12);
+                    break;
+                  }
+                  case 110: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 10);
+                    break;
+                  }
+                  case 114: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 13);
+                    break;
+                  }
+                  case 116: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 9);
+                    break;
+                  }
+                  case 34: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 34);
+                    break;
+                  }
+                  case 92: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 92);
+                    break;
+                  }
+                  case 47: {
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, 47);
+                    break;
+                  }
+                  case 117: {
+                    const _bind$7 = _M0MPC14json12ParseContext16lex__hex__digits(ctx, 4);
+                    let c;
+                    if (_bind$7.$tag === 1) {
+                      const _ok = _bind$7;
+                      c = _ok._0;
+                    } else {
+                      return _bind$7;
+                    }
+                    _M0IPB13StringBuilderPB6Logger11write__char(buf, c);
+                    break;
+                  }
+                  default: {
+                    const _bind$8 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+                    if (_bind$8.$tag === 1) {
+                      const _ok = _bind$8;
+                      _ok._0;
+                    } else {
+                      return _bind$8;
+                    }
+                  }
+                }
+              }
+              start.val = ctx.offset;
+              break;
+            }
+            default: {
+              if (_x < 32) {
+                const _bind$7 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+                if (_bind$7.$tag === 1) {
+                  const _ok = _bind$7;
+                  _ok._0;
+                } else {
+                  return _bind$7;
+                }
+              } else {
+                continue _L;
+              }
+            }
+          }
+        }
+        break _L$2;
+      }
+      const _bind$5 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        _ok._0;
+      } else {
+        return _bind$5;
+      }
+    }
+    continue;
+  }
+  return new _M0DTPC16result6ResultGsRPC14json10ParseErrorE2Ok(_M0MPB13StringBuilder10to__string(buf));
+}
+function _M0MPC14json12ParseContext9lex__zero(ctx, start) {
+  _L: {
+    const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+    if (_bind$5 === -1) {
+      return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset));
+    } else {
+      const _Some = _bind$5;
+      const _x = _Some;
+      switch (_x) {
+        case 46: {
+          return _M0MPC14json12ParseContext19lex__decimal__point(ctx, start);
+        }
+        case 101: {
+          break _L;
+        }
+        case 69: {
+          break _L;
+        }
+        default: {
+          if (_x >= 48 && _x <= 57) {
+            ctx.offset = ctx.offset - 1 | 0;
+            const _bind$6 = _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, 0);
+            if (_bind$6.$tag === 1) {
+              const _ok = _bind$6;
+              _ok._0;
+            } else {
+              return _bind$6;
+            }
+          }
+          ctx.offset = ctx.offset - 1 | 0;
+          return new _M0DTPC16result6ResultGUdORPC16string10StringViewERPC14json10ParseErrorE2Ok(_M0MPC14json12ParseContext16lex__number__end(ctx, start, ctx.offset));
+        }
+      }
+    }
+  }
+  return _M0MPC14json12ParseContext22lex__decimal__exponent(ctx, start);
+}
+function _M0MPC14json12ParseContext10lex__value(ctx, allow_rbracket) {
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _x = _Some;
+    if (_x === 123) {
+      return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token6LBrace__);
+    } else {
+      if (_x === 91) {
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token8LBracket__);
+      } else {
+        if (_x === 93) {
+          if (allow_rbracket) {
+            return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token8RBracket__);
+          } else {
+            return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+          }
+        } else {
+          if (_x === 110) {
+            const _bind$6 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 117);
+            if (_bind$6.$tag === 1) {
+              const _ok = _bind$6;
+              _ok._0;
+            } else {
+              return _bind$6;
+            }
+            const _bind$7 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 108);
+            if (_bind$7.$tag === 1) {
+              const _ok = _bind$7;
+              _ok._0;
+            } else {
+              return _bind$7;
+            }
+            const _bind$8 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 108);
+            if (_bind$8.$tag === 1) {
+              const _ok = _bind$8;
+              _ok._0;
+            } else {
+              return _bind$8;
+            }
+            return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token4Null__);
+          } else {
+            if (_x === 116) {
+              const _bind$6 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 114);
+              if (_bind$6.$tag === 1) {
+                const _ok = _bind$6;
+                _ok._0;
+              } else {
+                return _bind$6;
+              }
+              const _bind$7 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 117);
+              if (_bind$7.$tag === 1) {
+                const _ok = _bind$7;
+                _ok._0;
+              } else {
+                return _bind$7;
+              }
+              const _bind$8 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 101);
+              if (_bind$8.$tag === 1) {
+                const _ok = _bind$8;
+                _ok._0;
+              } else {
+                return _bind$8;
+              }
+              return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token4True__);
+            } else {
+              if (_x === 102) {
+                const _bind$6 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 97);
+                if (_bind$6.$tag === 1) {
+                  const _ok = _bind$6;
+                  _ok._0;
+                } else {
+                  return _bind$6;
+                }
+                const _bind$7 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 108);
+                if (_bind$7.$tag === 1) {
+                  const _ok = _bind$7;
+                  _ok._0;
+                } else {
+                  return _bind$7;
+                }
+                const _bind$8 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 115);
+                if (_bind$8.$tag === 1) {
+                  const _ok = _bind$8;
+                  _ok._0;
+                } else {
+                  return _bind$8;
+                }
+                const _bind$9 = _M0MPC14json12ParseContext19expect__ascii__char(ctx, 101);
+                if (_bind$9.$tag === 1) {
+                  const _ok = _bind$9;
+                  _ok._0;
+                } else {
+                  return _bind$9;
+                }
+                return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token5False__);
+              } else {
+                if (_x === 45) {
+                  const _bind$6 = _M0MPC14json12ParseContext10read__char(ctx);
+                  if (_bind$6 === -1) {
+                    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+                  } else {
+                    const _Some$2 = _bind$6;
+                    const _x$2 = _Some$2;
+                    if (_x$2 === 48) {
+                      const _bind$7 = _M0MPC14json12ParseContext9lex__zero(ctx, ctx.offset - 2 | 0);
+                      let _bind$8;
+                      if (_bind$7.$tag === 1) {
+                        const _ok = _bind$7;
+                        _bind$8 = _ok._0;
+                      } else {
+                        return _bind$7;
+                      }
+                      const _n = _bind$8._0;
+                      const _repr = _bind$8._1;
+                      return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6Number(_n, _M0MPC16option6Option3mapGRPC16string10StringViewsE(_repr, (repr) => _M0IPC16string10StringViewPB4Show10to__string(repr))));
+                    } else {
+                      if (_x$2 >= 49 && _x$2 <= 57) {
+                        const _bind$7 = _M0MPC14json12ParseContext21lex__decimal__integer(ctx, ctx.offset - 2 | 0);
+                        let _bind$8;
+                        if (_bind$7.$tag === 1) {
+                          const _ok = _bind$7;
+                          _bind$8 = _ok._0;
+                        } else {
+                          return _bind$7;
+                        }
+                        const _n = _bind$8._0;
+                        const _repr = _bind$8._1;
+                        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6Number(_n, _M0MPC16option6Option3mapGRPC16string10StringViewsE(_repr, (repr) => _M0IPC16string10StringViewPB4Show10to__string(repr))));
+                      }
+                      return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+                    }
+                  }
+                } else {
+                  if (_x === 48) {
+                    const _bind$6 = _M0MPC14json12ParseContext9lex__zero(ctx, ctx.offset - 1 | 0);
+                    let _bind$7;
+                    if (_bind$6.$tag === 1) {
+                      const _ok = _bind$6;
+                      _bind$7 = _ok._0;
+                    } else {
+                      return _bind$6;
+                    }
+                    const _n = _bind$7._0;
+                    const _repr = _bind$7._1;
+                    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6Number(_n, _M0MPC16option6Option3mapGRPC16string10StringViewsE(_repr, (repr) => _M0IPC16string10StringViewPB4Show10to__string(repr))));
+                  } else {
+                    if (_x >= 49 && _x <= 57) {
+                      const _bind$6 = _M0MPC14json12ParseContext21lex__decimal__integer(ctx, ctx.offset - 1 | 0);
+                      let _bind$7;
+                      if (_bind$6.$tag === 1) {
+                        const _ok = _bind$6;
+                        _bind$7 = _ok._0;
+                      } else {
+                        return _bind$6;
+                      }
+                      const _n = _bind$7._0;
+                      const _repr = _bind$7._1;
+                      return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6Number(_n, _M0MPC16option6Option3mapGRPC16string10StringViewsE(_repr, (repr) => _M0IPC16string10StringViewPB4Show10to__string(repr))));
+                    } else {
+                      if (_x === 34) {
+                        const _bind$6 = _M0MPC14json12ParseContext11lex__string(ctx);
+                        let s;
+                        if (_bind$6.$tag === 1) {
+                          const _ok = _bind$6;
+                          s = _ok._0;
+                        } else {
+                          return _bind$6;
+                        }
+                        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6String(s));
+                      } else {
+                        const shift = -_M0MPC14char4Char10utf16__len(_x) | 0;
+                        return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, shift);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+function _M0MPC14json12ParseContext24lex__after__array__value(ctx) {
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _x = _Some;
+    switch (_x) {
+      case 93: {
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token8RBracket__);
+      }
+      case 44: {
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token5Comma__);
+      }
+      default: {
+        return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+      }
+    }
+  }
+}
+function _M0MPC14json12ParseContext25lex__after__object__value(ctx) {
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _x = _Some;
+    switch (_x) {
+      case 125: {
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token6RBrace__);
+      }
+      case 44: {
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token5Comma__);
+      }
+      default: {
+        return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+      }
+    }
+  }
+}
+function _M0MPC14json12ParseContext26lex__after__property__name(ctx) {
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGuRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _x = _Some;
+    if (_x === 58) {
+      return new _M0DTPC16result6ResultGuRPC14json10ParseErrorE2Ok(undefined);
+    } else {
+      return _M0MPC14json12ParseContext21invalid__char_2einnerGuE(ctx, -1);
+    }
+  }
+}
+function _M0MPC14json12ParseContext19lex__property__name(ctx) {
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _x = _Some;
+    switch (_x) {
+      case 125: {
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(_M0DTPC14json5Token6RBrace__);
+      }
+      case 34: {
+        const _bind$6 = _M0MPC14json12ParseContext11lex__string(ctx);
+        let s;
+        if (_bind$6.$tag === 1) {
+          const _ok = _bind$6;
+          s = _ok._0;
+        } else {
+          return _bind$6;
+        }
+        return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6String(s));
+      }
+      default: {
+        return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+      }
+    }
+  }
+}
+function _M0MPC14json12ParseContext20lex__property__name2(ctx) {
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  const _bind$5 = _M0MPC14json12ParseContext10read__char(ctx);
+  if (_bind$5 === -1) {
+    return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE3Err(_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__);
+  } else {
+    const _Some = _bind$5;
+    const _x = _Some;
+    if (_x === 34) {
+      const _bind$6 = _M0MPC14json12ParseContext11lex__string(ctx);
+      let s;
+      if (_bind$6.$tag === 1) {
+        const _ok = _bind$6;
+        s = _ok._0;
+      } else {
+        return _bind$6;
+      }
+      return new _M0DTPC16result6ResultGRPC14json5TokenRPC14json10ParseErrorE2Ok(new _M0DTPC14json5Token6String(s));
+    } else {
+      return _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, -1);
+    }
+  }
+}
+function _M0MPC14json12ParseContext12parse__value(ctx) {
+  const _bind$5 = _M0MPC14json12ParseContext10lex__value(ctx, false);
+  let tok;
+  if (_bind$5.$tag === 1) {
+    const _ok = _bind$5;
+    tok = _ok._0;
+  } else {
+    return _bind$5;
+  }
+  return _M0MPC14json12ParseContext13parse__value2(ctx, tok);
+}
+function _M0MPC14json12ParseContext13parse__value2(ctx, tok) {
+  _L: {
+    switch (tok.$tag) {
+      case 0: {
+        return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0FPB4null);
+      }
+      case 1: {
+        return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0MPC14json4Json7boolean(true));
+      }
+      case 2: {
+        return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0MPC14json4Json7boolean(false));
+      }
+      case 3: {
+        const _Number = tok;
+        const _n = _Number._0;
+        const _repr = _Number._1;
+        return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0MPC14json4Json6number(_n, _repr));
+      }
+      case 4: {
+        const _String = tok;
+        const _s = _String._0;
+        return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0MPC14json4Json6string(_s));
+      }
+      case 5: {
+        return _M0MPC14json12ParseContext13parse__object(ctx);
+      }
+      case 7: {
+        return _M0MPC14json12ParseContext12parse__array(ctx);
+      }
+      case 8: {
+        break _L;
+      }
+      case 6: {
+        break _L;
+      }
+      default: {
+        break _L;
+      }
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0FPB5abortGsE("unreachable", "@moonbitlang/core/json:parse.mbt:62:34-62:54"));
+}
+function _M0MPC14json12ParseContext12parse__array(ctx) {
+  if (ctx.remaining_available_depth <= 0) {
+    return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE3Err(_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded__);
+  }
+  ctx.remaining_available_depth = ctx.remaining_available_depth - 1 | 0;
+  const vec = [];
+  let _tmp$2;
+  const _bind$5 = _M0MPC14json12ParseContext10lex__value(ctx, true);
+  let _tmp$3;
+  if (_bind$5.$tag === 1) {
+    const _ok = _bind$5;
+    _tmp$3 = _ok._0;
+  } else {
+    return _bind$5;
+  }
+  let _tmp$4 = _tmp$3;
+  _L: while (true) {
+    const _param = _tmp$4;
+    if (_param.$tag === 8) {
+      ctx.remaining_available_depth = ctx.remaining_available_depth + 1 | 0;
+      _tmp$2 = _M0MPC14json4Json5array(vec);
+      break;
+    } else {
+      const _bind$6 = _M0MPC14json12ParseContext13parse__value2(ctx, _param);
+      let _tmp$5;
+      if (_bind$6.$tag === 1) {
+        const _ok = _bind$6;
+        _tmp$5 = _ok._0;
+      } else {
+        return _bind$6;
+      }
+      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(vec, _tmp$5);
+      const _bind$7 = _M0MPC14json12ParseContext24lex__after__array__value(ctx);
+      let tok2;
+      if (_bind$7.$tag === 1) {
+        const _ok = _bind$7;
+        tok2 = _ok._0;
+      } else {
+        return _bind$7;
+      }
+      switch (tok2.$tag) {
+        case 9: {
+          const _bind$8 = _M0MPC14json12ParseContext10lex__value(ctx, false);
+          if (_bind$8.$tag === 1) {
+            const _ok = _bind$8;
+            _tmp$4 = _ok._0;
+          } else {
+            return _bind$8;
+          }
+          continue _L;
+        }
+        case 8: {
+          ctx.remaining_available_depth = ctx.remaining_available_depth + 1 | 0;
+          _tmp$2 = _M0MPC14json4Json5array(vec);
+          break _L;
+        }
+        default: {
+          _tmp$2 = _M0FPB5abortGsE("unreachable", "@moonbitlang/core/json:parse.mbt:115:14-115:34");
+          break _L;
+        }
+      }
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_tmp$2);
+}
+function _M0MPC14json12ParseContext13parse__object(ctx) {
+  if (ctx.remaining_available_depth <= 0) {
+    return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE3Err(_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded__);
+  }
+  ctx.remaining_available_depth = ctx.remaining_available_depth - 1 | 0;
+  const map = _M0MPB3Map11new_2einnerGsRP48bobzhang11spreadsheet8frontend4cell4CellE(8);
+  let _tmp$2;
+  const _bind$5 = _M0MPC14json12ParseContext19lex__property__name(ctx);
+  let _tmp$3;
+  if (_bind$5.$tag === 1) {
+    const _ok = _bind$5;
+    _tmp$3 = _ok._0;
+  } else {
+    return _bind$5;
+  }
+  let _tmp$4 = _tmp$3;
+  _L: while (true) {
+    const _param = _tmp$4;
+    switch (_param.$tag) {
+      case 6: {
+        ctx.remaining_available_depth = ctx.remaining_available_depth + 1 | 0;
+        _tmp$2 = _M0MPC14json4Json6object(map);
+        break _L;
+      }
+      case 4: {
+        const _String = _param;
+        const _name = _String._0;
+        const _bind$6 = _M0MPC14json12ParseContext26lex__after__property__name(ctx);
+        if (_bind$6.$tag === 1) {
+          const _ok = _bind$6;
+          _ok._0;
+        } else {
+          return _bind$6;
+        }
+        const _bind$7 = _M0MPC14json12ParseContext12parse__value(ctx);
+        let _tmp$5;
+        if (_bind$7.$tag === 1) {
+          const _ok = _bind$7;
+          _tmp$5 = _ok._0;
+        } else {
+          return _bind$7;
+        }
+        _M0MPB3Map3setGsRPB4JsonE(map, _name, _tmp$5);
+        const _bind$8 = _M0MPC14json12ParseContext25lex__after__object__value(ctx);
+        let _bind$9;
+        if (_bind$8.$tag === 1) {
+          const _ok = _bind$8;
+          _bind$9 = _ok._0;
+        } else {
+          return _bind$8;
+        }
+        switch (_bind$9.$tag) {
+          case 9: {
+            const _bind$10 = _M0MPC14json12ParseContext20lex__property__name2(ctx);
+            if (_bind$10.$tag === 1) {
+              const _ok = _bind$10;
+              _tmp$4 = _ok._0;
+            } else {
+              return _bind$10;
+            }
+            continue _L;
+          }
+          case 6: {
+            ctx.remaining_available_depth = ctx.remaining_available_depth + 1 | 0;
+            _tmp$2 = _M0MPC14json4Json6object(map);
+            break _L;
+          }
+          default: {
+            _tmp$2 = _M0FPB5abortGsE("unreachable", "@moonbitlang/core/json:parse.mbt:87:14-87:34");
+            break _L;
+          }
+        }
+      }
+      default: {
+        _tmp$2 = _M0FPB5abortGsE("unreachable", "@moonbitlang/core/json:parse.mbt:90:10-90:30");
+        break _L;
+      }
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_tmp$2);
+}
+function _M0FPC14json13parse_2einner(input, max_nesting_depth) {
+  const ctx = _M0MPC14json12ParseContext4make(input, max_nesting_depth);
+  const _bind$5 = _M0MPC14json12ParseContext12parse__value(ctx);
+  let val;
+  if (_bind$5.$tag === 1) {
+    const _ok = _bind$5;
+    val = _ok._0;
+  } else {
+    return _bind$5;
+  }
+  _M0MPC14json12ParseContext21lex__skip__whitespace(ctx);
+  return ctx.offset >= ctx.end_offset ? new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(val) : _M0MPC14json12ParseContext21invalid__char_2einnerGRPB4JsonE(ctx, 0);
+}
+function _M0FPC14json6escape(str, escape_slash) {
+  const buf = _M0MPB13StringBuilder11new_2einner(str.length);
+  const _it = _M0MPC16string6String4iter(str);
+  while (true) {
+    const _bind$5 = _M0MPB4Iter4nextGcE(_it);
+    if (_bind$5 === -1) {
+      break;
+    } else {
+      const _Some = _bind$5;
+      const _c = _Some;
+      switch (_c) {
+        case 34: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\\"");
+          break;
+        }
+        case 92: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\\\");
+          break;
+        }
+        case 47: {
+          if (escape_slash) {
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\/");
+          } else {
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, _c);
+          }
+          break;
+        }
+        case 10: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\n");
+          break;
+        }
+        case 13: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\r");
+          break;
+        }
+        case 8: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\b");
+          break;
+        }
+        case 9: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\t");
+          break;
+        }
+        default: {
+          const code = _c;
+          if (code === 12) {
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\f");
+          } else {
+            if (code < 32) {
+              _M0IPB13StringBuilderPB6Logger13write__string(buf, "\\u00");
+              _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0MPC14byte4Byte7to__hex(code & 255));
+            } else {
+              _M0IPB13StringBuilderPB6Logger11write__char(buf, _c);
+            }
+          }
+        }
+      }
+      continue;
+    }
+  }
+  return _M0MPB13StringBuilder10to__string(buf);
+}
+function _M0FPC14json11indent__str(level, indent) {
+  if (indent === 0) {
+    return "";
+  } else {
+    const spaces = Math.imul(indent, level) | 0;
+    switch (spaces) {
+      case 0: {
+        return "\n";
+      }
+      case 1: {
+        return "\n ";
+      }
+      case 2: {
+        return "\n  ";
+      }
+      case 3: {
+        return "\n   ";
+      }
+      case 4: {
+        return "\n    ";
+      }
+      case 5: {
+        return "\n     ";
+      }
+      case 6: {
+        return "\n      ";
+      }
+      case 7: {
+        return "\n       ";
+      }
+      case 8: {
+        return "\n        ";
+      }
+      default: {
+        return `\n${_M0MPC16string6String6repeat(" ", spaces)}`;
+      }
+    }
+  }
+}
+function _M0MPC14json4Json17stringify_2einner(self, escape_slash, indent, replacer) {
+  const buf = _M0MPB13StringBuilder11new_2einner(0);
+  const stack = [];
+  let depth = 0;
+  let _tmp$2 = self;
+  while (true) {
+    const _param = _tmp$2;
+    if (_param === undefined) {
+      if (stack.length === 0) {
+        break;
+      } else {
+        const _x = stack[stack.length - 1 | 0];
+        if (_x.$tag === 0) {
+          const _Array = _x;
+          const _arr = _Array._0;
+          const _i = _Array._1;
+          if (_i < _arr.length) {
+            const element = _M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(_arr, _i);
+            _Array._1 = _i + 1 | 0;
+            if (_i > 0) {
+              _M0IPB13StringBuilderPB6Logger11write__char(buf, 44);
+              _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json11indent__str(depth, indent));
+            }
+            _tmp$2 = element;
+            continue;
+          } else {
+            depth = depth - 1 | 0;
+            _M0MPC15array5Array3popGRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(stack);
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json11indent__str(depth, indent));
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 93);
+            _tmp$2 = undefined;
+            continue;
+          }
+        } else {
+          const _Object = _x;
+          const _iterator = _Object._0;
+          const _first = _Object._1;
+          const _bind$5 = _M0MPB4Iter4nextGURP419moonbit_2dcommunity7rabbita8internal7runtime6InstIdRP419moonbit_2dcommunity7rabbita8internal7runtime4LinkEE(_iterator);
+          if (_bind$5 === undefined) {
+            depth = depth - 1 | 0;
+            _M0MPC15array5Array3popGRP419moonbit_2dcommunity7rabbita8internal7runtime5INodeE(stack);
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json11indent__str(depth, indent));
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 125);
+            _tmp$2 = undefined;
+            continue;
+          } else {
+            const _Some = _bind$5;
+            const _x$2 = _Some;
+            const _k = _x$2._0;
+            const _v = _x$2._1;
+            let v2 = _v;
+            if (replacer === undefined) {
+            } else {
+              const _Some$2 = replacer;
+              const _replacer = _Some$2;
+              const _func = _replacer.f;
+              const _bind$6 = _func(_k, _v);
+              if (_bind$6 === undefined) {
+                _tmp$2 = undefined;
+                continue;
+              } else {
+                const _Some$3 = _bind$6;
+                const _v$2 = _Some$3;
+                v2 = _v$2;
+              }
+            }
+            if (!_first) {
+              _M0IPB13StringBuilderPB6Logger11write__char(buf, 44);
+              _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json11indent__str(depth, indent));
+            }
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 34);
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json6escape(_k, escape_slash));
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 34);
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 58);
+            if (indent > 0) {
+              _M0IPB13StringBuilderPB6Logger11write__char(buf, 32);
+            }
+            _Object._1 = false;
+            _tmp$2 = v2;
+            continue;
+          }
+        }
+      }
+    } else {
+      const _Some = _param;
+      const _value = _Some;
+      switch (_value.$tag) {
+        case 6: {
+          const _Object = _value;
+          const _members = _Object._0;
+          if (_M0MPB3Map9is__emptyGsRPB4JsonE(_members)) {
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, "{}");
+          } else {
+            depth = depth + 1 | 0;
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 123);
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json11indent__str(depth, indent));
+            _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(stack, new _M0DTPC14json10WriteFrame6Object(_M0MPB3Map4iterGsRP48bobzhang11spreadsheet8frontend4cell4CellE(_members), true));
+          }
+          break;
+        }
+        case 5: {
+          const _Array = _value;
+          const _arr = _Array._0;
+          if (_M0MPC15array5Array9is__emptyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(_arr)) {
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, "[]");
+          } else {
+            depth = depth + 1 | 0;
+            _M0IPB13StringBuilderPB6Logger11write__char(buf, 91);
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json11indent__str(depth, indent));
+            _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(stack, new _M0DTPC14json10WriteFrame5Array(_arr, 0));
+          }
+          break;
+        }
+        case 4: {
+          const _String = _value;
+          const _s = _String._0;
+          _M0IPB13StringBuilderPB6Logger11write__char(buf, 34);
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, _M0FPC14json6escape(_s, escape_slash));
+          _M0IPB13StringBuilderPB6Logger11write__char(buf, 34);
+          break;
+        }
+        case 3: {
+          const _Number = _value;
+          const _n = _Number._0;
+          const _repr = _Number._1;
+          if (_repr === undefined) {
+            _M0MPB13StringBuilder13write__objectGdE(buf, _n);
+          } else {
+            const _Some$2 = _repr;
+            const _r = _Some$2;
+            _M0IPB13StringBuilderPB6Logger13write__string(buf, _r);
+          }
+          break;
+        }
+        case 1: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "true");
+          break;
+        }
+        case 2: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "false");
+          break;
+        }
+        default: {
+          _M0IPB13StringBuilderPB6Logger13write__string(buf, "null");
+        }
+      }
+      _tmp$2 = undefined;
+      continue;
+    }
+  }
+  return _M0MPB13StringBuilder10to__string(buf);
+}
+function _M0MPC14json8JsonPath8add__key(self, key) {
+  return new _M0DTPC14json8JsonPath3Key(self, key);
+}
+function _M0IPC14json8JsonPathPB4Show6outputN11build__pathS179(path, logger) {
+  switch (path.$tag) {
+    case 0: {
+      return;
+    }
+    case 1: {
+      const _Key = path;
+      const _parent = _Key._0;
+      const _key = _Key._1;
+      _M0IPC14json8JsonPathPB4Show6outputN11build__pathS179(_parent, logger);
+      logger.method_table.method_3(logger.self, 47);
+      if (!_M0MPC16string6String13contains__any(_key, new _M0TPC16string10StringView(_M0IPC14json8JsonPathPB4Show6outputN7_2abindS1377, 0, _M0IPC14json8JsonPathPB4Show6outputN7_2abindS1377.length))) {
+        logger.method_table.method_0(logger.self, _key);
+        return;
+      }
+      const _it = _M0MPC16string6String4iter(_key);
+      while (true) {
+        const _bind$5 = _M0MPB4Iter4nextGcE(_it);
+        if (_bind$5 === -1) {
+          return;
+        } else {
+          const _Some = _bind$5;
+          const _ch = _Some;
+          switch (_ch) {
+            case 126: {
+              logger.method_table.method_0(logger.self, "~0");
+              break;
+            }
+            case 47: {
+              logger.method_table.method_0(logger.self, "~1");
+              break;
+            }
+            default: {
+              logger.method_table.method_3(logger.self, _ch);
+            }
+          }
+          continue;
+        }
+      }
+    }
+    default: {
+      const _Index = path;
+      const _parent$2 = _Index._0;
+      const _index = _Index._1;
+      _M0IPC14json8JsonPathPB4Show6outputN11build__pathS179(_parent$2, logger);
+      logger.method_table.method_3(logger.self, 47);
+      _M0MPB6Logger13write__objectGiE(logger, _index);
+      return;
+    }
+  }
+}
+function _M0IPC14json8JsonPathPB4Show6output(self, logger) {
+  _M0IPC14json8JsonPathPB4Show6outputN11build__pathS179(self, logger);
+}
+function _M0FPC14json18from__json_2einnerGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(json, path) {
+  return _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(json, path);
+}
+function _M0FPC14json10from__jsonGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(json, path$46$opt) {
+  let path;
+  if (path$46$opt === undefined) {
+    path = _M0DTPC14json8JsonPath4Root__;
+  } else {
+    const _Some = path$46$opt;
+    path = _Some;
+  }
+  return _M0FPC14json18from__json_2einnerGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(json, path);
+}
+function _M0IPC14bool4BoolPC14json8FromJson10from__json(json, path) {
+  switch (json.$tag) {
+    case 1: {
+      return new _M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE2Ok(true);
+    }
+    case 2: {
+      return new _M0DTPC16result6ResultGbRPC14json15JsonDecodeErrorE2Ok(false);
+    }
+    default: {
+      return _M0FPC14json13decode__errorGbE(path, "Bool::from_json: expected boolean");
+    }
+  }
+}
+function _M0IPC16double6DoublePC14json8FromJson10from__json(json, path) {
+  _L: {
+    switch (json.$tag) {
+      case 4: {
+        const _String = json;
+        const _x = _String._0;
+        switch (_x) {
+          case "NaN": {
+            return new _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE2Ok(_M0FPC16double14not__a__number);
+          }
+          case "Infinity": {
+            return new _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE2Ok(_M0FPC16double8infinity);
+          }
+          case "-Infinity": {
+            return new _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE2Ok(_M0FPC16double13neg__infinity);
+          }
+          default: {
+            break _L;
+          }
+        }
+      }
+      case 3: {
+        const _Number = json;
+        const _n = _Number._0;
+        if (_n !== _M0FPC16double8infinity && _n !== _M0FPC16double13neg__infinity) {
+          return new _M0DTPC16result6ResultGdRPC14json15JsonDecodeErrorE2Ok(_n);
+        } else {
+          break _L;
+        }
+      }
+      default: {
+        break _L;
+      }
+    }
+  }
+  return _M0FPC14json13decode__errorGdE(path, "Double::from_json: expected number");
+}
+function _M0IPC16string6StringPC14json8FromJson10from__json(json, path) {
+  if (json.$tag === 4) {
+    const _String = json;
+    const _a = _String._0;
+    return new _M0DTPC16result6ResultGsRPC14json15JsonDecodeErrorE2Ok(_a);
+  } else {
+    return _M0FPC14json13decode__errorGsE(path, "String::from_json: expected string");
+  }
+}
+function _M0IPC15array5ArrayPC14json8FromJson10from__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(json, path) {
+  if (json.$tag === 5) {
+    const _Array = json;
+    const _a = _Array._0;
+    const _bind$5 = new _M0DTPC14json8JsonPath5Index(path, 0);
+    if (_bind$5.$tag === 2) {
+      const _Index = _bind$5;
+      return _M0MPC15array5Array4mapiGRPB4JsonRP48bobzhang11spreadsheet8frontend5sheet5SheetEHRPC14json15JsonDecodeError(_a, (i, x) => {
+        _Index._1 = i;
+        return _M0IP48bobzhang11spreadsheet8frontend5sheet5SheetPC14json8FromJson10from__json(x, _Index);
+      });
+    } else {
+      return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetERPC14json15JsonDecodeErrorE2Ok($panic());
+    }
+  } else {
+    return _M0FPC14json13decode__errorGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(path, "Array::from_json: expected array");
+  }
+}
+function _M0IPB3MapPC14json8FromJson10from__jsonGRP48bobzhang11spreadsheet8frontend4cell4CellE(json, path) {
+  if (json.$tag === 6) {
+    const _Object = json;
+    const _obj = _Object._0;
+    const _bind$5 = [];
+    const res = _M0MPB3Map11from__arrayGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new _M0TPB9ArrayViewGUsRP48bobzhang11spreadsheet8frontend4cell4CellEE(_bind$5, 0, 0));
+    const _bind$6 = new _M0DTPC14json8JsonPath3Key(path, "");
+    if (_bind$6.$tag === 1) {
+      const _Key = _bind$6;
+      const _it = _M0MPB3Map5iter2GsRP48bobzhang11spreadsheet8frontend4cell4CellE(_obj);
+      while (true) {
+        const _bind$7 = _M0MPB5Iter24nextGsRP48bobzhang11spreadsheet8frontend4cell4CellE(_it);
+        if (_bind$7 === undefined) {
+          break;
+        } else {
+          const _Some = _bind$7;
+          const _x = _Some;
+          const _k = _x._0;
+          const _v = _x._1;
+          _Key._1 = _k;
+          const _bind$8 = _M0IP48bobzhang11spreadsheet8frontend4cell4CellPC14json8FromJson10from__json(_v, _Key);
+          let _tmp$2;
+          if (_bind$8.$tag === 1) {
+            const _ok = _bind$8;
+            _tmp$2 = _ok._0;
+          } else {
+            return _bind$8;
+          }
+          _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(res, _k, _tmp$2);
+          continue;
+        }
+      }
+      return new _M0DTPC16result6ResultGRPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellERPC14json15JsonDecodeErrorE2Ok(res);
+    } else {
+      return new _M0DTPC16result6ResultGRPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellERPC14json15JsonDecodeErrorE2Ok($panic());
+    }
+  } else {
+    return _M0FPC14json13decode__errorGsE(path, "Map::from_json: expected object");
+  }
 }
 function _M0MPC15queue5Queue3newGRP48bobzhang11spreadsheet8frontend3app3MsgE() {
   return new _M0TPC15queue5QueueGRP48bobzhang11spreadsheet8frontend3app3MsgE(0, undefined, undefined);
@@ -17299,6 +19946,684 @@ function _M0FPC28encoding4utf814decode_2einner(bytes, ignore_bom) {
 }
 function _M0FPC14math3pow(_tmp$2, _tmp$3) {
   return Math.pow(_tmp$2, _tmp$3);
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell5AlignPB6ToJson8to__json(_x_191) {
+  switch (_x_191) {
+    case 0: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Auto");
+    }
+    case 1: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Left");
+    }
+    case 2: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Center");
+    }
+    default: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Right");
+    }
+  }
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell5AlignPC14json8FromJson10from__json(_x_183, _x_184) {
+  let tag;
+  _L: {
+    let _bind$5;
+    let arr;
+    _L$2: {
+      _L$3: {
+        switch (_x_183.$tag) {
+          case 4: {
+            const _String = _x_183;
+            const _tag = _String._0;
+            _bind$5 = _tag;
+            break;
+          }
+          case 5: {
+            const _Array = _x_183;
+            const _arr = _Array._0;
+            arr = _arr;
+            break _L$3;
+          }
+          default: {
+            return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_184, _1: "Expected string or array for tag in enum when derserializing Align" }));
+          }
+        }
+        break _L$2;
+      }
+      const _bind$6 = _M0MPC15array5Array3getGsE(arr, 0);
+      if (_bind$6 === undefined) {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_184, _1: "Missing tag in array[0] when derserializing Align" }));
+      } else {
+        const _Some = _bind$6;
+        const _x = _Some;
+        if (_x.$tag === 4) {
+          const _String = _x;
+          const _tag = _String._0;
+          _bind$5 = _tag;
+        } else {
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_184, _1: "Expected string tag at array[0] when derserializing Align" }));
+        }
+      }
+    }
+    switch (_bind$5) {
+      case "Auto": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE2Ok(0);
+      }
+      case "Left": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE2Ok(1);
+      }
+      case "Center": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE2Ok(2);
+      }
+      case "Right": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE2Ok(3);
+      }
+      default: {
+        tag = _bind$5;
+        break _L;
+      }
+    }
+  }
+  return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5AlignRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_184, _1: `Unknown enum constructor ${tag} when deserializing Align` }));
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell5ValuePB6ToJson8to__json(_x_167) {
+  let _arg_170;
+  _L: {
+    let _arg_169;
+    _L$2: {
+      let _arg_168;
+      _L$3: {
+        switch (_x_167.$tag) {
+          case 0: {
+            return _M0IPC16string6StringPB6ToJson8to__json("Empty");
+          }
+          case 1: {
+            const _Num = _x_167;
+            const _$42$arg_168 = _Num._0;
+            _arg_168 = _$42$arg_168;
+            break _L$3;
+          }
+          case 2: {
+            const _Text = _x_167;
+            const _$42$arg_169 = _Text._0;
+            _arg_169 = _$42$arg_169;
+            break _L$2;
+          }
+          default: {
+            const _Error = _x_167;
+            const _$42$arg_170 = _Error._0;
+            _arg_170 = _$42$arg_170;
+            break _L;
+          }
+        }
+      }
+      return _M0MPC14json4Json5array([_M0IPC16string6StringPB6ToJson8to__json("Num"), _M0IPC16double6DoublePB6ToJson8to__json(_arg_168)]);
+    }
+    return _M0MPC14json4Json5array([_M0IPC16string6StringPB6ToJson8to__json("Text"), _M0IPC16string6StringPB6ToJson8to__json(_arg_169)]);
+  }
+  return _M0MPC14json4Json5array([_M0IPC16string6StringPB6ToJson8to__json("Error"), _M0IPC16string6StringPB6ToJson8to__json(_arg_170)]);
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell5ValuePC14json8FromJson10from__json(_x_135, _x_136) {
+  let tag;
+  _L: {
+    let _bind$5;
+    let arr;
+    _L$2: {
+      _L$3: {
+        switch (_x_135.$tag) {
+          case 4: {
+            const _String = _x_135;
+            const _tag = _String._0;
+            _bind$5 = _tag;
+            break;
+          }
+          case 5: {
+            const _Array = _x_135;
+            const _arr = _Array._0;
+            arr = _arr;
+            break _L$3;
+          }
+          default: {
+            return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Expected string or array for tag in enum when derserializing Value" }));
+          }
+        }
+        break _L$2;
+      }
+      const _bind$6 = _M0MPC15array5Array3getGsE(arr, 0);
+      if (_bind$6 === undefined) {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Missing tag in array[0] when derserializing Value" }));
+      } else {
+        const _Some = _bind$6;
+        const _x = _Some;
+        if (_x.$tag === 4) {
+          const _String = _x;
+          const _tag = _String._0;
+          _bind$5 = _tag;
+        } else {
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Expected string tag at array[0] when derserializing Value" }));
+        }
+      }
+    }
+    switch (_bind$5) {
+      case "Empty": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE2Ok(_M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Empty__);
+      }
+      case "Num": {
+        const _de_arg_137 = new _M0TPB8MutLocalGOdE(_M0DTPC16option6OptionGdE4None__);
+        _L$3: {
+          _L$4: {
+            let _arg_138;
+            let _arg_139;
+            _L$5: {
+              if (_x_135.$tag === 5) {
+                const _Array = _x_135;
+                const _x = _Array._0;
+                if (_x.length === 2) {
+                  const _$42$arg_138 = _x[0];
+                  const _$42$arg_139 = _x[1];
+                  _arg_138 = _$42$arg_138;
+                  _arg_139 = _$42$arg_139;
+                  break _L$5;
+                } else {
+                  break _L$4;
+                }
+              } else {
+                break _L$4;
+              }
+            }
+            const _bind$6 = _M0IPC16double6DoublePC14json8FromJson10from__json(_arg_139, _M0MPC14json8JsonPath10add__index(_x_136, 1));
+            let _tmp$2;
+            if (_bind$6.$tag === 1) {
+              const _ok = _bind$6;
+              _tmp$2 = _ok._0;
+            } else {
+              return _bind$6;
+            }
+            _de_arg_137.val = new _M0DTPC16option6OptionGdE4Some(_tmp$2);
+            break _L$3;
+          }
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Expected array to deserialize enum Value constructor Num when derserializing Value" }));
+        }
+        let _de_arg_137$2;
+        const _bind$6 = _de_arg_137.val;
+        if (_bind$6.$tag === 1) {
+          const _Some = _bind$6;
+          const _v = _Some._0;
+          _de_arg_137$2 = _v;
+        } else {
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Missing positional field 0 when derserializing Value" }));
+        }
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE2Ok(new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value3Num(_de_arg_137$2));
+      }
+      case "Text": {
+        const _de_arg_140 = new _M0TPB8MutLocalGOsE(undefined);
+        _L$4: {
+          _L$5: {
+            let _arg_141;
+            let _arg_142;
+            _L$6: {
+              if (_x_135.$tag === 5) {
+                const _Array = _x_135;
+                const _x = _Array._0;
+                if (_x.length === 2) {
+                  const _$42$arg_141 = _x[0];
+                  const _$42$arg_142 = _x[1];
+                  _arg_141 = _$42$arg_141;
+                  _arg_142 = _$42$arg_142;
+                  break _L$6;
+                } else {
+                  break _L$5;
+                }
+              } else {
+                break _L$5;
+              }
+            }
+            const _bind$7 = _M0IPC16string6StringPC14json8FromJson10from__json(_arg_142, _M0MPC14json8JsonPath10add__index(_x_136, 1));
+            let _tmp$2;
+            if (_bind$7.$tag === 1) {
+              const _ok = _bind$7;
+              _tmp$2 = _ok._0;
+            } else {
+              return _bind$7;
+            }
+            _de_arg_140.val = _tmp$2;
+            break _L$4;
+          }
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Expected array to deserialize enum Value constructor Text when derserializing Value" }));
+        }
+        let _de_arg_140$2;
+        const _bind$7 = _de_arg_140.val;
+        if (_bind$7 === undefined) {
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Missing positional field 0 when derserializing Value" }));
+        } else {
+          const _Some = _bind$7;
+          const _v = _Some;
+          _de_arg_140$2 = _v;
+        }
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE2Ok(new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value4Text(_de_arg_140$2));
+      }
+      case "Error": {
+        const _de_arg_143 = new _M0TPB8MutLocalGOsE(undefined);
+        _L$5: {
+          _L$6: {
+            let _arg_144;
+            let _arg_145;
+            _L$7: {
+              if (_x_135.$tag === 5) {
+                const _Array = _x_135;
+                const _x = _Array._0;
+                if (_x.length === 2) {
+                  const _$42$arg_144 = _x[0];
+                  const _$42$arg_145 = _x[1];
+                  _arg_144 = _$42$arg_144;
+                  _arg_145 = _$42$arg_145;
+                  break _L$7;
+                } else {
+                  break _L$6;
+                }
+              } else {
+                break _L$6;
+              }
+            }
+            const _bind$8 = _M0IPC16string6StringPC14json8FromJson10from__json(_arg_145, _M0MPC14json8JsonPath10add__index(_x_136, 1));
+            let _tmp$2;
+            if (_bind$8.$tag === 1) {
+              const _ok = _bind$8;
+              _tmp$2 = _ok._0;
+            } else {
+              return _bind$8;
+            }
+            _de_arg_143.val = _tmp$2;
+            break _L$5;
+          }
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Expected array to deserialize enum Value constructor Error when derserializing Value" }));
+        }
+        let _de_arg_143$2;
+        const _bind$8 = _de_arg_143.val;
+        if (_bind$8 === undefined) {
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: "Missing positional field 0 when derserializing Value" }));
+        } else {
+          const _Some = _bind$8;
+          const _v = _Some;
+          _de_arg_143$2 = _v;
+        }
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE2Ok(new _M0DTP48bobzhang11spreadsheet8frontend4cell5Value5Error(_de_arg_143$2));
+      }
+      default: {
+        tag = _bind$5;
+        break _L;
+      }
+    }
+  }
+  return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell5ValueRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_136, _1: `Unknown enum constructor ${tag} when deserializing Value` }));
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell4CellPB6ToJson8to__json(_x_132) {
+  const _bind$5 = [];
+  const $36$map = _M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$5, 0, 0));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "raw", _M0IPC16string6StringPB6ToJson8to__json(_x_132.raw));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "value", _M0IP48bobzhang11spreadsheet8frontend4cell5ValuePB6ToJson8to__json(_x_132.value));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "bold", _M0IPC14bool4BoolPB6ToJson8to__json(_x_132.bold));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "italic", _M0IPC14bool4BoolPB6ToJson8to__json(_x_132.italic));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "align", _M0IP48bobzhang11spreadsheet8frontend4cell5AlignPB6ToJson8to__json(_x_132.align));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "format", _M0IP48bobzhang11spreadsheet8frontend4cell9NumFormatPB6ToJson8to__json(_x_132.format));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "bg_color", _M0IPC16string6StringPB6ToJson8to__json(_x_132.bg_color));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "text_color", _M0IPC16string6StringPB6ToJson8to__json(_x_132.text_color));
+  return _M0MPC14json4Json6object($36$map);
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell4CellPC14json8FromJson10from__json(_x_87, _x_88) {
+  const _de_value_96 = new _M0TPB8MutLocalGORP48bobzhang11spreadsheet8frontend4cell5ValueE(undefined);
+  const _de_text_color_95 = new _M0TPB8MutLocalGOsE(undefined);
+  const _de_raw_94 = new _M0TPB8MutLocalGOsE(undefined);
+  const _de_italic_93 = new _M0TPB8MutLocalGObE(-1);
+  const _de_format_92 = new _M0TPB8MutLocalGORP48bobzhang11spreadsheet8frontend4cell9NumFormatE(undefined);
+  const _de_bold_91 = new _M0TPB8MutLocalGObE(-1);
+  const _de_bg_color_90 = new _M0TPB8MutLocalGOsE(undefined);
+  const _de_align_89 = new _M0TPB8MutLocalGORP48bobzhang11spreadsheet8frontend4cell5AlignE(undefined);
+  let _map;
+  _L: {
+    if (_x_87.$tag === 6) {
+      const _Object = _x_87;
+      const __map = _Object._0;
+      _map = __map;
+      break _L;
+    } else {
+      return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Expected object to deserialize Cell" }));
+    }
+  }
+  let _v;
+  _L$2: {
+    _L$3: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "raw");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v = __v;
+        break _L$3;
+      }
+      break _L$2;
+    }
+    const _bind$5 = _M0IPC16string6StringPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_88, "raw"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_raw_94.val = _tmp$2;
+  }
+  let _v$2;
+  _L$3: {
+    _L$4: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "value");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$2 = __v;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    const _bind$5 = _M0IP48bobzhang11spreadsheet8frontend4cell5ValuePC14json8FromJson10from__json(_v$2, _M0MPC14json8JsonPath8add__key(_x_88, "value"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_value_96.val = _tmp$2;
+  }
+  let _v$3;
+  _L$4: {
+    _L$5: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "bold");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$3 = __v;
+        break _L$5;
+      }
+      break _L$4;
+    }
+    const _bind$5 = _M0IPC14bool4BoolPC14json8FromJson10from__json(_v$3, _M0MPC14json8JsonPath8add__key(_x_88, "bold"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_bold_91.val = _tmp$2;
+  }
+  let _v$4;
+  _L$5: {
+    _L$6: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "italic");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$4 = __v;
+        break _L$6;
+      }
+      break _L$5;
+    }
+    const _bind$5 = _M0IPC14bool4BoolPC14json8FromJson10from__json(_v$4, _M0MPC14json8JsonPath8add__key(_x_88, "italic"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_italic_93.val = _tmp$2;
+  }
+  let _v$5;
+  _L$6: {
+    _L$7: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "align");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$5 = __v;
+        break _L$7;
+      }
+      break _L$6;
+    }
+    const _bind$5 = _M0IP48bobzhang11spreadsheet8frontend4cell5AlignPC14json8FromJson10from__json(_v$5, _M0MPC14json8JsonPath8add__key(_x_88, "align"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_align_89.val = _tmp$2;
+  }
+  let _v$6;
+  _L$7: {
+    _L$8: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "format");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$6 = __v;
+        break _L$8;
+      }
+      break _L$7;
+    }
+    const _bind$5 = _M0IP48bobzhang11spreadsheet8frontend4cell9NumFormatPC14json8FromJson10from__json(_v$6, _M0MPC14json8JsonPath8add__key(_x_88, "format"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_format_92.val = _tmp$2;
+  }
+  let _v$7;
+  _L$8: {
+    _L$9: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "bg_color");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$7 = __v;
+        break _L$9;
+      }
+      break _L$8;
+    }
+    const _bind$5 = _M0IPC16string6StringPC14json8FromJson10from__json(_v$7, _M0MPC14json8JsonPath8add__key(_x_88, "bg_color"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_bg_color_90.val = _tmp$2;
+  }
+  let _v$8;
+  _L$9: {
+    _L$10: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "text_color");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$8 = __v;
+        break _L$10;
+      }
+      break _L$9;
+    }
+    const _bind$5 = _M0IPC16string6StringPC14json8FromJson10from__json(_v$8, _M0MPC14json8JsonPath8add__key(_x_88, "text_color"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_text_color_95.val = _tmp$2;
+  }
+  let _de_value_96$2;
+  const _bind$5 = _de_value_96.val;
+  if (_bind$5 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field value" }));
+  } else {
+    const _Some = _bind$5;
+    const _v$9 = _Some;
+    _de_value_96$2 = _v$9;
+  }
+  let _de_text_color_95$2;
+  const _bind$6 = _de_text_color_95.val;
+  if (_bind$6 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field text_color" }));
+  } else {
+    const _Some = _bind$6;
+    const _v$9 = _Some;
+    _de_text_color_95$2 = _v$9;
+  }
+  let _de_raw_94$2;
+  const _bind$7 = _de_raw_94.val;
+  if (_bind$7 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field raw" }));
+  } else {
+    const _Some = _bind$7;
+    const _v$9 = _Some;
+    _de_raw_94$2 = _v$9;
+  }
+  let _de_italic_93$2;
+  const _bind$8 = _de_italic_93.val;
+  if (_bind$8 === -1) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field italic" }));
+  } else {
+    const _Some = _bind$8;
+    const _v$9 = _Some;
+    _de_italic_93$2 = _v$9;
+  }
+  let _de_format_92$2;
+  const _bind$9 = _de_format_92.val;
+  if (_bind$9 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field format" }));
+  } else {
+    const _Some = _bind$9;
+    const _v$9 = _Some;
+    _de_format_92$2 = _v$9;
+  }
+  let _de_bold_91$2;
+  const _bind$10 = _de_bold_91.val;
+  if (_bind$10 === -1) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field bold" }));
+  } else {
+    const _Some = _bind$10;
+    const _v$9 = _Some;
+    _de_bold_91$2 = _v$9;
+  }
+  let _de_bg_color_90$2;
+  const _bind$11 = _de_bg_color_90.val;
+  if (_bind$11 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field bg_color" }));
+  } else {
+    const _Some = _bind$11;
+    const _v$9 = _Some;
+    _de_bg_color_90$2 = _v$9;
+  }
+  let _de_align_89$2;
+  const _bind$12 = _de_align_89.val;
+  if (_bind$12 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_88, _1: "Missing field align" }));
+  } else {
+    const _Some = _bind$12;
+    const _v$9 = _Some;
+    _de_align_89$2 = _v$9;
+  }
+  return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell4CellRPC14json15JsonDecodeErrorE2Ok(new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(_de_raw_94$2, _de_value_96$2, _de_bold_91$2, _de_italic_93$2, _de_align_89$2, _de_format_92$2, _de_bg_color_90$2, _de_text_color_95$2));
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell9NumFormatPB6ToJson8to__json(_x_85) {
+  switch (_x_85) {
+    case 0: {
+      return _M0IPC16string6StringPB6ToJson8to__json("General");
+    }
+    case 1: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Currency");
+    }
+    case 2: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Percent");
+    }
+    default: {
+      return _M0IPC16string6StringPB6ToJson8to__json("Fixed");
+    }
+  }
+}
+function _M0IP48bobzhang11spreadsheet8frontend4cell9NumFormatPC14json8FromJson10from__json(_x_77, _x_78) {
+  let tag;
+  _L: {
+    let _bind$5;
+    let arr;
+    _L$2: {
+      _L$3: {
+        switch (_x_77.$tag) {
+          case 4: {
+            const _String = _x_77;
+            const _tag = _String._0;
+            _bind$5 = _tag;
+            break;
+          }
+          case 5: {
+            const _Array = _x_77;
+            const _arr = _Array._0;
+            arr = _arr;
+            break _L$3;
+          }
+          default: {
+            return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_78, _1: "Expected string or array for tag in enum when derserializing NumFormat" }));
+          }
+        }
+        break _L$2;
+      }
+      const _bind$6 = _M0MPC15array5Array3getGsE(arr, 0);
+      if (_bind$6 === undefined) {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_78, _1: "Missing tag in array[0] when derserializing NumFormat" }));
+      } else {
+        const _Some = _bind$6;
+        const _x = _Some;
+        if (_x.$tag === 4) {
+          const _String = _x;
+          const _tag = _String._0;
+          _bind$5 = _tag;
+        } else {
+          return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_78, _1: "Expected string tag at array[0] when derserializing NumFormat" }));
+        }
+      }
+    }
+    switch (_bind$5) {
+      case "General": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE2Ok(0);
+      }
+      case "Currency": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE2Ok(1);
+      }
+      case "Percent": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE2Ok(2);
+      }
+      case "Fixed": {
+        return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE2Ok(3);
+      }
+      default: {
+        tag = _bind$5;
+        break _L;
+      }
+    }
+  }
+  return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend4cell9NumFormatRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_78, _1: `Unknown enum constructor ${tag} when deserializing NumFormat` }));
 }
 function _M0MP48bobzhang11spreadsheet8frontend4cell4Cell11new_2einner(raw, value, bold, italic, align, format, bg_color, text_color) {
   return new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(raw, value, bold, italic, align, format, bg_color, text_color);
@@ -19619,6 +22944,93 @@ function _M0FP48bobzhang11spreadsheet8frontend7formula8evaluate(raw, lookup) {
   }
   const expr = _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String4trim(_M0IPC16string10StringViewPB4Show10to__string(rest), undefined));
   return _M0FP48bobzhang11spreadsheet8frontend7formula16parse__and__eval(expr, lookup);
+}
+function _M0IP48bobzhang11spreadsheet8frontend5sheet5SheetPB6ToJson8to__json(_x_132) {
+  const _bind$5 = [];
+  const $36$map = _M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$5, 0, 0));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "name", _M0IPC16string6StringPB6ToJson8to__json(_x_132.name));
+  _M0MPB3Map3setGsRPB4JsonE($36$map, "cells", _M0IPB3MapPB6ToJson8to__jsonGsRP48bobzhang11spreadsheet8frontend4cell4CellE(_x_132.cells));
+  return _M0MPC14json4Json6object($36$map);
+}
+function _M0IP48bobzhang11spreadsheet8frontend5sheet5SheetPC14json8FromJson10from__json(_x_117, _x_118) {
+  const _de_name_120 = new _M0TPB8MutLocalGOsE(undefined);
+  const _de_cells_119 = new _M0TPB8MutLocalGORPB3MapGsRP48bobzhang11spreadsheet8frontend4cell4CellEE(undefined);
+  let _map;
+  _L: {
+    if (_x_117.$tag === 6) {
+      const _Object = _x_117;
+      const __map = _Object._0;
+      _map = __map;
+      break _L;
+    } else {
+      return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_118, _1: "Expected object to deserialize Sheet" }));
+    }
+  }
+  let _v;
+  _L$2: {
+    _L$3: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "name");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v = __v;
+        break _L$3;
+      }
+      break _L$2;
+    }
+    const _bind$5 = _M0IPC16string6StringPC14json8FromJson10from__json(_v, _M0MPC14json8JsonPath8add__key(_x_118, "name"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_name_120.val = _tmp$2;
+  }
+  let _v$2;
+  _L$3: {
+    _L$4: {
+      const _bind$5 = _M0MPB3Map3getGsRPB4JsonE(_map, "cells");
+      if (_bind$5 === undefined) {
+      } else {
+        const _Some = _bind$5;
+        const __v = _Some;
+        _v$2 = __v;
+        break _L$4;
+      }
+      break _L$3;
+    }
+    const _bind$5 = _M0IPB3MapPC14json8FromJson10from__jsonGRP48bobzhang11spreadsheet8frontend4cell4CellE(_v$2, _M0MPC14json8JsonPath8add__key(_x_118, "cells"));
+    let _tmp$2;
+    if (_bind$5.$tag === 1) {
+      const _ok = _bind$5;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind$5;
+    }
+    _de_cells_119.val = _tmp$2;
+  }
+  let _de_name_120$2;
+  const _bind$5 = _de_name_120.val;
+  if (_bind$5 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_118, _1: "Missing field name" }));
+  } else {
+    const _Some = _bind$5;
+    const _v$3 = _Some;
+    _de_name_120$2 = _v$3;
+  }
+  let _de_cells_119$2;
+  const _bind$6 = _de_cells_119.val;
+  if (_bind$6 === undefined) {
+    return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE3Err(new _M0DTPC15error5Error61moonbitlang_2fcore_2fjson_2eJsonDecodeError_2eJsonDecodeError({ _0: _x_118, _1: "Missing field cells" }));
+  } else {
+    const _Some = _bind$6;
+    const _v$3 = _Some;
+    _de_cells_119$2 = _v$3;
+  }
+  return new _M0DTPC16result6ResultGRP48bobzhang11spreadsheet8frontend5sheet5SheetRPC14json15JsonDecodeErrorE2Ok(new _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(_de_name_120$2, _de_cells_119$2));
 }
 function _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3new(name) {
   const _bind$5 = [];
@@ -25495,205 +28907,205 @@ function _M0IP38bobzhang8mbtexcel4xlsx9XlsxErrorPB4Show6output(_x_17351, _x_1735
                                                                                         let _arg_17353;
                                                                                         _L$44: {
                                                                                           switch (_x_17351.$tag) {
-                                                                                            case 54: {
+                                                                                            case 60: {
                                                                                               const _MissingPart = _x_17351;
                                                                                               const _$42$arg_17353 = _MissingPart._0;
                                                                                               _arg_17353 = _$42$arg_17353;
                                                                                               break _L$44;
                                                                                             }
-                                                                                            case 53: {
+                                                                                            case 59: {
                                                                                               const _SheetNotFound = _x_17351;
                                                                                               const _$42$arg_17354 = _SheetNotFound._0;
                                                                                               _arg_17354 = _$42$arg_17354;
                                                                                               break _L$43;
                                                                                             }
-                                                                                            case 52: {
+                                                                                            case 58: {
                                                                                               const _InvalidSheetName = _x_17351;
                                                                                               const _$42$arg_17355 = _InvalidSheetName._0;
                                                                                               _arg_17355 = _$42$arg_17355;
                                                                                               break _L$42;
                                                                                             }
-                                                                                            case 51: {
+                                                                                            case 57: {
                                                                                               const _SheetAlreadyExists = _x_17351;
                                                                                               const _$42$arg_17356 = _SheetAlreadyExists._0;
                                                                                               _arg_17356 = _$42$arg_17356;
                                                                                               break _L$41;
                                                                                             }
-                                                                                            case 50: {
+                                                                                            case 56: {
                                                                                               const _InvalidSheetIndex = _x_17351;
                                                                                               const _$42$arg_17357 = _InvalidSheetIndex._0;
                                                                                               _arg_17357 = _$42$arg_17357;
                                                                                               break _L$40;
                                                                                             }
-                                                                                            case 49: {
+                                                                                            case 55: {
                                                                                               const _InvalidSheetOperation = _x_17351;
                                                                                               const _$42$arg_17358 = _InvalidSheetOperation._0;
                                                                                               _arg_17358 = _$42$arg_17358;
                                                                                               break _L$39;
                                                                                             }
-                                                                                            case 48: {
+                                                                                            case 54: {
                                                                                               const _InvalidXml = _x_17351;
                                                                                               const _$42$arg_17359 = _InvalidXml._0;
                                                                                               _arg_17359 = _$42$arg_17359;
                                                                                               break _L$38;
                                                                                             }
-                                                                                            case 47: {
+                                                                                            case 53: {
                                                                                               const _InvalidBase64 = _x_17351;
                                                                                               const _$42$arg_17360 = _InvalidBase64._0;
                                                                                               _arg_17360 = _$42$arg_17360;
                                                                                               break _L$37;
                                                                                             }
-                                                                                            case 46: {
+                                                                                            case 52: {
                                                                                               const _InvalidCellRef = _x_17351;
                                                                                               const _$42$arg_17361 = _InvalidCellRef._0;
                                                                                               _arg_17361 = _$42$arg_17361;
                                                                                               break _L$36;
                                                                                             }
-                                                                                            case 45: {
+                                                                                            case 51: {
                                                                                               const _InvalidSharedString = _x_17351;
                                                                                               const _$42$arg_17362 = _InvalidSharedString._0;
                                                                                               _arg_17362 = _$42$arg_17362;
                                                                                               break _L$35;
                                                                                             }
-                                                                                            case 44: {
+                                                                                            case 50: {
                                                                                               const _InvalidStyleId = _x_17351;
                                                                                               const _$42$arg_17363 = _InvalidStyleId._0;
                                                                                               _arg_17363 = _$42$arg_17363;
                                                                                               break _L$34;
                                                                                             }
-                                                                                            case 43: {
+                                                                                            case 49: {
                                                                                               const _InvalidTable = _x_17351;
                                                                                               const _$42$arg_17364 = _InvalidTable._0;
                                                                                               _arg_17364 = _$42$arg_17364;
                                                                                               break _L$33;
                                                                                             }
-                                                                                            case 42: {
+                                                                                            case 48: {
                                                                                               const _InvalidSparkline = _x_17351;
                                                                                               const _$42$arg_17365 = _InvalidSparkline._0;
                                                                                               _arg_17365 = _$42$arg_17365;
                                                                                               break _L$32;
                                                                                             }
-                                                                                            case 41: {
+                                                                                            case 47: {
                                                                                               const _InvalidPivotTable = _x_17351;
                                                                                               const _$42$arg_17366 = _InvalidPivotTable._0;
                                                                                               _arg_17366 = _$42$arg_17366;
                                                                                               break _L$31;
                                                                                             }
-                                                                                            case 40: {
+                                                                                            case 46: {
                                                                                               const _InvalidVBAProject = _x_17351;
                                                                                               const _$42$arg_17367 = _InvalidVBAProject._0;
                                                                                               _arg_17367 = _$42$arg_17367;
                                                                                               break _L$30;
                                                                                             }
-                                                                                            case 39: {
+                                                                                            case 45: {
                                                                                               const _InvalidVmlDrawing = _x_17351;
                                                                                               const _$42$arg_17368 = _InvalidVmlDrawing._0;
                                                                                               _arg_17368 = _$42$arg_17368;
                                                                                               break _L$29;
                                                                                             }
-                                                                                            case 38: {
+                                                                                            case 44: {
                                                                                               const _InvalidAutoFilter = _x_17351;
                                                                                               const _$42$arg_17369 = _InvalidAutoFilter._0;
                                                                                               _arg_17369 = _$42$arg_17369;
                                                                                               break _L$28;
                                                                                             }
-                                                                                            case 37: {
+                                                                                            case 43: {
                                                                                               const _InvalidDataValidation = _x_17351;
                                                                                               const _$42$arg_17370 = _InvalidDataValidation._0;
                                                                                               _arg_17370 = _$42$arg_17370;
                                                                                               break _L$27;
                                                                                             }
-                                                                                            case 36: {
+                                                                                            case 42: {
                                                                                               const _InvalidConditionalFormat = _x_17351;
                                                                                               const _$42$arg_17371 = _InvalidConditionalFormat._0;
                                                                                               _arg_17371 = _$42$arg_17371;
                                                                                               break _L$26;
                                                                                             }
-                                                                                            case 35: {
+                                                                                            case 41: {
                                                                                               const _InvalidDefinedName = _x_17351;
                                                                                               const _$42$arg_17372 = _InvalidDefinedName._0;
                                                                                               _arg_17372 = _$42$arg_17372;
                                                                                               break _L$25;
                                                                                             }
-                                                                                            case 34: {
+                                                                                            case 40: {
                                                                                               const _DefinedNameDuplicate = _x_17351;
                                                                                               const _$42$arg_17373 = _DefinedNameDuplicate._0;
                                                                                               _arg_17373 = _$42$arg_17373;
                                                                                               break _L$24;
                                                                                             }
-                                                                                            case 33: {
+                                                                                            case 39: {
                                                                                               const _DefinedNameScope = _x_17351;
                                                                                               const _$42$arg_17374 = _DefinedNameScope._0;
                                                                                               _arg_17374 = _$42$arg_17374;
                                                                                               break _L$23;
                                                                                             }
-                                                                                            case 32: {
+                                                                                            case 38: {
                                                                                               const _InvalidPageLayout = _x_17351;
                                                                                               const _$42$arg_17375 = _InvalidPageLayout._0;
                                                                                               _arg_17375 = _$42$arg_17375;
                                                                                               break _L$22;
                                                                                             }
-                                                                                            case 31: {
+                                                                                            case 37: {
                                                                                               const _InvalidHeaderFooter = _x_17351;
                                                                                               const _$42$arg_17376 = _InvalidHeaderFooter._0;
                                                                                               _arg_17376 = _$42$arg_17376;
                                                                                               break _L$21;
                                                                                             }
-                                                                                            case 30: {
+                                                                                            case 36: {
                                                                                               const _InvalidSheetProtection = _x_17351;
                                                                                               const _$42$arg_17377 = _InvalidSheetProtection._0;
                                                                                               _arg_17377 = _$42$arg_17377;
                                                                                               break _L$20;
                                                                                             }
-                                                                                            case 29: {
+                                                                                            case 35: {
                                                                                               const _InvalidWorkbookProperty = _x_17351;
                                                                                               const _$42$arg_17378 = _InvalidWorkbookProperty._0;
                                                                                               _arg_17378 = _$42$arg_17378;
                                                                                               break _L$19;
                                                                                             }
-                                                                                            case 28: {
+                                                                                            case 34: {
                                                                                               const _InvalidWorkbookProtection = _x_17351;
                                                                                               const _$42$arg_17379 = _InvalidWorkbookProtection._0;
                                                                                               _arg_17379 = _$42$arg_17379;
                                                                                               break _L$18;
                                                                                             }
-                                                                                            case 27: {
+                                                                                            case 33: {
                                                                                               const _InvalidOptions = _x_17351;
                                                                                               const _$42$arg_17380 = _InvalidOptions._0;
                                                                                               _arg_17380 = _$42$arg_17380;
                                                                                               break _L$17;
                                                                                             }
-                                                                                            case 26: {
+                                                                                            case 32: {
                                                                                               const _InvalidExcelDate = _x_17351;
                                                                                               const _$42$arg_17381 = _InvalidExcelDate._0;
                                                                                               _arg_17381 = _$42$arg_17381;
                                                                                               break _L$16;
                                                                                             }
-                                                                                            case 25: {
+                                                                                            case 31: {
                                                                                               const _InvalidSheetBackground = _x_17351;
                                                                                               const _$42$arg_17382 = _InvalidSheetBackground._0;
                                                                                               _arg_17382 = _$42$arg_17382;
                                                                                               break _L$15;
                                                                                             }
-                                                                                            case 24: {
+                                                                                            case 30: {
                                                                                               const _InvalidHyperlink = _x_17351;
                                                                                               const _$42$arg_17383 = _InvalidHyperlink._0;
                                                                                               _arg_17383 = _$42$arg_17383;
                                                                                               break _L$14;
                                                                                             }
-                                                                                            case 23: {
+                                                                                            case 29: {
                                                                                               const _HyperlinkLimitExceeded = _x_17351;
                                                                                               const _$42$arg_17384 = _HyperlinkLimitExceeded._0;
                                                                                               _arg_17384 = _$42$arg_17384;
                                                                                               break _L$13;
                                                                                             }
-                                                                                            case 22: {
+                                                                                            case 28: {
                                                                                               const _CellTextTooLong = _x_17351;
                                                                                               const _$42$arg_17385 = _CellTextTooLong._0;
                                                                                               _arg_17385 = _$42$arg_17385;
                                                                                               break _L$12;
                                                                                             }
-                                                                                            case 21: {
+                                                                                            case 27: {
                                                                                               const _GraphicNameTooLong = _x_17351;
                                                                                               const _$42$arg_17386 = _GraphicNameTooLong._0;
                                                                                               const _$42$arg_17387 = _GraphicNameTooLong._1;
@@ -25701,7 +29113,7 @@ function _M0IP38bobzhang8mbtexcel4xlsx9XlsxErrorPB4Show6output(_x_17351, _x_1735
                                                                                               _arg_17387 = _$42$arg_17387;
                                                                                               break _L$11;
                                                                                             }
-                                                                                            case 20: {
+                                                                                            case 26: {
                                                                                               const _GraphicAltTextTooLong = _x_17351;
                                                                                               const _$42$arg_17388 = _GraphicAltTextTooLong._0;
                                                                                               const _$42$arg_17389 = _GraphicAltTextTooLong._1;
@@ -25709,25 +29121,25 @@ function _M0IP38bobzhang8mbtexcel4xlsx9XlsxErrorPB4Show6output(_x_17351, _x_1735
                                                                                               _arg_17389 = _$42$arg_17389;
                                                                                               break _L$10;
                                                                                             }
-                                                                                            case 19: {
+                                                                                            case 25: {
                                                                                               const _CommentAlreadyExists = _x_17351;
                                                                                               const _$42$arg_17390 = _CommentAlreadyExists._0;
                                                                                               _arg_17390 = _$42$arg_17390;
                                                                                               break _L$9;
                                                                                             }
-                                                                                            case 18: {
+                                                                                            case 24: {
                                                                                               const _TableNotFound = _x_17351;
                                                                                               const _$42$arg_17391 = _TableNotFound._0;
                                                                                               _arg_17391 = _$42$arg_17391;
                                                                                               break _L$8;
                                                                                             }
-                                                                                            case 17: {
+                                                                                            case 23: {
                                                                                               const _StreamModeConflict = _x_17351;
                                                                                               const _$42$arg_17392 = _StreamModeConflict._0;
                                                                                               _arg_17392 = _$42$arg_17392;
                                                                                               break _L$7;
                                                                                             }
-                                                                                            case 16: {
+                                                                                            case 22: {
                                                                                               const _StreamRowOrder = _x_17351;
                                                                                               const _$42$arg_17393 = _StreamRowOrder._0;
                                                                                               const _$42$arg_17394 = _StreamRowOrder._1;
@@ -25735,37 +29147,37 @@ function _M0IP38bobzhang8mbtexcel4xlsx9XlsxErrorPB4Show6output(_x_17351, _x_1735
                                                                                               _arg_17394 = _$42$arg_17394;
                                                                                               break _L$6;
                                                                                             }
-                                                                                            case 15: {
+                                                                                            case 21: {
                                                                                               _x_17352.method_table.method_0(_x_17352.self, "StreamWriterClosed");
                                                                                               return;
                                                                                             }
-                                                                                            case 14: {
+                                                                                            case 20: {
                                                                                               _x_17352.method_table.method_0(_x_17352.self, "EncryptedPackage");
                                                                                               return;
                                                                                             }
-                                                                                            case 13: {
+                                                                                            case 19: {
                                                                                               const _InvalidEncryptionInfo = _x_17351;
                                                                                               const _$42$arg_17395 = _InvalidEncryptionInfo._0;
                                                                                               _arg_17395 = _$42$arg_17395;
                                                                                               break _L$5;
                                                                                             }
-                                                                                            case 12: {
+                                                                                            case 18: {
                                                                                               const _InvalidEncryptedPackage = _x_17351;
                                                                                               const _$42$arg_17396 = _InvalidEncryptedPackage._0;
                                                                                               _arg_17396 = _$42$arg_17396;
                                                                                               break _L$4;
                                                                                             }
-                                                                                            case 11: {
+                                                                                            case 17: {
                                                                                               _x_17352.method_table.method_0(_x_17352.self, "InvalidPassword");
                                                                                               return;
                                                                                             }
-                                                                                            case 10: {
+                                                                                            case 16: {
                                                                                               const _InvalidPasswordLength = _x_17351;
                                                                                               const _$42$arg_17397 = _InvalidPasswordLength._0;
                                                                                               _arg_17397 = _$42$arg_17397;
                                                                                               break _L$3;
                                                                                             }
-                                                                                            case 9: {
+                                                                                            case 15: {
                                                                                               const _UnsupportedEncryption = _x_17351;
                                                                                               const _$42$arg_17398 = _UnsupportedEncryption._0;
                                                                                               _arg_17398 = _$42$arg_17398;
@@ -73379,11 +76791,17 @@ function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime7message(id, f) {
 function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(f, kind) {
   return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd6Effect(f, kind);
 }
+function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime5batch(xs) {
+  return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Batch(xs);
+}
 function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Flags3new() {
   return new _M0TP419moonbit_2dcommunity7rabbita8internal7runtime5Flags(_M0MP419moonbit_2dcommunity7rabbita8internal7runtime2Id3new(), false, 0);
 }
 function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Flags11mark__dirty(s) {
   s.dirty = true;
+}
+function _M0FP319moonbit_2dcommunity7rabbita3cmd5batch(cmds) {
+  return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime5batch(cmds);
 }
 function _M0FP319moonbit_2dcommunity7rabbita3cmd19raw__effect_2einner(callback, kind) {
   return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(callback, kind);
@@ -74426,6 +77844,9 @@ function _M0MP219moonbit_2dcommunity7rabbita3App30trigger__initial__url__changed
     return;
   }
 }
+function _M0MP219moonbit_2dcommunity7rabbita3App10with__init(self, cmd) {
+  self.init_cmd = cmd;
+}
 function _M0MP219moonbit_2dcommunity7rabbita3App5mount(self, element_id) {
   self.sandbox.mount = element_id;
   _M0MP219moonbit_2dcommunity7rabbita3App30trigger__initial__url__changed(self);
@@ -74495,6 +77916,173 @@ function _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP48bobzhang1
   const dispatch = (m) => _M0MP219moonbit_2dcommunity7rabbita10Dispatcher7messageGRP48bobzhang11spreadsheet8frontend3app3MsgE(dispatcher, m);
   const model$2 = _M0FPC13ref3newGRP48bobzhang11spreadsheet8frontend3app5ModelE(model);
   return { _0: dispatch, _1: { self: new _M0TP219moonbit_2dcommunity7rabbita9TypedCellGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE(model$2, dispatcher, dispatch, update, view, flags), method_table: _M0FP0215moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fspreadsheet_2ffrontend_2fapp_2fModel_2c_20bobzhang_2fspreadsheet_2ffrontend_2fapp_2fMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell } };
+}
+function _M0MP319moonbit_2dcommunity7rabbita4http4Body13content__type(self) {
+  switch (self.$tag) {
+    case 0: {
+      return "application/json";
+    }
+    case 1: {
+      return "text/plain";
+    }
+    default: {
+      return "text/plain";
+    }
+  }
+}
+function _M0MP319moonbit_2dcommunity7rabbita4http4Body9stringfiy(self) {
+  let json;
+  _L: {
+    switch (self.$tag) {
+      case 0: {
+        const _Json = self;
+        const _json = _Json._0;
+        json = _json;
+        break _L;
+      }
+      case 1: {
+        const _Text = self;
+        const _text = _Text._0;
+        return _text;
+      }
+      default: {
+        return "";
+      }
+    }
+  }
+  return _M0MPC14json4Json17stringify_2einner(json, false, 0, undefined);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4http7requestGuE(url, http_method, expect, body) {
+  const launch = (scheduler) => {
+    let has_body;
+    if (body.$tag === 2) {
+      has_body = false;
+    } else {
+      has_body = true;
+    }
+    const content_type = _M0MP319moonbit_2dcommunity7rabbita4http4Body13content__type(body);
+    const body$2 = _M0MP319moonbit_2dcommunity7rabbita4http4Body9stringfiy(body);
+    let f;
+    _L: {
+      let f$2;
+      let decoder;
+      _L$2: {
+        if (expect.$tag === 0) {
+          const _Json = expect;
+          const _f = _Json._0;
+          const _decoder = _Json._1;
+          f$2 = _f;
+          decoder = _decoder;
+          break _L$2;
+        } else {
+          const _Text = expect;
+          const _f = _Text._0;
+          f = _f;
+          break _L;
+        }
+      }
+      _M0FP319moonbit_2dcommunity7rabbita4http11js__request(url, http_method, content_type, body$2, has_body, (str) => {
+        let result;
+        let _try_err;
+        _L$3: {
+          _L$4: {
+            const _bind$5 = _M0FPC14json13parse_2einner(new _M0TPC16string10StringView(str, 0, str.length), 1024);
+            let _tmp$2;
+            if (_bind$5.$tag === 1) {
+              const _ok = _bind$5;
+              _tmp$2 = _ok._0;
+            } else {
+              const _err = _bind$5;
+              _try_err = _err._0;
+              break _L$4;
+            }
+            result = new _M0DTPC16result6ResultGRPB4JsonsE2Ok(_tmp$2);
+            break _L$3;
+          }
+          result = new _M0DTPC16result6ResultGRPB4JsonsE3Err("Json parse error");
+        }
+        scheduler.method_table.method_0(scheduler.self, f$2(_M0MPC16result6Result4bindGRPB4JsonsuE(result, decoder)));
+      }, (msg) => {
+        scheduler.method_table.method_0(scheduler.self, f$2(new _M0DTPC16result6ResultGusE3Err(`Http request failed:${_M0IPC16string6StringPB4Show10to__string(msg)}`)));
+      });
+      return;
+    }
+    _M0FP319moonbit_2dcommunity7rabbita4http11js__request(url, http_method, content_type, body$2, has_body, (str) => {
+      scheduler.method_table.method_0(scheduler.self, f(new _M0DTPC16result6ResultGssE2Ok(str)));
+    }, (msg) => {
+      scheduler.method_table.method_0(scheduler.self, f(new _M0DTPC16result6ResultGssE3Err(`Http request failed:${_M0IPC16string6StringPB4Show10to__string(msg)}`)));
+    });
+  };
+  return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(launch, 0);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4http7requestGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(url, http_method, expect, body) {
+  const launch = (scheduler) => {
+    let has_body;
+    if (body.$tag === 2) {
+      has_body = false;
+    } else {
+      has_body = true;
+    }
+    const content_type = _M0MP319moonbit_2dcommunity7rabbita4http4Body13content__type(body);
+    const body$2 = _M0MP319moonbit_2dcommunity7rabbita4http4Body9stringfiy(body);
+    let f;
+    _L: {
+      let f$2;
+      let decoder;
+      _L$2: {
+        if (expect.$tag === 0) {
+          const _Json = expect;
+          const _f = _Json._0;
+          const _decoder = _Json._1;
+          f$2 = _f;
+          decoder = _decoder;
+          break _L$2;
+        } else {
+          const _Text = expect;
+          const _f = _Text._0;
+          f = _f;
+          break _L;
+        }
+      }
+      _M0FP319moonbit_2dcommunity7rabbita4http11js__request(url, http_method, content_type, body$2, has_body, (str) => {
+        let result;
+        let _try_err;
+        _L$3: {
+          _L$4: {
+            const _bind$5 = _M0FPC14json13parse_2einner(new _M0TPC16string10StringView(str, 0, str.length), 1024);
+            let _tmp$2;
+            if (_bind$5.$tag === 1) {
+              const _ok = _bind$5;
+              _tmp$2 = _ok._0;
+            } else {
+              const _err = _bind$5;
+              _try_err = _err._0;
+              break _L$4;
+            }
+            result = new _M0DTPC16result6ResultGRPB4JsonsE2Ok(_tmp$2);
+            break _L$3;
+          }
+          result = new _M0DTPC16result6ResultGRPB4JsonsE3Err("Json parse error");
+        }
+        scheduler.method_table.method_0(scheduler.self, f$2(_M0MPC16result6Result4bindGRPB4JsonsRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(result, decoder)));
+      }, (msg) => {
+        scheduler.method_table.method_0(scheduler.self, f$2(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err(`Http request failed:${_M0IPC16string6StringPB4Show10to__string(msg)}`)));
+      });
+      return;
+    }
+    _M0FP319moonbit_2dcommunity7rabbita4http11js__request(url, http_method, content_type, body$2, has_body, (str) => {
+      scheduler.method_table.method_0(scheduler.self, f(new _M0DTPC16result6ResultGssE2Ok(str)));
+    }, (msg) => {
+      scheduler.method_table.method_0(scheduler.self, f(new _M0DTPC16result6ResultGssE3Err(`Http request failed:${_M0IPC16string6StringPB4Show10to__string(msg)}`)));
+    });
+  };
+  return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(launch, 0);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(url, expect) {
+  return _M0FP319moonbit_2dcommunity7rabbita4http7requestGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(url, "GET", expect, _M0DTP319moonbit_2dcommunity7rabbita4http4Body5Empty__);
+}
+function _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(url, body, expect) {
+  return _M0FP319moonbit_2dcommunity7rabbita4http7requestGuE(url, "POST", expect, body);
 }
 function _M0MP319moonbit_2dcommunity7rabbita3svg3Svg8to__html(self) {
   return _M0MP319moonbit_2dcommunity7rabbita4html4Html11from__vnode(self);
@@ -75845,7 +79433,8 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__status__bar(self
       return;
     }
   });
-  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: space-between", "padding: 4px 12px", "background: #f8f9fa", "border-top: 1px solid #dadce0", "font-size: 12px", "color: #5f6368", "min-height: 28px", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, `${_M0IPC16string6StringPB4Show10to__string(sheet_name)} • ${_M0IPC16string6StringPB4Show10to__string(cell_name)}: ${_M0IPC16string6StringPB4Show10to__string(val_str)}`), _M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, `${_M0IP016_24default__implPB4Show10to__stringGiE(cell_count.val)} cells • ${_M0IP016_24default__implPB4Show10to__stringGiE(self.sheets.length)} sheets • ${_M0IP016_24default__implPB4Show10to__stringGiE(_M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols)}×${_M0IP016_24default__implPB4Show10to__stringGiE(_M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows)} grid`)]);
+  const save_indicator = _M0MPC16string6String9is__empty(self.save_status) ? "" : ` • ${_M0IPC16string6StringPB4Show10to__string(self.save_status)}`;
+  return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "justify-content: space-between", "padding: 4px 12px", "background: #f8f9fa", "border-top: 1px solid #dadce0", "font-size: 12px", "color: #5f6368", "min-height: 28px", "align-items: center"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, `${_M0IPC16string6StringPB4Show10to__string(sheet_name)} • ${_M0IPC16string6StringPB4Show10to__string(cell_name)}: ${_M0IPC16string6StringPB4Show10to__string(val_str)}`), _M0FP319moonbit_2dcommunity7rabbita4html4spanGsE(_M0DTPC16option6OptionGRPB5ArrayGsEE4None__, undefined, undefined, undefined, -1, undefined, `${_M0IP016_24default__implPB4Show10to__stringGiE(cell_count.val)} cells • ${_M0IP016_24default__implPB4Show10to__stringGiE(self.sheets.length)} sheets • ${_M0IP016_24default__implPB4Show10to__stringGiE(_M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols)}×${_M0IP016_24default__implPB4Show10to__stringGiE(_M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows)} grid${_M0IPC16string6StringPB4Show10to__string(save_indicator)}`)]);
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app15toolbar__button(label, active, extra_style, action) {
   const bg = active ? "background: #d2e3fc; border-color: #a8c7fa" : "background: transparent; border-color: transparent";
@@ -76024,6 +79613,25 @@ function _M0FP48bobzhang11spreadsheet8frontend3app12export__xlsx(model) {
   }
   _M0FP48bobzhang11spreadsheet8frontend3app15download__bytes(bytes, "spreadsheet.xlsx");
 }
+function _M0FP48bobzhang11spreadsheet8frontend3app15fetch__workbook(dispatch) {
+  return _M0FP319moonbit_2dcommunity7rabbita4http3getGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(_M0FP48bobzhang11spreadsheet8frontend3app9api__load, new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmdRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE4Json((result) => dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(result)), (json) => {
+    let _try_err;
+    _L: {
+      const _bind$5 = _M0FPC14json10from__jsonGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(json, undefined);
+      let _tmp$2;
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        _tmp$2 = _ok._0;
+      } else {
+        const _err = _bind$5;
+        _try_err = _err._0;
+        break _L;
+      }
+      return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok(_tmp$2);
+    }
+    return new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err("Failed to decode workbook");
+  }));
+}
 function _M0FP48bobzhang11spreadsheet8frontend3app17import__xlsx__cmd(dispatch) {
   return _M0FP319moonbit_2dcommunity7rabbita3cmd7attemptGzRPC15error5ErrorE((result) => {
     let bytes;
@@ -76073,7 +79681,11 @@ function _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(model, bytes) {
   if (_M0MPC15array5Array9is__emptyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets)) {
     return model;
   }
-  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, 0, 0, 0, false, "", true, false, [], -1);
+  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, 0, 0, 0, false, "", true, false, [], -1, "");
+}
+function _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, sheets) {
+  const _bind$5 = [{ _0: "sheets", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets) }];
+  return _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0MPC14json4Json6object(_M0MPB3Map11from__arrayGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$5, 0, 1)))), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__)));
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) {
   const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
@@ -76086,7 +79698,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) {
   const new_sheet = _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(new _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(sheet.name, new_cells));
   const sheets = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
   _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, self.active_sheet, new_sheet);
-  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, self.active_sheet, self.sel_col, self.sel_row, false, "", self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index);
+  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, self.active_sheet, self.sel_col, self.sel_row, false, "", self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status);
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, f) {
   const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
@@ -76096,224 +79708,279 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell
   _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, key, f(cell));
   const sheets = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
   _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, self.active_sheet, new _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(sheet.name, new_cells));
-  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index);
+  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status);
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, msg) {
-  let delta;
+  let sheets;
   _L: {
-    let name;
+    let delta;
     _L$2: {
-      let bytes;
+      let name;
       _L$3: {
-        let color;
+        let bytes;
         _L$4: {
-          let color$2;
+          let color;
           _L$5: {
-            let f;
+            let color$2;
             _L$6: {
-              let a;
+              let f;
               _L$7: {
-                let i;
+                let a;
                 _L$8: {
-                  let i$2;
+                  let i;
                   _L$9: {
-                    let v;
+                    let i$2;
                     _L$10: {
-                      let ch;
+                      let v;
                       _L$11: {
-                        let dc;
-                        let dr;
+                        let ch;
                         _L$12: {
-                          let col;
-                          let row;
+                          let dc;
+                          let dr;
                           _L$13: {
-                            switch (msg.$tag) {
-                              case 0: {
-                                const _SelectCell = msg;
-                                const _col = _SelectCell._0;
-                                const _row = _SelectCell._1;
-                                col = _col;
-                                row = _row;
-                                break _L$13;
-                              }
-                              case 1: {
-                                const _MoveSelection = msg;
-                                const _dc = _MoveSelection._0;
-                                const _dr = _MoveSelection._1;
-                                dc = _dc;
-                                dr = _dr;
-                                break _L$12;
-                              }
-                              case 2: {
-                                const cell = _M0MP48bobzhang11spreadsheet8frontend3app5Model14selected__cell(self);
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, true, cell.raw, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
-                              }
-                              case 3: {
-                                const _StartEditWith = msg;
-                                const _ch = _StartEditWith._0;
-                                ch = _ch;
-                                break _L$11;
-                              }
-                              case 4: {
-                                const _UpdateEdit = msg;
-                                const _v = _UpdateEdit._0;
-                                v = _v;
-                                break _L$10;
-                              }
-                              case 5: {
-                                const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self);
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, [], -1) };
-                              }
-                              case 6: {
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, false, "", self.show_chart, self.heat_map, [], -1) };
-                              }
-                              case 7: {
-                                const _SelectSheet = msg;
-                                const _i = _SelectSheet._0;
-                                i$2 = _i;
-                                break _L$9;
-                              }
-                              case 8: {
-                                const name$2 = `Sheet ${_M0IP016_24default__implPB4Show10to__stringGiE(self.sheets.length + 1 | 0)}`;
-                                const sheets = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
-                                _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3new(name$2));
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
-                              }
-                              case 9: {
-                                const _DeleteSheet = msg;
-                                const _i$2 = _DeleteSheet._0;
-                                i = _i$2;
-                                break _L$8;
-                              }
-                              case 10: {
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, !c.bold, c.italic, c.align, c.format, c.bg_color, c.text_color)) };
-                              }
-                              case 11: {
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, !c.italic, c.align, c.format, c.bg_color, c.text_color)) };
-                              }
-                              case 12: {
-                                const _SetAlign = msg;
-                                const _a = _SetAlign._0;
-                                a = _a;
-                                break _L$7;
-                              }
-                              case 13: {
-                                const _SetFormat = msg;
-                                const _f = _SetFormat._0;
-                                f = _f;
-                                break _L$6;
-                              }
-                              case 14: {
-                                const _SetBgColor = msg;
-                                const _color = _SetBgColor._0;
-                                color$2 = _color;
-                                break _L$5;
-                              }
-                              case 15: {
-                                const _SetTextColor = msg;
-                                const _color$2 = _SetTextColor._0;
-                                color = _color$2;
-                                break _L$4;
-                              }
-                              case 17: {
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, !self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
-                              }
-                              case 18: {
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, !self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
-                              }
-                              case 16: {
-                                const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
-                                const sheet = _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self);
-                                const new_cells = sheet.cells;
-                                _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, key, _M0MP48bobzhang11spreadsheet8frontend4cell4Cell3new(undefined, undefined, -1, -1, undefined, undefined, undefined, undefined));
-                                const sheets$2 = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
-                                _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets$2, self.active_sheet, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(new _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(sheet.name, new_cells)));
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets$2, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, [], -1) };
-                              }
-                              case 19: {
-                                return { _0: _M0FP48bobzhang11spreadsheet8frontend3app17import__xlsx__cmd(dispatch), _1: self };
-                              }
-                              case 20: {
-                                const _ImportExcel = msg;
-                                const _bytes = _ImportExcel._0;
-                                bytes = _bytes;
-                                break _L$3;
-                              }
-                              case 21: {
-                                const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                                _M0FP48bobzhang11spreadsheet8frontend3app12export__xlsx(model);
-                                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model };
-                              }
-                              case 22: {
-                                const _AutocompleteSelect = msg;
-                                const _name = _AutocompleteSelect._0;
-                                name = _name;
-                                break _L$2;
-                              }
-                              default: {
-                                const _AutocompleteNav = msg;
-                                const _delta = _AutocompleteNav._0;
-                                delta = _delta;
-                                break _L;
+                            let col;
+                            let row;
+                            _L$14: {
+                              switch (msg.$tag) {
+                                case 0: {
+                                  const _SelectCell = msg;
+                                  const _col = _SelectCell._0;
+                                  const _row = _SelectCell._1;
+                                  col = _col;
+                                  row = _row;
+                                  break _L$14;
+                                }
+                                case 1: {
+                                  const _MoveSelection = msg;
+                                  const _dc = _MoveSelection._0;
+                                  const _dr = _MoveSelection._1;
+                                  dc = _dc;
+                                  dr = _dr;
+                                  break _L$13;
+                                }
+                                case 2: {
+                                  const cell = _M0MP48bobzhang11spreadsheet8frontend3app5Model14selected__cell(self);
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, true, cell.raw, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) };
+                                }
+                                case 3: {
+                                  const _StartEditWith = msg;
+                                  const _ch = _StartEditWith._0;
+                                  ch = _ch;
+                                  break _L$12;
+                                }
+                                case 4: {
+                                  const _UpdateEdit = msg;
+                                  const _v = _UpdateEdit._0;
+                                  v = _v;
+                                  break _L$11;
+                                }
+                                case 5: {
+                                  const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self);
+                                  const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, [], -1, "Saving...");
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd5batch([_M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets)]), _1: model };
+                                }
+                                case 6: {
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, false, "", self.show_chart, self.heat_map, [], -1, self.save_status) };
+                                }
+                                case 7: {
+                                  const _SelectSheet = msg;
+                                  const _i = _SelectSheet._0;
+                                  i$2 = _i;
+                                  break _L$10;
+                                }
+                                case 8: {
+                                  const name$2 = `Sheet ${_M0IP016_24default__implPB4Show10to__stringGiE(self.sheets.length + 1 | 0)}`;
+                                  const sheets$2 = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
+                                  _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets$2, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3new(name$2));
+                                  const model$2 = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets$2, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Saving...");
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model$2.sheets), _1: model$2 };
+                                }
+                                case 9: {
+                                  const _DeleteSheet = msg;
+                                  const _i$2 = _DeleteSheet._0;
+                                  i = _i$2;
+                                  break _L$9;
+                                }
+                                case 10: {
+                                  const _tmp$3 = _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, !c.bold, c.italic, c.align, c.format, c.bg_color, c.text_color));
+                                  const model$3 = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$3.sheets, _tmp$3.active_sheet, _tmp$3.sel_col, _tmp$3.sel_row, _tmp$3.editing, _tmp$3.edit_value, _tmp$3.show_chart, _tmp$3.heat_map, _tmp$3.autocomplete_suggestions, _tmp$3.autocomplete_index, "Saving...");
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model$3.sheets), _1: model$3 };
+                                }
+                                case 11: {
+                                  const _tmp$4 = _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, !c.italic, c.align, c.format, c.bg_color, c.text_color));
+                                  const model$4 = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$4.sheets, _tmp$4.active_sheet, _tmp$4.sel_col, _tmp$4.sel_row, _tmp$4.editing, _tmp$4.edit_value, _tmp$4.show_chart, _tmp$4.heat_map, _tmp$4.autocomplete_suggestions, _tmp$4.autocomplete_index, "Saving...");
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model$4.sheets), _1: model$4 };
+                                }
+                                case 12: {
+                                  const _SetAlign = msg;
+                                  const _a = _SetAlign._0;
+                                  a = _a;
+                                  break _L$8;
+                                }
+                                case 13: {
+                                  const _SetFormat = msg;
+                                  const _f = _SetFormat._0;
+                                  f = _f;
+                                  break _L$7;
+                                }
+                                case 14: {
+                                  const _SetBgColor = msg;
+                                  const _color = _SetBgColor._0;
+                                  color$2 = _color;
+                                  break _L$6;
+                                }
+                                case 15: {
+                                  const _SetTextColor = msg;
+                                  const _color$2 = _SetTextColor._0;
+                                  color = _color$2;
+                                  break _L$5;
+                                }
+                                case 17: {
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, !self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) };
+                                }
+                                case 18: {
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, !self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) };
+                                }
+                                case 16: {
+                                  const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
+                                  const sheet = _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self);
+                                  const new_cells = sheet.cells;
+                                  _M0MPB3Map3setGsRP48bobzhang11spreadsheet8frontend4cell4CellE(new_cells, key, _M0MP48bobzhang11spreadsheet8frontend4cell4Cell3new(undefined, undefined, -1, -1, undefined, undefined, undefined, undefined));
+                                  const sheets$3 = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(self.sheets);
+                                  _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets$3, self.active_sheet, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(new _M0TP48bobzhang11spreadsheet8frontend5sheet5Sheet(sheet.name, new_cells)));
+                                  const model$5 = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets$3, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, [], -1, "Saving...");
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model$5.sheets), _1: model$5 };
+                                }
+                                case 19: {
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app17import__xlsx__cmd(dispatch), _1: self };
+                                }
+                                case 20: {
+                                  const _ImportExcel = msg;
+                                  const _bytes = _ImportExcel._0;
+                                  bytes = _bytes;
+                                  break _L$4;
+                                }
+                                case 21: {
+                                  const model$6 = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
+                                  _M0FP48bobzhang11spreadsheet8frontend3app12export__xlsx(model$6);
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: model$6 };
+                                }
+                                case 22: {
+                                  const _AutocompleteSelect = msg;
+                                  const _name = _AutocompleteSelect._0;
+                                  name = _name;
+                                  break _L$3;
+                                }
+                                case 23: {
+                                  const _AutocompleteNav = msg;
+                                  const _delta = _AutocompleteNav._0;
+                                  delta = _delta;
+                                  break _L$2;
+                                }
+                                case 24: {
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app15fetch__workbook(dispatch), _1: self };
+                                }
+                                case 25: {
+                                  const _GotBackendData = msg;
+                                  const _x = _GotBackendData._0;
+                                  if (_x.$tag === 1) {
+                                    const _Ok = _x;
+                                    const _sheets = _Ok._0;
+                                    sheets = _sheets;
+                                    break _L;
+                                  } else {
+                                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
+                                  }
+                                }
+                                default: {
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Saved") };
+                                }
                               }
                             }
+                            const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
+                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(col, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(row, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status) };
                           }
                           const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(col, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(row, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1) };
+                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(model.sel_col + dc | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(model.sel_row + dr | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status) };
                         }
-                        const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(model.sel_col + dc | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(model.sel_row + dr | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1) };
+                        return self.editing ? { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, `${self.edit_value}${ch}`, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) } : { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, true, ch, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) };
                       }
-                      return self.editing ? { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, `${self.edit_value}${ch}`, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) } : { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, true, ch, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
+                      const suggestions = _M0FP48bobzhang11spreadsheet8frontend3app21compute__autocomplete(v);
+                      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, v, self.show_chart, self.heat_map, suggestions, -1, self.save_status) };
                     }
-                    const suggestions = _M0FP48bobzhang11spreadsheet8frontend3app21compute__autocomplete(v);
-                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, v, self.show_chart, self.heat_map, suggestions, -1) };
+                    const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
+                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, i$2, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status) };
                   }
-                  const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, i$2, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, [], -1) };
-                }
-                if (self.sheets.length <= 1) {
-                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
-                }
-                const sheets = [];
-                const _bind$5 = self.sheets;
-                const _bind$6 = _bind$5.length;
-                let _tmp$2 = 0;
-                while (true) {
-                  const j = _tmp$2;
-                  if (j < _bind$6) {
-                    const s = _bind$5[j];
-                    if (j !== i) {
-                      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, s);
+                  if (self.sheets.length <= 1) {
+                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
+                  }
+                  const sheets$2 = [];
+                  const _bind$5 = self.sheets;
+                  const _bind$6 = _bind$5.length;
+                  let _tmp$2 = 0;
+                  while (true) {
+                    const j = _tmp$2;
+                    if (j < _bind$6) {
+                      const s = _bind$5[j];
+                      if (j !== i) {
+                        _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets$2, s);
+                      }
+                      _tmp$2 = j + 1 | 0;
+                      continue;
+                    } else {
+                      break;
                     }
-                    _tmp$2 = j + 1 | 0;
-                    continue;
-                  } else {
-                    break;
                   }
+                  const active = self.active_sheet >= sheets$2.length ? sheets$2.length - 1 | 0 : self.active_sheet;
+                  const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets$2, active, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Saving...");
+                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets), _1: model };
                 }
-                const active = self.active_sheet >= sheets.length ? sheets.length - 1 | 0 : self.active_sheet;
-                return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, active, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index) };
+                const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, a, c.format, c.bg_color, c.text_color));
+                const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, _tmp$2.autocomplete_suggestions, _tmp$2.autocomplete_index, "Saving...");
+                return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets), _1: model };
               }
-              return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, a, c.format, c.bg_color, c.text_color)) };
+              const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, c.align, f, c.bg_color, c.text_color));
+              const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, _tmp$2.autocomplete_suggestions, _tmp$2.autocomplete_index, "Saving...");
+              return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets), _1: model };
             }
-            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, c.align, f, c.bg_color, c.text_color)) };
+            const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, c.align, c.format, color$2, c.text_color));
+            const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, _tmp$2.autocomplete_suggestions, _tmp$2.autocomplete_index, "Saving...");
+            return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets), _1: model };
           }
-          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, c.align, c.format, color$2, c.text_color)) };
+          const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, c.align, c.format, c.bg_color, color));
+          const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, _tmp$2.autocomplete_suggestions, _tmp$2.autocomplete_index, "Saving...");
+          return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets), _1: model };
         }
-        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0MP48bobzhang11spreadsheet8frontend3app5Model22update__selected__cell(self, (c) => new _M0TP48bobzhang11spreadsheet8frontend4cell4Cell(c.raw, c.value, c.bold, c.italic, c.align, c.format, c.bg_color, color)) };
+        return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(self, bytes) };
       }
-      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(self, bytes) };
+      const new_value = _M0FP48bobzhang11spreadsheet8frontend3app20insert__autocomplete(self.edit_value, name);
+      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, new_value, self.show_chart, self.heat_map, [], -1, self.save_status) };
     }
-    const new_value = _M0FP48bobzhang11spreadsheet8frontend3app20insert__autocomplete(self.edit_value, name);
-    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, new_value, self.show_chart, self.heat_map, [], -1) };
+    const len = self.autocomplete_suggestions.length;
+    if (len === 0) {
+      return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
+    }
+    const new_idx = self.autocomplete_index === -1 && delta < 0 ? len - 1 | 0 : _M0MPC13int3Int5clamp(self.autocomplete_index + delta | 0, 0, len - 1 | 0);
+    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, new_idx, self.save_status) };
   }
-  const len = self.autocomplete_suggestions.length;
-  if (len === 0) {
+  if (_M0MPC15array5Array9is__emptyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets)) {
     return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
   }
-  const new_idx = self.autocomplete_index === -1 && delta < 0 ? len - 1 | 0 : _M0MPC13int3Int5clamp(self.autocomplete_index + delta | 0, 0, len - 1 | 0);
-  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, new_idx) };
+  const recalced = [];
+  const _bind$5 = sheets.length;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind$5) {
+      const s = sheets[_];
+      _M0MPC15array5Array4pushGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(recalced, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(s));
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(recalced, 0, 0, 0, false, "", self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Loaded") };
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   const sheet1 = _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3new("Sales Dashboard");
@@ -76321,20 +79988,25 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   const sheet3 = _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3new("Sheet 3");
   _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet26populate__sales__dashboard(sheet1);
   _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet23populate__team__metrics(sheet2);
-  const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model([sheet1, sheet2, sheet3], 0, 0, 0, false, "", true, true, [], -1);
+  const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model([sheet1, sheet2, sheet3], 0, 0, 0, false, "", true, true, [], -1, "");
   const sheets = _M0MPC15array5Array4copyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(model.sheets);
   _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 0, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 0)));
   _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 1, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 1)));
-  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index);
+  return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index, model.save_status);
 }
 (() => {
+  let dispatch;
   let app_cell;
   _L: {
-    const _bind$5 = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE(_M0MP48bobzhang11spreadsheet8frontend3app5Model3new(), (dispatch, msg, model) => _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(model, dispatch, msg), (dispatch, model) => _M0MP48bobzhang11spreadsheet8frontend3app5Model4view(model, dispatch));
+    const _bind$5 = _M0FP219moonbit_2dcommunity7rabbita20cell__with__dispatchGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE(_M0MP48bobzhang11spreadsheet8frontend3app5Model3new(), (dispatch$2, msg, model) => _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(model, dispatch$2, msg), (dispatch$2, model) => _M0MP48bobzhang11spreadsheet8frontend3app5Model4view(model, dispatch$2));
+    const _dispatch = _bind$5._0;
     const _app_cell = _bind$5._1;
+    dispatch = _dispatch;
     app_cell = _app_cell;
     break _L;
   }
-  _M0MP219moonbit_2dcommunity7rabbita3App5mount(_M0FP219moonbit_2dcommunity7rabbita3new(app_cell), "app");
+  const app = _M0FP219moonbit_2dcommunity7rabbita3new(app_cell);
+  _M0MP219moonbit_2dcommunity7rabbita3App10with__init(app, dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__));
+  _M0MP219moonbit_2dcommunity7rabbita3App5mount(app, "app");
 })();
 //# sourceMappingURL=frontend.js.map

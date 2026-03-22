@@ -5,8 +5,10 @@ import {
   "bobzhang/spreadsheet/frontend/xlsx" @xlsx_io,
   "moonbit-community/rabbita",
   "moonbit-community/rabbita/html",
+  "moonbit-community/rabbita/http",
   "moonbit-community/rabbita/js" @js,
   "moonbit-community/rabbita/svg",
+  "moonbitlang/core/json",
 }
 
 supported_targets = "js"

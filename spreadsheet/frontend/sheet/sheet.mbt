@@ -18,7 +18,7 @@ pub(all) struct Sheet {
   cells : Map[String, @cell.Cell]
 
   fn new(name : String) -> Sheet
-}
+} derive(ToJson, FromJson)
 
 ///|
 /// Create an empty sheet with the given name and no cells.

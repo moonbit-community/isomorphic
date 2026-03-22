@@ -21,6 +21,8 @@ pub(all) struct Model {
   autocomplete_suggestions : Array[String]
   /// Index of the currently highlighted suggestion (-1 for none).
   autocomplete_index : Int
+  /// Save status indicator ("", "Saving...", "Saved").
+  save_status : String
 
   fn new() -> Model
 }
@@ -58,6 +60,10 @@ pub(all) enum Msg {
   // Auto-completion
   AutocompleteSelect(String) // User clicks a suggestion
   AutocompleteNav(Int) // Arrow up/down delta in suggestion list
+  // Backend sync
+  LoadFromBackend
+  GotBackendData(Result[Array[@sheet.Sheet], String])
+  SavedToBackend
 }
 
 ///|
@@ -80,6 +86,7 @@ pub fn Model::new() -> Model {
     heat_map: true,
     autocomplete_suggestions: [],
     autocomplete_index: -1,
+    save_status: "",
   }
   // Recalculate all sheets so formulas are evaluated
   let sheets = model.sheets.copy()

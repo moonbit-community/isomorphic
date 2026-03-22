@@ -1,6 +1,7 @@
 import {
   "bobzhang/spreadsheet/frontend/cell",
   "bobzhang/spreadsheet/frontend/formula",
+  "moonbitlang/core/json",
 }
 
 supported_targets = "js"

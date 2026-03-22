@@ -885,12 +885,17 @@ fn Model::view_status_bar(self : Model) -> @rabbita.Html {
       cell_count = cell_count + 1
     }
   })
+  let save_indicator = if self.save_status.is_empty() {
+    ""
+  } else {
+    " \u{2022} \{self.save_status}"
+  }
   @html.div(style=[
     "display: flex", "justify-content: space-between", "padding: 4px 12px", "background: #f8f9fa",
     "border-top: 1px solid #dadce0", "font-size: 12px", "color: #5f6368", "min-height: 28px",
     "align-items: center",
   ]) <| [
     @html.span() <| "\{sheet_name} \u{2022} \{cell_name}: \{val_str}",
-    @html.span() <| "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{@sheet.num_cols}\u{00D7}\{@sheet.num_rows} grid",
+    @html.span() <| "\{cell_count} cells \u{2022} \{self.sheets.length()} sheets \u{2022} \{@sheet.num_cols}\u{00D7}\{@sheet.num_rows} grid\{save_indicator}",
   ]
 }

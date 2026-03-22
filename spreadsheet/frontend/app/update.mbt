@@ -21,6 +21,7 @@
 ///     `RequestImport` issues an async command to open a file picker;
 ///     `ImportExcel` replaces the model with parsed xlsx data;
 ///     `ExportExcel` serializes and downloads the workbook.
+#warnings("-unresolved_type_variable")
 pub fn Model::update(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
@@ -78,8 +79,10 @@ pub fn Model::update(
         },
       )
     }
-    CommitEdit =>
-      (@rabbita.none, { ..self.commit_edit(), autocomplete_suggestions: [], autocomplete_index: -1 })
+    CommitEdit => {
+      let model = { ..self.commit_edit(), autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
+      (@rabbita.batch([save_workbook(dispatch, model.sheets)]), model)
+    }
     CancelEdit =>
       (
         @rabbita.none,
@@ -99,7 +102,8 @@ pub fn Model::update(
       let name = "Sheet \{self.sheets.length() + 1}"
       let sheets = self.sheets.copy()
       sheets.push(Sheet(name))
-      (@rabbita.none, { ..self, sheets, })
+      let model = { ..self, sheets, save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
     }
     DeleteSheet(i) => {
       if self.sheets.length() <= 1 {
@@ -116,32 +120,33 @@ pub fn Model::update(
       } else {
         self.active_sheet
       }
-      (@rabbita.none, { ..self, sheets, active_sheet: active })
+      let model = { ..self, sheets, active_sheet: active, save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
     }
-    ToggleBold =>
-      (
-        @rabbita.none,
-        self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }),
-      )
-    ToggleItalic =>
-      (
-        @rabbita.none,
-        self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }),
-      )
-    SetAlign(a) =>
-      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, align: a } }))
-    SetFormat(f) =>
-      (@rabbita.none, self.update_selected_cell(fn(c) { { ..c, format: f } }))
-    SetBgColor(color) =>
-      (
-        @rabbita.none,
-        self.update_selected_cell(fn(c) { { ..c, bg_color: color } }),
-      )
-    SetTextColor(color) =>
-      (
-        @rabbita.none,
-        self.update_selected_cell(fn(c) { { ..c, text_color: color } }),
-      )
+    ToggleBold => {
+      let model = { ..self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }), save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
+    }
+    ToggleItalic => {
+      let model = { ..self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }), save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
+    }
+    SetAlign(a) => {
+      let model = { ..self.update_selected_cell(fn(c) { { ..c, align: a } }), save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
+    }
+    SetFormat(f) => {
+      let model = { ..self.update_selected_cell(fn(c) { { ..c, format: f } }), save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
+    }
+    SetBgColor(color) => {
+      let model = { ..self.update_selected_cell(fn(c) { { ..c, bg_color: color } }), save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
+    }
+    SetTextColor(color) => {
+      let model = { ..self.update_selected_cell(fn(c) { { ..c, text_color: color } }), save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
+    }
     ToggleChart => (@rabbita.none, { ..self, show_chart: !self.show_chart })
     ToggleHeatMap => (@rabbita.none, { ..self, heat_map: !self.heat_map })
     ClearCell => {
@@ -151,7 +156,8 @@ pub fn Model::update(
       new_cells[key] = Cell()
       let sheets = self.sheets.copy()
       sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
-      (@rabbita.none, { ..self, sheets, autocomplete_suggestions: [], autocomplete_index: -1 })
+      let model = { ..self, sheets, autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
+      (save_workbook(dispatch, model.sheets), model)
     }
     RequestImport => (import_xlsx_cmd(dispatch), self)
     ImportExcel(bytes) => (@rabbita.none, load_xlsx(self, bytes))
@@ -184,6 +190,35 @@ pub fn Model::update(
       }
       (@rabbita.none, { ..self, autocomplete_index: new_idx })
     }
+    LoadFromBackend => (fetch_workbook(dispatch), self)
+    GotBackendData(Ok(sheets)) => {
+      if sheets.is_empty() {
+        // No data on backend — keep demo data
+        return (@rabbita.none, self)
+      }
+      // Replace sheets with loaded data and recalculate all formulas
+      let recalced : Array[@sheet.Sheet] = []
+      for s in sheets {
+        recalced.push(s.recalc())
+      }
+      (
+        @rabbita.none,
+        {
+          ..self,
+          sheets: recalced,
+          active_sheet: 0,
+          sel_col: 0,
+          sel_row: 0,
+          editing: false,
+          edit_value: "",
+          save_status: "Loaded",
+        },
+      )
+    }
+    GotBackendData(Err(_)) =>
+      // Backend unavailable — keep demo data as fallback
+      (@rabbita.none, self)
+    SavedToBackend => (@rabbita.none, { ..self, save_status: "Saved" })
   }
 }
 

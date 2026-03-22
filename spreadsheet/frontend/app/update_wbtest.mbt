@@ -168,6 +168,7 @@ fn test_model() -> Model {
     heat_map: false,
     autocomplete_suggestions: [],
     autocomplete_index: -1,
+    save_status: "",
   }
 }
 

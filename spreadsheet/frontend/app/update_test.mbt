@@ -21,6 +21,7 @@ fn empty_model() -> Model {
     heat_map: false,
     autocomplete_suggestions: [],
     autocomplete_index: -1,
+    save_status: "",
   }
 }
 
@@ -356,6 +357,7 @@ test "DeleteSheet cannot delete last sheet" {
     heat_map: false,
     autocomplete_suggestions: [],
     autocomplete_index: -1,
+    save_status: "",
   }
   let (_, model) = single_sheet.update(noop_dispatch, DeleteSheet(0))
   assert_eq(model.sheets.length(), 1)
