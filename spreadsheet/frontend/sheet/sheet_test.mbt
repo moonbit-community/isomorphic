@@ -431,6 +431,37 @@ test "recalc: cell downstream of cycle is not mislabeled CIRCULAR" {
 }
 
 ///|
+test "recalc: chained downstream of cycle evaluates in correct order" {
+  let sheet = @sheet.Sheet("Test")
+  // A1 <-> B1 are circular
+  // C1=A1+1 depends on circular A1
+  // D1=C1+1 depends on C1 (downstream of downstream)
+  set_formula(sheet, "A1", "=B1")
+  set_formula(sheet, "B1", "=A1")
+  set_formula(sheet, "C1", "=A1+1")
+  set_formula(sheet, "D1", "=C1+1")
+  let r = sheet.recalc()
+  // A1, B1 are CIRCULAR
+  match r.get("A1").value {
+    Error(msg) => assert_eq(msg, "CIRCULAR")
+    _ => fail("A1: expected CIRCULAR")
+  }
+  // C1 tries A1+1 where A1=Error("CIRCULAR"), so C1 gets an error too
+  // But it should NOT be labeled "CIRCULAR" itself
+  match r.get("C1").value {
+    Error("CIRCULAR") =>
+      fail("C1 should not be CIRCULAR — it's downstream, not in cycle")
+    _ => () // any non-CIRCULAR result is acceptable
+  }
+  // D1 depends on C1, must evaluate AFTER C1 regardless of iteration order
+  match r.get("D1").value {
+    Error("CIRCULAR") =>
+      fail("D1 should not be CIRCULAR — it's downstream, not in cycle")
+    _ => () // any non-CIRCULAR result is acceptable
+  }
+}
+
+///|
 test "recalc: empty sheet returns empty sheet" {
   let sheet = @sheet.Sheet("Empty")
   let r = sheet.recalc()

@@ -176,27 +176,75 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     }
   }
 
-  // Evaluate non-cycle unresolved cells (downstream of cycles)
-  // They'll see CIRCULAR errors from their dependencies via lookup
+  // Evaluate non-cycle unresolved cells (downstream of cycles) in
+  // dependency order. Run a second Kahn's pass restricted to these cells,
+  // treating cycle members and already-resolved cells as resolved seeds.
+  let downstream : Array[String] = []
+  let down_in : Map[String, Int] = {}
+  let down_rev : Map[String, Array[String]] = {}
   for k in unresolved {
     if !(is_cycle_member.get(k).unwrap_or(false)) {
-      match self.cells.get(k) {
-        Some(c) => {
-          let value = @formula.evaluate(c.raw) <| fn(r) {
-            new_cells.get_or_default(r, Cell()).value
-          }
-          let final_value = match value {
-            Error(_) =>
-              match c.value {
-                Empty => value
-                _ => c.value
+      downstream.push(k)
+      // Count only unresolved non-cycle deps
+      let mut deg = 0
+      match deps.get(k) {
+        Some(ks) =>
+          for d in ks {
+            if unresolved_set.get(d).unwrap_or(false) &&
+              !(is_cycle_member.get(d).unwrap_or(false)) {
+              deg += 1
+              match down_rev.get(d) {
+                Some(arr) => arr.push(k)
+                None => down_rev[d] = [k]
               }
-            _ => value
+            }
           }
-          new_cells[k] = { ..c, value: final_value }
-        }
         None => ()
       }
+      down_in[k] = deg
+    }
+  }
+  // Seed queue with zero-degree downstream cells
+  let down_queue : Array[String] = []
+  for k in downstream {
+    if down_in.get(k).unwrap_or(0) == 0 {
+      down_queue.push(k)
+    }
+  }
+  // Process in topo order
+  while down_queue.length() > 0 {
+    let k = down_queue.remove(0)
+    match self.cells.get(k) {
+      Some(c) => {
+        let value = @formula.evaluate(c.raw) <| fn(r) {
+          new_cells.get_or_default(r, Cell()).value
+        }
+        let final_value = match value {
+          Error(_) =>
+            match c.value {
+              Empty => value
+              _ => c.value
+            }
+          _ => value
+        }
+        new_cells[k] = { ..c, value: final_value }
+      }
+      None => ()
+    }
+    match down_rev.get(k) {
+      Some(dependents) =>
+        for dep in dependents {
+          match down_in.get(dep) {
+            Some(d) => {
+              down_in[dep] = d - 1
+              if d - 1 == 0 {
+                down_queue.push(dep)
+              }
+            }
+            None => ()
+          }
+        }
+      None => ()
     }
   }
 
