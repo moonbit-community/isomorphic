@@ -88,7 +88,16 @@ pub(all) struct Cell {
   bg_color : String // "" = default, otherwise CSS hex like "#fce4ec"
   text_color : String // "" = default, otherwise CSS hex
 
-  fn new(raw? : String, value? : Value, bold? : Bool, italic? : Bool, align? : Align, format? : NumFormat, bg_color? : String, text_color? : String ) -> Cell
+  fn new(
+    raw? : String,
+    value? : Value,
+    bold? : Bool,
+    italic? : Bool,
+    align? : Align,
+    format? : NumFormat,
+    bg_color? : String,
+    text_color? : String,
+  ) -> Cell
 }
 
 ///|
@@ -101,19 +110,9 @@ fn Cell::new(
   align? : Align = Auto,
   format? : NumFormat = General,
   bg_color? : String = "",
-  text_color? : String = ""
-
+  text_color? : String = "",
 ) -> Cell {
-  {
-    raw,
-    value,
-    bold,
-    italic,
-    align,
-    format,
-    bg_color,
-    text_color,
-  }
+  { raw, value, bold, italic, align, format, bg_color, text_color }
 }
 
 ///|

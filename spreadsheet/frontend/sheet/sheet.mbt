@@ -39,32 +39,14 @@ pub fn Sheet::get(self : Sheet, key : String) -> @cell.Cell {
 /// Store a plain cell with the given raw text, evaluating formulas if present.
 pub fn Sheet::set_cell(self : Sheet, key : String, raw : String) -> Unit {
   let value = @formula.evaluate(raw, r => self.get(r).value)
-  self.cells[key] = {
-    raw,
-    value,
-    bold: false,
-    italic: false,
-    align: Auto,
-    format: General,
-    bg_color: "",
-    text_color: "",
-  }
+  self.cells[key] = Cell(raw~, value~)
 }
 
 ///|
 /// Store a bold cell with the given raw text, evaluating formulas if present.
 pub fn Sheet::set_cell_bold(self : Sheet, key : String, raw : String) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { self.get(r).value })
-  self.cells[key] = {
-    raw,
-    value,
-    bold: true,
-    italic: false,
-    align: Auto,
-    format: General,
-    bg_color: "",
-    text_color: "",
-  }
+  self.cells[key] = Cell(raw~, value~, bold=true)
 }
 
 ///|
@@ -80,16 +62,15 @@ pub fn Sheet::set_styled(
   text_color : String,
 ) -> Unit {
   let value = @formula.evaluate(raw, fn(r) { self.get(r).value })
-  self.cells[key] = {
-    raw,
-    value,
-    bold,
-    italic: false,
-    align,
-    format,
-    bg_color,
-    text_color,
-  }
+  self.cells[key] = Cell(
+    raw~,
+    value~,
+    bold~,
+    align~,
+    format~,
+    bg_color~,
+    text_color~,
+  )
 }
 
 ///|
