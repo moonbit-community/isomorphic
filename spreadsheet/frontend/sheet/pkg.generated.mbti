@@ -1,0 +1,38 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/spreadsheet/frontend/sheet"
+
+import {
+  "bobzhang/spreadsheet/frontend/cell",
+}
+
+// Values
+pub let num_cols : Int
+
+pub let num_rows : Int
+
+// Errors
+
+// Types and methods
+pub(all) struct Sheet {
+  name : String
+  cells : Map[String, @cell.Cell]
+
+  fn new(String) -> Sheet
+}
+pub fn Sheet::get(Self, String) -> @cell.Cell
+pub fn Sheet::get_num(Self, Int, Int) -> Double
+pub fn Sheet::new(String) -> Self
+pub fn Sheet::populate_sales_dashboard(Self) -> Unit
+pub fn Sheet::populate_team_metrics(Self) -> Unit
+pub fn Sheet::recalc(Self) -> Self
+pub fn Sheet::set_cell(Self, String, String) -> Unit
+pub fn Sheet::set_cell_bold(Self, String, String) -> Unit
+pub fn Sheet::set_currency(Self, String, String) -> Unit
+pub fn Sheet::set_currency_bold(Self, String, String, String) -> Unit
+pub fn Sheet::set_header(Self, String, String, String) -> Unit
+pub fn Sheet::set_styled(Self, String, String, Bool, @cell.Align, @cell.NumFormat, String, String) -> Unit
+
+// Type aliases
+
+// Traits
+

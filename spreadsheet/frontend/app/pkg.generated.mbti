@@ -3,20 +3,18 @@ package "bobzhang/spreadsheet/frontend/app"
 
 import {
   "bobzhang/spreadsheet/frontend/cell",
+  "bobzhang/spreadsheet/frontend/sheet",
   "moonbit-community/rabbita/html",
   "moonbit-community/rabbita/internal/runtime",
 }
 
 // Values
-pub let num_cols : Int
-
-pub let num_rows : Int
 
 // Errors
 
 // Types and methods
 pub struct Model {
-  sheets : Array[Sheet]
+  sheets : Array[@sheet.Sheet]
   active_sheet : Int
   sel_col : Int
   sel_row : Int
@@ -27,7 +25,7 @@ pub struct Model {
 
   fn new() -> Model
 }
-pub fn Model::current_sheet(Self) -> Sheet
+pub fn Model::current_sheet(Self) -> @sheet.Sheet
 pub fn Model::new() -> Self
 pub fn Model::selected_cell(Self) -> @cell.Cell
 pub fn Model::update(Self, (Msg) -> @runtime.Cmd, Msg) -> (@runtime.Cmd, Self)
@@ -57,15 +55,6 @@ pub(all) enum Msg {
   ImportExcel(Bytes)
   ExportExcel
 }
-
-pub struct Sheet {
-  name : String
-  cells : Map[String, @cell.Cell]
-
-  fn new(String) -> Sheet
-}
-pub fn Sheet::get(Self, String) -> @cell.Cell
-pub fn Sheet::new(String) -> Self
 
 // Type aliases
 
