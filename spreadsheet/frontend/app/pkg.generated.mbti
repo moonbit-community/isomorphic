@@ -24,6 +24,8 @@ pub struct Model {
   edit_value : String
   show_chart : Bool
   heat_map : Bool
+
+  fn new() -> Model
 }
 pub fn Model::current_sheet(Self) -> Sheet
 pub fn Model::new() -> Self
@@ -59,6 +61,8 @@ pub(all) enum Msg {
 pub struct Sheet {
   name : String
   cells : Map[String, @cell.Cell]
+
+  fn new(String) -> Sheet
 }
 pub fn Sheet::get(Self, String) -> @cell.Cell
 pub fn Sheet::new(String) -> Self
