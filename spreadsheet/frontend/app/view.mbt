@@ -335,7 +335,7 @@ fn Model::view_formula_bar(
     // Formula bar: <form> wraps the input so Enter triggers on_submit → CommitEdit.
     // A sibling div with on_keydown handles autocomplete Arrow/Tab/Escape navigation
     // (keydown events bubble from the input through the div to the form).
-    @html.div(style=["flex: 1", "position: relative", "display: flex"]) <| [
+    @html.div(style=["flex: 1", "position: relative", "display: flex", "align-items: center"]) <| [
       @html.form(
         style=["flex: 1", "display: flex"],
         on_submit=dispatch(CommitEdit),
@@ -381,9 +381,9 @@ fn Model::view_formula_bar(
         ],
       ],
       dropdown,
+      // Live formula preview badge (inside the flex wrapper so it's visible)
+      preview_badge,
     ],
-    // Live formula preview badge
-    preview_badge,
   ]
 }
 
