@@ -1,6 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "bobzhang/spreadsheet/frontend/cell"
 
+import {
+  "moonbitlang/core/debug",
+}
+
 // Values
 pub fn col_to_letter(Int) -> String
 
@@ -43,7 +47,7 @@ pub(all) enum Value {
   Num(Double)
   Text(String)
   Error(String)
-}
+} derive(@debug.Debug)
 pub fn Value::format_with(Self, NumFormat) -> String
 pub fn Value::to_display(Self) -> String
 pub impl Eq for Value

@@ -32,7 +32,7 @@ pub(all) struct Comment {
   author : String
   content : String
   created_at : String
-} derive(Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Post {
   id : Int
@@ -40,7 +40,7 @@ pub(all) struct Post {
   content : String
   created_at : String
   updated_at : String
-} derive(Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

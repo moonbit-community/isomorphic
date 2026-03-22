@@ -238,19 +238,19 @@ pub(all) struct Activity {
   to_status : String
   timestamp : String
   user_name : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Attachment {
   id : Int
   task_id : Int
   url : String
   label : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct AuthResponse {
   user : User
   message : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Board {
   tasks : Array[Task]
@@ -266,7 +266,7 @@ pub(all) struct Board {
   projects : Array[Project]
   task_projects : Array[TaskProject]
   today : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Comment {
   id : Int
@@ -274,47 +274,47 @@ pub(all) struct Comment {
   author : String
   text : String
   created_at : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Dependency {
   task_id : Int
   depends_on_id : Int
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Label {
   id : Int
   name : String
   color : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) enum Lang {
   En
   Zh
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Member {
   id : Int
   name : String
   color : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Project {
   id : Int
   name : String
   color : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct RecurrenceRule {
   task_id : Int
   interval : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Subtask {
   id : Int
   task_id : Int
   title : String
   done : Bool
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Task {
   id : Int
@@ -325,17 +325,17 @@ pub(all) struct Task {
   assignee_id : Int
   due_date : String
   created_at : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct TaskLabel {
   task_id : Int
   label_id : Int
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct TaskProject {
   task_id : Int
   project_id : Int
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct TimeEntry {
   id : Int
@@ -343,14 +343,14 @@ pub(all) struct TimeEntry {
   minutes : Int
   note : String
   created_at : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct User {
   id : Int
   username : String
   color : String
   role : String
-} derive(Eq, Show, ToJson, @debug.Debug, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 
