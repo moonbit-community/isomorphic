@@ -1,4 +1,74 @@
 ///|
+/// Full dashboard view: charts, sparklines, and summary cards replacing the grid.
+fn Model::view_dashboard(self : Model) -> @rabbita.Html {
+  let sheet = for s in self.sheets {
+    if s.name == "Sales Dashboard" {
+      break s
+    }
+  } nobreak {
+    self.current_sheet()
+  }
+  @html.div(style=[
+    "flex: 1", "overflow: auto", "padding: 24px", "background: #f0f2f5",
+    "display: flex", "flex-direction: column", "gap: 20px",
+  ]) <| [
+    // Title
+    @html.div(style=[
+      "font-size: 20px", "font-weight: 600", "color: #202124", "padding: 0 4px",
+    ]) <| "Sales Dashboard",
+    // Top row: bar chart + donut chart
+    @html.div(style=[
+      "display: flex", "gap: 20px", "align-items: flex-start",
+    ]) <| [
+      // Bar chart card
+      @html.div(style=[
+        "flex: 2", "background: #fff", "border-radius: 12px", "padding: 20px",
+        "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+      ]) <| [
+        @html.div(style=["font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px"]) <| "Quarterly Revenue by Product",
+        self.view_chart(),
+      ],
+      // Donut chart card
+      @html.div(style=[
+        "flex: 1", "background: #fff", "border-radius: 12px", "padding: 20px",
+        "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+      ]) <| [
+        @html.div(style=["font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px"]) <| "Revenue Share",
+        self.view_donut_chart(),
+      ],
+    ],
+    // Bottom row: sparklines for each product
+    @html.div(style=[
+      "display: flex", "gap: 16px", "flex-wrap: wrap",
+    ]) <| {
+      let cards : Array[@rabbita.Html] = []
+      for r in 1..<6 {
+        let name = match sheet.get(@cell.make_key(0, r)).value {
+          Text(s) => s
+          _ => ""
+        }
+        if name.is_empty() {
+          continue
+        }
+        let total = sheet.get_num(1, r) + sheet.get_num(2, r) + sheet.get_num(3, r) + sheet.get_num(4, r)
+        let total_k = (total / 1000.0 + 0.5).to_int()
+        cards.push(
+          @html.div(style=[
+            "flex: 1", "min-width: 160px", "background: #fff", "border-radius: 12px",
+            "padding: 16px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+          ]) <| [
+            @html.div(style=["font-size: 12px", "color: #5f6368", "margin-bottom: 4px"]) <| name,
+            @html.div(style=["font-size: 22px", "font-weight: 600", "color: #202124", "margin-bottom: 8px"]) <| "$\{total_k}k",
+            view_sparkline(sheet, r),
+          ],
+        )
+      }
+      cards
+    },
+  ]
+}
+
+///|
 /// Renders an SVG bar chart from the active sheet's data.
 /// Reads rows 2-6, columns A (label) and B-E (Q1-Q4 values).
 fn Model::view_chart(self : Model) -> @rabbita.Html {
@@ -229,16 +299,15 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
       stroke_width=stroke_w,
     ),
   )
-  // Donut segments — each circle uses dasharray to show only its arc
-  for i in 0..<products.length(); offset_angle = -90.0 {
-    // start from top
+  // Donut segments — each circle uses dasharray + dashoffset to show its arc.
+  // The offset positions each segment by rotating via stroke-dashoffset math.
+  for i in 0..<products.length(); offset = 0.0 {
     let fraction = totals[i] / grand_total
-    let arc_len = (circumference * fraction).to_int()
-    let gap_len = circ_int + 1 // oversized gap avoids sub-pixel seam from rounding
-    let rotation = offset_angle
-    let delay = i * 150
+    let arc_len = circumference * fraction
     let color_idx = i % colors.length()
-    // dasharray: "arc gap", dashoffset: arc→0 draws the segment
+    // dasharray: "arc_len gap" where gap fills the rest of the circle
+    // dashoffset: negative offset to rotate the segment to its position
+    let dash_offset = -offset
     elements.push(
       @svg.circle(
         cx~,
@@ -247,19 +316,13 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
         fill="none",
         stroke=colors[color_idx],
         stroke_width=stroke_w,
-        style=[
-          "transform-origin: center",
-          "transform: rotate(\{rotation}deg)",
-          "--circumference: \{arc_len}",
-          "--dash-offset: 0",
-          "animation: donutDraw 0.8s ease-out \{delay}ms both",
-        ],
         attrs=@svg.Attrs::build()
-          .stroke_dasharray("\{arc_len} \{gap_len}")
-          .stroke_dashoffset("\{arc_len}"),
+          .stroke_dasharray("\{arc_len.to_int()} \{circ_int}")
+          .stroke_dashoffset("\{dash_offset.to_int()}"),
+        style=["transform-origin: center", "transform: rotate(-90deg)"],
       ),
     )
-    continue offset_angle + fraction * 360.0
+    continue offset + arc_len
   }
   // Center text: grand total
   let total_k = (grand_total / 1000.0 + 0.5).to_int()

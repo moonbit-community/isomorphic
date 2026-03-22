@@ -4,26 +4,23 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
+  // Check if the active sheet is the Dashboard (chart-only view)
+  let is_dashboard = self.current_sheet().name == "Sales Dashboard" && self.show_chart
   @html.div(style=[
     "font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa",
     "user-select: none", "color: #202124",
   ]) <| [
     self.view_toolbar(dispatch),
-    self.view_formula_bar(dispatch),
-    if self.show_chart {
-      @html.div(style=[
-        "display: flex", "justify-content: center", "gap: 24px", "padding: 12px 16px",
-        "align-items: flex-start", "background: #f8f9fa", "border-bottom: 1px solid #dadce0",
-        "animation: chartSlideIn 0.4s ease-out",
-      ]) <| [
-        self.view_chart(),
-        self.view_donut_chart(),
-      ]
+    if is_dashboard {
+      // Full dashboard view: charts replace the formula bar + grid
+      self.view_dashboard()
     } else {
-      @html.span() <| ""
+      @html.div(style=["display: flex", "flex-direction: column", "flex: 1", "overflow: hidden"]) <| [
+        self.view_formula_bar(dispatch),
+        self.view_grid(dispatch),
+      ]
     },
-    self.view_grid(dispatch),
     self.view_sheet_tabs(dispatch),
     self.view_status_bar(),
   ]
