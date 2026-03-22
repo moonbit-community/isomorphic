@@ -11,14 +11,14 @@ test "Task JSON round-trip" {
     created_at: "2026-03-10",
   }
   let decoded : @shared.Task = @json.from_json(task.to_json())
-  assert_eq(decoded, task)
+  assert_true(decoded == task)
 }
 
 ///|
 test "Member JSON round-trip" {
   let m : @shared.Member = { id: 1, name: "Alice", color: "blue" }
   let decoded : @shared.Member = @json.from_json(m.to_json())
-  assert_eq(decoded, m)
+  assert_true(decoded == m)
 }
 
 ///|
@@ -60,7 +60,7 @@ test "Board JSON round-trip" {
     today: "2026-03-12",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
-  assert_eq(decoded, board)
+  assert_true(decoded == board)
 }
 
 ///|
@@ -75,7 +75,7 @@ test "Activity JSON round-trip" {
     user_name: "Bob",
   }
   let decoded : @shared.Activity = @json.from_json(act.to_json())
-  assert_eq(decoded, act)
+  assert_true(decoded == act)
 }
 
 ///|
@@ -117,7 +117,7 @@ test "Member JSON structure" {
 test "Dependency JSON round-trip" {
   let d : @shared.Dependency = { task_id: 1, depends_on_id: 2 }
   let decoded : @shared.Dependency = @json.from_json(d.to_json())
-  assert_eq(decoded, d)
+  assert_true(decoded == d)
 }
 
 ///|
@@ -129,7 +129,7 @@ test "User JSON round-trip" {
     role: "member",
   }
   let decoded : @shared.User = @json.from_json(user.to_json())
-  assert_eq(decoded, user)
+  assert_true(decoded == user)
 }
 
 ///|
@@ -139,7 +139,7 @@ test "AuthResponse JSON round-trip" {
     message: "Login successful",
   }
   let decoded : @shared.AuthResponse = @json.from_json(resp.to_json())
-  assert_eq(decoded, resp)
+  assert_true(decoded == resp)
 }
 
 ///|
@@ -202,7 +202,7 @@ test "Comment JSON round-trip" {
     created_at: "2026-03-12",
   }
   let decoded : @shared.Comment = @json.from_json(c.to_json())
-  assert_eq(decoded, c)
+  assert_true(decoded == c)
 }
 
 ///|
@@ -247,7 +247,7 @@ test "Board JSON round-trip with empty arrays" {
     today: "2026-03-13",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
-  assert_eq(decoded, board)
+  assert_true(decoded == board)
 }
 
 ///|
@@ -263,7 +263,7 @@ test "Task default values round-trip" {
     created_at: "",
   }
   let decoded : @shared.Task = @json.from_json(task.to_json())
-  assert_eq(decoded, task)
+  assert_true(decoded == task)
 }
 
 ///|
@@ -308,7 +308,7 @@ test "Board with multiple tasks and deps" {
     today: "2026-03-13",
   }
   let decoded : @shared.Board = @json.from_json(board.to_json())
-  assert_eq(decoded, board)
+  assert_true(decoded == board)
   assert_eq(decoded.tasks.length(), 2)
   assert_eq(decoded.dependencies.length(), 1)
   assert_eq(decoded.dependencies[0].task_id, 2)

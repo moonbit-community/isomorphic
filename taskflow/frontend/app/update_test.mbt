@@ -179,7 +179,7 @@ test "GotMe/Ok sets current_user and clears auth_screen" {
     msg=GotMe(Ok(sample_user())),
     dispatch=noop_dispatch,
   )
-  inspect(
+  debug_inspect(
     model.current_user,
     content=(
       #|Some({id: 1, username: "alice", color: "blue", role: "member"})
@@ -336,7 +336,7 @@ test "AuthResult/Ok logs in user" {
     msg=AuthResult(Ok(resp)),
     dispatch=noop_dispatch,
   )
-  inspect(
+  debug_inspect(
     model.current_user,
     content=(
       #|Some({id: 1, username: "alice", color: "blue", role: "member"})
@@ -370,7 +370,7 @@ test "LoggedOut clears user and board data" {
     dependencies: sample_dependencies(),
   }
   let (model, _) = initial.update(msg=LoggedOut, dispatch=noop_dispatch)
-  inspect(model.current_user, content="None")
+  debug_inspect(model.current_user, content="None")
   inspect(model.auth_screen, content="login")
   inspect(model.tasks.length(), content="0")
   inspect(model.members.length(), content="0")
@@ -972,6 +972,6 @@ test "DismissError clears error_msg" {
 test "SetLang updates language and clears auth_error" {
   let initial = { ..empty_model(), lang: En, auth_error: "old error" }
   let (model, _) = initial.update(msg=SetLang(Zh), dispatch=noop_dispatch)
-  inspect(model.lang, content="Zh")
+  debug_inspect(model.lang, content="Zh")
   inspect(model.auth_error, content="")
 }

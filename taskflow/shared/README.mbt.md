@@ -22,7 +22,7 @@ test {
     created_at: "2026-03-10",
   }
   let decoded : @shared.Task = @json.from_json(task.to_json())
-  assert_eq(decoded, task)
+  assert_true(decoded == task)
 }
 ```
 

@@ -386,7 +386,7 @@ test "workflow: board JSON round-trip preserves full state" {
   // Round-trip through JSON
   let json = board.to_json()
   let decoded : @shared.Board = @json.from_json(json)
-  assert_eq(decoded, board)
+  assert_true(decoded == board)
   // Verify we can use the decoded board with logic functions
   inspect(@shared.completion_percent(decoded.tasks), content="0")
   inspect(
