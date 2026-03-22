@@ -1053,40 +1053,67 @@ fn to_num(v : @cell.Value) -> Double? {
 }
 
 ///|
-/// Add two cell values. Returns `Error("TYPE")` if either is non-numeric.
+/// If either value is an Error, propagate it (first error wins).
+/// Otherwise return None to indicate both values are non-error.
+fn propagate_error(a : @cell.Value, b : @cell.Value) -> @cell.Value? {
+  match (a, b) {
+    (Error(e), _) => Some(Error(e))
+    (_, Error(e)) => Some(Error(e))
+    _ => None
+  }
+}
+
+///|
+/// Add two cell values. Propagates errors; returns `Error("TYPE")` if either is non-numeric text.
 fn add_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
-  match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) => Num(x + y)
-    _ => Error("TYPE")
+  match propagate_error(a, b) {
+    Some(e) => e
+    None =>
+      match (to_num(a), to_num(b)) {
+        (Some(x), Some(y)) => Num(x + y)
+        _ => Error("TYPE")
+      }
   }
 }
 
 ///|
-/// Subtract two cell values. Returns `Error("TYPE")` if either is non-numeric.
+/// Subtract two cell values. Propagates errors; returns `Error("TYPE")` if either is non-numeric text.
 fn sub_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
-  match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) => Num(x - y)
-    _ => Error("TYPE")
+  match propagate_error(a, b) {
+    Some(e) => e
+    None =>
+      match (to_num(a), to_num(b)) {
+        (Some(x), Some(y)) => Num(x - y)
+        _ => Error("TYPE")
+      }
   }
 }
 
 ///|
-/// Multiply two cell values. Returns `Error("TYPE")` if either is non-numeric.
+/// Multiply two cell values. Propagates errors; returns `Error("TYPE")` if either is non-numeric text.
 fn mul_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
-  match (to_num(a), to_num(b)) {
-    (Some(x), Some(y)) => Num(x * y)
-    _ => Error("TYPE")
+  match propagate_error(a, b) {
+    Some(e) => e
+    None =>
+      match (to_num(a), to_num(b)) {
+        (Some(x), Some(y)) => Num(x * y)
+        _ => Error("TYPE")
+      }
   }
 }
 
 ///|
-/// Divide two cell values. Returns `Error("DIV/0")` for division by zero,
-/// or `Error("TYPE")` if either operand is non-numeric.
+/// Divide two cell values. Propagates errors; returns `Error("DIV/0")` for
+/// division by zero, or `Error("TYPE")` if either operand is non-numeric text.
 fn div_values(a : @cell.Value, b : @cell.Value) -> @cell.Value {
-  match (to_num(a), to_num(b)) {
-    (Some(_), Some(0.0)) => Error("DIV/0")
-    (Some(x), Some(y)) => Num(x / y)
-    _ => Error("TYPE")
+  match propagate_error(a, b) {
+    Some(e) => e
+    None =>
+      match (to_num(a), to_num(b)) {
+        (Some(_), Some(0.0)) => Error("DIV/0")
+        (Some(x), Some(y)) => Num(x / y)
+        _ => Error("TYPE")
+      }
   }
 }
 

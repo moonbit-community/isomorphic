@@ -419,14 +419,11 @@ test "recalc: cell downstream of cycle is not mislabeled CIRCULAR" {
     Error(msg) => assert_eq(msg, "CIRCULAR")
     _ => fail("B1: expected CIRCULAR")
   }
-  // C1 should NOT be CIRCULAR — it evaluates with A1's error
-  // Since A1 is Error("CIRCULAR"), C1 = Error("CIRCULAR") + 1 which is an Error
-  // But it should be an evaluation error, not mislabeled as a cycle member
+  // C1 evaluates with A1's error propagated through arithmetic
+  // Error("CIRCULAR") + 1 propagates the CIRCULAR error
   match r.get("C1").value {
-    Error("CIRCULAR") => fail("C1 should not be marked CIRCULAR — it's downstream, not in the cycle")
-    Error(_) => () // Some error from trying to add CIRCULAR + 1, that's fine
-    Num(_) => () // If the engine somehow produces a number, also acceptable
-    _ => ()
+    Error("CIRCULAR") => () // Error propagated from A1 — correct
+    _ => fail("C1: expected propagated CIRCULAR error")
   }
 }
 
@@ -446,18 +443,15 @@ test "recalc: chained downstream of cycle evaluates in correct order" {
     Error(msg) => assert_eq(msg, "CIRCULAR")
     _ => fail("A1: expected CIRCULAR")
   }
-  // C1 tries A1+1 where A1=Error("CIRCULAR"), so C1 gets an error too
-  // But it should NOT be labeled "CIRCULAR" itself
+  // C1 evaluates A1+1 where A1=Error("CIRCULAR") — error propagates
   match r.get("C1").value {
-    Error("CIRCULAR") =>
-      fail("C1 should not be CIRCULAR — it's downstream, not in cycle")
-    _ => () // any non-CIRCULAR result is acceptable
+    Error("CIRCULAR") => () // propagated from A1
+    _ => fail("C1: expected propagated CIRCULAR error")
   }
-  // D1 depends on C1, must evaluate AFTER C1 regardless of iteration order
+  // D1 evaluates C1+1 — CIRCULAR propagates through the chain
   match r.get("D1").value {
-    Error("CIRCULAR") =>
-      fail("D1 should not be CIRCULAR — it's downstream, not in cycle")
-    _ => () // any non-CIRCULAR result is acceptable
+    Error("CIRCULAR") => () // propagated from C1 from A1
+    _ => fail("D1: expected propagated CIRCULAR error")
   }
 }
 
