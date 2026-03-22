@@ -611,19 +611,17 @@ fn Model::view_grid(
       let col = c
       let row = r
       if is_editing {
+        // Display-only editor — the grid's on_keydown handles all input.
+        // Using a div instead of input avoids focus-stealing issues where
+        // the inline input captures keystrokes that should go to the grid.
         row_cells.push(
-          @html.input(
-            input_type=Text,
-            style=[
-              "border: 2px solid #1a73e8", "outline: none", "padding: 0 6px", "font-size: 13px",
-              "font-family: 'Inter', sans-serif", "box-sizing: border-box", "width: 100%",
-              "height: 100%", "background: #fff", "box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15)",
-            ],
-            value=self.edit_value,
-            on_input=value => dispatch(UpdateEdit(value)),
-            on_change=_value => dispatch(CommitEdit),
-            autofocus=true,
-          ) <| "",
+          @html.div(style=[
+            "border: 2px solid #1a73e8", "outline: none", "padding: 0 6px", "font-size: 13px",
+            "font-family: 'Inter', sans-serif", "box-sizing: border-box", "width: 100%",
+            "height: 100%", "background: #fff", "box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15)",
+            "display: flex", "align-items: center", "overflow: hidden", "white-space: nowrap",
+            "min-height: 0",
+          ]) <| self.edit_value,
         )
       } else {
         let display = cell.value.format_with(cell.format)
