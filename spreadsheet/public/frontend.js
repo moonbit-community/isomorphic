@@ -4124,6 +4124,7 @@ function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2,
   this.autocomplete_index = param9;
   this.save_status = param10;
 }
+const _M0FP48bobzhang11spreadsheet8frontend3app7js__log = (msg) => { console.log('[spreadsheet]', msg); };
 function _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Json(param0, param1) {
   this._0 = param0;
   this._1 = param1;
@@ -76807,17 +76808,11 @@ function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime7message(id, f) {
 function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(f, kind) {
   return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd6Effect(f, kind);
 }
-function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime5batch(xs) {
-  return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Batch(xs);
-}
 function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Flags3new() {
   return new _M0TP419moonbit_2dcommunity7rabbita8internal7runtime5Flags(_M0MP419moonbit_2dcommunity7rabbita8internal7runtime2Id3new(), false, 0);
 }
 function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Flags11mark__dirty(s) {
   s.dirty = true;
-}
-function _M0FP319moonbit_2dcommunity7rabbita3cmd5batch(cmds) {
-  return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime5batch(cmds);
 }
 function _M0FP319moonbit_2dcommunity7rabbita3cmd19raw__effect_2einner(callback, kind) {
   return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(callback, kind);
@@ -79756,6 +79751,7 @@ function _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(model, bytes) {
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, 0, 0, 0, false, "", true, false, [], -1, "");
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, sheets) {
+  _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`save_workbook called, ${_M0IP016_24default__implPB4Show10to__stringGiE(sheets.length)} sheets`);
   return _M0FP319moonbit_2dcommunity7rabbita4http4postGuE(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, new _M0DTP319moonbit_2dcommunity7rabbita4http4Body4Json(_M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets)), new _M0DTP319moonbit_2dcommunity7rabbita4http9ExpectingGRP419moonbit_2dcommunity7rabbita8internal7runtime3CmduE4Text((_result) => dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__)));
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) {
@@ -79848,7 +79844,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
                                 case 5: {
                                   const _tmp$2 = _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self);
                                   const model = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(_tmp$2.sheets, _tmp$2.active_sheet, _tmp$2.sel_col, _tmp$2.sel_row, _tmp$2.editing, _tmp$2.edit_value, _tmp$2.show_chart, _tmp$2.heat_map, [], -1, "Saving...");
-                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd5batch([_M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets)]), _1: model };
+                                  return { _0: _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets), _1: model };
                                 }
                                 case 6: {
                                   return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, false, "", self.show_chart, self.heat_map, [], -1, self.save_status) };

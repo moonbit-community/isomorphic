@@ -81,7 +81,7 @@ pub fn Model::update(
     }
     CommitEdit => {
       let model = { ..self.commit_edit(), autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
-      (@rabbita.batch([save_workbook(dispatch, model.sheets)]), model)
+      (save_workbook(dispatch, model.sheets), model)
     }
     CancelEdit =>
       (

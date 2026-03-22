@@ -20,6 +20,10 @@ fn fetch_workbook(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
 }
 
 ///|
+extern "js" fn js_log(msg : String) -> Unit =
+  #|(msg) => { console.log('[spreadsheet]', msg); }
+
+///|
 /// Save workbook data to the backend (fire-and-forget).
 #warnings("-unresolved_type_variable")
 fn save_workbook(
@@ -27,6 +31,7 @@ fn save_workbook(
   sheets : Array[@sheet.Sheet],
 ) -> @rabbita.Cmd {
   // Save sheets as a plain JSON array (no wrapper object)
+  js_log("save_workbook called, \{sheets.length()} sheets")
   @http.post(
     api_save,
     Json(sheets.to_json()),
