@@ -27,6 +27,13 @@ pub fn Sheet::new(name : String) -> Sheet {
 }
 
 ///|
+/// Create a new sheet by cloning an existing one, optionally overriding the cells and name.
+pub fn Sheet::clone(self : Self, cells? : Map[String, @cell.Cell], name? : String) -> Sheet {
+  let name = if name is Some(n) { n } else { self.name }
+  let cells = if cells is Some(c) { c } else { self.cells }
+  { name, cells }
+}
+///|
 /// Look up a cell by its key (e.g. "A1"), returning an empty cell if not found.
 pub fn Sheet::get(self : Sheet, key : String) -> @cell.Cell {
   match self.cells.get(key) {

@@ -17,15 +17,11 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   // Second pass: evaluate formulas
   // We do multiple passes to handle dependencies (simple convergence)
   for _ in 0..<3 {
-    self.cells.each(fn(k, c) {
+    for k, c in self.cells {
       if c.raw is ['=', ..] { // formula cell
-        let value = @formula.evaluate(c.raw, fn(r) {
-          let cell = match new_cells.get(r) {
-            Some(c) => c
-            None => Cell()
+        let value = @formula.evaluate(c.raw) <| fn(r) {
+            new_cells.get_or_default(r, Cell()).value
           }
-          cell.value
-        })
         // Keep existing value if re-evaluation fails (preserves cached xlsx results)
         let final_value = match value {
           Error(_) =>
@@ -37,7 +33,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
         }
         new_cells[k] = { ..c, value: final_value }
       }
-    })
+    }
   }
-  { ..self, cells: new_cells }
+  self.clone(cells=new_cells)
+  // { ..self, cells: new_cells }
 }
