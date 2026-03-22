@@ -126,3 +126,40 @@ test "make_key round-trips with parse_ref" {
   // Round-trip
   inspect(@cell.parse_ref(@cell.make_key(5, 14)), content="Some((5, 14))")
 }
+
+// ── Value::Show ──────────────────────────────────────────────────────
+
+///|
+test "Value::Show: Empty" {
+  inspect(@cell.Empty, content="Empty")
+}
+
+///|
+test "Value::Show: integer Num" {
+  inspect(@cell.Num(42.0), content="Num(42)")
+}
+
+///|
+test "Value::Show: float Num" {
+  inspect(@cell.Num(3.14), content="Num(3.14)")
+}
+
+///|
+test "Value::Show: Text" {
+  inspect(@cell.Text("hello"), content="Text(hello)")
+}
+
+///|
+test "Value::Show: Error" {
+  inspect(@cell.Error("DIV/0"), content="Error(DIV/0)")
+}
+
+// ── Value::Eq ────────────────────────────────────────────────────────
+
+///|
+test "Value::Eq" {
+  assert_eq(@cell.Num(1.0), @cell.Num(1.0))
+  assert_eq(@cell.Text("a"), @cell.Text("a"))
+  assert_eq(@cell.Empty, @cell.Empty)
+  assert_eq(@cell.Error("X"), @cell.Error("X"))
+}

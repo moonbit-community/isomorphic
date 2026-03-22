@@ -15,6 +15,24 @@ pub(all) enum Value {
   Num(Double)
   Text(String)
   Error(String)
+} derive(Eq)
+
+///|
+/// Display a Value for debugging and test output.
+pub impl Show for Value with output(self, logger) {
+  match self {
+    Empty => logger.write_string("Empty")
+    Num(n) => {
+      let i = n.to_int()
+      if i.to_double() == n {
+        logger.write_string("Num(\{i})")
+      } else {
+        logger.write_string("Num(\{n})")
+      }
+    }
+    Text(s) => logger.write_string("Text(\{s})")
+    Error(s) => logger.write_string("Error(\{s})")
+  }
 }
 
 ///|
