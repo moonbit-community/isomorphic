@@ -86,7 +86,7 @@ fn load_xlsx(model : Model, bytes : Bytes) -> Model {
   }
   let sheets : Array[@sheet.Sheet] = []
   for name in sheet_names {
-    let sheet = @sheet.Sheet::new(name)
+    let sheet = @sheet.Sheet(name)
     // Get the used range dimension (e.g. "A1:H14")
     let dim = wb.get_sheet_dimension(name) catch { _ => "" }
     if !dim.is_empty() {

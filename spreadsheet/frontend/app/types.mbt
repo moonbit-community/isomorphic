@@ -48,9 +48,9 @@ pub(all) enum Msg {
 ///|
 /// Initialize the spreadsheet with demo sheets pre-populated with sample data and evaluated formulas.
 pub fn Model::new() -> Model {
-  let sheet1 = @sheet.Sheet::new("Sales Dashboard")
-  let sheet2 = @sheet.Sheet::new("Team Metrics")
-  let sheet3 = @sheet.Sheet::new("Sheet 3")
+  let sheet1 = @sheet.Sheet("Sales Dashboard")
+  let sheet2 = @sheet.Sheet("Team Metrics")
+  let sheet3 = @sheet.Sheet("Sheet 3")
   // Populate Sales Dashboard with demo data
   sheet1.populate_sales_dashboard()
   sheet2.populate_team_metrics()

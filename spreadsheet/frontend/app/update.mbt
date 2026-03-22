@@ -67,7 +67,7 @@ pub fn Model::update(
     AddSheet => {
       let name = "Sheet \{self.sheets.length() + 1}"
       let sheets = self.sheets.copy()
-      sheets.push(@sheet.Sheet::new(name))
+      sheets.push(@sheet.Sheet(name))
       (@rabbita.none, { ..self, sheets, })
     }
     DeleteSheet(i) => {
