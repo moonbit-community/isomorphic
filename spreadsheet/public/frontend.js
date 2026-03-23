@@ -3864,31 +3864,6 @@ function _M0TP419moonbit_2dcommunity7rabbita8internal7runtime5Flags(param0, para
   this.dirty = param1;
   this.attach_count = param2;
 }
-function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0(param0, param1) {
-  this._0 = param0;
-  this._1 = param1;
-}
-_M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0.prototype.$tag = 0;
-function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25(param0, param1, param2) {
-  this._0 = param0;
-  this._1 = param1;
-  this._2 = param2;
-}
-_M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25.prototype.$tag = 1;
-function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2(param0, param1, param2) {
-  this._0 = param0;
-  this._1 = param1;
-  this._2 = param2;
-}
-_M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2.prototype.$tag = 2;
-function _M0DTPC16result6ResultGzRPC15error5ErrorE3Err(param0) {
-  this._0 = param0;
-}
-_M0DTPC16result6ResultGzRPC15error5ErrorE3Err.prototype.$tag = 0;
-function _M0DTPC16result6ResultGzRPC15error5ErrorE2Ok(param0) {
-  this._0 = param0;
-}
-_M0DTPC16result6ResultGzRPC15error5ErrorE2Ok.prototype.$tag = 1;
 function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGsRPC15error5ErrorE8State__0(param0, param1) {
   this._0 = param0;
   this._1 = param1;
@@ -3914,6 +3889,31 @@ function _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok(param0) {
   this._0 = param0;
 }
 _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok.prototype.$tag = 1;
+function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0.prototype.$tag = 0;
+function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25(param0, param1, param2) {
+  this._0 = param0;
+  this._1 = param1;
+  this._2 = param2;
+}
+_M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25.prototype.$tag = 1;
+function _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2(param0, param1, param2) {
+  this._0 = param0;
+  this._1 = param1;
+  this._2 = param2;
+}
+_M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2.prototype.$tag = 2;
+function _M0DTPC16result6ResultGzRPC15error5ErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGzRPC15error5ErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGzRPC15error5ErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGzRPC15error5ErrorE2Ok.prototype.$tag = 1;
 function _M0DTP319moonbit_2dcommunity7rabbita7variant7Variant7Boolean(param0) {
   this._0 = param0;
 }
@@ -4043,6 +4043,9 @@ _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData.prototype.$tag = 
 function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend() {}
 _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend.prototype.$tag = 26;
 const _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__ = new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend();
+function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg9WsRefresh() {}
+_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9WsRefresh.prototype.$tag = 27;
+const _M0DTP48bobzhang11spreadsheet8frontend3app3Msg9WsRefresh__ = new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg9WsRefresh();
 const _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post = (url, json, done) => {
   fetch(url, {
     method: 'POST',
@@ -4050,7 +4053,6 @@ const _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post = (url, json, d
     body: json
   }).then(() => done()).catch(e => { console.error('save failed:', e); done(); });
 };
-const _M0FP48bobzhang11spreadsheet8frontend3app7js__log = (msg) => { console.log('[spreadsheet]', msg); };
 const _M0FP48bobzhang11spreadsheet8frontend3app15download__bytes = (bytes, filename) => {
    const blob = new Blob([bytes], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
    const url = URL.createObjectURL(blob);
@@ -4064,6 +4066,7 @@ const _M0FP48bobzhang11spreadsheet8frontend3app23js__fetch__get__promise = (url,
   fetch(url).then(r => r.text()).then(text => resolve(text))
     .catch(e => reject(new Error(String(e))));
 };
+const _M0FP48bobzhang11spreadsheet8frontend3app7js__log = (msg) => { console.log('[spreadsheet]', msg); };
 function _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err(param0) {
   this._0 = param0;
 }
@@ -4115,48 +4118,34 @@ function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2,
   this.autocomplete_index = param9;
   this.save_status = param10;
 }
-const _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime = (function() {
-  var lastHash = '';
-  var initialLoad = true;
-
-  function onRemoteChange() {
-    console.log('[sync] remote change detected, reloading...');
-    window.location.reload();
-  }
-
-  // WebSocket
-  function connectWS() {
+const _M0FP48bobzhang11spreadsheet8frontend3app22wait__for__ws__message = (resolve, _reject) => {
+  window._ws_pending = resolve;
+};
+const _M0FP48bobzhang11spreadsheet8frontend3app21setup__ws__connection = (function() {
+  window._ws_pending = null;
+  window._ws = null;
+  function connect() {
     try {
       var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
-      ws.onopen = function() { console.log('[ws] connected'); };
+      ws.onopen = function() { console.log('[ws] connected'); window._ws = ws; };
       ws.onmessage = function(event) {
-        console.log('[ws] received:', event.data);
-        onRemoteChange();
+        console.log('[ws] message:', event.data);
+        if (window._ws_pending) {
+          var resolve = window._ws_pending;
+          window._ws_pending = null;
+          resolve(event.data);
+        }
       };
-      ws.onclose = function() { setTimeout(connectWS, 2000); };
+      ws.onclose = function() {
+        console.log('[ws] closed, reconnecting...');
+        window._ws = null;
+        setTimeout(connect, 2000);
+      };
       ws.onerror = function() { ws.close(); };
-    } catch(e) { setTimeout(connectWS, 2000); }
+    } catch(e) { setTimeout(connect, 2000); }
   }
-  connectWS();
-
-  // Polling fallback every 3s
-  setInterval(function() {
-    fetch('/api/load').then(function(r) { return r.text(); }).then(function(text) {
-      var hash = text.length + ':' + text.slice(0, 100);
-      if (initialLoad) {
-        initialLoad = false;
-        lastHash = hash;
-        return;
-      }
-      if (lastHash && hash !== lastHash) {
-        console.log('[poll] data changed');
-        lastHash = hash;
-        onRemoteChange();
-      }
-      lastHash = hash;
-    }).catch(function() {});
-  }, 3000);
+  connect();
 })();
 const _M0FP0215moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fspreadsheet_2ffrontend_2fapp_2fModel_2c_20bobzhang_2fspreadsheet_2ffrontend_2fapp_2fMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell = { method_0: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4stepGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_1: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4viewGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_2: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell5flagsGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char };
@@ -76794,11 +76783,17 @@ function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime7message(id, f) {
 function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(f, kind) {
   return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd6Effect(f, kind);
 }
+function _M0FP419moonbit_2dcommunity7rabbita8internal7runtime5batch(xs) {
+  return new _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Batch(xs);
+}
 function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Flags3new() {
   return new _M0TP419moonbit_2dcommunity7rabbita8internal7runtime5Flags(_M0MP419moonbit_2dcommunity7rabbita8internal7runtime2Id3new(), false, 0);
 }
 function _M0MP419moonbit_2dcommunity7rabbita8internal7runtime5Flags11mark__dirty(s) {
   s.dirty = true;
+}
+function _M0FP319moonbit_2dcommunity7rabbita3cmd5batch(cmds) {
+  return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime5batch(cmds);
 }
 function _M0FP319moonbit_2dcommunity7rabbita3cmd19raw__effect_2einner(callback, kind) {
   return _M0FP419moonbit_2dcommunity7rabbita8internal7runtime6effect(callback, kind);
@@ -76812,89 +76807,6 @@ function _M0FP319moonbit_2dcommunity7rabbita3cmd11raw__effect(callback, kind$46$
     kind = _Some;
   }
   return _M0FP319moonbit_2dcommunity7rabbita3cmd19raw__effect_2einner(callback, kind);
-}
-function _M0FP319moonbit_2dcommunity7rabbita3cmd7attemptGzRPC15error5ErrorE(msg, f) {
-  return _M0FP319moonbit_2dcommunity7rabbita3cmd11raw__effect((scheduler) => {
-    const _cont = (_param) => {
-    };
-    const _async_driver = (_state) => {
-      let _tmp$2 = _state;
-      _L: while (true) {
-        const _state$2 = _tmp$2;
-        switch (_state$2.$tag) {
-          case 0: {
-            const _State_0 = _state$2;
-            const scheduler$2 = _State_0._1;
-            const _cont_param = _State_0._0;
-            const msg$2 = _cont_param;
-            return scheduler$2.method_table.method_0(scheduler$2.self, msg$2);
-          }
-          case 1: {
-            const _$42$try$47$25 = _state$2;
-            const scheduler$3 = _$42$try$47$25._2;
-            const msg$3 = _$42$try$47$25._1;
-            const _try_err = _$42$try$47$25._0;
-            const e = _try_err;
-            _tmp$2 = new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0(msg$3(new _M0DTPC16result6ResultGzRPC15error5ErrorE3Err(e)), scheduler$3);
-            continue _L;
-          }
-          default: {
-            const _State_2 = _state$2;
-            const scheduler$4 = _State_2._2;
-            const msg$4 = _State_2._1;
-            const _cont_param$2 = _State_2._0;
-            const _bind$5 = _cont_param$2;
-            const r = _bind$5;
-            _tmp$2 = new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0(msg$4(new _M0DTPC16result6ResultGzRPC15error5ErrorE2Ok(r)), scheduler$4);
-            continue _L;
-          }
-        }
-      }
-    };
-    let _err;
-    _L: {
-      _L$2: {
-        const _bind$5 = f((_cont_param) => {
-          const _bind$6 = _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2(_cont_param, msg, scheduler));
-          if (_bind$6 === -1) {
-            return;
-          } else {
-            const _Some = _bind$6;
-            const _payload = _Some;
-            _cont(_payload);
-            return;
-          }
-        }, (_cont_param) => {
-          const _bind$6 = _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25(_cont_param, msg, scheduler));
-          if (_bind$6 === -1) {
-            return;
-          } else {
-            const _Some = _bind$6;
-            const _payload = _Some;
-            _cont(_payload);
-            return;
-          }
-        });
-        let _bind$6;
-        if (_bind$5.$tag === 1) {
-          const _ok = _bind$5;
-          _bind$6 = _ok._0;
-        } else {
-          const _err$2 = _bind$5;
-          _err = _err$2._0;
-          break _L$2;
-        }
-        if (_bind$6 === undefined) {
-        } else {
-          const _Some = _bind$6;
-          const _payload = _Some;
-          _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2(_payload, msg, scheduler));
-        }
-        break _L;
-      }
-      _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25(_err, msg, scheduler));
-    }
-  }, undefined);
 }
 function _M0FP319moonbit_2dcommunity7rabbita3cmd7attemptGsRPC15error5ErrorE(msg, f) {
   return _M0FP319moonbit_2dcommunity7rabbita3cmd11raw__effect((scheduler) => {
@@ -76976,6 +76888,89 @@ function _M0FP319moonbit_2dcommunity7rabbita3cmd7attemptGsRPC15error5ErrorE(msg,
         break _L;
       }
       _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGsRPC15error5ErrorE11_2atry_2f25(_err, msg, scheduler));
+    }
+  }, undefined);
+}
+function _M0FP319moonbit_2dcommunity7rabbita3cmd7attemptGzRPC15error5ErrorE(msg, f) {
+  return _M0FP319moonbit_2dcommunity7rabbita3cmd11raw__effect((scheduler) => {
+    const _cont = (_param) => {
+    };
+    const _async_driver = (_state) => {
+      let _tmp$2 = _state;
+      _L: while (true) {
+        const _state$2 = _tmp$2;
+        switch (_state$2.$tag) {
+          case 0: {
+            const _State_0 = _state$2;
+            const scheduler$2 = _State_0._1;
+            const _cont_param = _State_0._0;
+            const msg$2 = _cont_param;
+            return scheduler$2.method_table.method_0(scheduler$2.self, msg$2);
+          }
+          case 1: {
+            const _$42$try$47$25 = _state$2;
+            const scheduler$3 = _$42$try$47$25._2;
+            const msg$3 = _$42$try$47$25._1;
+            const _try_err = _$42$try$47$25._0;
+            const e = _try_err;
+            _tmp$2 = new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0(msg$3(new _M0DTPC16result6ResultGzRPC15error5ErrorE3Err(e)), scheduler$3);
+            continue _L;
+          }
+          default: {
+            const _State_2 = _state$2;
+            const scheduler$4 = _State_2._2;
+            const msg$4 = _State_2._1;
+            const _cont_param$2 = _State_2._0;
+            const _bind$5 = _cont_param$2;
+            const r = _bind$5;
+            _tmp$2 = new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__0(msg$4(new _M0DTPC16result6ResultGzRPC15error5ErrorE2Ok(r)), scheduler$4);
+            continue _L;
+          }
+        }
+      }
+    };
+    let _err;
+    _L: {
+      _L$2: {
+        const _bind$5 = f((_cont_param) => {
+          const _bind$6 = _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2(_cont_param, msg, scheduler));
+          if (_bind$6 === -1) {
+            return;
+          } else {
+            const _Some = _bind$6;
+            const _payload = _Some;
+            _cont(_payload);
+            return;
+          }
+        }, (_cont_param) => {
+          const _bind$6 = _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25(_cont_param, msg, scheduler));
+          if (_bind$6 === -1) {
+            return;
+          } else {
+            const _Some = _bind$6;
+            const _payload = _Some;
+            _cont(_payload);
+            return;
+          }
+        });
+        let _bind$6;
+        if (_bind$5.$tag === 1) {
+          const _ok = _bind$5;
+          _bind$6 = _ok._0;
+        } else {
+          const _err$2 = _bind$5;
+          _err = _err$2._0;
+          break _L$2;
+        }
+        if (_bind$6 === undefined) {
+        } else {
+          const _Some = _bind$6;
+          const _payload = _Some;
+          _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE8State__2(_payload, msg, scheduler));
+        }
+        break _L;
+      }
+      _async_driver(new _M0DTP319moonbit_2dcommunity7rabbita3cmd71_24moonbit_2dcommunity_2frabbita_2fcmd_2eattempt_2elambda_2elambda_2f53L5StateGzRPC15error5ErrorE11_2atry_2f25(_err, msg, scheduler));
     }
   }, undefined);
 }
@@ -79481,7 +79476,6 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model4view(self, dispatch) {
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, sheets) {
   const json_str = _M0MPC14json4Json17stringify_2einner(_M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets), false, 0, undefined);
-  _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`save: ${_M0IP016_24default__implPB4Show10to__stringGiE(json_str.length)} chars`);
   _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, json_str, () => {
     dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__);
   });
@@ -79637,7 +79631,7 @@ function _M0FP48bobzhang11spreadsheet8frontend3app20fetch__workbook__cmd(dispatc
         return dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok(sheets)));
       }
       const e = _try_err;
-      _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`PARSE ERROR: ${_M0IP016_24default__implPB4Show10to__stringGRPC15error5ErrorE(e)}`);
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`parse error: ${_M0IP016_24default__implPB4Show10to__stringGRPC15error5ErrorE(e)}`);
       return dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err("parse")));
     }
   }, (_cont, _err_cont) => {
@@ -79697,6 +79691,22 @@ function _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(model, bytes) {
     return model;
   }
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, 0, 0, 0, false, "", true, false, [], -1, "");
+}
+function _M0FP48bobzhang11spreadsheet8frontend3app15ws__listen__cmd(dispatch) {
+  return _M0FP319moonbit_2dcommunity7rabbita3cmd7attemptGsRPC15error5ErrorE((result) => {
+    if (result.$tag === 1) {
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log("WS message -> dispatching WsRefresh");
+      return dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9WsRefresh__);
+    } else {
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log("WS listen error -> dispatching WsRefresh anyway");
+      return dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg9WsRefresh__);
+    }
+  }, (_cont, _err_cont) => {
+    const resolve = _cont;
+    const reject = _err_cont;
+    _M0FP48bobzhang11spreadsheet8frontend3app22wait__for__ws__message(resolve, reject);
+    return new _M0DTPC16result6ResultGOsRP319moonbit_2dcommunity7rabbita2js7Error__E2Ok(undefined);
+  });
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) {
   const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
@@ -79903,8 +79913,13 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
                                     return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
                                   }
                                 }
-                                default: {
+                                case 26: {
                                   return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Saved") };
+                                }
+                                default: {
+                                  _M0FP48bobzhang11spreadsheet8frontend3app7js__log("WsRefresh: fetching + re-subscribing");
+                                  const model$7 = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Syncing...");
+                                  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd5batch([_M0FP48bobzhang11spreadsheet8frontend3app20fetch__workbook__cmd(dispatch), _M0FP48bobzhang11spreadsheet8frontend3app15ws__listen__cmd(dispatch)]), _1: model$7 };
                                 }
                               }
                             }
@@ -80024,7 +80039,7 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index, model.save_status);
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app10init__sync(_dispatch) {
-  _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime();
+  _M0FP48bobzhang11spreadsheet8frontend3app21setup__ws__connection();
 }
 (() => {
   let dispatch;
@@ -80038,7 +80053,7 @@ function _M0FP48bobzhang11spreadsheet8frontend3app10init__sync(_dispatch) {
     break _L;
   }
   const app = _M0FP219moonbit_2dcommunity7rabbita3new(app_cell);
-  _M0MP219moonbit_2dcommunity7rabbita3App10with__init(app, dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__));
+  _M0MP219moonbit_2dcommunity7rabbita3App10with__init(app, _M0FP319moonbit_2dcommunity7rabbita3cmd5batch([dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__), _M0FP48bobzhang11spreadsheet8frontend3app15ws__listen__cmd(dispatch)]));
   _M0MP219moonbit_2dcommunity7rabbita3App5mount(app, "app");
   _M0FP48bobzhang11spreadsheet8frontend3app10init__sync(dispatch);
 })();

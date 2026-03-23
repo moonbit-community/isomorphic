@@ -64,6 +64,8 @@ pub(all) enum Msg {
   LoadFromBackend
   GotBackendData(Result[Array[@sheet.Sheet], String])
   SavedToBackend
+  /// WebSocket message received — fetch latest data and re-subscribe
+  WsRefresh
 }
 
 ///|

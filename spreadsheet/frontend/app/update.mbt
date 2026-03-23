@@ -224,6 +224,12 @@ pub fn Model::update(
       // Backend unavailable — keep demo data as fallback
       (@rabbita.none, self)
     SavedToBackend => (@rabbita.none, { ..self, save_status: "Saved" })
+    WsRefresh => {
+      // Fetch latest data from backend AND re-subscribe for next WS message
+      js_log("WsRefresh: fetching + re-subscribing")
+      let model = { ..self, save_status: "Syncing..." }
+      (@rabbita.batch([fetch_workbook_cmd(dispatch), ws_listen_cmd(dispatch)]), model)
+    }
   }
 }
 

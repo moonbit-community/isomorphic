@@ -7,9 +7,12 @@ fn main {
     view=(dispatch, model) => model.view(dispatch),
   )
   let app = @rabbita.new(app_cell)
-  // Load data from backend on init (uses @rabbita.attempt for proper enqueue)
-  app.with_init(dispatch(LoadFromBackend))
+  // On init: load data from backend + start WebSocket listener
+  // Both use @rabbita.attempt to properly enqueue into Rabbita's scheduler
+  app.with_init(
+    @rabbita.batch([dispatch(LoadFromBackend), @app.ws_listen_cmd(dispatch)]),
+  )
   app.mount("app")
-  // Set up WS + polling for real-time sync
+  // Set up the global WebSocket connection (JS side)
   @app.init_sync(dispatch)
 }

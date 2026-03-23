@@ -1,26 +1,15 @@
 ///|
-/// API endpoint for loading workbook data from the backend.
+/// API endpoints.
 let api_load : String = "/api/load"
 
 ///|
-/// API endpoint for saving workbook data to the backend.
 let api_save : String = "/api/save"
 
 ///|
 extern "js" fn js_log(msg : String) -> Unit =
   #|(msg) => { console.log('[spreadsheet]', msg); }
 
-///|
-/// JS FFI: GET text from a URL as a JS Promise (for use with @js.suspend).
-extern "js" fn js_fetch_get_promise(
-  url : String,
-  resolve : (String) -> Unit,
-  reject : (@js.Error_) -> Unit,
-) -> Unit =
-  #|(url, resolve, reject) => {
-  #|  fetch(url).then(r => r.text()).then(text => resolve(text))
-  #|    .catch(e => reject(new Error(String(e))));
-  #|}
+// ── Save (fire-and-forget via JS fetch) ─────────────────────────────
 
 ///|
 /// JS FFI: POST JSON data to a URL.
@@ -34,8 +23,40 @@ extern "js" fn js_fetch_post(url : String, json_str : String, on_done : () -> Un
   #|}
 
 ///|
-/// Fetch workbook from backend using @rabbita.attempt + @js.suspend.
-/// This properly enqueues the result back into Rabbita's event loop.
+/// Save workbook data to the backend (fire-and-forget side effect).
+fn save_workbook(
+  dispatch : @rabbita.Dispatch[Msg],
+  sheets : Array[@sheet.Sheet],
+) -> @rabbita.Cmd {
+  let json_str = sheets.to_json().stringify()
+  js_fetch_post(api_save, json_str, fn() {
+    ignore(dispatch(SavedToBackend))
+  })
+  @rabbita.none
+}
+
+///|
+/// Auto-save helper.
+fn auto_save(dispatch : @rabbita.Dispatch[Msg], model : Model) -> Unit {
+  ignore(save_workbook(dispatch, model.sheets))
+}
+
+// ── Load (via @rabbita.attempt for proper Rabbita enqueue) ──────────
+
+///|
+/// JS FFI: GET text from URL, resolve/reject for @js.suspend.
+extern "js" fn js_fetch_get_promise(
+  url : String,
+  resolve : (String) -> Unit,
+  reject : (@js.Error_) -> Unit,
+) -> Unit =
+  #|(url, resolve, reject) => {
+  #|  fetch(url).then(r => r.text()).then(text => resolve(text))
+  #|    .catch(e => reject(new Error(String(e))));
+  #|}
+
+///|
+/// Fetch workbook via @rabbita.attempt (properly enqueues into Rabbita).
 fn fetch_workbook_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   @rabbita.attempt(
     fn(result) {
@@ -53,7 +74,7 @@ fn fetch_workbook_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
               dispatch(GotBackendData(Ok(sheets)))
             } catch {
               e => {
-                js_log("PARSE ERROR: \{e}")
+                js_log("parse error: \{e}")
                 dispatch(GotBackendData(Err("parse")))
               }
             }
@@ -70,79 +91,79 @@ fn fetch_workbook_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
   )
 }
 
-///|
-/// Save workbook data to the backend (fire-and-forget side effect).
-fn save_workbook(
-  dispatch : @rabbita.Dispatch[Msg],
-  sheets : Array[@sheet.Sheet],
-) -> @rabbita.Cmd {
-  let json_str = sheets.to_json().stringify()
-  js_log("save: \{json_str.length()} chars")
-  js_fetch_post(api_save, json_str, fn() {
-    ignore(dispatch(SavedToBackend))
-  })
-  @rabbita.none
-}
+// ── WebSocket subscription (recursive @rabbita.attempt chain) ───────
 
 ///|
-/// Auto-save helper: call after any model change that should persist.
-fn auto_save(dispatch : @rabbita.Dispatch[Msg], model : Model) -> Unit {
-  ignore(save_workbook(dispatch, model.sheets))
-}
-
-///|
-/// Set up real-time sync: WebSocket + polling.
-/// Since dispatch() from JS callbacks doesn't enqueue into Rabbita,
-/// we reload the page when remote changes are detected.
-/// The page reload triggers with_init → LoadFromBackend → fetch_workbook_cmd
-/// which properly goes through Rabbita's scheduler.
-extern "js" fn setup_realtime() -> Unit =
+/// JS FFI: global WebSocket connection.
+/// Maintains one persistent WS connection. When wait_for_ws_message is
+/// called, it resolves the next time a message arrives.
+extern "js" fn setup_ws_connection() -> Unit =
   #|(function() {
-  #|  var lastHash = '';
-  #|  var initialLoad = true;
-  #|
-  #|  function onRemoteChange() {
-  #|    console.log('[sync] remote change detected, reloading...');
-  #|    window.location.reload();
-  #|  }
-  #|
-  #|  // WebSocket
-  #|  function connectWS() {
+  #|  window._ws_pending = null;
+  #|  window._ws = null;
+  #|  function connect() {
   #|    try {
   #|      var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   #|      var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
-  #|      ws.onopen = function() { console.log('[ws] connected'); };
+  #|      ws.onopen = function() { console.log('[ws] connected'); window._ws = ws; };
   #|      ws.onmessage = function(event) {
-  #|        console.log('[ws] received:', event.data);
-  #|        onRemoteChange();
+  #|        console.log('[ws] message:', event.data);
+  #|        if (window._ws_pending) {
+  #|          var resolve = window._ws_pending;
+  #|          window._ws_pending = null;
+  #|          resolve(event.data);
+  #|        }
   #|      };
-  #|      ws.onclose = function() { setTimeout(connectWS, 2000); };
+  #|      ws.onclose = function() {
+  #|        console.log('[ws] closed, reconnecting...');
+  #|        window._ws = null;
+  #|        setTimeout(connect, 2000);
+  #|      };
   #|      ws.onerror = function() { ws.close(); };
-  #|    } catch(e) { setTimeout(connectWS, 2000); }
+  #|    } catch(e) { setTimeout(connect, 2000); }
   #|  }
-  #|  connectWS();
-  #|
-  #|  // Polling fallback every 3s
-  #|  setInterval(function() {
-  #|    fetch('/api/load').then(function(r) { return r.text(); }).then(function(text) {
-  #|      var hash = text.length + ':' + text.slice(0, 100);
-  #|      if (initialLoad) {
-  #|        initialLoad = false;
-  #|        lastHash = hash;
-  #|        return;
-  #|      }
-  #|      if (lastHash && hash !== lastHash) {
-  #|        console.log('[poll] data changed');
-  #|        lastHash = hash;
-  #|        onRemoteChange();
-  #|      }
-  #|      lastHash = hash;
-  #|    }).catch(function() {});
-  #|  }, 3000);
+  #|  connect();
   #|})()
 
 ///|
-/// Initialize real-time sync (WebSocket + polling).
+/// JS FFI: wait for the next WebSocket message.
+/// Resolves the @js.suspend when a message arrives.
+extern "js" fn wait_for_ws_message(
+  resolve : (String) -> Unit,
+  _reject : (@js.Error_) -> Unit,
+) -> Unit =
+  #|(resolve, _reject) => {
+  #|  window._ws_pending = resolve;
+  #|}
+
+///|
+/// Create a Rabbita Cmd that waits for ONE WebSocket message,
+/// then dispatches WsRefresh. The update handler for WsRefresh
+/// returns another ws_listen_cmd, creating an infinite chain.
+pub fn ws_listen_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
+  @rabbita.attempt(
+    fn(result) {
+      match result {
+        Ok(_) => {
+          js_log("WS message -> dispatching WsRefresh")
+          dispatch(WsRefresh)
+        }
+        Err(_) => {
+          js_log("WS listen error -> dispatching WsRefresh anyway")
+          dispatch(WsRefresh)
+        }
+      }
+    },
+    async fn() {
+      @js.suspend(fn(resolve, reject) {
+        wait_for_ws_message(resolve, reject)
+      })
+    },
+  )
+}
+
+///|
+/// Initialize: set up the global WebSocket connection.
 pub fn init_sync(_dispatch : @rabbita.Dispatch[Msg]) -> Unit {
-  setup_realtime()
+  setup_ws_connection()
 }
