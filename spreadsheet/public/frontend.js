@@ -4115,8 +4115,14 @@ function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2,
   this.autocomplete_index = param9;
   this.save_status = param10;
 }
-const _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime = (function(on_refresh) {
+const _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime = (function() {
   var lastHash = '';
+  var initialLoad = true;
+
+  function onRemoteChange() {
+    console.log('[sync] remote change detected, reloading...');
+    window.location.reload();
+  }
 
   // WebSocket
   function connectWS() {
@@ -4125,8 +4131,8 @@ const _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime = (function(on_
       var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
       ws.onopen = function() { console.log('[ws] connected'); };
       ws.onmessage = function(event) {
-        console.log('[ws] refresh');
-        on_refresh();
+        console.log('[ws] received:', event.data);
+        onRemoteChange();
       };
       ws.onclose = function() { setTimeout(connectWS, 2000); };
       ws.onerror = function() { ws.close(); };
@@ -4136,16 +4142,22 @@ const _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime = (function(on_
 
   // Polling fallback every 3s
   setInterval(function() {
-    fetch('/api/load').then(r => r.text()).then(function(text) {
+    fetch('/api/load').then(function(r) { return r.text(); }).then(function(text) {
       var hash = text.length + ':' + text.slice(0, 100);
+      if (initialLoad) {
+        initialLoad = false;
+        lastHash = hash;
+        return;
+      }
       if (lastHash && hash !== lastHash) {
-        console.log('[poll] changed');
-        on_refresh();
+        console.log('[poll] data changed');
+        lastHash = hash;
+        onRemoteChange();
       }
       lastHash = hash;
     }).catch(function() {});
   }, 3000);
-});
+})();
 const _M0FP0215moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fspreadsheet_2ffrontend_2fapp_2fModel_2c_20bobzhang_2fspreadsheet_2ffrontend_2fapp_2fMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell = { method_0: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4stepGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_1: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4viewGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_2: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell5flagsGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char };
 const _M0FP0133moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2fSandbox_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eScheduler = { method_0: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler3add, method_1: _M0IP419moonbit_2dcommunity7rabbita8internal7runtime7SandboxP419moonbit_2dcommunity7rabbita8internal7runtime9Scheduler17add__url__changed };
@@ -80011,11 +80023,8 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   _M0MPC15array5Array3setGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 1, _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet6recalc(_M0MPC15array5Array2atGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets, 1)));
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index, model.save_status);
 }
-function _M0FP48bobzhang11spreadsheet8frontend3app10init__sync(dispatch) {
-  _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime(() => {
-    _M0FP48bobzhang11spreadsheet8frontend3app7js__log("realtime trigger -> LoadFromBackend");
-    dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__);
-  });
+function _M0FP48bobzhang11spreadsheet8frontend3app10init__sync(_dispatch) {
+  _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime();
 }
 (() => {
   let dispatch;

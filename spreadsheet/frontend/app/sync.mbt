@@ -91,11 +91,20 @@ fn auto_save(dispatch : @rabbita.Dispatch[Msg], model : Model) -> Unit {
 }
 
 ///|
-/// Set up real-time sync: WebSocket + polling fallback.
-/// Both channels call fetch_workbook_direct to reload data.
-extern "js" fn setup_realtime(on_refresh : () -> Unit) -> Unit =
-  #|(function(on_refresh) {
+/// Set up real-time sync: WebSocket + polling.
+/// Since dispatch() from JS callbacks doesn't enqueue into Rabbita,
+/// we reload the page when remote changes are detected.
+/// The page reload triggers with_init → LoadFromBackend → fetch_workbook_cmd
+/// which properly goes through Rabbita's scheduler.
+extern "js" fn setup_realtime() -> Unit =
+  #|(function() {
   #|  var lastHash = '';
+  #|  var initialLoad = true;
+  #|
+  #|  function onRemoteChange() {
+  #|    console.log('[sync] remote change detected, reloading...');
+  #|    window.location.reload();
+  #|  }
   #|
   #|  // WebSocket
   #|  function connectWS() {
@@ -104,8 +113,8 @@ extern "js" fn setup_realtime(on_refresh : () -> Unit) -> Unit =
   #|      var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
   #|      ws.onopen = function() { console.log('[ws] connected'); };
   #|      ws.onmessage = function(event) {
-  #|        console.log('[ws] refresh');
-  #|        on_refresh();
+  #|        console.log('[ws] received:', event.data);
+  #|        onRemoteChange();
   #|      };
   #|      ws.onclose = function() { setTimeout(connectWS, 2000); };
   #|      ws.onerror = function() { ws.close(); };
@@ -115,24 +124,25 @@ extern "js" fn setup_realtime(on_refresh : () -> Unit) -> Unit =
   #|
   #|  // Polling fallback every 3s
   #|  setInterval(function() {
-  #|    fetch('/api/load').then(r => r.text()).then(function(text) {
+  #|    fetch('/api/load').then(function(r) { return r.text(); }).then(function(text) {
   #|      var hash = text.length + ':' + text.slice(0, 100);
+  #|      if (initialLoad) {
+  #|        initialLoad = false;
+  #|        lastHash = hash;
+  #|        return;
+  #|      }
   #|      if (lastHash && hash !== lastHash) {
-  #|        console.log('[poll] changed');
-  #|        on_refresh();
+  #|        console.log('[poll] data changed');
+  #|        lastHash = hash;
+  #|        onRemoteChange();
   #|      }
   #|      lastHash = hash;
   #|    }).catch(function() {});
   #|  }, 3000);
-  #|})
+  #|})()
 
 ///|
-/// Initialize real-time sync.
-/// WS and polling trigger LoadFromBackend which uses @rabbita.attempt
-/// to properly enqueue the fetch result back into Rabbita's event loop.
-pub fn init_sync(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
-  setup_realtime(fn() {
-    js_log("realtime trigger -> LoadFromBackend")
-    ignore(dispatch(LoadFromBackend))
-  })
+/// Initialize real-time sync (WebSocket + polling).
+pub fn init_sync(_dispatch : @rabbita.Dispatch[Msg]) -> Unit {
+  setup_realtime()
 }
