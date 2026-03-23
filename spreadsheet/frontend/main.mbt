@@ -7,7 +7,9 @@ fn main {
     view=(dispatch, model) => model.view(dispatch),
   )
   let app = @rabbita.new(app_cell)
+  // Load data from backend on init (uses @rabbita.attempt for proper enqueue)
+  app.with_init(dispatch(LoadFromBackend))
   app.mount("app")
-  // Init sync AFTER mount so dispatch works
+  // Set up WS + polling for real-time sync
   @app.init_sync(dispatch)
 }

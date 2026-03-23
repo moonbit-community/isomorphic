@@ -195,11 +195,7 @@ pub fn Model::update(
       }
       (@rabbita.none, { ..self, autocomplete_index: new_idx })
     }
-    LoadFromBackend => {
-      // Fetch is done directly via JS FFI in init_sync/fetch_workbook_direct
-      // This message is no longer the trigger — keep for compatibility
-      (@rabbita.none, self)
-    }
+    LoadFromBackend => (fetch_workbook_cmd(dispatch), self)
     GotBackendData(Ok(sheets)) => {
       js_log("GotBackendData handler: \{sheets.length()} sheets")
       if sheets.is_empty() {

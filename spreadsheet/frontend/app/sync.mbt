@@ -11,11 +11,15 @@ extern "js" fn js_log(msg : String) -> Unit =
   #|(msg) => { console.log('[spreadsheet]', msg); }
 
 ///|
-/// JS FFI: GET JSON from a URL, pass the response text to callback.
-extern "js" fn js_fetch_get(url : String, on_done : (String) -> Unit) -> Unit =
-  #|(url, done) => {
-  #|  fetch(url).then(r => r.text()).then(text => done(text))
-  #|    .catch(e => { console.error('load failed:', e); });
+/// JS FFI: GET text from a URL as a JS Promise (for use with @js.suspend).
+extern "js" fn js_fetch_get_promise(
+  url : String,
+  resolve : (String) -> Unit,
+  reject : (@js.Error_) -> Unit,
+) -> Unit =
+  #|(url, resolve, reject) => {
+  #|  fetch(url).then(r => r.text()).then(text => resolve(text))
+  #|    .catch(e => reject(new Error(String(e))));
   #|}
 
 ///|
@@ -30,31 +34,40 @@ extern "js" fn js_fetch_post(url : String, json_str : String, on_done : () -> Un
   #|}
 
 ///|
-/// Fetch workbook from backend via direct JS fetch.
-/// Parses the JSON and dispatches GotBackendData.
-fn fetch_workbook_direct(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
-  js_log("fetching from backend...")
-  js_fetch_get(api_load, fn(text) {
-    let preview = if text.length() > 80 { text[:80].to_string() } else { text }
-    js_log("got response: \{text.length()} chars, preview: \{preview}")
-    if text == "{}" || text.is_empty() {
-      js_log("empty response, keeping demo data")
-      ignore(dispatch(GotBackendData(Err("empty"))))
-      return
-    }
-    try {
-      let json : Json = @json.parse(text)
-      let sheets : Array[@sheet.Sheet] = @json.from_json(json)
-      js_log("parsed \{sheets.length()} sheets, dispatching GotBackendData...")
-      let cmd = dispatch(GotBackendData(Ok(sheets)))
-      js_log("dispatch returned, cmd dispatched")
-    } catch {
-      e => {
-        js_log("PARSE ERROR: \{e}")
-        ignore(dispatch(GotBackendData(Err("parse error"))))
+/// Fetch workbook from backend using @rabbita.attempt + @js.suspend.
+/// This properly enqueues the result back into Rabbita's event loop.
+fn fetch_workbook_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
+  @rabbita.attempt(
+    fn(result) {
+      match result {
+        Ok(text) => {
+          let text : String = text
+          js_log("loaded \{text.length()} chars")
+          if text == "{}" || text.is_empty() {
+            dispatch(GotBackendData(Err("empty")))
+          } else {
+            try {
+              let json : Json = @json.parse(text)
+              let sheets : Array[@sheet.Sheet] = @json.from_json(json)
+              js_log("parsed \{sheets.length()} sheets")
+              dispatch(GotBackendData(Ok(sheets)))
+            } catch {
+              e => {
+                js_log("PARSE ERROR: \{e}")
+                dispatch(GotBackendData(Err("parse")))
+              }
+            }
+          }
+        }
+        Err(_) => dispatch(GotBackendData(Err("fetch failed")))
       }
-    }
-  })
+    },
+    async fn() {
+      @js.suspend(fn(resolve, reject) {
+        js_fetch_get_promise(api_load, resolve, reject)
+      })
+    },
+  )
 }
 
 ///|
@@ -114,10 +127,12 @@ extern "js" fn setup_realtime(on_refresh : () -> Unit) -> Unit =
   #|})
 
 ///|
-/// Initialize real-time sync and initial data load.
+/// Initialize real-time sync.
+/// WS and polling trigger LoadFromBackend which uses @rabbita.attempt
+/// to properly enqueue the fetch result back into Rabbita's event loop.
 pub fn init_sync(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
-  // Load initial data from backend
-  fetch_workbook_direct(dispatch)
-  // Set up real-time updates (WS + polling)
-  setup_realtime(fn() { fetch_workbook_direct(dispatch) })
+  setup_realtime(fn() {
+    js_log("realtime trigger -> LoadFromBackend")
+    ignore(dispatch(LoadFromBackend))
+  })
 }
