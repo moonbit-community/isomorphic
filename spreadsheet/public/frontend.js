@@ -79803,7 +79803,9 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
     const new_idx = self.autocomplete_index === -1 && delta < 0 ? len - 1 | 0 : _M0MPC13int3Int5clamp(self.autocomplete_index + delta | 0, 0, len - 1 | 0);
     return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, self.edit_value, self.show_chart, self.heat_map, self.autocomplete_suggestions, new_idx, self.save_status) };
   }
+  _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`GotBackendData handler: ${_M0IP016_24default__implPB4Show10to__stringGiE(sheets.length)} sheets`);
   if (_M0MPC15array5Array9is__emptyGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets)) {
+    _M0FP48bobzhang11spreadsheet8frontend3app7js__log("  -> empty, keeping demo data");
     return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };
   }
   const recalced = [];
@@ -79820,7 +79822,8 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
       break;
     }
   }
-  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(recalced, 0, 0, 0, false, "", self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Loaded") };
+  _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`  -> recalced ${_M0IP016_24default__implPB4Show10to__stringGiE(recalced.length)} sheets, updating model`);
+  return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(recalced, self.active_sheet < recalced.length ? self.active_sheet : 0, self.sel_col, self.sel_row, false, "", self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, "Loaded") };
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   const sheet1 = _M0MP48bobzhang11spreadsheet8frontend5sheet5Sheet3new("Sales Dashboard");
@@ -79866,8 +79869,9 @@ function _M0FP48bobzhang11spreadsheet8frontend3app23fetch__workbook__direct(disp
         _try_err = _err._0;
         break _L;
       }
-      _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`parsed ${_M0IP016_24default__implPB4Show10to__stringGiE(sheets.length)} sheets successfully`);
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`parsed ${_M0IP016_24default__implPB4Show10to__stringGiE(sheets.length)} sheets, dispatching GotBackendData...`);
       dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok(sheets)));
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log("dispatch returned, cmd dispatched");
       return;
     }
     const e = _try_err;

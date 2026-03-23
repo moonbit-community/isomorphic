@@ -201,8 +201,9 @@ pub fn Model::update(
       (@rabbita.none, self)
     }
     GotBackendData(Ok(sheets)) => {
+      js_log("GotBackendData handler: \{sheets.length()} sheets")
       if sheets.is_empty() {
-        // No data on backend — keep demo data
+        js_log("  -> empty, keeping demo data")
         return (@rabbita.none, self)
       }
       // Replace sheets with loaded data and recalculate all formulas
@@ -210,14 +211,13 @@ pub fn Model::update(
       for s in sheets {
         recalced.push(s.recalc())
       }
+      js_log("  -> recalced \{recalced.length()} sheets, updating model")
       (
         @rabbita.none,
         {
           ..self,
           sheets: recalced,
-          active_sheet: 0,
-          sel_col: 0,
-          sel_row: 0,
+          active_sheet: if self.active_sheet < recalced.length() { self.active_sheet } else { 0 },
           editing: false,
           edit_value: "",
           save_status: "Loaded",

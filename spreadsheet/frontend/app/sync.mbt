@@ -45,8 +45,9 @@ fn fetch_workbook_direct(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
     try {
       let json : Json = @json.parse(text)
       let sheets : Array[@sheet.Sheet] = @json.from_json(json)
-      js_log("parsed \{sheets.length()} sheets successfully")
-      ignore(dispatch(GotBackendData(Ok(sheets))))
+      js_log("parsed \{sheets.length()} sheets, dispatching GotBackendData...")
+      let cmd = dispatch(GotBackendData(Ok(sheets)))
+      js_log("dispatch returned, cmd dispatched")
     } catch {
       e => {
         js_log("PARSE ERROR: \{e}")
