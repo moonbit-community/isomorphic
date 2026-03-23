@@ -9,9 +9,8 @@ build-backend:
 
 build: build-frontend build-backend
 
-PORT ?= 4013
 serve: build
-	moon run backend --target native -- --port $(PORT)
+	../_build/native/debug/build/bobzhang/spreadsheet/backend/backend.exe
 
 open: build
 	open public/index.html
