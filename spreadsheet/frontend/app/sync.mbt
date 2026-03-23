@@ -59,33 +59,51 @@ fn auto_save(dispatch : @rabbita.Dispatch[Msg], model : Model) -> Unit {
 
 ///|
 /// Connect a WebSocket to the backend for real-time refresh notifications.
-/// When a "refresh" message is received, dispatches LoadFromBackend.
-extern "js" fn connect_ws(on_message : (String) -> Unit) -> Unit =
-  #|(function(on_message) {
-  #|  function doConnect() {
+/// Also sets up a polling fallback: every 3 seconds, check for changes
+/// by comparing the saved data version.
+extern "js" fn setup_realtime(on_refresh : () -> Unit) -> Unit =
+  #|(function(on_refresh) {
+  #|  // Track last known data hash to avoid unnecessary reloads
+  #|  var lastHash = '';
+  #|
+  #|  // WebSocket connection with auto-reconnect
+  #|  function connectWS() {
   #|    try {
   #|      var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   #|      var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
-  #|      ws.onmessage = function(event) { on_message(event.data); };
+  #|      ws.onopen = function() { console.log('[ws] connected'); };
+  #|      ws.onmessage = function(event) {
+  #|        console.log('[ws] received:', event.data);
+  #|        on_refresh();
+  #|      };
   #|      ws.onclose = function() {
-  #|        setTimeout(doConnect, 2000);
+  #|        console.log('[ws] disconnected, reconnecting in 2s');
+  #|        setTimeout(connectWS, 2000);
   #|      };
   #|      ws.onerror = function() { ws.close(); };
   #|    } catch(e) {
-  #|      setTimeout(doConnect, 2000);
+  #|      console.log('[ws] error, retrying in 2s');
+  #|      setTimeout(connectWS, 2000);
   #|    }
   #|  }
-  #|  doConnect();
+  #|  connectWS();
+  #|
+  #|  // Polling fallback: check every 3 seconds
+  #|  setInterval(function() {
+  #|    fetch('/api/load').then(function(r) { return r.text(); }).then(function(text) {
+  #|      var hash = text.length + ':' + text.slice(0, 100);
+  #|      if (lastHash && hash !== lastHash) {
+  #|        console.log('[poll] data changed, refreshing');
+  #|        on_refresh();
+  #|      }
+  #|      lastHash = hash;
+  #|    }).catch(function() {});
+  #|  }, 3000);
   #|})
 
 ///|
-/// Initialize WebSocket connection for real-time collaboration.
-/// Dispatches LoadFromBackend when a refresh notification arrives.
+/// Initialize real-time sync: WebSocket + polling fallback.
+/// Dispatches LoadFromBackend when a change is detected from another client.
 pub fn init_ws(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
-  connect_ws(fn(data) {
-    // Parse the message — if it contains "refresh", reload data
-    if data.contains("refresh") {
-      ignore(dispatch(LoadFromBackend))
-    }
-  })
+  setup_realtime(fn() { ignore(dispatch(LoadFromBackend)) })
 }

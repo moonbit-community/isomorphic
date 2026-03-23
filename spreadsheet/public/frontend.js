@@ -4124,21 +4124,43 @@ function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2,
   this.autocomplete_index = param9;
   this.save_status = param10;
 }
-const _M0FP48bobzhang11spreadsheet8frontend3app11connect__ws = (function(on_message) {
-  function doConnect() {
+const _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime = (function(on_refresh) {
+  // Track last known data hash to avoid unnecessary reloads
+  var lastHash = '';
+
+  // WebSocket connection with auto-reconnect
+  function connectWS() {
     try {
       var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       var ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
-      ws.onmessage = function(event) { on_message(event.data); };
+      ws.onopen = function() { console.log('[ws] connected'); };
+      ws.onmessage = function(event) {
+        console.log('[ws] received:', event.data);
+        on_refresh();
+      };
       ws.onclose = function() {
-        setTimeout(doConnect, 2000);
+        console.log('[ws] disconnected, reconnecting in 2s');
+        setTimeout(connectWS, 2000);
       };
       ws.onerror = function() { ws.close(); };
     } catch(e) {
-      setTimeout(doConnect, 2000);
+      console.log('[ws] error, retrying in 2s');
+      setTimeout(connectWS, 2000);
     }
   }
-  doConnect();
+  connectWS();
+
+  // Polling fallback: check every 3 seconds
+  setInterval(function() {
+    fetch('/api/load').then(function(r) { return r.text(); }).then(function(text) {
+      var hash = text.length + ':' + text.slice(0, 100);
+      if (lastHash && hash !== lastHash) {
+        console.log('[poll] data changed, refreshing');
+        on_refresh();
+      }
+      lastHash = hash;
+    }).catch(function() {});
+  }, 3000);
 });
 const _M0FP0215moonbit_2dcommunity_2frabbita_2fTypedCell_5bbobzhang_2fspreadsheet_2ffrontend_2fapp_2fModel_2c_20bobzhang_2fspreadsheet_2ffrontend_2fapp_2fMsg_5d_24as_24_40moonbit_2dcommunity_2frabbita_2finternal_2fruntime_2eIsCell = { method_0: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4stepGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_1: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell4viewGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE, method_2: _M0IP219moonbit_2dcommunity7rabbita9TypedCellP419moonbit_2dcommunity7rabbita8internal7runtime6IsCell5flagsGRP48bobzhang11spreadsheet8frontend3app5ModelRP48bobzhang11spreadsheet8frontend3app3MsgE };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char };
@@ -79997,14 +80019,8 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index, model.save_status);
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app8init__ws(dispatch) {
-  _M0FP48bobzhang11spreadsheet8frontend3app11connect__ws((data) => {
-    const _bind$5 = "refresh";
-    if (_M0MPC16string6String8contains(data, new _M0TPC16string10StringView(_bind$5, 0, _bind$5.length))) {
-      dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__);
-      return;
-    } else {
-      return;
-    }
+  _M0FP48bobzhang11spreadsheet8frontend3app15setup__realtime(() => {
+    dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg15LoadFromBackend__);
   });
 }
 (() => {
