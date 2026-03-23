@@ -79835,42 +79835,44 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model3new() {
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, model.active_sheet, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, model.autocomplete_suggestions, model.autocomplete_index, model.save_status);
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app23fetch__workbook__direct(dispatch) {
+  _M0FP48bobzhang11spreadsheet8frontend3app7js__log("fetching from backend...");
   _M0FP48bobzhang11spreadsheet8frontend3app14js__fetch__get(_M0FP48bobzhang11spreadsheet8frontend3app9api__load, (text) => {
-    _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`loaded ${_M0IP016_24default__implPB4Show10to__stringGiE(text.length)} chars`);
+    const preview = text.length > 80 ? _M0IPC16string10StringViewPB4Show10to__string(_M0MPC16string6String11sub_2einner(text, 0, 80)) : text;
+    _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`got response: ${_M0IP016_24default__implPB4Show10to__stringGiE(text.length)} chars, preview: ${_M0IPC16string6StringPB4Show10to__string(preview)}`);
     if (text === "{}" || _M0MPC16string6String9is__empty(text)) {
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log("empty response, keeping demo data");
       dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err("empty")));
-      return;
-    } else {
-      let _try_err;
-      _L: {
-        const _bind$5 = _M0FPC14json13parse_2einner(new _M0TPC16string10StringView(text, 0, text.length), 1024);
-        let json;
-        if (_bind$5.$tag === 1) {
-          const _ok = _bind$5;
-          json = _ok._0;
-        } else {
-          const _err = _bind$5;
-          _try_err = _err._0;
-          break _L;
-        }
-        const _bind$6 = _M0FPC14json10from__jsonGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(json, undefined);
-        let sheets;
-        if (_bind$6.$tag === 1) {
-          const _ok = _bind$6;
-          sheets = _ok._0;
-        } else {
-          const _err = _bind$6;
-          _try_err = _err._0;
-          break _L;
-        }
-        dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok(sheets)));
-        return;
+      return undefined;
+    }
+    let _try_err;
+    _L: {
+      const _bind$5 = _M0FPC14json13parse_2einner(new _M0TPC16string10StringView(text, 0, text.length), 1024);
+      let json;
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        json = _ok._0;
+      } else {
+        const _err = _bind$5;
+        _try_err = _err._0;
+        break _L;
       }
-      const e = _try_err;
-      _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`parse error: ${_M0IP016_24default__implPB4Show10to__stringGRPC15error5ErrorE(e)}`);
-      dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err("parse error")));
+      const _bind$6 = _M0FPC14json10from__jsonGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEE(json, undefined);
+      let sheets;
+      if (_bind$6.$tag === 1) {
+        const _ok = _bind$6;
+        sheets = _ok._0;
+      } else {
+        const _err = _bind$6;
+        _try_err = _err._0;
+        break _L;
+      }
+      _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`parsed ${_M0IP016_24default__implPB4Show10to__stringGiE(sheets.length)} sheets successfully`);
+      dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE2Ok(sheets)));
       return;
     }
+    const e = _try_err;
+    _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`PARSE ERROR: ${_M0IP016_24default__implPB4Show10to__stringGRPC15error5ErrorE(e)}`);
+    dispatch(new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData(new _M0DTPC16result6ResultGRPB5ArrayGRP48bobzhang11spreadsheet8frontend5sheet5SheetEsE3Err("parse error")));
   });
 }
 function _M0FP48bobzhang11spreadsheet8frontend3app10init__sync(dispatch) {

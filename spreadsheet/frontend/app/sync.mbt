@@ -33,20 +33,24 @@ extern "js" fn js_fetch_post(url : String, json_str : String, on_done : () -> Un
 /// Fetch workbook from backend via direct JS fetch.
 /// Parses the JSON and dispatches GotBackendData.
 fn fetch_workbook_direct(dispatch : @rabbita.Dispatch[Msg]) -> Unit {
+  js_log("fetching from backend...")
   js_fetch_get(api_load, fn(text) {
-    js_log("loaded \{text.length()} chars")
+    let preview = if text.length() > 80 { text[:80].to_string() } else { text }
+    js_log("got response: \{text.length()} chars, preview: \{preview}")
     if text == "{}" || text.is_empty() {
+      js_log("empty response, keeping demo data")
       ignore(dispatch(GotBackendData(Err("empty"))))
-    } else {
-      try {
-        let json : Json = @json.parse(text)
-        let sheets : Array[@sheet.Sheet] = @json.from_json(json)
-        ignore(dispatch(GotBackendData(Ok(sheets))))
-      } catch {
-        e => {
-          js_log("parse error: \{e}")
-          ignore(dispatch(GotBackendData(Err("parse error"))))
-        }
+      return
+    }
+    try {
+      let json : Json = @json.parse(text)
+      let sheets : Array[@sheet.Sheet] = @json.from_json(json)
+      js_log("parsed \{sheets.length()} sheets successfully")
+      ignore(dispatch(GotBackendData(Ok(sheets))))
+    } catch {
+      e => {
+        js_log("PARSE ERROR: \{e}")
+        ignore(dispatch(GotBackendData(Err("parse error"))))
       }
     }
   })
