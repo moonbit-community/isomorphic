@@ -4063,6 +4063,14 @@ _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14GotBackendData.prototype.$tag = 
 function _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend() {}
 _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend.prototype.$tag = 26;
 const _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__ = new _M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend();
+const _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post = (url, json, done) => {
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: json
+  }).then(() => done()).catch(e => { console.error('save failed:', e); done(); });
+};
+const _M0FP48bobzhang11spreadsheet8frontend3app7js__log = (msg) => { console.log('[spreadsheet]', msg); };
 const _M0FP48bobzhang11spreadsheet8frontend3app15download__bytes = (bytes, filename) => {
    const blob = new Blob([bytes], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
    const url = URL.createObjectURL(blob);
@@ -4116,14 +4124,6 @@ function _M0TP48bobzhang11spreadsheet8frontend3app5Model(param0, param1, param2,
   this.autocomplete_index = param9;
   this.save_status = param10;
 }
-const _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post = (url, json, done) => {
-  fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: json
-  }).then(() => done()).catch(e => { console.error('save failed:', e); done(); });
-};
-const _M0FP48bobzhang11spreadsheet8frontend3app7js__log = (msg) => { console.log('[spreadsheet]', msg); };
 const _M0FP48bobzhang11spreadsheet8frontend3app11connect__ws = (function(on_message) {
   function doConnect() {
     try {
@@ -4555,9 +4555,9 @@ const _M0FP38bobzhang8mbtexcel4xlsx15package__offset = 8;
 const _M0FP38bobzhang8mbtexcel4xlsx12free__sector = -1;
 const _M0FP319moonbit_2dcommunity7rabbita3dom14namespace__svg = "http://www.w3.org/2000/svg";
 const _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none = _M0DTP419moonbit_2dcommunity7rabbita8internal7runtime3Cmd5Empty__;
+const _M0FP48bobzhang11spreadsheet8frontend3app9api__save = "/api/save";
 const _M0FP48bobzhang11spreadsheet8frontend3app18formula__functions = ["SUM", "AVG", "AVERAGE", "MIN", "MAX", "COUNT", "IF", "ABS", "ROUND", "POWER", "MOD", "INT", "CONCAT", "LEN", "UPPER", "LOWER"];
 const _M0FP48bobzhang11spreadsheet8frontend3app9api__load = "/api/load";
-const _M0FP48bobzhang11spreadsheet8frontend3app9api__save = "/api/save";
 const _M0FP319moonbit_2dcommunity7rabbita3cmd4none = _M0FP419moonbit_2dcommunity7rabbita8internal7runtime4none;
 const _M0FPB33brute__force__find_2econstr_2f698 = 0;
 const _M0FPB43boyer__moore__horspool__find_2econstr_2f684 = 0;
@@ -79490,6 +79490,17 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model4view(self, dispatch) {
   const is_dashboard = _M0MP48bobzhang11spreadsheet8frontend3app5Model14current__sheet(self).name === "Sales Dashboard" && self.show_chart;
   return _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "height: 100vh", "display: flex", "flex-direction: column", "background: #f8f9fa", "user-select: none", "color: #202124"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang11spreadsheet8frontend3app5Model13view__toolbar(self, dispatch), is_dashboard ? _M0MP48bobzhang11spreadsheet8frontend3app5Model15view__dashboard(self) : _M0FP319moonbit_2dcommunity7rabbita4html11div_2einnerGRPB5ArrayGRP319moonbit_2dcommunity7rabbita4html4HtmlEE(["display: flex", "flex-direction: column", "flex: 1", "overflow: hidden"], undefined, undefined, undefined, -1, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [_M0MP48bobzhang11spreadsheet8frontend3app5Model18view__formula__bar(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model10view__grid(self, dispatch)]), _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__sheet__tabs(self, dispatch), _M0MP48bobzhang11spreadsheet8frontend3app5Model17view__status__bar(self)]);
 }
+function _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, sheets) {
+  const json_str = _M0MPC14json4Json17stringify_2einner(_M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets), false, 0, undefined);
+  _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`save_workbook: ${_M0IP016_24default__implPB4Show10to__stringGiE(json_str.length)} chars`);
+  _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, json_str, () => {
+    dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__);
+  });
+  return _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
+}
+function _M0FP48bobzhang11spreadsheet8frontend3app10auto__save(dispatch, model) {
+  _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, model.sheets);
+}
 function _M0FP48bobzhang11spreadsheet8frontend3app16extract__partial(value) {
   let _tmp$2;
   if (_M0MPC16string6String9is__empty(value)) {
@@ -79662,14 +79673,6 @@ function _M0FP48bobzhang11spreadsheet8frontend3app10load__xlsx(model, bytes) {
     return model;
   }
   return new _M0TP48bobzhang11spreadsheet8frontend3app5Model(sheets, 0, 0, 0, false, "", true, false, [], -1, "");
-}
-function _M0FP48bobzhang11spreadsheet8frontend3app14save__workbook(dispatch, sheets) {
-  const json_str = _M0MPC14json4Json17stringify_2einner(_M0IPC15array5ArrayPB6ToJson8to__jsonGRP48bobzhang11spreadsheet8frontend5sheet5SheetE(sheets), false, 0, undefined);
-  _M0FP48bobzhang11spreadsheet8frontend3app7js__log(`save_workbook: ${_M0IP016_24default__implPB4Show10to__stringGiE(json_str.length)} chars`);
-  _M0FP48bobzhang11spreadsheet8frontend3app15js__fetch__post(_M0FP48bobzhang11spreadsheet8frontend3app9api__save, json_str, () => {
-    dispatch(_M0DTP48bobzhang11spreadsheet8frontend3app3Msg14SavedToBackend__);
-  });
-  return _M0FP319moonbit_2dcommunity7rabbita3cmd4none;
 }
 function _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) {
   const key = _M0FP48bobzhang11spreadsheet8frontend4cell9make__key(self.sel_col, self.sel_row);
@@ -79881,19 +79884,34 @@ function _M0MP48bobzhang11spreadsheet8frontend3app5Model6update(self, dispatch, 
                                 }
                               }
                             }
+                            const was_editing = self.editing;
                             const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(col, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(row, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status) };
+                            const result = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(col, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(row, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status);
+                            if (was_editing) {
+                              _M0FP48bobzhang11spreadsheet8frontend3app10auto__save(dispatch, result);
+                            }
+                            return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: result };
                           }
+                          const was_editing = self.editing;
                           const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(model.sel_col + dc | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(model.sel_row + dr | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status) };
+                          const result = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, model.active_sheet, _M0MPC13int3Int5clamp(model.sel_col + dc | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__cols - 1 | 0), _M0MPC13int3Int5clamp(model.sel_row + dr | 0, 0, _M0FP48bobzhang11spreadsheet8frontend5sheet9num__rows - 1 | 0), false, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status);
+                          if (was_editing) {
+                            _M0FP48bobzhang11spreadsheet8frontend3app10auto__save(dispatch, result);
+                          }
+                          return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: result };
                         }
                         return self.editing ? { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, `${self.edit_value}${ch}`, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) } : { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, true, ch, self.show_chart, self.heat_map, self.autocomplete_suggestions, self.autocomplete_index, self.save_status) };
                       }
                       const suggestions = _M0FP48bobzhang11spreadsheet8frontend3app21compute__autocomplete(v);
                       return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(self.sheets, self.active_sheet, self.sel_col, self.sel_row, self.editing, v, self.show_chart, self.heat_map, suggestions, -1, self.save_status) };
                     }
+                    const was_editing = self.editing;
                     const model = self.editing ? _M0MP48bobzhang11spreadsheet8frontend3app5Model12commit__edit(self) : self;
-                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, i$2, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status) };
+                    const result = new _M0TP48bobzhang11spreadsheet8frontend3app5Model(model.sheets, i$2, model.sel_col, model.sel_row, model.editing, model.edit_value, model.show_chart, model.heat_map, [], -1, model.save_status);
+                    if (was_editing) {
+                      _M0FP48bobzhang11spreadsheet8frontend3app10auto__save(dispatch, result);
+                    }
+                    return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: result };
                   }
                   if (self.sheets.length <= 1) {
                     return { _0: _M0FP319moonbit_2dcommunity7rabbita3cmd4none, _1: self };

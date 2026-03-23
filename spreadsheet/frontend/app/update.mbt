@@ -29,32 +29,34 @@ pub fn Model::update(
 ) -> (@rabbita.Cmd, Model) {
   match msg {
     SelectCell(col, row) => {
+      let was_editing = self.editing
       let model = if self.editing { self.commit_edit() } else { self }
-      (
-        @rabbita.none,
-        {
-          ..model,
-          sel_col: col.clamp(min=0, max=@sheet.num_cols - 1),
-          sel_row: row.clamp(min=0, max=@sheet.num_rows - 1),
-          editing: false,
-          autocomplete_suggestions: [],
-          autocomplete_index: -1,
-        },
-      )
+      let result = {
+        ..model,
+        sel_col: col.clamp(min=0, max=@sheet.num_cols - 1),
+        sel_row: row.clamp(min=0, max=@sheet.num_rows - 1),
+        editing: false,
+        autocomplete_suggestions: [],
+        autocomplete_index: -1,
+      }
+      // Auto-save if we committed a pending edit
+      if was_editing { auto_save(dispatch, result) }
+      (@rabbita.none, result)
     }
     MoveSelection(dc, dr) => {
+      let was_editing = self.editing
       let model = if self.editing { self.commit_edit() } else { self }
-      (
-        @rabbita.none,
-        {
-          ..model,
-          sel_col: (model.sel_col + dc).clamp(min=0, max=@sheet.num_cols - 1),
-          sel_row: (model.sel_row + dr).clamp(min=0, max=@sheet.num_rows - 1),
-          editing: false,
-          autocomplete_suggestions: [],
-          autocomplete_index: -1,
-        },
-      )
+      let result = {
+        ..model,
+        sel_col: (model.sel_col + dc).clamp(min=0, max=@sheet.num_cols - 1),
+        sel_row: (model.sel_row + dr).clamp(min=0, max=@sheet.num_rows - 1),
+        editing: false,
+        autocomplete_suggestions: [],
+        autocomplete_index: -1,
+      }
+      // Auto-save if we committed a pending edit
+      if was_editing { auto_save(dispatch, result) }
+      (@rabbita.none, result)
     }
     StartEdit => {
       let cell = self.selected_cell()
@@ -95,8 +97,11 @@ pub fn Model::update(
         },
       )
     SelectSheet(i) => {
+      let was_editing = self.editing
       let model = if self.editing { self.commit_edit() } else { self }
-      (@rabbita.none, { ..model, active_sheet: i, autocomplete_suggestions: [], autocomplete_index: -1 })
+      let result = { ..model, active_sheet: i, autocomplete_suggestions: [], autocomplete_index: -1 }
+      if was_editing { auto_save(dispatch, result) }
+      (@rabbita.none, result)
     }
     AddSheet => {
       let name = "Sheet \{self.sheets.length() + 1}"

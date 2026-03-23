@@ -36,7 +36,8 @@ extern "js" fn js_fetch_post(url : String, json_str : String, on_done : () -> Un
   #|}
 
 ///|
-/// Save workbook data to the backend (fire-and-forget).
+/// Save workbook data to the backend (fire-and-forget side effect).
+/// Returns @rabbita.none — the actual HTTP request is made via JS fetch.
 fn save_workbook(
   dispatch : @rabbita.Dispatch[Msg],
   sheets : Array[@sheet.Sheet],
@@ -47,6 +48,13 @@ fn save_workbook(
     ignore(dispatch(SavedToBackend))
   })
   @rabbita.none
+}
+
+///|
+/// Auto-save helper: call after any model change that should persist.
+/// Since save is a side effect (not a Cmd), this can be called anywhere.
+fn auto_save(dispatch : @rabbita.Dispatch[Msg], model : Model) -> Unit {
+  ignore(save_workbook(dispatch, model.sheets))
 }
 
 ///|
