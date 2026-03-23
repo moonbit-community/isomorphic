@@ -169,7 +169,10 @@ async fn main {
           save_workbook(conn, data)
           println("  -> 200 saved (\{data.length()} bytes)")
           // Broadcast refresh to all WebSocket clients
+          let num_clients = ws_clients.length()
+          println("  -> broadcasting to \{num_clients} WS clients")
           broadcast_refresh()
+          println("  -> broadcast done")
           sconn
           ..send_response(
             200,

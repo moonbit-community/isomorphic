@@ -24,19 +24,29 @@ extern "js" fn js_log(msg : String) -> Unit =
   #|(msg) => { console.log('[spreadsheet]', msg); }
 
 ///|
+/// JS FFI: POST JSON data to a URL using fetch API directly.
+/// This bypasses Rabbita's @http.post which may not execute the request.
+extern "js" fn js_fetch_post(url : String, json_str : String, on_done : () -> Unit) -> Unit =
+  #|(url, json, done) => {
+  #|  fetch(url, {
+  #|    method: 'POST',
+  #|    headers: { 'Content-Type': 'application/json' },
+  #|    body: json
+  #|  }).then(() => done()).catch(e => { console.error('save failed:', e); done(); });
+  #|}
+
+///|
 /// Save workbook data to the backend (fire-and-forget).
-#warnings("-unresolved_type_variable")
 fn save_workbook(
   dispatch : @rabbita.Dispatch[Msg],
   sheets : Array[@sheet.Sheet],
 ) -> @rabbita.Cmd {
-  // Save sheets as a plain JSON array (no wrapper object)
-  js_log("save_workbook called, \{sheets.length()} sheets")
-  @http.post(
-    api_save,
-    Json(sheets.to_json()),
-    expect=Text(fn(_result) { dispatch(SavedToBackend) }),
-  )
+  let json_str = sheets.to_json().stringify()
+  js_log("save_workbook: \{json_str.length()} chars")
+  js_fetch_post(api_save, json_str, fn() {
+    ignore(dispatch(SavedToBackend))
+  })
+  @rabbita.none
 }
 
 ///|

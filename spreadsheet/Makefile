@@ -9,7 +9,7 @@ build-backend:
 
 build: build-frontend build-backend
 
-PORT ?= 4012
+PORT ?= 4013
 serve: build
 	moon run backend --target native -- --port $(PORT)
 
