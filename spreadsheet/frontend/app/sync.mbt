@@ -9,36 +9,21 @@ let api_save : String = "/api/save"
 extern "js" fn js_log(msg : String) -> Unit =
   #|(msg) => { console.log('[spreadsheet]', msg); }
 
-// ── Save (fire-and-forget via JS fetch) ─────────────────────────────
+// ── Save (via Rabbita @http.post Cmd) ───────────────────────────────
 
 ///|
-/// JS FFI: POST JSON data to a URL.
-extern "js" fn js_fetch_post(url : String, json_str : String, on_done : () -> Unit) -> Unit =
-  #|(url, json, done) => {
-  #|  fetch(url, {
-  #|    method: 'POST',
-  #|    headers: { 'Content-Type': 'application/json' },
-  #|    body: json
-  #|  }).then(() => done()).catch(e => { console.error('save failed:', e); done(); });
-  #|}
-
-///|
-/// Save workbook data to the backend (fire-and-forget side effect).
-fn save_workbook(
+/// Save workbook data to the backend.
+/// Returns a proper Rabbita Cmd — must be returned from the update function.
+#warnings("-unresolved_type_variable")
+fn save_cmd(
   dispatch : @rabbita.Dispatch[Msg],
   sheets : Array[@sheet.Sheet],
 ) -> @rabbita.Cmd {
-  let json_str = sheets.to_json().stringify()
-  js_fetch_post(api_save, json_str, fn() {
-    ignore(dispatch(SavedToBackend))
-  })
-  @rabbita.none
-}
-
-///|
-/// Auto-save helper.
-fn auto_save(dispatch : @rabbita.Dispatch[Msg], model : Model) -> Unit {
-  ignore(save_workbook(dispatch, model.sheets))
+  @http.post(
+    api_save,
+    Json(sheets.to_json()),
+    expect=Text(fn(_result) { dispatch(SavedToBackend) }),
+  )
 }
 
 // ── Load (via @rabbita.attempt for proper Rabbita enqueue) ──────────

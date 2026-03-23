@@ -39,9 +39,8 @@ pub fn Model::update(
         autocomplete_suggestions: [],
         autocomplete_index: -1,
       }
-      // Auto-save if we committed a pending edit
-      if was_editing { auto_save(dispatch, result) }
-      (@rabbita.none, result)
+      let cmd = if was_editing { save_cmd(dispatch, result.sheets) } else { @rabbita.none }
+      (cmd, result)
     }
     MoveSelection(dc, dr) => {
       let was_editing = self.editing
@@ -54,9 +53,8 @@ pub fn Model::update(
         autocomplete_suggestions: [],
         autocomplete_index: -1,
       }
-      // Auto-save if we committed a pending edit
-      if was_editing { auto_save(dispatch, result) }
-      (@rabbita.none, result)
+      let cmd = if was_editing { save_cmd(dispatch, result.sheets) } else { @rabbita.none }
+      (cmd, result)
     }
     StartEdit => {
       let cell = self.selected_cell()
@@ -83,7 +81,7 @@ pub fn Model::update(
     }
     CommitEdit => {
       let model = { ..self.commit_edit(), autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     CancelEdit =>
       (
@@ -100,15 +98,15 @@ pub fn Model::update(
       let was_editing = self.editing
       let model = if self.editing { self.commit_edit() } else { self }
       let result = { ..model, active_sheet: i, autocomplete_suggestions: [], autocomplete_index: -1 }
-      if was_editing { auto_save(dispatch, result) }
-      (@rabbita.none, result)
+      let cmd = if was_editing { save_cmd(dispatch, result.sheets) } else { @rabbita.none }
+      (cmd, result)
     }
     AddSheet => {
       let name = "Sheet \{self.sheets.length() + 1}"
       let sheets = self.sheets.copy()
       sheets.push(Sheet(name))
       let model = { ..self, sheets, save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     DeleteSheet(i) => {
       if self.sheets.length() <= 1 {
@@ -126,31 +124,31 @@ pub fn Model::update(
         self.active_sheet
       }
       let model = { ..self, sheets, active_sheet: active, save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     ToggleBold => {
       let model = { ..self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }), save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     ToggleItalic => {
       let model = { ..self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }), save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     SetAlign(a) => {
       let model = { ..self.update_selected_cell(fn(c) { { ..c, align: a } }), save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     SetFormat(f) => {
       let model = { ..self.update_selected_cell(fn(c) { { ..c, format: f } }), save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     SetBgColor(color) => {
       let model = { ..self.update_selected_cell(fn(c) { { ..c, bg_color: color } }), save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     SetTextColor(color) => {
       let model = { ..self.update_selected_cell(fn(c) { { ..c, text_color: color } }), save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     ToggleChart => (@rabbita.none, { ..self, show_chart: !self.show_chart })
     ToggleHeatMap => (@rabbita.none, { ..self, heat_map: !self.heat_map })
@@ -162,7 +160,7 @@ pub fn Model::update(
       let sheets = self.sheets.copy()
       sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
       let model = { ..self, sheets, autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
-      (save_workbook(dispatch, model.sheets), model)
+      (save_cmd(dispatch, model.sheets), model)
     }
     RequestImport => (import_xlsx_cmd(dispatch), self)
     ImportExcel(bytes) => (@rabbita.none, load_xlsx(self, bytes))
