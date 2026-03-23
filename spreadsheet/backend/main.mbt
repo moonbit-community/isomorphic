@@ -55,9 +55,10 @@ async fn main {
     }
   }
   println("Database initialized")
-  let server = @http.Server::new(@socket.Addr::parse("0.0.0.0:4012"))
+  let server = @http.Server::new(@socket.Addr::parse("0.0.0.0:4012"), reuse_addr=true)
   println("Server running at http://localhost:4012")
   server.run_forever(async fn(request, body, sconn) {
+    println(">>> \{request.meth} '\{request.path}'")
     match (request.meth, request.path) {
       (Options, _) => {
         // Handle CORS preflight
@@ -236,7 +237,7 @@ async fn main {
         println("  -> Cleaned up WS client (remaining: \{remaining})")
       }
       _ => {
-        println("\{request.meth} \{request.path} -> 404")
+        println("UNMATCHED: method=\{request.meth} path='\{request.path}' -> 404")
         sconn
         ..send_response(404, "Not Found", extra_headers=cors_headers)
         ..write("Not Found")
