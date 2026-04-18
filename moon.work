@@ -1,0 +1,17 @@
+members = [
+  "blogapp",
+  "contacts",
+  "gallery",
+  "kanban",
+  "noteapp",
+  "pollapp",
+  "splitwise",
+  "taskflow",
+  "todoapp",
+  "compose",
+  "spreadsheet",
+  "finapp",
+  "nodegraph",
+  "mbtexcel",
+  "rabbita/rabbita",
+]
