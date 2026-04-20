@@ -29,8 +29,9 @@ fn parse_int(input : String) -> Int {
 /// Parse a dollar string like "12.50" or "7" into cents.
 fn parse_dollars_to_cents(input : String) -> Int {
   // Split on '.'
-  let (dollars, cents, cent_digits) = for ch in input
-    ; dollars = 0, cents = 0, after_dot = false, cent_digits = 0 {
+  let (dollars, cents, cent_digits) = for
+    ch in input
+    dollars = 0, cents = 0, after_dot = false, cent_digits = 0 {
     if ch == '.' {
       continue dollars, cents, true, cent_digits
     } else if ch >= '0' && ch <= '9' {

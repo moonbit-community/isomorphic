@@ -119,16 +119,18 @@ fn Model::view_poll_card(
       option_bars.push(
         @html.div(style=result_bar_style) <| [
           // Fill bar
-          @html.div(style=[
-            "position: absolute",
-            "top: 0",
-            "left: 0",
-            "bottom: 0",
-            "width: \{pct}%",
-            "background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2))",
-            "border-radius: 10px",
-            "transition: width 0.3s ease",
-          ]) <| "",
+          @html.div(
+            style=[
+              "position: absolute",
+              "top: 0",
+              "left: 0",
+              "bottom: 0",
+              "width: \{pct}%",
+              "background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2))",
+              "border-radius: 10px",
+              "transition: width 0.3s ease",
+            ],
+          ) <| "",
           // Text content
           @html.div(style=result_content_style) <| [
             @html.span(style=option_text_style) <| opt.text,

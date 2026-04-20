@@ -69,16 +69,20 @@ fn KnobModel::view(
         ],
         on_click=dispatch(Decrement),
       ) <| "\u{2212}",
-      @html.div(style=[
-        "flex: 1", "height: 8px", "background: #333", "border-radius: 4px", "overflow: hidden",
-      ]) <| [
-        @html.div(style=[
-          "height: 100%",
-          "width: " + pct.to_string() + "%",
-          "background: " + color,
-          "border-radius: 4px",
-          "transition: width 0.1s",
-        ]) <| "",
+      @html.div(
+        style=[
+          "flex: 1", "height: 8px", "background: #333", "border-radius: 4px", "overflow: hidden",
+        ],
+      ) <| [
+        @html.div(
+          style=[
+            "height: 100%",
+            "width: " + pct.to_string() + "%",
+            "background: " + color,
+            "border-radius: 4px",
+            "transition: width 0.1s",
+          ],
+        ) <| "",
       ],
       @html.button(
         style=[
@@ -88,9 +92,11 @@ fn KnobModel::view(
         on_click=dispatch(Increment),
       ) <| "+",
     ],
-    @html.div(style=[
-      "text-align: center", "font-size: 0.8em", "font-weight: bold", "color: #ccc",
-    ]) <| self.value.to_string(),
+    @html.div(
+      style=[
+        "text-align: center", "font-size: 0.8em", "font-weight: bold", "color: #ccc",
+      ],
+    ) <| self.value.to_string(),
   ]
 }
 

@@ -140,9 +140,7 @@ pub fn ws_listen_cmd(dispatch : @rabbita.Dispatch[Msg]) -> @rabbita.Cmd {
       }
     },
     async fn() {
-      @js.suspend(fn(resolve, reject) {
-        wait_for_ws_message(resolve, reject)
-      })
+      @js.suspend(fn(resolve, reject) { wait_for_ws_message(resolve, reject) })
     },
   )
 }

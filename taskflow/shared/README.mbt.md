@@ -22,19 +22,21 @@ test {
     created_at: "2026-03-10",
   }
   let decoded : @shared.Task = @json.from_json(task.to_json())
-  debug_inspect(decoded, content=(
-    
-    #|{
-    #|  id: 1,
-    #|  title: "Implement login",
-    #|  description: "OAuth2 flow",
-    #|  status: "in_progress",
-    #|  priority: "high",
-    #|  assignee_id: 2,
-    #|  due_date: "2026-03-15",
-    #|  created_at: "2026-03-10",
-    #|}
-  ))
+  debug_inspect(
+    decoded,
+    content=(
+      #|{
+      #|  id: 1,
+      #|  title: "Implement login",
+      #|  description: "OAuth2 flow",
+      #|  status: "in_progress",
+      #|  priority: "high",
+      #|  assignee_id: 2,
+      #|  due_date: "2026-03-15",
+      #|  created_at: "2026-03-10",
+      #|}
+    ),
+  )
 }
 ```
 

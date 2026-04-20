@@ -39,7 +39,11 @@ pub fn Model::update(
         autocomplete_suggestions: [],
         autocomplete_index: -1,
       }
-      let cmd = if was_editing { save_cmd(dispatch, result.sheets) } else { @rabbita.none }
+      let cmd = if was_editing {
+        save_cmd(dispatch, result.sheets)
+      } else {
+        @rabbita.none
+      }
       (cmd, result)
     }
     MoveSelection(dc, dr) => {
@@ -53,7 +57,11 @@ pub fn Model::update(
         autocomplete_suggestions: [],
         autocomplete_index: -1,
       }
-      let cmd = if was_editing { save_cmd(dispatch, result.sheets) } else { @rabbita.none }
+      let cmd = if was_editing {
+        save_cmd(dispatch, result.sheets)
+      } else {
+        @rabbita.none
+      }
       (cmd, result)
     }
     StartEdit => {
@@ -80,7 +88,12 @@ pub fn Model::update(
       )
     }
     CommitEdit => {
-      let model = { ..self.commit_edit(), autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
+      let model = {
+        ..self.commit_edit(),
+        autocomplete_suggestions: [],
+        autocomplete_index: -1,
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     CancelEdit =>
@@ -97,8 +110,17 @@ pub fn Model::update(
     SelectSheet(i) => {
       let was_editing = self.editing
       let model = if self.editing { self.commit_edit() } else { self }
-      let result = { ..model, active_sheet: i, autocomplete_suggestions: [], autocomplete_index: -1 }
-      let cmd = if was_editing { save_cmd(dispatch, result.sheets) } else { @rabbita.none }
+      let result = {
+        ..model,
+        active_sheet: i,
+        autocomplete_suggestions: [],
+        autocomplete_index: -1,
+      }
+      let cmd = if was_editing {
+        save_cmd(dispatch, result.sheets)
+      } else {
+        @rabbita.none
+      }
       (cmd, result)
     }
     AddSheet => {
@@ -123,31 +145,54 @@ pub fn Model::update(
       } else {
         self.active_sheet
       }
-      let model = { ..self, sheets, active_sheet: active, save_status: "Saving..." }
+      let model = {
+        ..self,
+        sheets,
+        active_sheet: active,
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     ToggleBold => {
-      let model = { ..self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }), save_status: "Saving..." }
+      let model = {
+        ..self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }),
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     ToggleItalic => {
-      let model = { ..self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }), save_status: "Saving..." }
+      let model = {
+        ..self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }),
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetAlign(a) => {
-      let model = { ..self.update_selected_cell(fn(c) { { ..c, align: a } }), save_status: "Saving..." }
+      let model = {
+        ..self.update_selected_cell(fn(c) { { ..c, align: a } }),
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetFormat(f) => {
-      let model = { ..self.update_selected_cell(fn(c) { { ..c, format: f } }), save_status: "Saving..." }
+      let model = {
+        ..self.update_selected_cell(fn(c) { { ..c, format: f } }),
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetBgColor(color) => {
-      let model = { ..self.update_selected_cell(fn(c) { { ..c, bg_color: color } }), save_status: "Saving..." }
+      let model = {
+        ..self.update_selected_cell(fn(c) { { ..c, bg_color: color } }),
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetTextColor(color) => {
-      let model = { ..self.update_selected_cell(fn(c) { { ..c, text_color: color } }), save_status: "Saving..." }
+      let model = {
+        ..self.update_selected_cell(fn(c) { { ..c, text_color: color } }),
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     ToggleChart => (@rabbita.none, { ..self, show_chart: !self.show_chart })
@@ -159,7 +204,13 @@ pub fn Model::update(
       new_cells[key] = Cell()
       let sheets = self.sheets.copy()
       sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
-      let model = { ..self, sheets, autocomplete_suggestions: [], autocomplete_index: -1, save_status: "Saving..." }
+      let model = {
+        ..self,
+        sheets,
+        autocomplete_suggestions: [],
+        autocomplete_index: -1,
+        save_status: "Saving...",
+      }
       (save_cmd(dispatch, model.sheets), model)
     }
     RequestImport => (import_xlsx_cmd(dispatch), self)
@@ -211,7 +262,11 @@ pub fn Model::update(
         {
           ..self,
           sheets: recalced,
-          active_sheet: if self.active_sheet < recalced.length() { self.active_sheet } else { 0 },
+          active_sheet: if self.active_sheet < recalced.length() {
+            self.active_sheet
+          } else {
+            0
+          },
           editing: false,
           edit_value: "",
           save_status: "Loaded",
@@ -226,7 +281,10 @@ pub fn Model::update(
       // Fetch latest data from backend AND re-subscribe for next WS message
       js_log("WsRefresh: fetching + re-subscribing")
       let model = { ..self, save_status: "Syncing..." }
-      (@rabbita.batch([fetch_workbook_cmd(dispatch), ws_listen_cmd(dispatch)]), model)
+      (
+        @rabbita.batch([fetch_workbook_cmd(dispatch), ws_listen_cmd(dispatch)]),
+        model,
+      )
     }
   }
 }
@@ -274,8 +332,8 @@ fn Model::commit_edit(self : Model) -> Model {
 ///|
 /// Known formula function names for auto-completion.
 let formula_functions : Array[String] = [
-  "SUM", "AVG", "AVERAGE", "MIN", "MAX", "COUNT", "IF", "ABS", "ROUND",
-  "POWER", "MOD", "INT", "CONCAT", "LEN", "UPPER", "LOWER",
+  "SUM", "AVG", "AVERAGE", "MIN", "MAX", "COUNT", "IF", "ABS", "ROUND", "POWER",
+  "MOD", "INT", "CONCAT", "LEN", "UPPER", "LOWER",
 ]
 
 ///|
@@ -293,8 +351,18 @@ fn extract_partial(value : String) -> String {
   let mut i = len - 1
   while i >= 0 {
     let c = chars[i]
-    if c == '=' || c == '(' || c == '+' || c == '-' || c == '*' || c == '/' ||
-       c == ',' || c == '>' || c == '<' || c == ')' || c == ':' || c == ' ' {
+    if c == '=' ||
+      c == '(' ||
+      c == '+' ||
+      c == '-' ||
+      c == '*' ||
+      c == '/' ||
+      c == ',' ||
+      c == '>' ||
+      c == '<' ||
+      c == ')' ||
+      c == ':' ||
+      c == ' ' {
       break
     }
     i = i - 1

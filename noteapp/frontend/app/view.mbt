@@ -18,14 +18,16 @@ fn find_note(notes : Array[@shared.Note], id : Int) -> @shared.Note? {
 ///|
 /// Render a stat badge with colored text and background.
 fn view_stat_badge(text : String, color : String, bg : String) -> @rabbita.Html {
-  @html.span(style=[
-    "font-size: 12px",
-    "font-weight: 600",
-    "color: \{color}",
-    "background: \{bg}",
-    "padding: 4px 10px",
-    "border-radius: 10px",
-  ]) <| text
+  @html.span(
+    style=[
+      "font-size: 12px",
+      "font-weight: 600",
+      "color: \{color}",
+      "background: \{bg}",
+      "padding: 4px 10px",
+      "border-radius: 10px",
+    ],
+  ) <| text
 }
 
 ///|
@@ -142,10 +144,12 @@ pub fn Model::view(
               @html.div(style=note_item_style) <| [
                 @html.div(style=note_row_style) <| [
                   // Main content area (clickable)
-                  @html.div(style=[
-                    "flex: 1", "min-width: 0", "cursor: pointer", "padding: 8px 12px",
-                    "border-radius: 10px", bg,
-                  ]) <| [
+                  @html.div(
+                    style=[
+                      "flex: 1", "min-width: 0", "cursor: pointer", "padding: 8px 12px",
+                      "border-radius: 10px", bg,
+                    ],
+                  ) <| [
                     // Title row
                     @html.div(style=title_row_style) <| [
                       if note.pinned {

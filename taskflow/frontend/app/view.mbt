@@ -37,12 +37,14 @@ pub fn Model::view(
     view_delete_confirm(dispatch, model),
     view_header(dispatch, model),
     if model.loading {
-      @html.div(style=[
-        "text-align: center",
-        "padding: 60px 0",
-        "color: \{theme.text_muted}",
-        "font-size: 15px",
-      ]) <| [
+      @html.div(
+        style=[
+          "text-align: center",
+          "padding: 60px 0",
+          "color: \{theme.text_muted}",
+          "font-size: 15px",
+        ],
+      ) <| [
         @html.text(@shared.t(model.lang, "loading")),
       ]
     } else {
@@ -56,12 +58,14 @@ pub fn Model::view(
         if model.view_mode == "kanban" {
           view_kanban(dispatch, model, sorted)
         } else if sorted.is_empty() {
-          @html.div(style=[
-            "text-align: center",
-            "padding: 40px 0",
-            "color: \{theme.text_muted}",
-            "font-size: 14px",
-          ]) <| [
+          @html.div(
+            style=[
+              "text-align: center",
+              "padding: 40px 0",
+              "color: \{theme.text_muted}",
+              "font-size: 14px",
+            ],
+          ) <| [
             @html.text(@shared.t(model.lang, "no_matches")),
           ]
         } else {
@@ -74,13 +78,15 @@ pub fn Model::view(
         },
         view_activity_feed(model),
         // Keyboard shortcuts hint
-        @html.div(style=[
-          "text-align: center",
-          "padding: 12px 0",
-          "color: \{theme.text_muted}",
-          "font-size: 11px",
-          "margin-top: 8px",
-        ]) <| [
+        @html.div(
+          style=[
+            "text-align: center",
+            "padding: 12px 0",
+            "color: \{theme.text_muted}",
+            "font-size: 11px",
+            "margin-top: 8px",
+          ],
+        ) <| [
           @html.text(@shared.t(model.lang, "keyboard_hints")),
         ],
       ]

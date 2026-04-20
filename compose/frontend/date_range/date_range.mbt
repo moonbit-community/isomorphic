@@ -62,10 +62,12 @@ fn RangeModel::view(
         self.end_cal.view(msg => dispatch(End(msg))),
       ],
     ],
-    @html.div(style=[
-      "margin-top: 16px", "padding: 12px", "background: #f0f0f0", "border-radius: 8px",
-      "text-align: center", "font-size: 1.1em",
-    ]) <| "Range: \{start_str} \u{2192} \{end_str}",
+    @html.div(
+      style=[
+        "margin-top: 16px", "padding: 12px", "background: #f0f0f0", "border-radius: 8px",
+        "text-align: center", "font-size: 1.1em",
+      ],
+    ) <| "Range: \{start_str} \u{2192} \{end_str}",
   ]
 }
 
@@ -74,10 +76,7 @@ fn RangeModel::view(
 pub fn make() -> @rabbita.Cell {
   let today : @calendar.Date = { year: 2026, month: 3, day: 20 }
   @rabbita.simple_cell(
-    model={
-      start_cal: Model(today~),
-      end_cal: Model(today~),
-    },
+    model={ start_cal: Model(today~), end_cal: Model(today~) },
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch),
   )

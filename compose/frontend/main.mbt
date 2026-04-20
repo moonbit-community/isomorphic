@@ -18,9 +18,11 @@ fn main {
 
   // Layout: a static cell that composes all demos
   let layout = @rabbita.static_cell(
-    @html.div(style=[
-      "max-width: 800px", "margin: 0 auto", "padding: 24px", "font-family: system-ui, sans-serif",
-    ]) <| [
+    @html.div(
+      style=[
+        "max-width: 800px", "margin: 0 auto", "padding: 24px", "font-family: system-ui, sans-serif",
+      ],
+    ) <| [
       @html.h1() <| "TEA Composition Patterns",
       // --- Pattern 1 ---
       @html.h2() <| "1. Independent Cells",

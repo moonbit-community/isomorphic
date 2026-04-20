@@ -42,12 +42,14 @@ fn EffectModel::view(
   dispatch : @rabbita.Dispatch[EffectMsg],
 ) -> @rabbita.Html {
   let opacity = if self.enabled { "1" } else { "0.4" }
-  @html.div(style=[
-    "display: flex",
-    "align-items: center",
-    "gap: 4px",
-    "opacity: " + opacity,
-  ]) <| [
+  @html.div(
+    style=[
+      "display: flex",
+      "align-items: center",
+      "gap: 4px",
+      "opacity: " + opacity,
+    ],
+  ) <| [
     @html.button(
       style=[
         "width: 16px",

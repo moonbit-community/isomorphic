@@ -8,39 +8,51 @@ fn Model::view_dashboard(self : Model) -> @rabbita.Html {
   } nobreak {
     self.current_sheet()
   }
-  @html.div(style=[
-    "flex: 1", "overflow: auto", "padding: 24px", "background: #f0f2f5",
-    "display: flex", "flex-direction: column", "gap: 20px",
-  ]) <| [
+  @html.div(
+    style=[
+      "flex: 1", "overflow: auto", "padding: 24px", "background: #f0f2f5", "display: flex",
+      "flex-direction: column", "gap: 20px",
+    ],
+  ) <| [
     // Title
-    @html.div(style=[
-      "font-size: 20px", "font-weight: 600", "color: #202124", "padding: 0 4px",
-    ]) <| "Sales Dashboard",
+    @html.div(
+      style=[
+        "font-size: 20px", "font-weight: 600", "color: #202124", "padding: 0 4px",
+      ],
+    ) <| "Sales Dashboard",
     // Top row: bar chart + donut chart
-    @html.div(style=[
-      "display: flex", "gap: 20px", "align-items: flex-start",
-    ]) <| [
+    @html.div(style=["display: flex", "gap: 20px", "align-items: flex-start"]) <| [
       // Bar chart card
-      @html.div(style=[
-        "flex: 2", "background: #fff", "border-radius: 12px", "padding: 20px",
-        "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
-      ]) <| [
-        @html.div(style=["font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px"]) <| "Quarterly Revenue by Product",
+      @html.div(
+        style=[
+          "flex: 2", "background: #fff", "border-radius: 12px", "padding: 20px",
+          "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+        ],
+      ) <| [
+        @html.div(
+          style=[
+            "font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px",
+          ],
+        ) <| "Quarterly Revenue by Product",
         self.view_chart(),
       ],
       // Donut chart card
-      @html.div(style=[
-        "flex: 1", "background: #fff", "border-radius: 12px", "padding: 20px",
-        "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
-      ]) <| [
-        @html.div(style=["font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px"]) <| "Revenue Share",
+      @html.div(
+        style=[
+          "flex: 1", "background: #fff", "border-radius: 12px", "padding: 20px",
+          "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+        ],
+      ) <| [
+        @html.div(
+          style=[
+            "font-size: 14px", "font-weight: 600", "color: #202124", "margin-bottom: 12px",
+          ],
+        ) <| "Revenue Share",
         self.view_donut_chart(),
       ],
     ],
     // Bottom row: sparklines for each product
-    @html.div(style=[
-      "display: flex", "gap: 16px", "flex-wrap: wrap",
-    ]) <| {
+    @html.div(style=["display: flex", "gap: 16px", "flex-wrap: wrap"]) <| ({
       let cards : Array[@rabbita.Html] = []
       for r in 1..<6 {
         let name = match sheet.get(@cell.make_key(0, r)).value {
@@ -50,21 +62,32 @@ fn Model::view_dashboard(self : Model) -> @rabbita.Html {
         if name.is_empty() {
           continue
         }
-        let total = sheet.get_num(1, r) + sheet.get_num(2, r) + sheet.get_num(3, r) + sheet.get_num(4, r)
+        let total = sheet.get_num(1, r) +
+          sheet.get_num(2, r) +
+          sheet.get_num(3, r) +
+          sheet.get_num(4, r)
         let total_k = (total / 1000.0 + 0.5).to_int()
         cards.push(
-          @html.div(style=[
-            "flex: 1", "min-width: 160px", "background: #fff", "border-radius: 12px",
-            "padding: 16px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
-          ]) <| [
-            @html.div(style=["font-size: 12px", "color: #5f6368", "margin-bottom: 4px"]) <| name,
-            @html.div(style=["font-size: 22px", "font-weight: 600", "color: #202124", "margin-bottom: 8px"]) <| "$\{total_k}k",
+          @html.div(
+            style=[
+              "flex: 1", "min-width: 160px", "background: #fff", "border-radius: 12px",
+              "padding: 16px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+            ],
+          ) <| [
+            @html.div(
+              style=["font-size: 12px", "color: #5f6368", "margin-bottom: 4px"],
+            ) <| name,
+            @html.div(
+              style=[
+                "font-size: 22px", "font-weight: 600", "color: #202124", "margin-bottom: 8px",
+              ],
+            ) <| "$\{total_k}k",
             view_sparkline(sheet, r),
           ],
         )
       }
       cards
-    },
+    }),
   ]
 }
 
@@ -103,9 +126,11 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
     q4.push(sheet.get_num(4, r))
   }
   if products.is_empty() {
-    return @html.div(style=[
-        "padding: 20px", "text-align: center", "color: #5f6368", "font-size: 13px",
-      ]) <| "No chart data available. Add product names in column A and numbers in columns B-E."
+    return @html.div(
+        style=[
+          "padding: 20px", "text-align: center", "color: #5f6368", "font-size: 13px",
+        ],
+      ) <| "No chart data available. Add product names in column A and numbers in columns B-E."
   }
   // Chart dimensions
   let chart_w = 680
@@ -375,9 +400,12 @@ fn Model::view_donut_chart(self : Model) -> @rabbita.Html {
     )
   }
   let total_h = size + products.length() * 16
-  @svg.svg(width=size, height=total_h, view_box="0 0 \{size} \{total_h}", style=[
-    "background: #fff", "border-radius: 8px",
-  ]) <| elements
+  @svg.svg(
+    width=size,
+    height=total_h,
+    view_box="0 0 \{size} \{total_h}",
+    style=["background: #fff", "border-radius: 8px"],
+  ) <| elements
 }
 
 ///|
@@ -475,5 +503,10 @@ fn view_sparkline(sheet : @sheet.Sheet, row : Int) -> @rabbita.Html {
   // Max dot (green)
   let (max_x, max_y) = points[max_idx]
   elements.push(@svg.circle(cx=max_x, cy=max_y, r=2, fill="#34a853"))
-  @svg.svg(width=w, height=h, view_box="0 0 \{w} \{h}", style=["display: block"]) <| elements
+  @svg.svg(
+    width=w,
+    height=h,
+    view_box="0 0 \{w} \{h}",
+    style=["display: block"],
+  ) <| elements
 }

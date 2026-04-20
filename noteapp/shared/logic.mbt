@@ -17,7 +17,11 @@ pub fn word_count(text : String) -> Int {
   } nobreak {
     (count, in_word)
   }
-  if in_word { count + 1 } else { count }
+  if in_word {
+    count + 1
+  } else {
+    count
+  }
 }
 
 ///|

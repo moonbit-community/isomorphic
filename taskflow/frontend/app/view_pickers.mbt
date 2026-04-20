@@ -6,9 +6,11 @@ fn view_assignee_picker(
   current : Int,
   on_change : (Int) -> Msg,
 ) -> @rabbita.Html {
-  @html.div(style=[
-    "display: flex", "gap: 4px", "margin-bottom: 8px", "flex-wrap: wrap", "align-items: center",
-  ]) <| ({
+  @html.div(
+    style=[
+      "display: flex", "gap: 4px", "margin-bottom: 8px", "flex-wrap: wrap", "align-items: center",
+    ],
+  ) <| ({
     let items : Array[@rabbita.Html] = [
       {
         let is_sel = current == 0
@@ -17,19 +19,22 @@ fn view_assignee_picker(
         } else {
           "2px solid transparent"
         }
-        @html.div(on_click=dispatch(on_change(0)), style=[
-          "width: 28px",
-          "height: 28px",
-          "border-radius: 50%",
-          "background: #e2e8f0",
-          "cursor: pointer",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-          "font-size: 11px",
-          "color: #94a3b8",
-          "border: \{border}",
-        ]) <| [
+        @html.div(
+          on_click=dispatch(on_change(0)),
+          style=[
+            "width: 28px",
+            "height: 28px",
+            "border-radius: 50%",
+            "background: #e2e8f0",
+            "cursor: pointer",
+            "display: flex",
+            "align-items: center",
+            "justify-content: center",
+            "font-size: 11px",
+            "color: #94a3b8",
+            "border: \{border}",
+          ],
+        ) <| [
           @html.text("—"),
         ]
       },
@@ -44,20 +49,23 @@ fn view_assignee_picker(
       }
       let initial = @shared.member_initial(m.name)
       items.push(
-        @html.div(on_click=dispatch(on_change(m.id)), style=[
-          "width: 28px",
-          "height: 28px",
-          "border-radius: 50%",
-          "cursor: pointer",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-          "font-size: 11px",
-          "color: white",
-          "font-weight: 600",
-          "background: \{bg}",
-          "border: \{border}",
-        ]) <| [
+        @html.div(
+          on_click=dispatch(on_change(m.id)),
+          style=[
+            "width: 28px",
+            "height: 28px",
+            "border-radius: 50%",
+            "cursor: pointer",
+            "display: flex",
+            "align-items: center",
+            "justify-content: center",
+            "font-size: 11px",
+            "color: white",
+            "font-weight: 600",
+            "background: \{bg}",
+            "border: \{border}",
+          ],
+        ) <| [
           @html.text(initial),
         ],
       )
@@ -80,15 +88,18 @@ fn view_priority_picker(
       let is_sel = p == current
       let bg = if is_sel { @shared.priority_color(p) } else { "#f1f5f9" }
       let fg = if is_sel { "white" } else { "#64748b" }
-      @html.button(on_click=dispatch(on_change(p)), style=[
-        "padding: 4px 12px",
-        "border-radius: 12px",
-        "border: none",
-        "cursor: pointer",
-        "font-size: 12px",
-        "background: \{bg}",
-        "color: \{fg}",
-      ]) <| @shared.t_priority(lang, p)
+      @html.button(
+        on_click=dispatch(on_change(p)),
+        style=[
+          "padding: 4px 12px",
+          "border-radius: 12px",
+          "border: none",
+          "cursor: pointer",
+          "font-size: 12px",
+          "background: \{bg}",
+          "color: \{fg}",
+        ],
+      ) <| @shared.t_priority(lang, p)
     },
   )
 }

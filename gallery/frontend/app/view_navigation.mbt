@@ -3,16 +3,20 @@ fn Model::view_tabs(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=[
-    "border: 1px solid \{border}",
-    "border-radius: \{radius}",
-    "overflow: hidden",
-  ]) <| [
-    @html.div(style=[
-      "display: flex",
-      "border-bottom: 1px solid \{border}",
-      "background: \{surface}",
-    ]) <| ({
+  @html.div(
+    style=[
+      "border: 1px solid \{border}",
+      "border-radius: \{radius}",
+      "overflow: hidden",
+    ],
+  ) <| [
+    @html.div(
+      style=[
+        "display: flex",
+        "border-bottom: 1px solid \{border}",
+        "background: \{surface}",
+      ],
+    ) <| ({
       let headers : Array[@rabbita.Html] = []
       for i, tab in self.tabs.tabs {
         let is_active = i == self.tabs.active
@@ -37,13 +41,15 @@ fn Model::view_tabs(
       }
       headers
     }),
-    @html.div(style=[
-      "padding: 20px",
-      "background: \{surface}",
-      "font-size: 14px",
-      "color: \{text_primary}",
-      "line-height: 1.6",
-    ]) <| ({
+    @html.div(
+      style=[
+        "padding: 20px",
+        "background: \{surface}",
+        "font-size: 14px",
+        "color: \{text_primary}",
+        "line-height: 1.6",
+      ],
+    ) <| ({
       let content = if self.tabs.active < self.tabs.tabs.length() {
         self.tabs.tabs[self.tabs.active].1
       } else {
@@ -59,11 +65,13 @@ fn Model::view_accordion(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=[
-    "border: 1px solid \{border}",
-    "border-radius: \{radius}",
-    "overflow: hidden",
-  ]) <| ({
+  @html.div(
+    style=[
+      "border: 1px solid \{border}",
+      "border-radius: \{radius}",
+      "overflow: hidden",
+    ],
+  ) <| ({
     let acc_items : Array[@rabbita.Html] = []
     for i, item in self.accordion.items {
       let is_open = i == self.accordion.open_index
@@ -95,14 +103,16 @@ fn Model::view_accordion(
             on_click=dispatch(AccordionToggle(i)),
           ) <| item.0,
           if is_open {
-            @html.div(style=[
-              "padding: 14px 18px",
-              "background: \{surface}",
-              "color: \{text_secondary}",
-              "font-size: 14px",
-              "line-height: 1.6",
-              "border-top: 1px solid \{border}",
-            ]) <| item.1
+            @html.div(
+              style=[
+                "padding: 14px 18px",
+                "background: \{surface}",
+                "color: \{text_secondary}",
+                "font-size: 14px",
+                "line-height: 1.6",
+                "border-top: 1px solid \{border}",
+              ],
+            ) <| item.1
           } else {
             @html.nothing
           },
@@ -118,15 +128,19 @@ fn Model::view_breadcrumb(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.nav(style=[
-    "padding: 12px 16px",
-    "background: \{surface}",
-    "border: 1px solid \{border}",
-    "border-radius: \{radius}",
-  ]) <| [
-    @html.div(style=[
-      "display: flex", "align-items: center", "gap: 4px", "flex-wrap: wrap",
-    ]) <| ({
+  @html.nav(
+    style=[
+      "padding: 12px 16px",
+      "background: \{surface}",
+      "border: 1px solid \{border}",
+      "border-radius: \{radius}",
+    ],
+  ) <| [
+    @html.div(
+      style=[
+        "display: flex", "align-items: center", "gap: 4px", "flex-wrap: wrap",
+      ],
+    ) <| ({
       let crumbs : Array[@rabbita.Html] = []
       let path = self.breadcrumb.path
       for i, segment in path {
@@ -138,11 +152,13 @@ fn Model::view_breadcrumb(
         }
         if is_last {
           crumbs.push(
-            @html.span(style=[
-              "font-size: 14px",
-              "font-weight: 600",
-              "color: \{text_primary}",
-            ]) <| segment,
+            @html.span(
+              style=[
+                "font-size: 14px",
+                "font-weight: 600",
+                "color: \{text_primary}",
+              ],
+            ) <| segment,
           )
         } else {
           crumbs.push(
@@ -196,14 +212,16 @@ fn view_tree_node(
         on_click=dispatch(TreeToggle(node.id)),
       ) <| "\{icon} \{node.label}"
     } else {
-      @html.div(style=[
-        "display: flex",
-        "align-items: center",
-        "gap: 6px",
-        "padding: 4px 8px",
-        "font-size: 14px",
-        "color: \{text_secondary}",
-      ]) <| "\{icon} \{node.label}"
+      @html.div(
+        style=[
+          "display: flex",
+          "align-items: center",
+          "gap: 6px",
+          "padding: 4px 8px",
+          "font-size: 14px",
+          "color: \{text_secondary}",
+        ],
+      ) <| "\{icon} \{node.label}"
     },
     if has_children && is_expanded {
       @html.div(style=[]) <| ({
@@ -224,12 +242,14 @@ fn Model::view_tree_view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=[
-    "border: 1px solid \{border}",
-    "border-radius: \{radius}",
-    "padding: 8px",
-    "background: \{surface}",
-  ]) <| ({
+  @html.div(
+    style=[
+      "border: 1px solid \{border}",
+      "border-radius: \{radius}",
+      "padding: 8px",
+      "background: \{surface}",
+    ],
+  ) <| ({
     let roots : Array[@rabbita.Html] = []
     for root in self.tree_view.roots {
       roots.push(view_tree_node(root, self.tree_view.expanded, dispatch, 0))

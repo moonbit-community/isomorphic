@@ -253,42 +253,36 @@ test "ToggleItalic toggles italic on selected cell" {
 test "SetAlign changes alignment to Center" {
   let (_, model) = empty_model().update(noop_dispatch, SetAlign(Center))
   guard model.selected_cell().align is Center
-
 }
 
 ///|
 test "SetAlign changes alignment to Right" {
   let (_, model) = empty_model().update(noop_dispatch, SetAlign(Right))
   guard model.selected_cell().align is Right
-
 }
 
 ///|
 test "SetAlign changes alignment to Left" {
   let (_, model) = empty_model().update(noop_dispatch, SetAlign(Left))
   guard model.selected_cell().align is Left
-
 }
 
 ///|
 test "SetFormat changes number format to Currency" {
   let (_, model) = empty_model().update(noop_dispatch, SetFormat(Currency))
   guard model.selected_cell().format is Currency
-
 }
 
 ///|
 test "SetFormat changes number format to Percent" {
   let (_, model) = empty_model().update(noop_dispatch, SetFormat(Percent))
   guard model.selected_cell().format is Percent
-
 }
 
 ///|
 test "SetFormat changes number format to Fixed" {
   let (_, model) = empty_model().update(noop_dispatch, SetFormat(Fixed))
   guard model.selected_cell().format is Fixed
-
 }
 
 ///|
@@ -505,10 +499,10 @@ fn replay(model : Model, msgs : Array[Msg]) -> Model {
 test "replay: type '33' in J6 then Enter commits the value" {
   let m = empty_model()
   let result = replay(m, [
-    SelectCell(9, 5),         // Click J6
-    StartEditWith("3"),       // Type first "3" → starts editing
-    UpdateEdit("33"),         // Type second "3" → appends
-    CommitEdit,               // Press Enter
+    SelectCell(9, 5), // Click J6
+    StartEditWith("3"), // Type first "3" → starts editing
+    UpdateEdit("33"), // Type second "3" → appends
+    CommitEdit, // Press Enter
   ])
   assert_eq(result.editing, false)
   assert_eq(result.sheets[0].get("J6").raw, "33")
@@ -522,8 +516,8 @@ test "replay: type '33' char by char via grid keydown simulation" {
   let m = empty_model()
   let result = replay(m, [
     SelectCell(9, 5),
-    StartEditWith("3"),                     // First char starts editing
-    UpdateEdit("3" + "3"),                  // Second char appends (grid keydown: edit_value + key)
+    StartEditWith("3"), // First char starts editing
+    UpdateEdit("3" + "3"), // Second char appends (grid keydown: edit_value + key)
     CommitEdit,
   ])
   assert_eq(result.sheets[0].get("J6").raw, "33")
@@ -562,7 +556,7 @@ test "replay: backspace removes last character" {
     StartEditWith("a"),
     UpdateEdit("ab"),
     UpdateEdit("abc"),
-    UpdateEdit("ab"),  // Backspace → remove last char
+    UpdateEdit("ab"), // Backspace → remove last char
     CommitEdit,
   ])
   assert_eq(result.sheets[0].get("A1").raw, "ab")
@@ -571,11 +565,7 @@ test "replay: backspace removes last character" {
 ///|
 test "replay: Escape cancels editing without committing" {
   let m = empty_model()
-  let result = replay(m, [
-    StartEditWith("x"),
-    UpdateEdit("xyz"),
-    CancelEdit,
-  ])
+  let result = replay(m, [StartEditWith("x"), UpdateEdit("xyz"), CancelEdit])
   assert_eq(result.editing, false)
   assert_eq(result.edit_value, "")
   // Cell should still be empty
@@ -587,10 +577,10 @@ test "replay: Tab commits and moves right (via MoveSelection)" {
   let m = empty_model()
   let result = replay(m, [
     StartEditWith("5"),
-    MoveSelection(1, 0),  // Tab → MoveSelection commits pending edit
+    MoveSelection(1, 0), // Tab → MoveSelection commits pending edit
   ])
   assert_eq(result.editing, false)
-  assert_eq(result.sel_col, 1)  // Moved to B1
+  assert_eq(result.sel_col, 1) // Moved to B1
   assert_eq(result.sheets[0].get("A1").raw, "5")
   assert_eq(result.sheets[0].get("A1").value, Num(5.0))
 }
@@ -600,11 +590,19 @@ test "replay: formula =SUM(A1:A3) evaluates correctly" {
   let m = empty_model()
   let result = replay(m, [
     // Enter data in A1, A2, A3
-    SelectCell(0, 0), StartEditWith("10"), CommitEdit,
-    SelectCell(0, 1), StartEditWith("20"), CommitEdit,
-    SelectCell(0, 2), StartEditWith("30"), CommitEdit,
+    SelectCell(0, 0),
+    StartEditWith("10"),
+    CommitEdit,
+    SelectCell(0, 1),
+    StartEditWith("20"),
+    CommitEdit,
+    SelectCell(0, 2),
+    StartEditWith("30"),
+    CommitEdit,
     // Enter formula in A4
-    SelectCell(0, 3), StartEditWith("=SUM(A1:A3)"), CommitEdit,
+    SelectCell(0, 3),
+    StartEditWith("=SUM(A1:A3)"),
+    CommitEdit,
   ])
   assert_eq(result.sheets[0].get("A4").raw, "=SUM(A1:A3)")
   assert_eq(result.sheets[0].get("A4").value, Num(60.0))
@@ -615,7 +613,7 @@ test "replay: editing then clicking another cell commits first" {
   let m = empty_model()
   let result = replay(m, [
     StartEditWith("42"),
-    SelectCell(2, 3),  // Click C4 → commits "42" to A1
+    SelectCell(2, 3), // Click C4 → commits "42" to A1
   ])
   assert_eq(result.editing, false)
   assert_eq(result.sel_col, 2)
@@ -628,11 +626,16 @@ test "replay: multiple cells filled in sequence" {
   let m = empty_model()
   let result = replay(m, [
     // A1 = 10
-    StartEditWith("10"), CommitEdit,
+    StartEditWith("10"),
+    CommitEdit,
     // Move to B1, enter 20
-    MoveSelection(1, 0), StartEditWith("20"), CommitEdit,
+    MoveSelection(1, 0),
+    StartEditWith("20"),
+    CommitEdit,
     // Move to C1, enter formula
-    MoveSelection(1, 0), StartEditWith("=A1+B1"), CommitEdit,
+    MoveSelection(1, 0),
+    StartEditWith("=A1+B1"),
+    CommitEdit,
   ])
   assert_eq(result.sheets[0].get("A1").value, Num(10.0))
   assert_eq(result.sheets[0].get("B1").value, Num(20.0))
@@ -648,16 +651,13 @@ test "replay: StartEditWith while already editing appends" {
   assert_eq(m1.edit_value, "a")
 
   let m2 = replay(m1, [StartEditWith("b")])
-  assert_eq(m2.edit_value, "ab")  // Appended, not replaced
+  assert_eq(m2.edit_value, "ab") // Appended, not replaced
 }
 
 ///|
 test "replay: autocomplete appears when typing function prefix" {
   let m = empty_model()
-  let result = replay(m, [
-    StartEditWith("="),
-    UpdateEdit("=SU"),
-  ])
+  let result = replay(m, [StartEditWith("="), UpdateEdit("=SU")])
   assert_eq(result.editing, true)
   assert_eq(result.edit_value, "=SU")
   // Should have SUM in suggestions
@@ -705,16 +705,20 @@ test "replay: full formula editing flow with autocomplete" {
   let m = empty_model()
   // Enter data first
   let m1 = replay(m, [
-    SelectCell(0, 0), StartEditWith("100"), CommitEdit,
-    SelectCell(0, 1), StartEditWith("200"), CommitEdit,
+    SelectCell(0, 0),
+    StartEditWith("100"),
+    CommitEdit,
+    SelectCell(0, 1),
+    StartEditWith("200"),
+    CommitEdit,
   ])
   // Now enter formula with autocomplete in A3
   let result = replay(m1, [
     SelectCell(0, 2),
     StartEditWith("="),
-    UpdateEdit("=SU"),                // Shows autocomplete
-    AutocompleteSelect("SUM"),        // Inserts "=SUM("
-    UpdateEdit("=SUM(A1:A2)"),        // User types the range
+    UpdateEdit("=SU"), // Shows autocomplete
+    AutocompleteSelect("SUM"), // Inserts "=SUM("
+    UpdateEdit("=SUM(A1:A2)"), // User types the range
     CommitEdit,
   ])
   assert_eq(result.sheets[0].get("A3").raw, "=SUM(A1:A2)")
@@ -725,8 +729,10 @@ test "replay: full formula editing flow with autocomplete" {
 test "replay: edit, cancel, edit again preserves independence" {
   let m = empty_model()
   let result = replay(m, [
-    StartEditWith("wrong"), CancelEdit,  // Cancel first attempt
-    StartEditWith("right"), CommitEdit,   // Commit second attempt
+    StartEditWith("wrong"),
+    CancelEdit, // Cancel first attempt
+    StartEditWith("right"),
+    CommitEdit, // Commit second attempt
   ])
   assert_eq(result.sheets[0].get("A1").raw, "right")
 }
@@ -745,9 +751,12 @@ test "replay: formatting preserved through edit cycle" {
   let m = empty_model()
   // Set bold, then edit value — bold should survive
   let result = replay(m, [
-    StartEditWith("10"), CommitEdit,
+    StartEditWith("10"),
+    CommitEdit,
     ToggleBold,
-    StartEdit, UpdateEdit("20"), CommitEdit,
+    StartEdit,
+    UpdateEdit("20"),
+    CommitEdit,
   ])
   assert_eq(result.sheets[0].get("A1").raw, "20")
   assert_eq(result.sheets[0].get("A1").bold, true)

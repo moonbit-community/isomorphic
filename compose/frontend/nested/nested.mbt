@@ -96,11 +96,7 @@ fn PairModel::view(
 /// Create a cell with two nested counters that can optionally sync their actions.
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
-    model={
-      left: Model(),
-      right: Model(),
-      sync_mode: false,
-    },
+    model={ left: Model(), right: Model(), sync_mode: false },
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch),
   )

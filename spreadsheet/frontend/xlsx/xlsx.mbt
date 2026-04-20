@@ -346,7 +346,10 @@ fn build_xlsx_style(cell : @cell.Cell) -> @mbtexcel_xlsx.Style {
   let style = @mbtexcel_xlsx.Style::new()
   // Font
   let style = if cell.bold || cell.italic {
-    let font = @mbtexcel_xlsx.Font::with_values(bold=cell.bold, italic=cell.italic)
+    let font = @mbtexcel_xlsx.Font::with_values(
+      bold=cell.bold,
+      italic=cell.italic,
+    )
     style.with_font(font)
   } else {
     style
@@ -354,11 +357,17 @@ fn build_xlsx_style(cell : @cell.Cell) -> @mbtexcel_xlsx.Style {
   // Alignment
   let style = match cell.align {
     Left =>
-      style.with_alignment(@mbtexcel_xlsx.Alignment::with_values(horizontal="left"))
+      style.with_alignment(
+        @mbtexcel_xlsx.Alignment::with_values(horizontal="left"),
+      )
     Center =>
-      style.with_alignment(@mbtexcel_xlsx.Alignment::with_values(horizontal="center"))
+      style.with_alignment(
+        @mbtexcel_xlsx.Alignment::with_values(horizontal="center"),
+      )
     Right =>
-      style.with_alignment(@mbtexcel_xlsx.Alignment::with_values(horizontal="right"))
+      style.with_alignment(
+        @mbtexcel_xlsx.Alignment::with_values(horizontal="right"),
+      )
     Auto => style
   }
   // Fill color

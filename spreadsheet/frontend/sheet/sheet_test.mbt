@@ -351,7 +351,12 @@ test "recalc: preserves styling through evaluation" {
   let sheet = @sheet.Sheet("Test")
   sheet.set_cell("A1", "10")
   // B1 is a bold, centered currency formula
-  sheet.cells["B1"] = Cell(raw="=A1*2", bold=true, align=Center, format=Currency)
+  sheet.cells["B1"] = Cell(
+    raw="=A1*2",
+    bold=true,
+    align=Center,
+    format=Currency,
+  )
   let r = sheet.recalc()
   let cell = r.get("B1")
   match cell.value {

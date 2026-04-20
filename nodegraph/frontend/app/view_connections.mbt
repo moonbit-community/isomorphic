@@ -4,9 +4,11 @@ fn Model::view_connections(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   if self.connections.is_empty() {
-    return @html.div(style=[
-        "text-align: center", "color: #444", "padding: 12px", "font-size: 0.8em",
-      ]) <| "No connections. Click \"Connect \u{2192}\" on an output port to start wiring."
+    return @html.div(
+        style=[
+          "text-align: center", "color: #444", "padding: 12px", "font-size: 0.8em",
+        ],
+      ) <| "No connections. Click \"Connect \u{2192}\" on an output port to start wiring."
   }
   let rows : Array[@rabbita.Html] = self.connections.map(fn(c) {
     // Find source and target node info
@@ -14,7 +16,11 @@ fn Model::view_connections(
       if n.id == c.from_node_id {
         let ports = @shared.output_ports(n.kind)
         break if c.from_port < ports.length() {
-          (n.label, ports[c.from_port].name, @shared.port_type_color(ports[c.from_port].port_type))
+          (
+            n.label,
+            ports[c.from_port].name,
+            @shared.port_type_color(ports[c.from_port].port_type),
+          )
         } else {
           (n.label, "[\{c.from_port}]", "#888")
         }
@@ -26,7 +32,11 @@ fn Model::view_connections(
       if n.id == c.to_node_id {
         let ports = @shared.input_ports(n.kind)
         break if c.to_port < ports.length() {
-          (n.label, ports[c.to_port].name, @shared.port_type_color(ports[c.to_port].port_type))
+          (
+            n.label,
+            ports[c.to_port].name,
+            @shared.port_type_color(ports[c.to_port].port_type),
+          )
         } else {
           (n.label, "[\{c.to_port}]", "#888")
         }
@@ -34,10 +44,12 @@ fn Model::view_connections(
     } nobreak {
       ("#\{c.to_node_id}", "[\{c.to_port}]", "#888")
     }
-    @html.div(style=[
-      "display: flex", "align-items: center", "gap: 6px", "padding: 6px 10px", "background: #16213e",
-      "border-radius: 4px", "margin-bottom: 4px", "font-size: 0.8em",
-    ]) <| [
+    @html.div(
+      style=[
+        "display: flex", "align-items: center", "gap: 6px", "padding: 6px 10px",
+        "background: #16213e", "border-radius: 4px", "margin-bottom: 4px", "font-size: 0.8em",
+      ],
+    ) <| [
       // Source
       @html.span(style=["color: \{from_color}", "font-weight: 600"]) <| from_label,
       @html.span(style=["color: #666"]) <| ".\{from_port_name}",
@@ -58,9 +70,11 @@ fn Model::view_connections(
     ]
   })
   let children : Array[@rabbita.Html] = [
-    @html.div(style=[
-      "font-size: 0.75em", "color: #666", "margin-bottom: 6px", "letter-spacing: 1px",
-    ]) <| "CONNECTIONS (\{self.connections.length()})",
+    @html.div(
+      style=[
+        "font-size: 0.75em", "color: #666", "margin-bottom: 6px", "letter-spacing: 1px",
+      ],
+    ) <| "CONNECTIONS (\{self.connections.length()})",
   ]
   for row in rows {
     children.push(row)

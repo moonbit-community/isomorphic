@@ -49,7 +49,9 @@ pub(all) struct Task {
 ///|
 /// Display a Task as `Task(#id "title" status=... priority=...)`.
 pub impl Show for Task with output(self, logger) {
-  logger.write_string("Task(#\{self.id} \"\{self.title}\" status=\{self.status} priority=\{self.priority})")
+  logger.write_string(
+    "Task(#\{self.id} \"\{self.title}\" status=\{self.status} priority=\{self.priority})",
+  )
 }
 
 ///|

@@ -118,8 +118,16 @@ pub fn get_pos(layout : Array[(Int, Int, Int)], node_id : Int) -> (Int, Int) {
 pub fn canvas_size(layout : Array[(Int, Int, Int)]) -> (Int, Int) {
   for entry in layout; max_x = 600, max_y = 400 {
     let (_, x, y) = entry
-    let new_x = if x + node_w + pad_x > max_x { x + node_w + pad_x } else { max_x }
-    let new_y = if y + node_stride_y > max_y { y + node_stride_y } else { max_y }
+    let new_x = if x + node_w + pad_x > max_x {
+      x + node_w + pad_x
+    } else {
+      max_x
+    }
+    let new_y = if y + node_stride_y > max_y {
+      y + node_stride_y
+    } else {
+      max_y
+    }
     continue new_x, new_y
   } nobreak {
     (max_x, max_y)

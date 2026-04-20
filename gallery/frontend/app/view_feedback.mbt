@@ -5,30 +5,34 @@ fn Model::view_confirm_button(
 ) -> @rabbita.Html {
   let s = self.confirm_button
   let content = if s.executed {
-    @html.div(style=[
-      "display:flex",
-      "align-items:center",
-      "gap:8px",
-      "padding:12px 16px",
-      "background:\{success}22",
-      "border:1.5px solid \{success}",
-      "border-radius:\{radius}",
-      "color:\{success}",
-      "font-weight:600",
-    ]) <| [
+    @html.div(
+      style=[
+        "display:flex",
+        "align-items:center",
+        "gap:8px",
+        "padding:12px 16px",
+        "background:\{success}22",
+        "border:1.5px solid \{success}",
+        "border-radius:\{radius}",
+        "color:\{success}",
+        "font-weight:600",
+      ],
+    ) <| [
       @html.span(style=["font-size:18px"]) <| "\u{2713}",
       @html.span() <| "Account deleted",
     ]
   } else if s.confirming {
-    @html.div(style=[
-      "display:flex",
-      "flex-direction:column",
-      "gap:12px",
-      "padding:16px",
-      "background:\{danger}11",
-      "border:1.5px solid \{danger}",
-      "border-radius:\{radius}",
-    ]) <| [
+    @html.div(
+      style=[
+        "display:flex",
+        "flex-direction:column",
+        "gap:12px",
+        "padding:16px",
+        "background:\{danger}11",
+        "border:1.5px solid \{danger}",
+        "border-radius:\{radius}",
+      ],
+    ) <| [
       @html.p(style=["margin:0", "font-weight:600", "color:\{danger}"]) <| "Are you sure? This action cannot be undone.",
       @html.div(style=["display:flex", "gap:8px"]) <| [
         @html.button(
@@ -44,18 +48,22 @@ fn Model::view_confirm_button(
   } else {
     @html.button(style=btn_danger_style, on_click=dispatch(ConfirmButtonClick)) <| "Delete Account"
   }
-  @html.div(style=[
-    "padding:24px",
-    "background:\{surface}",
-    "border-radius:\{radius}",
-    "border:1px solid \{border}",
-  ]) <| [
-    @html.h3(style=[
-      "margin:0 0 16px",
-      "font-size:16px",
-      "font-weight:600",
-      "color:\{text_primary}",
-    ]) <| "Confirm Button",
+  @html.div(
+    style=[
+      "padding:24px",
+      "background:\{surface}",
+      "border-radius:\{radius}",
+      "border:1px solid \{border}",
+    ],
+  ) <| [
+    @html.h3(
+      style=[
+        "margin:0 0 16px",
+        "font-size:16px",
+        "font-weight:600",
+        "color:\{text_primary}",
+      ],
+    ) <| "Confirm Button",
     content,
   ]
 }
@@ -68,35 +76,43 @@ fn Model::view_copy_clipboard(
   let s = self.copy_clipboard
   let btn_label = if s.copied { "Copied!" } else { "Copy" }
   let btn_color = if s.copied { success } else { primary }
-  @html.div(style=[
-    "padding:24px",
-    "background:\{surface}",
-    "border-radius:\{radius}",
-    "border:1px solid \{border}",
-  ]) <| [
-    @html.h3(style=[
-      "margin:0 0 16px",
-      "font-size:16px",
-      "font-weight:600",
-      "color:\{text_primary}",
-    ]) <| "Copy to Clipboard",
-    @html.div(style=[
-      "display:flex",
-      "align-items:stretch",
-      "gap:0",
-      "border:1.5px solid \{border}",
+  @html.div(
+    style=[
+      "padding:24px",
+      "background:\{surface}",
       "border-radius:\{radius}",
-      "overflow:hidden",
-    ]) <| [
-      @html.div(style=[
-        "flex:1",
-        "padding:10px 14px",
-        "background:\{surface_alt}",
-        "font-family:monospace",
-        "font-size:14px",
+      "border:1px solid \{border}",
+    ],
+  ) <| [
+    @html.h3(
+      style=[
+        "margin:0 0 16px",
+        "font-size:16px",
+        "font-weight:600",
         "color:\{text_primary}",
-        "word-break:break-all",
-      ]) <| s.text,
+      ],
+    ) <| "Copy to Clipboard",
+    @html.div(
+      style=[
+        "display:flex",
+        "align-items:stretch",
+        "gap:0",
+        "border:1.5px solid \{border}",
+        "border-radius:\{radius}",
+        "overflow:hidden",
+      ],
+    ) <| [
+      @html.div(
+        style=[
+          "flex:1",
+          "padding:10px 14px",
+          "background:\{surface_alt}",
+          "font-family:monospace",
+          "font-size:14px",
+          "color:\{text_primary}",
+          "word-break:break-all",
+        ],
+      ) <| s.text,
       @html.button(
         style=[
           "padding:10px 18px",
@@ -126,16 +142,18 @@ fn Model::view_undo_snackbar(
   let item_views : Array[@rabbita.Html] = []
   for i, item in s.items {
     item_views.push(
-      @html.div(style=[
-        "display:flex",
-        "align-items:center",
-        "justify-content:space-between",
-        "padding:10px 14px",
-        "background:\{surface_alt}",
-        "border:1px solid \{border}",
-        "border-radius:\{radius_sm}",
-        "margin-bottom:8px",
-      ]) <| [
+      @html.div(
+        style=[
+          "display:flex",
+          "align-items:center",
+          "justify-content:space-between",
+          "padding:10px 14px",
+          "background:\{surface_alt}",
+          "border:1px solid \{border}",
+          "border-radius:\{radius_sm}",
+          "margin-bottom:8px",
+        ],
+      ) <| [
         @html.span(style=["color:\{text_primary}", "font-size:14px"]) <| item,
         @html.button(
           style=[
@@ -154,22 +172,24 @@ fn Model::view_undo_snackbar(
     )
   }
   let snackbar = if s.visible {
-    @html.div(style=[
-      "position:fixed",
-      "bottom:24px",
-      "left:50%",
-      "transform:translateX(-50%)",
-      "background:#323232",
-      "color:#fff",
-      "padding:12px 20px",
-      "border-radius:\{radius}",
-      "display:flex",
-      "align-items:center",
-      "gap:16px",
-      "box-shadow:0 4px 16px rgba(0,0,0,0.18)",
-      "z-index:1000",
-      "font-size:14px",
-    ]) <| [
+    @html.div(
+      style=[
+        "position:fixed",
+        "bottom:24px",
+        "left:50%",
+        "transform:translateX(-50%)",
+        "background:#323232",
+        "color:#fff",
+        "padding:12px 20px",
+        "border-radius:\{radius}",
+        "display:flex",
+        "align-items:center",
+        "gap:16px",
+        "box-shadow:0 4px 16px rgba(0,0,0,0.18)",
+        "z-index:1000",
+        "font-size:14px",
+      ],
+    ) <| [
       @html.span() <| s.message,
       @html.button(
         style=[
@@ -194,25 +214,27 @@ fn Model::view_undo_snackbar(
   } else {
     @html.nothing
   }
-  @html.div(style=[
-    "padding:24px",
-    "background:\{surface}",
-    "border-radius:\{radius}",
-    "border:1px solid \{border}",
-    "position:relative",
-  ]) <| [
-    @html.h3(style=[
-      "margin:0 0 16px",
-      "font-size:16px",
-      "font-weight:600",
-      "color:\{text_primary}",
-    ]) <| "Undo Snackbar",
+  @html.div(
+    style=[
+      "padding:24px",
+      "background:\{surface}",
+      "border-radius:\{radius}",
+      "border:1px solid \{border}",
+      "position:relative",
+    ],
+  ) <| [
+    @html.h3(
+      style=[
+        "margin:0 0 16px",
+        "font-size:16px",
+        "font-weight:600",
+        "color:\{text_primary}",
+      ],
+    ) <| "Undo Snackbar",
     if s.items.is_empty() {
-      @html.p(style=[
-        "color:\{text_muted}",
-        "font-size:14px",
-        "text-align:center",
-      ]) <| "All items removed."
+      @html.p(
+        style=["color:\{text_muted}", "font-size:14px", "text-align:center"],
+      ) <| "All items removed."
     } else {
       @html.div(style=[]) <| item_views
     },
@@ -247,26 +269,32 @@ fn parse_markdown(source : String) -> @rabbita.Html {
       flush_list()
       let text = line.strip_prefix("# ").unwrap().to_string()
       nodes.push(
-        @html.h1(style=[
-          "font-size:22px", "font-weight:700", "margin:12px 0 6px", "color:#1a1a2e",
-        ]) <| text,
+        @html.h1(
+          style=[
+            "font-size:22px", "font-weight:700", "margin:12px 0 6px", "color:#1a1a2e",
+          ],
+        ) <| text,
       )
     } else if line.has_prefix("## ") {
       flush_list()
       let text = line.strip_prefix("## ").unwrap().to_string()
       nodes.push(
-        @html.h2(style=[
-          "font-size:18px", "font-weight:600", "margin:10px 0 4px", "color:#1a1a2e",
-        ]) <| text,
+        @html.h2(
+          style=[
+            "font-size:18px", "font-weight:600", "margin:10px 0 4px", "color:#1a1a2e",
+          ],
+        ) <| text,
       )
     } else if line.has_prefix("> ") {
       flush_list()
       let text = line.strip_prefix("> ").unwrap().to_string()
       nodes.push(
-        @html.blockquote(style=[
-          "border-left:4px solid #aaa", "margin:8px 0", "padding:6px 12px", "color:#555",
-          "background:#f7f7f7", "border-radius:0 4px 4px 0",
-        ]) <| text,
+        @html.blockquote(
+          style=[
+            "border-left:4px solid #aaa", "margin:8px 0", "padding:6px 12px", "color:#555",
+            "background:#f7f7f7", "border-radius:0 4px 4px 0",
+          ],
+        ) <| text,
       )
     } else if line.has_prefix("- ") {
       let text = line.strip_prefix("- ").unwrap().to_string()
@@ -291,21 +319,27 @@ fn Model::view_markdown(
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
   let s = self.markdown
-  @html.div(style=[
-    "padding:24px",
-    "background:\{surface}",
-    "border-radius:\{radius}",
-    "border:1px solid \{border}",
-  ]) <| [
-    @html.h3(style=[
-      "margin:0 0 16px",
-      "font-size:16px",
-      "font-weight:600",
-      "color:\{text_primary}",
-    ]) <| "Markdown Preview",
-    @html.div(style=[
-      "display:grid", "grid-template-columns:1fr 1fr", "gap:16px", "min-height:280px",
-    ]) <| [
+  @html.div(
+    style=[
+      "padding:24px",
+      "background:\{surface}",
+      "border-radius:\{radius}",
+      "border:1px solid \{border}",
+    ],
+  ) <| [
+    @html.h3(
+      style=[
+        "margin:0 0 16px",
+        "font-size:16px",
+        "font-weight:600",
+        "color:\{text_primary}",
+      ],
+    ) <| "Markdown Preview",
+    @html.div(
+      style=[
+        "display:grid", "grid-template-columns:1fr 1fr", "gap:16px", "min-height:280px",
+      ],
+    ) <| [
       @html.div(style=["display:flex", "flex-direction:column", "gap:6px"]) <| [
         @html.label(style=label_style) <| "Source",
         @html.textarea(
@@ -329,17 +363,19 @@ fn Model::view_markdown(
       ],
       @html.div(style=["display:flex", "flex-direction:column", "gap:6px"]) <| [
         @html.label(style=label_style) <| "Preview",
-        @html.div(style=[
-          "flex:1",
-          "min-height:240px",
-          "padding:12px",
-          "border:1.5px solid \{border}",
-          "border-radius:\{radius_sm}",
-          "background:#fff",
-          "overflow-y:auto",
-          "font-size:14px",
-          "line-height:1.6",
-        ]) <| [
+        @html.div(
+          style=[
+            "flex:1",
+            "min-height:240px",
+            "padding:12px",
+            "border:1.5px solid \{border}",
+            "border-radius:\{radius_sm}",
+            "background:#fff",
+            "overflow-y:auto",
+            "font-size:14px",
+            "line-height:1.6",
+          ],
+        ) <| [
           parse_markdown(s.source),
         ],
       ],
@@ -355,43 +391,49 @@ fn Model::view_spreadsheet(
   let s = self.spreadsheet
   let col_headers = ["A", "B", "C"]
   let header_cells : Array[@rabbita.Html] = [
-    @html.th(style=[
-      "padding:8px 12px",
-      "background:\{surface_alt}",
-      "border:1px solid \{border}",
-      "font-size:12px",
-      "color:\{text_muted}",
-      "font-weight:600",
-      "width:40px",
-      "text-align:center",
-    ]) <| "",
-  ]
-  for col_label in col_headers {
-    header_cells.push(
-      @html.th(style=[
-        "padding:8px 16px",
-        "background:\{surface_alt}",
-        "border:1px solid \{border}",
-        "font-size:12px",
-        "color:\{text_muted}",
-        "font-weight:700",
-        "text-align:center",
-        "min-width:80px",
-      ]) <| col_label,
-    )
-  }
-  let body_rows : Array[@rabbita.Html] = []
-  for r, row in s.cells {
-    let tds : Array[@rabbita.Html] = [
-      @html.td(style=[
-        "padding:6px 10px",
+    @html.th(
+      style=[
+        "padding:8px 12px",
         "background:\{surface_alt}",
         "border:1px solid \{border}",
         "font-size:12px",
         "color:\{text_muted}",
         "font-weight:600",
+        "width:40px",
         "text-align:center",
-      ]) <| "\{r + 1}",
+      ],
+    ) <| "",
+  ]
+  for col_label in col_headers {
+    header_cells.push(
+      @html.th(
+        style=[
+          "padding:8px 16px",
+          "background:\{surface_alt}",
+          "border:1px solid \{border}",
+          "font-size:12px",
+          "color:\{text_muted}",
+          "font-weight:700",
+          "text-align:center",
+          "min-width:80px",
+        ],
+      ) <| col_label,
+    )
+  }
+  let body_rows : Array[@rabbita.Html] = []
+  for r, row in s.cells {
+    let tds : Array[@rabbita.Html] = [
+      @html.td(
+        style=[
+          "padding:6px 10px",
+          "background:\{surface_alt}",
+          "border:1px solid \{border}",
+          "font-size:12px",
+          "color:\{text_muted}",
+          "font-weight:600",
+          "text-align:center",
+        ],
+      ) <| "\{r + 1}",
     ]
     for c, cell in row {
       let is_selected = s.selected_row == r && s.selected_col == c
@@ -459,33 +501,37 @@ fn Model::view_spreadsheet(
         on_click=dispatch(SpreadsheetStartEdit),
         disabled=s.selected_row < 0,
       ) <| "Edit Cell",
-      @html.span(style=[
-        "font-size:12px",
-        "color:\{text_muted}",
-        "align-self:center",
-      ]) <| (if s.selected_row >= 0 {
+      @html.span(
+        style=["font-size:12px", "color:\{text_muted}", "align-self:center"],
+      ) <| (if s.selected_row >= 0 {
         "Selected: \{col_headers[s.selected_col]}\{s.selected_row + 1}"
       } else {
         "Click a cell to select"
       }),
     ]
   }
-  @html.div(style=[
-    "padding:24px",
-    "background:\{surface}",
-    "border-radius:\{radius}",
-    "border:1px solid \{border}",
-  ]) <| [
-    @html.h3(style=[
-      "margin:0 0 16px",
-      "font-size:16px",
-      "font-weight:600",
-      "color:\{text_primary}",
-    ]) <| "Spreadsheet",
+  @html.div(
+    style=[
+      "padding:24px",
+      "background:\{surface}",
+      "border-radius:\{radius}",
+      "border:1px solid \{border}",
+    ],
+  ) <| [
+    @html.h3(
+      style=[
+        "margin:0 0 16px",
+        "font-size:16px",
+        "font-weight:600",
+        "color:\{text_primary}",
+      ],
+    ) <| "Spreadsheet",
     @html.div(style=["overflow-x:auto"]) <| [
-      @html.table(style=[
-        "border-collapse:collapse", "width:100%", "font-family:monospace",
-      ]) <| [
+      @html.table(
+        style=[
+          "border-collapse:collapse", "width:100%", "font-family:monospace",
+        ],
+      ) <| [
         @html.thead(style=[]) <| [
           @html.tr(style=[]) <| header_cells,
         ],
@@ -550,57 +596,69 @@ fn Model::view_drag_sort(
       ) <| "\u{2193}"
     }
     cards.push(
-      @html.div(style=[
-        "display:flex",
-        "align-items:center",
-        "gap:12px",
-        "padding:12px 16px",
-        "background:#fff",
-        "border:1.5px solid \{border}",
-        "border-radius:\{radius}",
-        "margin-bottom:8px",
-        "box-shadow:0 1px 4px rgba(0,0,0,0.05)",
-        "transition:box-shadow 0.15s",
-      ]) <| [
-        @html.span(style=[
-          "font-size:12px",
-          "font-weight:700",
-          "color:\{text_muted}",
-          "width:24px",
-          "text-align:center",
-          "flex-shrink:0",
-        ]) <| "\{i + 1}",
-        @html.div(style=[
-          "width:4px",
-          "height:24px",
-          "background:\{primary}",
-          "border-radius:2px",
-          "flex-shrink:0",
-        ]) <| "",
-        @html.span(style=[
-          "flex:1",
-          "font-size:14px",
-          "color:\{text_primary}",
-          "font-weight:500",
-        ]) <| item,
+      @html.div(
+        style=[
+          "display:flex",
+          "align-items:center",
+          "gap:12px",
+          "padding:12px 16px",
+          "background:#fff",
+          "border:1.5px solid \{border}",
+          "border-radius:\{radius}",
+          "margin-bottom:8px",
+          "box-shadow:0 1px 4px rgba(0,0,0,0.05)",
+          "transition:box-shadow 0.15s",
+        ],
+      ) <| [
+        @html.span(
+          style=[
+            "font-size:12px",
+            "font-weight:700",
+            "color:\{text_muted}",
+            "width:24px",
+            "text-align:center",
+            "flex-shrink:0",
+          ],
+        ) <| "\{i + 1}",
+        @html.div(
+          style=[
+            "width:4px",
+            "height:24px",
+            "background:\{primary}",
+            "border-radius:2px",
+            "flex-shrink:0",
+          ],
+        ) <| "",
+        @html.span(
+          style=[
+            "flex:1",
+            "font-size:14px",
+            "color:\{text_primary}",
+            "font-weight:500",
+          ],
+        ) <| item,
         @html.div(style=["display:flex", "gap:6px", "flex-shrink:0"]) <| [
           up_btn, down_btn,
         ],
       ],
     )
   }
-  @html.div(style=[
-    "padding:24px",
-    "background:\{surface}",
-    "border-radius:\{radius}",
-    "border:1px solid \{border}",
-  ]) <| [
-    @html.h3(style=[
-      "margin:0 0 4px",
-      "font-size:16px",
-      "font-weight:600",
-      "color:\{text_primary}",
-    ]) <| "Drag Sort",
+  @html.div(
+    style=[
+      "padding:24px",
+      "background:\{surface}",
+      "border-radius:\{radius}",
+      "border:1px solid \{border}",
+    ],
+  ) <| [
+    @html.h3(
+      style=[
+        "margin:0 0 4px",
+        "font-size:16px",
+        "font-weight:600",
+        "color:\{text_primary}",
+      ],
+    ) <| "Drag Sort",
     @html.p(style=["margin:0 0 16px", "font-size:13px", "color:\{text_muted}"]) <| "Use the arrows to reorder items.",
     @html.div(style=[]) <| cards,
   ]

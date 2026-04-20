@@ -145,7 +145,9 @@ test "insert_autocomplete: empty partial appends" {
 ///|
 /// Helper: replay messages and return final Model.
 fn replay(model : Model, msgs : Array[Msg]) -> Model {
-  fn noop(_msg : Msg) -> @rabbita.Cmd { @rabbita.none }
+  fn noop(_msg : Msg) -> @rabbita.Cmd {
+    @rabbita.none
+  }
   let mut m = model
   for msg in msgs {
     let (_, next) = m.update(noop, msg)
@@ -245,7 +247,7 @@ test "view state: dropdown item highlighted by autocomplete_index" {
   let m = replay(test_model(), [
     StartEditWith("="),
     UpdateEdit("=SU"),
-    AutocompleteNav(1),  // Move to first suggestion
+    AutocompleteNav(1), // Move to first suggestion
   ])
   assert_eq(m.autocomplete_index, 0)
   // View: first dropdown item should have blue background
@@ -279,7 +281,7 @@ test "view state: formula refs available for colored highlighting" {
   m.sheets[0].set_cell("A1", "10")
   m.sheets[0].set_cell("B1", "20")
   m.sheets[0].set_cell("C1", "=A1+B1")
-  let m2 = replay(m, [SelectCell(2, 0)])  // Select C1
+  let m2 = replay(m, [SelectCell(2, 0)]) // Select C1
   // View reads: selected_cell().raw = "=A1+B1"
   // extract_reference_groups("=A1+B1") returns refs with group indices
   // View should highlight A1 and B1 with distinct colors
@@ -311,7 +313,7 @@ test "view state: formula preview evaluates during editing" {
   m.sheets[0].set_cell("A1", "10")
   m.sheets[0].set_cell("A2", "20")
   let m2 = replay(m, [
-    SelectCell(0, 2),  // Select A3
+    SelectCell(0, 2), // Select A3
     StartEditWith("="),
     UpdateEdit("=SUM(A1:A2)"),
   ])

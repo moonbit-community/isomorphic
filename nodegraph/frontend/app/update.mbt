@@ -331,12 +331,12 @@ pub fn Model::update(
             break (
               n.x + node_w,
               n.y +
-                header_h +
-                cfg_h +
-                ins_h +
-                16 +
-                self.connecting_from_port * port_stride +
-                8,
+              header_h +
+              cfg_h +
+              ins_h +
+              16 +
+              self.connecting_from_port * port_stride +
+              8,
             )
           }
         } nobreak {

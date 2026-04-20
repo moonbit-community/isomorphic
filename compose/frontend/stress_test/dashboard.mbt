@@ -45,21 +45,25 @@ fn DashboardModel::view(
 ) -> @rabbita.Html {
   let bg = if self.dark_mode { "#0a0a0a" } else { "#f0f0f0" }
   let fg = if self.dark_mode { "#eee" } else { "#111" }
-  @html.div(style=[
-    "background: " + bg,
-    "color: " + fg,
-    "padding: 20px",
-    "border-radius: 12px",
-    "font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace",
-  ]) <| [
+  @html.div(
+    style=[
+      "background: " + bg,
+      "color: " + fg,
+      "padding: 20px",
+      "border-radius: 12px",
+      "font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace",
+    ],
+  ) <| [
     // Header
-    @html.div(style=[
-      "display: flex", "justify-content: space-between", "align-items: center", "margin-bottom: 16px",
-      "border-bottom: 1px solid #333", "padding-bottom: 10px",
-    ]) <| [
-      @html.div(style=[
-        "font-size: 1.2em", "font-weight: bold", "letter-spacing: 3px",
-      ]) <| "STUDIO CONTROL",
+    @html.div(
+      style=[
+        "display: flex", "justify-content: space-between", "align-items: center",
+        "margin-bottom: 16px", "border-bottom: 1px solid #333", "padding-bottom: 10px",
+      ],
+    ) <| [
+      @html.div(
+        style=["font-size: 1.2em", "font-weight: bold", "letter-spacing: 3px"],
+      ) <| "STUDIO CONTROL",
       @html.button(
         style=[
           "padding: 5px 14px",
@@ -84,10 +88,12 @@ fn DashboardModel::view(
       self.color.view(fn(msg) { dispatch(Color(msg)) }),
     ],
     // Stats footer
-    @html.div(style=[
-      "margin-top: 12px", "padding-top: 10px", "border-top: 1px solid #333", "font-size: 0.65em",
-      "color: #666", "text-align: center", "letter-spacing: 0.5px",
-    ]) <| "6 nesting levels \u{00B7} 7 message layers \u{00B7} ~78 state values \u{00B7} TEA all the way down",
+    @html.div(
+      style=[
+        "margin-top: 12px", "padding-top: 10px", "border-top: 1px solid #333", "font-size: 0.65em",
+        "color: #666", "text-align: center", "letter-spacing: 0.5px",
+      ],
+    ) <| "6 nesting levels \u{00B7} 7 message layers \u{00B7} ~78 state values \u{00B7} TEA all the way down",
   ]
 }
 

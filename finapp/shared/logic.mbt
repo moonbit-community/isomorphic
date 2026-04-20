@@ -18,8 +18,9 @@ pub fn format_amount(cents : Int) -> String {
 pub fn parse_amount(s : String) -> Int {
   // Split on '.'
   let chars = s.to_array()
-  let (dollar_str, after_dot) = for c in chars
-    ; found_dot = false, dollar_str = "", after_dot = "" {
+  let (dollar_str, after_dot) = for
+    c in chars
+    found_dot = false, dollar_str = "", after_dot = "" {
     if c == '.' {
       continue true, dollar_str, after_dot
     } else if found_dot {
@@ -33,7 +34,9 @@ pub fn parse_amount(s : String) -> Int {
     (dollar_str, after_dot)
   }
   let dollars = if !dollar_str.is_empty() {
-    @strconv.parse_int(dollar_str) catch { _ => 0 }
+    @strconv.parse_int(dollar_str) catch {
+      _ => 0
+    }
   } else {
     0
   }
@@ -42,7 +45,9 @@ pub fn parse_amount(s : String) -> Int {
     v * 10
   } else if after_dot.length() >= 2 {
     let two = after_dot[0:2].to_string()
-    @strconv.parse_int(two) catch { _ => 0 }
+    @strconv.parse_int(two) catch {
+      _ => 0
+    }
   } else {
     0
   }

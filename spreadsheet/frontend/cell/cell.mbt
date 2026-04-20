@@ -49,8 +49,7 @@ pub impl Show for Value with output(self, logger) {
 pub impl Eq for Value with equal(self, other) {
   match (self, other) {
     (Empty, Empty) => true
-    (Num(a), Num(b)) =>
-      if a.is_nan() && b.is_nan() { true } else { a == b }
+    (Num(a), Num(b)) => if a.is_nan() && b.is_nan() { true } else { a == b }
     (Text(a), Text(b)) => a == b
     (Error(a), Error(b)) => a == b
     _ => false

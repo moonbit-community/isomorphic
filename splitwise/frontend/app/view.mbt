@@ -69,18 +69,20 @@ fn Model::view_people_card(
         let initial = p.name.iter().collect()[0].to_string().to_upper()
         let color = person_color(p.id)
         @html.div(style=person_chip_style) <| [
-          @html.div(style=[
-            "width: 26px",
-            "height: 26px",
-            "border-radius: 50%",
-            "background: \{color}",
-            "color: white",
-            "font-size: 12px",
-            "font-weight: 700",
-            "display: flex",
-            "align-items: center",
-            "justify-content: center",
-          ]) <| initial,
+          @html.div(
+            style=[
+              "width: 26px",
+              "height: 26px",
+              "border-radius: 50%",
+              "background: \{color}",
+              "color: white",
+              "font-size: 12px",
+              "font-weight: 700",
+              "display: flex",
+              "align-items: center",
+              "justify-content: center",
+            ],
+          ) <| initial,
           @html.span(style=person_name_style) <| p.name,
         ]
       })
@@ -144,19 +146,21 @@ fn Model::view_expenses_list(
     }
     @html.div(style=expense_row_style) <| [
       // Payer avatar
-      @html.div(style=[
-        "width: 36px",
-        "height: 36px",
-        "border-radius: 50%",
-        "flex-shrink: 0",
-        "background: \{payer_color}",
-        "color: white",
-        "font-size: 14px",
-        "font-weight: 700",
-        "display: flex",
-        "align-items: center",
-        "justify-content: center",
-      ]) <| payer_initial,
+      @html.div(
+        style=[
+          "width: 36px",
+          "height: 36px",
+          "border-radius: 50%",
+          "flex-shrink: 0",
+          "background: \{payer_color}",
+          "color: white",
+          "font-size: 14px",
+          "font-weight: 700",
+          "display: flex",
+          "align-items: center",
+          "justify-content: center",
+        ],
+      ) <| payer_initial,
       // Description + subtitle
       @html.div(style=expense_info_style) <| [
         @html.div(style=expense_desc_style) <| expense.description,
@@ -180,36 +184,40 @@ fn Model::view_settlements(self : Model) -> @rabbita.Html {
     @html.div(style=settlement_row_style) <| [
       // From person
       @html.div(style=settlement_person_style) <| [
-        @html.div(style=[
-          "width: 30px",
-          "height: 30px",
-          "border-radius: 50%",
-          "background: \{person_color(s.from_id)}",
-          "color: white",
-          "font-size: 12px",
-          "font-weight: 700",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-        ]) <| s.from_name.iter().collect()[0].to_string().to_upper(),
+        @html.div(
+          style=[
+            "width: 30px",
+            "height: 30px",
+            "border-radius: 50%",
+            "background: \{person_color(s.from_id)}",
+            "color: white",
+            "font-size: 12px",
+            "font-weight: 700",
+            "display: flex",
+            "align-items: center",
+            "justify-content: center",
+          ],
+        ) <| s.from_name.iter().collect()[0].to_string().to_upper(),
         @html.span(style=settlement_name_style) <| s.from_name,
       ],
       // Arrow
       @html.div(style=settlement_arrow_style) <| "->",
       // To person
       @html.div(style=settlement_person_style) <| [
-        @html.div(style=[
-          "width: 30px",
-          "height: 30px",
-          "border-radius: 50%",
-          "background: \{person_color(s.to_id)}",
-          "color: white",
-          "font-size: 12px",
-          "font-weight: 700",
-          "display: flex",
-          "align-items: center",
-          "justify-content: center",
-        ]) <| s.to_name.iter().collect()[0].to_string().to_upper(),
+        @html.div(
+          style=[
+            "width: 30px",
+            "height: 30px",
+            "border-radius: 50%",
+            "background: \{person_color(s.to_id)}",
+            "color: white",
+            "font-size: 12px",
+            "font-weight: 700",
+            "display: flex",
+            "align-items: center",
+            "justify-content: center",
+          ],
+        ) <| s.to_name.iter().collect()[0].to_string().to_upper(),
         @html.span(style=settlement_name_style) <| s.to_name,
       ],
       // Amount

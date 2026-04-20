@@ -54,7 +54,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
 
   // Seed: all non-formula cells that appear as dependencies
   for k, _ in reverse_deps {
-    if !(is_formula.get(k).unwrap_or(false)) {
+    if !is_formula.get(k).unwrap_or(false) {
       queue.push(k)
       resolved[k] = true
     }
@@ -100,8 +100,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     match self.cells.get(k) {
       Some(c) => {
         let value = @formula.evaluate(c.raw) <| fn(r) {
-          new_cells.get_or_default(r, Cell()).value
-        }
+            new_cells.get_or_default(r, Cell()).value
+          }
         // Keep existing value if re-evaluation fails (preserves cached xlsx results)
         let final_value = match value {
           Error(_) =>
@@ -165,7 +165,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   let down_in : Map[String, Int] = {}
   let down_rev : Map[String, Array[String]] = {}
   for k in unresolved {
-    if !(is_cycle_member.get(k).unwrap_or(false)) {
+    if !is_cycle_member.get(k).unwrap_or(false) {
       downstream.push(k)
       // Count only unresolved non-cycle deps
       let mut deg = 0
@@ -173,7 +173,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
         Some(ks) =>
           for d in ks {
             if unresolved_set.get(d).unwrap_or(false) &&
-              !(is_cycle_member.get(d).unwrap_or(false)) {
+              !is_cycle_member.get(d).unwrap_or(false) {
               deg += 1
               match down_rev.get(d) {
                 Some(arr) => arr.push(k)
@@ -199,8 +199,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     match self.cells.get(k) {
       Some(c) => {
         let value = @formula.evaluate(c.raw) <| fn(r) {
-          new_cells.get_or_default(r, Cell()).value
-        }
+            new_cells.get_or_default(r, Cell()).value
+          }
         let final_value = match value {
           Error(_) =>
             match c.value {
@@ -251,7 +251,7 @@ fn reaches_self(
             return true
           }
           if unresolved_set.get(dep).unwrap_or(false) &&
-            !(visited.get(dep).unwrap_or(false)) {
+            !visited.get(dep).unwrap_or(false) {
             visited[dep] = true
             stack.push(dep)
           }

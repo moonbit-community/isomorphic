@@ -5,11 +5,13 @@ fn Model::view_editor(
 ) -> @rabbita.Html {
   @html.div() <| [
     // Header bar
-    @html.div(style=[
-      "display: flex", "align-items: center", "gap: 10px", "margin-bottom: 12px",
-      "padding: 10px 14px", "background: linear-gradient(135deg, #16213e, #0f3460)",
-      "border-radius: 8px", "border: 1px solid #1b2838",
-    ]) <| [
+    @html.div(
+      style=[
+        "display: flex", "align-items: center", "gap: 10px", "margin-bottom: 12px",
+        "padding: 10px 14px", "background: linear-gradient(135deg, #16213e, #0f3460)",
+        "border-radius: 8px", "border: 1px solid #1b2838",
+      ],
+    ) <| [
       @html.button(
         style=[
           "padding: 6px 14px", "background: rgba(255,255,255,0.08)", "color: #ccc",
@@ -17,10 +19,12 @@ fn Model::view_editor(
         ],
         on_click=dispatch(GoToList),
       ) <| "\u{2190} Back",
-      @html.div(style=[
-        "flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 2px",
-        "color: #e94560",
-      ]) <| "EDITOR",
+      @html.div(
+        style=[
+          "flex: 1", "font-weight: 700", "font-size: 1.1em", "letter-spacing: 2px",
+          "color: #e94560",
+        ],
+      ) <| "EDITOR",
       @html.button(
         style=[
           "padding: 6px 14px",
@@ -77,10 +81,12 @@ fn Model::view_editor(
     // Connections list
     self.view_connections(dispatch),
     // Branding footer
-    @html.div(style=[
-      "text-align: center", "padding: 12px", "margin-top: 8px", "font-size: 0.65em",
-      "color: #444", "letter-spacing: 1px", "border-top: 1px solid #1b2838",
-    ]) <| "Built with MoonBit + TEA \u{00B7} Type-safe visual dataflow \u{00B7} Same validation runs on frontend & backend",
+    @html.div(
+      style=[
+        "text-align: center", "padding: 12px", "margin-top: 8px", "font-size: 0.65em",
+        "color: #444", "letter-spacing: 1px", "border-top: 1px solid #1b2838",
+      ],
+    ) <| "Built with MoonBit + TEA \u{00B7} Type-safe visual dataflow \u{00B7} Same validation runs on frontend & backend",
   ]
 }
 
@@ -107,25 +113,29 @@ fn Model::view_connect_banner(
   } nobreak {
     ("?", "?", "#888", "?")
   }
-  @html.div(style=[
-    "background: #0f3460",
-    "padding: 10px 16px",
-    "border-radius: 6px",
-    "margin-bottom: 10px",
-    "display: flex",
-    "justify-content: space-between",
-    "align-items: center",
-    "border: 2px solid \{port_color}",
-    "animation: fadeIn 0.2s ease",
-  ]) <| [
+  @html.div(
+    style=[
+      "background: #0f3460",
+      "padding: 10px 16px",
+      "border-radius: 6px",
+      "margin-bottom: 10px",
+      "display: flex",
+      "justify-content: space-between",
+      "align-items: center",
+      "border: 2px solid \{port_color}",
+      "animation: fadeIn 0.2s ease",
+    ],
+  ) <| [
     @html.div(style=["display: flex", "align-items: center", "gap: 8px"]) <| [
-      @html.div(style=[
-        "width: 12px",
-        "height: 12px",
-        "border-radius: 50%",
-        "background: \{port_color}",
-        "animation: pulseGlow 1s infinite",
-      ]) <| "",
+      @html.div(
+        style=[
+          "width: 12px",
+          "height: 12px",
+          "border-radius: 50%",
+          "background: \{port_color}",
+          "animation: pulseGlow 1s infinite",
+        ],
+      ) <| "",
       @html.span() <| "Connecting \{type_label} from \{from_label}.\{port_label} \u{2192} click a compatible input port",
     ],
     @html.button(
@@ -144,19 +154,23 @@ fn Model::view_eval_status(self : Model) -> @rabbita.Html {
     None => @html.text("")
     Some(result) =>
       if result.has_cycle {
-        @html.div(style=[
-          "background: #ff5252", "color: #fff", "padding: 8px 14px", "border-radius: 6px",
-          "margin-bottom: 10px", "font-size: 0.85em",
-        ]) <| "\u{26A0} Cycle detected! Acyclic nodes evaluated, but cyclic nodes are skipped."
+        @html.div(
+          style=[
+            "background: #ff5252", "color: #fff", "padding: 8px 14px", "border-radius: 6px",
+            "margin-bottom: 10px", "font-size: 0.85em",
+          ],
+        ) <| "\u{26A0} Cycle detected! Acyclic nodes evaluated, but cyclic nodes are skipped."
       } else if !result.errors.is_empty() {
         let msg = result.errors.map(fn(e) {
           let (id, err) = e
           "Node #\{id}: \{err}"
         })
-        @html.div(style=[
-          "background: #ff9800", "color: #000", "padding: 8px 14px", "border-radius: 6px",
-          "margin-bottom: 10px", "font-size: 0.85em",
-        ]) <| "\u{26A0} \{msg.length()} error(s) during evaluation"
+        @html.div(
+          style=[
+            "background: #ff9800", "color: #000", "padding: 8px 14px", "border-radius: 6px",
+            "margin-bottom: 10px", "font-size: 0.85em",
+          ],
+        ) <| "\u{26A0} \{msg.length()} error(s) during evaluation"
       } else {
         @html.text("")
       }

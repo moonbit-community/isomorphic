@@ -126,19 +126,21 @@ fn view_contact_row(
   let initials = @shared.get_initials(contact.name)
   @html.div(style=contact_row_style) <| [
     // Avatar circle with initials
-    @html.div(style=[
-      "width: 42px",
-      "height: 42px",
-      "border-radius: 50%",
-      "flex-shrink: 0",
-      "background: \{color}",
-      "color: white",
-      "font-size: 15px",
-      "font-weight: 700",
-      "display: flex",
-      "align-items: center",
-      "justify-content: center",
-    ]) <| initials,
+    @html.div(
+      style=[
+        "width: 42px",
+        "height: 42px",
+        "border-radius: 50%",
+        "flex-shrink: 0",
+        "background: \{color}",
+        "color: white",
+        "font-size: 15px",
+        "font-weight: 700",
+        "display: flex",
+        "align-items: center",
+        "justify-content: center",
+      ],
+    ) <| initials,
     // Name, email, phone
     @html.div(style=contact_info_style) <| [
       @html.div(style=contact_name_style) <| contact.name,

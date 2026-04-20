@@ -4,9 +4,11 @@ pub fn Model::view(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=[
-    "max-width: 960px", "margin: 0 auto", "padding: 16px", "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-  ]) <| [
+  @html.div(
+    style=[
+      "max-width: 960px", "margin: 0 auto", "padding: 16px", "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    ],
+  ) <| [
     self.view_nav(dispatch),
     self.view_error(dispatch),
     match self.page {
@@ -60,10 +62,12 @@ fn Model::view_nav(
       ) <| label,
     )
   }
-  @html.div(style=[
-    "display: flex", "gap: 4px", "background: #e8eaed", "padding: 4px 4px 0", "border-radius: 8px 8px 0 0",
-    "margin-bottom: 0",
-  ]) <| items
+  @html.div(
+    style=[
+      "display: flex", "gap: 4px", "background: #e8eaed", "padding: 4px 4px 0", "border-radius: 8px 8px 0 0",
+      "margin-bottom: 0",
+    ],
+  ) <| items
 }
 
 ///|
@@ -75,10 +79,12 @@ fn Model::view_error(
   if self.error.is_empty() {
     return @html.text() <| ""
   }
-  @html.div(style=[
-    "background: #fce4ec", "color: #c62828", "padding: 10px 16px", "border-radius: 0 0 6px 6px",
-    "margin-bottom: 12px", "display: flex", "justify-content: space-between", "align-items: center",
-  ]) <| [
+  @html.div(
+    style=[
+      "background: #fce4ec", "color: #c62828", "padding: 10px 16px", "border-radius: 0 0 6px 6px",
+      "margin-bottom: 12px", "display: flex", "justify-content: space-between", "align-items: center",
+    ],
+  ) <| [
     @html.span() <| self.error,
     @html.button(
       style=[

@@ -5,13 +5,18 @@ fn Model::view_transactions(
   self : Model,
   dispatch : @rabbita.Dispatch[Msg],
 ) -> @rabbita.Html {
-  @html.div(style=[
-    "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
-  ]) <| [
+  @html.div(
+    style=[
+      "background: #fff", "border-radius: 0 0 8px 8px", "padding: 20px", "box-shadow: 0 1px 3px rgba(0,0,0,0.1)",
+    ],
+  ) <| [
     // Header + add button
-    @html.div(style=[
-      "display: flex", "justify-content: space-between", "align-items: center", "margin-bottom: 16px",
-    ]) <| [
+    @html.div(
+      style=[
+        "display: flex", "justify-content: space-between", "align-items: center",
+        "margin-bottom: 16px",
+      ],
+    ) <| [
       @html.h2(style=["font-size: 1.1em", "color: #333"]) <| "Transactions",
       @html.button(
         style=[
@@ -75,24 +80,36 @@ fn Model::view_transaction_form(
       )
     }
   }
-  @html.form(on_submit=dispatch(SubmitTransaction), style=[
-    "background: #f8f9fa", "padding: 16px", "border-radius: 8px", "margin-bottom: 16px",
-    "display: flex", "flex-direction: column", "gap: 10px",
-  ]) <| [
+  @html.form(
+    on_submit=dispatch(SubmitTransaction),
+    style=[
+      "background: #f8f9fa", "padding: 16px", "border-radius: 8px", "margin-bottom: 16px",
+      "display: flex", "flex-direction: column", "gap: 10px",
+    ],
+  ) <| [
     // Type selector
     @html.div(style=["display: flex", "gap: 8px"]) <| [
-      @html.select(on_change=fn(v) { dispatch(SetFormType(v)) }, style=[
-        "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-      ]) <| type_options,
-      @html.select(on_change=fn(v) { dispatch(SetFormAccountId(v)) }, style=[
-        "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-      ]) <| account_options,
+      @html.select(
+        on_change=fn(v) { dispatch(SetFormType(v)) },
+        style=[
+          "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+        ],
+      ) <| type_options,
+      @html.select(
+        on_change=fn(v) { dispatch(SetFormAccountId(v)) },
+        style=[
+          "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+        ],
+      ) <| account_options,
     ],
     // Category + amount
     @html.div(style=["display: flex", "gap: 8px"]) <| [
-      @html.select(on_change=fn(v) { dispatch(SetFormCategoryId(v)) }, style=[
-        "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
-      ]) <| category_options,
+      @html.select(
+        on_change=fn(v) { dispatch(SetFormCategoryId(v)) },
+        style=[
+          "flex: 1", "padding: 8px", "border: 1px solid #ddd", "border-radius: 4px",
+        ],
+      ) <| category_options,
       @html.input(
         input_type=Text,
         placeholder="Amount (e.g. 42.50)",
@@ -123,10 +140,13 @@ fn Model::view_transaction_form(
         ],
       ) <| "",
     ],
-    @html.button(type_="submit", style=[
-      "padding: 10px", "background: #1a73e8", "color: #fff", "border: none", "border-radius: 6px",
-      "cursor: pointer", "font-weight: 600",
-    ]) <| "Save Transaction",
+    @html.button(
+      type_="submit",
+      style=[
+        "padding: 10px", "background: #1a73e8", "color: #fff", "border: none", "border-radius: 6px",
+        "cursor: pointer", "font-weight: 600",
+      ],
+    ) <| "Save Transaction",
   ]
 }
 
@@ -147,15 +167,24 @@ fn Model::view_transaction_filters(
     @html.option(value="income") <| "Income",
     @html.option(value="expense") <| "Expense",
   ]
-  @html.div(style=[
-    "display: flex", "gap: 8px", "margin-bottom: 12px", "padding-bottom: 12px", "border-bottom: 1px solid #eee",
-  ]) <| [
-    @html.select(on_change=fn(v) { dispatch(SetFilterAccount(v)) }, style=[
-      "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
-    ]) <| account_options,
-    @html.select(on_change=fn(v) { dispatch(SetFilterType(v)) }, style=[
-      "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
-    ]) <| type_options,
+  @html.div(
+    style=[
+      "display: flex", "gap: 8px", "margin-bottom: 12px", "padding-bottom: 12px",
+      "border-bottom: 1px solid #eee",
+    ],
+  ) <| [
+    @html.select(
+      on_change=fn(v) { dispatch(SetFilterAccount(v)) },
+      style=[
+        "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
+      ],
+    ) <| account_options,
+    @html.select(
+      on_change=fn(v) { dispatch(SetFilterType(v)) },
+      style=[
+        "padding: 6px 10px", "border: 1px solid #ddd", "border-radius: 4px", "font-size: 0.85em",
+      ],
+    ) <| type_options,
   ]
 }
 
@@ -175,9 +204,11 @@ fn Model::view_transaction_list(
     acct_ok && type_ok
   })
   if filtered.is_empty() {
-    return @html.p(style=[
-        "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
-      ]) <| "No transactions found."
+    return @html.p(
+        style=[
+          "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
+        ],
+      ) <| "No transactions found."
   }
   let rows : Array[@rabbita.Html] = filtered.map(fn(t) {
     let cat = find_category(self.categories, t.category_id)
@@ -198,33 +229,39 @@ fn Model::view_transaction_list(
       Income => "+"
       Expense => "-"
     }
-    @html.div(style=[
-      "display: flex", "align-items: center", "padding: 10px 0", "border-bottom: 1px solid #f0f0f0",
-      "gap: 10px",
-    ]) <| [
+    @html.div(
+      style=[
+        "display: flex", "align-items: center", "padding: 10px 0", "border-bottom: 1px solid #f0f0f0",
+        "gap: 10px",
+      ],
+    ) <| [
       // Category icon
-      @html.div(style=[
-        "width: 36px",
-        "height: 36px",
-        "border-radius: 50%",
-        "background: \{color}20",
-        "display: flex",
-        "align-items: center",
-        "justify-content: center",
-      ]) <| icon,
+      @html.div(
+        style=[
+          "width: 36px",
+          "height: 36px",
+          "border-radius: 50%",
+          "background: \{color}20",
+          "display: flex",
+          "align-items: center",
+          "justify-content: center",
+        ],
+      ) <| icon,
       // Description + meta
       @html.div(style=["flex: 1"]) <| [
         @html.div(style=["font-size: 0.9em", "font-weight: 500"]) <| t.description,
         @html.div(style=["font-size: 0.75em", "color: #999"]) <| "\{t.date} \u{00B7} \{acct_name}",
       ],
       // Amount
-      @html.div(style=[
-        "font-weight: 700",
-        "font-size: 0.95em",
-        "color: \{amount_color}",
-        "min-width: 80px",
-        "text-align: right",
-      ]) <| "\{sign}\{@shared.format_amount(t.amount)}",
+      @html.div(
+        style=[
+          "font-weight: 700",
+          "font-size: 0.95em",
+          "color: \{amount_color}",
+          "min-width: 80px",
+          "text-align: right",
+        ],
+      ) <| "\{sign}\{@shared.format_amount(t.amount)}",
       // Delete
       @html.button(
         style=[

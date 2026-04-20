@@ -126,11 +126,13 @@ fn Model::view_data_table(
     "border-bottom: 1px solid \{border}",
   ]
   @html.div(style=["display: flex", "flex-direction: column", "gap: 12px"]) <| [
-    @html.div(style=[
-      "border: 1px solid \{border}",
-      "border-radius: \{radius}",
-      "overflow: hidden",
-    ]) <| [
+    @html.div(
+      style=[
+        "border: 1px solid \{border}",
+        "border-radius: \{radius}",
+        "overflow: hidden",
+      ],
+    ) <| [
       @html.table(style=["width: 100%", "border-collapse: collapse"]) <| [
         @html.thead(style=[]) <| [
           @html.tr(style=[]) <| ({
@@ -190,13 +192,15 @@ fn Model::view_data_table(
                 @html.td(style=td_style) <| row.email,
                 @html.td(style=td_style) <| row.role,
                 @html.td(style=td_style) <| [
-                  @html.span(style=[
-                    "padding: 2px 8px",
-                    "border-radius: \{radius_full}",
-                    "font-size: 12px",
-                    "font-weight: 600",
-                    "color: \{status_color}",
-                  ]) <| row.status,
+                  @html.span(
+                    style=[
+                      "padding: 2px 8px",
+                      "border-radius: \{radius_full}",
+                      "font-size: 12px",
+                      "font-weight: 600",
+                      "color: \{status_color}",
+                    ],
+                  ) <| row.status,
                 ],
               ],
             )
@@ -205,13 +209,15 @@ fn Model::view_data_table(
         }),
       ],
     ],
-    @html.div(style=[
-      "display: flex",
-      "align-items: center",
-      "justify-content: space-between",
-      "font-size: 13px",
-      "color: \{text_secondary}",
-    ]) <| [
+    @html.div(
+      style=[
+        "display: flex",
+        "align-items: center",
+        "justify-content: space-between",
+        "font-size: 13px",
+        "color: \{text_secondary}",
+      ],
+    ) <| [
       @html.span(style=[]) <| "Showing \{page_start + 1}-\{page_end} of \{total}",
       @html.div(style=["display: flex", "gap: 8px"]) <| [
         @html.button(
@@ -242,39 +248,45 @@ fn Model::view_calendar(
   let first_dow = day_of_week(cal.year, cal.month, 1)
   let num_days = days_in_month(cal.year, cal.month)
   let day_labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-  @html.div(style=[
-    "display: flex", "flex-direction: column", "gap: 12px", "max-width: 320px",
-  ]) <| [
-    @html.div(style=[
-      "display: flex", "align-items: center", "justify-content: space-between",
-    ]) <| [
+  @html.div(
+    style=[
+      "display: flex", "flex-direction: column", "gap: 12px", "max-width: 320px",
+    ],
+  ) <| [
+    @html.div(
+      style=[
+        "display: flex", "align-items: center", "justify-content: space-between",
+      ],
+    ) <| [
       @html.button(
         style=btn_outline_style,
         on_click=dispatch(CalendarPrevMonth),
       ) <| "<",
-      @html.span(style=[
-        "font-size: 16px",
-        "font-weight: 600",
-        "color: \{text_primary}",
-      ]) <| "\{month_name} \{cal.year}",
+      @html.span(
+        style=["font-size: 16px", "font-weight: 600", "color: \{text_primary}"],
+      ) <| "\{month_name} \{cal.year}",
       @html.button(
         style=btn_outline_style,
         on_click=dispatch(CalendarNextMonth),
       ) <| ">",
     ],
-    @html.div(style=[
-      "display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px",
-    ]) <| ({
+    @html.div(
+      style=[
+        "display: grid", "grid-template-columns: repeat(7, 1fr)", "gap: 2px",
+      ],
+    ) <| ({
       let cells : Array[@rabbita.Html] = []
       for dl in day_labels {
         cells.push(
-          @html.div(style=[
-            "text-align: center",
-            "font-size: 11px",
-            "font-weight: 600",
-            "color: \{text_muted}",
-            "padding: 4px 0",
-          ]) <| dl,
+          @html.div(
+            style=[
+              "text-align: center",
+              "font-size: 11px",
+              "font-weight: 600",
+              "color: \{text_muted}",
+              "padding: 4px 0",
+            ],
+          ) <| dl,
         )
       }
       for _ in 0..<first_dow {
@@ -335,49 +347,59 @@ fn Model::view_timeline(
       let is_last = i == self.timeline.events.length() - 1
       let pb = if is_last { "0" } else { "24" }
       event_els.push(
-        @html.div(style=[
-          "display: flex",
-          "gap: 16px",
-          "padding-bottom: \{pb}px",
-        ]) <| [
-          @html.div(style=[
-            "display: flex", "flex-direction: column", "align-items: center",
-          ]) <| [
-            @html.div(style=[
-              "width: 14px",
-              "height: 14px",
-              "border-radius: 50%",
-              "background: \{evt.color}",
-              "flex-shrink: 0",
-            ]) <| "",
+        @html.div(
+          style=["display: flex", "gap: 16px", "padding-bottom: \{pb}px"],
+        ) <| [
+          @html.div(
+            style=[
+              "display: flex", "flex-direction: column", "align-items: center",
+            ],
+          ) <| [
+            @html.div(
+              style=[
+                "width: 14px",
+                "height: 14px",
+                "border-radius: 50%",
+                "background: \{evt.color}",
+                "flex-shrink: 0",
+              ],
+            ) <| "",
             if !is_last {
-              @html.div(style=[
-                "width: 2px",
-                "flex: 1",
-                "background: \{border}",
-                "margin-top: 4px",
-              ]) <| ""
+              @html.div(
+                style=[
+                  "width: 2px",
+                  "flex: 1",
+                  "background: \{border}",
+                  "margin-top: 4px",
+                ],
+              ) <| ""
             } else {
               @html.nothing
             },
           ],
           @html.div(style=["flex: 1", "padding-bottom: 4px"]) <| [
-            @html.div(style=[
-              "display: flex", "align-items: baseline", "gap: 8px", "margin-bottom: 4px",
-            ]) <| [
-              @html.span(style=[
-                "font-size: 15px",
-                "font-weight: 600",
-                "color: \{text_primary}",
-              ]) <| evt.title,
+            @html.div(
+              style=[
+                "display: flex", "align-items: baseline", "gap: 8px", "margin-bottom: 4px",
+              ],
+            ) <| [
+              @html.span(
+                style=[
+                  "font-size: 15px",
+                  "font-weight: 600",
+                  "color: \{text_primary}",
+                ],
+              ) <| evt.title,
               @html.span(style=["font-size: 12px", "color: \{text_muted}"]) <| evt.time,
             ],
-            @html.p(style=[
-              "margin: 0",
-              "font-size: 14px",
-              "color: \{text_secondary}",
-              "line-height: 1.5",
-            ]) <| evt.description,
+            @html.p(
+              style=[
+                "margin: 0",
+                "font-size: 14px",
+                "color: \{text_secondary}",
+                "line-height: 1.5",
+              ],
+            ) <| evt.description,
           ],
         ],
       )

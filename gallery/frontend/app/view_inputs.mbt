@@ -29,14 +29,15 @@ fn Model::view_text_area(
   let remaining = self.text_area.max_chars - self.text_area.value.char_length()
   @html.div(style=["display: flex", "flex-direction: column", "gap: 8px"]) <| [
     @html.label(style=label_style) <| "Text Area",
-    @html.textarea(style=input_style, value=self.text_area.value, rows=4, on_input=s => {
-      dispatch(TextAreaChanged(s))
-    }) <| "",
-    @html.span(style=[
-      "color: \{text_muted}",
-      "font-size: 12px",
-      "text-align: right",
-    ]) <| "\{remaining} characters remaining",
+    @html.textarea(
+      style=input_style,
+      value=self.text_area.value,
+      rows=4,
+      on_input=s => dispatch(TextAreaChanged(s)),
+    ) <| "",
+    @html.span(
+      style=["color: \{text_muted}", "font-size: 12px", "text-align: right"],
+    ) <| "\{remaining} characters remaining",
   ]
 }
 
@@ -51,14 +52,16 @@ fn Model::view_checkbox(
     ]
     for i, pair in self.checkbox.items {
       items.push(
-        @html.label(style=[
-          "display: flex",
-          "align-items: center",
-          "gap: 8px",
-          "cursor: pointer",
-          "font-size: 14px",
-          "color: \{text_primary}",
-        ]) <| [
+        @html.label(
+          style=[
+            "display: flex",
+            "align-items: center",
+            "gap: 8px",
+            "cursor: pointer",
+            "font-size: 14px",
+            "color: \{text_primary}",
+          ],
+        ) <| [
           @html.input(
             input_type=Checkbox,
             checked=pair.1,
@@ -85,14 +88,16 @@ fn Model::view_radio(
     for opt in self.radio.options {
       let is_sel = opt == self.radio.selected
       items.push(
-        @html.label(style=[
-          "display: flex",
-          "align-items: center",
-          "gap: 8px",
-          "cursor: pointer",
-          "font-size: 14px",
-          "color: \{text_primary}",
-        ]) <| [
+        @html.label(
+          style=[
+            "display: flex",
+            "align-items: center",
+            "gap: 8px",
+            "cursor: pointer",
+            "font-size: 14px",
+            "color: \{text_primary}",
+          ],
+        ) <| [
           @html.input(
             input_type=Radio,
             checked=is_sel,
@@ -147,10 +152,12 @@ fn Model::view_toggle(
       let track_color = if on { primary } else { border }
       let label = if on { "ON" } else { "OFF" }
       items.push(
-        @html.div(style=[
-          "display: flex", "align-items: center", "justify-content: space-between",
-          "padding: 8px 0",
-        ]) <| [
+        @html.div(
+          style=[
+            "display: flex", "align-items: center", "justify-content: space-between",
+            "padding: 8px 0",
+          ],
+        ) <| [
           @html.span(style=["font-size: 14px", "color: \{text_primary}"]) <| pair.0,
           @html.button(
             style=[
@@ -188,12 +195,14 @@ fn Model::view_slider(
       on_input=s => dispatch(SliderChanged(s)),
       style=["width: 100%", "cursor: pointer"],
     ) <| "",
-    @html.div(style=[
-      "display: flex",
-      "justify-content: space-between",
-      "font-size: 12px",
-      "color: \{text_muted}",
-    ]) <| [
+    @html.div(
+      style=[
+        "display: flex",
+        "justify-content: space-between",
+        "font-size: 12px",
+        "color: \{text_muted}",
+      ],
+    ) <| [
       @html.span(style=[]) <| "\{lo}",
       @html.span(style=["font-weight: 600", "color: \{primary}"]) <| "\{v}",
       @html.span(style=[]) <| "\{hi}",
@@ -234,13 +243,15 @@ fn Model::view_color_picker(
       swatches
     }),
     @html.div(style=["display: flex", "align-items: center", "gap: 8px"]) <| [
-      @html.div(style=[
-        "width: 32px",
-        "height: 32px",
-        "border-radius: \{radius_sm}",
-        "border: 1px solid \{border}",
-        "background: \{self.color_picker.selected}",
-      ]) <| "",
+      @html.div(
+        style=[
+          "width: 32px",
+          "height: 32px",
+          "border-radius: \{radius_sm}",
+          "border: 1px solid \{border}",
+          "background: \{self.color_picker.selected}",
+        ],
+      ) <| "",
       @html.input(
         input_type=Text,
         value=self.color_picker.hex_input,

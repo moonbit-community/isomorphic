@@ -8,9 +8,7 @@ let ws_clients : Array[@websocket.Conn] = []
 async fn broadcast_refresh() -> Unit {
   let to_remove : Array[Int] = []
   for i, client in ws_clients {
-    try {
-      client.send_text("{\"type\":\"refresh\"}")
-    } catch {
+    client.send_text("{\"type\":\"refresh\"}") catch {
       _ => to_remove.push(i)
     }
   }
@@ -46,26 +44,26 @@ fn with_cors(extra : Map[String, String]) -> Map[String, String] {
 async fn main {
   let conn = @sqlite3.Connection::open("spreadsheet.db")
   println("Database opened: spreadsheet.db")
-  try {
-    init_db(conn)
-  } catch {
+  init_db(conn) catch {
     e => {
       println("Failed to initialize database: \{e}")
       return
     }
   }
   println("Database initialized")
-  let server = @http.Server::new(@socket.Addr::parse("0.0.0.0:4012"), reuse_addr=true)
+  let server = @http.Server::new(
+    @socket.Addr::parse("0.0.0.0:4012"),
+    reuse_addr=true,
+  )
   println("Server running at http://localhost:4012")
   server.run_forever(async fn(request, body, sconn) {
     println(">>> \{request.meth} '\{request.path}'")
     match (request.meth, request.path) {
-      (Options, _) => {
+      (Options, _) =>
         // Handle CORS preflight
         sconn
         ..send_response(204, "No Content", extra_headers=cors_headers)
         .end_response()
-      }
       (Get, "/") => {
         println("GET /")
         let html =
@@ -211,7 +209,6 @@ async fn main {
             let msg = ws.recv()
             // Read and discard the message content
             let _ = msg.read_all()
-
           }
         } catch {
           @websocket.ConnectionClosed(_, reason) => {
@@ -237,7 +234,9 @@ async fn main {
         println("  -> Cleaned up WS client (remaining: \{remaining})")
       }
       _ => {
-        println("UNMATCHED: method=\{request.meth} path='\{request.path}' -> 404")
+        println(
+          "UNMATCHED: method=\{request.meth} path='\{request.path}' -> 404",
+        )
         sconn
         ..send_response(404, "Not Found", extra_headers=cors_headers)
         ..write("Not Found")
