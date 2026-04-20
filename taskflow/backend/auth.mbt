@@ -228,10 +228,10 @@ fn delete_session(
 /// Extract the current user from a request's session cookie.
 fn get_request_user(
   conn : @sqlite3.Connection,
-  req : @mocket.HttpRequest,
+  req : @moonback.Request,
 ) -> @shared.User? raise @sqlite3.SqliteError {
-  match req.get_cookie("session") {
-    Some(cookie) => get_session_user(conn, cookie.value)
+  match req.cookie().get("session") {
+    Some(token) => get_session_user(conn, token)
     None => None
   }
 }
@@ -240,7 +240,7 @@ fn get_request_user(
 /// Check if request user can perform write operations. Returns true if allowed.
 fn require_editor(
   conn : @sqlite3.Connection,
-  req : @mocket.HttpRequest,
+  req : @moonback.Request,
 ) -> Bool raise @sqlite3.SqliteError {
   match get_request_user(conn, req) {
     Some(u) => @shared.can_edit(u.role)

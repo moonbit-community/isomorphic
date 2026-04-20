@@ -1,8 +1,17 @@
 ///|
-/// GET / — Serve the HTML shell.
-fn handle_index(_event : @mocket.MocketEvent) -> @mocket.HttpResponse noraise {
-  println("GET /")
-  let html =
+async fn send_text(
+  res : @moonback.Responder,
+  body : String,
+  status? : Int = 200,
+) -> Unit {
+  res
+  .respond(status~, headers={ "Content-Type": "text/plain; charset=utf-8" })
+  .write(body)
+}
+
+///|
+fn board_html() -> String {
+  (
     #|<!DOCTYPE html>
     #|<html>
     #|<head>
@@ -20,135 +29,119 @@ fn handle_index(_event : @mocket.MocketEvent) -> @mocket.HttpResponse noraise {
     #|  <script src="/frontend.js"></script>
     #|</body>
     #|</html>
-  @mocket.HttpResponse::new(
-    OK,
-    headers={ "Content-Type": "text/html; charset=utf-8" },
-    raw_body=@utf8.encode(html),
   )
 }
 
 ///|
-/// GET /frontend.js — Serve the compiled frontend JavaScript.
-fn handle_frontend_js(
-  _event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  println("GET /frontend.js")
-  try {
-    let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-    @mocket.HttpResponse::new(
-      OK,
-      headers={ "Content-Type": "application/javascript; charset=utf-8" },
-      raw_body=bytes,
-    )
-  } catch {
-    _ => {
-      println("  -> 404 Not Found")
-      @mocket.HttpResponse::new(NotFound).body("Not Found")
-    }
-  }
-}
-
-///|
-/// GET /api/board — Return the full board (columns + cards).
-fn handle_get_board(
+async fn handle_get_board(
   conn : @sqlite3.Connection,
-  _event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
+  _req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
   println("GET \{@shared.api_board}")
   try {
     let board = get_board(conn)
     println(
       "  -> 200 (\{board.columns.length()} columns, \{board.cards.length()} cards)",
     )
-    @mocket.HttpResponse::new(OK).json(board.to_json())
+    res.send_json(board.to_json())
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// POST /api/columns — Create a new column.
-fn handle_create_column(
+async fn handle_create_column(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
   println("POST \{@shared.api_columns}")
   try {
-    let json : Json = event.req.body()
+    let json : Json = req.body.json()
     let title = match json {
       { "title": String(t), .. } => t
-      _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
+      _ => {
+        send_text(res, "Missing title", status=400)
+        return
+      }
     }
     if !@shared.validate_column_title(title) {
-      return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
+      send_text(res, "Invalid title", status=400)
+      return
     }
     if column_count(conn) >= @shared.max_columns {
-      return @mocket.HttpResponse::new(BadRequest).body("Too many columns")
+      send_text(res, "Too many columns", status=400)
+      return
     }
     let col = create_column(conn, title)
     println("  -> 201 created column: \{title}")
-    @mocket.HttpResponse::new(Created).json(col.to_json())
+    res.send_json(col.to_json(), status=201)
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// POST /api/columns/:id — Rename a column.
-fn handle_rename_column(
+async fn handle_rename_column(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   println("POST /api/columns/\{id_str} (rename)")
   try {
-    let id = @strconv.parse_int(id_str)
-    let json : Json = event.req.body()
+    let id = @string.parse_int(id_str)
+    let json : Json = req.body.json()
     let title = match json {
       { "title": String(t), .. } => t
-      _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
+      _ => {
+        send_text(res, "Missing title", status=400)
+        return
+      }
     }
     if !@shared.validate_column_title(title) {
-      return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
+      send_text(res, "Invalid title", status=400)
+      return
     }
     match rename_column(conn, id, title) {
       Some(col) => {
         println("  -> 200 renamed column \{id}")
-        @mocket.HttpResponse::new(OK).json(col.to_json())
+        res.send_json(col.to_json())
       }
-      None => @mocket.HttpResponse::new(NotFound).body("Column not found")
+      None => send_text(res, "Column not found", status=404)
     }
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// POST /api/columns/:id/move — Move a column to a new position.
-fn handle_move_column(
+async fn handle_move_column(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   println("POST /api/columns/\{id_str}/move")
   try {
-    let id = @strconv.parse_int(id_str)
-    let json : Json = event.req.body()
+    let id = @string.parse_int(id_str)
+    let json : Json = req.body.json()
     let new_position = match json {
       { "new_position": Number(n, ..), .. } => n.to_int()
-      _ =>
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Missing new_position",
-        )
+      _ => {
+        send_text(res, "Missing new_position", status=400)
+        return
+      }
     }
     if new_position == 0 {
       renumber_columns(conn)
@@ -161,107 +154,118 @@ fn handle_move_column(
     match move_column(conn, id, pos) {
       Some(col) => {
         println("  -> 200 moved column \{id} to position \{pos}")
-        @mocket.HttpResponse::new(OK).json(col.to_json())
+        res.send_json(col.to_json())
       }
-      None => @mocket.HttpResponse::new(NotFound).body("Column not found")
+      None => send_text(res, "Column not found", status=404)
     }
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// DELETE /api/columns/:id — Delete a column and its cards.
-fn handle_delete_column(
+async fn handle_delete_column(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   println("DELETE /api/columns/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_column(conn, id)
     println("  -> 204 deleted column \{id}")
-    @mocket.HttpResponse::new(NoContent)
+    res.send_void(status=204)
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// POST /api/cards — Create a new card.
-fn handle_create_card(
+async fn handle_create_card(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
   println("POST \{@shared.api_cards}")
   try {
-    let json : Json = event.req.body()
+    let json : Json = req.body.json()
     let column_id = match json {
       { "column_id": Number(n, ..), .. } => n.to_int()
-      _ =>
-        return @mocket.HttpResponse::new(BadRequest).body("Missing column_id")
+      _ => {
+        send_text(res, "Missing column_id", status=400)
+        return
+      }
     }
     let title = match json {
       { "title": String(t), .. } => t
-      _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
+      _ => {
+        send_text(res, "Missing title", status=400)
+        return
+      }
     }
     if !@shared.validate_card_title(title) {
-      return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
+      send_text(res, "Invalid title", status=400)
+      return
     }
     let description = match json {
       { "description": String(d), .. } => d
       _ => ""
     }
     if !@shared.validate_card_description(description) {
-      return @mocket.HttpResponse::new(BadRequest).body("Description too long")
+      send_text(res, "Description too long", status=400)
+      return
     }
     let color = match json {
       { "color": String(c), .. } => c
       _ => ""
     }
     if !@shared.validate_color(color) {
-      return @mocket.HttpResponse::new(BadRequest).body("Invalid color")
+      send_text(res, "Invalid color", status=400)
+      return
     }
     if card_count_in_column(conn, column_id) >= @shared.max_cards_per_column {
-      return @mocket.HttpResponse::new(BadRequest).body(
-        "Too many cards in column",
-      )
+      send_text(res, "Too many cards in column", status=400)
+      return
     }
     let card = create_card(conn, column_id, title, description, color)
     println("  -> 201 created card: \{title}")
-    @mocket.HttpResponse::new(Created).json(card.to_json())
+    res.send_json(card.to_json(), status=201)
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// POST /api/cards/:id — Update a card's title, description, and color.
-fn handle_update_card(
+async fn handle_update_card(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   println("POST /api/cards/\{id_str} (update)")
   try {
-    let id = @strconv.parse_int(id_str)
-    let json : Json = event.req.body()
+    let id = @string.parse_int(id_str)
+    let json : Json = req.body.json()
     let title = match json {
       { "title": String(t), .. } => t
-      _ => return @mocket.HttpResponse::new(BadRequest).body("Missing title")
+      _ => {
+        send_text(res, "Missing title", status=400)
+        return
+      }
     }
     if !@shared.validate_card_title(title) {
-      return @mocket.HttpResponse::new(BadRequest).body("Invalid title")
+      send_text(res, "Invalid title", status=400)
+      return
     }
     let description = match json {
       { "description": String(d), .. } => d
@@ -274,42 +278,42 @@ fn handle_update_card(
     match update_card(conn, id, title, description, color) {
       Some(card) => {
         println("  -> 200 updated card \{id}")
-        @mocket.HttpResponse::new(OK).json(card.to_json())
+        res.send_json(card.to_json())
       }
-      None => @mocket.HttpResponse::new(NotFound).body("Card not found")
+      None => send_text(res, "Card not found", status=404)
     }
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// POST /api/cards/:id/move — Move a card to a target column at a given position.
-fn handle_move_card(
+async fn handle_move_card(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   println("POST /api/cards/\{id_str}/move")
   try {
-    let id = @strconv.parse_int(id_str)
-    let json : Json = event.req.body()
+    let id = @string.parse_int(id_str)
+    let json : Json = req.body.json()
     let target_column_id = match json {
       { "target_column_id": Number(n, ..), .. } => n.to_int()
-      _ =>
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Missing target_column_id",
-        )
+      _ => {
+        send_text(res, "Missing target_column_id", status=400)
+        return
+      }
     }
     let new_position = match json {
       { "new_position": Number(n, ..), .. } => n.to_int()
-      _ =>
-        return @mocket.HttpResponse::new(BadRequest).body(
-          "Missing new_position",
-        )
+      _ => {
+        send_text(res, "Missing new_position", status=400)
+        return
+      }
     }
     if new_position == 0 {
       renumber_cards_in_column(conn, target_column_id)
@@ -324,53 +328,53 @@ fn handle_move_card(
         println(
           "  -> 200 moved card \{id} to column \{target_column_id} pos \{pos}",
         )
-        @mocket.HttpResponse::new(OK).json(card.to_json())
+        res.send_json(card.to_json())
       }
-      None => @mocket.HttpResponse::new(NotFound).body("Card not found")
+      None => send_text(res, "Card not found", status=404)
     }
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// DELETE /api/cards/:id — Delete a card.
-fn handle_delete_card(
+async fn handle_delete_card(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   println("DELETE /api/cards/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_card(conn, id)
     println("  -> 204 deleted card \{id}")
-    @mocket.HttpResponse::new(NoContent)
+    res.send_void(status=204)
   } catch {
     e => {
       println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      send_text(res, "\{e}", status=500)
     }
   }
 }
 
 ///|
-/// GET /api/columns/:id — Get a single column by ID.
-fn handle_get_column(
+async fn handle_get_column(
   conn : @sqlite3.Connection,
-  event : @mocket.MocketEvent,
-) -> @mocket.HttpResponse noraise {
-  let id_str = event.params.get("id").unwrap().to_string()
+  req : @moonback.Request,
+  res : @moonback.Responder,
+) -> Unit {
+  let id_str = req.params["id"].to_string()
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     match get_column(conn, id) {
-      Some(col) => @mocket.HttpResponse::new(OK).json(col.to_json())
-      None => @mocket.HttpResponse::new(NotFound).body("Column not found")
+      Some(col) => res.send_json(col.to_json())
+      None => send_text(res, "Column not found", status=404)
     }
   } catch {
-    e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+    e => send_text(res, "\{e}", status=500)
   }
 }
