@@ -1,13 +1,11 @@
 import {
+  "hackwaly/moonback",
+  "hackwaly/moonback/middlewares/unstable_cors",
+  "hackwaly/moonback/middlewares/unstable_static",
   "moonbitlang/async",
-  "moonbitlang/async/http",
-  "moonbitlang/async/socket",
   "moonbitlang/async/websocket",
-  "moonbitlang/async/io",
   "myfreess/sqlite3",
-  "moonbitlang/x/fs",
   "moonbitlang/core/json",
-  "moonbitlang/core/encoding/utf8",
 }
 
 supported_targets = "native"

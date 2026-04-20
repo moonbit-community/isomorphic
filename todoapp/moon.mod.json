@@ -4,6 +4,8 @@
   "license": "Apache-2.0",
   "repository": "https://github.com/moonbit-community/isomorphic",
   "deps": {
+    "hackwaly/moonback": "0.1.0",
+    "moonbitlang/async": "0.18.0",
     "moonbit-community/rabbita": "0.11.5",
     "oboard/mocket": "0.6.11",
     "myfreess/sqlite3": "0.1.1",

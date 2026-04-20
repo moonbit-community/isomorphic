@@ -1,18 +1,21 @@
 import {
   "bobzhang/taskflow/shared",
-  "oboard/mocket",
-  "oboard/mocket/cors",
+  "hackwaly/moonback",
+  "hackwaly/moonback/middlewares/unstable_cors",
+  "hackwaly/moonback/middlewares/unstable_static",
   "myfreess/sqlite3",
+  "moonbitlang/async",
+  "moonbitlang/async/http",
   "moonbitlang/core/argparse",
   "moonbitlang/core/json",
+  "moonbitlang/core/string",
   "moonbitlang/core/strconv",
   "moonbitlang/core/encoding/utf8",
-  "moonbitlang/x/fs",
   "moonbitlang/x/crypto",
 }
 
 supported_targets = "native"
 
 options(
-  is_main: true,
+  "is-main": true,
 )
