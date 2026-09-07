@@ -9,8 +9,6 @@ priv struct MixerModel {
   ch4 : ChannelModel
   master : KnobModel
   link : Bool
-
-  fn new() -> MixerModel
 }
 
 ///|
@@ -24,7 +22,7 @@ priv enum MixerMsg {
 }
 
 ///|
-fn MixerModel::new() -> MixerModel {
+fn MixerModel::MixerModel() -> MixerModel {
   {
     ch1: ChannelModel(volume=75),
     ch2: ChannelModel(volume=60),
@@ -48,7 +46,7 @@ fn MixerModel::update(self : MixerModel, msg : MixerMsg) -> MixerModel {
           ch4: self.ch4.update(m),
         }
       } else {
-        { ..self, ch1: self.ch1.update(m) }
+        { ..self, ch1: self.ch1.update(m), }
       }
     Ch2(m) =>
       if self.link {
@@ -60,7 +58,7 @@ fn MixerModel::update(self : MixerModel, msg : MixerMsg) -> MixerModel {
           ch4: self.ch4.update(m),
         }
       } else {
-        { ..self, ch2: self.ch2.update(m) }
+        { ..self, ch2: self.ch2.update(m), }
       }
     Ch3(m) =>
       if self.link {
@@ -72,7 +70,7 @@ fn MixerModel::update(self : MixerModel, msg : MixerMsg) -> MixerModel {
           ch4: self.ch4.update(m),
         }
       } else {
-        { ..self, ch3: self.ch3.update(m) }
+        { ..self, ch3: self.ch3.update(m), }
       }
     Ch4(m) =>
       if self.link {
@@ -84,10 +82,10 @@ fn MixerModel::update(self : MixerModel, msg : MixerMsg) -> MixerModel {
           ch4: self.ch4.update(m),
         }
       } else {
-        { ..self, ch4: self.ch4.update(m) }
+        { ..self, ch4: self.ch4.update(m), }
       }
-    Master(m) => { ..self, master: self.master.update(m) }
-    ToggleLink => { ..self, link: !self.link }
+    Master(m) => { ..self, master: self.master.update(m), }
+    ToggleLink => { ..self, link: !self.link, }
   }
 }
 

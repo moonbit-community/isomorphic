@@ -8,7 +8,7 @@ pub fn to_lower(s : String) -> String {
 /// Format a 10-digit phone number as (XXX) XXX-XXXX, pass through otherwise.
 pub fn format_phone(phone : String) -> String {
   // Extract only digits
-  let digits = StringBuilder::new()
+  let digits = StringBuilder()
   for ch in phone {
     if ch >= '0' && ch <= '9' {
       digits.write_char(ch)
@@ -17,15 +17,15 @@ pub fn format_phone(phone : String) -> String {
   let d = digits.to_string()
   if d.char_length() == 10 {
     let chars : Array[Char] = d.iter().collect()
-    let area = StringBuilder::new()
+    let area = StringBuilder()
     for i in 0..<3 {
       area.write_char(chars[i])
     }
-    let mid = StringBuilder::new()
+    let mid = StringBuilder()
     for i in 3..<6 {
       mid.write_char(chars[i])
     }
-    let last = StringBuilder::new()
+    let last = StringBuilder()
     for i in 6..<10 {
       last.write_char(chars[i])
     }
@@ -95,7 +95,7 @@ pub fn get_initials(name : String) -> String {
   } nobreak {
     last_space_idx
   }
-  let buf = StringBuilder::new()
+  let buf = StringBuilder()
   buf.write_char(to_upper_char(first))
   if last_space_idx >= 0 && last_space_idx + 1 < chars.length() {
     buf.write_char(to_upper_char(chars[last_space_idx + 1]))

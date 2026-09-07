@@ -11,11 +11,11 @@ pub let valid_statuses : Array[String] = [
 ///
 /// ```mbt check
 /// test {
-///   inspect(
+///   debug_inspect(
 ///     @shared.allowed_transitions("todo"),
 ///     content="[\"in_progress\", \"blocked\"]",
 ///   )
-///   inspect(@shared.allowed_transitions("done"), content="[\"todo\"]")
+///   debug_inspect(@shared.allowed_transitions("done"), content="[\"todo\"]")
 /// }
 /// ```
 pub fn allowed_transitions(status : String) -> Array[String] {

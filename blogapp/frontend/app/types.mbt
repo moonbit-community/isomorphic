@@ -61,3 +61,9 @@ pub(all) enum Msg {
   DeleteComment(Int, Int)
   CommentDeleted(Result[Int, String])
 }
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Page with Debug::{to_repr}

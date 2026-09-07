@@ -32,7 +32,7 @@ fn get_all_contacts(
     let email : String = stmt.column_blob_as_string(index=2)
     let phone : String = stmt.column_blob_as_string(index=3)
     let fav : Int = stmt.column(index=4)
-    contacts.push({ id, name, email, phone, favorite: fav != 0 })
+    contacts.push({ id, name, email, phone, favorite: fav != 0, })
   }
   stmt.finalize()
   contacts
@@ -58,7 +58,7 @@ fn create_contact(
   guard stmt2.step()
   let id : Int = stmt2.column(index=0)
   stmt2.finalize()
-  { id, name, email, phone, favorite: false }
+  { id, name, email, phone, favorite: false, }
 }
 
 ///|
@@ -84,7 +84,7 @@ fn toggle_favorite(
   let phone : String = stmt2.column_blob_as_string(index=3)
   let fav : Int = stmt2.column(index=4)
   stmt2.finalize()
-  { id, name, email, phone, favorite: fav != 0 }
+  { id, name, email, phone, favorite: fav != 0, }
 }
 
 ///|

@@ -95,7 +95,7 @@ fn handle_login(
     match login_user(conn, username, password) {
       Some(user) => {
         let token = create_session(conn, user.id, user.username)
-        let resp : @shared.AuthResponse = { user, message: "Login successful" }
+        let resp : @shared.AuthResponse = { user, message: "Login successful", }
         let http_resp = @mocket.HttpResponse::new(OK).json(resp.to_json())
         http_resp.set_cookie(
           "session",
@@ -420,7 +420,7 @@ fn handle_update_task_status(
         if new_status == "done" {
           handle_recurrence_on_done(conn, id)
         }
-        let updated = { ..task, status: new_status }
+        let updated = { ..task, status: new_status, }
         println("  -> 200 status changed to \{new_status}")
         @mocket.HttpResponse::new(OK).json(updated.to_json())
       }
@@ -476,7 +476,7 @@ fn handle_add_dep(
     }
     add_dep(conn, id, depends_on)
     println("  -> 201 dependency added: \{id} -> \{depends_on}")
-    let dep : @shared.Dependency = { task_id: id, depends_on_id: depends_on }
+    let dep : @shared.Dependency = { task_id: id, depends_on_id: depends_on, }
     @mocket.HttpResponse::new(Created).json(dep.to_json())
   } catch {
     e => {

@@ -235,7 +235,7 @@ fn read_node(stmt : @sqlite3.Statement) -> @shared.Node {
   let y : Int = stmt.column(index=3)
   let label : String = stmt.column_blob_as_string(index=4)
   let config : String = stmt.column_blob_as_string(index=5)
-  { id, kind, x, y, label, config }
+  { id, kind, x, y, label, config, }
 }
 
 ///|
@@ -247,7 +247,7 @@ fn read_connection(stmt : @sqlite3.Statement) -> @shared.Connection {
   let from_port : Int = stmt.column(index=2)
   let to_node_id : Int = stmt.column(index=3)
   let to_port : Int = stmt.column(index=4)
-  { id, from_node_id, from_port, to_node_id, to_port }
+  { id, from_node_id, from_port, to_node_id, to_port, }
 }
 
 ///|
@@ -261,7 +261,7 @@ fn get_all_graphs(
   while s.step() {
     let id : Int = s.column(index=0)
     let name : String = s.column_blob_as_string(index=1)
-    result.push({ id, name })
+    result.push({ id, name, })
   }
   s.finalize()
   result
@@ -293,7 +293,7 @@ fn get_graph(
     connections.push(read_connection(s2))
   }
   s2.finalize()
-  { nodes, connections }
+  { nodes, connections, }
 }
 
 ///|
@@ -308,7 +308,7 @@ fn create_graph(
   s.step_once()
   s.finalize()
   let id = last_id(conn)
-  { id, name }
+  { id, name, }
 }
 
 ///|
@@ -348,7 +348,7 @@ fn create_node_in_graph(
 ) -> @shared.Node raise @sqlite3.SqliteError {
   insert_node(conn, graph_id, kind, 0, 0, label, config)
   let id = last_id(conn)
-  { id, kind: @shared.kind_from_string(kind), x: 0, y: 0, label, config }
+  { id, kind: @shared.kind_from_string(kind), x: 0, y: 0, label, config, }
 }
 
 ///|
@@ -432,7 +432,7 @@ fn create_connection(
   s.step_once()
   s.finalize()
   let id = last_id(conn)
-  { id, from_node_id, from_port, to_node_id, to_port }
+  { id, from_node_id, from_port, to_node_id, to_port, }
 }
 
 ///|

@@ -21,7 +21,7 @@ pub fn validate_title(title : String) -> Bool {
 ///|
 /// Truncate a string by character count, safe for unicode (emoji, CJK).
 pub fn truncate(s : String, max_chars : Int) -> String {
-  let buf = StringBuilder::new()
+  let buf = StringBuilder()
   for i = 0, count = 0 {
     guard count < max_chars else { break buf.to_string() + "..." }
     match s.get_char(i) {

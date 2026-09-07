@@ -38,7 +38,7 @@ fn read_post_from_stmt(stmt : @sqlite3.Statement) -> @shared.Post {
   let ua_bytes : Bytes = stmt.column(index=4)
   let created_at : String = try! @utf8.decode(ca_bytes[:])
   let updated_at : String = try! @utf8.decode(ua_bytes[:])
-  { id, title, content, created_at, updated_at }
+  { id, title, content, created_at, updated_at, }
 }
 
 ///|
@@ -49,7 +49,7 @@ fn read_comment_from_stmt(stmt : @sqlite3.Statement) -> @shared.Comment {
   let content : String = stmt.column_blob_as_string(index=3)
   let ca_bytes : Bytes = stmt.column(index=4)
   let created_at : String = try! @utf8.decode(ca_bytes[:])
-  { id, post_id, author, content, created_at }
+  { id, post_id, author, content, created_at, }
 }
 
 ///|
@@ -98,7 +98,7 @@ fn create_post(
   stmt2.finalize()
   match get_post(conn, id) {
     Some(post) => post
-    None => { id, title, content, created_at: "", updated_at: "" }
+    None => { id, title, content, created_at: "", updated_at: "", }
   }
 }
 
@@ -193,7 +193,7 @@ fn create_comment(
   stmt2.finalize()
   match get_comment(conn, id) {
     Some(comment) => comment
-    None => { id, post_id, author, content, created_at: "" }
+    None => { id, post_id, author, content, created_at: "", }
   }
 }
 

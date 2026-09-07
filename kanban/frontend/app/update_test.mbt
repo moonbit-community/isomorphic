@@ -28,9 +28,9 @@ fn empty_model() -> Model {
 ///|
 fn sample_columns() -> Array[@shared.Column] {
   [
-    { id: 1, title: "To Do", position: 1000 },
-    { id: 2, title: "In Progress", position: 2000 },
-    { id: 3, title: "Done", position: 3000 },
+    { id: 1, title: "To Do", position: 1000, },
+    { id: 2, title: "In Progress", position: 2000, },
+    { id: 3, title: "Done", position: 3000, },
   ]
 }
 
@@ -98,7 +98,7 @@ test "Init sets loading to true" {
 
 ///|
 test "GotBoard/Ok populates columns and cards, clears loading" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let board : @shared.Board = {
     columns: sample_columns(),
     cards: sample_cards(),
@@ -163,7 +163,7 @@ test "GotBoard/Ok populates columns and cards, clears loading" {
 
 ///|
 test "GotBoard/Err clears loading without changing data" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let (model, _) = initial.update(
     msg=GotBoard(Err("network")),
     dispatch=noop_dispatch,
@@ -194,7 +194,7 @@ test "ShowAddColumn enables adding_column and clears title" {
 
 ///|
 test "HideAddColumn disables adding_column" {
-  let initial = { ..empty_model(), adding_column: true }
+  let initial = { ..empty_model(), adding_column: true, }
   let (model, _) = initial.update(msg=HideAddColumn, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_column,
@@ -220,7 +220,7 @@ test "NewColumnTitleChanged updates new_column_title" {
 
 ///|
 test "AddColumn with empty title does nothing" {
-  let initial = { ..empty_model(), adding_column: true, new_column_title: "" }
+  let initial = { ..empty_model(), adding_column: true, new_column_title: "", }
   let (model, _) = initial.update(msg=AddColumn, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_column,
@@ -249,15 +249,19 @@ test "AddColumn with valid title clears adding_column" {
 ///|
 test "AddColumn with too-long title does nothing" {
   let long = "a".repeat(@shared.max_column_title + 1)
-  let initial = { ..empty_model(), adding_column: true, new_column_title: long }
+  let initial = {
+    ..empty_model(),
+    adding_column: true,
+    new_column_title: long,
+  }
   let (model, _) = initial.update(msg=AddColumn, dispatch=noop_dispatch)
   inspect(model.adding_column, content="true")
 }
 
 ///|
 test "ColumnAdded/Ok appends column" {
-  let initial = { ..empty_model(), columns: sample_columns() }
-  let new_col : @shared.Column = { id: 4, title: "Review", position: 4000 }
+  let initial = { ..empty_model(), columns: sample_columns(), }
+  let new_col : @shared.Column = { id: 4, title: "Review", position: 4000, }
   let (model, _) = initial.update(
     msg=ColumnAdded(Ok(new_col)),
     dispatch=noop_dispatch,
@@ -278,7 +282,7 @@ test "ColumnAdded/Ok appends column" {
 
 ///|
 test "ColumnAdded/Err leaves model unchanged" {
-  let initial = { ..empty_model(), columns: sample_columns() }
+  let initial = { ..empty_model(), columns: sample_columns(), }
   let (model, _) = initial.update(
     msg=ColumnAdded(Err("fail")),
     dispatch=noop_dispatch,
@@ -309,7 +313,7 @@ test "StartRenameColumn sets renaming state" {
 
 ///|
 test "CancelRenameColumn clears renaming_column" {
-  let initial = { ..empty_model(), renaming_column: 1 }
+  let initial = { ..empty_model(), renaming_column: 1, }
   let (model, _) = initial.update(
     msg=CancelRenameColumn,
     dispatch=noop_dispatch,
@@ -403,7 +407,7 @@ test "ConfirmRenameColumn optimistically updates column title" {
 
 ///|
 test "ColumnRenamed is passthrough" {
-  let initial = { ..empty_model(), columns: sample_columns() }
+  let initial = { ..empty_model(), columns: sample_columns(), }
   let (model, _) = initial.update(msg=ColumnRenamed, dispatch=noop_dispatch)
   debug_inspect(
     model.columns.length(),
@@ -462,7 +466,7 @@ test "ColumnDeleted is passthrough" {
 
 ///|
 test "MoveColumnLeft at first position does nothing" {
-  let initial = { ..empty_model(), columns: sample_columns() }
+  let initial = { ..empty_model(), columns: sample_columns(), }
   let (model, _) = initial.update(msg=MoveColumnLeft(1), dispatch=noop_dispatch)
   // Positions unchanged since column 1 is already first
   debug_inspect(
@@ -475,7 +479,7 @@ test "MoveColumnLeft at first position does nothing" {
 
 ///|
 test "MoveColumnRight at last position does nothing" {
-  let initial = { ..empty_model(), columns: sample_columns() }
+  let initial = { ..empty_model(), columns: sample_columns(), }
   let (model, _) = initial.update(
     msg=MoveColumnRight(3),
     dispatch=noop_dispatch,
@@ -490,7 +494,7 @@ test "MoveColumnRight at last position does nothing" {
 
 ///|
 test "MoveColumnRight swaps positions" {
-  let initial = { ..empty_model(), columns: sample_columns() }
+  let initial = { ..empty_model(), columns: sample_columns(), }
   let (model, _) = initial.update(
     msg=MoveColumnRight(1),
     dispatch=noop_dispatch,
@@ -546,7 +550,7 @@ test "ShowAddCard sets adding_to_column and clears card fields" {
 
 ///|
 test "HideAddCard clears adding_to_column" {
-  let initial = { ..empty_model(), adding_to_column: 2 }
+  let initial = { ..empty_model(), adding_to_column: 2, }
   let (model, _) = initial.update(msg=HideAddCard, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_to_column,
@@ -600,7 +604,7 @@ test "NewCardColorChanged updates new_card_color" {
 
 ///|
 test "AddCard with empty title does nothing" {
-  let initial = { ..empty_model(), adding_to_column: 1, new_card_title: "" }
+  let initial = { ..empty_model(), adding_to_column: 1, new_card_title: "", }
   let (model, _) = initial.update(msg=AddCard, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_to_column,
@@ -612,7 +616,11 @@ test "AddCard with empty title does nothing" {
 
 ///|
 test "AddCard with no column does nothing" {
-  let initial = { ..empty_model(), adding_to_column: 0, new_card_title: "Task" }
+  let initial = {
+    ..empty_model(),
+    adding_to_column: 0,
+    new_card_title: "Task",
+  }
   let (model, _) = initial.update(msg=AddCard, dispatch=noop_dispatch)
   debug_inspect(
     model.adding_to_column,
@@ -643,14 +651,14 @@ test "AddCard with valid input clears adding_to_column" {
 ///|
 test "AddCard with too-long title does nothing" {
   let long = "a".repeat(@shared.max_card_title + 1)
-  let initial = { ..empty_model(), adding_to_column: 1, new_card_title: long }
+  let initial = { ..empty_model(), adding_to_column: 1, new_card_title: long, }
   let (model, _) = initial.update(msg=AddCard, dispatch=noop_dispatch)
   inspect(model.adding_to_column, content="1")
 }
 
 ///|
 test "CardAdded/Ok appends card" {
-  let initial = { ..empty_model(), cards: sample_cards() }
+  let initial = { ..empty_model(), cards: sample_cards(), }
   let new_card : @shared.Card = {
     id: 4,
     column_id: 2,
@@ -679,7 +687,7 @@ test "CardAdded/Ok appends card" {
 
 ///|
 test "CardAdded/Err leaves model unchanged" {
-  let initial = { ..empty_model(), cards: sample_cards() }
+  let initial = { ..empty_model(), cards: sample_cards(), }
   let (model, _) = initial.update(
     msg=CardAdded(Err("fail")),
     dispatch=noop_dispatch,
@@ -718,7 +726,7 @@ test "StartEditCard sets editing state from card" {
 
 ///|
 test "CancelEditCard clears editing_card" {
-  let initial = { ..empty_model(), editing_card: 1 }
+  let initial = { ..empty_model(), editing_card: 1, }
   let (model, _) = initial.update(msg=CancelEditCard, dispatch=noop_dispatch)
   debug_inspect(
     model.editing_card,
@@ -772,7 +780,7 @@ test "EditColorChanged updates edit_color" {
 
 ///|
 test "SaveEditCard with id 0 does nothing" {
-  let initial = { ..empty_model(), editing_card: 0, edit_title: "Title" }
+  let initial = { ..empty_model(), editing_card: 0, edit_title: "Title", }
   let (model, _) = initial.update(msg=SaveEditCard, dispatch=noop_dispatch)
   debug_inspect(
     model.editing_card,
@@ -840,7 +848,7 @@ test "CardUpdated is passthrough" {
 
 ///|
 test "DeleteCard removes the card" {
-  let initial = { ..empty_model(), cards: sample_cards() }
+  let initial = { ..empty_model(), cards: sample_cards(), }
   let (model, _) = initial.update(msg=DeleteCard(1), dispatch=noop_dispatch)
   debug_inspect(
     model.cards.length(),
@@ -885,7 +893,7 @@ test "SelectCardToMove sets moving_card" {
 
 ///|
 test "SelectCardToMove toggles off if same card" {
-  let initial = { ..empty_model(), moving_card: 5 }
+  let initial = { ..empty_model(), moving_card: 5, }
   let (model, _) = initial.update(
     msg=SelectCardToMove(5),
     dispatch=noop_dispatch,
@@ -900,7 +908,7 @@ test "SelectCardToMove toggles off if same card" {
 
 ///|
 test "CancelMove clears moving_card" {
-  let initial = { ..empty_model(), moving_card: 3 }
+  let initial = { ..empty_model(), moving_card: 3, }
   let (model, _) = initial.update(msg=CancelMove, dispatch=noop_dispatch)
   debug_inspect(
     model.moving_card,
@@ -912,7 +920,7 @@ test "CancelMove clears moving_card" {
 
 ///|
 test "MoveCardTo with no moving card does nothing" {
-  let initial = { ..empty_model(), moving_card: 0 }
+  let initial = { ..empty_model(), moving_card: 0, }
   let (model, _) = initial.update(msg=MoveCardTo(2, 0), dispatch=noop_dispatch)
   debug_inspect(
     model.moving_card,

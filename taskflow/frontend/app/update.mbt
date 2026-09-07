@@ -48,7 +48,7 @@ pub fn Model::update(
   dispatch~ : @rabbita.Dispatch[Msg],
 ) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => ({ ..self, loading: true }, fetch_me(dispatch))
+    Init => ({ ..self, loading: true, }, fetch_me(dispatch))
     GotMe(Ok(user)) =>
       (
         {
@@ -61,7 +61,7 @@ pub fn Model::update(
       )
     GotMe(Err(_)) =>
       (
-        { ..self, auth_screen: "login", loading: false, auth_loading: false },
+        { ..self, auth_screen: "login", loading: false, auth_loading: false, },
         @rabbita.none,
       )
     GotBoard(Ok(board)) =>
@@ -86,7 +86,7 @@ pub fn Model::update(
         @rabbita.none,
       )
     GotBoard(Err(e)) =>
-      ({ ..self, loading: false, error_msg: e }, @rabbita.none)
+      ({ ..self, loading: false, error_msg: e, }, @rabbita.none)
     // ---- Auth ----
     ShowLogin =>
       (
@@ -110,12 +110,12 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    AuthUsernameChanged(v) => ({ ..self, auth_username: v }, @rabbita.none)
-    AuthPasswordChanged(v) => ({ ..self, auth_password: v }, @rabbita.none)
+    AuthUsernameChanged(v) => ({ ..self, auth_username: v, }, @rabbita.none)
+    AuthPasswordChanged(v) => ({ ..self, auth_password: v, }, @rabbita.none)
     SubmitLogin => {
       if self.auth_username.is_empty() || self.auth_password.is_empty() {
         return (
-          { ..self, auth_error: @shared.t(self.lang, "fill_all_fields") },
+          { ..self, auth_error: @shared.t(self.lang, "fill_all_fields"), },
           @rabbita.none,
         )
       }
@@ -134,18 +134,18 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, auth_loading: true, auth_error: "" }, cmd)
+      ({ ..self, auth_loading: true, auth_error: "", }, cmd)
     }
     SubmitRegister => {
       if !@shared.validate_username(self.auth_username) {
         return (
-          { ..self, auth_error: @shared.t(self.lang, "username_hint") },
+          { ..self, auth_error: @shared.t(self.lang, "username_hint"), },
           @rabbita.none,
         )
       }
       if !@shared.validate_password(self.auth_password) {
         return (
-          { ..self, auth_error: @shared.t(self.lang, "password_hint") },
+          { ..self, auth_error: @shared.t(self.lang, "password_hint"), },
           @rabbita.none,
         )
       }
@@ -164,7 +164,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, auth_loading: true, auth_error: "" }, cmd)
+      ({ ..self, auth_loading: true, auth_error: "", }, cmd)
     }
     AuthResult(Ok(resp)) =>
       (
@@ -182,7 +182,7 @@ pub fn Model::update(
     AuthResult(Err(e)) => {
       // Translate at response time so lang switch during request is respected
       let msg = @shared.t_server_error(self.lang, e)
-      ({ ..self, auth_loading: false, auth_error: msg }, @rabbita.none)
+      ({ ..self, auth_loading: false, auth_error: msg, }, @rabbita.none)
     }
     Logout => {
       let cmd = @http.post(
@@ -206,13 +206,13 @@ pub fn Model::update(
         @rabbita.none,
       )
     // ---- Filters ----
-    SetFilterStatus(s) => ({ ..self, filter_status: s }, @rabbita.none)
-    SetFilterAssignee(id) => ({ ..self, filter_assignee: id }, @rabbita.none)
-    SetFilterPriority(p) => ({ ..self, filter_priority: p }, @rabbita.none)
-    SearchChanged(q) => ({ ..self, search_query: q }, @rabbita.none)
-    SetFilterUrgency(u) => ({ ..self, filter_urgency: u }, @rabbita.none)
-    SetViewMode(m) => ({ ..self, view_mode: m }, @rabbita.none)
-    ToggleDarkMode => ({ ..self, dark_mode: !self.dark_mode }, @rabbita.none)
+    SetFilterStatus(s) => ({ ..self, filter_status: s, }, @rabbita.none)
+    SetFilterAssignee(id) => ({ ..self, filter_assignee: id, }, @rabbita.none)
+    SetFilterPriority(p) => ({ ..self, filter_priority: p, }, @rabbita.none)
+    SearchChanged(q) => ({ ..self, search_query: q, }, @rabbita.none)
+    SetFilterUrgency(u) => ({ ..self, filter_urgency: u, }, @rabbita.none)
+    SetViewMode(m) => ({ ..self, view_mode: m, }, @rabbita.none)
+    ToggleDarkMode => ({ ..self, dark_mode: !self.dark_mode, }, @rabbita.none)
     // ---- Task creation ----
     ShowAddTask =>
       (
@@ -227,12 +227,12 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    HideAddTask => ({ ..self, adding_task: false }, @rabbita.none)
-    NewTitleChanged(v) => ({ ..self, new_title: v }, @rabbita.none)
-    NewDescChanged(v) => ({ ..self, new_desc: v }, @rabbita.none)
-    NewPriorityChanged(v) => ({ ..self, new_priority: v }, @rabbita.none)
-    NewAssigneeChanged(id) => ({ ..self, new_assignee: id }, @rabbita.none)
-    NewDueDateChanged(v) => ({ ..self, new_due_date: v }, @rabbita.none)
+    HideAddTask => ({ ..self, adding_task: false, }, @rabbita.none)
+    NewTitleChanged(v) => ({ ..self, new_title: v, }, @rabbita.none)
+    NewDescChanged(v) => ({ ..self, new_desc: v, }, @rabbita.none)
+    NewPriorityChanged(v) => ({ ..self, new_priority: v, }, @rabbita.none)
+    NewAssigneeChanged(id) => ({ ..self, new_assignee: id, }, @rabbita.none)
+    NewDueDateChanged(v) => ({ ..self, new_due_date: v, }, @rabbita.none)
     AddTask => {
       if !@shared.validate_task_title(self.new_title) {
         return (self, @rabbita.none)
@@ -257,14 +257,14 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, adding_task: false }, cmd)
+      ({ ..self, adding_task: false, }, cmd)
     }
     TaskAdded(Ok(task)) => {
       let tasks = self.tasks.copy()
       tasks.push(task)
       ({ ..self, tasks, }, @rabbita.none)
     }
-    TaskAdded(Err(e)) => ({ ..self, error_msg: e }, @rabbita.none)
+    TaskAdded(Err(e)) => ({ ..self, error_msg: e, }, @rabbita.none)
     // ---- Task editing ----
     StartEditTask(task) =>
       (
@@ -279,12 +279,12 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    CancelEditTask => ({ ..self, editing_task: 0 }, @rabbita.none)
-    EditTitleChanged(v) => ({ ..self, edit_title: v }, @rabbita.none)
-    EditDescChanged(v) => ({ ..self, edit_desc: v }, @rabbita.none)
-    EditPriorityChanged(v) => ({ ..self, edit_priority: v }, @rabbita.none)
-    EditAssigneeChanged(id) => ({ ..self, edit_assignee: id }, @rabbita.none)
-    EditDueDateChanged(v) => ({ ..self, edit_due_date: v }, @rabbita.none)
+    CancelEditTask => ({ ..self, editing_task: 0, }, @rabbita.none)
+    EditTitleChanged(v) => ({ ..self, edit_title: v, }, @rabbita.none)
+    EditDescChanged(v) => ({ ..self, edit_desc: v, }, @rabbita.none)
+    EditPriorityChanged(v) => ({ ..self, edit_priority: v, }, @rabbita.none)
+    EditAssigneeChanged(id) => ({ ..self, edit_assignee: id, }, @rabbita.none)
+    EditDueDateChanged(v) => ({ ..self, edit_due_date: v, }, @rabbita.none)
     SaveEditTask => {
       let id = self.editing_task
       if id == 0 || !@shared.validate_task_title(self.edit_title) {
@@ -324,7 +324,7 @@ pub fn Model::update(
           t
         }
       })
-      ({ ..self, tasks, editing_task: 0 }, cmd)
+      ({ ..self, tasks, editing_task: 0, }, cmd)
     }
     TaskUpdated => (self, fetch_board(dispatch))
     // ---- Status change ----
@@ -350,7 +350,7 @@ pub fn Model::update(
       // Optimistic update
       let tasks = self.tasks.map(fn(t) {
         if t.id == id {
-          { ..t, status: new_status }
+          { ..t, status: new_status, }
         } else {
           t
         }
@@ -359,8 +359,8 @@ pub fn Model::update(
     }
     StatusChanged => (self, fetch_board(dispatch))
     // ---- Delete ----
-    RequestDelete(id) => ({ ..self, confirm_delete: id }, @rabbita.none)
-    CancelDelete => ({ ..self, confirm_delete: 0 }, @rabbita.none)
+    RequestDelete(id) => ({ ..self, confirm_delete: id, }, @rabbita.none)
+    CancelDelete => ({ ..self, confirm_delete: 0, }, @rabbita.none)
     ConfirmDelete => {
       let id = self.confirm_delete
       if id == 0 {
@@ -371,7 +371,7 @@ pub fn Model::update(
       })
       let cmd = @http.delete(@shared.api_task(id), expect~)
       let tasks = self.tasks.filter(fn(t) { t.id != id })
-      ({ ..self, tasks, confirm_delete: 0 }, cmd)
+      ({ ..self, tasks, confirm_delete: 0, }, cmd)
     }
     TaskDeleted => (self, fetch_board(dispatch))
     // ---- Dependencies ----
@@ -387,8 +387,8 @@ pub fn Model::update(
       )
       // Optimistic update
       let deps = self.dependencies.copy()
-      deps.push({ task_id, depends_on_id })
-      ({ ..self, dependencies: deps }, cmd)
+      deps.push({ task_id, depends_on_id, })
+      ({ ..self, dependencies: deps, }, cmd)
     }
     RemoveDep(task_id, depends_on_id) => {
       let url = @shared.api_task_deps_remove(task_id)
@@ -404,7 +404,7 @@ pub fn Model::update(
       let deps = self.dependencies.filter(fn(d) {
         !(d.task_id == task_id && d.depends_on_id == depends_on_id)
       })
-      ({ ..self, dependencies: deps }, cmd)
+      ({ ..self, dependencies: deps, }, cmd)
     }
     DepChanged => (self, fetch_board(dispatch))
     // ---- Comments ----
@@ -419,15 +419,15 @@ pub fn Model::update(
         }),
       )
       (
-        { ..self, viewing_comments: task_id, comments: [], new_comment: "" },
+        { ..self, viewing_comments: task_id, comments: [], new_comment: "", },
         cmd,
       )
     }
     HideComments =>
-      ({ ..self, viewing_comments: 0, comments: [] }, @rabbita.none)
+      ({ ..self, viewing_comments: 0, comments: [], }, @rabbita.none)
     GotComments(Ok(comments)) => ({ ..self, comments, }, @rabbita.none)
-    GotComments(Err(e)) => ({ ..self, error_msg: e }, @rabbita.none)
-    NewCommentChanged(v) => ({ ..self, new_comment: v }, @rabbita.none)
+    GotComments(Err(e)) => ({ ..self, error_msg: e, }, @rabbita.none)
+    NewCommentChanged(v) => ({ ..self, new_comment: v, }, @rabbita.none)
     AddComment => {
       let task_id = self.viewing_comments
       if task_id == 0 || !@shared.validate_comment_text(self.new_comment) {
@@ -444,13 +444,13 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, new_comment: "" }, cmd)
+      ({ ..self, new_comment: "", }, cmd)
     }
     CommentAdded(Ok(comment)) => {
       let comments = [comment, ..self.comments]
       ({ ..self, comments, }, @rabbita.none)
     }
-    CommentAdded(Err(e)) => ({ ..self, error_msg: e }, @rabbita.none)
+    CommentAdded(Err(e)) => ({ ..self, error_msg: e, }, @rabbita.none)
     // ---- Keyboard shortcuts ----
     KeyPressed(key) => {
       // Skip shortcuts when typing in forms
@@ -459,22 +459,22 @@ pub fn Model::update(
         self.viewing_comments != 0 {
         if key == "Escape" {
           if self.adding_task {
-            return ({ ..self, adding_task: false }, @rabbita.none)
+            return ({ ..self, adding_task: false, }, @rabbita.none)
           }
-          return ({ ..self, editing_task: 0 }, @rabbita.none)
+          return ({ ..self, editing_task: 0, }, @rabbita.none)
         }
         return (self, @rabbita.none)
       }
       // Dismiss dialogs/errors with Escape
       if key == "Escape" {
         if self.viewing_comments != 0 {
-          return ({ ..self, viewing_comments: 0, comments: [] }, @rabbita.none)
+          return ({ ..self, viewing_comments: 0, comments: [], }, @rabbita.none)
         }
         if self.confirm_delete != 0 {
-          return ({ ..self, confirm_delete: 0 }, @rabbita.none)
+          return ({ ..self, confirm_delete: 0, }, @rabbita.none)
         }
         if !self.error_msg.is_empty() {
-          return ({ ..self, error_msg: "" }, @rabbita.none)
+          return ({ ..self, error_msg: "", }, @rabbita.none)
         }
         return (self, @rabbita.none)
       }
@@ -492,16 +492,16 @@ pub fn Model::update(
             },
             @rabbita.none,
           )
-        "l" => ({ ..self, view_mode: "list" }, @rabbita.none)
-        "b" => ({ ..self, view_mode: "kanban" }, @rabbita.none)
-        "d" => ({ ..self, dark_mode: !self.dark_mode }, @rabbita.none)
+        "l" => ({ ..self, view_mode: "list", }, @rabbita.none)
+        "b" => ({ ..self, view_mode: "kanban", }, @rabbita.none)
+        "d" => ({ ..self, dark_mode: !self.dark_mode, }, @rabbita.none)
         "/" => (self, @rabbita.none) // Search focus handled by browser
         _ => (self, @rabbita.none)
       }
     }
     // ---- Errors ----
-    DismissError => ({ ..self, error_msg: "" }, @rabbita.none)
+    DismissError => ({ ..self, error_msg: "", }, @rabbita.none)
     // ---- Language ----
-    SetLang(l) => ({ ..self, lang: l, auth_error: "" }, @rabbita.none)
+    SetLang(l) => ({ ..self, lang: l, auth_error: "", }, @rabbita.none)
   }
 }

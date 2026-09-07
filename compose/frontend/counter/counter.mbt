@@ -6,8 +6,6 @@
 pub struct Model {
   /// Current counter value.
   count : Int
-
-  fn new() -> Model
 }
 
 ///|
@@ -20,17 +18,17 @@ pub(all) enum Msg {
 
 ///|
 /// Create a new counter initialized to zero.
-pub fn Model::new() -> Model {
-  { count: 0 }
+pub fn Model::Model() -> Model {
+  { count: 0, }
 }
 
 ///|
 /// Process a counter message and return the updated model.
 pub fn Model::update(self : Model, msg : Msg) -> Model {
   match msg {
-    Increment => { count: self.count + 1 }
-    Decrement => { count: self.count - 1 }
-    Reset => { count: 0 }
+    Increment => { count: self.count + 1, }
+    Decrement => { count: self.count - 1, }
+    Reset => { count: 0, }
   }
 }
 

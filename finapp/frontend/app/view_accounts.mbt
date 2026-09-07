@@ -108,10 +108,10 @@ fn Model::view_account_list(
 ) -> @rabbita.Html {
   if self.accounts.is_empty() {
     return @html.p(
-        style=[
-          "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
-        ],
-      ) <| "No accounts yet. Create one to get started!"
+      style=[
+        "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
+      ],
+    ) <| "No accounts yet. Create one to get started!"
   }
   let cards : Array[@rabbita.Html] = self.accounts.map(fn(a) {
     let balance = @shared.compute_balance(self.transactions, a.id)

@@ -232,7 +232,7 @@ fn read_member(stmt : @sqlite3.Statement) -> @shared.Member {
   let id : Int = stmt.column(index=0)
   let name : String = stmt.column_blob_as_string(index=1)
   let color : String = stmt.column_blob_as_string(index=2)
-  { id, name, color }
+  { id, name, color, }
 }
 
 ///|
@@ -319,7 +319,7 @@ fn read_activity(stmt : @sqlite3.Statement) -> @shared.Activity {
   let to_status : String = stmt.column_blob_as_string(index=4)
   let timestamp : String = stmt.column_blob_as_string(index=5)
   let user_name : String = stmt.column_blob_as_string(index=6)
-  { id, task_id, task_title, from_status, to_status, timestamp, user_name }
+  { id, task_id, task_title, from_status, to_status, timestamp, user_name, }
 }
 
 ///|
@@ -376,7 +376,7 @@ fn read_comment(stmt : @sqlite3.Statement) -> @shared.Comment {
   let author : String = stmt.column_blob_as_string(index=2)
   let text : String = stmt.column_blob_as_string(index=3)
   let created_at : String = stmt.column_blob_as_string(index=4)
-  { id, task_id, author, text, created_at }
+  { id, task_id, author, text, created_at, }
 }
 
 ///|
@@ -425,7 +425,7 @@ fn add_comment(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, task_id, author, text, created_at: today }
+  { id, task_id, author, text, created_at: today, }
 }
 
 ///|
@@ -442,7 +442,7 @@ fn get_task_deps(
   while stmt.step() {
     let tid : Int = stmt.column(index=0)
     let did : Int = stmt.column(index=1)
-    deps.push({ task_id: tid, depends_on_id: did })
+    deps.push({ task_id: tid, depends_on_id: did, })
   }
   stmt.finalize()
   deps
@@ -460,7 +460,7 @@ fn get_all_deps(
   while stmt.step() {
     let tid : Int = stmt.column(index=0)
     let did : Int = stmt.column(index=1)
-    deps.push({ task_id: tid, depends_on_id: did })
+    deps.push({ task_id: tid, depends_on_id: did, })
   }
   stmt.finalize()
   deps
@@ -512,7 +512,7 @@ fn get_all_labels(
     let id : Int = stmt.column(index=0)
     let name : String = stmt.column_blob_as_string(index=1)
     let color : String = stmt.column_blob_as_string(index=2)
-    labels.push({ id, name, color })
+    labels.push({ id, name, color, })
   }
   stmt.finalize()
   labels
@@ -528,7 +528,7 @@ fn get_all_task_labels(
   while stmt.step() {
     let task_id : Int = stmt.column(index=0)
     let label_id : Int = stmt.column(index=1)
-    tls.push({ task_id, label_id })
+    tls.push({ task_id, label_id, })
   }
   stmt.finalize()
   tls
@@ -550,7 +550,7 @@ fn create_label(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, name, color }
+  { id, name, color, }
 }
 
 ///|
@@ -599,7 +599,7 @@ fn get_all_subtasks(
     let task_id : Int = stmt.column(index=1)
     let title : String = stmt.column_blob_as_string(index=2)
     let done_int : Int = stmt.column(index=3)
-    subs.push({ id, task_id, title, done: done_int != 0 })
+    subs.push({ id, task_id, title, done: done_int != 0, })
   }
   stmt.finalize()
   subs
@@ -623,7 +623,7 @@ fn create_subtask(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, task_id, title, done: false }
+  { id, task_id, title, done: false, }
 }
 
 ///|
@@ -662,7 +662,7 @@ fn get_all_recurrence_rules(
   while stmt.step() {
     let task_id : Int = stmt.column(index=0)
     let interval : String = stmt.column_blob_as_string(index=1)
-    rules.push({ task_id, interval })
+    rules.push({ task_id, interval, })
   }
   stmt.finalize()
   rules
@@ -742,7 +742,7 @@ fn get_all_attachments(
     let task_id : Int = stmt.column(index=1)
     let url : String = stmt.column_blob_as_string(index=2)
     let label : String = stmt.column_blob_as_string(index=3)
-    result.push({ id, task_id, url, label })
+    result.push({ id, task_id, url, label, })
   }
   stmt.finalize()
   result
@@ -768,7 +768,7 @@ fn create_attachment(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, task_id, url, label }
+  { id, task_id, url, label, }
 }
 
 ///|
@@ -798,7 +798,7 @@ fn get_all_time_entries(
     let minutes : Int = stmt.column(index=2)
     let note : String = stmt.column_blob_as_string(index=3)
     let created_at : String = stmt.column_blob_as_string(index=4)
-    entries.push({ id, task_id, minutes, note, created_at })
+    entries.push({ id, task_id, minutes, note, created_at, })
   }
   stmt.finalize()
   entries
@@ -826,7 +826,7 @@ fn log_time(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, task_id, minutes, note, created_at: today }
+  { id, task_id, minutes, note, created_at: today, }
 }
 
 ///|
@@ -854,7 +854,7 @@ fn get_all_projects(
     let id : Int = stmt.column(index=0)
     let name : String = stmt.column_blob_as_string(index=1)
     let color : String = stmt.column_blob_as_string(index=2)
-    result.push({ id, name, color })
+    result.push({ id, name, color, })
   }
   stmt.finalize()
   result
@@ -876,7 +876,7 @@ fn create_project(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, name, color }
+  { id, name, color, }
 }
 
 ///|
@@ -905,7 +905,7 @@ fn get_all_task_projects(
   while stmt.step() {
     let task_id : Int = stmt.column(index=0)
     let project_id : Int = stmt.column(index=1)
-    result.push({ task_id, project_id })
+    result.push({ task_id, project_id, })
   }
   stmt.finalize()
   result

@@ -77,7 +77,7 @@ test "SelectCell clamps values beyond grid bounds" {
 
 ///|
 test "SelectCell sets editing to false" {
-  let m = { ..empty_model(), editing: true, edit_value: "hello" }
+  let m = { ..empty_model(), editing: true, edit_value: "hello", }
   let (_, model) = m.update(noop_dispatch, SelectCell(2, 3))
   assert_eq(model.editing, false)
 }
@@ -124,7 +124,7 @@ test "MoveSelection clamps at upper grid bounds" {
 
 ///|
 test "MoveSelection from middle moves correctly" {
-  let m = { ..empty_model(), sel_col: 5, sel_row: 10 }
+  let m = { ..empty_model(), sel_col: 5, sel_row: 10, }
   let (_, model) = m.update(noop_dispatch, MoveSelection(-2, 3))
   assert_eq(model.sel_col, 3)
   assert_eq(model.sel_row, 13)
@@ -157,14 +157,14 @@ test "StartEditWith sets editing=true with given character" {
 
 ///|
 test "UpdateEdit changes edit_value" {
-  let m = { ..empty_model(), editing: true, edit_value: "old" }
+  let m = { ..empty_model(), editing: true, edit_value: "old", }
   let (_, model) = m.update(noop_dispatch, UpdateEdit("new value"))
   assert_eq(model.edit_value, "new value")
 }
 
 ///|
 test "CommitEdit writes value to cell and exits editing" {
-  let m = { ..empty_model(), editing: true, edit_value: "42" }
+  let m = { ..empty_model(), editing: true, edit_value: "42", }
   let (_, model) = m.update(noop_dispatch, CommitEdit)
   assert_eq(model.editing, false)
   assert_eq(model.edit_value, "")
@@ -178,7 +178,7 @@ test "CommitEdit preserves cell styling" {
   let m = empty_model()
   let key = @cell.make_key(0, 0)
   m.sheets[0].cells[key] = Cell(raw="10", value=Num(10.0), bold=true)
-  let m2 = { ..m, editing: true, edit_value: "20" }
+  let m2 = { ..m, editing: true, edit_value: "20", }
   let (_, model) = m2.update(noop_dispatch, CommitEdit)
   let cell = model.selected_cell()
   assert_eq(cell.raw, "20")
@@ -189,7 +189,7 @@ test "CommitEdit preserves cell styling" {
 test "CommitEdit with formula evaluates correctly" {
   let m = empty_model()
   m.sheets[0].set_cell("B1", "100")
-  let m2 = { ..m, sel_col: 0, sel_row: 0, editing: true, edit_value: "=B1" }
+  let m2 = { ..m, sel_col: 0, sel_row: 0, editing: true, edit_value: "=B1", }
   let (_, model) = m2.update(noop_dispatch, CommitEdit)
   let cell = model.selected_cell()
   assert_eq(cell.raw, "=B1")
@@ -200,7 +200,7 @@ test "CommitEdit with formula evaluates correctly" {
 test "CancelEdit restores editing=false without changing cell" {
   let m = empty_model()
   m.sheets[0].set_cell("A1", "original")
-  let m2 = { ..m, editing: true, edit_value: "modified" }
+  let m2 = { ..m, editing: true, edit_value: "modified", }
   let (_, model) = m2.update(noop_dispatch, CancelEdit)
   assert_eq(model.editing, false)
   assert_eq(model.edit_value, "")
@@ -212,7 +212,7 @@ test "CancelEdit restores editing=false without changing cell" {
 
 ///|
 test "SelectCell commits pending edit before moving" {
-  let m = { ..empty_model(), editing: true, edit_value: "99" }
+  let m = { ..empty_model(), editing: true, edit_value: "99", }
   let (_, model) = m.update(noop_dispatch, SelectCell(3, 5))
   assert_eq(model.sel_col, 3)
   assert_eq(model.sel_row, 5)
@@ -223,7 +223,7 @@ test "SelectCell commits pending edit before moving" {
 
 ///|
 test "MoveSelection commits pending edit before moving" {
-  let m = { ..empty_model(), editing: true, edit_value: "77" }
+  let m = { ..empty_model(), editing: true, edit_value: "77", }
   let (_, model) = m.update(noop_dispatch, MoveSelection(1, 0))
   assert_eq(model.editing, false)
   assert_eq(model.sel_col, 1)
@@ -322,7 +322,7 @@ test "SelectSheet changes active_sheet" {
 
 ///|
 test "SelectSheet commits pending edit" {
-  let m = { ..empty_model(), editing: true, edit_value: "55" }
+  let m = { ..empty_model(), editing: true, edit_value: "55", }
   let (_, model) = m.update(noop_dispatch, SelectSheet(1))
   assert_eq(model.active_sheet, 1)
   assert_eq(model.editing, false)
@@ -360,7 +360,7 @@ test "DeleteSheet cannot delete last sheet" {
 
 ///|
 test "DeleteSheet adjusts active_sheet when needed" {
-  let m = { ..empty_model(), active_sheet: 2 }
+  let m = { ..empty_model(), active_sheet: 2, }
   let (_, model) = m.update(noop_dispatch, DeleteSheet(2))
   assert_eq(model.sheets.length(), 2)
   assert_eq(model.active_sheet, 1)
@@ -368,7 +368,7 @@ test "DeleteSheet adjusts active_sheet when needed" {
 
 ///|
 test "DeleteSheet keeps active_sheet when deleting before it" {
-  let m = { ..empty_model(), active_sheet: 1 }
+  let m = { ..empty_model(), active_sheet: 1, }
   let (_, model) = m.update(noop_dispatch, DeleteSheet(0))
   assert_eq(model.sheets.length(), 2)
   assert_eq(model.active_sheet, 1)
@@ -416,7 +416,7 @@ test "ClearCell removes formatting too" {
 
 ///|
 test "ToggleChart flips show_chart" {
-  let m = { ..empty_model(), show_chart: true }
+  let m = { ..empty_model(), show_chart: true, }
   let (_, model) = m.update(noop_dispatch, ToggleChart)
   assert_eq(model.show_chart, false)
   let (_, model2) = model.update(noop_dispatch, ToggleChart)
@@ -425,7 +425,7 @@ test "ToggleChart flips show_chart" {
 
 ///|
 test "ToggleHeatMap flips heat_map" {
-  let m = { ..empty_model(), heat_map: true }
+  let m = { ..empty_model(), heat_map: true, }
   let (_, model) = m.update(noop_dispatch, ToggleHeatMap)
   assert_eq(model.heat_map, false)
   let (_, model2) = model.update(noop_dispatch, ToggleHeatMap)
@@ -448,13 +448,13 @@ test "ToggleBold only affects selected cell" {
 
 ///|
 test "current_sheet returns the active sheet" {
-  let m = { ..empty_model(), active_sheet: 1 }
+  let m = { ..empty_model(), active_sheet: 1, }
   assert_eq(m.current_sheet().name, "Sheet 2")
 }
 
 ///|
 test "selected_cell returns cell at selection position" {
-  let m = { ..empty_model(), sel_col: 2, sel_row: 3 }
+  let m = { ..empty_model(), sel_col: 2, sel_row: 3, }
   m.sheets[0].set_cell("C4", "found")
   assert_eq(m.selected_cell().raw, "found")
 }
@@ -526,7 +526,7 @@ test "replay: type '33' char by char via grid keydown simulation" {
 
 ///|
 test "replay: type 'hello' and verify each keystroke" {
-  let m = { ..empty_model(), sel_col: 0, sel_row: 0 }
+  let m = { ..empty_model(), sel_col: 0, sel_row: 0, }
   let m1 = replay(m, [StartEditWith("h")])
   assert_eq(m1.editing, true)
   assert_eq(m1.edit_value, "h")

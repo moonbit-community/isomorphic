@@ -54,8 +54,6 @@ pub struct Model {
   selected : Date?
   /// Today's date, used for highlighting.
   today : Date
-
-  fn new(today~ : Date) -> Model
 }
 
 ///|
@@ -69,8 +67,8 @@ pub(all) enum Msg {
 
 ///|
 /// Create a new calendar model initialized to the given date's month with no selection.
-pub fn Model::new(today~ : Date) -> Model {
-  { view_year: today.year, view_month: today.month, selected: None, today }
+pub fn Model::Model(today~ : Date) -> Model {
+  { view_year: today.year, view_month: today.month, selected: None, today, }
 }
 
 ///|
@@ -83,7 +81,7 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       } else {
         (self.view_year, self.view_month - 1)
       }
-      { ..self, view_year: y, view_month: m }
+      { ..self, view_year: y, view_month: m, }
     }
     NextMonth => {
       let (y, m) = if self.view_month == 12 {
@@ -91,13 +89,13 @@ pub fn Model::update(self : Model, msg : Msg) -> Model {
       } else {
         (self.view_year, self.view_month + 1)
       }
-      { ..self, view_year: y, view_month: m }
+      { ..self, view_year: y, view_month: m, }
     }
     SelectDay(day) => {
-      let date : Date = { year: self.view_year, month: self.view_month, day }
-      { ..self, selected: Some(date) }
+      let date : Date = { year: self.view_year, month: self.view_month, day, }
+      { ..self, selected: Some(date), }
     }
-    Clear => { ..self, selected: None }
+    Clear => { ..self, selected: None, }
   }
 }
 
@@ -165,7 +163,7 @@ pub fn Model::view(
     cells.push(@html.div(style=["padding: 8px"]) <| "")
   }
   for d in 1..<=total_days {
-    let date : Date = { year: self.view_year, month: self.view_month, day: d }
+    let date : Date = { year: self.view_year, month: self.view_month, day: d, }
     let is_selected = self.selected == Some(date)
     let is_today = self.today == date
     let bg = if is_selected {
@@ -247,3 +245,6 @@ pub fn Model::view(
     ],
   ]
 }
+
+///|
+pub extend Date with Eq::{not_equal, equal}

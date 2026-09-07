@@ -62,7 +62,7 @@ pub fn compute_insert_position(before : Int, after : Int) -> Int {
 ///
 /// ```mbt check
 /// test {
-///   inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
+///   debug_inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
 /// }
 /// ```
 pub fn renumber_positions(count : Int) -> Array[Int] {
@@ -81,8 +81,8 @@ pub fn renumber_positions(count : Int) -> Array[Int] {
 /// ```mbt check
 /// test {
 ///   let cols : Array[@shared.Column] = [
-///     { id: 1, title: "C", position: 3000 },
-///     { id: 2, title: "A", position: 1000 },
+///     { id: 1, title: "C", position: 3000, },
+///     { id: 2, title: "A", position: 1000, },
 ///   ]
 ///   let sorted = @shared.sort_by_position(cols, fn(c) { c.position })
 ///   inspect(sorted[0].title, content="A")

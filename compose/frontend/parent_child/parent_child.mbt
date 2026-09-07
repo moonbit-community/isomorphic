@@ -44,13 +44,13 @@ pub fn make() -> @rabbita.Cell {
 
   // Parent cell — owns the "Reset Both" logic
   @rabbita.cell(
-    model={ total_resets: 0 },
+    model={ total_resets: 0, },
     update=(_dispatch, msg : ParentMsg, model : ParentModel) => {
       match msg {
         ResetAll => {
           // Send Reset to both children via their dispatch handles
           let cmd = @rabbita.batch([dispatch_a(Reset), dispatch_b(Reset)])
-          (cmd, { total_resets: model.total_resets + 1 })
+          (cmd, { total_resets: model.total_resets + 1, })
         }
       }
     },

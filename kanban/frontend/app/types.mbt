@@ -79,3 +79,9 @@ pub(all) enum Msg {
   MoveCardTo(Int, Int)
   CardMoved
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}

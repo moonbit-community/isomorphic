@@ -22,3 +22,9 @@ pub(all) enum Msg {
   DeleteTodo(Int)
   TodoDeleted(Result[Int, String])
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}

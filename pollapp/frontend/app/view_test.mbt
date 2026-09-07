@@ -39,7 +39,7 @@ test "view shows empty state with no polls" {
 
 ///|
 test "view renders poll cards" {
-  let model = { ..empty_model(), polls: [sample_poll()] }
+  let model = { ..empty_model(), polls: [sample_poll()], }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -50,7 +50,7 @@ test "view renders poll cards" {
 
 ///|
 test "view shows voted poll with result bars" {
-  let model = { ..empty_model(), polls: [sample_poll()], voted: [1] }
+  let model = { ..empty_model(), polls: [sample_poll()], voted: [1], }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -63,7 +63,7 @@ test "view shows voted poll with result bars" {
 
 ///|
 test "form preserves question input value" {
-  let model = { ..empty_model(), question_input: "draft question" }
+  let model = { ..empty_model(), question_input: "draft question", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -74,7 +74,7 @@ test "form preserves question input value" {
 
 ///|
 test "form shows option inputs" {
-  let model = { ..empty_model(), option_inputs: ["Alpha", "Beta", "Gamma"] }
+  let model = { ..empty_model(), option_inputs: ["Alpha", "Beta", "Gamma"], }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -87,7 +87,7 @@ test "form shows option inputs" {
 
 ///|
 test "view renders multiple polls" {
-  let model = { ..empty_model(), polls: sample_polls() }
+  let model = { ..empty_model(), polls: sample_polls(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(

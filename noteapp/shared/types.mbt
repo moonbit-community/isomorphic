@@ -16,3 +16,21 @@ pub(all) struct NoteStats {
   char_count : Int
   reading_time_secs : Int
 } derive(ToJson, FromJson, Debug)
+
+///|
+pub extend Note with Debug::{to_repr}
+
+///|
+pub extend Note with @json.FromJson::{from_json}
+
+///|
+pub extend Note with ToJson::{to_json}
+
+///|
+pub extend NoteStats with Debug::{to_repr}
+
+///|
+pub extend NoteStats with @json.FromJson::{from_json}
+
+///|
+pub extend NoteStats with ToJson::{to_json}

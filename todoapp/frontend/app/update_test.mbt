@@ -5,15 +5,15 @@ fn noop_dispatch(_msg : Msg) -> @rabbita.Cmd {
 
 ///|
 fn empty_model() -> Model {
-  { todos: [], input: "", loading: false }
+  { todos: [], input: "", loading: false, }
 }
 
 ///|
 fn sample_todos() -> Array[@shared.Todo] {
   [
-    { id: 1, text: "Buy milk", done: false },
-    { id: 2, text: "Write tests", done: true },
-    { id: 3, text: "Ship feature", done: false },
+    { id: 1, text: "Buy milk", done: false, },
+    { id: 2, text: "Write tests", done: true, },
+    { id: 3, text: "Ship feature", done: false, },
   ]
 }
 
@@ -34,7 +34,7 @@ test "Init sets loading to true" {
 
 ///|
 test "GotTodos/Ok populates todos and clears loading" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let todos = sample_todos()
   let (model, _) = initial.update(
     msg=GotTodos(Ok(todos)),
@@ -58,7 +58,7 @@ test "GotTodos/Ok populates todos and clears loading" {
 
 ///|
 test "GotTodos/Err clears loading without changing todos" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let (model, _) = initial.update(
     msg=GotTodos(Err("network")),
     dispatch=noop_dispatch,
@@ -89,7 +89,7 @@ test "InputChanged updates input field" {
 
 ///|
 test "InputChanged preserves todos" {
-  let initial = { ..empty_model(), todos: sample_todos() }
+  let initial = { ..empty_model(), todos: sample_todos(), }
   let (model, _) = initial.update(msg=InputChanged("x"), dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -111,7 +111,7 @@ test "InputChanged preserves todos" {
 
 ///|
 test "AddTodo with empty input does nothing" {
-  let initial = { ..empty_model(), input: "" }
+  let initial = { ..empty_model(), input: "", }
   let (model, _) = initial.update(msg=AddTodo, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -123,7 +123,7 @@ test "AddTodo with empty input does nothing" {
 
 ///|
 test "AddTodo with valid input clears input" {
-  let initial = { ..empty_model(), input: "New todo" }
+  let initial = { ..empty_model(), input: "New todo", }
   let (model, _) = initial.update(msg=AddTodo, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -136,7 +136,7 @@ test "AddTodo with valid input clears input" {
 ///|
 test "AddTodo with too-long input does nothing" {
   let long = "a".repeat(@shared.max_todo_length + 1)
-  let initial = { ..empty_model(), input: long }
+  let initial = { ..empty_model(), input: long, }
   let (model, _) = initial.update(msg=AddTodo, dispatch=noop_dispatch)
   inspect(model.input, content=long)
 }
@@ -145,8 +145,8 @@ test "AddTodo with too-long input does nothing" {
 
 ///|
 test "TodoAdded/Ok appends to list" {
-  let initial = { ..empty_model(), todos: sample_todos() }
-  let new_todo : @shared.Todo = { id: 4, text: "New", done: false }
+  let initial = { ..empty_model(), todos: sample_todos(), }
+  let new_todo : @shared.Todo = { id: 4, text: "New", done: false, }
   let (model, _) = initial.update(
     msg=TodoAdded(Ok(new_todo)),
     dispatch=noop_dispatch,
@@ -170,7 +170,7 @@ test "TodoAdded/Ok appends to list" {
 
 ///|
 test "TodoAdded/Err leaves model unchanged" {
-  let initial = { ..empty_model(), todos: sample_todos() }
+  let initial = { ..empty_model(), todos: sample_todos(), }
   let (model, _) = initial.update(
     msg=TodoAdded(Err("fail")),
     dispatch=noop_dispatch,
@@ -195,8 +195,8 @@ test "TodoAdded/Err leaves model unchanged" {
 
 ///|
 test "TodoToggled/Ok replaces matching todo" {
-  let initial = { ..empty_model(), todos: sample_todos() }
-  let toggled : @shared.Todo = { id: 1, text: "Buy milk", done: true }
+  let initial = { ..empty_model(), todos: sample_todos(), }
+  let toggled : @shared.Todo = { id: 1, text: "Buy milk", done: true, }
   let (model, _) = initial.update(
     msg=TodoToggled(Ok(toggled)),
     dispatch=noop_dispatch,
@@ -219,7 +219,7 @@ test "TodoToggled/Ok replaces matching todo" {
 
 ///|
 test "TodoToggled/Err leaves model unchanged" {
-  let initial = { ..empty_model(), todos: sample_todos() }
+  let initial = { ..empty_model(), todos: sample_todos(), }
   let (model, _) = initial.update(
     msg=TodoToggled(Err("fail")),
     dispatch=noop_dispatch,
@@ -244,7 +244,7 @@ test "TodoToggled/Err leaves model unchanged" {
 
 ///|
 test "TodoDeleted/Ok removes the todo" {
-  let initial = { ..empty_model(), todos: sample_todos() }
+  let initial = { ..empty_model(), todos: sample_todos(), }
   let (model, _) = initial.update(
     msg=TodoDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -266,7 +266,7 @@ test "TodoDeleted/Ok removes the todo" {
 
 ///|
 test "TodoDeleted/Ok with nonexistent id is no-op" {
-  let initial = { ..empty_model(), todos: sample_todos() }
+  let initial = { ..empty_model(), todos: sample_todos(), }
   let (model, _) = initial.update(
     msg=TodoDeleted(Ok(999)),
     dispatch=noop_dispatch,
@@ -289,7 +289,7 @@ test "TodoDeleted/Ok with nonexistent id is no-op" {
 
 ///|
 test "TodoDeleted/Err leaves model unchanged" {
-  let initial = { ..empty_model(), todos: sample_todos() }
+  let initial = { ..empty_model(), todos: sample_todos(), }
   let (model, _) = initial.update(
     msg=TodoDeleted(Err("fail")),
     dispatch=noop_dispatch,

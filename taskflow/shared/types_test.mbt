@@ -30,7 +30,7 @@ test "Task JSON round-trip" {
 
 ///|
 test "Member JSON round-trip" {
-  let m : @shared.Member = { id: 1, name: "Alice", color: "blue" }
+  let m : @shared.Member = { id: 1, name: "Alice", color: "blue", }
   let decoded : @shared.Member = @json.from_json(m.to_json())
   debug_inspect(
     decoded,
@@ -55,7 +55,7 @@ test "Board JSON round-trip" {
         created_at: "2026-03-12",
       },
     ],
-    members: [{ id: 1, name: "Alice", color: "blue" }],
+    members: [{ id: 1, name: "Alice", color: "blue", }],
     activities: [
       {
         id: 1,
@@ -67,7 +67,7 @@ test "Board JSON round-trip" {
         user_name: "Alice",
       },
     ],
-    dependencies: [{ task_id: 1, depends_on_id: 2 }],
+    dependencies: [{ task_id: 1, depends_on_id: 2, }],
     labels: [],
     task_labels: [],
     subtasks: [],
@@ -177,7 +177,7 @@ test "Task JSON structure" {
 
 ///|
 test "Member JSON structure" {
-  let m : @shared.Member = { id: 1, name: "Alice", color: "blue" }
+  let m : @shared.Member = { id: 1, name: "Alice", color: "blue", }
   json_inspect(m.to_json(), content={
     "id": 1,
     "name": "Alice",
@@ -187,7 +187,7 @@ test "Member JSON structure" {
 
 ///|
 test "Dependency JSON round-trip" {
-  let d : @shared.Dependency = { task_id: 1, depends_on_id: 2 }
+  let d : @shared.Dependency = { task_id: 1, depends_on_id: 2, }
   let decoded : @shared.Dependency = @json.from_json(d.to_json())
   debug_inspect(
     decoded,
@@ -217,7 +217,7 @@ test "User JSON round-trip" {
 ///|
 test "AuthResponse JSON round-trip" {
   let resp : @shared.AuthResponse = {
-    user: { id: 1, username: "alice", color: "blue", role: "member" },
+    user: { id: 1, username: "alice", color: "blue", role: "member", },
     message: "Login successful",
   }
   let decoded : @shared.AuthResponse = @json.from_json(resp.to_json())
@@ -251,7 +251,7 @@ test "User JSON structure" {
 ///|
 test "AuthResponse JSON structure" {
   let resp : @shared.AuthResponse = {
-    user: { id: 1, username: "alice", color: "blue", role: "member" },
+    user: { id: 1, username: "alice", color: "blue", role: "member", },
     message: "Login successful",
   }
   json_inspect(resp.to_json(), content={
@@ -326,7 +326,7 @@ test "Comment JSON structure" {
 
 ///|
 test "Dependency JSON structure" {
-  let d : @shared.Dependency = { task_id: 3, depends_on_id: 7 }
+  let d : @shared.Dependency = { task_id: 3, depends_on_id: 7, }
   json_inspect(d.to_json(), content={ "task_id": 3, "depends_on_id": 7 })
 }
 
@@ -426,11 +426,11 @@ test "Board with multiple tasks and deps" {
       },
     ],
     members: [
-      { id: 1, name: "Alice", color: "blue" },
-      { id: 2, name: "Bob", color: "green" },
+      { id: 1, name: "Alice", color: "blue", },
+      { id: 2, name: "Bob", color: "green", },
     ],
     activities: [],
-    dependencies: [{ task_id: 2, depends_on_id: 1 }],
+    dependencies: [{ task_id: 2, depends_on_id: 1, }],
     labels: [],
     task_labels: [],
     subtasks: [],

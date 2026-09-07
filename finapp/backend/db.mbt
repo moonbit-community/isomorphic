@@ -114,7 +114,7 @@ fn read_account(stmt : @sqlite3.Statement) -> @shared.Account {
   let account_type = @shared.AccountType::from_string(
     stmt.column_blob_as_string(index=2),
   )
-  { id, name, account_type }
+  { id, name, account_type, }
 }
 
 ///|
@@ -153,7 +153,7 @@ fn create_account(
   guard stmt2.step()
   let id : Int = stmt2.column(index=0)
   stmt2.finalize()
-  { id, name, account_type: @shared.AccountType::from_string(account_type) }
+  { id, name, account_type: @shared.AccountType::from_string(account_type), }
 }
 
 ///|
@@ -186,7 +186,7 @@ fn read_category(stmt : @sqlite3.Statement) -> @shared.Category {
   let cat_type = @shared.TransactionType::from_string(
     stmt.column_blob_as_string(index=4),
   )
-  { id, name, icon, color, cat_type }
+  { id, name, icon, color, cat_type, }
 }
 
 ///|
@@ -222,7 +222,7 @@ fn read_transaction(stmt : @sqlite3.Statement) -> @shared.Transaction {
   )
   let description : String = stmt.column_blob_as_string(index=5)
   let date : String = stmt.column_blob_as_string(index=6)
-  { id, account_id, category_id, amount, txn_type, description, date }
+  { id, account_id, category_id, amount, txn_type, description, date, }
 }
 
 ///|
@@ -311,7 +311,7 @@ fn get_budgets_for_month(
     let category_id : Int = stmt.column(index=1)
     let amount_limit : Int = stmt.column(index=2)
     let m : String = stmt.column_blob_as_string(index=3)
-    result.push({ id, category_id, amount_limit, month: m })
+    result.push({ id, category_id, amount_limit, month: m, })
   }
   stmt.finalize()
   result
@@ -345,7 +345,7 @@ fn upsert_budget(
   guard stmt2.step()
   let id : Int = stmt2.column(index=0)
   stmt2.finalize()
-  { id, category_id, amount_limit, month }
+  { id, category_id, amount_limit, month, }
 }
 
 ///|
@@ -377,7 +377,7 @@ fn get_dashboard(
   let budgets = get_budgets_for_month(conn, month)
   // Account balances
   let account_balances : Array[@shared.AccountBalance] = accounts.map(fn(a) {
-    { account: a, balance: @shared.compute_balance(transactions, a.id) }
+    { account: a, balance: @shared.compute_balance(transactions, a.id), }
   })
   // Monthly summary
   let month_summary = @shared.monthly_totals(transactions, month)

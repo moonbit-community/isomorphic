@@ -46,3 +46,9 @@ pub(all) enum Msg {
   /// Response from the server after deleting a contact.
   ContactDeleted(Result[Int, String])
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}

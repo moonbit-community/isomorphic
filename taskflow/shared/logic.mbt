@@ -690,14 +690,14 @@ pub fn filter_tasks(
 /// ```mbt check
 /// test {
 ///   let tl : Array[@shared.TaskLabel] = [
-///     { task_id: 1, label_id: 10 },
-///     { task_id: 2, label_id: 20 },
-///     { task_id: 1, label_id: 30 },
+///     { task_id: 1, label_id: 10, },
+///     { task_id: 2, label_id: 20, },
+///     { task_id: 1, label_id: 30, },
 ///   ]
 ///   let labels : Array[@shared.Label] = [
-///     { id: 10, name: "bug", color: "#ef4444" },
-///     { id: 20, name: "feature", color: "#3b82f6" },
-///     { id: 30, name: "docs", color: "#22c55e" },
+///     { id: 10, name: "bug", color: "#ef4444", },
+///     { id: 20, name: "feature", color: "#3b82f6", },
+///     { id: 30, name: "docs", color: "#22c55e", },
 ///   ]
 ///   let result = @shared.labels_for_task(labels, tl, 1)
 ///   inspect(result.length(), content="2")
@@ -752,7 +752,7 @@ fn csv_escape(s : String) -> String {
 ///     },
 ///   ]
 ///   let members : Array[@shared.Member] = [
-///     { id: 1, name: "Alice", color: "blue" },
+///     { id: 1, name: "Alice", color: "blue", },
 ///   ]
 ///   let csv = @shared.tasks_to_csv(tasks, members)
 ///   assert_true(csv.contains("Fix bug"))
@@ -938,7 +938,7 @@ pub fn extract_mentions(text : String) -> Array[String] {
         end += 1
       }
       if end > start {
-        let name = text[start:end].to_string()
+        let name = text[start:end].to_owned()
         if !mentions.contains(name) {
           mentions.push(name)
         }

@@ -8,7 +8,7 @@ pub(all) enum Lang {
 
 ///|
 /// Display the language code.
-pub impl Show for Lang with output(self, logger) {
+pub impl Show for Lang with fn output(self, logger) {
   match self {
     En => logger.write_string("en")
     Zh => logger.write_string("zh")
@@ -407,3 +407,18 @@ pub fn t_server_error(lang : Lang, msg : String) -> String {
     (_, _) => t(lang, msg)
   }
 }
+
+///|
+pub extend Lang with Debug::{to_repr}
+
+///|
+pub extend Lang with @json.FromJson::{from_json}
+
+///|
+pub extend Lang with Eq::{not_equal, equal}
+
+///|
+pub extend Lang with Show::{to_string, output}
+
+///|
+pub extend Lang with ToJson::{to_json}

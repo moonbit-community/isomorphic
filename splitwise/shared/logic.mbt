@@ -76,7 +76,7 @@ pub fn compute_settlements(
       // Look up names
       let from_name = find_name(people, from_id)
       let to_name = find_name(people, to_id)
-      settlements.push({ from_id, from_name, to_id, to_name, amount })
+      settlements.push({ from_id, from_name, to_id, to_name, amount, })
     }
     if debt < credit {
       creditors[ci] = (to_id, credit - debt)

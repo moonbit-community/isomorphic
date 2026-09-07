@@ -66,14 +66,14 @@ pub fn Model::update(
     }
     StartEdit => {
       let cell = self.selected_cell()
-      (@rabbita.none, { ..self, editing: true, edit_value: cell.raw })
+      (@rabbita.none, { ..self, editing: true, edit_value: cell.raw, })
     }
     StartEditWith(ch) =>
       if self.editing {
         // Already editing — append character to current edit value
-        (@rabbita.none, { ..self, edit_value: self.edit_value + ch })
+        (@rabbita.none, { ..self, edit_value: self.edit_value + ch, })
       } else {
-        (@rabbita.none, { ..self, editing: true, edit_value: ch })
+        (@rabbita.none, { ..self, editing: true, edit_value: ch, })
       }
     UpdateEdit(v) => {
       let suggestions = compute_autocomplete(v)
@@ -127,7 +127,7 @@ pub fn Model::update(
       let name = "Sheet \{self.sheets.length() + 1}"
       let sheets = self.sheets.copy()
       sheets.push(Sheet(name))
-      let model = { ..self, sheets, save_status: "Saving..." }
+      let model = { ..self, sheets, save_status: "Saving...", }
       (save_cmd(dispatch, model.sheets), model)
     }
     DeleteSheet(i) => {
@@ -155,55 +155,55 @@ pub fn Model::update(
     }
     ToggleBold => {
       let model = {
-        ..self.update_selected_cell(fn(c) { { ..c, bold: !c.bold } }),
+        ..self.update_selected_cell(fn(c) { { ..c, bold: !c.bold, } }),
         save_status: "Saving...",
       }
       (save_cmd(dispatch, model.sheets), model)
     }
     ToggleItalic => {
       let model = {
-        ..self.update_selected_cell(fn(c) { { ..c, italic: !c.italic } }),
+        ..self.update_selected_cell(fn(c) { { ..c, italic: !c.italic, } }),
         save_status: "Saving...",
       }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetAlign(a) => {
       let model = {
-        ..self.update_selected_cell(fn(c) { { ..c, align: a } }),
+        ..self.update_selected_cell(fn(c) { { ..c, align: a, } }),
         save_status: "Saving...",
       }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetFormat(f) => {
       let model = {
-        ..self.update_selected_cell(fn(c) { { ..c, format: f } }),
+        ..self.update_selected_cell(fn(c) { { ..c, format: f, } }),
         save_status: "Saving...",
       }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetBgColor(color) => {
       let model = {
-        ..self.update_selected_cell(fn(c) { { ..c, bg_color: color } }),
+        ..self.update_selected_cell(fn(c) { { ..c, bg_color: color, } }),
         save_status: "Saving...",
       }
       (save_cmd(dispatch, model.sheets), model)
     }
     SetTextColor(color) => {
       let model = {
-        ..self.update_selected_cell(fn(c) { { ..c, text_color: color } }),
+        ..self.update_selected_cell(fn(c) { { ..c, text_color: color, } }),
         save_status: "Saving...",
       }
       (save_cmd(dispatch, model.sheets), model)
     }
-    ToggleChart => (@rabbita.none, { ..self, show_chart: !self.show_chart })
-    ToggleHeatMap => (@rabbita.none, { ..self, heat_map: !self.heat_map })
+    ToggleChart => (@rabbita.none, { ..self, show_chart: !self.show_chart, })
+    ToggleHeatMap => (@rabbita.none, { ..self, heat_map: !self.heat_map, })
     ClearCell => {
       let key = @cell.make_key(self.sel_col, self.sel_row)
       let sheet = self.current_sheet()
       let new_cells = sheet.cells
       new_cells[key] = Cell()
       let sheets = self.sheets.copy()
-      sheets[self.active_sheet] = { ..sheet, cells: new_cells }.recalc()
+      sheets[self.active_sheet] = { ..sheet, cells: new_cells, }.recalc()
       let model = {
         ..self,
         sheets,
@@ -242,7 +242,7 @@ pub fn Model::update(
       } else {
         (self.autocomplete_index + delta).clamp(min=0, max=len - 1)
       }
-      (@rabbita.none, { ..self, autocomplete_index: new_idx })
+      (@rabbita.none, { ..self, autocomplete_index: new_idx, })
     }
     LoadFromBackend => (fetch_workbook_cmd(dispatch), self)
     GotBackendData(Ok(sheets)) => {
@@ -276,11 +276,11 @@ pub fn Model::update(
     GotBackendData(Err(_)) =>
       // Backend unavailable — keep demo data as fallback
       (@rabbita.none, self)
-    SavedToBackend => (@rabbita.none, { ..self, save_status: "Saved" })
+    SavedToBackend => (@rabbita.none, { ..self, save_status: "Saved", })
     WsRefresh => {
       // Fetch latest data from backend AND re-subscribe for next WS message
       js_log("WsRefresh: fetching + re-subscribing")
-      let model = { ..self, save_status: "Syncing..." }
+      let model = { ..self, save_status: "Syncing...", }
       (
         @rabbita.batch([fetch_workbook_cmd(dispatch), ws_listen_cmd(dispatch)]),
         model,
@@ -304,7 +304,7 @@ fn Model::update_selected_cell(
   let new_cells = sheet.cells
   new_cells[key] = f(cell)
   let sheets = self.sheets.copy()
-  sheets[self.active_sheet] = { ..sheet, cells: new_cells }
+  sheets[self.active_sheet] = { ..sheet, cells: new_cells, }
   { ..self, sheets, }
 }
 
@@ -320,13 +320,13 @@ fn Model::commit_edit(self : Model) -> Model {
   let sheet = self.current_sheet()
   let old_cell = sheet.get(key)
   let value = @formula.evaluate(self.edit_value, fn(r) { sheet.get(r).value })
-  let new_cell = { ..old_cell, raw: self.edit_value, value }
+  let new_cell = { ..old_cell, raw: self.edit_value, value, }
   let new_cells = sheet.cells
   new_cells[key] = new_cell
-  let new_sheet = { ..sheet, cells: new_cells }.recalc()
+  let new_sheet = { ..sheet, cells: new_cells, }.recalc()
   let sheets = self.sheets.copy()
   sheets[self.active_sheet] = new_sheet
-  { ..self, sheets, editing: false, edit_value: "" }
+  { ..self, sheets, editing: false, edit_value: "", }
 }
 
 ///|
@@ -372,7 +372,7 @@ fn extract_partial(value : String) -> String {
     return ""
   }
   // Build the partial string
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for j = start; j < end; j = j + 1 {
     sb.write_char(chars[j])
   }
@@ -415,7 +415,7 @@ fn insert_autocomplete(value : String, name : String) -> String {
   // Remove the partial from the end and append the full name
   let prefix_len = value.length() - partial.length()
   let chars = value.to_array()
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for i = 0; i < prefix_len; i = i + 1 {
     sb.write_char(chars[i])
   }

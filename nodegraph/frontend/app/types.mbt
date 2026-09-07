@@ -111,3 +111,12 @@ pub(all) enum Msg {
   // Error
   ClearError
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}
+
+///|
+pub extend Page with Debug::{to_repr}

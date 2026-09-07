@@ -32,7 +32,7 @@ fn get_all_notes(
     let content : String = stmt.column_blob_as_string(index=2)
     let pinned_int : Int = stmt.column(index=3)
     let pinned = pinned_int != 0
-    notes.push({ id, title, content, pinned })
+    notes.push({ id, title, content, pinned, })
   }
   stmt.finalize()
   notes
@@ -55,7 +55,7 @@ fn create_note(
   guard stmt2.step()
   let id : Int = stmt2.column(index=0)
   stmt2.finalize()
-  { id, title, content, pinned: false }
+  { id, title, content, pinned: false, }
 }
 
 ///|
@@ -81,7 +81,7 @@ fn toggle_pin(
   let content : String = stmt2.column_blob_as_string(index=2)
   let pinned_int : Int = stmt2.column(index=3)
   stmt2.finalize()
-  { id: note_id, title, content, pinned: pinned_int != 0 }
+  { id: note_id, title, content, pinned: pinned_int != 0, }
 }
 
 ///|

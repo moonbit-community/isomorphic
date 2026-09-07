@@ -220,3 +220,12 @@ pub(all) struct Theme {
   /// Background color for board columns.
   column_bg : String
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}
+
+///|
+pub extend Theme with Debug::{to_repr}

@@ -153,3 +153,99 @@ pub(all) struct DashboardData {
   recent_transactions : Array[Transaction]
   category_totals : Array[(String, String, Int)]
 } derive(ToJson, FromJson, Debug)
+
+///|
+pub extend Account with Debug::{to_repr}
+
+///|
+pub extend Account with @json.FromJson::{from_json}
+
+///|
+pub extend Account with ToJson::{to_json}
+
+///|
+pub extend AccountBalance with Debug::{to_repr}
+
+///|
+pub extend AccountBalance with @json.FromJson::{from_json}
+
+///|
+pub extend AccountBalance with ToJson::{to_json}
+
+///|
+pub extend AccountType with Debug::{to_repr}
+
+///|
+pub extend AccountType with @json.FromJson::{from_json}
+
+///|
+pub extend AccountType with Eq::{not_equal, equal}
+
+///|
+pub extend AccountType with ToJson::{to_json}
+
+///|
+pub extend Budget with Debug::{to_repr}
+
+///|
+pub extend Budget with @json.FromJson::{from_json}
+
+///|
+pub extend Budget with ToJson::{to_json}
+
+///|
+pub extend BudgetStatus with Debug::{to_repr}
+
+///|
+pub extend BudgetStatus with @json.FromJson::{from_json}
+
+///|
+pub extend BudgetStatus with ToJson::{to_json}
+
+///|
+pub extend Category with Debug::{to_repr}
+
+///|
+pub extend Category with @json.FromJson::{from_json}
+
+///|
+pub extend Category with ToJson::{to_json}
+
+///|
+pub extend DashboardData with Debug::{to_repr}
+
+///|
+pub extend DashboardData with @json.FromJson::{from_json}
+
+///|
+pub extend DashboardData with ToJson::{to_json}
+
+///|
+pub extend MonthSummary with Debug::{to_repr}
+
+///|
+pub extend MonthSummary with @json.FromJson::{from_json}
+
+///|
+pub extend MonthSummary with ToJson::{to_json}
+
+///|
+pub extend Transaction with Debug::{to_repr}
+
+///|
+pub extend Transaction with @json.FromJson::{from_json}
+
+///|
+pub extend Transaction with ToJson::{to_json}
+
+///|
+pub extend TransactionType with Debug::{to_repr}
+
+///|
+pub extend TransactionType with @json.FromJson::{from_json}
+
+///|
+pub extend TransactionType with Eq::{not_equal, equal}
+
+///|
+pub extend TransactionType with ToJson::{to_json}
