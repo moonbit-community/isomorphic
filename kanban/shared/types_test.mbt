@@ -26,7 +26,7 @@ test "Card JSON round-trip" {
 
 ///|
 test "Column JSON round-trip" {
-  let col : @shared.Column = { id: 3, title: "In Progress", position: 2000 }
+  let col : @shared.Column = { id: 3, title: "In Progress", position: 2000, }
   let decoded : @shared.Column = @json.from_json(col.to_json())
   debug_inspect(
     decoded,
@@ -40,8 +40,8 @@ test "Column JSON round-trip" {
 test "Board JSON round-trip" {
   let board : @shared.Board = {
     columns: [
-      { id: 1, title: "To Do", position: 1000 },
-      { id: 2, title: "Done", position: 2000 },
+      { id: 1, title: "To Do", position: 1000, },
+      { id: 2, title: "Done", position: 2000, },
     ],
     cards: [
       {
@@ -122,7 +122,7 @@ test "Card with unicode title JSON round-trip" {
 
 ///|
 test "Board with empty columns and cards" {
-  let board : @shared.Board = { columns: [], cards: [] }
+  let board : @shared.Board = { columns: [], cards: [], }
   let decoded : @shared.Board = @json.from_json(board.to_json())
   debug_inspect(
     decoded,

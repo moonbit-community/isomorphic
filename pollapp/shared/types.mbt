@@ -24,3 +24,30 @@ pub(all) struct PollResults {
   total_votes : Int
   percentages : Array[(String, Int)]
 } derive(ToJson, FromJson, Debug)
+
+///|
+pub extend Poll with Debug::{to_repr}
+
+///|
+pub extend Poll with @json.FromJson::{from_json}
+
+///|
+pub extend Poll with ToJson::{to_json}
+
+///|
+pub extend PollOption with Debug::{to_repr}
+
+///|
+pub extend PollOption with @json.FromJson::{from_json}
+
+///|
+pub extend PollOption with ToJson::{to_json}
+
+///|
+pub extend PollResults with Debug::{to_repr}
+
+///|
+pub extend PollResults with @json.FromJson::{from_json}
+
+///|
+pub extend PollResults with ToJson::{to_json}

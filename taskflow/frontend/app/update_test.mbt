@@ -71,14 +71,14 @@ fn empty_model() -> Model {
 
 ///|
 fn sample_user() -> @shared.User {
-  { id: 1, username: "alice", color: "blue", role: "member" }
+  { id: 1, username: "alice", color: "blue", role: "member", }
 }
 
 ///|
 fn sample_members() -> Array[@shared.Member] {
   [
-    { id: 1, name: "Alice", color: "blue" },
-    { id: 2, name: "Bob", color: "green" },
+    { id: 1, name: "Alice", color: "blue", },
+    { id: 2, name: "Bob", color: "green", },
   ]
 }
 
@@ -135,7 +135,7 @@ fn sample_activities() -> Array[@shared.Activity] {
 
 ///|
 fn sample_dependencies() -> Array[@shared.Dependency] {
-  [{ task_id: 2, depends_on_id: 1 }]
+  [{ task_id: 2, depends_on_id: 1, }]
 }
 
 ///|
@@ -159,7 +159,7 @@ fn sample_board() -> @shared.Board {
 
 ///|
 fn logged_in_model() -> Model {
-  { ..empty_model(), current_user: Some(sample_user()), auth_screen: "" }
+  { ..empty_model(), current_user: Some(sample_user()), auth_screen: "", }
 }
 
 // ── Init ─────────────────────────────────────────────────────────────
@@ -174,7 +174,7 @@ test "Init sets loading to true" {
 
 ///|
 test "GotMe/Ok sets current_user and clears auth_screen" {
-  let initial = { ..empty_model(), auth_screen: "login", auth_loading: true }
+  let initial = { ..empty_model(), auth_screen: "login", auth_loading: true, }
   let (model, _) = initial.update(
     msg=GotMe(Ok(sample_user())),
     dispatch=noop_dispatch,
@@ -182,7 +182,7 @@ test "GotMe/Ok sets current_user and clears auth_screen" {
   debug_inspect(
     model.current_user,
     content=(
-      #|Some({id: 1, username: "alice", color: "blue", role: "member"})
+      #|Some({ id: 1, username: "alice", color: "blue", role: "member" })
     ),
   )
   inspect(model.auth_screen, content="")
@@ -191,7 +191,7 @@ test "GotMe/Ok sets current_user and clears auth_screen" {
 
 ///|
 test "GotMe/Err shows login screen" {
-  let initial = { ..empty_model(), auth_loading: true }
+  let initial = { ..empty_model(), auth_loading: true, }
   let (model, _) = initial.update(
     msg=GotMe(Err("not logged in")),
     dispatch=noop_dispatch,
@@ -205,7 +205,7 @@ test "GotMe/Err shows login screen" {
 
 ///|
 test "GotBoard/Ok populates board data and clears loading" {
-  let initial = { ..logged_in_model(), loading: true }
+  let initial = { ..logged_in_model(), loading: true, }
   let (model, _) = initial.update(
     msg=GotBoard(Ok(sample_board())),
     dispatch=noop_dispatch,
@@ -220,7 +220,7 @@ test "GotBoard/Ok populates board data and clears loading" {
 
 ///|
 test "GotBoard/Err sets error_msg and clears loading" {
-  let initial = { ..logged_in_model(), loading: true }
+  let initial = { ..logged_in_model(), loading: true, }
   let (model, _) = initial.update(
     msg=GotBoard(Err("network error")),
     dispatch=noop_dispatch,
@@ -233,7 +233,7 @@ test "GotBoard/Err sets error_msg and clears loading" {
 
 ///|
 test "ShowLogin sets auth_screen and clears fields" {
-  let initial = { ..empty_model(), auth_username: "old", auth_password: "pw" }
+  let initial = { ..empty_model(), auth_username: "old", auth_password: "pw", }
   let (model, _) = initial.update(msg=ShowLogin, dispatch=noop_dispatch)
   inspect(model.auth_screen, content="login")
   inspect(model.auth_username, content="")
@@ -277,7 +277,7 @@ test "AuthPasswordChanged updates auth_password" {
 
 ///|
 test "SubmitLogin with empty fields sets error" {
-  let initial = { ..empty_model(), auth_username: "", auth_password: "" }
+  let initial = { ..empty_model(), auth_username: "", auth_password: "", }
   let (model, _) = initial.update(msg=SubmitLogin, dispatch=noop_dispatch)
   inspect(model.auth_error, content="Please fill in all fields")
   inspect(model.auth_loading, content="false")
@@ -299,7 +299,7 @@ test "SubmitLogin with valid credentials sets auth_loading" {
 
 ///|
 test "SubmitRegister with invalid username sets error" {
-  let initial = { ..empty_model(), auth_username: "ab", auth_password: "pass" }
+  let initial = { ..empty_model(), auth_username: "ab", auth_password: "pass", }
   let (model, _) = initial.update(msg=SubmitRegister, dispatch=noop_dispatch)
   inspect(
     model.auth_error,
@@ -309,7 +309,11 @@ test "SubmitRegister with invalid username sets error" {
 
 ///|
 test "SubmitRegister with invalid password sets error" {
-  let initial = { ..empty_model(), auth_username: "alice", auth_password: "ab" }
+  let initial = {
+    ..empty_model(),
+    auth_username: "alice",
+    auth_password: "ab",
+  }
   let (model, _) = initial.update(msg=SubmitRegister, dispatch=noop_dispatch)
   inspect(model.auth_error, content="Password: 4-100 characters")
 }
@@ -330,8 +334,8 @@ test "SubmitRegister with valid fields sets auth_loading" {
 
 ///|
 test "AuthResult/Ok logs in user" {
-  let resp : @shared.AuthResponse = { user: sample_user(), message: "Welcome" }
-  let initial = { ..empty_model(), auth_loading: true }
+  let resp : @shared.AuthResponse = { user: sample_user(), message: "Welcome", }
+  let initial = { ..empty_model(), auth_loading: true, }
   let (model, _) = initial.update(
     msg=AuthResult(Ok(resp)),
     dispatch=noop_dispatch,
@@ -339,7 +343,7 @@ test "AuthResult/Ok logs in user" {
   debug_inspect(
     model.current_user,
     content=(
-      #|Some({id: 1, username: "alice", color: "blue", role: "member"})
+      #|Some({ id: 1, username: "alice", color: "blue", role: "member" })
     ),
   )
   inspect(model.auth_screen, content="")
@@ -349,7 +353,7 @@ test "AuthResult/Ok logs in user" {
 
 ///|
 test "AuthResult/Err sets auth_error" {
-  let initial = { ..empty_model(), auth_loading: true }
+  let initial = { ..empty_model(), auth_loading: true, }
   let (model, _) = initial.update(
     msg=AuthResult(Err("Invalid username or password")),
     dispatch=noop_dispatch,
@@ -459,7 +463,7 @@ test "ShowAddTask opens form with defaults" {
 
 ///|
 test "HideAddTask closes form" {
-  let initial = { ..empty_model(), adding_task: true }
+  let initial = { ..empty_model(), adding_task: true, }
   let (model, _) = initial.update(msg=HideAddTask, dispatch=noop_dispatch)
   inspect(model.adding_task, content="false")
 }
@@ -511,7 +515,7 @@ test "NewDueDateChanged updates new_due_date" {
 
 ///|
 test "AddTask with empty title does nothing" {
-  let initial = { ..empty_model(), new_title: "" }
+  let initial = { ..empty_model(), new_title: "", }
   let (model, _) = initial.update(msg=AddTask, dispatch=noop_dispatch)
   inspect(model.adding_task, content="false")
   inspect(model.new_title, content="")
@@ -532,7 +536,7 @@ test "AddTask with valid title closes form" {
 ///|
 test "AddTask with too-long title does nothing" {
   let long = "a".repeat(@shared.max_task_title + 1)
-  let initial = { ..empty_model(), adding_task: true, new_title: long }
+  let initial = { ..empty_model(), adding_task: true, new_title: long, }
   let (model, _) = initial.update(msg=AddTask, dispatch=noop_dispatch)
   // validate_task_title fails, returns self unchanged
   inspect(model.adding_task, content="true")
@@ -542,7 +546,7 @@ test "AddTask with too-long title does nothing" {
 
 ///|
 test "TaskAdded/Ok appends to list" {
-  let initial = { ..logged_in_model(), tasks: sample_tasks() }
+  let initial = { ..logged_in_model(), tasks: sample_tasks(), }
   let new_task : @shared.Task = {
     id: 4,
     title: "New task",
@@ -563,7 +567,7 @@ test "TaskAdded/Ok appends to list" {
 
 ///|
 test "TaskAdded/Err sets error_msg" {
-  let initial = { ..logged_in_model(), tasks: sample_tasks() }
+  let initial = { ..logged_in_model(), tasks: sample_tasks(), }
   let (model, _) = initial.update(
     msg=TaskAdded(Err("server error")),
     dispatch=noop_dispatch,
@@ -591,7 +595,7 @@ test "StartEditTask populates edit fields" {
 
 ///|
 test "CancelEditTask clears editing_task" {
-  let initial = { ..empty_model(), editing_task: 1 }
+  let initial = { ..empty_model(), editing_task: 1, }
   let (model, _) = initial.update(msg=CancelEditTask, dispatch=noop_dispatch)
   inspect(model.editing_task, content="0")
 }
@@ -643,14 +647,14 @@ test "EditDueDateChanged updates edit_due_date" {
 
 ///|
 test "SaveEditTask with editing_task=0 does nothing" {
-  let initial = { ..empty_model(), editing_task: 0, edit_title: "x" }
+  let initial = { ..empty_model(), editing_task: 0, edit_title: "x", }
   let (model, _) = initial.update(msg=SaveEditTask, dispatch=noop_dispatch)
   inspect(model.editing_task, content="0")
 }
 
 ///|
 test "SaveEditTask with empty title does nothing" {
-  let initial = { ..empty_model(), editing_task: 1, edit_title: "" }
+  let initial = { ..empty_model(), editing_task: 1, edit_title: "", }
   let (model, _) = initial.update(msg=SaveEditTask, dispatch=noop_dispatch)
   inspect(model.editing_task, content="1")
 }
@@ -680,7 +684,7 @@ test "SaveEditTask with valid data optimistically updates task" {
 
 ///|
 test "ChangeStatus with valid transition optimistically updates" {
-  let initial = { ..logged_in_model(), tasks: sample_tasks() }
+  let initial = { ..logged_in_model(), tasks: sample_tasks(), }
   // Task 1 is "todo", transition to "in_progress" is valid
   let (model, _) = initial.update(
     msg=ChangeStatus(1, "in_progress"),
@@ -691,7 +695,7 @@ test "ChangeStatus with valid transition optimistically updates" {
 
 ///|
 test "ChangeStatus with invalid transition does nothing" {
-  let initial = { ..logged_in_model(), tasks: sample_tasks() }
+  let initial = { ..logged_in_model(), tasks: sample_tasks(), }
   // Task 1 is "todo", transition to "done" is invalid
   let (model, _) = initial.update(
     msg=ChangeStatus(1, "done"),
@@ -713,14 +717,14 @@ test "RequestDelete sets confirm_delete" {
 
 ///|
 test "CancelDelete clears confirm_delete" {
-  let initial = { ..empty_model(), confirm_delete: 5 }
+  let initial = { ..empty_model(), confirm_delete: 5, }
   let (model, _) = initial.update(msg=CancelDelete, dispatch=noop_dispatch)
   inspect(model.confirm_delete, content="0")
 }
 
 ///|
 test "ConfirmDelete with id=0 does nothing" {
-  let initial = { ..empty_model(), confirm_delete: 0 }
+  let initial = { ..empty_model(), confirm_delete: 0, }
   let (model, _) = initial.update(msg=ConfirmDelete, dispatch=noop_dispatch)
   inspect(model.confirm_delete, content="0")
 }
@@ -743,7 +747,7 @@ test "ConfirmDelete removes task optimistically" {
 
 ///|
 test "AddDep optimistically adds dependency" {
-  let initial = { ..logged_in_model(), dependencies: [] }
+  let initial = { ..logged_in_model(), dependencies: [], }
   let (model, _) = initial.update(msg=AddDep(3, 1), dispatch=noop_dispatch)
   inspect(model.dependencies.length(), content="1")
   inspect(model.dependencies[0].task_id, content="3")
@@ -752,7 +756,7 @@ test "AddDep optimistically adds dependency" {
 
 ///|
 test "RemoveDep optimistically removes dependency" {
-  let initial = { ..logged_in_model(), dependencies: sample_dependencies() }
+  let initial = { ..logged_in_model(), dependencies: sample_dependencies(), }
   let (model, _) = initial.update(msg=RemoveDep(2, 1), dispatch=noop_dispatch)
   inspect(model.dependencies.length(), content="0")
 }
@@ -764,7 +768,13 @@ test "ShowComments sets viewing_comments and clears comments" {
   let initial = {
     ..logged_in_model(),
     comments: [
-      { id: 99, task_id: 5, author: "x", text: "old", created_at: "2026-03-10" },
+      {
+        id: 99,
+        task_id: 5,
+        author: "x",
+        text: "old",
+        created_at: "2026-03-10",
+      },
     ],
   }
   let (model, _) = initial.update(msg=ShowComments(1), dispatch=noop_dispatch)
@@ -775,7 +785,7 @@ test "ShowComments sets viewing_comments and clears comments" {
 
 ///|
 test "HideComments clears viewing_comments and comments" {
-  let initial = { ..logged_in_model(), viewing_comments: 1 }
+  let initial = { ..logged_in_model(), viewing_comments: 1, }
   let (model, _) = initial.update(msg=HideComments, dispatch=noop_dispatch)
   inspect(model.viewing_comments, content="0")
   inspect(model.comments.length(), content="0")
@@ -820,14 +830,14 @@ test "NewCommentChanged updates new_comment" {
 
 ///|
 test "AddComment with empty text does nothing" {
-  let initial = { ..empty_model(), viewing_comments: 1, new_comment: "" }
+  let initial = { ..empty_model(), viewing_comments: 1, new_comment: "", }
   let (model, _) = initial.update(msg=AddComment, dispatch=noop_dispatch)
   inspect(model.new_comment, content="")
 }
 
 ///|
 test "AddComment with viewing_comments=0 does nothing" {
-  let initial = { ..empty_model(), viewing_comments: 0, new_comment: "hi" }
+  let initial = { ..empty_model(), viewing_comments: 0, new_comment: "hi", }
   let (model, _) = initial.update(msg=AddComment, dispatch=noop_dispatch)
   inspect(model.new_comment, content="hi")
 }
@@ -861,7 +871,7 @@ test "CommentAdded/Ok prepends comment" {
     text: "Second",
     created_at: "2026-03-14",
   }
-  let initial = { ..empty_model(), comments: existing }
+  let initial = { ..empty_model(), comments: existing, }
   let (model, _) = initial.update(
     msg=CommentAdded(Ok(new_comment)),
     dispatch=noop_dispatch,
@@ -903,7 +913,7 @@ test "KeyPressed 'l' switches to list view" {
 
 ///|
 test "KeyPressed 'b' switches to kanban view" {
-  let initial = { ..empty_model(), view_mode: "list" }
+  let initial = { ..empty_model(), view_mode: "list", }
   let (model, _) = initial.update(msg=KeyPressed("b"), dispatch=noop_dispatch)
   inspect(model.view_mode, content="kanban")
 }
@@ -919,7 +929,7 @@ test "KeyPressed 'd' toggles dark mode" {
 
 ///|
 test "KeyPressed Escape while adding_task closes form" {
-  let initial = { ..empty_model(), adding_task: true }
+  let initial = { ..empty_model(), adding_task: true, }
   let (model, _) = initial.update(
     msg=KeyPressed("Escape"),
     dispatch=noop_dispatch,
@@ -929,7 +939,7 @@ test "KeyPressed Escape while adding_task closes form" {
 
 ///|
 test "KeyPressed Escape while editing clears editing_task" {
-  let initial = { ..empty_model(), editing_task: 5 }
+  let initial = { ..empty_model(), editing_task: 5, }
   let (model, _) = initial.update(
     msg=KeyPressed("Escape"),
     dispatch=noop_dispatch,
@@ -939,7 +949,7 @@ test "KeyPressed Escape while editing clears editing_task" {
 
 ///|
 test "KeyPressed Escape dismisses error_msg" {
-  let initial = { ..empty_model(), error_msg: "oops" }
+  let initial = { ..empty_model(), error_msg: "oops", }
   let (model, _) = initial.update(
     msg=KeyPressed("Escape"),
     dispatch=noop_dispatch,
@@ -949,7 +959,7 @@ test "KeyPressed Escape dismisses error_msg" {
 
 ///|
 test "KeyPressed Escape dismisses confirm_delete" {
-  let initial = { ..empty_model(), confirm_delete: 3 }
+  let initial = { ..empty_model(), confirm_delete: 3, }
   let (model, _) = initial.update(
     msg=KeyPressed("Escape"),
     dispatch=noop_dispatch,
@@ -961,7 +971,7 @@ test "KeyPressed Escape dismisses confirm_delete" {
 
 ///|
 test "DismissError clears error_msg" {
-  let initial = { ..empty_model(), error_msg: "something broke" }
+  let initial = { ..empty_model(), error_msg: "something broke", }
   let (model, _) = initial.update(msg=DismissError, dispatch=noop_dispatch)
   inspect(model.error_msg, content="")
 }
@@ -970,7 +980,7 @@ test "DismissError clears error_msg" {
 
 ///|
 test "SetLang updates language and clears auth_error" {
-  let initial = { ..empty_model(), lang: En, auth_error: "old error" }
+  let initial = { ..empty_model(), lang: En, auth_error: "old error", }
   let (model, _) = initial.update(msg=SetLang(Zh), dispatch=noop_dispatch)
   debug_inspect(model.lang, content="Zh")
   inspect(model.auth_error, content="")

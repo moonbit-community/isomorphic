@@ -95,7 +95,7 @@ fn handle_login(
     match login_user(conn, username, password) {
       Some(user) => {
         let token = create_session(conn, user.id, user.username)
-        let resp : @shared.AuthResponse = { user, message: "Login successful" }
+        let resp : @shared.AuthResponse = { user, message: "Login successful", }
         let http_resp = @mocket.HttpResponse::new(OK).json(resp.to_json())
         http_resp.set_cookie(
           "session",
@@ -330,7 +330,7 @@ fn handle_update_task(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str} (update)")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let title = match json {
       { "title": String(t), .. } => t
@@ -390,7 +390,7 @@ fn handle_update_task_status(
       Some(u) => u.username
       None => ""
     }
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let new_status = match json {
       { "status": String(s), .. } => s
@@ -420,7 +420,7 @@ fn handle_update_task_status(
         if new_status == "done" {
           handle_recurrence_on_done(conn, id)
         }
-        let updated = { ..task, status: new_status }
+        let updated = { ..task, status: new_status, }
         println("  -> 200 status changed to \{new_status}")
         @mocket.HttpResponse::new(OK).json(updated.to_json())
       }
@@ -442,7 +442,7 @@ fn handle_get_deps(
   let id_str = event.params.get("id").unwrap().to_string()
   println("GET /api/tasks/\{id_str}/deps")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let deps = get_task_deps(conn, id)
     @mocket.HttpResponse::new(OK).json(deps.to_json())
   } catch {
@@ -462,7 +462,7 @@ fn handle_add_dep(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/deps")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let depends_on = match json {
       { "depends_on_id": Number(n, ..), .. } => n.to_int()
@@ -476,7 +476,7 @@ fn handle_add_dep(
     }
     add_dep(conn, id, depends_on)
     println("  -> 201 dependency added: \{id} -> \{depends_on}")
-    let dep : @shared.Dependency = { task_id: id, depends_on_id: depends_on }
+    let dep : @shared.Dependency = { task_id: id, depends_on_id: depends_on, }
     @mocket.HttpResponse::new(Created).json(dep.to_json())
   } catch {
     e => {
@@ -495,7 +495,7 @@ fn handle_remove_dep(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/deps/remove")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let depends_on = match json {
       { "depends_on_id": Number(n, ..), .. } => n.to_int()
@@ -524,7 +524,7 @@ fn handle_get_comments(
   let id_str = event.params.get("id").unwrap().to_string()
   println("GET /api/tasks/\{id_str}/comments")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let comments = get_task_comments(conn, id)
     println("  -> 200 (\{comments.length()} comments)")
     @mocket.HttpResponse::new(OK).json(comments.to_json())
@@ -553,7 +553,7 @@ fn handle_add_comment(
           _ => "Anonymous"
         }
     }
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let text = match json {
       { "text": String(t), .. } => t
@@ -629,7 +629,7 @@ fn handle_get_task_labels(
   let id_str = event.params.get("id").unwrap().to_string()
   println("GET /api/tasks/\{id_str}/labels")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let labels = get_all_labels(conn)
     let tls = get_all_task_labels(conn)
     let task_labels = @shared.labels_for_task(labels, tls, id)
@@ -651,7 +651,7 @@ fn handle_add_task_label(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/labels")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let label_id = match json {
       { "label_id": Number(n, ..), .. } => n.to_int()
@@ -677,7 +677,7 @@ fn handle_remove_task_label(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/labels/remove")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let label_id = match json {
       { "label_id": Number(n, ..), .. } => n.to_int()
@@ -703,7 +703,7 @@ fn handle_get_subtasks(
   let id_str = event.params.get("id").unwrap().to_string()
   println("GET /api/tasks/\{id_str}/subtasks")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let subs = get_all_subtasks(conn).filter(fn(s) { s.task_id == id })
     @mocket.HttpResponse::new(OK).json(subs.to_json())
   } catch {
@@ -723,7 +723,7 @@ fn handle_create_subtask(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/subtasks")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let title = match json {
       { "title": String(s), .. } => s
@@ -749,7 +749,7 @@ fn handle_toggle_subtask(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/subtasks/\{id_str}/toggle")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     toggle_subtask(conn, id)
     println("  -> 200 toggled subtask \{id}")
     @mocket.HttpResponse::new(OK).json(({ "ok": true } : Json))
@@ -770,7 +770,7 @@ fn handle_delete_subtask(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/subtasks/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_subtask(conn, id)
     println("  -> 204 deleted subtask \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -791,7 +791,7 @@ fn handle_log_time(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/time")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let minutes = match json {
       { "minutes": Number(n, ..), .. } => n.to_int()
@@ -826,7 +826,7 @@ fn handle_delete_time_entry(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/time/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_time_entry(conn, id)
     println("  -> 204 deleted time entry \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -847,7 +847,7 @@ fn handle_set_recurrence(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/recurrence")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let interval = match json {
       { "interval": String(s), .. } => s
@@ -876,7 +876,7 @@ fn handle_remove_recurrence(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/tasks/\{id_str}/recurrence")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     remove_recurrence(conn, id)
     println("  -> 204 removed recurrence for task \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -902,7 +902,7 @@ fn handle_delete_task(
         "Viewers cannot delete tasks",
       )
     }
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_task(conn, id)
     println("  -> 204 deleted task \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -922,7 +922,7 @@ fn handle_get_task(
 ) -> @mocket.HttpResponse {
   let id_str = event.params.get("id").unwrap().to_string()
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     match get_task(conn, id) {
       Some(task) => @mocket.HttpResponse::new(OK).json(task.to_json())
       None => @mocket.HttpResponse::new(NotFound).body("Task not found")
@@ -946,7 +946,7 @@ fn handle_create_attachment(
         "Viewers cannot add attachments",
       )
     }
-    let task_id = @strconv.parse_int(id_str)
+    let task_id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let url = match json {
       { "url": String(u), .. } => u
@@ -986,7 +986,7 @@ fn handle_delete_attachment(
         "Viewers cannot delete attachments",
       )
     }
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_attachment(conn, id)
     println("  -> 204 deleted attachment \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -1064,7 +1064,7 @@ fn handle_delete_project(
         "Viewers cannot delete projects",
       )
     }
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_project(conn, id)
     println("  -> 204 deleted project \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -1085,7 +1085,7 @@ fn handle_set_task_project(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/tasks/\{id_str}/project")
   try {
-    let task_id = @strconv.parse_int(id_str)
+    let task_id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let project_id = match json {
       { "project_id": Number(n, ..), .. } => n.to_int()
@@ -1127,7 +1127,7 @@ fn handle_set_user_role(
         "Only admins can change roles",
       )
     }
-    let target_id = @strconv.parse_int(id_str)
+    let target_id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let role = match json {
       { "role": String(r), .. } =>

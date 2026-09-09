@@ -46,7 +46,7 @@ fn get_all_people(
   while stmt.step() {
     let id : Int = stmt.column(index=0)
     let name : String = stmt.column_blob_as_string(index=1)
-    people.push({ id, name })
+    people.push({ id, name, })
   }
   stmt.finalize()
   people
@@ -66,7 +66,7 @@ fn create_person(
   guard stmt2.step()
   let id : Int = stmt2.column(index=0)
   stmt2.finalize()
-  { id, name }
+  { id, name, }
 }
 
 ///|
@@ -103,7 +103,7 @@ fn get_all_expenses(
     let amount : Int = stmt.column(index=2)
     let paid_by : Int = stmt.column(index=3)
     let split_among = get_splits_for_expense(conn, id)
-    expenses.push({ id, description, amount, paid_by, split_among })
+    expenses.push({ id, description, amount, paid_by, split_among, })
   }
   stmt.finalize()
   expenses
@@ -139,7 +139,7 @@ fn create_expense(
     stmt3.step_once()
     stmt3.finalize()
   }
-  { id, description, amount, paid_by, split_among }
+  { id, description, amount, paid_by, split_among, }
 }
 
 ///|
@@ -167,5 +167,5 @@ fn get_state(
   let people = get_all_people(conn)
   let expenses = get_all_expenses(conn)
   let settlements = @shared.compute_settlements(people, expenses)
-  { people, expenses, settlements }
+  { people, expenses, settlements, }
 }

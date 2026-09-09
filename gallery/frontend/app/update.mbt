@@ -4,8 +4,8 @@ pub fn initial_model() -> Model {
   {
     section: Inputs,
     component: 0,
-    text_input: { value: "", error: "" },
-    text_area: { value: "", max_chars: 200 },
+    text_input: { value: "", error: "", },
+    text_area: { value: "", max_chars: 200, },
     checkbox: {
       items: [
         ("Enable notifications", true),
@@ -30,7 +30,7 @@ pub fn initial_model() -> Model {
         ("Do Not Disturb", true),
       ],
     },
-    slider: { value: 50, min: 0, max: 100 },
+    slider: { value: 50, min: 0, max: 100, },
     color_picker: {
       selected: "#6366f1",
       hex_input: "#6366f1",
@@ -56,11 +56,11 @@ pub fn initial_model() -> Model {
         ("Alerts", 99),
       ],
     },
-    progress: { value: 65, animating: false },
-    tooltip: { active_index: -1 },
-    tag: { tags: ["MoonBit", "Rabbita", "MVU", "Frontend"], input: "" },
-    skeleton: { loading: true },
-    empty_state: { has_data: false },
+    progress: { value: 65, animating: false, },
+    tooltip: { active_index: -1, },
+    tag: { tags: ["MoonBit", "Rabbita", "MVU", "Frontend"], input: "", },
+    skeleton: { loading: true, },
+    empty_state: { has_data: false, },
     accordion: {
       items: [
         (
@@ -89,7 +89,7 @@ pub fn initial_model() -> Model {
       ],
       active: 0,
     },
-    breadcrumb: { path: ["Home", "Components", "Navigation", "Breadcrumb"] },
+    breadcrumb: { path: ["Home", "Components", "Navigation", "Breadcrumb"], },
     tree_view: {
       roots: [
         {
@@ -100,14 +100,14 @@ pub fn initial_model() -> Model {
               id: 2,
               label: "frontend",
               children: [
-                { id: 3, label: "main.mbt", children: [] },
+                { id: 3, label: "main.mbt", children: [], },
                 {
                   id: 4,
                   label: "app",
                   children: [
-                    { id: 5, label: "types.mbt", children: [] },
-                    { id: 6, label: "update.mbt", children: [] },
-                    { id: 7, label: "view.mbt", children: [] },
+                    { id: 5, label: "types.mbt", children: [], },
+                    { id: 6, label: "update.mbt", children: [], },
+                    { id: 7, label: "view.mbt", children: [], },
                   ],
                 },
               ],
@@ -115,7 +115,7 @@ pub fn initial_model() -> Model {
             {
               id: 8,
               label: "shared",
-              children: [{ id: 9, label: "types.mbt", children: [] }],
+              children: [{ id: 9, label: "types.mbt", children: [], }],
             },
           ],
         },
@@ -123,8 +123,8 @@ pub fn initial_model() -> Model {
           id: 10,
           label: "public",
           children: [
-            { id: 11, label: "index.html", children: [] },
-            { id: 12, label: "frontend.js", children: [] },
+            { id: 11, label: "index.html", children: [], },
+            { id: 12, label: "frontend.js", children: [], },
           ],
         },
       ],
@@ -225,17 +225,17 @@ pub fn initial_model() -> Model {
     },
     chart: {
       bars: [
-        { label: "Mon", value: 45, color: "#6366f1" },
-        { label: "Tue", value: 72, color: "#6366f1" },
-        { label: "Wed", value: 58, color: "#6366f1" },
-        { label: "Thu", value: 90, color: "#6366f1" },
-        { label: "Fri", value: 35, color: "#6366f1" },
-        { label: "Sat", value: 20, color: "#94a3b8" },
-        { label: "Sun", value: 15, color: "#94a3b8" },
+        { label: "Mon", value: 45, color: "#6366f1", },
+        { label: "Tue", value: 72, color: "#6366f1", },
+        { label: "Wed", value: 58, color: "#6366f1", },
+        { label: "Thu", value: 90, color: "#6366f1", },
+        { label: "Fri", value: 35, color: "#6366f1", },
+        { label: "Sat", value: 20, color: "#94a3b8", },
+        { label: "Sun", value: 15, color: "#94a3b8", },
       ],
       max_value: 100,
     },
-    toast: { items: [], next_id: 1 },
+    toast: { items: [], next_id: 1, },
     modal: {
       open: false,
       title: "Confirm Action",
@@ -258,16 +258,16 @@ pub fn initial_model() -> Model {
           shortcut: "G D",
           category: "Navigation",
         },
-        { id: 3, label: "Go to Data", shortcut: "G A", category: "Navigation" },
+        { id: 3, label: "Go to Data", shortcut: "G A", category: "Navigation", },
         {
           id: 4,
           label: "Toggle Dark Mode",
           shortcut: "Ctrl+D",
           category: "Settings",
         },
-        { id: 5, label: "Show Toast", shortcut: "Ctrl+T", category: "Actions" },
-        { id: 6, label: "Open Modal", shortcut: "Ctrl+M", category: "Actions" },
-        { id: 7, label: "Reset All", shortcut: "Ctrl+R", category: "Actions" },
+        { id: 5, label: "Show Toast", shortcut: "Ctrl+T", category: "Actions", },
+        { id: 6, label: "Open Modal", shortcut: "Ctrl+M", category: "Actions", },
+        { id: 7, label: "Reset All", shortcut: "Ctrl+R", category: "Actions", },
         {
           id: 8,
           label: "Go to Overlay",
@@ -282,35 +282,35 @@ pub fn initial_model() -> Model {
         (
           "To Do",
           [
-            { id: 1, title: "Design system tokens", color: "#6366f1" },
-            { id: 2, title: "Write unit tests", color: "#22c55e" },
+            { id: 1, title: "Design system tokens", color: "#6366f1", },
+            { id: 2, title: "Write unit tests", color: "#22c55e", },
           ],
         ),
         (
           "In Progress",
-          [{ id: 3, title: "Build gallery layout", color: "#f59e0b" }],
+          [{ id: 3, title: "Build gallery layout", color: "#f59e0b", }],
         ),
         (
           "Done",
           [
-            { id: 4, title: "Set up project", color: "#94a3b8" },
-            { id: 5, title: "Choose framework", color: "#94a3b8" },
+            { id: 4, title: "Set up project", color: "#94a3b8", },
+            { id: 5, title: "Choose framework", color: "#94a3b8", },
           ],
         ),
       ],
     },
     searchable_select: {
       options: [
-        { label: "United States", value: "us" },
-        { label: "United Kingdom", value: "uk" },
-        { label: "Germany", value: "de" },
-        { label: "France", value: "fr" },
-        { label: "Japan", value: "jp" },
-        { label: "Australia", value: "au" },
-        { label: "Canada", value: "ca" },
-        { label: "Brazil", value: "br" },
-        { label: "India", value: "in" },
-        { label: "South Korea", value: "kr" },
+        { label: "United States", value: "us", },
+        { label: "United Kingdom", value: "uk", },
+        { label: "Germany", value: "de", },
+        { label: "France", value: "fr", },
+        { label: "Japan", value: "jp", },
+        { label: "Australia", value: "au", },
+        { label: "Canada", value: "ca", },
+        { label: "Brazil", value: "br", },
+        { label: "India", value: "in", },
+        { label: "South Korea", value: "kr", },
       ],
       query: "",
       selected: "",
@@ -331,29 +331,29 @@ pub fn initial_model() -> Model {
         {
           title: "Personal Info",
           fields: [
-            { label: "Full Name", value: "", error: "" },
-            { label: "Email", value: "", error: "" },
+            { label: "Full Name", value: "", error: "", },
+            { label: "Email", value: "", error: "", },
           ],
         },
         {
           title: "Account Setup",
           fields: [
-            { label: "Username", value: "", error: "" },
-            { label: "Password", value: "", error: "" },
+            { label: "Username", value: "", error: "", },
+            { label: "Password", value: "", error: "", },
           ],
         },
         {
           title: "Preferences",
           fields: [
-            { label: "Language", value: "", error: "" },
-            { label: "Timezone", value: "", error: "" },
+            { label: "Language", value: "", error: "", },
+            { label: "Timezone", value: "", error: "", },
           ],
         },
       ],
       current: 0,
       completed: false,
     },
-    stopwatch: { elapsed_ms: 0, running: false, gen: 0 },
+    stopwatch: { elapsed_ms: 0, running: false, gen: 0, },
     countdown: {
       target_seconds: 30,
       remaining: 30,
@@ -375,10 +375,10 @@ pub fn initial_model() -> Model {
       auto_playing: false,
       gen: 0,
     },
-    animated_counter: { value: 42, display_value: 42 },
-    star_rating: { rating: 0, hover: 0 },
-    pin_input: { digits: ["", "", "", ""], focus_index: 0, verified: false },
-    password_strength: { password: "", visible: false },
+    animated_counter: { value: 42, display_value: 42, },
+    star_rating: { rating: 0, hover: 0, },
+    pin_input: { digits: ["", "", "", ""], focus_index: 0, verified: false, },
+    password_strength: { password: "", visible: false, },
     tag_auto: {
       tags: ["MoonBit", "Rabbita"],
       input: "",
@@ -397,8 +397,8 @@ pub fn initial_model() -> Model {
       ],
       edit_value: "",
     },
-    stepper: { value: 1, min: 0, max: 20, step: 1 },
-    split_pane: { left_percent: 50 },
+    stepper: { value: 1, min: 0, max: 20, step: 1, },
+    split_pane: { left_percent: 50, },
     virtual_list: {
       total_items: 10000,
       scroll_top: 0,
@@ -407,18 +407,18 @@ pub fn initial_model() -> Model {
     },
     masonry: {
       items: [
-        { id: 1, title: "Mountain View", height: 180, color: "#6366f1" },
-        { id: 2, title: "Ocean Breeze", height: 120, color: "#22c55e" },
-        { id: 3, title: "Sunset Glow", height: 200, color: "#f59e0b" },
-        { id: 4, title: "Forest Path", height: 140, color: "#ef4444" },
-        { id: 5, title: "City Lights", height: 160, color: "#a855f7" },
-        { id: 6, title: "Desert Sand", height: 110, color: "#14b8a6" },
-        { id: 7, title: "Snow Peak", height: 190, color: "#3b82f6" },
-        { id: 8, title: "River Flow", height: 130, color: "#ec4899" },
+        { id: 1, title: "Mountain View", height: 180, color: "#6366f1", },
+        { id: 2, title: "Ocean Breeze", height: 120, color: "#22c55e", },
+        { id: 3, title: "Sunset Glow", height: 200, color: "#f59e0b", },
+        { id: 4, title: "Forest Path", height: 140, color: "#ef4444", },
+        { id: 5, title: "City Lights", height: 160, color: "#a855f7", },
+        { id: 6, title: "Desert Sand", height: 110, color: "#14b8a6", },
+        { id: 7, title: "Snow Peak", height: 190, color: "#3b82f6", },
+        { id: 8, title: "River Flow", height: 130, color: "#ec4899", },
       ],
       columns: 3,
     },
-    confirm_button: { confirming: false, executed: false },
+    confirm_button: { confirming: false, executed: false, },
     copy_clipboard: {
       text: "Hello from MoonBit Gallery! 🌙",
       copied: false,
@@ -436,10 +436,10 @@ pub fn initial_model() -> Model {
     },
     spreadsheet: {
       cells: [
-        [{ value: "Name" }, { value: "Score" }, { value: "Grade" }],
-        [{ value: "Alice" }, { value: "95" }, { value: "A" }],
-        [{ value: "Bob" }, { value: "82" }, { value: "B" }],
-        [{ value: "Carol" }, { value: "91" }, { value: "A" }],
+        [{ value: "Name", }, { value: "Score", }, { value: "Grade", }],
+        [{ value: "Alice", }, { value: "95", }, { value: "A", }],
+        [{ value: "Bob", }, { value: "82", }, { value: "B", }],
+        [{ value: "Carol", }, { value: "91", }, { value: "A", }],
       ],
       selected_row: -1,
       selected_col: -1,
@@ -463,8 +463,8 @@ pub fn Model::update(
 ) -> (Model, @rabbita.Cmd) {
   match msg {
     // ── Navigation ───────────────────────────
-    ChangeSection(s) => ({ ..self, section: s, component: 0 }, @rabbita.none)
-    ChangeComponent(i) => ({ ..self, component: i }, @rabbita.none)
+    ChangeSection(s) => ({ ..self, section: s, component: 0, }, @rabbita.none)
+    ChangeComponent(i) => ({ ..self, component: i, }, @rabbita.none)
 
     // ── TextInput ────────────────────────────
     TextInputChanged(v) => {
@@ -475,18 +475,18 @@ pub fn Model::update(
       } else {
         ""
       }
-      ({ ..self, text_input: { value: v, error } }, @rabbita.none)
+      ({ ..self, text_input: { value: v, error, }, }, @rabbita.none)
     }
 
     // ── TextArea ─────────────────────────────
     TextAreaChanged(v) => {
       let trimmed = if v.char_length() > self.text_area.max_chars {
-        v[:self.text_area.max_chars].to_string()
+        v[:self.text_area.max_chars].to_owned()
       } else {
         v
       }
       (
-        { ..self, text_area: { ..self.text_area, value: trimmed } },
+        { ..self, text_area: { ..self.text_area, value: trimmed, }, },
         @rabbita.none,
       )
     }
@@ -500,16 +500,16 @@ pub fn Model::update(
           pair
         }
       })
-      ({ ..self, checkbox: { items, } }, @rabbita.none)
+      ({ ..self, checkbox: { items, }, }, @rabbita.none)
     }
 
     // ── Radio ────────────────────────────────
     RadioSelected(v) =>
-      ({ ..self, radio: { ..self.radio, selected: v } }, @rabbita.none)
+      ({ ..self, radio: { ..self.radio, selected: v, }, }, @rabbita.none)
 
     // ── Select ───────────────────────────────
     SelectChanged(v) =>
-      ({ ..self, select: { ..self.select, selected: v } }, @rabbita.none)
+      ({ ..self, select: { ..self.select, selected: v, }, }, @rabbita.none)
 
     // ── Toggle ───────────────────────────────
     ToggleSwitched(i) => {
@@ -520,13 +520,13 @@ pub fn Model::update(
           pair
         }
       })
-      ({ ..self, toggle: { items, } }, @rabbita.none)
+      ({ ..self, toggle: { items, }, }, @rabbita.none)
     }
 
     // ── Slider ───────────────────────────────
     SliderChanged(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.slider.value }
-      ({ ..self, slider: { ..self.slider, value: n } }, @rabbita.none)
+      let n = @string.parse_int(v) catch { _ => self.slider.value }
+      ({ ..self, slider: { ..self.slider, value: n, }, }, @rabbita.none)
     }
 
     // ── ColorPicker ──────────────────────────
@@ -534,7 +534,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          color_picker: { ..self.color_picker, selected: c, hex_input: c },
+          color_picker: { ..self.color_picker, selected: c, hex_input: c, },
         },
         @rabbita.none,
       )
@@ -547,7 +547,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          color_picker: { ..self.color_picker, hex_input: v, selected },
+          color_picker: { ..self.color_picker, hex_input: v, selected, },
         },
         @rabbita.none,
       )
@@ -555,18 +555,22 @@ pub fn Model::update(
 
     // ── Progress ─────────────────────────────
     ProgressChanged(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.progress.value }
+      let n = @string.parse_int(v) catch { _ => self.progress.value }
       let clamped = n.clamp(min=0, max=100)
-      ({ ..self, progress: { ..self.progress, value: clamped } }, @rabbita.none)
+      (
+        { ..self, progress: { ..self.progress, value: clamped, }, },
+        @rabbita.none,
+      )
     }
 
     // ── Tooltip ──────────────────────────────
-    TooltipShow(i) => ({ ..self, tooltip: { active_index: i } }, @rabbita.none)
-    TooltipHide => ({ ..self, tooltip: { active_index: -1 } }, @rabbita.none)
+    TooltipShow(i) =>
+      ({ ..self, tooltip: { active_index: i, }, }, @rabbita.none)
+    TooltipHide => ({ ..self, tooltip: { active_index: -1, }, }, @rabbita.none)
 
     // ── Tag ──────────────────────────────────
     TagInputChanged(v) =>
-      ({ ..self, tag: { ..self.tag, input: v } }, @rabbita.none)
+      ({ ..self, tag: { ..self.tag, input: v, }, }, @rabbita.none)
     TagAdd => {
       let t = self.tag.input
       if t.is_empty() {
@@ -574,31 +578,31 @@ pub fn Model::update(
       }
       let tags = self.tag.tags.copy()
       tags.push(t)
-      ({ ..self, tag: { tags, input: "" } }, @rabbita.none)
+      ({ ..self, tag: { tags, input: "", }, }, @rabbita.none)
     }
     TagRemove(i) => {
       let tags = self.tag.tags.copy()
       ignore(tags.remove(i))
-      ({ ..self, tag: { ..self.tag, tags, } }, @rabbita.none)
+      ({ ..self, tag: { ..self.tag, tags, }, }, @rabbita.none)
     }
 
     // ── Accordion ────────────────────────────
     AccordionToggle(i) => {
       let idx = if self.accordion.open_index == i { -1 } else { i }
       (
-        { ..self, accordion: { ..self.accordion, open_index: idx } },
+        { ..self, accordion: { ..self.accordion, open_index: idx, }, },
         @rabbita.none,
       )
     }
 
     // ── Tabs ─────────────────────────────────
     TabSelected(i) =>
-      ({ ..self, tabs: { ..self.tabs, active: i } }, @rabbita.none)
+      ({ ..self, tabs: { ..self.tabs, active: i, }, }, @rabbita.none)
 
     // ── Breadcrumb ───────────────────────────
     BreadcrumbNavigate(i) => {
       let path = self.breadcrumb.path.iter().take(i + 1).collect()
-      ({ ..self, breadcrumb: { path, } }, @rabbita.none)
+      ({ ..self, breadcrumb: { path, }, }, @rabbita.none)
     }
 
     // ── TreeView ─────────────────────────────
@@ -610,7 +614,7 @@ pub fn Model::update(
         e.push(id)
         e
       }
-      ({ ..self, tree_view: { ..self.tree_view, expanded, } }, @rabbita.none)
+      ({ ..self, tree_view: { ..self.tree_view, expanded, }, }, @rabbita.none)
     }
 
     // ── DataTable ────────────────────────────
@@ -642,7 +646,7 @@ pub fn Model::update(
       }
       let clamped = p.clamp(min=0, max=max_page)
       (
-        { ..self, data_table: { ..self.data_table, page: clamped } },
+        { ..self, data_table: { ..self.data_table, page: clamped, }, },
         @rabbita.none,
       )
     }
@@ -654,7 +658,7 @@ pub fn Model::update(
         s.push(i)
         s
       }
-      ({ ..self, data_table: { ..self.data_table, selected, } }, @rabbita.none)
+      ({ ..self, data_table: { ..self.data_table, selected, }, }, @rabbita.none)
     }
     TableSelectAll => {
       let total = self.data_table.rows.length()
@@ -663,7 +667,7 @@ pub fn Model::update(
       } else {
         Array::makei(total, fn(i) { i })
       }
-      ({ ..self, data_table: { ..self.data_table, selected, } }, @rabbita.none)
+      ({ ..self, data_table: { ..self.data_table, selected, }, }, @rabbita.none)
     }
 
     // ── Calendar ─────────────────────────────
@@ -674,7 +678,7 @@ pub fn Model::update(
         (self.calendar.month - 1, self.calendar.year)
       }
       (
-        { ..self, calendar: { ..self.calendar, year: y, month: m } },
+        { ..self, calendar: { ..self.calendar, year: y, month: m, }, },
         @rabbita.none,
       )
     }
@@ -685,13 +689,13 @@ pub fn Model::update(
         (self.calendar.month + 1, self.calendar.year)
       }
       (
-        { ..self, calendar: { ..self.calendar, year: y, month: m } },
+        { ..self, calendar: { ..self.calendar, year: y, month: m, }, },
         @rabbita.none,
       )
     }
     CalendarSelectDay(d) =>
       (
-        { ..self, calendar: { ..self.calendar, selected_day: d } },
+        { ..self, calendar: { ..self.calendar, selected_day: d, }, },
         @rabbita.none,
       )
 
@@ -721,7 +725,7 @@ pub fn Model::update(
               col
             }
           })
-          ({ ..self, kanban: { columns: columns2 } }, @rabbita.none)
+          ({ ..self, kanban: { columns: columns2, }, }, @rabbita.none)
         }
       }
     }
@@ -729,39 +733,42 @@ pub fn Model::update(
     // ── Toast ────────────────────────────────
     ShowToast(title, message, kind) => {
       let id = self.toast.next_id
-      let item : ToastItem = { id, title, message, kind }
+      let item : ToastItem = { id, title, message, kind, }
       let items = self.toast.items.copy()
       items.push(item)
       let cmd = @rabbita.delay(dispatch(DismissToast(id)), 3000)
-      ({ ..self, toast: { items, next_id: id + 1 } }, cmd)
+      ({ ..self, toast: { items, next_id: id + 1, }, }, cmd)
     }
     DismissToast(id) => {
       let items = self.toast.items.filter(fn(t) { t.id != id })
-      ({ ..self, toast: { ..self.toast, items, } }, @rabbita.none)
+      ({ ..self, toast: { ..self.toast, items, }, }, @rabbita.none)
     }
 
     // ── Modal ────────────────────────────────
     ModalOpen =>
       (
-        { ..self, modal: { ..self.modal, open: true, confirmed: false } },
+        { ..self, modal: { ..self.modal, open: true, confirmed: false, }, },
         @rabbita.none,
       )
     ModalClose =>
-      ({ ..self, modal: { ..self.modal, open: false } }, @rabbita.none)
+      ({ ..self, modal: { ..self.modal, open: false, }, }, @rabbita.none)
     ModalConfirm =>
       (
-        { ..self, modal: { ..self.modal, open: false, confirmed: true } },
+        { ..self, modal: { ..self.modal, open: false, confirmed: true, }, },
         @rabbita.none,
       )
 
     // ── Skeleton ─────────────────────────────
     SkeletonToggle =>
-      ({ ..self, skeleton: { loading: !self.skeleton.loading } }, @rabbita.none)
+      (
+        { ..self, skeleton: { loading: !self.skeleton.loading, }, },
+        @rabbita.none,
+      )
 
     // ── EmptyState ───────────────────────────
     EmptyStateToggle =>
       (
-        { ..self, empty_state: { has_data: !self.empty_state.has_data } },
+        { ..self, empty_state: { has_data: !self.empty_state.has_data, }, },
         @rabbita.none,
       )
 
@@ -807,7 +814,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          searchable_select: { ..self.searchable_select, focus_index: i },
+          searchable_select: { ..self.searchable_select, focus_index: i, },
         },
         @rabbita.none,
       )
@@ -815,19 +822,19 @@ pub fn Model::update(
     // ── DateRange ────────────────────────────
     DateRangeSetPicking(which) =>
       (
-        { ..self, date_range: { ..self.date_range, picking: which } },
+        { ..self, date_range: { ..self.date_range, picking: which, }, },
         @rabbita.none,
       )
     DateRangeSelectDay(d) => {
       let dr = self.date_range
       if dr.picking == "start" {
         (
-          { ..self, date_range: { ..dr, start_day: d, picking: "" } },
+          { ..self, date_range: { ..dr, start_day: d, picking: "", }, },
           @rabbita.none,
         )
       } else if dr.picking == "end" {
         (
-          { ..self, date_range: { ..dr, end_day: d, picking: "" } },
+          { ..self, date_range: { ..dr, end_day: d, picking: "", }, },
           @rabbita.none,
         )
       } else {
@@ -843,7 +850,7 @@ pub fn Model::update(
         (dr.start_month - 1, dr.start_year)
       }
       (
-        { ..self, date_range: { ..dr, start_year: y, start_month: m } },
+        { ..self, date_range: { ..dr, start_year: y, start_month: m, }, },
         @rabbita.none,
       )
     }
@@ -855,7 +862,7 @@ pub fn Model::update(
         (dr.start_month + 1, dr.start_year)
       }
       (
-        { ..self, date_range: { ..dr, start_year: y, start_month: m } },
+        { ..self, date_range: { ..dr, start_year: y, start_month: m, }, },
         @rabbita.none,
       )
     }
@@ -878,25 +885,28 @@ pub fn Model::update(
       (
         {
           ..self,
-          command_palette: { ..self.command_palette, query: q, focus_index: 0 },
+          command_palette: { ..self.command_palette, query: q, focus_index: 0, },
         },
         @rabbita.none,
       )
     CommandPaletteFocus(i) =>
       (
-        { ..self, command_palette: { ..self.command_palette, focus_index: i } },
+        {
+          ..self,
+          command_palette: { ..self.command_palette, focus_index: i, },
+        },
         @rabbita.none,
       )
     CommandPaletteSelect(id) => {
       let closed = {
         ..self,
-        command_palette: { ..self.command_palette, open: false, query: "" },
+        command_palette: { ..self.command_palette, open: false, query: "", },
       }
       // Execute the selected action
       match id {
-        1 => ({ ..closed, section: Inputs, component: 0 }, @rabbita.none)
-        2 => ({ ..closed, section: Display, component: 0 }, @rabbita.none)
-        3 => ({ ..closed, section: Data, component: 0 }, @rabbita.none)
+        1 => ({ ..closed, section: Inputs, component: 0, }, @rabbita.none)
+        2 => ({ ..closed, section: Display, component: 0, }, @rabbita.none)
+        3 => ({ ..closed, section: Data, component: 0, }, @rabbita.none)
         5 =>
           closed.update(
             msg=ShowToast("Command", "Triggered from palette", "info"),
@@ -906,11 +916,11 @@ pub fn Model::update(
           (
             {
               ..closed,
-              modal: { ..closed.modal, open: true, confirmed: false },
+              modal: { ..closed.modal, open: true, confirmed: false, },
             },
             @rabbita.none,
           )
-        8 => ({ ..closed, section: Overlay, component: 0 }, @rabbita.none)
+        8 => ({ ..closed, section: Overlay, component: 0, }, @rabbita.none)
         _ => (closed, @rabbita.none)
       }
     }
@@ -921,9 +931,9 @@ pub fn Model::update(
       let step = steps[self.form_wizard.current]
       let fields = step.fields.copy()
       let f = fields[field_idx]
-      fields[field_idx] = { ..f, value: val, error: "" }
+      fields[field_idx] = { ..f, value: val, error: "", }
       steps[self.form_wizard.current] = { ..step, fields, }
-      ({ ..self, form_wizard: { ..self.form_wizard, steps, } }, @rabbita.none)
+      ({ ..self, form_wizard: { ..self.form_wizard, steps, }, }, @rabbita.none)
     }
     WizardNext => {
       let fw = self.form_wizard
@@ -933,7 +943,7 @@ pub fn Model::update(
       let fields = step.fields.mapi(fn(_, f) {
         if f.value.is_empty() {
           has_error = true
-          { ..f, error: "\{f.label} is required" }
+          { ..f, error: "\{f.label} is required", }
         } else {
           f
         }
@@ -941,16 +951,16 @@ pub fn Model::update(
       if has_error {
         let steps = fw.steps.copy()
         steps[fw.current] = { ..step, fields, }
-        return ({ ..self, form_wizard: { ..fw, steps, } }, @rabbita.none)
+        return ({ ..self, form_wizard: { ..fw, steps, }, }, @rabbita.none)
       }
       if fw.current >= fw.steps.length() - 1 {
         return (
-          { ..self, form_wizard: { ..fw, completed: true } },
+          { ..self, form_wizard: { ..fw, completed: true, }, },
           @rabbita.none,
         )
       }
       (
-        { ..self, form_wizard: { ..fw, current: fw.current + 1 } },
+        { ..self, form_wizard: { ..fw, current: fw.current + 1, }, },
         @rabbita.none,
       )
     }
@@ -958,7 +968,7 @@ pub fn Model::update(
       let c = self.form_wizard.current
       if c > 0 {
         (
-          { ..self, form_wizard: { ..self.form_wizard, current: c - 1 } },
+          { ..self, form_wizard: { ..self.form_wizard, current: c - 1, }, },
           @rabbita.none,
         )
       } else {
@@ -972,16 +982,16 @@ pub fn Model::update(
       if !sw.running {
         let g = sw.gen + 1
         let cmd = @rabbita.delay(dispatch(StopwatchTick(g)), 100)
-        ({ ..self, stopwatch: { ..sw, running: true, gen: g } }, cmd)
+        ({ ..self, stopwatch: { ..sw, running: true, gen: g, }, }, cmd)
       } else {
-        ({ ..self, stopwatch: { ..sw, running: false } }, @rabbita.none)
+        ({ ..self, stopwatch: { ..sw, running: false, }, }, @rabbita.none)
       }
     }
     StopwatchReset =>
       (
         {
           ..self,
-          stopwatch: { elapsed_ms: 0, running: false, gen: self.stopwatch.gen },
+          stopwatch: { elapsed_ms: 0, running: false, gen: self.stopwatch.gen, },
         },
         @rabbita.none,
       )
@@ -991,12 +1001,12 @@ pub fn Model::update(
       }
       let elapsed = self.stopwatch.elapsed_ms + 100
       let cmd = @rabbita.delay(dispatch(StopwatchTick(g)), 100)
-      ({ ..self, stopwatch: { ..self.stopwatch, elapsed_ms: elapsed } }, cmd)
+      ({ ..self, stopwatch: { ..self.stopwatch, elapsed_ms: elapsed, }, }, cmd)
     }
 
     // ── Countdown ────────────────────────────
     CountdownSet(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.countdown.target_seconds }
+      let n = @string.parse_int(v) catch { _ => self.countdown.target_seconds }
       let clamped = n.clamp(min=1, max=3600)
       (
         {
@@ -1017,9 +1027,9 @@ pub fn Model::update(
       if !cd.running && cd.remaining > 0 {
         let g = cd.gen + 1
         let cmd = @rabbita.delay(dispatch(CountdownTick(g)), 1000)
-        ({ ..self, countdown: { ..cd, running: true, gen: g } }, cmd)
+        ({ ..self, countdown: { ..cd, running: true, gen: g, }, }, cmd)
       } else {
-        ({ ..self, countdown: { ..cd, running: false } }, @rabbita.none)
+        ({ ..self, countdown: { ..cd, running: false, }, }, @rabbita.none)
       }
     }
     CountdownReset =>
@@ -1055,14 +1065,14 @@ pub fn Model::update(
         )
       } else {
         let cmd = @rabbita.delay(dispatch(CountdownTick(g)), 1000)
-        ({ ..self, countdown: { ..self.countdown, remaining: r } }, cmd)
+        ({ ..self, countdown: { ..self.countdown, remaining: r, }, }, cmd)
       }
     }
 
     // ── Typewriter ───────────────────────────
     TypewriterPause =>
       (
-        { ..self, typewriter: { ..self.typewriter, running: false } },
+        { ..self, typewriter: { ..self.typewriter, running: false, }, },
         @rabbita.none,
       )
     TypewriterStart => {
@@ -1070,7 +1080,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          typewriter: { ..self.typewriter, visible_chars: 0, running: true },
+          typewriter: { ..self.typewriter, visible_chars: 0, running: true, },
         },
         cmd,
       )
@@ -1095,14 +1105,14 @@ pub fn Model::update(
         )
       } else {
         let cmd = @rabbita.delay(dispatch(TypewriterTick), 50)
-        ({ ..self, typewriter: { ..tw, visible_chars: next } }, cmd)
+        ({ ..self, typewriter: { ..tw, visible_chars: next, }, }, cmd)
       }
     }
     TypewriterReset =>
       (
         {
           ..self,
-          typewriter: { ..self.typewriter, visible_chars: 0, running: false },
+          typewriter: { ..self.typewriter, visible_chars: 0, running: false, },
         },
         @rabbita.none,
       )
@@ -1115,7 +1125,7 @@ pub fn Model::update(
       } else {
         c.current - 1
       }
-      ({ ..self, carousel: { ..c, current: prev } }, @rabbita.none)
+      ({ ..self, carousel: { ..c, current: prev, }, }, @rabbita.none)
     }
     CarouselNext => {
       let c = self.carousel
@@ -1124,16 +1134,16 @@ pub fn Model::update(
       } else {
         c.current + 1
       }
-      ({ ..self, carousel: { ..c, current: next } }, @rabbita.none)
+      ({ ..self, carousel: { ..c, current: next, }, }, @rabbita.none)
     }
     CarouselAutoToggle => {
       let c = self.carousel
       if !c.auto_playing {
         let g = c.gen + 1
         let cmd = @rabbita.delay(dispatch(CarouselAutoTick(g)), 2000)
-        ({ ..self, carousel: { ..c, auto_playing: true, gen: g } }, cmd)
+        ({ ..self, carousel: { ..c, auto_playing: true, gen: g, }, }, cmd)
       } else {
-        ({ ..self, carousel: { ..c, auto_playing: false } }, @rabbita.none)
+        ({ ..self, carousel: { ..c, auto_playing: false, }, }, @rabbita.none)
       }
     }
     CarouselAutoTick(g) => {
@@ -1147,19 +1157,25 @@ pub fn Model::update(
         c.current + 1
       }
       let cmd = @rabbita.delay(dispatch(CarouselAutoTick(g)), 2000)
-      ({ ..self, carousel: { ..c, current: next } }, cmd)
+      ({ ..self, carousel: { ..c, current: next, }, }, cmd)
     }
 
     // ── AnimatedCounter ──────────────────────
     CounterIncrement => {
       let v = self.animated_counter.value + 1
       let cmd = @rabbita.delay(dispatch(CounterAnimTick), 30)
-      ({ ..self, animated_counter: { ..self.animated_counter, value: v } }, cmd)
+      (
+        { ..self, animated_counter: { ..self.animated_counter, value: v, }, },
+        cmd,
+      )
     }
     CounterDecrement => {
       let v = self.animated_counter.value - 1
       let cmd = @rabbita.delay(dispatch(CounterAnimTick), 30)
-      ({ ..self, animated_counter: { ..self.animated_counter, value: v } }, cmd)
+      (
+        { ..self, animated_counter: { ..self.animated_counter, value: v, }, },
+        cmd,
+      )
     }
     CounterAnimTick => {
       let ac = self.animated_counter
@@ -1171,7 +1187,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          animated_counter: { ..ac, display_value: ac.display_value + step },
+          animated_counter: { ..ac, display_value: ac.display_value + step, },
         },
         cmd,
       )
@@ -1180,19 +1196,25 @@ pub fn Model::update(
     // ── StarRating ───────────────────────────
     StarClick(n) =>
       (
-        { ..self, star_rating: { ..self.star_rating, rating: n } },
+        { ..self, star_rating: { ..self.star_rating, rating: n, }, },
         @rabbita.none,
       )
     StarHover(n) =>
-      ({ ..self, star_rating: { ..self.star_rating, hover: n } }, @rabbita.none)
+      (
+        { ..self, star_rating: { ..self.star_rating, hover: n, }, },
+        @rabbita.none,
+      )
     StarLeave =>
-      ({ ..self, star_rating: { ..self.star_rating, hover: 0 } }, @rabbita.none)
+      (
+        { ..self, star_rating: { ..self.star_rating, hover: 0, }, },
+        @rabbita.none,
+      )
 
     // ── PinInput ─────────────────────────────
     PinDigitChanged(idx, val) => {
       let digits = self.pin_input.digits.copy()
       let d = if val.char_length() > 1 {
-        val[val.char_length() - 1:].to_string()
+        val[val.char_length() - 1:].to_owned()
       } else {
         val
       }
@@ -1211,7 +1233,7 @@ pub fn Model::update(
       let focus_id = "pin-\{next_focus}"
       let cmd = @rabbita.effect(fn() noraise { focus_element(focus_id) })
       (
-        { ..self, pin_input: { digits, focus_index: next_focus, verified } },
+        { ..self, pin_input: { digits, focus_index: next_focus, verified, }, },
         cmd,
       )
     }
@@ -1231,7 +1253,10 @@ pub fn Model::update(
     // ── PasswordStrength ─────────────────────
     PasswordChanged(v) =>
       (
-        { ..self, password_strength: { ..self.password_strength, password: v } },
+        {
+          ..self,
+          password_strength: { ..self.password_strength, password: v, },
+        },
         @rabbita.none,
       )
     PasswordToggleVisible =>
@@ -1286,10 +1311,13 @@ pub fn Model::update(
     TagAutoRemove(i) => {
       let tags = self.tag_auto.tags.copy()
       ignore(tags.remove(i))
-      ({ ..self, tag_auto: { ..self.tag_auto, tags, } }, @rabbita.none)
+      ({ ..self, tag_auto: { ..self.tag_auto, tags, }, }, @rabbita.none)
     }
     TagAutoFocus(i) =>
-      ({ ..self, tag_auto: { ..self.tag_auto, focus_index: i } }, @rabbita.none)
+      (
+        { ..self, tag_auto: { ..self.tag_auto, focus_index: i, }, },
+        @rabbita.none,
+      )
 
     // ── InlineEdit ───────────────────────────
     InlineStartEdit(i) => {
@@ -1303,14 +1331,14 @@ pub fn Model::update(
       (
         {
           ..self,
-          inline_edit: { items, edit_value: self.inline_edit.items[i].0 },
+          inline_edit: { items, edit_value: self.inline_edit.items[i].0, },
         },
         @rabbita.none,
       )
     }
     InlineEditChanged(v) =>
       (
-        { ..self, inline_edit: { ..self.inline_edit, edit_value: v } },
+        { ..self, inline_edit: { ..self.inline_edit, edit_value: v, }, },
         @rabbita.none,
       )
     InlineSaveEdit(i) => {
@@ -1321,7 +1349,7 @@ pub fn Model::update(
           pair
         }
       })
-      ({ ..self, inline_edit: { items, edit_value: "" } }, @rabbita.none)
+      ({ ..self, inline_edit: { items, edit_value: "", }, }, @rabbita.none)
     }
     InlineCancelEdit(i) => {
       let items = self.inline_edit.items.mapi(fn(idx, pair) {
@@ -1331,33 +1359,33 @@ pub fn Model::update(
           pair
         }
       })
-      ({ ..self, inline_edit: { items, edit_value: "" } }, @rabbita.none)
+      ({ ..self, inline_edit: { items, edit_value: "", }, }, @rabbita.none)
     }
 
     // ── Stepper ──────────────────────────────
     StepperIncrement => {
       let v = self.stepper.value + self.stepper.step
       let clamped = if v > self.stepper.max { self.stepper.max } else { v }
-      ({ ..self, stepper: { ..self.stepper, value: clamped } }, @rabbita.none)
+      ({ ..self, stepper: { ..self.stepper, value: clamped, }, }, @rabbita.none)
     }
     StepperDecrement => {
       let v = self.stepper.value - self.stepper.step
       let clamped = if v < self.stepper.min { self.stepper.min } else { v }
-      ({ ..self, stepper: { ..self.stepper, value: clamped } }, @rabbita.none)
+      ({ ..self, stepper: { ..self.stepper, value: clamped, }, }, @rabbita.none)
     }
 
     // ── SplitPane ────────────────────────────
     SplitPaneResize(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.split_pane.left_percent }
+      let n = @string.parse_int(v) catch { _ => self.split_pane.left_percent }
       let clamped = n.clamp(min=10, max=90)
-      ({ ..self, split_pane: { left_percent: clamped } }, @rabbita.none)
+      ({ ..self, split_pane: { left_percent: clamped, }, }, @rabbita.none)
     }
 
     // ── VirtualList ──────────────────────────
     VirtualScroll(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.virtual_list.scroll_top }
+      let n = @string.parse_int(v) catch { _ => self.virtual_list.scroll_top }
       (
-        { ..self, virtual_list: { ..self.virtual_list, scroll_top: n } },
+        { ..self, virtual_list: { ..self.virtual_list, scroll_top: n, }, },
         @rabbita.none,
       )
     }
@@ -1365,17 +1393,17 @@ pub fn Model::update(
     // ── ConfirmButton ────────────────────────
     ConfirmButtonClick =>
       (
-        { ..self, confirm_button: { confirming: true, executed: false } },
+        { ..self, confirm_button: { confirming: true, executed: false, }, },
         @rabbita.none,
       )
     ConfirmButtonConfirm =>
       (
-        { ..self, confirm_button: { confirming: false, executed: true } },
+        { ..self, confirm_button: { confirming: false, executed: true, }, },
         @rabbita.none,
       )
     ConfirmButtonCancel =>
       (
-        { ..self, confirm_button: { confirming: false, executed: false } },
+        { ..self, confirm_button: { confirming: false, executed: false, }, },
         @rabbita.none,
       )
 
@@ -1390,7 +1418,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          copy_clipboard: { ..self.copy_clipboard, copied: true, gen: g },
+          copy_clipboard: { ..self.copy_clipboard, copied: true, gen: g, },
         },
         cmd,
       )
@@ -1400,7 +1428,7 @@ pub fn Model::update(
         return (self, @rabbita.none)
       }
       (
-        { ..self, copy_clipboard: { ..self.copy_clipboard, copied: false } },
+        { ..self, copy_clipboard: { ..self.copy_clipboard, copied: false, }, },
         @rabbita.none,
       )
     }
@@ -1453,12 +1481,12 @@ pub fn Model::update(
     }
     UndoDismiss =>
       (
-        { ..self, undo_snackbar: { ..self.undo_snackbar, visible: false } },
+        { ..self, undo_snackbar: { ..self.undo_snackbar, visible: false, }, },
         @rabbita.none,
       )
 
     // ── Markdown ─────────────────────────────
-    MarkdownChanged(v) => ({ ..self, markdown: { source: v } }, @rabbita.none)
+    MarkdownChanged(v) => ({ ..self, markdown: { source: v, }, }, @rabbita.none)
 
     // ── Spreadsheet ──────────────────────────
     SpreadsheetSelectCell(r, c) =>
@@ -1482,13 +1510,13 @@ pub fn Model::update(
       }
       let v = ss.cells[ss.selected_row][ss.selected_col].value
       (
-        { ..self, spreadsheet: { ..ss, editing: true, edit_value: v } },
+        { ..self, spreadsheet: { ..ss, editing: true, edit_value: v, }, },
         @rabbita.none,
       )
     }
     SpreadsheetEditChanged(v) =>
       (
-        { ..self, spreadsheet: { ..self.spreadsheet, edit_value: v } },
+        { ..self, spreadsheet: { ..self.spreadsheet, edit_value: v, }, },
         @rabbita.none,
       )
     SpreadsheetSaveEdit => {
@@ -1497,7 +1525,7 @@ pub fn Model::update(
         if ri == ss.selected_row {
           row.mapi(fn(ci, cell) {
             if ci == ss.selected_col {
-              { value: ss.edit_value }
+              { value: ss.edit_value, }
             } else {
               cell
             }
@@ -1507,7 +1535,10 @@ pub fn Model::update(
         }
       })
       (
-        { ..self, spreadsheet: { ..ss, cells, editing: false, edit_value: "" } },
+        {
+          ..self,
+          spreadsheet: { ..ss, cells, editing: false, edit_value: "", },
+        },
         @rabbita.none,
       )
     }
@@ -1515,7 +1546,7 @@ pub fn Model::update(
       (
         {
           ..self,
-          spreadsheet: { ..self.spreadsheet, editing: false, edit_value: "" },
+          spreadsheet: { ..self.spreadsheet, editing: false, edit_value: "", },
         },
         @rabbita.none,
       )
@@ -1529,7 +1560,7 @@ pub fn Model::update(
       let tmp = items[i]
       items[i] = items[i - 1]
       items[i - 1] = tmp
-      ({ ..self, drag_sort: { items, } }, @rabbita.none)
+      ({ ..self, drag_sort: { items, }, }, @rabbita.none)
     }
     DragSortMoveDown(i) => {
       if i >= self.drag_sort.items.length() - 1 {
@@ -1539,7 +1570,7 @@ pub fn Model::update(
       let tmp = items[i]
       items[i] = items[i + 1]
       items[i + 1] = tmp
-      ({ ..self, drag_sort: { items, } }, @rabbita.none)
+      ({ ..self, drag_sort: { items, }, }, @rabbita.none)
     }
   }
 }

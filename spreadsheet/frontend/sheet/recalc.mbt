@@ -18,13 +18,13 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
 
   // Phase 1: Identify all formula cells and build dependency graph
   // deps[k] = array of cell keys that cell k depends on
-  let deps : Map[String, Array[String]] = {}
+  let deps : Map[String, Array[String]] = Map([])
   // in_degree[k] = number of unresolved dependencies for formula cell k
-  let in_degree : Map[String, Int] = {}
+  let in_degree : Map[String, Int] = Map([])
   // reverse_deps[k] = array of formula cells that depend on k
-  let reverse_deps : Map[String, Array[String]] = {}
+  let reverse_deps : Map[String, Array[String]] = Map([])
   // Track which cells are formula cells
-  let is_formula : Map[String, Bool] = {}
+  let is_formula : Map[String, Bool] = Map([])
 
   for k, c in self.cells {
     if c.raw is ['=', ..] {
@@ -50,7 +50,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   // First, enqueue all non-formula cells that have dependents.
   // These are already resolved (their values are in new_cells).
   // We need to process them to decrement in_degree of their dependents.
-  let resolved : Map[String, Bool] = {}
+  let resolved : Map[String, Bool] = Map([])
 
   // Seed: all non-formula cells that appear as dependencies
   for k, _ in reverse_deps {
@@ -100,8 +100,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     match self.cells.get(k) {
       Some(c) => {
         let value = @formula.evaluate(c.raw) <| fn(r) {
-            new_cells.get_or_default(r, Cell()).value
-          }
+          new_cells.get_or_default(r, Cell()).value
+        }
         // Keep existing value if re-evaluation fails (preserves cached xlsx results)
         let final_value = match value {
           Error(_) =>
@@ -111,7 +111,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
             }
           _ => value
         }
-        new_cells[k] = { ..c, value: final_value }
+        new_cells[k] = { ..c, value: final_value, }
       }
       None => ()
     }
@@ -132,14 +132,14 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
 
   // Find actual cycle members: a cell is in a cycle if following its
   // dependencies (restricted to unresolved cells) leads back to itself
-  let unresolved_set : Map[String, Bool] = {}
+  let unresolved_set : Map[String, Bool] = Map([])
   for k in unresolved {
     unresolved_set[k] = true
   }
 
   // Mark cycle members: cells whose dependencies are all within the unresolved
   // set AND form a cycle. Use iterative reachability from each unresolved cell.
-  let is_cycle_member : Map[String, Bool] = {}
+  let is_cycle_member : Map[String, Bool] = Map([])
   for start in unresolved {
     if reaches_self(start, deps, unresolved_set) {
       is_cycle_member[start] = true
@@ -153,7 +153,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   // preserve the cached value. For all other cases, mark CIRCULAR.
   for k, _ in is_cycle_member {
     match self.cells.get(k) {
-      Some(c) => new_cells[k] = { ..c, value: @cell.Error("CIRCULAR") }
+      Some(c) => new_cells[k] = { ..c, value: Error("CIRCULAR"), }
       None => ()
     }
   }
@@ -162,8 +162,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   // dependency order. Run a second Kahn's pass restricted to these cells,
   // treating cycle members and already-resolved cells as resolved seeds.
   let downstream : Array[String] = []
-  let down_in : Map[String, Int] = {}
-  let down_rev : Map[String, Array[String]] = {}
+  let down_in : Map[String, Int] = Map([])
+  let down_rev : Map[String, Array[String]] = Map([])
   for k in unresolved {
     if !is_cycle_member.get(k).unwrap_or(false) {
       downstream.push(k)
@@ -199,8 +199,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     match self.cells.get(k) {
       Some(c) => {
         let value = @formula.evaluate(c.raw) <| fn(r) {
-            new_cells.get_or_default(r, Cell()).value
-          }
+          new_cells.get_or_default(r, Cell()).value
+        }
         let final_value = match value {
           Error(_) =>
             match c.value {
@@ -209,7 +209,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
             }
           _ => value
         }
-        new_cells[k] = { ..c, value: final_value }
+        new_cells[k] = { ..c, value: final_value, }
       }
       None => ()
     }
@@ -240,7 +240,7 @@ fn reaches_self(
   deps : Map[String, Array[String]],
   unresolved_set : Map[String, Bool],
 ) -> Bool {
-  let visited : Map[String, Bool] = {}
+  let visited : Map[String, Bool] = Map([])
   let stack : Array[String] = [start]
   while stack.length() > 0 {
     let node = stack.unsafe_pop()

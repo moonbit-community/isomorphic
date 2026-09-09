@@ -113,10 +113,10 @@ fn Model::view_budget_list(
 ) -> @rabbita.Html {
   if self.budgets.is_empty() {
     return @html.p(
-        style=[
-          "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
-        ],
-      ) <| "No budgets set for this month. Set one to start tracking!"
+      style=[
+        "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
+      ],
+    ) <| "No budgets set for this month. Set one to start tracking!"
   }
   let items : Array[@rabbita.Html] = self.budgets.map(fn(b) {
     let cat = find_category(self.categories, b.category_id)

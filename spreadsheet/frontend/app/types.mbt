@@ -23,8 +23,6 @@ pub(all) struct Model {
   autocomplete_index : Int
   /// Save status indicator ("", "Saving...", "Saved").
   save_status : String
-
-  fn new() -> Model
 }
 
 ///|
@@ -70,7 +68,7 @@ pub(all) enum Msg {
 
 ///|
 /// Initialize the spreadsheet with demo sheets pre-populated with sample data and evaluated formulas.
-pub fn Model::new() -> Model {
+pub fn Model::Model() -> Model {
   let sheet1 = @sheet.Sheet("Sales Dashboard")
   let sheet2 = @sheet.Sheet("Team Metrics")
   let sheet3 = @sheet.Sheet("Sheet 3")

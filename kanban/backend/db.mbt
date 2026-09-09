@@ -52,7 +52,7 @@ fn read_column(stmt : @sqlite3.Statement) -> @shared.Column {
   let id : Int = stmt.column(index=0)
   let title : String = stmt.column_blob_as_string(index=1)
   let position : Int = stmt.column(index=2)
-  { id, title, position }
+  { id, title, position, }
 }
 
 ///|
@@ -64,7 +64,7 @@ fn read_card(stmt : @sqlite3.Statement) -> @shared.Card {
   let description : String = stmt.column_blob_as_string(index=3)
   let color : String = stmt.column_blob_as_string(index=4)
   let position : Int = stmt.column(index=5)
-  { id, column_id, title, description, color, position }
+  { id, column_id, title, description, color, position, }
 }
 
 ///|
@@ -88,7 +88,7 @@ fn get_board(
     cards.push(read_card(card_stmt))
   }
   card_stmt.finalize()
-  { columns, cards }
+  { columns, cards, }
 }
 
 ///|
@@ -114,7 +114,7 @@ fn create_column(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, title, position }
+  { id, title, position, }
 }
 
 ///|
@@ -210,7 +210,7 @@ fn create_card(
   guard id_stmt.step()
   let id : Int = id_stmt.column(index=0)
   id_stmt.finalize()
-  { id, column_id, title, description, color, position }
+  { id, column_id, title, description, color, position, }
 }
 
 ///|

@@ -37,7 +37,7 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port)
   let conn = @sqlite3.Connection::open("nodegraph.db")
   let fk = conn.prepare("PRAGMA foreign_keys = ON")
   fk.step_once()
@@ -112,7 +112,7 @@ fn main raise {
   })
   ..get("\{@shared.api_graphs}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       @mocket.HttpResponse::new(OK).json(get_graph(conn, id))
     } catch {
       e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
@@ -120,7 +120,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_graphs}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_graph(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -130,7 +130,7 @@ fn main raise {
   // ── Nodes ───────────────────────────────────────────────────────
   ..post("\{@shared.api_graphs}/:id/nodes", fn(event) noraise {
     try {
-      let graph_id = @strconv.parse_int(
+      let graph_id = @string.parse_int(
         event.params.get("id").unwrap().to_string(),
       )
       let json : Json = event.req.body()
@@ -149,10 +149,10 @@ fn main raise {
   })
   ..post("\{@shared.api_graphs}/:gid/nodes/:nid", fn(event) noraise {
     try {
-      let _gid = @strconv.parse_int(
+      let _gid = @string.parse_int(
         event.params.get("gid").unwrap().to_string(),
       )
-      let nid = @strconv.parse_int(event.params.get("nid").unwrap().to_string())
+      let nid = @string.parse_int(event.params.get("nid").unwrap().to_string())
       let json : Json = event.req.body()
       // Handle position update
       match json {
@@ -175,10 +175,10 @@ fn main raise {
   })
   ..delete("\{@shared.api_graphs}/:gid/nodes/:nid", fn(event) noraise {
     try {
-      let _gid = @strconv.parse_int(
+      let _gid = @string.parse_int(
         event.params.get("gid").unwrap().to_string(),
       )
-      let nid = @strconv.parse_int(event.params.get("nid").unwrap().to_string())
+      let nid = @string.parse_int(event.params.get("nid").unwrap().to_string())
       delete_node(conn, nid)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -188,7 +188,7 @@ fn main raise {
   // ── Connections ─────────────────────────────────────────────────
   ..post("\{@shared.api_graphs}/:id/connections", fn(event) noraise {
     try {
-      let graph_id = @strconv.parse_int(
+      let graph_id = @string.parse_int(
         event.params.get("id").unwrap().to_string(),
       )
       let json : Json = event.req.body()
@@ -220,10 +220,10 @@ fn main raise {
   })
   ..delete("\{@shared.api_graphs}/:gid/connections/:cid", fn(event) noraise {
     try {
-      let _gid = @strconv.parse_int(
+      let _gid = @string.parse_int(
         event.params.get("gid").unwrap().to_string(),
       )
-      let cid = @strconv.parse_int(event.params.get("cid").unwrap().to_string())
+      let cid = @string.parse_int(event.params.get("cid").unwrap().to_string())
       delete_connection(conn, cid)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -233,7 +233,7 @@ fn main raise {
   // ── Evaluate ────────────────────────────────────────────────────
   .post("\{@shared.api_graphs}/:id/evaluate", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       let graph = get_graph(conn, id)
       let result = @shared.evaluate_graph(graph.nodes, graph.connections)
       @mocket.HttpResponse::new(OK).json(result)

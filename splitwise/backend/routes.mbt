@@ -136,7 +136,7 @@ fn handle_delete_expense(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/expenses/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_expense(conn, id)
     println("  -> 204 deleted expense \{id}")
     @mocket.HttpResponse::new(NoContent)

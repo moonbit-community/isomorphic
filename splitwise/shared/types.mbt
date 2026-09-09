@@ -40,3 +40,39 @@ pub(all) struct AppState {
   expenses : Array[Expense]
   settlements : Array[Settlement]
 } derive(ToJson, FromJson, Debug)
+
+///|
+pub extend AppState with Debug::{to_repr}
+
+///|
+pub extend AppState with @json.FromJson::{from_json}
+
+///|
+pub extend AppState with ToJson::{to_json}
+
+///|
+pub extend Expense with Debug::{to_repr}
+
+///|
+pub extend Expense with @json.FromJson::{from_json}
+
+///|
+pub extend Expense with ToJson::{to_json}
+
+///|
+pub extend Person with Debug::{to_repr}
+
+///|
+pub extend Person with @json.FromJson::{from_json}
+
+///|
+pub extend Person with ToJson::{to_json}
+
+///|
+pub extend Settlement with Debug::{to_repr}
+
+///|
+pub extend Settlement with @json.FromJson::{from_json}
+
+///|
+pub extend Settlement with ToJson::{to_json}

@@ -29,8 +29,8 @@ priv enum RangeMsg {
 ///|
 fn RangeModel::update(self : RangeModel, msg : RangeMsg) -> RangeModel {
   match msg {
-    Start(cal_msg) => { ..self, start_cal: self.start_cal.update(cal_msg) }
-    End(cal_msg) => { ..self, end_cal: self.end_cal.update(cal_msg) }
+    Start(cal_msg) => { ..self, start_cal: self.start_cal.update(cal_msg), }
+    End(cal_msg) => { ..self, end_cal: self.end_cal.update(cal_msg), }
   }
 }
 
@@ -74,9 +74,9 @@ fn RangeModel::view(
 ///|
 /// Create a date-range picker cell composed of two independent calendar instances.
 pub fn make() -> @rabbita.Cell {
-  let today : @calendar.Date = { year: 2026, month: 3, day: 20 }
+  let today : @calendar.Date = { year: 2026, month: 3, day: 20, }
   @rabbita.simple_cell(
-    model={ start_cal: Model(today~), end_cal: Model(today~) },
+    model={ start_cal: Model(today~), end_cal: Model(today~), },
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch),
   )

@@ -5,10 +5,10 @@ fn Model::view_connections(
 ) -> @rabbita.Html {
   if self.connections.is_empty() {
     return @html.div(
-        style=[
-          "text-align: center", "color: #444", "padding: 12px", "font-size: 0.8em",
-        ],
-      ) <| "No connections. Click \"Connect \u{2192}\" on an output port to start wiring."
+      style=[
+        "text-align: center", "color: #444", "padding: 12px", "font-size: 0.8em",
+      ],
+    ) <| "No connections. Click \"Connect \u{2192}\" on an output port to start wiring."
   }
   let rows : Array[@rabbita.Html] = self.connections.map(fn(c) {
     // Find source and target node info

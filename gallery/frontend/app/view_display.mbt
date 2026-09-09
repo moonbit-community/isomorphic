@@ -15,7 +15,7 @@ fn Model::view_avatar(
         let name = user.0
         let color = user.1
         let online = user.2
-        let initial = name[:1].to_string()
+        let initial = name[:1].to_owned()
         let status_color = if online { success } else { "#9ca3af" }
         avatars.push(
           @html.div(

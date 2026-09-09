@@ -40,7 +40,7 @@ fn get_options_for_poll(
     let id : Int = stmt.column(index=0)
     let text : String = stmt.column_blob_as_string(index=1)
     let votes : Int = stmt.column(index=2)
-    options.push({ id, text, votes })
+    options.push({ id, text, votes, })
   }
   stmt.finalize()
   options
@@ -57,7 +57,7 @@ fn get_all_polls(
     let id : Int = stmt.column(index=0)
     let question : String = stmt.column_blob_as_string(index=1)
     let options = get_options_for_poll(conn, id)
-    polls.push({ id, question, options })
+    polls.push({ id, question, options, })
   }
   stmt.finalize()
   polls
@@ -91,9 +91,9 @@ fn create_poll(
     guard stmt4.step()
     let opt_id : Int = stmt4.column(index=0)
     stmt4.finalize()
-    options.push({ id: opt_id, text, votes: 0 })
+    options.push({ id: opt_id, text, votes: 0, })
   }
-  { id: poll_id, question, options }
+  { id: poll_id, question, options, }
 }
 
 ///|
@@ -140,7 +140,7 @@ fn get_poll_by_id(
     let question : String = stmt.column_blob_as_string(index=1)
     stmt.finalize()
     let options = get_options_for_poll(conn, poll_id)
-    Some({ id: poll_id, question, options })
+    Some({ id: poll_id, question, options, })
   } else {
     stmt.finalize()
     None

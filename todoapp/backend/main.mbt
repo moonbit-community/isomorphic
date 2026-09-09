@@ -22,7 +22,7 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port)
 
   let conn = @sqlite3.Connection::open("todos.db")
   println("Database opened: todos.db")
@@ -120,7 +120,7 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("POST /api/todos/\{id_str}/toggle")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       let todo = toggle_todo(conn, id)
       println("  -> 200 toggled todo \{id}")
       @mocket.HttpResponse::new(OK).json(todo)
@@ -135,7 +135,7 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("DELETE /api/todos/\{id_str}")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       delete_todo(conn, id)
       println("  -> 204 deleted todo \{id}")
       @mocket.HttpResponse::new(NoContent)

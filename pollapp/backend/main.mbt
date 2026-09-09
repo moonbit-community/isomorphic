@@ -12,7 +12,7 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port)
 
   let conn = @sqlite3.Connection::open("polls.db")
   println("Database opened: polls.db")

@@ -10,8 +10,8 @@ fn Model::view_dashboard(
     Some(d) => d
     None =>
       return @html.div(
-          style=["padding: 40px", "text-align: center", "color: #999"],
-        ) <| (if self.loading { "Loading..." } else { "No data yet" })
+        style=["padding: 40px", "text-align: center", "color: #999"],
+      ) <| (if self.loading { "Loading..." } else { "No data yet" })
   }
   @html.div(
     style=[
@@ -43,8 +43,8 @@ fn Model::view_balance_cards(
   let _ = self
   if data.account_balances.is_empty() {
     return @html.p(
-        style=["color: #999", "font-style: italic", "margin-bottom: 12px"],
-      ) <| "No accounts yet. Create one in the Accounts tab."
+      style=["color: #999", "font-style: italic", "margin-bottom: 12px"],
+    ) <| "No accounts yet. Create one in the Accounts tab."
   }
   let cards : Array[@rabbita.Html] = data.account_balances.map(fn(ab) {
     let color = if ab.balance >= 0 { "#2e7d32" } else { "#c62828" }
@@ -252,11 +252,9 @@ fn Model::view_recent_transactions(
 ) -> @rabbita.Html {
   if data.recent_transactions.is_empty() {
     return @html.div(style=["margin-top: 16px"]) <| [
-        @html.h2(
-          style=["font-size: 1.1em", "color: #333", "margin-bottom: 8px"],
-        ) <| "Recent Transactions",
-        @html.p(style=["color: #999", "font-style: italic"]) <| "No transactions yet.",
-      ]
+      @html.h2(style=["font-size: 1.1em", "color: #333", "margin-bottom: 8px"]) <| "Recent Transactions",
+      @html.p(style=["color: #999", "font-style: italic"]) <| "No transactions yet.",
+    ]
   }
   let rows : Array[@rabbita.Html] = data.recent_transactions.map(fn(t) {
     let cat = find_category(self.categories, t.category_id)

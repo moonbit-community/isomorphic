@@ -106,17 +106,17 @@ test "col_to_letter: A and Z" {
 
 ///|
 test "parse_ref: valid" {
-  inspect(@cell.parse_ref("A1"), content="Some((0, 0))")
-  inspect(@cell.parse_ref("C10"), content="Some((2, 9))")
-  inspect(@cell.parse_ref("Z1"), content="Some((25, 0))")
+  debug_inspect(@cell.parse_ref("A1"), content="Some((0, 0))")
+  debug_inspect(@cell.parse_ref("C10"), content="Some((2, 9))")
+  debug_inspect(@cell.parse_ref("Z1"), content="Some((25, 0))")
 }
 
 ///|
 test "parse_ref: invalid" {
-  inspect(@cell.parse_ref(""), content="None")
-  inspect(@cell.parse_ref("a1"), content="None")
-  inspect(@cell.parse_ref("A"), content="None")
-  inspect(@cell.parse_ref("A0"), content="None")
+  debug_inspect(@cell.parse_ref(""), content="None")
+  debug_inspect(@cell.parse_ref("a1"), content="None")
+  debug_inspect(@cell.parse_ref("A"), content="None")
+  debug_inspect(@cell.parse_ref("A0"), content="None")
 }
 
 ///|
@@ -124,7 +124,7 @@ test "make_key round-trips with parse_ref" {
   inspect(@cell.make_key(0, 0), content="A1")
   inspect(@cell.make_key(2, 9), content="C10")
   // Round-trip
-  inspect(@cell.parse_ref(@cell.make_key(5, 14)), content="Some((5, 14))")
+  debug_inspect(@cell.parse_ref(@cell.make_key(5, 14)), content="Some((5, 14))")
 }
 
 // ── Value::Show ──────────────────────────────────────────────────────

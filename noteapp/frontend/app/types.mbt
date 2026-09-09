@@ -39,3 +39,9 @@ pub(all) enum Msg {
   /// Response after deleting a note via the API.
   NoteDeleted(Result[Int, String])
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}

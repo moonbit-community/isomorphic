@@ -39,7 +39,7 @@ test "view shows empty state" {
 
 ///|
 test "view renders contacts" {
-  let model = { ..empty_model(), contacts: sample_contacts() }
+  let model = { ..empty_model(), contacts: sample_contacts(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -62,7 +62,7 @@ test "view with form closed shows Add Contact button" {
 
 ///|
 test "view with form open shows Cancel button and form fields" {
-  let model = { ..empty_model(), show_form: true }
+  let model = { ..empty_model(), show_form: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -75,7 +75,7 @@ test "view with form open shows Cancel button and form fields" {
 
 ///|
 test "view preserves search query in input" {
-  let model = { ..empty_model(), search_query: "alice" }
+  let model = { ..empty_model(), search_query: "alice", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -103,7 +103,7 @@ test "view shows no-match message when search has no results" {
 
 ///|
 test "view shows favorites section when favorites exist" {
-  let model = { ..empty_model(), contacts: sample_contacts() }
+  let model = { ..empty_model(), contacts: sample_contacts(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -160,7 +160,7 @@ test "view shows singular contact count" {
 
 ///|
 test "view shows plural contact count" {
-  let model = { ..empty_model(), contacts: sample_contacts() }
+  let model = { ..empty_model(), contacts: sample_contacts(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(

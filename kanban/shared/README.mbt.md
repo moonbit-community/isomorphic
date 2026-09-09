@@ -82,7 +82,7 @@ test {
   inspect(@shared.compute_insert_position(100, 101), content="0")
 
   // Renumber evenly
-  inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
+  debug_inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
 }
 ```
 

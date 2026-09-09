@@ -49,19 +49,19 @@ enforced on both frontend (valid buttons) and backend (request validation):
 ///|
 test {
   // Valid transitions from each status
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("todo"),
     content="[\"in_progress\", \"blocked\"]",
   )
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("in_progress"),
     content="[\"review\", \"blocked\", \"todo\"]",
   )
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("review"),
     content="[\"done\", \"in_progress\"]",
   )
-  inspect(@shared.allowed_transitions("done"), content="[\"todo\"]")
+  debug_inspect(@shared.allowed_transitions("done"), content="[\"todo\"]")
 
   // Transition validation
   inspect(@shared.is_valid_transition("todo", "in_progress"), content="true")
@@ -269,8 +269,8 @@ test {
       created_at: "",
     },
   ]
-  let deps : Array[@shared.Dependency] = [{ task_id: 2, depends_on_id: 1 }]
-  inspect(@shared.get_dependencies(deps, 2), content="[1]")
+  let deps : Array[@shared.Dependency] = [{ task_id: 2, depends_on_id: 1, }]
+  debug_inspect(@shared.get_dependencies(deps, 2), content="[1]")
   // Design is done, so Implement has no unresolved deps
   inspect(@shared.has_unresolved_deps(deps, tasks, 2), content="false")
 }
@@ -297,7 +297,7 @@ test {
   inspect(@shared.member_color("blue"), content="#3b82f6")
   inspect(@shared.member_initial("Alice"), content="A")
   let members : Array[@shared.Member] = [
-    { id: 1, name: "Alice", color: "blue" },
+    { id: 1, name: "Alice", color: "blue", },
   ]
   let found = @shared.find_member(members, 1)
   inspect(found.unwrap().name, content="Alice")

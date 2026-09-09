@@ -45,3 +45,9 @@ pub(all) enum Msg {
   /// Handle the response after deleting an expense.
   ExpenseDeleted(Result[Int, String])
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}

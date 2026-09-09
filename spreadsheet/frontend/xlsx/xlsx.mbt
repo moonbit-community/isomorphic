@@ -393,7 +393,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @mbtexcel_xlsx.Style {
 /// not preceded by another uppercase letter (to avoid mangling names like
 /// `NAVG`).
 fn normalize_formula(formula : String) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   let chars = formula.to_array()
   let len = chars.length()
   let mut i = 0

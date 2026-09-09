@@ -19,3 +19,21 @@ pub(all) struct Comment {
   content : String
   created_at : String
 } derive(FromJson, ToJson, Debug)
+
+///|
+pub extend Comment with Debug::{to_repr}
+
+///|
+pub extend Comment with @json.FromJson::{from_json}
+
+///|
+pub extend Comment with ToJson::{to_json}
+
+///|
+pub extend Post with Debug::{to_repr}
+
+///|
+pub extend Post with @json.FromJson::{from_json}
+
+///|
+pub extend Post with ToJson::{to_json}

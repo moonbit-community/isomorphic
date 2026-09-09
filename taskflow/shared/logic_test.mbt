@@ -195,8 +195,8 @@ test "tasks_for_member" {
 ///|
 test "find_member" {
   let members : Array[@shared.Member] = [
-    { id: 1, name: "Alice", color: "blue" },
-    { id: 2, name: "Bob", color: "green" },
+    { id: 1, name: "Alice", color: "blue", },
+    { id: 2, name: "Bob", color: "green", },
   ]
   let found = @shared.find_member(members, 1)
   inspect(found.unwrap().name, content="Alice")
@@ -891,13 +891,13 @@ test "is_overdue boundary" {
 ///|
 test "get_dependencies" {
   let deps : Array[@shared.Dependency] = [
-    { task_id: 1, depends_on_id: 2 },
-    { task_id: 1, depends_on_id: 3 },
-    { task_id: 2, depends_on_id: 3 },
+    { task_id: 1, depends_on_id: 2, },
+    { task_id: 1, depends_on_id: 3, },
+    { task_id: 2, depends_on_id: 3, },
   ]
-  inspect(@shared.get_dependencies(deps, 1), content="[2, 3]")
-  inspect(@shared.get_dependencies(deps, 2), content="[3]")
-  inspect(@shared.get_dependencies(deps, 3), content="[]")
+  debug_inspect(@shared.get_dependencies(deps, 1), content="[2, 3]")
+  debug_inspect(@shared.get_dependencies(deps, 2), content="[3]")
+  debug_inspect(@shared.get_dependencies(deps, 3), content="[]")
 }
 
 ///|
@@ -1141,9 +1141,9 @@ test "tasks_for_member with zero assignee" {
 ///|
 test "find_member first and last" {
   let members : Array[@shared.Member] = [
-    { id: 1, name: "First", color: "red" },
-    { id: 2, name: "Middle", color: "green" },
-    { id: 3, name: "Last", color: "blue" },
+    { id: 1, name: "First", color: "red", },
+    { id: 2, name: "Middle", color: "green", },
+    { id: 3, name: "Last", color: "blue", },
   ]
   inspect(@shared.find_member(members, 1).unwrap().name, content="First")
   inspect(@shared.find_member(members, 3).unwrap().name, content="Last")
@@ -1249,15 +1249,15 @@ test "has_unresolved_deps" {
     },
   ]
   let deps : Array[@shared.Dependency] = [
-    { task_id: 1, depends_on_id: 2 },
-    { task_id: 1, depends_on_id: 3 },
+    { task_id: 1, depends_on_id: 2, },
+    { task_id: 1, depends_on_id: 3, },
   ]
   // Task 1 depends on 2 (done) and 3 (in_progress) -> has unresolved
   inspect(@shared.has_unresolved_deps(deps, tasks, 1), content="true")
   // Task 2 has no deps
   inspect(@shared.has_unresolved_deps(deps, tasks, 2), content="false")
   // Task with only done deps
-  let deps2 : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 2 }]
+  let deps2 : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 2, }]
   inspect(@shared.has_unresolved_deps(deps2, tasks, 1), content="false")
 }
 
@@ -1293,14 +1293,14 @@ test "has_unresolved_deps dep on nonexistent task" {
     },
   ]
   // Depends on task 99 which doesn't exist in task list
-  let deps : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 99 }]
+  let deps : Array[@shared.Dependency] = [{ task_id: 1, depends_on_id: 99, }]
   // Nonexistent dep is not found in tasks, so loop never finds a match -> false
   inspect(@shared.has_unresolved_deps(deps, tasks, 1), content="false")
 }
 
 ///|
 test "get_dependencies empty" {
-  inspect(@shared.get_dependencies([], 1), content="[]")
+  debug_inspect(@shared.get_dependencies([], 1), content="[]")
 }
 
 ///|
@@ -1375,7 +1375,7 @@ test "tasks_to_csv basic output" {
     },
   ]
   let members : Array[@shared.Member] = [
-    { id: 1, name: "Alice", color: "blue" },
+    { id: 1, name: "Alice", color: "blue", },
   ]
   let csv = @shared.tasks_to_csv(tasks, members)
   // Header
@@ -1408,14 +1408,14 @@ test "tasks_to_csv empty tasks" {
 ///|
 test "labels_for_task returns matching labels" {
   let labels : Array[@shared.Label] = [
-    { id: 1, name: "bug", color: "#ef4444" },
-    { id: 2, name: "feature", color: "#3b82f6" },
-    { id: 3, name: "docs", color: "#22c55e" },
+    { id: 1, name: "bug", color: "#ef4444", },
+    { id: 2, name: "feature", color: "#3b82f6", },
+    { id: 3, name: "docs", color: "#22c55e", },
   ]
   let task_labels : Array[@shared.TaskLabel] = [
-    { task_id: 10, label_id: 1 },
-    { task_id: 10, label_id: 3 },
-    { task_id: 20, label_id: 2 },
+    { task_id: 10, label_id: 1, },
+    { task_id: 10, label_id: 3, },
+    { task_id: 20, label_id: 2, },
   ]
   let result = @shared.labels_for_task(labels, task_labels, 10)
   inspect(result.length(), content="2")
@@ -1476,9 +1476,9 @@ test "activities_for_task filters by task_id" {
 ///|
 test "subtasks_for_task filters by task_id" {
   let subs : Array[@shared.Subtask] = [
-    { id: 1, task_id: 10, title: "Write tests", done: false },
-    { id: 2, task_id: 20, title: "Deploy", done: true },
-    { id: 3, task_id: 10, title: "Code review", done: true },
+    { id: 1, task_id: 10, title: "Write tests", done: false, },
+    { id: 2, task_id: 20, title: "Deploy", done: true, },
+    { id: 3, task_id: 10, title: "Code review", done: true, },
   ]
   let result = @shared.subtasks_for_task(subs, 10)
   inspect(result.length(), content="2")
@@ -1510,8 +1510,8 @@ test "extract_mentions finds @usernames" {
 ///|
 test "get_recurrence returns interval or empty" {
   let rules : Array[@shared.RecurrenceRule] = [
-    { task_id: 10, interval: "weekly" },
-    { task_id: 20, interval: "daily" },
+    { task_id: 10, interval: "weekly", },
+    { task_id: 20, interval: "daily", },
   ]
   inspect(@shared.get_recurrence(rules, 10), content="weekly")
   inspect(@shared.get_recurrence(rules, 20), content="daily")
@@ -1530,9 +1530,9 @@ test "recurrence_label formats intervals" {
 ///|
 test "total_time sums minutes for task" {
   let entries : Array[@shared.TimeEntry] = [
-    { id: 1, task_id: 10, minutes: 30, note: "coding", created_at: "" },
-    { id: 2, task_id: 20, minutes: 15, note: "", created_at: "" },
-    { id: 3, task_id: 10, minutes: 45, note: "review", created_at: "" },
+    { id: 1, task_id: 10, minutes: 30, note: "coding", created_at: "", },
+    { id: 2, task_id: 20, minutes: 15, note: "", created_at: "", },
+    { id: 3, task_id: 10, minutes: 45, note: "review", created_at: "", },
   ]
   inspect(@shared.total_time(entries, 10), content="75")
   inspect(@shared.total_time(entries, 20), content="15")
@@ -1550,22 +1550,22 @@ test "format_duration converts minutes to human string" {
 ///|
 test "subtask_progress counts done vs total" {
   let subs : Array[@shared.Subtask] = [
-    { id: 1, task_id: 10, title: "A", done: false },
-    { id: 2, task_id: 10, title: "B", done: true },
-    { id: 3, task_id: 10, title: "C", done: true },
-    { id: 4, task_id: 20, title: "D", done: false },
+    { id: 1, task_id: 10, title: "A", done: false, },
+    { id: 2, task_id: 10, title: "B", done: true, },
+    { id: 3, task_id: 10, title: "C", done: true, },
+    { id: 4, task_id: 20, title: "D", done: false, },
   ]
-  inspect(@shared.subtask_progress(subs, 10), content="(2, 3)")
-  inspect(@shared.subtask_progress(subs, 20), content="(0, 1)")
-  inspect(@shared.subtask_progress(subs, 99), content="(0, 0)")
+  debug_inspect(@shared.subtask_progress(subs, 10), content="(2, 3)")
+  debug_inspect(@shared.subtask_progress(subs, 20), content="(0, 1)")
+  debug_inspect(@shared.subtask_progress(subs, 99), content="(0, 0)")
 }
 
 ///|
 test "attachments_for_task filters by task_id" {
   let atts : Array[@shared.Attachment] = [
-    { id: 1, task_id: 10, url: "https://example.com", label: "Docs" },
-    { id: 2, task_id: 20, url: "https://other.com", label: "" },
-    { id: 3, task_id: 10, url: "https://design.com", label: "Design" },
+    { id: 1, task_id: 10, url: "https://example.com", label: "Docs", },
+    { id: 2, task_id: 20, url: "https://other.com", label: "", },
+    { id: 3, task_id: 10, url: "https://design.com", label: "Design", },
   ]
   let result = @shared.attachments_for_task(atts, 10)
   inspect(result.length(), content="2")
@@ -1690,8 +1690,8 @@ test "t_undo_status formats undo message" {
 ///|
 test "project_for_task finds project ID" {
   let tps : Array[@shared.TaskProject] = [
-    { task_id: 1, project_id: 10 },
-    { task_id: 2, project_id: 20 },
+    { task_id: 1, project_id: 10, },
+    { task_id: 2, project_id: 20, },
   ]
   inspect(@shared.project_for_task(tps, 1), content="10")
   inspect(@shared.project_for_task(tps, 2), content="20")
@@ -1701,8 +1701,8 @@ test "project_for_task finds project ID" {
 ///|
 test "find_project by ID" {
   let projects : Array[@shared.Project] = [
-    { id: 1, name: "Alpha", color: "#3b82f6" },
-    { id: 2, name: "Beta", color: "#22c55e" },
+    { id: 1, name: "Alpha", color: "#3b82f6", },
+    { id: 2, name: "Beta", color: "#22c55e", },
   ]
   inspect(@shared.find_project(projects, 1).unwrap().name, content="Alpha")
   inspect(@shared.find_project(projects, 2).unwrap().name, content="Beta")
@@ -1744,8 +1744,8 @@ test "tasks_in_project filters by project" {
     },
   ]
   let tps : Array[@shared.TaskProject] = [
-    { task_id: 1, project_id: 10 },
-    { task_id: 3, project_id: 10 },
+    { task_id: 1, project_id: 10, },
+    { task_id: 3, project_id: 10, },
   ]
   // Filter by project 10 → tasks 1 and 3
   let filtered = @shared.tasks_in_project(tasks, tps, 10)

@@ -127,10 +127,10 @@ fn Model::view_chart(self : Model) -> @rabbita.Html {
   }
   if products.is_empty() {
     return @html.div(
-        style=[
-          "padding: 20px", "text-align: center", "color: #5f6368", "font-size: 13px",
-        ],
-      ) <| "No chart data available. Add product names in column A and numbers in columns B-E."
+      style=[
+        "padding: 20px", "text-align: center", "color: #5f6368", "font-size: 13px",
+      ],
+    ) <| "No chart data available. Add product names in column A and numbers in columns B-E."
   }
   // Chart dimensions
   let chart_w = 680

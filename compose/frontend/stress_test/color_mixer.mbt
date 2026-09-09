@@ -6,8 +6,6 @@ priv struct ColorModel {
   red : KnobModel
   green : KnobModel
   blue : KnobModel
-
-  fn new() -> ColorModel
 }
 
 ///|
@@ -18,7 +16,7 @@ priv enum ColorMsg {
 }
 
 ///|
-fn ColorModel::new() -> ColorModel {
+fn ColorModel::ColorModel() -> ColorModel {
   {
     red: KnobModel(value=100, max=255, step=5),
     green: KnobModel(value=150, max=255, step=5),
@@ -29,9 +27,9 @@ fn ColorModel::new() -> ColorModel {
 ///|
 fn ColorModel::update(self : ColorModel, msg : ColorMsg) -> ColorModel {
   match msg {
-    Red(m) => { ..self, red: self.red.update(m) }
-    Green(m) => { ..self, green: self.green.update(m) }
-    Blue(m) => { ..self, blue: self.blue.update(m) }
+    Red(m) => { ..self, red: self.red.update(m), }
+    Green(m) => { ..self, green: self.green.update(m), }
+    Blue(m) => { ..self, blue: self.blue.update(m), }
   }
 }
 

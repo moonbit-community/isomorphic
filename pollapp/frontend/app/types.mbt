@@ -39,3 +39,9 @@ pub(all) enum Msg {
   /// Result of the DELETE request, returns the deleted poll's ID.
   PollDeleted(Result[Int, String])
 } derive(Debug)
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}

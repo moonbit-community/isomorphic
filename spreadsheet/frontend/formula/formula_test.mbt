@@ -265,7 +265,7 @@ test "IF with nested arithmetic" {
 
 ///|
 test "extract_references: single cell" {
-  inspect(@formula.extract_references("=A1+1"), content="[\"A1\"]")
+  debug_inspect(@formula.extract_references("=A1+1"), content="[\"A1\"]")
 }
 
 ///|
@@ -280,7 +280,7 @@ test "extract_references: range expands" {
 
 ///|
 test "extract_references: non-formula" {
-  inspect(@formula.extract_references("hello"), content="[]")
+  debug_inspect(@formula.extract_references("hello"), content="[]")
 }
 
 ///|
@@ -578,7 +578,7 @@ test "LOWER: mixed case" {
 
 ///|
 test "extract_references: no refs in literal formula" {
-  inspect(@formula.extract_references("=1+2*3"), content="[]")
+  debug_inspect(@formula.extract_references("=1+2*3"), content="[]")
 }
 
 ///|
@@ -603,7 +603,7 @@ test "extract_references: duplicate refs not deduplicated" {
 
 ///|
 test "extract_references: empty formula" {
-  inspect(@formula.extract_references("="), content="[]")
+  debug_inspect(@formula.extract_references("="), content="[]")
 }
 
 // ── Edge cases: comparison operators ────────────────────────────────

@@ -49,10 +49,10 @@ pub fn Model::update(
   dispatch~ : @rabbita.Dispatch[Msg],
 ) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => ({ ..self, loading: true }, fetch_todos(dispatch))
-    GotTodos(Ok(todos)) => ({ ..self, todos, loading: false }, @rabbita.none)
-    GotTodos(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
-    InputChanged(value) => ({ ..self, input: value }, @rabbita.none)
+    Init => ({ ..self, loading: true, }, fetch_todos(dispatch))
+    GotTodos(Ok(todos)) => ({ ..self, todos, loading: false, }, @rabbita.none)
+    GotTodos(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
+    InputChanged(value) => ({ ..self, input: value, }, @rabbita.none)
     AddTodo => {
       if !@shared.validate_text(self.input) {
         return (self, @rabbita.none)
@@ -62,7 +62,7 @@ pub fn Model::update(
         Json({ "text": self.input }),
         expect=expect_todo(dispatch, fn(r) { TodoAdded(r) }),
       )
-      ({ ..self, input: "" }, cmd)
+      ({ ..self, input: "", }, cmd)
     }
     TodoAdded(Ok(todo)) => {
       let todos = self.todos.copy()

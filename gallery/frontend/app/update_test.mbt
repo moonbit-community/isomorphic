@@ -181,7 +181,7 @@ test "ProgressChanged clamps to 0-100" {
 
 ///|
 test "TagAdd appends tag and clears input" {
-  let model0 = { ..m(), tag: { tags: ["A"], input: "B" } }
+  let model0 = { ..m(), tag: { tags: ["A"], input: "B", }, }
   let (model, _) = model0.update(msg=TagAdd, dispatch=noop_dispatch)
   inspect(model.tag.tags.length(), content="2")
   inspect(model.tag.tags[1], content="B")
@@ -190,14 +190,14 @@ test "TagAdd appends tag and clears input" {
 
 ///|
 test "TagAdd with empty input does nothing" {
-  let model0 = { ..m(), tag: { tags: ["A"], input: "" } }
+  let model0 = { ..m(), tag: { tags: ["A"], input: "", }, }
   let (model, _) = model0.update(msg=TagAdd, dispatch=noop_dispatch)
   inspect(model.tag.tags.length(), content="1")
 }
 
 ///|
 test "TagRemove removes at index" {
-  let model0 = { ..m(), tag: { tags: ["A", "B", "C"], input: "" } }
+  let model0 = { ..m(), tag: { tags: ["A", "B", "C"], input: "", }, }
   let (model, _) = model0.update(msg=TagRemove(1), dispatch=noop_dispatch)
   inspect(model.tag.tags.length(), content="2")
   inspect(model.tag.tags[1], content="C")
@@ -213,7 +213,7 @@ test "AccordionToggle opens section" {
 
 ///|
 test "AccordionToggle closes same section" {
-  let model0 = { ..m(), accordion: { ..m().accordion, open_index: 1 } }
+  let model0 = { ..m(), accordion: { ..m().accordion, open_index: 1, }, }
   let (model, _) = model0.update(msg=AccordionToggle(1), dispatch=noop_dispatch)
   inspect(model.accordion.open_index, content="-1")
 }
@@ -295,7 +295,7 @@ test "TableSelectAll selects all rows" {
 
 ///|
 test "CalendarPrevMonth wraps year" {
-  let model0 = { ..m(), calendar: { ..m().calendar, year: 2026, month: 1 } }
+  let model0 = { ..m(), calendar: { ..m().calendar, year: 2026, month: 1, }, }
   let (model, _) = model0.update(msg=CalendarPrevMonth, dispatch=noop_dispatch)
   inspect(model.calendar.year, content="2025")
   inspect(model.calendar.month, content="12")
@@ -303,7 +303,7 @@ test "CalendarPrevMonth wraps year" {
 
 ///|
 test "CalendarNextMonth wraps year" {
-  let model0 = { ..m(), calendar: { ..m().calendar, year: 2026, month: 12 } }
+  let model0 = { ..m(), calendar: { ..m().calendar, year: 2026, month: 12, }, }
   let (model, _) = model0.update(msg=CalendarNextMonth, dispatch=noop_dispatch)
   inspect(model.calendar.year, content="2027")
   inspect(model.calendar.month, content="1")
@@ -346,7 +346,7 @@ test "DismissToast removes toast by id" {
   let model0 = {
     ..m(),
     toast: {
-      items: [{ id: 1, title: "T", message: "M", kind: "info" }],
+      items: [{ id: 1, title: "T", message: "M", kind: "info", }],
       next_id: 2,
     },
   }
@@ -364,14 +364,14 @@ test "ModalOpen opens modal" {
 
 ///|
 test "ModalClose closes modal" {
-  let model0 = { ..m(), modal: { ..m().modal, open: true } }
+  let model0 = { ..m(), modal: { ..m().modal, open: true, }, }
   let (model, _) = model0.update(msg=ModalClose, dispatch=noop_dispatch)
   inspect(model.modal.open, content="false")
 }
 
 ///|
 test "ModalConfirm closes and sets confirmed" {
-  let model0 = { ..m(), modal: { ..m().modal, open: true } }
+  let model0 = { ..m(), modal: { ..m().modal, open: true, }, }
   let (model, _) = model0.update(msg=ModalConfirm, dispatch=noop_dispatch)
   inspect(model.modal.open, content="false")
   inspect(model.modal.confirmed, content="true")
@@ -406,7 +406,7 @@ test "SearchableQueryChanged updates query" {
 test "SearchableSelect_ sets selected and closes" {
   let model0 = {
     ..m(),
-    searchable_select: { ..m().searchable_select, open: true },
+    searchable_select: { ..m().searchable_select, open: true, },
   }
   let (model, _) = model0.update(
     msg=SearchableSelect_("us"),
@@ -429,7 +429,7 @@ test "DateRangeSetPicking sets picking mode" {
 
 ///|
 test "DateRangeSelectDay sets start day when picking start" {
-  let model0 = { ..m(), date_range: { ..m().date_range, picking: "start" } }
+  let model0 = { ..m(), date_range: { ..m().date_range, picking: "start", }, }
   let (model, _) = model0.update(
     msg=DateRangeSelectDay(5),
     dispatch=noop_dispatch,
@@ -486,8 +486,8 @@ test "WizardNext with filled fields advances" {
         {
           title: "Step 1",
           fields: [
-            { label: "Name", value: "Alice", error: "" },
-            { label: "Email", value: "a@b.c", error: "" },
+            { label: "Name", value: "Alice", error: "", },
+            { label: "Email", value: "a@b.c", error: "", },
           ],
         },
         m().form_wizard.steps[1],
@@ -501,7 +501,7 @@ test "WizardNext with filled fields advances" {
 
 ///|
 test "WizardPrev goes back" {
-  let model0 = { ..m(), form_wizard: { ..m().form_wizard, current: 2 } }
+  let model0 = { ..m(), form_wizard: { ..m().form_wizard, current: 2, }, }
   let (model, _) = model0.update(msg=WizardPrev, dispatch=noop_dispatch)
   inspect(model.form_wizard.current, content="1")
 }

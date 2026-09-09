@@ -5,7 +5,7 @@ fn noop_dispatch(_msg : Msg) -> @rabbita.Cmd {
 
 ///|
 fn empty_model() -> Model {
-  { polls: [], question_input: "", option_inputs: ["", ""], voted: [] }
+  { polls: [], question_input: "", option_inputs: ["", ""], voted: [], }
 }
 
 ///|
@@ -14,8 +14,8 @@ fn sample_poll() -> @shared.Poll {
     id: 1,
     question: "Favorite color?",
     options: [
-      { id: 10, text: "Red", votes: 3 },
-      { id: 11, text: "Blue", votes: 5 },
+      { id: 10, text: "Red", votes: 3, },
+      { id: 11, text: "Blue", votes: 5, },
     ],
   }
 }
@@ -28,9 +28,9 @@ fn sample_polls() -> Array[@shared.Poll] {
       id: 2,
       question: "Best language?",
       options: [
-        { id: 20, text: "MoonBit", votes: 10 },
-        { id: 21, text: "Rust", votes: 7 },
-        { id: 22, text: "Go", votes: 4 },
+        { id: 20, text: "MoonBit", votes: 10, },
+        { id: 21, text: "Rust", votes: 7, },
+        { id: 22, text: "Go", votes: 4, },
       ],
     },
   ]
@@ -199,7 +199,7 @@ test "AddOptionInput at max_options does nothing" {
 
 ///|
 test "RemoveOptionInput removes option at index" {
-  let initial = { ..empty_model(), option_inputs: ["A", "B", "C"] }
+  let initial = { ..empty_model(), option_inputs: ["A", "B", "C"], }
   let (model, _) = initial.update(
     msg=RemoveOptionInput(1),
     dispatch=noop_dispatch,
@@ -305,13 +305,13 @@ test "CreatePoll with option too long does nothing" {
 
 ///|
 test "PollCreated/Ok prepends poll to list" {
-  let initial = { ..empty_model(), polls: sample_polls() }
+  let initial = { ..empty_model(), polls: sample_polls(), }
   let new_poll : @shared.Poll = {
     id: 3,
     question: "New poll?",
     options: [
-      { id: 30, text: "Yes", votes: 0 },
-      { id: 31, text: "No", votes: 0 },
+      { id: 30, text: "Yes", votes: 0, },
+      { id: 31, text: "No", votes: 0, },
     ],
   }
   let (model, _) = initial.update(
@@ -326,7 +326,7 @@ test "PollCreated/Ok prepends poll to list" {
 
 ///|
 test "PollCreated/Err leaves model unchanged" {
-  let initial = { ..empty_model(), polls: sample_polls() }
+  let initial = { ..empty_model(), polls: sample_polls(), }
   let (model, _) = initial.update(
     msg=PollCreated(Err("fail")),
     dispatch=noop_dispatch,
@@ -338,7 +338,7 @@ test "PollCreated/Err leaves model unchanged" {
 
 ///|
 test "Vote adds poll_id to voted list" {
-  let initial = { ..empty_model(), polls: [sample_poll()] }
+  let initial = { ..empty_model(), polls: [sample_poll()], }
   let (model, _) = initial.update(msg=Vote(1, 10), dispatch=noop_dispatch)
   debug_inspect(
     model.voted,
@@ -350,7 +350,7 @@ test "Vote adds poll_id to voted list" {
 
 ///|
 test "Vote on already-voted poll does nothing" {
-  let initial = { ..empty_model(), polls: [sample_poll()], voted: [1] }
+  let initial = { ..empty_model(), polls: [sample_poll()], voted: [1], }
   let (model, _) = initial.update(msg=Vote(1, 10), dispatch=noop_dispatch)
   debug_inspect(
     model.voted,
@@ -364,13 +364,13 @@ test "Vote on already-voted poll does nothing" {
 
 ///|
 test "Voted/Ok replaces matching poll" {
-  let initial = { ..empty_model(), polls: [sample_poll()] }
+  let initial = { ..empty_model(), polls: [sample_poll()], }
   let updated : @shared.Poll = {
     id: 1,
     question: "Favorite color?",
     options: [
-      { id: 10, text: "Red", votes: 4 },
-      { id: 11, text: "Blue", votes: 5 },
+      { id: 10, text: "Red", votes: 4, },
+      { id: 11, text: "Blue", votes: 5, },
     ],
   }
   let (model, _) = initial.update(
@@ -382,7 +382,7 @@ test "Voted/Ok replaces matching poll" {
 
 ///|
 test "Voted/Err leaves model unchanged" {
-  let initial = { ..empty_model(), polls: [sample_poll()] }
+  let initial = { ..empty_model(), polls: [sample_poll()], }
   let (model, _) = initial.update(
     msg=Voted(Err("fail")),
     dispatch=noop_dispatch,
@@ -394,7 +394,7 @@ test "Voted/Err leaves model unchanged" {
 
 ///|
 test "DeletePoll does not change model (only issues cmd)" {
-  let initial = { ..empty_model(), polls: sample_polls() }
+  let initial = { ..empty_model(), polls: sample_polls(), }
   let (model, _) = initial.update(msg=DeletePoll(1), dispatch=noop_dispatch)
   inspect(model.polls.length(), content="2")
 }
@@ -403,7 +403,7 @@ test "DeletePoll does not change model (only issues cmd)" {
 
 ///|
 test "PollDeleted/Ok removes the poll" {
-  let initial = { ..empty_model(), polls: sample_polls() }
+  let initial = { ..empty_model(), polls: sample_polls(), }
   let (model, _) = initial.update(
     msg=PollDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -414,7 +414,7 @@ test "PollDeleted/Ok removes the poll" {
 
 ///|
 test "PollDeleted/Ok with nonexistent id is no-op" {
-  let initial = { ..empty_model(), polls: sample_polls() }
+  let initial = { ..empty_model(), polls: sample_polls(), }
   let (model, _) = initial.update(
     msg=PollDeleted(Ok(999)),
     dispatch=noop_dispatch,
@@ -424,7 +424,7 @@ test "PollDeleted/Ok with nonexistent id is no-op" {
 
 ///|
 test "PollDeleted/Err leaves model unchanged" {
-  let initial = { ..empty_model(), polls: sample_polls() }
+  let initial = { ..empty_model(), polls: sample_polls(), }
   let (model, _) = initial.update(
     msg=PollDeleted(Err("fail")),
     dispatch=noop_dispatch,

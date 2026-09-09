@@ -112,3 +112,102 @@ pub(all) struct SavedGraph {
   id : Int
   name : String
 } derive(ToJson, FromJson, Debug)
+
+///|
+pub extend Connection with Debug::{to_repr}
+
+///|
+pub extend Connection with @json.FromJson::{from_json}
+
+///|
+pub extend Connection with Eq::{not_equal, equal}
+
+///|
+pub extend Connection with ToJson::{to_json}
+
+///|
+pub extend EvalResult with Debug::{to_repr}
+
+///|
+pub extend EvalResult with @json.FromJson::{from_json}
+
+///|
+pub extend EvalResult with ToJson::{to_json}
+
+///|
+pub extend Graph with Debug::{to_repr}
+
+///|
+pub extend Graph with @json.FromJson::{from_json}
+
+///|
+pub extend Graph with ToJson::{to_json}
+
+///|
+pub extend Node with Debug::{to_repr}
+
+///|
+pub extend Node with @json.FromJson::{from_json}
+
+///|
+pub extend Node with Eq::{not_equal, equal}
+
+///|
+pub extend Node with ToJson::{to_json}
+
+///|
+pub extend NodeKind with Debug::{to_repr}
+
+///|
+pub extend NodeKind with @json.FromJson::{from_json}
+
+///|
+pub extend NodeKind with Eq::{not_equal, equal}
+
+///|
+pub extend NodeKind with ToJson::{to_json}
+
+///|
+pub extend PortDef with Debug::{to_repr}
+
+///|
+pub extend PortDef with @json.FromJson::{from_json}
+
+///|
+pub extend PortDef with Eq::{not_equal, equal}
+
+///|
+pub extend PortDef with ToJson::{to_json}
+
+///|
+pub extend PortType with Debug::{to_repr}
+
+///|
+pub extend PortType with @json.FromJson::{from_json}
+
+///|
+pub extend PortType with Eq::{not_equal, equal}
+
+///|
+pub extend PortType with ToJson::{to_json}
+
+///|
+pub extend SavedGraph with Debug::{to_repr}
+
+///|
+pub extend SavedGraph with @json.FromJson::{from_json}
+
+///|
+pub extend SavedGraph with ToJson::{to_json}
+
+///|
+pub extend Value with Debug::{to_repr}
+
+///|
+pub extend Value with @json.FromJson::{from_json}
+
+///|
+pub extend Value with Eq::{not_equal, equal}
+
+///|
+pub extend Value with ToJson::{to_json}

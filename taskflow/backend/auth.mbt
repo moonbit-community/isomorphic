@@ -134,7 +134,7 @@ fn register_user(
   mem_stmt.bind_string_as_blob(index=2, val=color)
   mem_stmt.step_once()
   mem_stmt.finalize()
-  { id, username, color, role }
+  { id, username, color, role, }
 }
 
 ///|
@@ -163,7 +163,7 @@ fn login_user(
   if pw_hash != stored_hash {
     return None
   }
-  Some({ id, username: uname, color, role })
+  Some({ id, username: uname, color, role, })
 }
 
 ///|
@@ -209,7 +209,7 @@ fn get_session_user(
   let color : String = stmt.column_blob_as_string(index=2)
   let role : String = stmt.column_blob_as_string(index=3)
   stmt.finalize()
-  Some({ id, username, color, role })
+  Some({ id, username, color, role, })
 }
 
 ///|

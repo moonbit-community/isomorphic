@@ -20,7 +20,7 @@ test "StopwatchToggle starts and stops" {
 
 ///|
 test "StopwatchReset clears elapsed" {
-  let m0 = { ..im(), stopwatch: { elapsed_ms: 5000, running: true, gen: 1 } }
+  let m0 = { ..im(), stopwatch: { elapsed_ms: 5000, running: true, gen: 1, }, }
   let (m1, _) = m0.update(msg=StopwatchReset, dispatch=nd)
   inspect(m1.stopwatch.elapsed_ms, content="0")
   inspect(m1.stopwatch.running, content="false")
@@ -28,14 +28,14 @@ test "StopwatchReset clears elapsed" {
 
 ///|
 test "StopwatchTick increments when running with matching gen" {
-  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true, gen: 1 } }
+  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true, gen: 1, }, }
   let (m1, _) = m0.update(msg=StopwatchTick(1), dispatch=nd)
   inspect(m1.stopwatch.elapsed_ms, content="200")
 }
 
 ///|
 test "StopwatchTick ignores stale gen" {
-  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true, gen: 2 } }
+  let m0 = { ..im(), stopwatch: { elapsed_ms: 100, running: true, gen: 2, }, }
   let (m1, _) = m0.update(msg=StopwatchTick(1), dispatch=nd) // old gen
   inspect(m1.stopwatch.elapsed_ms, content="100") // unchanged
 }
@@ -99,7 +99,7 @@ test "TypewriterStart resets and starts" {
 test "TypewriterTick advances characters" {
   let m0 = {
     ..im(),
-    typewriter: { full_text: "Hello", visible_chars: 3, running: true },
+    typewriter: { full_text: "Hello", visible_chars: 3, running: true, },
   }
   let (m1, _) = m0.update(msg=TypewriterTick, dispatch=nd)
   inspect(m1.typewriter.visible_chars, content="4")
@@ -110,7 +110,7 @@ test "TypewriterTick stops at end" {
   // visible_chars=2, full_text="Hi" (len=2), next tick: next=3 > 2, stops
   let m0 = {
     ..im(),
-    typewriter: { full_text: "Hi", visible_chars: 2, running: true },
+    typewriter: { full_text: "Hi", visible_chars: 2, running: true, },
   }
   let (m1, _) = m0.update(msg=TypewriterTick, dispatch=nd)
   inspect(m1.typewriter.visible_chars, content="2")
@@ -159,14 +159,14 @@ test "CounterIncrement increases value" {
 
 ///|
 test "CounterAnimTick moves display toward value" {
-  let m0 = { ..im(), animated_counter: { value: 50, display_value: 45 } }
+  let m0 = { ..im(), animated_counter: { value: 50, display_value: 45, }, }
   let (m1, _) = m0.update(msg=CounterAnimTick, dispatch=nd)
   inspect(m1.animated_counter.display_value, content="46")
 }
 
 ///|
 test "CounterAnimTick stops when equal" {
-  let m0 = { ..im(), animated_counter: { value: 42, display_value: 42 } }
+  let m0 = { ..im(), animated_counter: { value: 42, display_value: 42, }, }
   let (m1, _) = m0.update(msg=CounterAnimTick, dispatch=nd)
   inspect(m1.animated_counter.display_value, content="42")
 }
@@ -200,7 +200,7 @@ test "PinDigitChanged updates digit and advances focus" {
 test "PinDigitChanged verifies correct PIN" {
   let m0 = {
     ..im(),
-    pin_input: { digits: ["1", "2", "3", ""], focus_index: 3, verified: false },
+    pin_input: { digits: ["1", "2", "3", ""], focus_index: 3, verified: false, },
   }
   let (m1, _) = m0.update(msg=PinDigitChanged(3, "4"), dispatch=nd)
   inspect(m1.pin_input.verified, content="true")
@@ -210,7 +210,7 @@ test "PinDigitChanged verifies correct PIN" {
 test "PinClear resets all digits" {
   let m0 = {
     ..im(),
-    pin_input: { digits: ["1", "2", "3", "4"], focus_index: 3, verified: true },
+    pin_input: { digits: ["1", "2", "3", "4"], focus_index: 3, verified: true, },
   }
   let (m1, _) = m0.update(msg=PinClear, dispatch=nd)
   inspect(m1.pin_input.digits[0], content="")
@@ -290,7 +290,7 @@ test "InlineCancelEdit reverts" {
 
 ///|
 test "StepperIncrement respects max" {
-  let m0 = { ..im(), stepper: { value: 19, min: 0, max: 20, step: 1 } }
+  let m0 = { ..im(), stepper: { value: 19, min: 0, max: 20, step: 1, }, }
   let (m1, _) = m0.update(msg=StepperIncrement, dispatch=nd)
   inspect(m1.stepper.value, content="20")
   let (m2, _) = m1.update(msg=StepperIncrement, dispatch=nd)
@@ -299,7 +299,7 @@ test "StepperIncrement respects max" {
 
 ///|
 test "StepperDecrement respects min" {
-  let m0 = { ..im(), stepper: { value: 1, min: 0, max: 20, step: 1 } }
+  let m0 = { ..im(), stepper: { value: 1, min: 0, max: 20, step: 1, }, }
   let (m1, _) = m0.update(msg=StepperDecrement, dispatch=nd)
   inspect(m1.stepper.value, content="0")
   let (m2, _) = m1.update(msg=StepperDecrement, dispatch=nd)
@@ -357,7 +357,7 @@ test "CopyClick in test env (no clipboard API) does not set copied" {
 
 ///|
 test "CopyReset clears copied with matching gen" {
-  let m0 = { ..im(), copy_clipboard: { text: "hi", copied: true, gen: 1 } }
+  let m0 = { ..im(), copy_clipboard: { text: "hi", copied: true, gen: 1, }, }
   let (m1, _) = m0.update(msg=CopyReset(1), dispatch=nd)
   inspect(m1.copy_clipboard.copied, content="false")
 }

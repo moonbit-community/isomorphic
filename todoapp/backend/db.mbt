@@ -27,7 +27,7 @@ fn read_todo_from_stmt(stmt : @sqlite3.Statement) -> @shared.Todo {
   let id : Int = stmt.column(index=0)
   let text : String = stmt.column_blob_as_string(index=1)
   let done : Int = stmt.column(index=2)
-  { id, text, done: done != 0 }
+  { id, text, done: done != 0, }
 }
 
 ///|
@@ -61,7 +61,7 @@ fn create_todo(
   guard stmt2.step()
   let id : Int = stmt2.column(index=0)
   stmt2.finalize()
-  { id, text, done: false }
+  { id, text, done: false, }
 }
 
 ///|

@@ -1137,3 +1137,237 @@ pub fn section_label(section : Section) -> String {
     Feedback => "Feedback"
   }
 }
+
+///|
+pub extend AccordionState with Debug::{to_repr}
+
+///|
+pub extend AnimatedCounterState with Debug::{to_repr}
+
+///|
+pub extend AvatarState with Debug::{to_repr}
+
+///|
+pub extend BadgeState with Debug::{to_repr}
+
+///|
+pub extend BreadcrumbState with Debug::{to_repr}
+
+///|
+pub extend CalendarState with Debug::{to_repr}
+
+///|
+pub extend CarouselState with Debug::{to_repr}
+
+///|
+pub extend ChartBar with Debug::{to_repr}
+
+///|
+pub extend ChartBar with Eq::{not_equal, equal}
+
+///|
+pub extend ChartState with Debug::{to_repr}
+
+///|
+pub extend CheckboxState with Debug::{to_repr}
+
+///|
+pub extend ColorPickerState with Debug::{to_repr}
+
+///|
+pub extend CommandAction with Debug::{to_repr}
+
+///|
+pub extend CommandAction with Eq::{not_equal, equal}
+
+///|
+pub extend CommandPaletteState with Debug::{to_repr}
+
+///|
+pub extend ConfirmButtonState with Debug::{to_repr}
+
+///|
+pub extend CopyState with Debug::{to_repr}
+
+///|
+pub extend CountdownState with Debug::{to_repr}
+
+///|
+pub extend DataTableState with Debug::{to_repr}
+
+///|
+pub extend DateRangeState with Debug::{to_repr}
+
+///|
+pub extend DragSortState with Debug::{to_repr}
+
+///|
+pub extend EmptyStateState with Debug::{to_repr}
+
+///|
+pub extend FormWizardState with Debug::{to_repr}
+
+///|
+pub extend InlineEditState with Debug::{to_repr}
+
+///|
+pub extend KanbanCard with Debug::{to_repr}
+
+///|
+pub extend KanbanCard with Eq::{not_equal, equal}
+
+///|
+pub extend KanbanState with Debug::{to_repr}
+
+///|
+pub extend MarkdownState with Debug::{to_repr}
+
+///|
+pub extend MasonryItem with Debug::{to_repr}
+
+///|
+pub extend MasonryItem with Eq::{not_equal, equal}
+
+///|
+pub extend MasonryState with Debug::{to_repr}
+
+///|
+pub extend ModalState with Debug::{to_repr}
+
+///|
+pub extend Model with Debug::{to_repr}
+
+///|
+pub extend Msg with Debug::{to_repr}
+
+///|
+pub extend PasswordStrengthState with Debug::{to_repr}
+
+///|
+pub extend PinInputState with Debug::{to_repr}
+
+///|
+pub extend ProgressState with Debug::{to_repr}
+
+///|
+pub extend RadioState with Debug::{to_repr}
+
+///|
+pub extend SearchableSelectState with Debug::{to_repr}
+
+///|
+pub extend Section with Debug::{to_repr}
+
+///|
+pub extend Section with Eq::{not_equal, equal}
+
+///|
+pub extend SelectOption with Debug::{to_repr}
+
+///|
+pub extend SelectOption with Eq::{not_equal, equal}
+
+///|
+pub extend SelectState with Debug::{to_repr}
+
+///|
+pub extend SkeletonState with Debug::{to_repr}
+
+///|
+pub extend SliderState with Debug::{to_repr}
+
+///|
+pub extend SplitPaneState with Debug::{to_repr}
+
+///|
+pub extend SpreadsheetCell with Debug::{to_repr}
+
+///|
+pub extend SpreadsheetCell with Eq::{not_equal, equal}
+
+///|
+pub extend SpreadsheetState with Debug::{to_repr}
+
+///|
+pub extend StarRatingState with Debug::{to_repr}
+
+///|
+pub extend StepperState with Debug::{to_repr}
+
+///|
+pub extend StopwatchState with Debug::{to_repr}
+
+///|
+pub extend TableRow with Debug::{to_repr}
+
+///|
+pub extend TableRow with Eq::{not_equal, equal}
+
+///|
+pub extend TabsState with Debug::{to_repr}
+
+///|
+pub extend TagAutoState with Debug::{to_repr}
+
+///|
+pub extend TagState with Debug::{to_repr}
+
+///|
+pub extend TextAreaState with Debug::{to_repr}
+
+///|
+pub extend TextInputState with Debug::{to_repr}
+
+///|
+pub extend TimelineEvent with Debug::{to_repr}
+
+///|
+pub extend TimelineEvent with Eq::{not_equal, equal}
+
+///|
+pub extend TimelineState with Debug::{to_repr}
+
+///|
+pub extend ToastItem with Debug::{to_repr}
+
+///|
+pub extend ToastItem with Eq::{not_equal, equal}
+
+///|
+pub extend ToastState with Debug::{to_repr}
+
+///|
+pub extend ToggleState with Debug::{to_repr}
+
+///|
+pub extend TooltipState with Debug::{to_repr}
+
+///|
+pub extend TreeNode with Debug::{to_repr}
+
+///|
+pub extend TreeNode with Eq::{not_equal, equal}
+
+///|
+pub extend TreeViewState with Debug::{to_repr}
+
+///|
+pub extend TypewriterState with Debug::{to_repr}
+
+///|
+pub extend UndoSnackbarState with Debug::{to_repr}
+
+///|
+pub extend VirtualListState with Debug::{to_repr}
+
+///|
+pub extend WizardField with Debug::{to_repr}
+
+///|
+pub extend WizardField with Eq::{not_equal, equal}
+
+///|
+pub extend WizardStep with Debug::{to_repr}
+
+///|
+pub extend WizardStep with Eq::{not_equal, equal}
