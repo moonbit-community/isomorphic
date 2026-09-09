@@ -15,7 +15,7 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port)
   let conn = @sqlite3.Connection::open("finapp.db")
   println("Database opened: finapp.db")
   // Enable foreign key enforcement
@@ -95,7 +95,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_accounts}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_account(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -149,7 +149,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_transactions}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_transaction(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {
@@ -186,7 +186,7 @@ fn main raise {
   })
   ..delete("\{@shared.api_budgets}/:id", fn(event) noraise {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_budget(conn, id)
       @mocket.HttpResponse::new(NoContent)
     } catch {

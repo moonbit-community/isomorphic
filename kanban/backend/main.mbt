@@ -8,7 +8,7 @@ fn main raise {
       ]),
     ]),
   )
-  let port = @strconv.parse_int(matches.values["port"][0])
+  let port = @string.parse_int(matches.values["port"][0])
   let conn = @sqlite3.Connection::open("kanban.db")
   println("Database opened: kanban.db")
   init_db(conn)

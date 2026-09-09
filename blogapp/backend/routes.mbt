@@ -24,7 +24,7 @@ fn handle_get_post(
   let id_str = event.params.get("id").unwrap().to_string()
   println("GET /api/posts/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     match get_post(conn, id) {
       Some(post) => {
         println("  -> 200")
@@ -51,7 +51,7 @@ fn handle_get_post_comments(
   let id_str = event.params.get("id").unwrap().to_string()
   println("GET /api/posts/\{id_str}/comments")
   try {
-    let post_id = @strconv.parse_int(id_str)
+    let post_id = @string.parse_int(id_str)
     let comments = get_comments(conn, post_id)
     println("  -> 200 (\{comments.length()} comments)")
     @mocket.HttpResponse::new(OK).json(comments.map(fn(c) { c.to_json() }))
@@ -105,7 +105,7 @@ fn handle_update_post(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/posts/\{id_str} (update)")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let title = match json {
       { "title": String(t), .. } => t
@@ -148,7 +148,7 @@ fn handle_create_comment(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/posts/\{id_str}/comments")
   try {
-    let post_id = @strconv.parse_int(id_str)
+    let post_id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let author = match json {
       { "author": String(a), .. } => a
@@ -182,7 +182,7 @@ fn handle_delete_post(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/posts/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_post(conn, id)
     println("  -> 204 deleted post \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -202,7 +202,7 @@ fn handle_delete_comment(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/comments/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_comment(conn, id)
     println("  -> 204 deleted comment \{id}")
     @mocket.HttpResponse::new(NoContent)

@@ -108,7 +108,7 @@ fn handle_rename_column(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/columns/\{id_str} (rename)")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let title = match json {
       { "title": String(t), .. } => t
@@ -141,7 +141,7 @@ fn handle_move_column(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/columns/\{id_str}/move")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let new_position = match json {
       { "new_position": Number(n, ..), .. } => n.to_int()
@@ -182,7 +182,7 @@ fn handle_delete_column(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/columns/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_column(conn, id)
     println("  -> 204 deleted column \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -254,7 +254,7 @@ fn handle_update_card(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/cards/\{id_str} (update)")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let title = match json {
       { "title": String(t), .. } => t
@@ -295,7 +295,7 @@ fn handle_move_card(
   let id_str = event.params.get("id").unwrap().to_string()
   println("POST /api/cards/\{id_str}/move")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     let json : Json = event.req.body()
     let target_column_id = match json {
       { "target_column_id": Number(n, ..), .. } => n.to_int()
@@ -345,7 +345,7 @@ fn handle_delete_card(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/cards/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_card(conn, id)
     println("  -> 204 deleted card \{id}")
     @mocket.HttpResponse::new(NoContent)
@@ -365,7 +365,7 @@ fn handle_get_column(
 ) -> @mocket.HttpResponse noraise {
   let id_str = event.params.get("id").unwrap().to_string()
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     match get_column(conn, id) {
       Some(col) => @mocket.HttpResponse::new(OK).json(col.to_json())
       None => @mocket.HttpResponse::new(NotFound).body("Column not found")

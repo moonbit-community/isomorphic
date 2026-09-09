@@ -13,7 +13,7 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port)
 
   let conn = @sqlite3.Connection::open("contacts.db")
   println("Database opened: contacts.db")
@@ -141,7 +141,7 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("POST /api/contacts/\{id_str}/favorite")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       let contact = toggle_favorite(conn, id)
       println("  -> 200 toggled favorite for contact \{id}")
       @mocket.HttpResponse::new(OK).json(contact)
@@ -156,7 +156,7 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("DELETE /api/contacts/\{id_str}")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       delete_contact(conn, id)
       println("  -> 204 deleted contact \{id}")
       @mocket.HttpResponse::new(NoContent)

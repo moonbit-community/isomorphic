@@ -110,7 +110,7 @@ fn handle_vote(
       }
     }
     vote_on_option(conn, option_id)
-    let poll_id = @strconv.parse_int(id_str)
+    let poll_id = @string.parse_int(id_str)
     match get_poll_by_id(conn, poll_id) {
       Some(poll) => {
         println("  -> 200 voted on option \{option_id}")
@@ -138,7 +138,7 @@ fn handle_delete_poll(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/polls/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_poll(conn, id)
     println("  -> 204 deleted poll \{id}")
     @mocket.HttpResponse::new(NoContent)
