@@ -4,3 +4,6 @@
 [submodule "rabbita"]
 	path = rabbita
 	url = git@github.com:moonbit-community/rabbita.git
+[submodule "lib/mocket"]
+	path = lib/mocket
+	url = git@github.com:oboard/mocket.git
