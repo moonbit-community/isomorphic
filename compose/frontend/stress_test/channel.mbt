@@ -9,8 +9,6 @@ priv struct ChannelModel {
   solo : Bool
   steps : StepModel
   effects : EffectRackModel
-
-  fn new(volume? : Int) -> ChannelModel
 }
 
 ///|
@@ -24,7 +22,7 @@ priv enum ChannelMsg {
 }
 
 ///|
-fn ChannelModel::new(volume? : Int = 75) -> ChannelModel {
+fn ChannelModel::ChannelModel(volume? : Int = 75) -> ChannelModel {
   {
     volume: KnobModel(value=volume, max=100, step=5),
     pan: KnobModel(value=0, min=-50, max=50, step=5),

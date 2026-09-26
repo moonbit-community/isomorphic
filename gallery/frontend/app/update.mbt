@@ -525,7 +525,7 @@ pub fn Model::update(
 
     // ── Slider ───────────────────────────────
     SliderChanged(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.slider.value }
+      let n = @string.parse_int(v) catch { _ => self.slider.value }
       ({ ..self, slider: { ..self.slider, value: n } }, @rabbita.none)
     }
 
@@ -555,7 +555,7 @@ pub fn Model::update(
 
     // ── Progress ─────────────────────────────
     ProgressChanged(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.progress.value }
+      let n = @string.parse_int(v) catch { _ => self.progress.value }
       let clamped = n.clamp(min=0, max=100)
       ({ ..self, progress: { ..self.progress, value: clamped } }, @rabbita.none)
     }
@@ -996,7 +996,7 @@ pub fn Model::update(
 
     // ── Countdown ────────────────────────────
     CountdownSet(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.countdown.target_seconds }
+      let n = @string.parse_int(v) catch { _ => self.countdown.target_seconds }
       let clamped = n.clamp(min=1, max=3600)
       (
         {
@@ -1348,14 +1348,14 @@ pub fn Model::update(
 
     // ── SplitPane ────────────────────────────
     SplitPaneResize(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.split_pane.left_percent }
+      let n = @string.parse_int(v) catch { _ => self.split_pane.left_percent }
       let clamped = n.clamp(min=10, max=90)
       ({ ..self, split_pane: { left_percent: clamped } }, @rabbita.none)
     }
 
     // ── VirtualList ──────────────────────────
     VirtualScroll(v) => {
-      let n = @strconv.parse_int(v) catch { _ => self.virtual_list.scroll_top }
+      let n = @string.parse_int(v) catch { _ => self.virtual_list.scroll_top }
       (
         { ..self, virtual_list: { ..self.virtual_list, scroll_top: n } },
         @rabbita.none,

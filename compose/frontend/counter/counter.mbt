@@ -6,8 +6,6 @@
 pub struct Model {
   /// Current counter value.
   count : Int
-
-  fn new() -> Model
 }
 
 ///|
@@ -20,7 +18,7 @@ pub(all) enum Msg {
 
 ///|
 /// Create a new counter initialized to zero.
-pub fn Model::new() -> Model {
+pub fn Model::Model() -> Model {
   { count: 0 }
 }
 

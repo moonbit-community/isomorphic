@@ -54,8 +54,6 @@ pub struct Model {
   selected : Date?
   /// Today's date, used for highlighting.
   today : Date
-
-  fn new(today~ : Date) -> Model
 }
 
 ///|
@@ -69,7 +67,7 @@ pub(all) enum Msg {
 
 ///|
 /// Create a new calendar model initialized to the given date's month with no selection.
-pub fn Model::new(today~ : Date) -> Model {
+pub fn Model::Model(today~ : Date) -> Model {
   { view_year: today.year, view_month: today.month, selected: None, today }
 }
 
