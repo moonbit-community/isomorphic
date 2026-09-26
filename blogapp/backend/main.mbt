@@ -1,5 +1,5 @@
 ///|
-fn main raise {
+async fn main {
   let matches = @argparse.parse(
     Command("blog-server", about="Blog App backend server", options=[
       OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
@@ -7,15 +7,30 @@ fn main raise {
       ]),
     ]),
   )
-  let port = @strconv.parse_int(matches.values["port"][0])
+  let port_str = matches.values["port"][0]
+  let port = @string.parse_int(port_str) catch {
+    _ => {
+      println("Invalid port: \{port_str}")
+      return
+    }
+  }
 
-  let conn = @sqlite3.Connection::open("blog.db")
+  let conn = @sqlite3.Connection::open("blog.db") catch {
+    e => {
+      println("Failed to open blog.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: blog.db")
-
-  init_db(conn)
+  init_db(conn) catch {
+    e => {
+      println("Failed to initialize database: \{error_text(e)}")
+      return
+    }
+  }
   println("Database initialized")
 
-  let app = @mocket.new()
+  let app = @mocket.App()
   app
   ..use_middleware(@cors.handle_cors())
   ..get("/", _ => {
@@ -38,46 +53,38 @@ fn main raise {
       #|  <script src="/frontend.js"></script>
       #|</body>
       #|</html>
-    @mocket.HttpResponse::new(
+    @mocket.HttpResponse(
       OK,
       headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
+      body=@utf8.encode(html),
     )
   })
   ..get("/frontend.js", _ => {
     println("GET /frontend.js")
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
+      @mocket.HttpResponse(
         OK,
         headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
+        body=bytes,
       )
     } catch {
       _ => {
         println("  -> 404 Not Found")
-        @mocket.HttpResponse::new(NotFound).body("Not Found")
+        @mocket.HttpResponse(NotFound).body("Not Found")
       }
     }
   })
-  ..get(@shared.api_posts, fn(event) noraise { handle_get_posts(conn, event) })
-  ..get("/api/posts/:id", fn(event) noraise { handle_get_post(conn, event) })
-  ..get("/api/posts/:id/comments", fn(event) noraise {
+  ..get(@shared.api_posts, event => handle_get_posts(conn, event))
+  ..get("/api/posts/:id", event => handle_get_post(conn, event))
+  ..get("/api/posts/:id/comments", event => {
     handle_get_post_comments(conn, event)
   })
-  ..post(@shared.api_posts, fn(event) noraise {
-    handle_create_post(conn, event)
-  })
-  ..post("/api/posts/:id", fn(event) noraise { handle_update_post(conn, event) })
-  ..post("/api/posts/:id/comments", fn(event) noraise {
-    handle_create_comment(conn, event)
-  })
-  ..delete("/api/posts/:id", fn(event) noraise {
-    handle_delete_post(conn, event)
-  })
-  .delete("/api/comments/:id", fn(event) noraise {
-    handle_delete_comment(conn, event)
-  })
+  ..post(@shared.api_posts, event => handle_create_post(conn, event))
+  ..post("/api/posts/:id", event => handle_update_post(conn, event))
+  ..post("/api/posts/:id/comments", event => handle_create_comment(conn, event))
+  ..delete("/api/posts/:id", event => handle_delete_post(conn, event))
+  .delete("/api/comments/:id", event => handle_delete_comment(conn, event))
   println("Server running at http://localhost:\{port}")
   app.serve(port~)
 }

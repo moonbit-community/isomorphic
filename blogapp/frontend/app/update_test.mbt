@@ -85,7 +85,7 @@ test "Init sets loading to true" {
 
 ///|
 test "GotPosts/Ok populates posts and clears loading" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let posts = sample_posts()
   let (model, _) = initial.update(
     msg=GotPosts(Ok(posts)),
@@ -126,7 +126,7 @@ test "GotPosts/Ok populates posts and clears loading" {
 
 ///|
 test "GotPosts/Err clears loading without changing posts" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let (model, _) = initial.update(
     msg=GotPosts(Err("network")),
     dispatch=noop_dispatch,
@@ -153,7 +153,7 @@ test "GotPosts/Err clears loading without changing posts" {
 
 ///|
 test "GotPost/Ok sets current_post and populates title/content inputs" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let post : @shared.Post = {
     id: 1,
     title: "My Post",
@@ -190,7 +190,7 @@ test "GotPost/Ok sets current_post and populates title/content inputs" {
 
 ///|
 test "GotPost/Err clears loading" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let (model, _) = initial.update(
     msg=GotPost(Err("not found")),
     dispatch=noop_dispatch,
@@ -283,7 +283,7 @@ test "GotComments/Err leaves model unchanged" {
 
 ///|
 test "GoToList sets page to PostList and loading to true" {
-  let initial = { ..empty_model(), page: NewPost }
+  let initial = { ..empty_model(), page: NewPost, }
   let (model, _) = initial.update(msg=GoToList, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -479,7 +479,7 @@ test "CommentContentChanged updates comment_content" {
 
 ///|
 test "CreatePost with empty title does nothing" {
-  let initial = { ..empty_model(), title_input: "", content_input: "body" }
+  let initial = { ..empty_model(), title_input: "", content_input: "body", }
   let (model, _) = initial.update(msg=CreatePost, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -574,7 +574,7 @@ test "PostCreated/Ok navigates to ViewPost and clears form" {
 
 ///|
 test "PostCreated/Err clears loading" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let (model, _) = initial.update(
     msg=PostCreated(Err("fail")),
     dispatch=noop_dispatch,
@@ -601,7 +601,7 @@ test "PostCreated/Err clears loading" {
 
 ///|
 test "UpdatePost with empty title does nothing" {
-  let initial = { ..empty_model(), title_input: "", content_input: "body" }
+  let initial = { ..empty_model(), title_input: "", content_input: "body", }
   let (model, _) = initial.update(msg=UpdatePost(1), dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -651,7 +651,7 @@ test "UpdatePost with valid title sets loading" {
 
 ///|
 test "PostUpdated/Ok navigates to ViewPost" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let post : @shared.Post = {
     id: 1,
     title: "Updated",
@@ -691,7 +691,7 @@ test "PostUpdated/Ok navigates to ViewPost" {
 
 ///|
 test "PostUpdated/Err clears loading" {
-  let initial = { ..empty_model(), loading: true }
+  let initial = { ..empty_model(), loading: true, }
   let (model, _) = initial.update(
     msg=PostUpdated(Err("fail")),
     dispatch=noop_dispatch,
@@ -718,7 +718,7 @@ test "PostUpdated/Err clears loading" {
 
 ///|
 test "PostDeleted/Ok removes post and navigates to PostList" {
-  let initial = { ..empty_model(), posts: sample_posts() }
+  let initial = { ..empty_model(), posts: sample_posts(), }
   let (model, _) = initial.update(
     msg=PostDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -751,7 +751,7 @@ test "PostDeleted/Ok removes post and navigates to PostList" {
 
 ///|
 test "PostDeleted/Ok with nonexistent id is no-op on posts" {
-  let initial = { ..empty_model(), posts: sample_posts() }
+  let initial = { ..empty_model(), posts: sample_posts(), }
   let (model, _) = initial.update(
     msg=PostDeleted(Ok(999)),
     dispatch=noop_dispatch,
@@ -767,7 +767,7 @@ test "PostDeleted/Ok with nonexistent id is no-op on posts" {
 
 ///|
 test "PostDeleted/Err leaves model unchanged" {
-  let initial = { ..empty_model(), posts: sample_posts() }
+  let initial = { ..empty_model(), posts: sample_posts(), }
   let (model, _) = initial.update(
     msg=PostDeleted(Err("fail")),
     dispatch=noop_dispatch,
@@ -831,7 +831,7 @@ test "CommentAdded/Ok appends comment and clears form" {
 
 ///|
 test "CommentAdded/Err leaves model unchanged" {
-  let initial = { ..empty_model(), comments: sample_comments() }
+  let initial = { ..empty_model(), comments: sample_comments(), }
   let (model, _) = initial.update(
     msg=CommentAdded(Err("fail")),
     dispatch=noop_dispatch,
@@ -843,7 +843,7 @@ test "CommentAdded/Err leaves model unchanged" {
 
 ///|
 test "CommentDeleted/Ok removes the comment" {
-  let initial = { ..empty_model(), comments: sample_comments() }
+  let initial = { ..empty_model(), comments: sample_comments(), }
   let (model, _) = initial.update(
     msg=CommentDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -854,7 +854,7 @@ test "CommentDeleted/Ok removes the comment" {
 
 ///|
 test "CommentDeleted/Err leaves model unchanged" {
-  let initial = { ..empty_model(), comments: sample_comments() }
+  let initial = { ..empty_model(), comments: sample_comments(), }
   let (model, _) = initial.update(
     msg=CommentDeleted(Err("fail")),
     dispatch=noop_dispatch,

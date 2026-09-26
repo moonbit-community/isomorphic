@@ -1,7 +1,7 @@
 ///|
 /// Entry point. Parses CLI args, opens the SQLite database, registers
 /// REST API routes and static file handlers, then starts the Mocket server.
-fn main raise {
+async fn main {
   guard @argparse.parse(
       Command("contacts", about="Contact Manager backend", options=[
         OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
@@ -13,15 +13,29 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port) catch {
+    _ => {
+      println("Invalid port: \{port}")
+      return
+    }
+  }
 
-  let conn = @sqlite3.Connection::open("contacts.db")
+  let conn = @sqlite3.Connection::open("contacts.db") catch {
+    e => {
+      println("Failed to open contacts.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: contacts.db")
-
-  init_db(conn)
+  init_db(conn) catch {
+    e => {
+      println("Failed to initialize database: \{error_text(e)}")
+      return
+    }
+  }
   println("Database initialized")
 
-  let app = @mocket.new()
+  let app = @mocket.App()
   app
   ..use_middleware(@cors.handle_cors())
   ..get("/", _ => {
@@ -43,25 +57,25 @@ fn main raise {
       #|  <script src="/frontend.js"></script>
       #|</body>
       #|</html>
-    @mocket.HttpResponse::new(
+    @mocket.HttpResponse(
       OK,
       headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
+      body=@utf8.encode(html),
     )
   })
   ..get("/frontend.js", _ => {
     println("GET /frontend.js")
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
+      @mocket.HttpResponse(
         OK,
         headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
+        body=bytes,
       )
     } catch {
       _ => {
         println("  -> 404 Not Found")
-        @mocket.HttpResponse::new(NotFound).body("Not Found")
+        @mocket.HttpResponse(NotFound).body("Not Found")
       }
     }
   })
@@ -70,11 +84,11 @@ fn main raise {
     try {
       let contacts = get_all_contacts(conn)
       println("  -> 200 (\{contacts.length()} contacts)")
-      @mocket.HttpResponse::new(OK).json(contacts)
+      @mocket.HttpResponse(OK).json(contacts)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
@@ -86,54 +100,48 @@ fn main raise {
         { "name": String(n), .. } => n
         _ => {
           println("  -> 400 Missing name")
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing name field",
-          )
+          return @mocket.HttpResponse(BadRequest).body("Missing name field")
         }
       }
       let email = match json {
         { "email": String(e), .. } => e
         _ => {
           println("  -> 400 Missing email")
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing email field",
-          )
+          return @mocket.HttpResponse(BadRequest).body("Missing email field")
         }
       }
       let phone = match json {
         { "phone": String(p), .. } => p
         _ => {
           println("  -> 400 Missing phone")
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing phone field",
-          )
+          return @mocket.HttpResponse(BadRequest).body("Missing phone field")
         }
       }
       if !@shared.validate_name(name) {
         println("  -> 400 Invalid name")
-        return @mocket.HttpResponse::new(BadRequest).body(
+        return @mocket.HttpResponse(BadRequest).body(
           "Name must be 1-\{@shared.max_name_length} characters",
         )
       }
       if !@shared.validate_email(email) {
         println("  -> 400 Invalid email")
-        return @mocket.HttpResponse::new(BadRequest).body(
+        return @mocket.HttpResponse(BadRequest).body(
           "Email must be valid (contain @ and . after @)",
         )
       }
       if !@shared.validate_phone(phone) {
         println("  -> 400 Invalid phone")
-        return @mocket.HttpResponse::new(BadRequest).body(
+        return @mocket.HttpResponse(BadRequest).body(
           "Phone must contain only digits, spaces, hyphens, parens, and +",
         )
       }
       let contact = create_contact(conn, name, email, phone)
       println("  -> 201 created contact: \{name}")
-      @mocket.HttpResponse::new(Created).json(contact)
+      @mocket.HttpResponse(Created).json(contact)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
@@ -141,29 +149,29 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("POST /api/contacts/\{id_str}/favorite")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       let contact = toggle_favorite(conn, id)
       println("  -> 200 toggled favorite for contact \{id}")
-      @mocket.HttpResponse::new(OK).json(contact)
+      @mocket.HttpResponse(OK).json(contact)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
-  .delete("\{@shared.api_contacts}/:id", fn(event) noraise {
+  .delete("\{@shared.api_contacts}/:id", event => {
     let id_str = event.params.get("id").unwrap().to_string()
     println("DELETE /api/contacts/\{id_str}")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       delete_contact(conn, id)
       println("  -> 204 deleted contact \{id}")
-      @mocket.HttpResponse::new(NoContent)
+      @mocket.HttpResponse(NoContent)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })

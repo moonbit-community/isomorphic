@@ -154,7 +154,7 @@ test "SearchChanged updates search_query" {
 
 ///|
 test "SearchChanged preserves contacts" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let (model, _) = initial.update(
     msg=SearchChanged("bob"),
     dispatch=noop_dispatch,
@@ -218,7 +218,7 @@ test "ToggleForm opens form" {
 
 ///|
 test "ToggleForm closes form" {
-  let initial = { ..empty_model(), show_form: true }
+  let initial = { ..empty_model(), show_form: true, }
   let (model, _) = initial.update(msg=ToggleForm, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -354,7 +354,7 @@ test "AddContact with too-long name does nothing" {
 
 ///|
 test "ContactAdded/Ok appends to list" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let new_contact : @shared.Contact = {
     id: 4,
     name: "Dave",
@@ -372,7 +372,7 @@ test "ContactAdded/Ok appends to list" {
 
 ///|
 test "ContactAdded/Err leaves model unchanged" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let (model, _) = initial.update(
     msg=ContactAdded(Err("fail")),
     dispatch=noop_dispatch,
@@ -384,7 +384,7 @@ test "ContactAdded/Err leaves model unchanged" {
 
 ///|
 test "FavoriteToggled/Ok replaces matching contact" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let updated : @shared.Contact = {
     id: 1,
     name: "Alice Smith",
@@ -404,7 +404,7 @@ test "FavoriteToggled/Ok replaces matching contact" {
 
 ///|
 test "FavoriteToggled/Err leaves model unchanged" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let (model, _) = initial.update(
     msg=FavoriteToggled(Err("fail")),
     dispatch=noop_dispatch,
@@ -416,7 +416,7 @@ test "FavoriteToggled/Err leaves model unchanged" {
 
 ///|
 test "ContactDeleted/Ok removes the contact" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let (model, _) = initial.update(
     msg=ContactDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -427,7 +427,7 @@ test "ContactDeleted/Ok removes the contact" {
 
 ///|
 test "ContactDeleted/Ok with nonexistent id is no-op" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let (model, _) = initial.update(
     msg=ContactDeleted(Ok(999)),
     dispatch=noop_dispatch,
@@ -437,7 +437,7 @@ test "ContactDeleted/Ok with nonexistent id is no-op" {
 
 ///|
 test "ContactDeleted/Err leaves model unchanged" {
-  let initial = { ..empty_model(), contacts: sample_contacts() }
+  let initial = { ..empty_model(), contacts: sample_contacts(), }
   let (model, _) = initial.update(
     msg=ContactDeleted(Err("fail")),
     dispatch=noop_dispatch,

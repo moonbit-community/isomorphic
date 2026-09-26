@@ -29,7 +29,7 @@ fn render(html : @rabbita.Html) -> String {
 
 ///|
 test "view shows loading indicator on post list" {
-  let model = { ..empty_model(), loading: true }
+  let model = { ..empty_model(), loading: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -50,7 +50,7 @@ test "view shows empty state on post list" {
 
 ///|
 test "view renders post list items" {
-  let model = { ..empty_model(), posts: sample_posts() }
+  let model = { ..empty_model(), posts: sample_posts(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -63,7 +63,7 @@ test "view renders post list items" {
 
 ///|
 test "view shows new post form" {
-  let model = { ..empty_model(), page: NewPost }
+  let model = { ..empty_model(), page: NewPost, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -133,7 +133,7 @@ test "view shows edit post form with data" {
 
 ///|
 test "view shows post detail loading" {
-  let model = { ..empty_model(), page: ViewPost(1), loading: true }
+  let model = { ..empty_model(), page: ViewPost(1), loading: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
