@@ -8,7 +8,7 @@ pub(all) enum Lang {
 
 ///|
 /// Display the language code.
-pub impl Show for Lang with output(self, logger) {
+pub impl Show for Lang with fn output(self, logger) {
   match self {
     En => logger.write_string("en")
     Zh => logger.write_string("zh")

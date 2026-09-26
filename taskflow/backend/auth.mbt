@@ -22,7 +22,7 @@ fn generate_token(
   // Use SQLite's random() as an entropy source (different each call)
   let rng_stmt = conn.prepare("SELECT random()")
   guard rng_stmt.step()
-  let rng : Int = rng_stmt.column(index=0)
+  let rng = column_int(rng_stmt, 0)
   rng_stmt.finalize()
   let input = "\{username}:\{token_counter.val}:\{rng}"
   let hash = @crypto.sha256(@utf8.encode(input))
@@ -44,16 +44,19 @@ fn init_auth_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  s1.step_once()
+  s1.step() |> ignore
   s1.finalize()
-  // Migration: add role column if missing
-  let migrate = conn.prepare(
-    "ALTER TABLE users ADD COLUMN role BLOB NOT NULL DEFAULT 'member'",
-  )
-  migrate.step_once() catch {
+  // Migration: add role column if missing. SQLite reports an existing column
+  // when the statement is prepared, so the prepare is inside the catch too.
+  try {
+    let migrate = conn.prepare(
+      "ALTER TABLE users ADD COLUMN role BLOB NOT NULL DEFAULT 'member'",
+    )
+    migrate.step() |> ignore
+    migrate.finalize()
+  } catch {
     _ => () // Column already exists
   }
-  migrate.finalize()
   let s2 = conn.prepare(
     (
       #|CREATE TABLE IF NOT EXISTS sessions (
@@ -64,12 +67,12 @@ fn init_auth_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  s2.step_once()
+  s2.step() |> ignore
   s2.finalize()
   let s3 = conn.prepare(
     "CREATE INDEX IF NOT EXISTS idx_users_username ON users(username)",
   )
-  s3.step_once()
+  s3.step() |> ignore
   s3.finalize()
 }
 
@@ -99,7 +102,7 @@ fn register_user(
   // First user becomes admin, subsequent users are members
   let count_stmt = conn.prepare("SELECT COUNT(*) FROM users")
   guard count_stmt.step()
-  let user_count : Int = count_stmt.column(index=0)
+  let user_count = column_int(count_stmt, 0)
   count_stmt.finalize()
   let role = if user_count == 0 { "admin" } else { "member" }
   let stmt = conn.prepare(
@@ -108,33 +111,33 @@ fn register_user(
       #|VALUES (?, ?, ?, ?, ?)
     ),
   )
-  stmt.bind_string_as_blob(index=1, val=username)
-  stmt.bind_string_as_blob(index=2, val=pw_hash)
-  stmt.bind_string_as_blob(index=3, val=salt)
+  bind_blob_text(stmt, 1, username)
+  stmt.bind(index=2, pw_hash)
+  stmt.bind(index=3, salt)
   // Temporary color, will update after we get the ID
-  stmt.bind_string_as_blob(index=4, val="blue")
-  stmt.bind_string_as_blob(index=5, val=role)
-  stmt.step_once()
+  stmt.bind(index=4, "blue")
+  stmt.bind(index=5, role)
+  stmt.step() |> ignore
   stmt.finalize()
   // Get the new user's ID
   let id_stmt = conn.prepare("SELECT last_insert_rowid()")
   guard id_stmt.step()
-  let id : Int = id_stmt.column(index=0)
+  let id = column_int(id_stmt, 0)
   id_stmt.finalize()
   // Update color based on ID
   let color = pick_color(id)
   let upd = conn.prepare("UPDATE users SET color = ? WHERE id = ?")
-  upd.bind_string_as_blob(index=1, val=color)
-  upd.bind(index=2, val=id)
-  upd.step_once()
+  upd.bind(index=1, color)
+  upd.bind(index=2, id)
+  upd.step() |> ignore
   upd.finalize()
   // Also create a member record for this user
   let mem_stmt = conn.prepare("INSERT INTO members (name, color) VALUES (?, ?)")
-  mem_stmt.bind_string_as_blob(index=1, val=username)
-  mem_stmt.bind_string_as_blob(index=2, val=color)
-  mem_stmt.step_once()
+  mem_stmt.bind(index=1, username)
+  mem_stmt.bind(index=2, color)
+  mem_stmt.step() |> ignore
   mem_stmt.finalize()
-  { id, username, color, role }
+  { id, username, color, role, }
 }
 
 ///|
@@ -147,23 +150,23 @@ fn login_user(
   let stmt = conn.prepare(
     "SELECT id, username, password_hash, salt, color, role FROM users WHERE username = ?",
   )
-  stmt.bind_string_as_blob(index=1, val=username)
+  bind_blob_text(stmt, 1, username)
   if !stmt.step() {
     stmt.finalize()
     return None
   }
-  let id : Int = stmt.column(index=0)
-  let uname : String = stmt.column_blob_as_string(index=1)
-  let stored_hash : String = stmt.column_blob_as_string(index=2)
-  let salt : String = stmt.column_blob_as_string(index=3)
-  let color : String = stmt.column_blob_as_string(index=4)
-  let role : String = stmt.column_blob_as_string(index=5)
+  let id = column_int(stmt, 0)
+  let uname : String = stmt.column(index=1)
+  let stored_hash : String = stmt.column(index=2)
+  let salt : String = stmt.column(index=3)
+  let color : String = stmt.column(index=4)
+  let role : String = stmt.column(index=5)
   stmt.finalize()
   let pw_hash = hash_password(password, salt)
   if pw_hash != stored_hash {
     return None
   }
-  Some({ id, username: uname, color, role })
+  Some({ id, username: uname, color, role, })
 }
 
 ///|
@@ -178,10 +181,10 @@ fn create_session(
   let stmt = conn.prepare(
     "INSERT INTO sessions (token, user_id, created_at) VALUES (?, ?, ?)",
   )
-  stmt.bind_string_as_blob(index=1, val=token)
-  stmt.bind(index=2, val=user_id)
-  stmt.bind_string_as_blob(index=3, val=today)
-  stmt.step_once()
+  bind_blob_text(stmt, 1, token)
+  stmt.bind(index=2, user_id)
+  stmt.bind(index=3, today)
+  stmt.step() |> ignore
   stmt.finalize()
   token
 }
@@ -199,17 +202,17 @@ fn get_session_user(
       #|WHERE s.token = ?
     ),
   )
-  stmt.bind_string_as_blob(index=1, val=token)
+  bind_blob_text(stmt, 1, token)
   if !stmt.step() {
     stmt.finalize()
     return None
   }
-  let id : Int = stmt.column(index=0)
-  let username : String = stmt.column_blob_as_string(index=1)
-  let color : String = stmt.column_blob_as_string(index=2)
-  let role : String = stmt.column_blob_as_string(index=3)
+  let id = column_int(stmt, 0)
+  let username : String = stmt.column(index=1)
+  let color : String = stmt.column(index=2)
+  let role : String = stmt.column(index=3)
   stmt.finalize()
-  Some({ id, username, color, role })
+  Some({ id, username, color, role, })
 }
 
 ///|
@@ -219,8 +222,8 @@ fn delete_session(
   token : String,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM sessions WHERE token = ?")
-  stmt.bind_string_as_blob(index=1, val=token)
-  stmt.step_once()
+  bind_blob_text(stmt, 1, token)
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
@@ -256,8 +259,8 @@ fn set_user_role(
   role : String,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("UPDATE users SET role = ? WHERE id = ?")
-  stmt.bind_string_as_blob(index=1, val=role)
-  stmt.bind(index=2, val=user_id)
-  stmt.step_once()
+  stmt.bind(index=1, role)
+  stmt.bind(index=2, user_id)
+  stmt.step() |> ignore
   stmt.finalize()
 }

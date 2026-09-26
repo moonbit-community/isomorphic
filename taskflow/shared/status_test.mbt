@@ -2,7 +2,9 @@
 test "allowed_transitions from todo" {
   inspect(
     @shared.allowed_transitions("todo"),
-    content="[\"in_progress\", \"blocked\"]",
+    content=(
+      #|[in_progress, blocked]
+    ),
   )
 }
 
@@ -10,7 +12,9 @@ test "allowed_transitions from todo" {
 test "allowed_transitions from in_progress" {
   inspect(
     @shared.allowed_transitions("in_progress"),
-    content="[\"review\", \"blocked\", \"todo\"]",
+    content=(
+      #|[review, blocked, todo]
+    ),
   )
 }
 
@@ -18,7 +22,9 @@ test "allowed_transitions from in_progress" {
 test "allowed_transitions from review" {
   inspect(
     @shared.allowed_transitions("review"),
-    content="[\"done\", \"in_progress\"]",
+    content=(
+      #|[done, in_progress]
+    ),
   )
 }
 
@@ -26,13 +32,20 @@ test "allowed_transitions from review" {
 test "allowed_transitions from blocked" {
   inspect(
     @shared.allowed_transitions("blocked"),
-    content="[\"todo\", \"in_progress\"]",
+    content=(
+      #|[todo, in_progress]
+    ),
   )
 }
 
 ///|
 test "allowed_transitions from done" {
-  inspect(@shared.allowed_transitions("done"), content="[\"todo\"]")
+  inspect(
+    @shared.allowed_transitions("done"),
+    content=(
+      #|[todo]
+    ),
+  )
 }
 
 ///|

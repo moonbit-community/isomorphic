@@ -13,9 +13,16 @@ pub let valid_statuses : Array[String] = [
 /// test {
 ///   inspect(
 ///     @shared.allowed_transitions("todo"),
-///     content="[\"in_progress\", \"blocked\"]",
+///     content=(
+///       #|[in_progress, blocked]
+///     ),
 ///   )
-///   inspect(@shared.allowed_transitions("done"), content="[\"todo\"]")
+///   inspect(
+///     @shared.allowed_transitions("done"),
+///     content=(
+///       #|[todo]
+///     ),
+///   )
 /// }
 /// ```
 pub fn allowed_transitions(status : String) -> Array[String] {

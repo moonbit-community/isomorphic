@@ -119,10 +119,10 @@ test "workflow: dependency chain blocks progress" {
     },
   ]
   let deps : Array[@shared.Dependency] = [
-    { task_id: 2, depends_on_id: 1 }, // Implement depends on Design
-    { task_id: 3, depends_on_id: 2 }, // Tests depend on Implement
-    { task_id: 4, depends_on_id: 2 }, // Deploy depends on Implement
-    { task_id: 4, depends_on_id: 3 }, // Deploy depends on Tests
+    { task_id: 2, depends_on_id: 1, }, // Implement depends on Design
+    { task_id: 3, depends_on_id: 2, }, // Tests depend on Implement
+    { task_id: 4, depends_on_id: 2, }, // Deploy depends on Implement
+    { task_id: 4, depends_on_id: 3, }, // Deploy depends on Tests
   ]
   // Design is done -> Implement has no unresolved deps
   inspect(@shared.has_unresolved_deps(deps, tasks, 2), content="false")
@@ -225,9 +225,9 @@ test "workflow: activity tracking and formatting" {
 ///|
 test "workflow: member lookup and display" {
   let members : Array[@shared.Member] = [
-    { id: 1, name: "Alice", color: "blue" },
-    { id: 2, name: "Bob", color: "red" },
-    { id: 3, name: "中文名", color: "green" },
+    { id: 1, name: "Alice", color: "blue", },
+    { id: 2, name: "Bob", color: "red", },
+    { id: 3, name: "中文名", color: "green", },
   ]
   // Lookup
   let alice = @shared.find_member(members, 1).unwrap()
@@ -358,8 +358,8 @@ test "workflow: board JSON round-trip preserves full state" {
       },
     ],
     members: [
-      { id: 1, name: "Alice", color: "blue" },
-      { id: 2, name: "Bob", color: "red" },
+      { id: 1, name: "Alice", color: "blue", },
+      { id: 2, name: "Bob", color: "red", },
     ],
     activities: [
       {
@@ -372,7 +372,7 @@ test "workflow: board JSON round-trip preserves full state" {
         user_name: "Alice",
       },
     ],
-    dependencies: [{ task_id: 2, depends_on_id: 1 }],
+    dependencies: [{ task_id: 2, depends_on_id: 1, }],
     labels: [],
     task_labels: [],
     subtasks: [],

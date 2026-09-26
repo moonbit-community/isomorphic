@@ -24,25 +24,11 @@ fn auth_headers() -> Map[String, String] {
 }
 
 ///|
-/// Extract session cookie from response Set-Cookie header.
+/// Extract session cookie from the response's Set-Cookie entries.
 fn extract_session_cookie(resp : @mocket.HttpResponse) -> Unit {
-  for k, v in resp.headers {
-    if k.to_string().to_lower() == "set-cookie" {
-      let cookie_str = v.to_string()
-      // Parse "session=<value>; ..." format
-      match cookie_str.strip_prefix("session=") {
-        Some(rest) => {
-          let rest_str = rest.to_string()
-          let value = match rest_str.before(";") {
-            Some(v) => v.to_string()
-            None => rest_str
-          }
-          if !value.is_empty() {
-            session_cookie.val = value
-          }
-        }
-        None => ()
-      }
+  for cookie in resp.cookies {
+    if cookie.name == "session" && !cookie.value.is_empty() {
+      session_cookie.val = cookie.value
     }
   }
 }
@@ -61,21 +47,46 @@ fn assert_test(name : String, condition : Bool, detail? : String = "") -> Unit {
 }
 
 ///|
+/// Send a request with `auth_headers()` and wrap the reply in an
+/// `@mocket.HttpResponse` so the tests can inspect status, cookies and body.
+async fn send_request(
+  meth : @http.RequestMethod,
+  path : String,
+  body : &@io.Data,
+) -> @mocket.HttpResponse {
+  let headers : Map[@http.CaseInsensitiveString, String] = Map([])
+  for k, v in auth_headers() {
+    headers[k] = v
+  }
+  let (resp, data) = @http.request("\{base_url}\{path}", meth, headers, body)
+  let resp_headers : Map[@http.CaseInsensitiveString, StringView] = Map([])
+  for k, v in resp.headers {
+    resp_headers[k] = v
+  }
+  @mocket.HttpResponse(
+    @mocket.StatusCode::from_int(resp.code),
+    headers=resp_headers,
+    cookies=resp.cookies,
+    body=data.binary(),
+  )
+}
+
+///|
 /// POST JSON and return response.
 async fn post_json(path : String, body : Json) -> @mocket.HttpResponse {
-  @fetch.post("\{base_url}\{path}", data=body, headers=auth_headers())
+  send_request(Post, path, body)
 }
 
 ///|
 /// GET and return response.
 async fn get_json(path : String) -> @mocket.HttpResponse {
-  @fetch.get("\{base_url}\{path}", headers=auth_headers())
+  send_request(Get, path, "")
 }
 
 ///|
 /// DELETE and return response.
 async fn delete_req(path : String) -> @mocket.HttpResponse {
-  @fetch.delete("\{base_url}\{path}", headers=auth_headers())
+  send_request(Delete, path, "")
 }
 
 // ========== Test Suites ==========

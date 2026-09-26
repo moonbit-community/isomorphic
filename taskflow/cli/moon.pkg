@@ -1,14 +1,13 @@
 import {
   "bobzhang/taskflow/shared",
   "oboard/mocket",
-  "oboard/mocket/fetch",
   "moonbitlang/core/json",
   "moonbitlang/core/encoding/utf8",
   "moonbitlang/async",
+  "moonbitlang/async/http",
+  "moonbitlang/async/io",
 }
 
 supported_targets = "native"
 
-options(
-  is_main: true,
-)
+pkgtype(kind: "executable")

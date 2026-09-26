@@ -29,7 +29,7 @@ fn render(html : @rabbita.Html) -> String {
 
 ///|
 test "view shows login screen when auth_screen is login" {
-  let model = { ..empty_model(), auth_screen: "login" }
+  let model = { ..empty_model(), auth_screen: "login", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -40,7 +40,7 @@ test "view shows login screen when auth_screen is login" {
 
 ///|
 test "view shows register screen when auth_screen is register" {
-  let model = { ..empty_model(), auth_screen: "register" }
+  let model = { ..empty_model(), auth_screen: "register", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -66,7 +66,7 @@ test "login screen shows auth error" {
 
 ///|
 test "login screen preserves username input" {
-  let model = { ..empty_model(), auth_screen: "login", auth_username: "alice" }
+  let model = { ..empty_model(), auth_screen: "login", auth_username: "alice", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -79,7 +79,7 @@ test "login screen preserves username input" {
 
 ///|
 test "view shows loading indicator" {
-  let model = { ..logged_in_model(), loading: true }
+  let model = { ..logged_in_model(), loading: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -155,7 +155,7 @@ test "view renders in dark mode" {
 
 ///|
 test "view shows error notification" {
-  let model = { ..logged_in_model(), error_msg: "Something went wrong" }
+  let model = { ..logged_in_model(), error_msg: "Something went wrong", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -168,7 +168,7 @@ test "view shows error notification" {
 
 ///|
 test "view renders login screen in Chinese" {
-  let model = { ..empty_model(), auth_screen: "login", lang: Zh }
+  let model = { ..empty_model(), auth_screen: "login", lang: Zh, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(

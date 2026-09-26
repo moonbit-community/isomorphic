@@ -10,7 +10,7 @@ pub(all) struct User {
 
 ///|
 /// Display a User as `User(#id "username" role)`.
-pub impl Show for User with output(self, logger) {
+pub impl Show for User with fn output(self, logger) {
   logger.write_string("User(#\{self.id} \"\{self.username}\" \{self.role})")
 }
 
@@ -48,7 +48,7 @@ pub(all) struct Task {
 
 ///|
 /// Display a Task as `Task(#id "title" status=... priority=...)`.
-pub impl Show for Task with output(self, logger) {
+pub impl Show for Task with fn output(self, logger) {
   logger.write_string(
     "Task(#\{self.id} \"\{self.title}\" status=\{self.status} priority=\{self.priority})",
   )
