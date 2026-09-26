@@ -41,7 +41,7 @@ test "view shows initial empty state with no people" {
 test "view shows people chips when people exist" {
   let model = {
     ..empty_model(),
-    people: [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }],
+    people: [{ id: 1, name: "Alice", }, { id: 2, name: "Bob", }],
   }
   inspect(
     render(model.view(noop_dispatch)),
@@ -55,7 +55,7 @@ test "view shows people chips when people exist" {
 test "view shows expense form when at least 2 people" {
   let model = {
     ..empty_model(),
-    people: [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }],
+    people: [{ id: 1, name: "Alice", }, { id: 2, name: "Bob", }],
   }
   inspect(
     render(model.view(noop_dispatch)),
@@ -67,7 +67,7 @@ test "view shows expense form when at least 2 people" {
 
 ///|
 test "view hides expense form with fewer than 2 people" {
-  let model = { ..empty_model(), people: [{ id: 1, name: "Alice" }] }
+  let model = { ..empty_model(), people: [{ id: 1, name: "Alice", }], }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -81,7 +81,7 @@ test "view shows expenses list and settlements" {
   let people = sample_people()
   let expenses = sample_expenses()
   let settlements = @shared.compute_settlements(people, expenses)
-  let model = { ..empty_model(), people, expenses, settlements }
+  let model = { ..empty_model(), people, expenses, settlements, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -93,8 +93,8 @@ test "view shows expenses list and settlements" {
 ///|
 test "view shows all-settled-up when expenses exist but no settlements" {
   let people : Array[@shared.Person] = [
-    { id: 1, name: "Alice" },
-    { id: 2, name: "Bob" },
+    { id: 1, name: "Alice", },
+    { id: 2, name: "Bob", },
   ]
   // Each person paid the same amount, split the same way -> no settlements
   let expenses : Array[@shared.Expense] = [
@@ -114,7 +114,7 @@ test "view shows all-settled-up when expenses exist but no settlements" {
     },
   ]
   let settlements = @shared.compute_settlements(people, expenses)
-  let model = { ..empty_model(), people, expenses, settlements }
+  let model = { ..empty_model(), people, expenses, settlements, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -127,7 +127,7 @@ test "view shows all-settled-up when expenses exist but no settlements" {
 
 ///|
 test "view preserves person input value" {
-  let model = { ..empty_model(), person_input: "draft" }
+  let model = { ..empty_model(), person_input: "draft", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -140,7 +140,7 @@ test "view preserves person input value" {
 test "view preserves expense form inputs" {
   let model = {
     ..empty_model(),
-    people: [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }],
+    people: [{ id: 1, name: "Alice", }, { id: 2, name: "Bob", }],
     desc_input: "Coffee",
     amount_input: "4.50",
   }

@@ -18,7 +18,11 @@ fn empty_model() -> Model {
 
 ///|
 fn sample_people() -> Array[@shared.Person] {
-  [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }, { id: 3, name: "Carol" }]
+  [
+    { id: 1, name: "Alice", },
+    { id: 2, name: "Bob", },
+    { id: 3, name: "Carol", },
+  ]
 }
 
 ///|
@@ -69,7 +73,7 @@ test "GotState/Ok populates people, expenses, and settlements" {
   let people = sample_people()
   let expenses = sample_expenses()
   let settlements = @shared.compute_settlements(people, expenses)
-  let state : @shared.AppState = { people, expenses, settlements }
+  let state : @shared.AppState = { people, expenses, settlements, }
   let (model, _) = empty_model().update(
     msg=GotState(Ok(state)),
     dispatch=noop_dispatch,
@@ -174,7 +178,7 @@ test "PersonInputChanged updates person_input" {
 
 ///|
 test "AddPerson with empty input does nothing" {
-  let initial = { ..empty_model(), person_input: "" }
+  let initial = { ..empty_model(), person_input: "", }
   let (model, _) = initial.update(msg=AddPerson, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -194,7 +198,7 @@ test "AddPerson with empty input does nothing" {
 
 ///|
 test "AddPerson with valid input clears person_input" {
-  let initial = { ..empty_model(), person_input: "Alice" }
+  let initial = { ..empty_model(), person_input: "Alice", }
   let (model, _) = initial.update(msg=AddPerson, dispatch=noop_dispatch)
   debug_inspect(
     model,
@@ -215,7 +219,7 @@ test "AddPerson with valid input clears person_input" {
 ///|
 test "AddPerson with too-long name does nothing" {
   let long = "a".repeat(@shared.max_name_length + 1)
-  let initial = { ..empty_model(), person_input: long }
+  let initial = { ..empty_model(), person_input: long, }
   let (model, _) = initial.update(msg=AddPerson, dispatch=noop_dispatch)
   inspect(model.person_input, content=long)
 }
@@ -224,8 +228,8 @@ test "AddPerson with too-long name does nothing" {
 
 ///|
 test "PersonAdded/Ok appends to people list" {
-  let initial = { ..empty_model(), people: [{ id: 1, name: "Alice" }] }
-  let new_person : @shared.Person = { id: 2, name: "Bob" }
+  let initial = { ..empty_model(), people: [{ id: 1, name: "Alice", }], }
+  let new_person : @shared.Person = { id: 2, name: "Bob", }
   let (model, _) = initial.update(
     msg=PersonAdded(Ok(new_person)),
     dispatch=noop_dispatch,
@@ -370,7 +374,7 @@ test "AddExpense with zero amount does nothing" {
 
 ///|
 test "AddExpense with no people does nothing" {
-  let initial = { ..empty_model(), desc_input: "Lunch", amount_input: "10.00" }
+  let initial = { ..empty_model(), desc_input: "Lunch", amount_input: "10.00", }
   let (model, _) = initial.update(msg=AddExpense, dispatch=noop_dispatch)
   inspect(model.desc_input, content="Lunch")
 }
@@ -405,7 +409,7 @@ test "AddExpense with too-long description does nothing" {
 
 ///|
 test "ExpenseAdded/Ok appends expense and recomputes settlements" {
-  let initial = { ..empty_model(), people: sample_people() }
+  let initial = { ..empty_model(), people: sample_people(), }
   let expense : @shared.Expense = {
     id: 1,
     description: "Dinner",
@@ -503,7 +507,7 @@ test "ExpenseDeleted/Ok removes expense and recomputes settlements" {
   let people = sample_people()
   let expenses = sample_expenses()
   let settlements = @shared.compute_settlements(people, expenses)
-  let initial = { ..empty_model(), people, expenses, settlements }
+  let initial = { ..empty_model(), people, expenses, settlements, }
   let (model, _) = initial.update(
     msg=ExpenseDeleted(Ok(1)),
     dispatch=noop_dispatch,
@@ -549,7 +553,7 @@ test "ExpenseDeleted/Ok with nonexistent id is no-op" {
   let people = sample_people()
   let expenses = sample_expenses()
   let settlements = @shared.compute_settlements(people, expenses)
-  let initial = { ..empty_model(), people, expenses, settlements }
+  let initial = { ..empty_model(), people, expenses, settlements, }
   let (model, _) = initial.update(
     msg=ExpenseDeleted(Ok(999)),
     dispatch=noop_dispatch,

@@ -8,18 +8,18 @@ fn handle_get_state(
   try {
     let state = get_state(conn)
     println("  -> 200")
-    @mocket.HttpResponse::new(OK).json(state)
+    @mocket.HttpResponse(OK).json(state)
   } catch {
     e => {
-      println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      println("  -> 500 \{error_text(e)}")
+      @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   }
 }
 
 ///|
 /// Handle POST /api/people — create a new person.
-fn handle_post_people(
+async fn handle_post_people(
   conn : @sqlite3.Connection,
   event : @mocket.MocketEvent,
 ) -> @mocket.HttpResponse {
@@ -30,29 +30,29 @@ fn handle_post_people(
       { "name": String(n), .. } => n
       _ => {
         println("  -> 400 Missing name")
-        return @mocket.HttpResponse::new(BadRequest).body("Missing name field")
+        return @mocket.HttpResponse(BadRequest).body("Missing name field")
       }
     }
     if !@shared.validate_name(name) {
       println("  -> 400 Invalid name")
-      return @mocket.HttpResponse::new(BadRequest).body(
+      return @mocket.HttpResponse(BadRequest).body(
         "Name must be 1-\{@shared.max_name_length} characters",
       )
     }
     let person = create_person(conn, name)
     println("  -> 201 created person: \{name}")
-    @mocket.HttpResponse::new(Created).json(person)
+    @mocket.HttpResponse(Created).json(person)
   } catch {
     e => {
-      println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      println("  -> 500 \{error_text(e)}")
+      @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   }
 }
 
 ///|
 /// Handle POST /api/expenses — create a new expense with splits.
-fn handle_post_expenses(
+async fn handle_post_expenses(
   conn : @sqlite3.Connection,
   event : @mocket.MocketEvent,
 ) -> @mocket.HttpResponse {
@@ -63,21 +63,21 @@ fn handle_post_expenses(
       { "description": String(d), .. } => d
       _ => {
         println("  -> 400 Missing description")
-        return @mocket.HttpResponse::new(BadRequest).body("Missing description")
+        return @mocket.HttpResponse(BadRequest).body("Missing description")
       }
     }
     let amount = match json {
       { "amount": Number(a, ..), .. } => a.to_int()
       _ => {
         println("  -> 400 Missing amount")
-        return @mocket.HttpResponse::new(BadRequest).body("Missing amount")
+        return @mocket.HttpResponse(BadRequest).body("Missing amount")
       }
     }
     let paid_by = match json {
       { "paid_by": Number(p, ..), .. } => p.to_int()
       _ => {
         println("  -> 400 Missing paid_by")
-        return @mocket.HttpResponse::new(BadRequest).body("Missing paid_by")
+        return @mocket.HttpResponse(BadRequest).body("Missing paid_by")
       }
     }
     let split_among : Array[Int] = match json {
@@ -93,24 +93,22 @@ fn handle_post_expenses(
       }
       _ => {
         println("  -> 400 Missing split_among")
-        return @mocket.HttpResponse::new(BadRequest).body("Missing split_among")
+        return @mocket.HttpResponse(BadRequest).body("Missing split_among")
       }
     }
     if !@shared.validate_description(description) {
       println("  -> 400 Invalid description")
-      return @mocket.HttpResponse::new(BadRequest).body(
+      return @mocket.HttpResponse(BadRequest).body(
         "Description must be 1-\{@shared.max_description_length} characters",
       )
     }
     if !@shared.validate_amount(amount) {
       println("  -> 400 Invalid amount")
-      return @mocket.HttpResponse::new(BadRequest).body(
-        "Amount must be positive",
-      )
+      return @mocket.HttpResponse(BadRequest).body("Amount must be positive")
     }
     if split_among.is_empty() {
       println("  -> 400 No participants")
-      return @mocket.HttpResponse::new(BadRequest).body(
+      return @mocket.HttpResponse(BadRequest).body(
         "Must split among at least one person",
       )
     }
@@ -118,11 +116,11 @@ fn handle_post_expenses(
       conn, description, amount, paid_by, split_among,
     )
     println("  -> 201 created expense: \{description}")
-    @mocket.HttpResponse::new(Created).json(expense)
+    @mocket.HttpResponse(Created).json(expense)
   } catch {
     e => {
-      println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      println("  -> 500 \{error_text(e)}")
+      @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   }
 }
@@ -136,14 +134,14 @@ fn handle_delete_expense(
   let id_str = event.params.get("id").unwrap().to_string()
   println("DELETE /api/expenses/\{id_str}")
   try {
-    let id = @strconv.parse_int(id_str)
+    let id = @string.parse_int(id_str)
     delete_expense(conn, id)
     println("  -> 204 deleted expense \{id}")
-    @mocket.HttpResponse::new(NoContent)
+    @mocket.HttpResponse(NoContent)
   } catch {
     e => {
-      println("  -> 500 \{e}")
-      @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      println("  -> 500 \{error_text(e)}")
+      @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   }
 }

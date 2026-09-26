@@ -9,7 +9,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt.step_once()
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare(
     (
@@ -21,7 +21,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt2.step_once()
+  stmt2.step() |> ignore
   stmt2.finalize()
   let stmt3 = conn.prepare(
     (
@@ -32,7 +32,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt3.step_once()
+  stmt3.step() |> ignore
   stmt3.finalize()
 }
 
@@ -44,9 +44,9 @@ fn get_all_people(
   let stmt = conn.prepare("SELECT id, name FROM people ORDER BY id")
   let people : Array[@shared.Person] = []
   while stmt.step() {
-    let id : Int = stmt.column(index=0)
-    let name : String = stmt.column_blob_as_string(index=1)
-    people.push({ id, name })
+    let id = column_int(stmt, 0)
+    let name : String = stmt.column(index=1)
+    people.push({ id, name, })
   }
   stmt.finalize()
   people
@@ -59,14 +59,14 @@ fn create_person(
   name : String,
 ) -> @shared.Person raise @sqlite3.SqliteError {
   let stmt = conn.prepare("INSERT INTO people (name) VALUES (?)")
-  stmt.bind_string_as_blob(index=1, val=name)
-  stmt.step_once()
+  stmt.bind(index=1, name)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT last_insert_rowid()")
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
-  { id, name }
+  { id, name, }
 }
 
 ///|
@@ -78,10 +78,10 @@ fn get_splits_for_expense(
   let stmt = conn.prepare(
     "SELECT person_id FROM expense_splits WHERE expense_id = ?",
   )
-  stmt.bind(index=1, val=expense_id)
+  stmt.bind(index=1, expense_id)
   let ids : Array[Int] = []
   while stmt.step() {
-    let pid : Int = stmt.column(index=0)
+    let pid = column_int(stmt, 0)
     ids.push(pid)
   }
   stmt.finalize()
@@ -98,12 +98,12 @@ fn get_all_expenses(
   )
   let expenses : Array[@shared.Expense] = []
   while stmt.step() {
-    let id : Int = stmt.column(index=0)
-    let description : String = stmt.column_blob_as_string(index=1)
-    let amount : Int = stmt.column(index=2)
-    let paid_by : Int = stmt.column(index=3)
+    let id = column_int(stmt, 0)
+    let description : String = stmt.column(index=1)
+    let amount = column_int(stmt, 2)
+    let paid_by = column_int(stmt, 3)
     let split_among = get_splits_for_expense(conn, id)
-    expenses.push({ id, description, amount, paid_by, split_among })
+    expenses.push({ id, description, amount, paid_by, split_among, })
   }
   stmt.finalize()
   expenses
@@ -121,25 +121,25 @@ fn create_expense(
   let stmt = conn.prepare(
     "INSERT INTO expenses (description, amount, paid_by) VALUES (?, ?, ?)",
   )
-  stmt.bind_string_as_blob(index=1, val=description)
-  stmt.bind(index=2, val=amount)
-  stmt.bind(index=3, val=paid_by)
-  stmt.step_once()
+  stmt.bind(index=1, description)
+  stmt.bind(index=2, amount)
+  stmt.bind(index=3, paid_by)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT last_insert_rowid()")
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
   for person_id in split_among {
     let stmt3 = conn.prepare(
       "INSERT INTO expense_splits (expense_id, person_id) VALUES (?, ?)",
     )
-    stmt3.bind(index=1, val=id)
-    stmt3.bind(index=2, val=person_id)
-    stmt3.step_once()
+    stmt3.bind(index=1, id)
+    stmt3.bind(index=2, person_id)
+    stmt3.step() |> ignore
     stmt3.finalize()
   }
-  { id, description, amount, paid_by, split_among }
+  { id, description, amount, paid_by, split_among, }
 }
 
 ///|
@@ -150,12 +150,12 @@ fn delete_expense(
 ) -> Unit raise @sqlite3.SqliteError {
   // Delete splits first (no FK cascade in this SQLite binding)
   let stmt = conn.prepare("DELETE FROM expense_splits WHERE expense_id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("DELETE FROM expenses WHERE id = ?")
-  stmt2.bind(index=1, val=id)
-  stmt2.step_once()
+  stmt2.bind(index=1, id)
+  stmt2.step() |> ignore
   stmt2.finalize()
 }
 
@@ -167,5 +167,25 @@ fn get_state(
   let people = get_all_people(conn)
   let expenses = get_all_expenses(conn)
   let settlements = @shared.compute_settlements(people, expenses)
-  { people, expenses, settlements }
+  { people, expenses, settlements, }
+}
+
+///|
+/// Read an INTEGER column as `Int`; the binding only exposes `Int64`.
+fn column_int(
+  stmt : @sqlite3.Statement,
+  index : Int,
+) -> Int raise @sqlite3.SqliteError {
+  let value : Int64 = stmt.column(index~)
+  value.to_int()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
 }

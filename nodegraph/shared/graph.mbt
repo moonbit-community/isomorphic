@@ -152,7 +152,7 @@ pub fn evaluate_graph(
       }
     }
   }
-  { node_outputs: outputs, errors, eval_order: order, has_cycle }
+  { node_outputs: outputs, errors, eval_order: order, has_cycle, }
 }
 
 ///|
@@ -267,7 +267,7 @@ fn evaluate_node(
         Err(e) => Err(e)
       }
     ConstNumber => {
-      let v = @strconv.parse_int(config) catch { _ => 0 }
+      let v = @string.parse_int(config) catch { _ => 0 }
       Ok([VNumber(v)])
     }
     ConstString => Ok([VString(config)])

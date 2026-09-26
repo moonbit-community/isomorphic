@@ -64,11 +64,11 @@ pub fn Model::update(
   dispatch~ : @rabbita.Dispatch[Msg],
 ) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => ({ ..self, loading: true }, fetch_graphs(dispatch))
+    Init => ({ ..self, loading: true, }, fetch_graphs(dispatch))
     // ── Navigation ────────────────────────────────────────────────
     GoToList =>
       (
-        { ..self, page: GraphList, connecting_from_node: 0, editing_node: 0 },
+        { ..self, page: GraphList, connecting_from_node: 0, editing_node: 0, },
         fetch_graphs(dispatch),
       )
     GoToEditor(id) =>
@@ -98,13 +98,13 @@ pub fn Model::update(
           fetch_graph(dispatch, graphs[0].id),
         )
       } else {
-        ({ ..self, graphs, loading: false, first_load: false }, @rabbita.none)
+        ({ ..self, graphs, loading: false, first_load: false, }, @rabbita.none)
       }
-    GotGraphs(Err(e)) => ({ ..self, error: e, loading: false }, @rabbita.none)
-    SetGraphName(v) => ({ ..self, new_graph_name: v }, @rabbita.none)
+    GotGraphs(Err(e)) => ({ ..self, error: e, loading: false, }, @rabbita.none)
+    SetGraphName(v) => ({ ..self, new_graph_name: v, }, @rabbita.none)
     CreateGraph => {
       if !@shared.validate_graph_name(self.new_graph_name) {
-        return ({ ..self, error: "Name required" }, @rabbita.none)
+        return ({ ..self, error: "Name required", }, @rabbita.none)
       }
       let cmd = @http.post(
         api(@shared.api_graphs),
@@ -115,14 +115,14 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, error: "" }, cmd)
+      ({ ..self, error: "", }, cmd)
     }
     GraphCreated(Ok(g)) => {
       let graphs = self.graphs.copy()
       graphs.push(g)
-      ({ ..self, graphs, new_graph_name: "" }, @rabbita.none)
+      ({ ..self, graphs, new_graph_name: "", }, @rabbita.none)
     }
-    GraphCreated(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+    GraphCreated(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     DeleteGraph(id) => {
       let cmd = @http.delete(
         api(@shared.api_graph(id)),
@@ -145,11 +145,11 @@ pub fn Model::update(
       }
       (m, auto_eval_cmd(m, dispatch))
     }
-    GotGraph(Err(e)) => ({ ..self, error: e, loading: false }, @rabbita.none)
+    GotGraph(Err(e)) => ({ ..self, error: e, loading: false, }, @rabbita.none)
     // ── Node ops ──────────────────────────────────────────────────
     TogglePalette =>
-      ({ ..self, show_palette: !self.show_palette }, @rabbita.none)
-    SetPaletteCat(c) => ({ ..self, palette_cat: c }, @rabbita.none)
+      ({ ..self, show_palette: !self.show_palette, }, @rabbita.none)
+    SetPaletteCat(c) => ({ ..self, palette_cat: c, }, @rabbita.none)
     AddNode(kind) => {
       let label = @shared.node_label(kind)
       let config = match kind {
@@ -172,7 +172,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, show_palette: false, error: "" }, cmd)
+      ({ ..self, show_palette: false, error: "", }, cmd)
     }
     NodeAdded(Ok(node)) => {
       let nodes = self.nodes.copy()
@@ -180,7 +180,7 @@ pub fn Model::update(
       let m = { ..self, nodes, }
       (m, auto_eval_cmd(m, dispatch))
     }
-    NodeAdded(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+    NodeAdded(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     DeleteNode(id) => {
       let cmd = @http.delete(
         api(@shared.api_graph_node(self.current_graph_id, id)),
@@ -193,7 +193,7 @@ pub fn Model::update(
       let connections = self.connections.filter(fn(c) {
         c.from_node_id != id && c.to_node_id != id
       })
-      let m = { ..self, nodes, connections, connecting_from_node: 0 }
+      let m = { ..self, nodes, connections, connecting_from_node: 0, }
       (m, auto_eval_cmd(m, dispatch))
     }
     NodeDeleted(Err(_)) => (self, @rabbita.none)
@@ -226,7 +226,7 @@ pub fn Model::update(
       let new_y = client_y - self.drag_offset_y
       let nodes = self.nodes.map(fn(n) {
         if n.id == self.dragging_node {
-          { ..n, x: new_x, y: new_y }
+          { ..n, x: new_x, y: new_y, }
         } else {
           n
         }
@@ -235,7 +235,7 @@ pub fn Model::update(
     }
     EndDrag => {
       if self.dragging_node == 0 {
-        return ({ ..self, dragging_node: 0 }, @rabbita.none)
+        return ({ ..self, dragging_node: 0, }, @rabbita.none)
       }
       // Save position to backend
       let node_id = self.dragging_node
@@ -259,15 +259,15 @@ pub fn Model::update(
           fn(json) { Ok(json) },
         ),
       )
-      ({ ..self, dragging_node: 0 }, cmd)
+      ({ ..self, dragging_node: 0, }, cmd)
     }
     NodePositionSaved(_) => (self, @rabbita.none)
     // ── Config editing ────────────────────────────────────────────
     StartEditConfig(node_id, current) =>
-      ({ ..self, editing_node: node_id, config_value: current }, @rabbita.none)
-    SetConfigValue(v) => ({ ..self, config_value: v }, @rabbita.none)
+      ({ ..self, editing_node: node_id, config_value: current, }, @rabbita.none)
+    SetConfigValue(v) => ({ ..self, config_value: v, }, @rabbita.none)
     CancelEditConfig =>
-      ({ ..self, editing_node: 0, config_value: "" }, @rabbita.none)
+      ({ ..self, editing_node: 0, config_value: "", }, @rabbita.none)
     SaveConfig => {
       if self.editing_node == 0 {
         return (self, @rabbita.none)
@@ -286,12 +286,12 @@ pub fn Model::update(
       // Optimistic update
       let nodes = self.nodes.map(fn(n) {
         if n.id == self.editing_node {
-          { ..n, config: self.config_value, label: self.config_value }
+          { ..n, config: self.config_value, label: self.config_value, }
         } else {
           n
         }
       })
-      let m = { ..self, nodes, editing_node: 0, config_value: "" }
+      let m = { ..self, nodes, editing_node: 0, config_value: "", }
       (m, @rabbita.batch([cmd, auto_eval_cmd(m, dispatch)]))
     }
     ConfigSaved(_) => (self, @rabbita.none)
@@ -358,7 +358,7 @@ pub fn Model::update(
         // Delta from start client position → canvas position
         let wx = self.wire_origin_x + (client_x - self.wire_start_cx)
         let wy = self.wire_origin_y + (client_y - self.wire_start_cy)
-        ({ ..self, wire_mouse_x: wx, wire_mouse_y: wy }, @rabbita.none)
+        ({ ..self, wire_mouse_x: wx, wire_mouse_y: wy, }, @rabbita.none)
       }
     CancelConnect =>
       (
@@ -408,7 +408,7 @@ pub fn Model::update(
         }),
       )
       (
-        { ..self, connecting_from_node: 0, connecting_from_port: 0, error: "" },
+        { ..self, connecting_from_node: 0, connecting_from_port: 0, error: "", },
         cmd,
       )
     }
@@ -418,7 +418,7 @@ pub fn Model::update(
       let m = { ..self, connections, }
       (m, auto_eval_cmd(m, dispatch))
     }
-    ConnectionAdded(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+    ConnectionAdded(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     DeleteConnection(id) => {
       let cmd = @http.delete(
         api(@shared.api_graph_connection(self.current_graph_id, id)),
@@ -435,12 +435,12 @@ pub fn Model::update(
     // ── Evaluation ────────────────────────────────────────────────
     Evaluate => (self, do_evaluate(dispatch, self.current_graph_id))
     GotEvalResult(Ok(result)) =>
-      ({ ..self, eval_result: Some(result) }, @rabbita.none)
-    GotEvalResult(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+      ({ ..self, eval_result: Some(result), }, @rabbita.none)
+    GotEvalResult(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     ToggleAutoEval => {
-      let m = { ..self, auto_eval: !self.auto_eval }
+      let m = { ..self, auto_eval: !self.auto_eval, }
       (m, if m.auto_eval { auto_eval_cmd(m, dispatch) } else { @rabbita.none })
     }
-    ClearError => ({ ..self, error: "" }, @rabbita.none)
+    ClearError => ({ ..self, error: "", }, @rabbita.none)
   }
 }

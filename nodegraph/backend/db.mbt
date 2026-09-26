@@ -3,9 +3,9 @@
 ///
 /// Creates three tables:
 /// - `graphs`: top-level graph entities with an auto-increment ID and a name
-///   stored as BLOB for UTF-8 safety.
+///   (the BLOB column declaration is kept so existing databases stay readable).
 /// - `nodes`: individual nodes belonging to a graph, with kind, position (x, y),
-///   display label, and a config string (all text columns stored as BLOB).
+///   display label, and a config string (all text columns declared as BLOB).
 /// - `connections`: directed edges between node ports, with a UNIQUE constraint
 ///   on `(to_node_id, to_port)` to enforce the single-connection-per-input-port
 ///   invariant at the database level.
@@ -20,7 +20,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  s1.step_once()
+  s1.step() |> ignore
   s1.finalize()
   let s2 = conn.prepare(
     (
@@ -35,7 +35,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  s2.step_once()
+  s2.step() |> ignore
   s2.finalize()
   let s3 = conn.prepare(
     (
@@ -50,7 +50,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  s3.step_once()
+  s3.step() |> ignore
   s3.finalize()
 }
 
@@ -70,7 +70,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 fn seed_demo(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let check = conn.prepare("SELECT COUNT(*) FROM graphs")
   guard check.step()
-  let count : Int = check.column(index=0)
+  let count = column_int(check, 0)
   check.finalize()
   if count > 0 {
     return
@@ -155,8 +155,8 @@ fn seed_graph(
   name : String,
 ) -> Unit raise @sqlite3.SqliteError {
   let g = conn.prepare("INSERT INTO graphs (name) VALUES (?)")
-  g.bind_string_as_blob(index=1, val=name)
-  g.step_once()
+  g.bind(index=1, name)
+  g.step() |> ignore
   g.finalize()
 }
 
@@ -166,14 +166,14 @@ fn seed_graph(
 fn last_id(conn : @sqlite3.Connection) -> Int raise @sqlite3.SqliteError {
   let s = conn.prepare("SELECT last_insert_rowid()")
   guard s.step()
-  let id : Int = s.column(index=0)
+  let id = column_int(s, 0)
   s.finalize()
   id
 }
 
 ///|
 /// Insert a new node row into the database. Text fields (`kind`, `label`,
-/// `config`) are bound as blobs for UTF-8 safety. The auto-generated node ID
+/// `config`) are bound as UTF-8 strings. The auto-generated node ID
 /// can be retrieved via `last_id` immediately after this call.
 fn insert_node(
   conn : @sqlite3.Connection,
@@ -187,13 +187,13 @@ fn insert_node(
   let s = conn.prepare(
     "INSERT INTO nodes (graph_id, kind, x, y, label, config) VALUES (?, ?, ?, ?, ?, ?)",
   )
-  s.bind(index=1, val=graph_id)
-  s.bind_string_as_blob(index=2, val=kind)
-  s.bind(index=3, val=x)
-  s.bind(index=4, val=y)
-  s.bind_string_as_blob(index=5, val=label)
-  s.bind_string_as_blob(index=6, val=config)
-  s.step_once()
+  s.bind(index=1, graph_id)
+  s.bind(index=2, kind)
+  s.bind(index=3, x)
+  s.bind(index=4, y)
+  s.bind(index=5, label)
+  s.bind(index=6, config)
+  s.step() |> ignore
   s.finalize()
 }
 
@@ -213,12 +213,12 @@ fn insert_conn(
   let s = conn.prepare(
     "INSERT INTO connections (graph_id, from_node_id, from_port, to_node_id, to_port) VALUES (?, ?, ?, ?, ?)",
   )
-  s.bind(index=1, val=graph_id)
-  s.bind(index=2, val=from_node)
-  s.bind(index=3, val=from_port)
-  s.bind(index=4, val=to_node)
-  s.bind(index=5, val=to_port)
-  s.step_once()
+  s.bind(index=1, graph_id)
+  s.bind(index=2, from_node)
+  s.bind(index=3, from_port)
+  s.bind(index=4, to_node)
+  s.bind(index=5, to_port)
+  s.step() |> ignore
   s.finalize()
 }
 
@@ -227,27 +227,31 @@ fn insert_conn(
 ///|
 /// Deserialize a `Node` from the current row of a prepared statement.
 /// Expects columns in order: id, kind, x, y, label, config. Text columns
-/// are read via `column_blob_as_string` for UTF-8 safety.
-fn read_node(stmt : @sqlite3.Statement) -> @shared.Node {
-  let id : Int = stmt.column(index=0)
-  let kind = @shared.kind_from_string(stmt.column_blob_as_string(index=1))
-  let x : Int = stmt.column(index=2)
-  let y : Int = stmt.column(index=3)
-  let label : String = stmt.column_blob_as_string(index=4)
-  let config : String = stmt.column_blob_as_string(index=5)
-  { id, kind, x, y, label, config }
+/// are read as UTF-8 strings (legacy BLOB values are still readable).
+fn read_node(
+  stmt : @sqlite3.Statement,
+) -> @shared.Node raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let kind = @shared.kind_from_string(stmt.column(index=1))
+  let x = column_int(stmt, 2)
+  let y = column_int(stmt, 3)
+  let label : String = stmt.column(index=4)
+  let config : String = stmt.column(index=5)
+  { id, kind, x, y, label, config, }
 }
 
 ///|
 /// Deserialize a `Connection` from the current row of a prepared statement.
 /// Expects columns in order: id, from_node_id, from_port, to_node_id, to_port.
-fn read_connection(stmt : @sqlite3.Statement) -> @shared.Connection {
-  let id : Int = stmt.column(index=0)
-  let from_node_id : Int = stmt.column(index=1)
-  let from_port : Int = stmt.column(index=2)
-  let to_node_id : Int = stmt.column(index=3)
-  let to_port : Int = stmt.column(index=4)
-  { id, from_node_id, from_port, to_node_id, to_port }
+fn read_connection(
+  stmt : @sqlite3.Statement,
+) -> @shared.Connection raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let from_node_id = column_int(stmt, 1)
+  let from_port = column_int(stmt, 2)
+  let to_node_id = column_int(stmt, 3)
+  let to_port = column_int(stmt, 4)
+  { id, from_node_id, from_port, to_node_id, to_port, }
 }
 
 ///|
@@ -259,9 +263,9 @@ fn get_all_graphs(
   let s = conn.prepare("SELECT id, name FROM graphs ORDER BY id")
   let result : Array[@shared.SavedGraph] = []
   while s.step() {
-    let id : Int = s.column(index=0)
-    let name : String = s.column_blob_as_string(index=1)
-    result.push({ id, name })
+    let id = column_int(s, 0)
+    let name : String = s.column(index=1)
+    result.push({ id, name, })
   }
   s.finalize()
   result
@@ -278,7 +282,7 @@ fn get_graph(
   let s1 = conn.prepare(
     "SELECT id, kind, x, y, label, config FROM nodes WHERE graph_id = ? ORDER BY id",
   )
-  s1.bind(index=1, val=graph_id)
+  s1.bind(index=1, graph_id)
   let nodes : Array[@shared.Node] = []
   while s1.step() {
     nodes.push(read_node(s1))
@@ -287,13 +291,13 @@ fn get_graph(
   let s2 = conn.prepare(
     "SELECT id, from_node_id, from_port, to_node_id, to_port FROM connections WHERE graph_id = ? ORDER BY id",
   )
-  s2.bind(index=1, val=graph_id)
+  s2.bind(index=1, graph_id)
   let connections : Array[@shared.Connection] = []
   while s2.step() {
     connections.push(read_connection(s2))
   }
   s2.finalize()
-  { nodes, connections }
+  { nodes, connections, }
 }
 
 ///|
@@ -304,11 +308,11 @@ fn create_graph(
   name : String,
 ) -> @shared.SavedGraph raise @sqlite3.SqliteError {
   let s = conn.prepare("INSERT INTO graphs (name) VALUES (?)")
-  s.bind_string_as_blob(index=1, val=name)
-  s.step_once()
+  s.bind(index=1, name)
+  s.step() |> ignore
   s.finalize()
   let id = last_id(conn)
-  { id, name }
+  { id, name, }
 }
 
 ///|
@@ -322,16 +326,16 @@ fn delete_graph(
 ) -> Unit raise @sqlite3.SqliteError {
   // Cascade: delete connections, nodes, then graph
   let s1 = conn.prepare("DELETE FROM connections WHERE graph_id = ?")
-  s1.bind(index=1, val=id)
-  s1.step_once()
+  s1.bind(index=1, id)
+  s1.step() |> ignore
   s1.finalize()
   let s2 = conn.prepare("DELETE FROM nodes WHERE graph_id = ?")
-  s2.bind(index=1, val=id)
-  s2.step_once()
+  s2.bind(index=1, id)
+  s2.step() |> ignore
   s2.finalize()
   let s3 = conn.prepare("DELETE FROM graphs WHERE id = ?")
-  s3.bind(index=1, val=id)
-  s3.step_once()
+  s3.bind(index=1, id)
+  s3.step() |> ignore
   s3.finalize()
 }
 
@@ -348,7 +352,7 @@ fn create_node_in_graph(
 ) -> @shared.Node raise @sqlite3.SqliteError {
   insert_node(conn, graph_id, kind, 0, 0, label, config)
   let id = last_id(conn)
-  { id, kind: @shared.kind_from_string(kind), x: 0, y: 0, label, config }
+  { id, kind: @shared.kind_from_string(kind), x: 0, y: 0, label, config, }
 }
 
 ///|
@@ -361,10 +365,10 @@ fn update_node_position(
   y : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let s = conn.prepare("UPDATE nodes SET x = ?, y = ? WHERE id = ?")
-  s.bind(index=1, val=x)
-  s.bind(index=2, val=y)
-  s.bind(index=3, val=node_id)
-  s.step_once()
+  s.bind(index=1, x)
+  s.bind(index=2, y)
+  s.bind(index=3, node_id)
+  s.step() |> ignore
   s.finalize()
 }
 
@@ -379,10 +383,10 @@ fn update_node_config(
   label : String,
 ) -> Unit raise @sqlite3.SqliteError {
   let s = conn.prepare("UPDATE nodes SET config = ?, label = ? WHERE id = ?")
-  s.bind_string_as_blob(index=1, val=config)
-  s.bind_string_as_blob(index=2, val=label)
-  s.bind(index=3, val=node_id)
-  s.step_once()
+  s.bind(index=1, config)
+  s.bind(index=2, label)
+  s.bind(index=3, node_id)
+  s.step() |> ignore
   s.finalize()
 }
 
@@ -397,13 +401,13 @@ fn delete_node(
   let s1 = conn.prepare(
     "DELETE FROM connections WHERE from_node_id = ? OR to_node_id = ?",
   )
-  s1.bind(index=1, val=node_id)
-  s1.bind(index=2, val=node_id)
-  s1.step_once()
+  s1.bind(index=1, node_id)
+  s1.bind(index=2, node_id)
+  s1.step() |> ignore
   s1.finalize()
   let s2 = conn.prepare("DELETE FROM nodes WHERE id = ?")
-  s2.bind(index=1, val=node_id)
-  s2.step_once()
+  s2.bind(index=1, node_id)
+  s2.step() |> ignore
   s2.finalize()
 }
 
@@ -424,15 +428,15 @@ fn create_connection(
   let s = conn.prepare(
     "INSERT INTO connections (graph_id, from_node_id, from_port, to_node_id, to_port) VALUES (?, ?, ?, ?, ?)",
   )
-  s.bind(index=1, val=graph_id)
-  s.bind(index=2, val=from_node_id)
-  s.bind(index=3, val=from_port)
-  s.bind(index=4, val=to_node_id)
-  s.bind(index=5, val=to_port)
-  s.step_once()
+  s.bind(index=1, graph_id)
+  s.bind(index=2, from_node_id)
+  s.bind(index=3, from_port)
+  s.bind(index=4, to_node_id)
+  s.bind(index=5, to_port)
+  s.step() |> ignore
   s.finalize()
   let id = last_id(conn)
-  { id, from_node_id, from_port, to_node_id, to_port }
+  { id, from_node_id, from_port, to_node_id, to_port, }
 }
 
 ///|
@@ -442,7 +446,27 @@ fn delete_connection(
   conn_id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let s = conn.prepare("DELETE FROM connections WHERE id = ?")
-  s.bind(index=1, val=conn_id)
-  s.step_once()
+  s.bind(index=1, conn_id)
+  s.step() |> ignore
   s.finalize()
+}
+
+///|
+/// Read an INTEGER column as `Int`; the binding only exposes `Int64`.
+fn column_int(
+  stmt : @sqlite3.Statement,
+  index : Int,
+) -> Int raise @sqlite3.SqliteError {
+  let value : Int64 = stmt.column(index~)
+  value.to_int()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
 }

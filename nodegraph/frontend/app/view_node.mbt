@@ -5,8 +5,8 @@ fn Model::view_nodes(
 ) -> @rabbita.Html {
   if self.nodes.is_empty() {
     return @html.div(
-        style=["text-align: center", "color: #555", "padding: 40px"],
-      ) <| "No nodes yet. Open the palette to add some!"
+      style=["text-align: center", "color: #555", "padding: 40px"],
+    ) <| "No nodes yet. Open the palette to add some!"
   }
   // Use auto-layout for nodes that haven't been positioned (x=0, y=0)
   let auto = compute_layout(self.nodes, self.connections)
