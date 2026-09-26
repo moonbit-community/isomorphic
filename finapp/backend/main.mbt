@@ -3,7 +3,7 @@
 /// the schema and seed data, then registers route handlers for the REST API
 /// (accounts, categories, transactions, budgets, dashboard) and starts serving
 /// on the configured port (default 4007).
-fn main raise {
+async fn main {
   guard @argparse.parse(
       Command("finapp-server", about="Personal Finance Tracker backend", options=[
         OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
@@ -15,17 +15,34 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
-  let conn = @sqlite3.Connection::open("finapp.db")
+  let port = @string.parse_int(port) catch {
+    _ => {
+      println("Invalid port: \{port}")
+      return
+    }
+  }
+  let conn = @sqlite3.Connection::open("finapp.db") catch {
+    e => {
+      println("Failed to open finapp.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: finapp.db")
-  // Enable foreign key enforcement
-  let fk = conn.prepare("PRAGMA foreign_keys = ON")
-  fk.step_once()
-  fk.finalize()
-  init_db(conn)
-  seed_categories(conn)
+  try {
+    // Enable foreign key enforcement
+    let fk = conn.prepare("PRAGMA foreign_keys = ON")
+    fk.step() |> ignore
+    fk.finalize()
+    init_db(conn)
+    seed_categories(conn)
+  } catch {
+    e => {
+      println("Failed to initialize database: \{error_text(e)}")
+      return
+    }
+  }
   println("Database initialized with seed categories")
-  let app = @mocket.new()
+  let app = @mocket.App()
   app
   ..use_middleware(@cors.handle_cors())
   // ── HTML shell ──────────────────────────────────────────────────
@@ -47,31 +64,31 @@ fn main raise {
       #|  <script src="/frontend.js"></script>
       #|</body>
       #|</html>
-    @mocket.HttpResponse::new(
+    @mocket.HttpResponse(
       OK,
       headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
+      body=@utf8.encode(html),
     )
   })
   ..get("/frontend.js", _ => {
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
+      @mocket.HttpResponse(
         OK,
         headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
+        body=bytes,
       )
     } catch {
-      _ => @mocket.HttpResponse::new(NotFound).body("Not Found")
+      _ => @mocket.HttpResponse(NotFound).body("Not Found")
     }
   })
   // ── Accounts ────────────────────────────────────────────────────
   ..get(@shared.api_accounts, _ => {
     try {
       let accounts = get_all_accounts(conn)
-      @mocket.HttpResponse::new(OK).json(accounts)
+      @mocket.HttpResponse(OK).json(accounts)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   ..post(@shared.api_accounts, event => {
@@ -80,44 +97,44 @@ fn main raise {
       let (name, acct_type) = match json {
         { "name": String(n), "account_type": String(t), .. } => (n, t)
         _ =>
-          return @mocket.HttpResponse::new(BadRequest).body(
+          return @mocket.HttpResponse(BadRequest).body(
             "Missing name or account_type",
           )
       }
       if @shared.validate_account_name(name) is Some(err) {
-        return @mocket.HttpResponse::new(BadRequest).body(err)
+        return @mocket.HttpResponse(BadRequest).body(err)
       }
       let account = create_account(conn, name, acct_type)
-      @mocket.HttpResponse::new(Created).json(account)
+      @mocket.HttpResponse(Created).json(account)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
-  ..delete("\{@shared.api_accounts}/:id", fn(event) noraise {
+  ..delete("\{@shared.api_accounts}/:id", event => {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_account(conn, id)
-      @mocket.HttpResponse::new(NoContent)
+      @mocket.HttpResponse(NoContent)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   // ── Categories ──────────────────────────────────────────────────
   ..get(@shared.api_categories, _ => {
     try {
       let categories = get_all_categories(conn)
-      @mocket.HttpResponse::new(OK).json(categories)
+      @mocket.HttpResponse(OK).json(categories)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   // ── Transactions ────────────────────────────────────────────────
   ..get(@shared.api_transactions, _ => {
     try {
       let transactions = get_all_transactions(conn)
-      @mocket.HttpResponse::new(OK).json(transactions)
+      @mocket.HttpResponse(OK).json(transactions)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   ..post(@shared.api_transactions, event => {
@@ -134,36 +151,36 @@ fn main raise {
           "date": String(dt),
           ..
         } => (a.to_int(), c.to_int(), amt.to_int(), t, d, dt)
-        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
+        _ => return @mocket.HttpResponse(BadRequest).body("Missing fields")
       }
       if @shared.validate_transaction(amount, description, date) is Some(err) {
-        return @mocket.HttpResponse::new(BadRequest).body(err)
+        return @mocket.HttpResponse(BadRequest).body(err)
       }
       let txn = create_transaction(
         conn, account_id, category_id, amount, txn_type, description, date,
       )
-      @mocket.HttpResponse::new(Created).json(txn)
+      @mocket.HttpResponse(Created).json(txn)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
-  ..delete("\{@shared.api_transactions}/:id", fn(event) noraise {
+  ..delete("\{@shared.api_transactions}/:id", event => {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_transaction(conn, id)
-      @mocket.HttpResponse::new(NoContent)
+      @mocket.HttpResponse(NoContent)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   // ── Budgets ─────────────────────────────────────────────────────
-  ..get("\{@shared.api_budgets}/:month", fn(event) noraise {
+  ..get("\{@shared.api_budgets}/:month", event => {
     try {
       let month = event.params.get("month").unwrap().to_string()
       let budgets = get_budgets_for_month(conn, month)
-      @mocket.HttpResponse::new(OK).json(budgets)
+      @mocket.HttpResponse(OK).json(budgets)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   ..post(@shared.api_budgets, event => {
@@ -176,31 +193,31 @@ fn main raise {
           "month": String(m),
           ..
         } => (c.to_int(), a.to_int(), m)
-        _ => return @mocket.HttpResponse::new(BadRequest).body("Missing fields")
+        _ => return @mocket.HttpResponse(BadRequest).body("Missing fields")
       }
       let budget = upsert_budget(conn, category_id, amount_limit, month)
-      @mocket.HttpResponse::new(Created).json(budget)
+      @mocket.HttpResponse(Created).json(budget)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
-  ..delete("\{@shared.api_budgets}/:id", fn(event) noraise {
+  ..delete("\{@shared.api_budgets}/:id", event => {
     try {
-      let id = @strconv.parse_int(event.params.get("id").unwrap().to_string())
+      let id = @string.parse_int(event.params.get("id").unwrap().to_string())
       delete_budget(conn, id)
-      @mocket.HttpResponse::new(NoContent)
+      @mocket.HttpResponse(NoContent)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   // ── Dashboard ───────────────────────────────────────────────────
-  .get("\{@shared.api_dashboard}/:month", fn(event) noraise {
+  .get("\{@shared.api_dashboard}/:month", event => {
     try {
       let month = event.params.get("month").unwrap().to_string()
       let data = get_dashboard(conn, month)
-      @mocket.HttpResponse::new(OK).json(data)
+      @mocket.HttpResponse(OK).json(data)
     } catch {
-      e => @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+      e => @mocket.HttpResponse(InternalServerError).body(error_text(e))
     }
   })
   println("Server running at http://localhost:\{port}")

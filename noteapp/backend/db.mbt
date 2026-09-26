@@ -1,6 +1,7 @@
 ///|
 /// Create the `notes` table if it does not already exist. Title and content
-/// are stored as BLOB columns to preserve UTF-8 encoding.
+/// keep their original BLOB declaration so existing databases stay readable;
+/// values are bound and read as UTF-8 strings.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     (
@@ -12,13 +13,13 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt.step_once()
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
 ///|
 /// Retrieve all notes from the database, ordered by pinned status (descending)
-/// then by id (descending). Uses `column_blob_as_string` for UTF-8 safety.
+/// then by id (descending).
 fn get_all_notes(
   conn : @sqlite3.Connection,
 ) -> Array[@shared.Note] raise @sqlite3.SqliteError {
@@ -27,12 +28,12 @@ fn get_all_notes(
   )
   let notes : Array[@shared.Note] = []
   while stmt.step() {
-    let id : Int = stmt.column(index=0)
-    let title : String = stmt.column_blob_as_string(index=1)
-    let content : String = stmt.column_blob_as_string(index=2)
-    let pinned_int : Int = stmt.column(index=3)
+    let id = column_int(stmt, 0)
+    let title : String = stmt.column(index=1)
+    let content : String = stmt.column(index=2)
+    let pinned_int = column_int(stmt, 3)
     let pinned = pinned_int != 0
-    notes.push({ id, title, content, pinned })
+    notes.push({ id, title, content, pinned, })
   }
   stmt.finalize()
   notes
@@ -40,22 +41,22 @@ fn get_all_notes(
 
 ///|
 /// Insert a new note with the given title and content. Returns the created
-/// note with its auto-generated id. Uses `bind_string_as_blob` for UTF-8 safety.
+/// note with its auto-generated id.
 fn create_note(
   conn : @sqlite3.Connection,
   title : String,
   content : String,
 ) -> @shared.Note raise @sqlite3.SqliteError {
   let stmt = conn.prepare("INSERT INTO notes (title, content) VALUES (?, ?)")
-  stmt.bind_string_as_blob(index=1, val=title)
-  stmt.bind_string_as_blob(index=2, val=content)
-  stmt.step_once()
+  stmt.bind(index=1, title)
+  stmt.bind(index=2, content)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT last_insert_rowid()")
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
-  { id, title, content, pinned: false }
+  { id, title, content, pinned: false, }
 }
 
 ///|
@@ -68,20 +69,20 @@ fn toggle_pin(
   let stmt = conn.prepare(
     "UPDATE notes SET pinned = CASE WHEN pinned = 0 THEN 1 ELSE 0 END WHERE id = ?",
   )
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare(
     "SELECT id, title, content, pinned FROM notes WHERE id = ?",
   )
-  stmt2.bind(index=1, val=id)
+  stmt2.bind(index=1, id)
   guard stmt2.step()
-  let note_id : Int = stmt2.column(index=0)
-  let title : String = stmt2.column_blob_as_string(index=1)
-  let content : String = stmt2.column_blob_as_string(index=2)
-  let pinned_int : Int = stmt2.column(index=3)
+  let note_id = column_int(stmt2, 0)
+  let title : String = stmt2.column(index=1)
+  let content : String = stmt2.column(index=2)
+  let pinned_int = column_int(stmt2, 3)
   stmt2.finalize()
-  { id: note_id, title, content, pinned: pinned_int != 0 }
+  { id: note_id, title, content, pinned: pinned_int != 0, }
 }
 
 ///|
@@ -91,7 +92,27 @@ fn delete_note(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM notes WHERE id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
+}
+
+///|
+/// Read an INTEGER column as `Int`; the binding only exposes `Int64`.
+fn column_int(
+  stmt : @sqlite3.Statement,
+  index : Int,
+) -> Int raise @sqlite3.SqliteError {
+  let value : Int64 = stmt.column(index~)
+  value.to_int()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
 }

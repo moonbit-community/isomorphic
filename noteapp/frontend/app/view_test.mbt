@@ -39,7 +39,7 @@ test "view shows empty state with new note form" {
 
 ///|
 test "view renders notes list" {
-  let model = { ..empty_model(), notes: sample_notes() }
+  let model = { ..empty_model(), notes: sample_notes(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -52,7 +52,7 @@ test "view renders notes list" {
 
 ///|
 test "view shows note detail when selected" {
-  let model = { ..empty_model(), notes: sample_notes(), selected_note_id: 1 }
+  let model = { ..empty_model(), notes: sample_notes(), selected_note_id: 1, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -63,7 +63,7 @@ test "view shows note detail when selected" {
 
 ///|
 test "view shows pinned badge in detail view" {
-  let model = { ..empty_model(), notes: sample_notes(), selected_note_id: 2 }
+  let model = { ..empty_model(), notes: sample_notes(), selected_note_id: 2, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -95,7 +95,7 @@ test "form preserves title and content input values" {
 test "pinned note shows pin indicator in list" {
   let model = {
     ..empty_model(),
-    notes: [{ id: 1, title: "Pinned", content: "Content", pinned: true }],
+    notes: [{ id: 1, title: "Pinned", content: "Content", pinned: true, }],
   }
   inspect(
     render(model.view(noop_dispatch)),
@@ -109,7 +109,7 @@ test "pinned note shows pin indicator in list" {
 test "unpinned note has no pin indicator" {
   let model = {
     ..empty_model(),
-    notes: [{ id: 1, title: "Regular", content: "Content", pinned: false }],
+    notes: [{ id: 1, title: "Regular", content: "Content", pinned: false, }],
   }
   inspect(
     render(model.view(noop_dispatch)),

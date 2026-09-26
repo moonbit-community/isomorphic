@@ -85,7 +85,7 @@ fn fetch_all(dispatch : @rabbita.Dispatch[Msg], month : String) -> @rabbita.Cmd 
 ///|
 /// Parse a string as an integer, returning the default value on failure.
 fn parse_int_or(s : String, default : Int) -> Int {
-  @strconv.parse_int(s) catch {
+  @string.parse_int(s) catch {
     _ => default
   }
 }
@@ -99,7 +99,8 @@ pub fn Model::update(
   dispatch~ : @rabbita.Dispatch[Msg],
 ) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => ({ ..self, loading: true }, fetch_all(dispatch, self.current_month))
+    Init =>
+      ({ ..self, loading: true, }, fetch_all(dispatch, self.current_month))
     GoTo(page) => {
       let cmd = match page {
         Dashboard => fetch_dashboard(dispatch, self.current_month)
@@ -107,50 +108,51 @@ pub fn Model::update(
         Accounts => fetch_accounts(dispatch)
         Budgets => fetch_budgets(dispatch, self.current_month)
       }
-      ({ ..self, page, show_form: false, error: "" }, cmd)
+      ({ ..self, page, show_form: false, error: "", }, cmd)
     }
     // ── Data loaded ───────────────────────────────────────────────
     GotDashboard(Ok(data)) =>
-      ({ ..self, dashboard: Some(data), loading: false }, @rabbita.none)
+      ({ ..self, dashboard: Some(data), loading: false, }, @rabbita.none)
     GotDashboard(Err(e)) =>
-      ({ ..self, error: e, loading: false }, @rabbita.none)
+      ({ ..self, error: e, loading: false, }, @rabbita.none)
     GotAccounts(Ok(accounts)) =>
-      ({ ..self, accounts, loading: false }, @rabbita.none)
-    GotAccounts(Err(e)) => ({ ..self, error: e, loading: false }, @rabbita.none)
+      ({ ..self, accounts, loading: false, }, @rabbita.none)
+    GotAccounts(Err(e)) =>
+      ({ ..self, error: e, loading: false, }, @rabbita.none)
     GotTransactions(Ok(transactions)) =>
-      ({ ..self, transactions, loading: false }, @rabbita.none)
+      ({ ..self, transactions, loading: false, }, @rabbita.none)
     GotTransactions(Err(e)) =>
-      ({ ..self, error: e, loading: false }, @rabbita.none)
+      ({ ..self, error: e, loading: false, }, @rabbita.none)
     GotCategories(Ok(categories)) =>
-      ({ ..self, categories, loading: false }, @rabbita.none)
-    GotCategories(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+      ({ ..self, categories, loading: false, }, @rabbita.none)
+    GotCategories(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
     GotBudgets(Ok(budgets)) =>
-      ({ ..self, budgets, loading: false }, @rabbita.none)
-    GotBudgets(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+      ({ ..self, budgets, loading: false, }, @rabbita.none)
+    GotBudgets(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
     // ── Transaction form ──────────────────────────────────────────
-    SetFormAmount(v) => ({ ..self, form_amount: v }, @rabbita.none)
-    SetFormDesc(v) => ({ ..self, form_desc: v }, @rabbita.none)
-    SetFormDate(v) => ({ ..self, form_date: v }, @rabbita.none)
+    SetFormAmount(v) => ({ ..self, form_amount: v, }, @rabbita.none)
+    SetFormDesc(v) => ({ ..self, form_desc: v, }, @rabbita.none)
+    SetFormDate(v) => ({ ..self, form_date: v, }, @rabbita.none)
     SetFormAccountId(v) =>
-      ({ ..self, form_account_id: parse_int_or(v, 0) }, @rabbita.none)
+      ({ ..self, form_account_id: parse_int_or(v, 0), }, @rabbita.none)
     SetFormCategoryId(v) =>
-      ({ ..self, form_category_id: parse_int_or(v, 0) }, @rabbita.none)
+      ({ ..self, form_category_id: parse_int_or(v, 0), }, @rabbita.none)
     SetFormType(v) =>
       (
-        { ..self, form_type: @shared.TransactionType::from_string(v) },
+        { ..self, form_type: @shared.TransactionType::from_string(v), },
         @rabbita.none,
       )
     SubmitTransaction => {
       let amount = @shared.parse_amount(self.form_amount)
       if @shared.validate_transaction(amount, self.form_desc, self.form_date)
         is Some(err) {
-        return ({ ..self, error: err }, @rabbita.none)
+        return ({ ..self, error: err, }, @rabbita.none)
       }
       if self.form_account_id == 0 {
-        return ({ ..self, error: "Select an account" }, @rabbita.none)
+        return ({ ..self, error: "Select an account", }, @rabbita.none)
       }
       if self.form_category_id == 0 {
-        return ({ ..self, error: "Select a category" }, @rabbita.none)
+        return ({ ..self, error: "Select a category", }, @rabbita.none)
       }
       let cmd = @http.post(
         @shared.api_transactions,
@@ -170,7 +172,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, error: "" }, cmd)
+      ({ ..self, error: "", }, cmd)
     }
     TransactionCreated(Ok(txn)) => {
       let transactions = self.transactions.copy()
@@ -186,7 +188,7 @@ pub fn Model::update(
         fetch_dashboard(dispatch, self.current_month),
       )
     }
-    TransactionCreated(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+    TransactionCreated(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     DeleteTransaction(id) => {
       let cmd = @http.delete(
         @shared.api_transaction(id),
@@ -202,15 +204,15 @@ pub fn Model::update(
     }
     TransactionDeleted(Err(_)) => (self, @rabbita.none)
     // ── Account form ──────────────────────────────────────────────
-    SetAcctName(v) => ({ ..self, acct_name: v }, @rabbita.none)
+    SetAcctName(v) => ({ ..self, acct_name: v, }, @rabbita.none)
     SetAcctType(v) =>
       (
-        { ..self, acct_type: @shared.AccountType::from_string(v) },
+        { ..self, acct_type: @shared.AccountType::from_string(v), },
         @rabbita.none,
       )
     SubmitAccount => {
       if @shared.validate_account_name(self.acct_name) is Some(err) {
-        return ({ ..self, error: err }, @rabbita.none)
+        return ({ ..self, error: err, }, @rabbita.none)
       }
       let cmd = @http.post(
         @shared.api_accounts,
@@ -224,14 +226,14 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, error: "" }, cmd)
+      ({ ..self, error: "", }, cmd)
     }
     AccountCreated(Ok(account)) => {
       let accounts = self.accounts.copy()
       accounts.push(account)
-      ({ ..self, accounts, acct_name: "", show_form: false }, @rabbita.none)
+      ({ ..self, accounts, acct_name: "", show_form: false, }, @rabbita.none)
     }
-    AccountCreated(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+    AccountCreated(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     DeleteAccount(id) => {
       let cmd = @http.delete(
         @shared.api_account(id),
@@ -245,26 +247,26 @@ pub fn Model::update(
       let accounts = self.accounts.filter(fn(a) { a.id != id })
       let transactions = self.transactions.filter(fn(t) { t.account_id != id })
       (
-        { ..self, accounts, transactions },
+        { ..self, accounts, transactions, },
         fetch_dashboard(dispatch, self.current_month),
       )
     }
     AccountDeleted(Err(_)) => (self, @rabbita.none)
     // ── Budget form ───────────────────────────────────────────────
     SetBudgetCatId(v) =>
-      ({ ..self, budget_cat_id: parse_int_or(v, 0) }, @rabbita.none)
-    SetBudgetAmount(v) => ({ ..self, budget_amount: v }, @rabbita.none)
-    SetBudgetMonth(v) => ({ ..self, budget_month: v }, @rabbita.none)
+      ({ ..self, budget_cat_id: parse_int_or(v, 0), }, @rabbita.none)
+    SetBudgetAmount(v) => ({ ..self, budget_amount: v, }, @rabbita.none)
+    SetBudgetMonth(v) => ({ ..self, budget_month: v, }, @rabbita.none)
     SubmitBudget => {
       let amount = @shared.parse_amount(self.budget_amount)
       if amount <= 0 {
         return (
-          { ..self, error: "Budget amount must be positive" },
+          { ..self, error: "Budget amount must be positive", },
           @rabbita.none,
         )
       }
       if self.budget_cat_id == 0 {
-        return ({ ..self, error: "Select a category" }, @rabbita.none)
+        return ({ ..self, error: "Select a category", }, @rabbita.none)
       }
       let month = if !self.budget_month.is_empty() {
         self.budget_month
@@ -284,7 +286,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, error: "" }, cmd)
+      ({ ..self, error: "", }, cmd)
     }
     BudgetCreated(Ok(budget)) => {
       let budgets = self.budgets.filter(fn(b) {
@@ -292,11 +294,11 @@ pub fn Model::update(
       })
       budgets.push(budget)
       (
-        { ..self, budgets, budget_amount: "", show_form: false },
+        { ..self, budgets, budget_amount: "", show_form: false, },
         fetch_dashboard(dispatch, self.current_month),
       )
     }
-    BudgetCreated(Err(e)) => ({ ..self, error: e }, @rabbita.none)
+    BudgetCreated(Err(e)) => ({ ..self, error: e, }, @rabbita.none)
     DeleteBudget(id) => {
       let cmd = @http.delete(
         @shared.api_budget(id),
@@ -313,11 +315,11 @@ pub fn Model::update(
     BudgetDeleted(Err(_)) => (self, @rabbita.none)
     // ── Filters ───────────────────────────────────────────────────
     SetFilterAccount(v) =>
-      ({ ..self, filter_account: parse_int_or(v, 0) }, @rabbita.none)
-    SetFilterType(v) => ({ ..self, filter_type: v }, @rabbita.none)
+      ({ ..self, filter_account: parse_int_or(v, 0), }, @rabbita.none)
+    SetFilterType(v) => ({ ..self, filter_type: v, }, @rabbita.none)
     // ── UI ────────────────────────────────────────────────────────
     ToggleForm =>
-      ({ ..self, show_form: !self.show_form, error: "" }, @rabbita.none)
-    ClearError => ({ ..self, error: "" }, @rabbita.none)
+      ({ ..self, show_form: !self.show_form, error: "", }, @rabbita.none)
+    ClearError => ({ ..self, error: "", }, @rabbita.none)
   }
 }

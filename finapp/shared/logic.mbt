@@ -34,18 +34,18 @@ pub fn parse_amount(s : String) -> Int {
     (dollar_str, after_dot)
   }
   let dollars = if !dollar_str.is_empty() {
-    @strconv.parse_int(dollar_str) catch {
+    @string.parse_int(dollar_str) catch {
       _ => 0
     }
   } else {
     0
   }
   let cents = if after_dot.length() == 1 {
-    let v = @strconv.parse_int(after_dot) catch { _ => 0 }
+    let v = @string.parse_int(after_dot) catch { _ => 0 }
     v * 10
   } else if after_dot.length() >= 2 {
     let two = after_dot[0:2].to_string()
-    @strconv.parse_int(two) catch {
+    @string.parse_int(two) catch {
       _ => 0
     }
   } else {
@@ -88,7 +88,7 @@ pub fn monthly_totals(
   } nobreak {
     (income, expenses)
   }
-  { month, income, expenses }
+  { month, income, expenses, }
 }
 
 ///|

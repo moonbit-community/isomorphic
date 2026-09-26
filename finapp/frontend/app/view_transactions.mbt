@@ -205,10 +205,10 @@ fn Model::view_transaction_list(
   })
   if filtered.is_empty() {
     return @html.p(
-        style=[
-          "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
-        ],
-      ) <| "No transactions found."
+      style=[
+        "text-align: center", "color: #999", "padding: 20px", "font-style: italic",
+      ],
+    ) <| "No transactions found."
   }
   let rows : Array[@rabbita.Html] = filtered.map(fn(t) {
     let cat = find_category(self.categories, t.category_id)

@@ -1,17 +1,16 @@
 import {
   "bobzhang/noteapp/shared",
   "oboard/mocket",
+  "moonbitlang/async",
   "oboard/mocket/cors",
-  "myfreess/sqlite3",
+  "moonbit-community/sqlite3",
   "moonbitlang/core/argparse",
   "moonbitlang/core/json",
-  "moonbitlang/core/strconv",
+  "moonbitlang/core/string",
   "moonbitlang/core/encoding/utf8",
   "moonbitlang/x/fs",
 }
 
 supported_targets = "native"
 
-options(
-  is_main: true,
-)
+pkgtype(kind: "executable")

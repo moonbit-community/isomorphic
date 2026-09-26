@@ -1,7 +1,8 @@
 ///|
 /// Initialize the database schema, creating the accounts, categories, transactions,
-/// and budgets tables if they do not already exist. Text columns use BLOB storage
-/// for UTF-8 safety. The budgets table enforces a UNIQUE constraint on (category_id, month)
+/// and budgets tables if they do not already exist. Text columns keep their
+/// original BLOB declaration so existing databases stay readable; values are
+/// bound and read as UTF-8 strings. The budgets table enforces a UNIQUE constraint on (category_id, month)
 /// to support upsert semantics.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
@@ -13,7 +14,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt.step_once()
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare(
     (
@@ -26,7 +27,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt2.step_once()
+  stmt2.step() |> ignore
   stmt2.finalize()
   let stmt3 = conn.prepare(
     (
@@ -43,7 +44,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt3.step_once()
+  stmt3.step() |> ignore
   stmt3.finalize()
   let stmt4 = conn.prepare(
     (
@@ -57,7 +58,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt4.step_once()
+  stmt4.step() |> ignore
   stmt4.finalize()
 }
 
@@ -70,7 +71,7 @@ fn seed_categories(
 ) -> Unit raise @sqlite3.SqliteError {
   let check = conn.prepare("SELECT COUNT(*) FROM categories")
   guard check.step()
-  let count : Int = check.column(index=0)
+  let count = column_int(check, 0)
   check.finalize()
   if count > 0 {
     return
@@ -94,11 +95,11 @@ fn seed_categories(
     let s = conn.prepare(
       "INSERT INTO categories (name, icon, color, cat_type) VALUES (?, ?, ?, ?)",
     )
-    s.bind_string_as_blob(index=1, val=name)
-    s.bind_string_as_blob(index=2, val=icon)
-    s.bind_string_as_blob(index=3, val=color)
-    s.bind_string_as_blob(index=4, val=cat_type)
-    s.step_once()
+    s.bind(index=1, name)
+    s.bind(index=2, icon)
+    s.bind(index=3, color)
+    s.bind(index=4, cat_type)
+    s.step() |> ignore
     s.finalize()
   }
 }
@@ -108,13 +109,13 @@ fn seed_categories(
 ///|
 /// Extract an Account from the current row of a prepared statement.
 /// Expects columns in order: id, name (BLOB), account_type (BLOB).
-fn read_account(stmt : @sqlite3.Statement) -> @shared.Account {
-  let id : Int = stmt.column(index=0)
-  let name : String = stmt.column_blob_as_string(index=1)
-  let account_type = @shared.AccountType::from_string(
-    stmt.column_blob_as_string(index=2),
-  )
-  { id, name, account_type }
+fn read_account(
+  stmt : @sqlite3.Statement,
+) -> @shared.Account raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let name : String = stmt.column(index=1)
+  let account_type = @shared.AccountType::from_string(stmt.column(index=2))
+  { id, name, account_type, }
 }
 
 ///|
@@ -145,15 +146,15 @@ fn create_account(
   let stmt = conn.prepare(
     "INSERT INTO accounts (name, account_type) VALUES (?, ?)",
   )
-  stmt.bind_string_as_blob(index=1, val=name)
-  stmt.bind_string_as_blob(index=2, val=account_type)
-  stmt.step_once()
+  stmt.bind(index=1, name)
+  stmt.bind(index=2, account_type)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT last_insert_rowid()")
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
-  { id, name, account_type: @shared.AccountType::from_string(account_type) }
+  { id, name, account_type: @shared.AccountType::from_string(account_type), }
 }
 
 ///|
@@ -164,12 +165,12 @@ fn delete_account(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM transactions WHERE account_id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("DELETE FROM accounts WHERE id = ?")
-  stmt2.bind(index=1, val=id)
-  stmt2.step_once()
+  stmt2.bind(index=1, id)
+  stmt2.step() |> ignore
   stmt2.finalize()
 }
 
@@ -178,15 +179,15 @@ fn delete_account(
 ///|
 /// Extract a Category from the current row of a prepared statement.
 /// Expects columns in order: id, name (BLOB), icon (BLOB), color (BLOB), cat_type (BLOB).
-fn read_category(stmt : @sqlite3.Statement) -> @shared.Category {
-  let id : Int = stmt.column(index=0)
-  let name : String = stmt.column_blob_as_string(index=1)
-  let icon : String = stmt.column_blob_as_string(index=2)
-  let color : String = stmt.column_blob_as_string(index=3)
-  let cat_type = @shared.TransactionType::from_string(
-    stmt.column_blob_as_string(index=4),
-  )
-  { id, name, icon, color, cat_type }
+fn read_category(
+  stmt : @sqlite3.Statement,
+) -> @shared.Category raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let name : String = stmt.column(index=1)
+  let icon : String = stmt.column(index=2)
+  let color : String = stmt.column(index=3)
+  let cat_type = @shared.TransactionType::from_string(stmt.column(index=4))
+  { id, name, icon, color, cat_type, }
 }
 
 ///|
@@ -212,17 +213,17 @@ fn get_all_categories(
 /// Extract a Transaction from the current row of a prepared statement.
 /// Expects columns in order: id, account_id, category_id, amount, txn_type (BLOB),
 /// description (BLOB), date (BLOB).
-fn read_transaction(stmt : @sqlite3.Statement) -> @shared.Transaction {
-  let id : Int = stmt.column(index=0)
-  let account_id : Int = stmt.column(index=1)
-  let category_id : Int = stmt.column(index=2)
-  let amount : Int = stmt.column(index=3)
-  let txn_type = @shared.TransactionType::from_string(
-    stmt.column_blob_as_string(index=4),
-  )
-  let description : String = stmt.column_blob_as_string(index=5)
-  let date : String = stmt.column_blob_as_string(index=6)
-  { id, account_id, category_id, amount, txn_type, description, date }
+fn read_transaction(
+  stmt : @sqlite3.Statement,
+) -> @shared.Transaction raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let account_id = column_int(stmt, 1)
+  let category_id = column_int(stmt, 2)
+  let amount = column_int(stmt, 3)
+  let txn_type = @shared.TransactionType::from_string(stmt.column(index=4))
+  let description : String = stmt.column(index=5)
+  let date : String = stmt.column(index=6)
+  { id, account_id, category_id, amount, txn_type, description, date, }
 }
 
 ///|
@@ -258,17 +259,17 @@ fn create_transaction(
   let stmt = conn.prepare(
     "INSERT INTO transactions (account_id, category_id, amount, txn_type, description, date) VALUES (?, ?, ?, ?, ?, ?)",
   )
-  stmt.bind(index=1, val=account_id)
-  stmt.bind(index=2, val=category_id)
-  stmt.bind(index=3, val=amount)
-  stmt.bind_string_as_blob(index=4, val=txn_type)
-  stmt.bind_string_as_blob(index=5, val=description)
-  stmt.bind_string_as_blob(index=6, val=date)
-  stmt.step_once()
+  stmt.bind(index=1, account_id)
+  stmt.bind(index=2, category_id)
+  stmt.bind(index=3, amount)
+  stmt.bind(index=4, txn_type)
+  stmt.bind(index=5, description)
+  bind_blob_text(stmt, 6, date)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT last_insert_rowid()")
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
   {
     id,
@@ -288,8 +289,8 @@ fn delete_transaction(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM transactions WHERE id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
@@ -304,14 +305,14 @@ fn get_budgets_for_month(
   let stmt = conn.prepare(
     "SELECT id, category_id, amount_limit, month FROM budgets WHERE month = ? ORDER BY id",
   )
-  stmt.bind_string_as_blob(index=1, val=month)
+  bind_blob_text(stmt, 1, month)
   let result : Array[@shared.Budget] = []
   while stmt.step() {
-    let id : Int = stmt.column(index=0)
-    let category_id : Int = stmt.column(index=1)
-    let amount_limit : Int = stmt.column(index=2)
-    let m : String = stmt.column_blob_as_string(index=3)
-    result.push({ id, category_id, amount_limit, month: m })
+    let id = column_int(stmt, 0)
+    let category_id = column_int(stmt, 1)
+    let amount_limit = column_int(stmt, 2)
+    let m : String = stmt.column(index=3)
+    result.push({ id, category_id, amount_limit, month: m, })
   }
   stmt.finalize()
   result
@@ -331,21 +332,21 @@ fn upsert_budget(
   let stmt = conn.prepare(
     "INSERT INTO budgets (category_id, amount_limit, month) VALUES (?, ?, ?) ON CONFLICT(category_id, month) DO UPDATE SET amount_limit = excluded.amount_limit",
   )
-  stmt.bind(index=1, val=category_id)
-  stmt.bind(index=2, val=amount_limit)
-  stmt.bind_string_as_blob(index=3, val=month)
-  stmt.step_once()
+  stmt.bind(index=1, category_id)
+  stmt.bind(index=2, amount_limit)
+  bind_blob_text(stmt, 3, month)
+  stmt.step() |> ignore
   stmt.finalize()
   // Re-select to get the correct id (last_insert_rowid is unreliable after upsert)
   let stmt2 = conn.prepare(
     "SELECT id, category_id, amount_limit, month FROM budgets WHERE category_id = ? AND month = ?",
   )
-  stmt2.bind(index=1, val=category_id)
-  stmt2.bind_string_as_blob(index=2, val=month)
+  stmt2.bind(index=1, category_id)
+  bind_blob_text(stmt2, 2, month)
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
-  { id, category_id, amount_limit, month }
+  { id, category_id, amount_limit, month, }
 }
 
 ///|
@@ -355,8 +356,8 @@ fn delete_budget(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM budgets WHERE id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
@@ -377,7 +378,7 @@ fn get_dashboard(
   let budgets = get_budgets_for_month(conn, month)
   // Account balances
   let account_balances : Array[@shared.AccountBalance] = accounts.map(fn(a) {
-    { account: a, balance: @shared.compute_balance(transactions, a.id) }
+    { account: a, balance: @shared.compute_balance(transactions, a.id), }
   })
   // Monthly summary
   let month_summary = @shared.monthly_totals(transactions, month)
@@ -421,4 +422,38 @@ fn get_dashboard(
     recent_transactions: recent,
     category_totals,
   }
+}
+
+///|
+/// Read an INTEGER column as `Int`; the binding only exposes `Int64`.
+fn column_int(
+  stmt : @sqlite3.Statement,
+  index : Int,
+) -> Int raise @sqlite3.SqliteError {
+  let value : Int64 = stmt.column(index~)
+  value.to_int()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
+}
+
+///|
+/// Bind a string as UTF-8 `BLOB`, the storage class these columns have always
+/// used. Needed for `transactions.date` and `budgets.month`, which SQL compares
+/// (`WHERE month = ?`, `UNIQUE(category_id, month)`, `ORDER BY date`): SQLite
+/// never treats `TEXT` and `BLOB` values as equal, so binding `TEXT` would miss
+/// or duplicate rows written by earlier versions.
+fn bind_blob_text(
+  stmt : @sqlite3.Statement,
+  index : Int,
+  value : String,
+) -> Unit raise @sqlite3.SqliteError {
+  stmt.bind(index~, @utf8.encode(value))
 }

@@ -2,7 +2,7 @@
 /// Entry point. Parses CLI args for the port, opens the SQLite database,
 /// initializes the schema, registers all HTTP routes (HTML shell, static JS,
 /// and REST API), then starts the Mocket server.
-fn main raise {
+async fn main {
   guard @argparse.parse(
       Command("noteapp", about="Note Taking App backend", options=[
         OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
@@ -14,15 +14,29 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port) catch {
+    _ => {
+      println("Invalid port: \{port}")
+      return
+    }
+  }
 
-  let conn = @sqlite3.Connection::open("notes.db")
+  let conn = @sqlite3.Connection::open("notes.db") catch {
+    e => {
+      println("Failed to open notes.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: notes.db")
-
-  init_db(conn)
+  init_db(conn) catch {
+    e => {
+      println("Failed to initialize database: \{error_text(e)}")
+      return
+    }
+  }
   println("Database initialized")
 
-  let app = @mocket.new()
+  let app = @mocket.App()
   app
   ..use_middleware(@cors.handle_cors())
   ..get("/", _ => {
@@ -44,25 +58,25 @@ fn main raise {
       #|  <script src="/frontend.js"></script>
       #|</body>
       #|</html>
-    @mocket.HttpResponse::new(
+    @mocket.HttpResponse(
       OK,
       headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
+      body=@utf8.encode(html),
     )
   })
   ..get("/frontend.js", _ => {
     println("GET /frontend.js")
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
+      @mocket.HttpResponse(
         OK,
         headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
+        body=bytes,
       )
     } catch {
       _ => {
         println("  -> 404 Not Found")
-        @mocket.HttpResponse::new(NotFound).body("Not Found")
+        @mocket.HttpResponse(NotFound).body("Not Found")
       }
     }
   })
@@ -71,11 +85,11 @@ fn main raise {
     try {
       let notes = get_all_notes(conn)
       println("  -> 200 (\{notes.length()} notes)")
-      @mocket.HttpResponse::new(OK).json(notes)
+      @mocket.HttpResponse(OK).json(notes)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
@@ -87,39 +101,35 @@ fn main raise {
         { "title": String(t), .. } => t
         _ => {
           println("  -> 400 Missing title")
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing title field",
-          )
+          return @mocket.HttpResponse(BadRequest).body("Missing title field")
         }
       }
       let content = match json {
         { "content": String(c), .. } => c
         _ => {
           println("  -> 400 Missing content")
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing content field",
-          )
+          return @mocket.HttpResponse(BadRequest).body("Missing content field")
         }
       }
       if !@shared.validate_title(title) {
         println("  -> 400 Invalid title")
-        return @mocket.HttpResponse::new(BadRequest).body(
+        return @mocket.HttpResponse(BadRequest).body(
           "Title must be 1-\{@shared.max_title_length} characters",
         )
       }
       if !@shared.validate_content(content) {
         println("  -> 400 Invalid content")
-        return @mocket.HttpResponse::new(BadRequest).body(
+        return @mocket.HttpResponse(BadRequest).body(
           "Content must be 1-\{@shared.max_content_length} characters",
         )
       }
       let note = create_note(conn, title, content)
       println("  -> 201 created note: \{title}")
-      @mocket.HttpResponse::new(Created).json(note)
+      @mocket.HttpResponse(Created).json(note)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
@@ -127,29 +137,29 @@ fn main raise {
     let id_str = event.params.get("id").unwrap().to_string()
     println("POST /api/notes/\{id_str}/pin")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       let note = toggle_pin(conn, id)
       println("  -> 200 toggled pin for note \{id} (pinned=\{note.pinned})")
-      @mocket.HttpResponse::new(OK).json(note)
+      @mocket.HttpResponse(OK).json(note)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
-  .delete("\{@shared.api_notes}/:id", fn(event) noraise {
+  .delete("\{@shared.api_notes}/:id", event => {
     let id_str = event.params.get("id").unwrap().to_string()
     println("DELETE /api/notes/\{id_str}")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       delete_note(conn, id)
       println("  -> 204 deleted note \{id}")
-      @mocket.HttpResponse::new(NoContent)
+      @mocket.HttpResponse(NoContent)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
