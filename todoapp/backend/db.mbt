@@ -1,9 +1,8 @@
 ///|
 /// Create the `todos` table if it doesn't already exist.
 ///
-/// The `text` column is stored as `BLOB` so that SQLite round-trips
-/// arbitrary UTF-8 without re-encoding. See `bind_string_as_blob` /
-/// `column_blob_as_string` in the read/write helpers.
+/// The `text` column keeps its original `BLOB` declaration so existing
+/// databases stay readable; values are bound and read as UTF-8 strings.
 fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare(
     (
@@ -14,20 +13,21 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt.step_once()
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
 ///|
 /// Extract a `Todo` from the current row of a prepared statement.
 ///
-/// Expects columns in `SELECT id, text, done` order. Uses
-/// `column_blob_as_string` for the text column to match the BLOB storage.
-fn read_todo_from_stmt(stmt : @sqlite3.Statement) -> @shared.Todo {
-  let id : Int = stmt.column(index=0)
-  let text : String = stmt.column_blob_as_string(index=1)
-  let done : Int = stmt.column(index=2)
-  { id, text, done: done != 0 }
+/// Expects columns in `SELECT id, text, done` order.
+fn read_todo_from_stmt(
+  stmt : @sqlite3.Statement,
+) -> @shared.Todo raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let text : String = stmt.column(index=1)
+  let done = column_int(stmt, 2)
+  { id, text, done: done != 0, }
 }
 
 ///|
@@ -47,21 +47,20 @@ fn get_all_todos(
 ///|
 /// Insert a new todo and return it with the auto-generated id.
 ///
-/// Uses `bind_string_as_blob` for UTF-8 safety, then queries
-/// `last_insert_rowid()` to populate the returned `Todo.id`.
+/// Queries `last_insert_rowid()` to populate the returned `Todo.id`.
 fn create_todo(
   conn : @sqlite3.Connection,
   text : String,
 ) -> @shared.Todo raise @sqlite3.SqliteError {
   let stmt = conn.prepare("INSERT INTO todos (text, done) VALUES (?, 0)")
-  stmt.bind_string_as_blob(index=1, val=text)
-  stmt.step_once()
+  stmt.bind(index=1, text)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT last_insert_rowid()")
   guard stmt2.step()
-  let id : Int = stmt2.column(index=0)
+  let id = column_int(stmt2, 0)
   stmt2.finalize()
-  { id, text, done: false }
+  { id, text, done: false, }
 }
 
 ///|
@@ -76,11 +75,11 @@ fn toggle_todo(
   let stmt = conn.prepare(
     "UPDATE todos SET done = CASE WHEN done = 0 THEN 1 ELSE 0 END WHERE id = ?",
   )
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare("SELECT id, text, done FROM todos WHERE id = ?")
-  stmt2.bind(index=1, val=id)
+  stmt2.bind(index=1, id)
   guard stmt2.step()
   let todo = read_todo_from_stmt(stmt2)
   stmt2.finalize()
@@ -94,7 +93,27 @@ fn delete_todo(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM todos WHERE id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
+}
+
+///|
+/// Read an INTEGER column as `Int`; the binding only exposes `Int64`.
+fn column_int(
+  stmt : @sqlite3.Statement,
+  index : Int,
+) -> Int raise @sqlite3.SqliteError {
+  let value : Int64 = stmt.column(index~)
+  value.to_int()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
 }

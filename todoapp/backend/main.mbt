@@ -9,7 +9,7 @@
 /// - `POST /api/todos`      — create a todo (`{"text": "..."}`)
 /// - `POST /api/todos/:id/toggle` — toggle done status, returns updated todo
 /// - `DELETE /api/todos/:id` — delete a todo (204 No Content)
-fn main raise {
+async fn main {
   // FIXME: error only highlight `appfn`
   guard @argparse.parse(
       Command("todo-server", about="Todo List backend server", options=[
@@ -22,15 +22,29 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port) catch {
+    _ => {
+      println("Invalid port: \{port}")
+      return
+    }
+  }
 
-  let conn = @sqlite3.Connection::open("todos.db")
+  let conn = @sqlite3.Connection::open("todos.db") catch {
+    e => {
+      println("Failed to open todos.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: todos.db")
-
-  init_db(conn)
+  init_db(conn) catch {
+    e => {
+      println("Failed to initialize database: \{error_text(e)}")
+      return
+    }
+  }
   println("Database initialized")
 
-  let app = @mocket.new()
+  let app = @mocket.App()
   app
   ..use_middleware(@cors.handle_cors())
   ..get("/", _ => {
@@ -52,25 +66,25 @@ fn main raise {
       #|  <script src="/frontend.js"></script>
       #|</body>
       #|</html>
-    @mocket.HttpResponse::new(
+    @mocket.HttpResponse(
       OK,
       headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
+      body=@utf8.encode(html),
     )
   })
   ..get("/frontend.js", _ => {
     println("GET /frontend.js")
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
+      @mocket.HttpResponse(
         OK,
         headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
+        body=bytes,
       )
     } catch {
       _ => {
         println("  -> 404 Not Found")
-        @mocket.HttpResponse::new(NotFound).body("Not Found")
+        @mocket.HttpResponse(NotFound).body("Not Found")
       }
     }
   })
@@ -79,11 +93,11 @@ fn main raise {
     try {
       let todos = get_all_todos(conn)
       println("  -> 200 (\{todos.length()} todos)")
-      @mocket.HttpResponse::new(OK).json(todos)
+      @mocket.HttpResponse(OK).json(todos)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
@@ -95,54 +109,52 @@ fn main raise {
         { "text": String(t), .. } => t
         _ => {
           println("  -> 400 Missing text field")
-          return @mocket.HttpResponse::new(BadRequest).body(
-            "Missing text field",
-          )
+          return @mocket.HttpResponse(BadRequest).body("Missing text field")
         }
       }
       if !@shared.validate_text(text) {
         println("  -> 400 Invalid todo text")
-        return @mocket.HttpResponse::new(BadRequest).body(
+        return @mocket.HttpResponse(BadRequest).body(
           "Todo text must be between 1 and \{@shared.max_todo_length} characters",
         )
       }
       let todo = create_todo(conn, text)
       println("  -> 201 created todo: \{text}")
-      @mocket.HttpResponse::new(Created).json(todo)
+      @mocket.HttpResponse(Created).json(todo)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
-  ..post("\{@shared.api_todos}/:id/toggle", fn(event) noraise {
+  ..post("\{@shared.api_todos}/:id/toggle", event => {
     let id_str = event.params.get("id").unwrap().to_string()
     println("POST /api/todos/\{id_str}/toggle")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       let todo = toggle_todo(conn, id)
       println("  -> 200 toggled todo \{id}")
-      @mocket.HttpResponse::new(OK).json(todo)
+      @mocket.HttpResponse(OK).json(todo)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })
-  .delete("\{@shared.api_todos}/:id", fn(event) noraise {
+  .delete("\{@shared.api_todos}/:id", event => {
     let id_str = event.params.get("id").unwrap().to_string()
     println("DELETE /api/todos/\{id_str}")
     try {
-      let id = @strconv.parse_int(id_str)
+      let id = @string.parse_int(id_str)
       delete_todo(conn, id)
       println("  -> 204 deleted todo \{id}")
-      @mocket.HttpResponse::new(NoContent)
+      @mocket.HttpResponse(NoContent)
     } catch {
       e => {
-        println("  -> 500 \{e}")
-        @mocket.HttpResponse::new(InternalServerError).body("\{e}")
+        println("  -> 500 \{error_text(e)}")
+        @mocket.HttpResponse(InternalServerError).body(error_text(e))
       }
     }
   })

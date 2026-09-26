@@ -29,7 +29,7 @@ fn render(html : @rabbita.Html) -> String {
 
 ///|
 test "view shows loading indicator" {
-  let model = { ..empty_model(), loading: true }
+  let model = { ..empty_model(), loading: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -50,7 +50,7 @@ test "view shows empty state" {
 
 ///|
 test "view renders todo items" {
-  let model = { ..empty_model(), todos: sample_todos() }
+  let model = { ..empty_model(), todos: sample_todos(), }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -65,7 +65,7 @@ test "view renders todo items" {
 test "done todo has strikethrough" {
   let model = {
     ..empty_model(),
-    todos: [{ id: 1, text: "Done task", done: true }],
+    todos: [{ id: 1, text: "Done task", done: true, }],
   }
   inspect(
     render(model.view(noop_dispatch)),
@@ -79,7 +79,7 @@ test "done todo has strikethrough" {
 test "undone todo has no strikethrough" {
   let model = {
     ..empty_model(),
-    todos: [{ id: 1, text: "Open task", done: false }],
+    todos: [{ id: 1, text: "Open task", done: false, }],
   }
   inspect(
     render(model.view(noop_dispatch)),
@@ -93,7 +93,7 @@ test "undone todo has no strikethrough" {
 
 ///|
 test "form preserves input value" {
-  let model = { ..empty_model(), input: "draft text" }
+  let model = { ..empty_model(), input: "draft text", }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
