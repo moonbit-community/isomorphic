@@ -16,3 +16,5 @@ repository = "https://github.com/moonbit-community/isomorphic"
 license = "Apache-2.0"
 
 warnings = "+missing_doc+unnecessary_annotation"
+
+preferred_target = "js"
