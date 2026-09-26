@@ -21,18 +21,19 @@ pub fn Model::update(
   dispatch~ : @rabbita.Dispatch[Msg],
 ) -> (Model, @rabbita.Cmd) {
   match msg {
-    Init => ({ ..self, loading: true }, fetch_board(dispatch))
+    Init => ({ ..self, loading: true, }, fetch_board(dispatch))
     GotBoard(Ok(board)) =>
       (
-        { ..self, columns: board.columns, cards: board.cards, loading: false },
+        { ..self, columns: board.columns, cards: board.cards, loading: false, },
         @rabbita.none,
       )
-    GotBoard(Err(_)) => ({ ..self, loading: false }, @rabbita.none)
+    GotBoard(Err(_)) => ({ ..self, loading: false, }, @rabbita.none)
     // ---- Column CRUD ----
     ShowAddColumn =>
-      ({ ..self, adding_column: true, new_column_title: "" }, @rabbita.none)
-    HideAddColumn => ({ ..self, adding_column: false }, @rabbita.none)
-    NewColumnTitleChanged(v) => ({ ..self, new_column_title: v }, @rabbita.none)
+      ({ ..self, adding_column: true, new_column_title: "", }, @rabbita.none)
+    HideAddColumn => ({ ..self, adding_column: false, }, @rabbita.none)
+    NewColumnTitleChanged(v) =>
+      ({ ..self, new_column_title: v, }, @rabbita.none)
     AddColumn => {
       if !@shared.validate_column_title(self.new_column_title) {
         return (self, @rabbita.none)
@@ -47,7 +48,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, adding_column: false }, cmd)
+      ({ ..self, adding_column: false, }, cmd)
     }
     ColumnAdded(Ok(col)) => {
       let columns = self.columns.copy()
@@ -57,12 +58,12 @@ pub fn Model::update(
     ColumnAdded(Err(_)) => (self, @rabbita.none)
     StartRenameColumn(id, title) =>
       (
-        { ..self, renaming_column: id, rename_column_title: title },
+        { ..self, renaming_column: id, rename_column_title: title, },
         @rabbita.none,
       )
-    CancelRenameColumn => ({ ..self, renaming_column: 0 }, @rabbita.none)
+    CancelRenameColumn => ({ ..self, renaming_column: 0, }, @rabbita.none)
     RenameColumnTitleChanged(v) =>
-      ({ ..self, rename_column_title: v }, @rabbita.none)
+      ({ ..self, rename_column_title: v, }, @rabbita.none)
     ConfirmRenameColumn => {
       let id = self.renaming_column
       if id == 0 || !@shared.validate_column_title(self.rename_column_title) {
@@ -85,7 +86,7 @@ pub fn Model::update(
           c
         }
       })
-      ({ ..self, columns, renaming_column: 0 }, cmd)
+      ({ ..self, columns, renaming_column: 0, }, cmd)
     }
     ColumnRenamed => (self, fetch_board(dispatch))
     DeleteColumn(id) => {
@@ -95,7 +96,7 @@ pub fn Model::update(
       let cmd = @http.delete(@shared.api_column(id), expect~)
       let columns = self.columns.filter(fn(c) { c.id != id })
       let cards = self.cards.filter(fn(c) { c.column_id != id })
-      ({ ..self, columns, cards }, cmd)
+      ({ ..self, columns, cards, }, cmd)
     }
     ColumnDeleted => (self, fetch_board(dispatch))
     MoveColumnLeft(id) | MoveColumnRight(id) => {
@@ -129,9 +130,9 @@ pub fn Model::update(
       // Optimistic swap
       let columns = self.columns.map(fn(c) {
         if c.id == id {
-          { ..c, position: other.position }
+          { ..c, position: other.position, }
         } else if c.id == other.id {
-          { ..c, position: this_col.position }
+          { ..c, position: this_col.position, }
         } else {
           c
         }
@@ -151,10 +152,10 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    HideAddCard => ({ ..self, adding_to_column: 0 }, @rabbita.none)
-    NewCardTitleChanged(v) => ({ ..self, new_card_title: v }, @rabbita.none)
-    NewCardDescChanged(v) => ({ ..self, new_card_desc: v }, @rabbita.none)
-    NewCardColorChanged(v) => ({ ..self, new_card_color: v }, @rabbita.none)
+    HideAddCard => ({ ..self, adding_to_column: 0, }, @rabbita.none)
+    NewCardTitleChanged(v) => ({ ..self, new_card_title: v, }, @rabbita.none)
+    NewCardDescChanged(v) => ({ ..self, new_card_desc: v, }, @rabbita.none)
+    NewCardColorChanged(v) => ({ ..self, new_card_color: v, }, @rabbita.none)
     AddCard => {
       let col_id = self.adding_to_column
       if col_id == 0 || !@shared.validate_card_title(self.new_card_title) {
@@ -177,7 +178,7 @@ pub fn Model::update(
           }
         }),
       )
-      ({ ..self, adding_to_column: 0 }, cmd)
+      ({ ..self, adding_to_column: 0, }, cmd)
     }
     CardAdded(Ok(card)) => {
       let cards = self.cards.copy()
@@ -196,10 +197,10 @@ pub fn Model::update(
         },
         @rabbita.none,
       )
-    CancelEditCard => ({ ..self, editing_card: 0 }, @rabbita.none)
-    EditTitleChanged(v) => ({ ..self, edit_title: v }, @rabbita.none)
-    EditDescChanged(v) => ({ ..self, edit_desc: v }, @rabbita.none)
-    EditColorChanged(v) => ({ ..self, edit_color: v }, @rabbita.none)
+    CancelEditCard => ({ ..self, editing_card: 0, }, @rabbita.none)
+    EditTitleChanged(v) => ({ ..self, edit_title: v, }, @rabbita.none)
+    EditDescChanged(v) => ({ ..self, edit_desc: v, }, @rabbita.none)
+    EditColorChanged(v) => ({ ..self, edit_color: v, }, @rabbita.none)
     SaveEditCard => {
       let id = self.editing_card
       if id == 0 || !@shared.validate_card_title(self.edit_title) {
@@ -219,12 +220,12 @@ pub fn Model::update(
       // Optimistic update
       let cards = self.cards.map(fn(c) {
         if c.id == id {
-          { ..c, title, description: desc, color }
+          { ..c, title, description: desc, color, }
         } else {
           c
         }
       })
-      ({ ..self, cards, editing_card: 0 }, cmd)
+      ({ ..self, cards, editing_card: 0, }, cmd)
     }
     CardUpdated => (self, fetch_board(dispatch))
     DeleteCard(id) => {
@@ -239,11 +240,11 @@ pub fn Model::update(
     // ---- Move mode ----
     SelectCardToMove(id) =>
       if self.moving_card == id {
-        ({ ..self, moving_card: 0 }, @rabbita.none)
+        ({ ..self, moving_card: 0, }, @rabbita.none)
       } else {
-        ({ ..self, moving_card: id }, @rabbita.none)
+        ({ ..self, moving_card: id, }, @rabbita.none)
       }
-    CancelMove => ({ ..self, moving_card: 0 }, @rabbita.none)
+    CancelMove => ({ ..self, moving_card: 0, }, @rabbita.none)
     MoveCardTo(target_col, target_idx) => {
       let card_id = self.moving_card
       if card_id == 0 {
@@ -275,12 +276,12 @@ pub fn Model::update(
       }
       let cards = self.cards.map(fn(c) {
         if c.id == card_id {
-          { ..c, column_id: target_col, position: pos }
+          { ..c, column_id: target_col, position: pos, }
         } else {
           c
         }
       })
-      ({ ..self, cards, moving_card: 0 }, cmd)
+      ({ ..self, cards, moving_card: 0, }, cmd)
     }
     CardMoved => (self, fetch_board(dispatch))
   }

@@ -12,7 +12,7 @@ pub(all) struct Card {
 
 ///|
 /// Display a Card as `Card(#id "title" col=column_id)`.
-pub impl Show for Card with output(self, logger) {
+pub impl Show for Card with fn output(self, logger) {
   logger.write_string(
     "Card(#\{self.id} \"\{self.title}\" col=\{self.column_id})",
   )
@@ -29,7 +29,7 @@ pub(all) struct Column {
 
 ///|
 /// Display a Column as `Column(#id "title")`.
-pub impl Show for Column with output(self, logger) {
+pub impl Show for Column with fn output(self, logger) {
   logger.write_string("Column(#\{self.id} \"\{self.title}\")")
 }
 
@@ -43,7 +43,7 @@ pub(all) struct Board {
 
 ///|
 /// Display a Board as `Board(N columns, M cards)`.
-pub impl Show for Board with output(self, logger) {
+pub impl Show for Board with fn output(self, logger) {
   logger.write_string(
     "Board(\{self.columns.length()} columns, \{self.cards.length()} cards)",
   )

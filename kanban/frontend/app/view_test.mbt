@@ -29,7 +29,7 @@ fn render(html : @rabbita.Html) -> String {
 
 ///|
 test "view shows loading indicator" {
-  let model = { ..empty_model(), loading: true }
+  let model = { ..empty_model(), loading: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -67,7 +67,7 @@ test "view renders columns with cards" {
 
 ///|
 test "view shows add column form when adding_column is true" {
-  let model = { ..empty_model(), adding_column: true }
+  let model = { ..empty_model(), adding_column: true, }
   inspect(
     render(model.view(noop_dispatch)),
     content=(
@@ -80,7 +80,7 @@ test "view shows add column form when adding_column is true" {
 test "view shows rename form for renaming column" {
   let model = {
     ..empty_model(),
-    columns: [{ id: 1, title: "To Do", position: 1000 }],
+    columns: [{ id: 1, title: "To Do", position: 1000, }],
     renaming_column: 1,
     rename_column_title: "Backlog",
   }
@@ -98,7 +98,7 @@ test "view shows rename form for renaming column" {
 test "view shows add card form for target column" {
   let model = {
     ..empty_model(),
-    columns: [{ id: 1, title: "To Do", position: 1000 }],
+    columns: [{ id: 1, title: "To Do", position: 1000, }],
     adding_to_column: 1,
   }
   inspect(
@@ -113,7 +113,7 @@ test "view shows add card form for target column" {
 test "view shows card edit form when editing" {
   let model = {
     ..empty_model(),
-    columns: [{ id: 1, title: "To Do", position: 1000 }],
+    columns: [{ id: 1, title: "To Do", position: 1000, }],
     cards: [
       {
         id: 1,
@@ -143,7 +143,7 @@ test "view shows card edit form when editing" {
 test "view shows move mode UI" {
   let model = {
     ..empty_model(),
-    columns: [{ id: 1, title: "To Do", position: 1000 }],
+    columns: [{ id: 1, title: "To Do", position: 1000, }],
     cards: [
       {
         id: 1,
@@ -168,7 +168,7 @@ test "view shows move mode UI" {
 test "view shows card with color border" {
   let model = {
     ..empty_model(),
-    columns: [{ id: 1, title: "To Do", position: 1000 }],
+    columns: [{ id: 1, title: "To Do", position: 1000, }],
     cards: [
       {
         id: 1,

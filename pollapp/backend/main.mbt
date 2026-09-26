@@ -1,6 +1,6 @@
 ///|
 /// Start the Mocket HTTP server: open SQLite, register routes, and listen on the configured port.
-fn main raise {
+async fn main {
   guard @argparse.parse(
       Command("pollapp", about="Poll/Voting App backend", options=[
         OptionArg("port", short='p', long="port", about="Port to listen on", default_values=[
@@ -12,15 +12,30 @@ fn main raise {
     println("Failed to parse arguments")
     return
   }
-  let port = @strconv.parse_int(port)
+  let port = @string.parse_int(port) catch {
+    _ => {
+      println("Invalid port: \{port}")
+      return
+    }
+  }
 
-  let conn = @sqlite3.Connection::open("polls.db")
+  let conn = @sqlite3.Connection::open("polls.db") catch {
+    e => {
+      println("Failed to open polls.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: polls.db")
 
-  init_db(conn)
+  init_db(conn) catch {
+    e => {
+      println("Failed to initialize database: \{error_text(e)}")
+      return
+    }
+  }
   println("Database initialized")
 
-  let app = @mocket.new()
+  let app = @mocket.App()
   app
   ..use_middleware(@cors.handle_cors())
   ..get("/", _ => {
@@ -42,38 +57,32 @@ fn main raise {
       #|  <script src="/frontend.js"></script>
       #|</body>
       #|</html>
-    @mocket.HttpResponse::new(
+    @mocket.HttpResponse(
       OK,
       headers={ "Content-Type": "text/html; charset=utf-8" },
-      raw_body=@utf8.encode(html),
+      body=@utf8.encode(html),
     )
   })
   ..get("/frontend.js", _ => {
     println("GET /frontend.js")
     try {
       let bytes = @fs.read_file_to_bytes("./public/frontend.js")
-      @mocket.HttpResponse::new(
+      @mocket.HttpResponse(
         OK,
         headers={ "Content-Type": "application/javascript; charset=utf-8" },
-        raw_body=bytes,
+        body=bytes,
       )
     } catch {
       _ => {
         println("  -> 404 Not Found")
-        @mocket.HttpResponse::new(NotFound).body("Not Found")
+        @mocket.HttpResponse(NotFound).body("Not Found")
       }
     }
   })
-  ..get(@shared.api_polls, fn(event) noraise { handle_get_polls(conn, event) })
-  ..post(@shared.api_polls, fn(event) noraise {
-    handle_create_poll(conn, event)
-  })
-  ..post("\{@shared.api_polls}/:id/vote", fn(event) noraise {
-    handle_vote(conn, event)
-  })
-  .delete("\{@shared.api_polls}/:id", fn(event) noraise {
-    handle_delete_poll(conn, event)
-  })
+  ..get(@shared.api_polls, event => handle_get_polls(conn, event))
+  ..post(@shared.api_polls, event => handle_create_poll(conn, event))
+  ..post("\{@shared.api_polls}/:id/vote", event => handle_vote(conn, event))
+  .delete("\{@shared.api_polls}/:id", event => handle_delete_poll(conn, event))
   println("Server running at http://localhost:\{port}")
   app.serve(port~)
 }

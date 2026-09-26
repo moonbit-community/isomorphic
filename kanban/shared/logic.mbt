@@ -81,8 +81,8 @@ pub fn renumber_positions(count : Int) -> Array[Int] {
 /// ```mbt check
 /// test {
 ///   let cols : Array[@shared.Column] = [
-///     { id: 1, title: "C", position: 3000 },
-///     { id: 2, title: "A", position: 1000 },
+///     { id: 1, title: "C", position: 3000, },
+///     { id: 2, title: "A", position: 1000, },
 ///   ]
 ///   let sorted = @shared.sort_by_position(cols, fn(c) { c.position })
 ///   inspect(sorted[0].title, content="A")

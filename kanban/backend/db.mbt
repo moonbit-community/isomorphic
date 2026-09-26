@@ -10,7 +10,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt.step_once()
+  stmt.step() |> ignore
   stmt.finalize()
   let stmt2 = conn.prepare(
     (
@@ -24,12 +24,12 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt2.step_once()
+  stmt2.step() |> ignore
   stmt2.finalize()
   // Seed default columns if table is empty
   let check = conn.prepare("SELECT COUNT(*) FROM columns")
   guard check.step()
-  let count : Int = check.column(index=0)
+  let count = column_int(check, 0)
   check.finalize()
   if count == 0 {
     let defaults = ["To Do", "In Progress", "Done"]
@@ -37,9 +37,9 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       let s = conn.prepare(
         "INSERT INTO columns (title, position) VALUES (?, ?)",
       )
-      s.bind_string_as_blob(index=1, val=title)
-      s.bind(index=2, val=(i + 1) * @shared.position_gap)
-      s.step_once()
+      s.bind(index=1, title)
+      s.bind(index=2, (i + 1) * @shared.position_gap)
+      s.step() |> ignore
       s.finalize()
     }
     println("Seeded default columns: To Do, In Progress, Done")
@@ -48,23 +48,27 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
 
 ///|
 /// Read a Column from the current row of a prepared statement.
-fn read_column(stmt : @sqlite3.Statement) -> @shared.Column {
-  let id : Int = stmt.column(index=0)
-  let title : String = stmt.column_blob_as_string(index=1)
-  let position : Int = stmt.column(index=2)
-  { id, title, position }
+fn read_column(
+  stmt : @sqlite3.Statement,
+) -> @shared.Column raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let title : String = stmt.column(index=1)
+  let position = column_int(stmt, 2)
+  { id, title, position, }
 }
 
 ///|
 /// Read a Card from the current row of a prepared statement.
-fn read_card(stmt : @sqlite3.Statement) -> @shared.Card {
-  let id : Int = stmt.column(index=0)
-  let column_id : Int = stmt.column(index=1)
-  let title : String = stmt.column_blob_as_string(index=2)
-  let description : String = stmt.column_blob_as_string(index=3)
-  let color : String = stmt.column_blob_as_string(index=4)
-  let position : Int = stmt.column(index=5)
-  { id, column_id, title, description, color, position }
+fn read_card(
+  stmt : @sqlite3.Statement,
+) -> @shared.Card raise @sqlite3.SqliteError {
+  let id = column_int(stmt, 0)
+  let column_id = column_int(stmt, 1)
+  let title : String = stmt.column(index=2)
+  let description : String = stmt.column(index=3)
+  let color : String = stmt.column(index=4)
+  let position = column_int(stmt, 5)
+  { id, column_id, title, description, color, position, }
 }
 
 ///|
@@ -88,7 +92,7 @@ fn get_board(
     cards.push(read_card(card_stmt))
   }
   card_stmt.finalize()
-  { columns, cards }
+  { columns, cards, }
 }
 
 ///|
@@ -100,21 +104,21 @@ fn create_column(
   let pos_stmt = conn.prepare("SELECT position FROM columns")
   let positions : Array[Int] = []
   while pos_stmt.step() {
-    let p : Int = pos_stmt.column(index=0)
+    let p = column_int(pos_stmt, 0)
     positions.push(p)
   }
   pos_stmt.finalize()
   let position = @shared.next_position(positions)
   let stmt = conn.prepare("INSERT INTO columns (title, position) VALUES (?, ?)")
-  stmt.bind_string_as_blob(index=1, val=title)
-  stmt.bind(index=2, val=position)
-  stmt.step_once()
+  stmt.bind(index=1, title)
+  stmt.bind(index=2, position)
+  stmt.step() |> ignore
   stmt.finalize()
   let id_stmt = conn.prepare("SELECT last_insert_rowid()")
   guard id_stmt.step()
-  let id : Int = id_stmt.column(index=0)
+  let id = column_int(id_stmt, 0)
   id_stmt.finalize()
-  { id, title, position }
+  { id, title, position, }
 }
 
 ///|
@@ -125,9 +129,9 @@ fn rename_column(
   title : String,
 ) -> @shared.Column? raise @sqlite3.SqliteError {
   let stmt = conn.prepare("UPDATE columns SET title = ? WHERE id = ?")
-  stmt.bind_string_as_blob(index=1, val=title)
-  stmt.bind(index=2, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, title)
+  stmt.bind(index=2, id)
+  stmt.step() |> ignore
   stmt.finalize()
   get_column(conn, id)
 }
@@ -141,7 +145,7 @@ fn get_column(
   let stmt = conn.prepare(
     "SELECT id, title, position FROM columns WHERE id = ?",
   )
-  stmt.bind(index=1, val=id)
+  stmt.bind(index=1, id)
   let result = if stmt.step() { Some(read_column(stmt)) } else { None }
   stmt.finalize()
   result
@@ -155,9 +159,9 @@ fn move_column(
   new_position : Int,
 ) -> @shared.Column? raise @sqlite3.SqliteError {
   let stmt = conn.prepare("UPDATE columns SET position = ? WHERE id = ?")
-  stmt.bind(index=1, val=new_position)
-  stmt.bind(index=2, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, new_position)
+  stmt.bind(index=2, id)
+  stmt.step() |> ignore
   stmt.finalize()
   get_column(conn, id)
 }
@@ -169,12 +173,12 @@ fn delete_column(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let s1 = conn.prepare("DELETE FROM cards WHERE column_id = ?")
-  s1.bind(index=1, val=id)
-  s1.step_once()
+  s1.bind(index=1, id)
+  s1.step() |> ignore
   s1.finalize()
   let s2 = conn.prepare("DELETE FROM columns WHERE id = ?")
-  s2.bind(index=1, val=id)
-  s2.step_once()
+  s2.bind(index=1, id)
+  s2.step() |> ignore
   s2.finalize()
 }
 
@@ -188,10 +192,10 @@ fn create_card(
   color : String,
 ) -> @shared.Card raise @sqlite3.SqliteError {
   let pos_stmt = conn.prepare("SELECT position FROM cards WHERE column_id = ?")
-  pos_stmt.bind(index=1, val=column_id)
+  pos_stmt.bind(index=1, column_id)
   let positions : Array[Int] = []
   while pos_stmt.step() {
-    let p : Int = pos_stmt.column(index=0)
+    let p = column_int(pos_stmt, 0)
     positions.push(p)
   }
   pos_stmt.finalize()
@@ -199,18 +203,18 @@ fn create_card(
   let stmt = conn.prepare(
     "INSERT INTO cards (column_id, title, description, color, position) VALUES (?, ?, ?, ?, ?)",
   )
-  stmt.bind(index=1, val=column_id)
-  stmt.bind_string_as_blob(index=2, val=title)
-  stmt.bind_string_as_blob(index=3, val=description)
-  stmt.bind_string_as_blob(index=4, val=color)
-  stmt.bind(index=5, val=position)
-  stmt.step_once()
+  stmt.bind(index=1, column_id)
+  stmt.bind(index=2, title)
+  stmt.bind(index=3, description)
+  stmt.bind(index=4, color)
+  stmt.bind(index=5, position)
+  stmt.step() |> ignore
   stmt.finalize()
   let id_stmt = conn.prepare("SELECT last_insert_rowid()")
   guard id_stmt.step()
-  let id : Int = id_stmt.column(index=0)
+  let id = column_int(id_stmt, 0)
   id_stmt.finalize()
-  { id, column_id, title, description, color, position }
+  { id, column_id, title, description, color, position, }
 }
 
 ///|
@@ -222,7 +226,7 @@ fn get_card(
   let stmt = conn.prepare(
     "SELECT id, column_id, title, description, color, position FROM cards WHERE id = ?",
   )
-  stmt.bind(index=1, val=id)
+  stmt.bind(index=1, id)
   let result = if stmt.step() { Some(read_card(stmt)) } else { None }
   stmt.finalize()
   result
@@ -240,11 +244,11 @@ fn update_card(
   let stmt = conn.prepare(
     "UPDATE cards SET title = ?, description = ?, color = ? WHERE id = ?",
   )
-  stmt.bind_string_as_blob(index=1, val=title)
-  stmt.bind_string_as_blob(index=2, val=description)
-  stmt.bind_string_as_blob(index=3, val=color)
-  stmt.bind(index=4, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, title)
+  stmt.bind(index=2, description)
+  stmt.bind(index=3, color)
+  stmt.bind(index=4, id)
+  stmt.step() |> ignore
   stmt.finalize()
   get_card(conn, id)
 }
@@ -260,10 +264,10 @@ fn move_card(
   let stmt = conn.prepare(
     "UPDATE cards SET column_id = ?, position = ? WHERE id = ?",
   )
-  stmt.bind(index=1, val=target_column_id)
-  stmt.bind(index=2, val=new_position)
-  stmt.bind(index=3, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, target_column_id)
+  stmt.bind(index=2, new_position)
+  stmt.bind(index=3, id)
+  stmt.step() |> ignore
   stmt.finalize()
   get_card(conn, id)
 }
@@ -275,8 +279,8 @@ fn delete_card(
   id : Int,
 ) -> Unit raise @sqlite3.SqliteError {
   let stmt = conn.prepare("DELETE FROM cards WHERE id = ?")
-  stmt.bind(index=1, val=id)
-  stmt.step_once()
+  stmt.bind(index=1, id)
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
@@ -289,19 +293,19 @@ fn renumber_cards_in_column(
   let sel = conn.prepare(
     "SELECT id FROM cards WHERE column_id = ? ORDER BY position ASC",
   )
-  sel.bind(index=1, val=column_id)
+  sel.bind(index=1, column_id)
   let ids : Array[Int] = []
   while sel.step() {
-    let id : Int = sel.column(index=0)
+    let id = column_int(sel, 0)
     ids.push(id)
   }
   sel.finalize()
   let new_positions = @shared.renumber_positions(ids.length())
   for i, id in ids {
     let upd = conn.prepare("UPDATE cards SET position = ? WHERE id = ?")
-    upd.bind(index=1, val=new_positions[i])
-    upd.bind(index=2, val=id)
-    upd.step_once()
+    upd.bind(index=1, new_positions[i])
+    upd.bind(index=2, id)
+    upd.step() |> ignore
     upd.finalize()
   }
 }
@@ -314,16 +318,16 @@ fn renumber_columns(
   let sel = conn.prepare("SELECT id FROM columns ORDER BY position ASC")
   let ids : Array[Int] = []
   while sel.step() {
-    let id : Int = sel.column(index=0)
+    let id = column_int(sel, 0)
     ids.push(id)
   }
   sel.finalize()
   let new_positions = @shared.renumber_positions(ids.length())
   for i, id in ids {
     let upd = conn.prepare("UPDATE columns SET position = ? WHERE id = ?")
-    upd.bind(index=1, val=new_positions[i])
-    upd.bind(index=2, val=id)
-    upd.step_once()
+    upd.bind(index=1, new_positions[i])
+    upd.bind(index=2, id)
+    upd.step() |> ignore
     upd.finalize()
   }
 }
@@ -333,7 +337,7 @@ fn renumber_columns(
 fn column_count(conn : @sqlite3.Connection) -> Int raise @sqlite3.SqliteError {
   let stmt = conn.prepare("SELECT COUNT(*) FROM columns")
   guard stmt.step()
-  let count : Int = stmt.column(index=0)
+  let count = column_int(stmt, 0)
   stmt.finalize()
   count
 }
@@ -345,9 +349,29 @@ fn card_count_in_column(
   column_id : Int,
 ) -> Int raise @sqlite3.SqliteError {
   let stmt = conn.prepare("SELECT COUNT(*) FROM cards WHERE column_id = ?")
-  stmt.bind(index=1, val=column_id)
+  stmt.bind(index=1, column_id)
   guard stmt.step()
-  let count : Int = stmt.column(index=0)
+  let count = column_int(stmt, 0)
   stmt.finalize()
   count
+}
+
+///|
+/// Read an INTEGER column as `Int`; the binding only exposes `Int64`.
+fn column_int(
+  stmt : @sqlite3.Statement,
+  index : Int,
+) -> Int raise @sqlite3.SqliteError {
+  let value : Int64 = stmt.column(index~)
+  value.to_int()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
 }
