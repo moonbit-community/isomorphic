@@ -1,6 +1,6 @@
 name = "bobzhang/contacts"
 
-version = "0.3.1"
+version = "0.3.3"
 
 license = "Apache-2.0"
 

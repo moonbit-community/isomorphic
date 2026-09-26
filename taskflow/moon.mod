@@ -1,6 +1,6 @@
 name = "bobzhang/taskflow"
 
-version = "0.3.1"
+version = "0.3.3"
 
 import {
   "moonbit-community/rabbita@0.11.9",

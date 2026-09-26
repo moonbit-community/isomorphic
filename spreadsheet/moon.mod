@@ -1,6 +1,6 @@
 name = "bobzhang/spreadsheet"
 
-version = "0.1.0"
+version = "0.1.2"
 
 import {
   "moonbit-community/rabbita@0.11.9",
