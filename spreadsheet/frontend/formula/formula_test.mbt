@@ -265,7 +265,7 @@ test "IF with nested arithmetic" {
 
 ///|
 test "extract_references: single cell" {
-  inspect(@formula.extract_references("=A1+1"), content="[\"A1\"]")
+  debug_inspect(@formula.extract_references("=A1+1"), content="[\"A1\"]")
 }
 
 ///|

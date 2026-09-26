@@ -2,7 +2,7 @@ import {
   "bobzhang/spreadsheet/frontend/cell",
   "bobzhang/spreadsheet/frontend/formula",
   "bobzhang/spreadsheet/frontend/sheet",
-  "bobzhang/mbtexcel/xlsx" @mbtexcel_xlsx,
+  "moonbitlang/mbtexcel/xlsx" @mbtexcel_xlsx,
 }
 
 supported_targets = "js"

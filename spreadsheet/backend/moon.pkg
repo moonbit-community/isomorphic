@@ -4,7 +4,7 @@ import {
   "moonbitlang/async/socket",
   "moonbitlang/async/websocket",
   "moonbitlang/async/io",
-  "myfreess/sqlite3",
+  "moonbit-community/sqlite3",
   "moonbitlang/x/fs",
   "moonbitlang/core/json",
   "moonbitlang/core/encoding/utf8",
@@ -12,6 +12,4 @@ import {
 
 supported_targets = "native"
 
-options(
-  is_main: true,
-)
+pkgtype(kind: "executable")

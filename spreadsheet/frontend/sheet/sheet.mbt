@@ -16,14 +16,12 @@ pub let num_rows : Int = 30
 pub(all) struct Sheet {
   name : String
   cells : Map[String, @cell.Cell]
-
-  fn new(name : String) -> Sheet
 } derive(ToJson, FromJson)
 
 ///|
 /// Create an empty sheet with the given name and no cells.
-pub fn Sheet::new(name : String) -> Sheet {
-  { name, cells: {} }
+pub fn Sheet::Sheet(name : String) -> Sheet {
+  { name, cells: {}, }
 }
 
 ///|
@@ -35,7 +33,7 @@ pub fn Sheet::clone(
 ) -> Sheet {
   let name = if name is Some(n) { n } else { self.name }
   let cells = if cells is Some(c) { c } else { self.cells }
-  { name, cells }
+  { name, cells, }
 }
 
 ///|

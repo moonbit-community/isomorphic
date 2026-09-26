@@ -20,7 +20,7 @@ pub(all) enum Value {
 ///|
 /// Display a Value for debugging and test output.
 /// Strings are quoted to avoid ambiguity with special characters.
-pub impl Show for Value with output(self, logger) {
+pub impl Show for Value with fn output(self, logger) {
   match self {
     Empty => logger.write_string("Empty")
     Num(n) => {
@@ -33,12 +33,12 @@ pub impl Show for Value with output(self, logger) {
     }
     Text(s) => {
       logger.write_string("Text(")
-      s.output(logger)
+      logger.write_string(s.escape())
       logger.write_string(")")
     }
     Error(s) => {
       logger.write_string("Error(")
-      s.output(logger)
+      logger.write_string(s.escape())
       logger.write_string(")")
     }
   }
@@ -46,7 +46,7 @@ pub impl Show for Value with output(self, logger) {
 
 ///|
 /// Value equality that handles NaN correctly (NaN == NaN is true for cell comparison).
-pub impl Eq for Value with equal(self, other) {
+pub impl Eq for Value with fn equal(self, other) {
   match (self, other) {
     (Empty, Empty) => true
     (Num(a), Num(b)) => if a.is_nan() && b.is_nan() { true } else { a == b }
@@ -126,22 +126,11 @@ pub(all) struct Cell {
   format : NumFormat
   bg_color : String // "" = default, otherwise CSS hex like "#fce4ec"
   text_color : String // "" = default, otherwise CSS hex
-
-  fn new(
-    raw? : String,
-    value? : Value,
-    bold? : Bool,
-    italic? : Bool,
-    align? : Align,
-    format? : NumFormat,
-    bg_color? : String,
-    text_color? : String,
-  ) -> Cell
 } derive(ToJson, FromJson)
 
 ///|
 /// Create a blank cell with no content and default styling.
-fn Cell::new(
+pub fn Cell::Cell(
   raw? : String = "",
   value? : Value = Empty,
   bold? : Bool = false,
@@ -151,7 +140,7 @@ fn Cell::new(
   bg_color? : String = "",
   text_color? : String = "",
 ) -> Cell {
-  { raw, value, bold, italic, align, format, bg_color, text_color }
+  { raw, value, bold, italic, align, format, bg_color, text_color, }
 }
 
 ///|
@@ -266,7 +255,7 @@ pub fn parse_ref(s : String) -> (Int, Int)? {
   // Parse the rest as row number
   let rest = s[1:]
   try {
-    let row = @strconv.parse_int(rest) - 1 // 1-indexed to 0-indexed
+    let row = @string.parse_int(rest) - 1 // 1-indexed to 0-indexed
     if row >= 0 {
       Some((col, row))
     } else {

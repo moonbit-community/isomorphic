@@ -195,7 +195,7 @@ pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
     None =>
       // Try number
       try {
-        let n = @strconv.parse_double(trimmed_str)
+        let n = @string.parse_double(trimmed_str)
         Num(n)
       } catch {
         _ => Text(trimmed_str)
@@ -214,7 +214,7 @@ fn parse_and_eval(
   lookup : (String) -> @cell.Value,
 ) -> @cell.Value {
   let tokens = tokenize(expr)
-  let state = { tokens, pos: 0 }
+  let state = { tokens, pos: 0, }
   try {
     let result = parse_comparison(state, lookup)
     result
@@ -334,7 +334,7 @@ fn tokenize(s : String) -> Array[Token] {
             sb
           })
           .to_string()
-        tokens.push(TNum(@strconv.parse_double(num_str))) catch {
+        tokens.push(TNum(@string.parse_double(num_str))) catch {
           _ => ()
         }
       } else {
@@ -390,7 +390,7 @@ fn tokenize(s : String) -> Array[Token] {
           sb
         })
         .to_string()
-      tokens.push(TNum(@strconv.parse_double(num_str))) catch {
+      tokens.push(TNum(@string.parse_double(num_str))) catch {
         _ => ()
       }
     } else if c >= 'A' && c <= 'Z' {

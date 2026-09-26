@@ -100,8 +100,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     match self.cells.get(k) {
       Some(c) => {
         let value = @formula.evaluate(c.raw) <| fn(r) {
-            new_cells.get_or_default(r, Cell()).value
-          }
+          new_cells.get_or_default(r, Cell()).value
+        }
         // Keep existing value if re-evaluation fails (preserves cached xlsx results)
         let final_value = match value {
           Error(_) =>
@@ -111,7 +111,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
             }
           _ => value
         }
-        new_cells[k] = { ..c, value: final_value }
+        new_cells[k] = { ..c, value: final_value, }
       }
       None => ()
     }
@@ -153,7 +153,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
   // preserve the cached value. For all other cases, mark CIRCULAR.
   for k, _ in is_cycle_member {
     match self.cells.get(k) {
-      Some(c) => new_cells[k] = { ..c, value: @cell.Error("CIRCULAR") }
+      Some(c) => new_cells[k] = { ..c, value: @cell.Error("CIRCULAR"), }
       None => ()
     }
   }
@@ -199,8 +199,8 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
     match self.cells.get(k) {
       Some(c) => {
         let value = @formula.evaluate(c.raw) <| fn(r) {
-            new_cells.get_or_default(r, Cell()).value
-          }
+          new_cells.get_or_default(r, Cell()).value
+        }
         let final_value = match value {
           Error(_) =>
             match c.value {
@@ -209,7 +209,7 @@ pub fn Sheet::recalc(self : Sheet) -> Sheet {
             }
           _ => value
         }
-        new_cells[k] = { ..c, value: final_value }
+        new_cells[k] = { ..c, value: final_value, }
       }
       None => ()
     }

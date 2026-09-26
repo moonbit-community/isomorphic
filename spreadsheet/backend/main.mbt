@@ -20,7 +20,7 @@ async fn broadcast_refresh() -> Unit {
 
 ///|
 /// CORS headers applied to every HTTP response.
-let cors_headers : Map[String, String] = {
+let cors_headers : @http.Headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
@@ -28,13 +28,13 @@ let cors_headers : Map[String, String] = {
 
 ///|
 /// Merge CORS headers with additional headers.
-fn with_cors(extra : Map[String, String]) -> Map[String, String] {
-  let merged : Map[String, String] = {}
+fn with_cors(extra : Map[String, String]) -> @http.Headers {
+  let merged : @http.Headers = {}
   for k, v in cors_headers {
     merged[k] = v
   }
   for k, v in extra {
-    merged[k] = v
+    merged[@http.CaseInsensitiveString(k)] = v
   }
   merged
 }
@@ -42,11 +42,16 @@ fn with_cors(extra : Map[String, String]) -> Map[String, String] {
 ///|
 /// Entry point: open DB, start async HTTP+WebSocket server on port 4012.
 async fn main {
-  let conn = @sqlite3.Connection::open("spreadsheet.db")
+  let conn = @sqlite3.Connection::open("spreadsheet.db") catch {
+    e => {
+      println("Failed to open spreadsheet.db: \{error_text(e)}")
+      return
+    }
+  }
   println("Database opened: spreadsheet.db")
   init_db(conn) catch {
     e => {
-      println("Failed to initialize database: \{e}")
+      println("Failed to initialize database: \{error_text(e)}")
       return
     }
   }
@@ -146,14 +151,14 @@ async fn main {
           .end_response()
         } catch {
           e => {
-            println("  -> 500 \{e}")
+            println("  -> 500 \{error_text(e)}")
             sconn
             ..send_response(
               500,
               "Internal Server Error",
               extra_headers=cors_headers,
             )
-            ..write("\{e}")
+            ..write(error_text(e))
             .end_response()
           }
         }
@@ -184,14 +189,14 @@ async fn main {
           .end_response()
         } catch {
           e => {
-            println("  -> 500 \{e}")
+            println("  -> 500 \{error_text(e)}")
             sconn
             ..send_response(
               500,
               "Internal Server Error",
               extra_headers=cors_headers,
             )
-            ..write("\{e}")
+            ..write(error_text(e))
             .end_response()
           }
         }
@@ -261,7 +266,7 @@ fn init_db(conn : @sqlite3.Connection) -> Unit raise @sqlite3.SqliteError {
       #|)
     ),
   )
-  stmt.step_once()
+  stmt.step() |> ignore
   stmt.finalize()
 }
 
@@ -275,7 +280,7 @@ fn load_workbook(
 ) -> String raise @sqlite3.SqliteError {
   let stmt = conn.prepare("SELECT data FROM workbooks WHERE id = 1")
   let result = if stmt.step() {
-    let data : String = stmt.column_blob_as_string(index=0)
+    let data : String = stmt.column(index=0)
     data
   } else {
     "{}"
@@ -296,7 +301,17 @@ fn save_workbook(
   let stmt = conn.prepare(
     "INSERT OR REPLACE INTO workbooks (id, data, updated_at) VALUES (1, ?, datetime('now'))",
   )
-  stmt.bind_string_as_blob(index=1, val=data)
-  stmt.step_once()
+  stmt.bind(index=1, data)
+  stmt.step() |> ignore
   stmt.finalize()
+}
+
+///|
+/// Human-readable text for an error, for logs and 500 responses.
+/// SQLite errors carry their message in a field and have no `Show`.
+fn error_text(e : Error) -> String {
+  match e {
+    @sqlite3.SqliteError(msg~, ..) => msg
+    _ => e.to_string()
+  }
 }
