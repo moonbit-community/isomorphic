@@ -18,7 +18,10 @@ priv enum EffectMsg {
 }
 
 ///|
-fn EffectModel::EffectModel(name~ : String, intensity? : Int = 50) -> EffectModel {
+fn EffectModel::EffectModel(
+  name~ : String,
+  intensity? : Int = 50,
+) -> EffectModel {
   {
     intensity: KnobModel(value=intensity, max=100, step=5),
     enabled: false,
@@ -29,8 +32,8 @@ fn EffectModel::EffectModel(name~ : String, intensity? : Int = 50) -> EffectMode
 ///|
 fn EffectModel::update(self : EffectModel, msg : EffectMsg) -> EffectModel {
   match msg {
-    Intensity(m) => { ..self, intensity: self.intensity.update(m) }
-    ToggleEnabled => { ..self, enabled: !self.enabled }
+    Intensity(m) => { ..self, intensity: self.intensity.update(m), }
+    ToggleEnabled => { ..self, enabled: !self.enabled, }
   }
 }
 
@@ -104,9 +107,9 @@ fn EffectRackModel::update(
   msg : EffectRackMsg,
 ) -> EffectRackModel {
   match msg {
-    Fx1(m) => { ..self, fx1: self.fx1.update(m) }
-    Fx2(m) => { ..self, fx2: self.fx2.update(m) }
-    Fx3(m) => { ..self, fx3: self.fx3.update(m) }
+    Fx1(m) => { ..self, fx1: self.fx1.update(m), }
+    Fx2(m) => { ..self, fx2: self.fx2.update(m), }
+    Fx3(m) => { ..self, fx3: self.fx3.update(m), }
   }
 }
 

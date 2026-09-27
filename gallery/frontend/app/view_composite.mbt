@@ -399,22 +399,22 @@ fn Model::view_form_wizard(
   let total = fw.steps.length()
   if fw.completed {
     return @html.div(
+      style=[
+        "display: flex", "flex-direction: column", "align-items: center", "padding: 40px 24px",
+        "text-align: center", "gap: 12px",
+      ],
+    ) <| [
+      @html.div(style=["font-size: 48px"]) <| "",
+      @html.h3(
         style=[
-          "display: flex", "flex-direction: column", "align-items: center", "padding: 40px 24px",
-          "text-align: center", "gap: 12px",
+          "margin: 0",
+          "font-size: 20px",
+          "font-weight: 700",
+          "color: \{text_primary}",
         ],
-      ) <| [
-        @html.div(style=["font-size: 48px"]) <| "",
-        @html.h3(
-          style=[
-            "margin: 0",
-            "font-size: 20px",
-            "font-weight: 700",
-            "color: \{text_primary}",
-          ],
-        ) <| "All Done!",
-        @html.p(style=["margin: 0", "color: \{text_secondary}"]) <| "Form submitted successfully.",
-      ]
+      ) <| "All Done!",
+      @html.p(style=["margin: 0", "color: \{text_secondary}"]) <| "Form submitted successfully.",
+    ]
   }
   let current_step = fw.steps[fw.current]
   let next_label = if fw.current == total - 1 { "Submit" } else { "Next" }

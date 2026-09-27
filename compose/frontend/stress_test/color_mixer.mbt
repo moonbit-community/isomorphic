@@ -27,9 +27,9 @@ fn ColorModel::ColorModel() -> ColorModel {
 ///|
 fn ColorModel::update(self : ColorModel, msg : ColorMsg) -> ColorModel {
   match msg {
-    Red(m) => { ..self, red: self.red.update(m) }
-    Green(m) => { ..self, green: self.green.update(m) }
-    Blue(m) => { ..self, blue: self.blue.update(m) }
+    Red(m) => { ..self, red: self.red.update(m), }
+    Green(m) => { ..self, green: self.green.update(m), }
+    Blue(m) => { ..self, blue: self.blue.update(m), }
   }
 }
 

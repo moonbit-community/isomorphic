@@ -36,12 +36,12 @@ fn ChannelModel::ChannelModel(volume? : Int = 75) -> ChannelModel {
 ///|
 fn ChannelModel::update(self : ChannelModel, msg : ChannelMsg) -> ChannelModel {
   match msg {
-    Volume(m) => { ..self, volume: self.volume.update(m) }
-    Pan(m) => { ..self, pan: self.pan.update(m) }
-    ToggleMute => { ..self, mute: !self.mute }
-    ToggleSolo => { ..self, solo: !self.solo }
-    Steps(m) => { ..self, steps: self.steps.update(m) }
-    Effects(m) => { ..self, effects: self.effects.update(m) }
+    Volume(m) => { ..self, volume: self.volume.update(m), }
+    Pan(m) => { ..self, pan: self.pan.update(m), }
+    ToggleMute => { ..self, mute: !self.mute, }
+    ToggleSolo => { ..self, solo: !self.solo, }
+    Steps(m) => { ..self, steps: self.steps.update(m), }
+    Effects(m) => { ..self, effects: self.effects.update(m), }
   }
 }
 

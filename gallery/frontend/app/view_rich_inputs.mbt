@@ -32,8 +32,8 @@ fn Model::view_star_rating(
   let stars = @html.div(style=["display:flex", "gap:4px", "align-items:center"]) <| star_buttons
   let label_text = if rating == 0 { "No rating" } else { "\{rating}/5 stars" }
   let label = @html.div(
-      style=["font-size:13px", "color:\{text_secondary}", "margin-top:8px"],
-    ) <| label_text
+    style=["font-size:13px", "color:\{text_secondary}", "margin-top:8px"],
+  ) <| label_text
   @html.div(
     style=[
       "display:flex", "flex-direction:column", "align-items:flex-start", "gap:4px",
@@ -51,8 +51,8 @@ fn Model::view_pin_input(
   let digits = self.pin_input.digits
   let verified = self.pin_input.verified
   let hint = @html.div(
-      style=["font-size:12px", "color:\{text_muted}", "margin-bottom:10px"],
-    ) <| "Enter PIN: 1234"
+    style=["font-size:12px", "color:\{text_muted}", "margin-bottom:10px"],
+  ) <| "Enter PIN: 1234"
   let pin_inputs : Array[@rabbita.Html] = []
   for i, _d in digits {
     let index = i
@@ -80,8 +80,8 @@ fn Model::view_pin_input(
     )
   }
   let inputs = @html.div(
-      style=["display:flex", "gap:10px", "align-items:center"],
-    ) <| pin_inputs
+    style=["display:flex", "gap:10px", "align-items:center"],
+  ) <| pin_inputs
   let status = if verified {
     @html.div(
       style=[
@@ -101,9 +101,9 @@ fn Model::view_pin_input(
     @html.div(style=["height:30px"]) <| ""
   }
   let clear_btn = @html.button(
-      style=[..btn_outline_style, ..btn_sm_style, "margin-top:12px"],
-      on_click=dispatch(PinClear),
-    ) <| "Clear"
+    style=[..btn_outline_style, ..btn_sm_style, "margin-top:12px"],
+    on_click=dispatch(PinClear),
+  ) <| "Clear"
   @html.div(
     style=["display:flex", "flex-direction:column", "align-items:flex-start"],
   ) <| [
@@ -156,49 +156,49 @@ fn Model::view_password_strength(
     "100%"
   }
   let input_row = @html.div(
-      style=["display:flex", "gap:8px", "align-items:center"],
-    ) <| [
-      @html.input(
-        input_type=if visible { Text } else { Password },
-        value=password,
-        style=[..input_style, "flex:1", "font-size:15px"],
-        on_input=s => dispatch(PasswordChanged(s)),
-      ) <| "",
-      @html.button(
-        style=[
-          ..btn_outline_style, "padding:8px 12px", "font-size:16px", "flex-shrink:0",
-        ],
-        on_click=dispatch(PasswordToggleVisible),
-      ) <| (if visible { "\u{1F648}" } else { "\u{1F441}" }),
-    ]
+    style=["display:flex", "gap:8px", "align-items:center"],
+  ) <| [
+    @html.input(
+      input_type=if visible { Text } else { Password },
+      value=password,
+      style=[..input_style, "flex:1", "font-size:15px"],
+      on_input=s => dispatch(PasswordChanged(s)),
+    ) <| "",
+    @html.button(
+      style=[
+        ..btn_outline_style, "padding:8px 12px", "font-size:16px", "flex-shrink:0",
+      ],
+      on_click=dispatch(PasswordToggleVisible),
+    ) <| (if visible { "\u{1F648}" } else { "\u{1F441}" }),
+  ]
   let bar_bg = @html.div(
+    style=[
+      "height:6px",
+      "border-radius:\{radius_full}",
+      "background:\{border}",
+      "margin-top:10px",
+      "overflow:hidden",
+    ],
+  ) <| [
+    @html.div(
       style=[
-        "height:6px",
+        "height:100%",
+        "width:\{bar_width}",
+        "background:\{strength_color}",
         "border-radius:\{radius_full}",
-        "background:\{border}",
-        "margin-top:10px",
-        "overflow:hidden",
+        "transition:width 0.3s, background 0.3s",
       ],
-    ) <| [
-      @html.div(
-        style=[
-          "height:100%",
-          "width:\{bar_width}",
-          "background:\{strength_color}",
-          "border-radius:\{radius_full}",
-          "transition:width 0.3s, background 0.3s",
-        ],
-      ) <| "",
-    ]
+    ) <| "",
+  ]
   let bar_label = @html.div(
-      style=[
-        "font-size:12px",
-        "color:\{strength_color}",
-        "margin-top:4px",
-        "font-weight:600",
-        "min-height:18px",
-      ],
-    ) <| strength_label
+    style=[
+      "font-size:12px",
+      "color:\{strength_color}",
+      "margin-top:4px",
+      "font-weight:600",
+      "min-height:18px",
+    ],
+  ) <| strength_label
   @html.div(style=["display:flex", "flex-direction:column", "width:100%"]) <| [
     input_row, bar_bg, bar_label,
   ]
@@ -249,10 +249,10 @@ fn Model::view_tag_auto(
     )
   }
   let tag_pills = @html.div(
-      style=[
-        "display:flex", "flex-wrap:wrap", "gap:6px", "margin-bottom:10px", "min-height:32px",
-      ],
-    ) <| tag_pill_nodes
+    style=[
+      "display:flex", "flex-wrap:wrap", "gap:6px", "margin-bottom:10px", "min-height:32px",
+    ],
+  ) <| tag_pill_nodes
   let filtered = suggestions.filter(fn(s) {
     !tags.contains(s) &&
     (input_val.is_empty() || s.to_lower().contains(input_val.to_lower()))
@@ -304,14 +304,14 @@ fn Model::view_tag_auto(
     @html.div(style=["display:none"]) <| ""
   }
   let input_wrapper = @html.div(style=["position:relative", "width:100%"]) <| [
-      @html.input(
-        input_type=Text,
-        value=input_val,
-        style=[..input_style, "width:100%", "box-sizing:border-box"],
-        on_input=s => dispatch(TagAutoInputChanged(s)),
-      ) <| "",
-      dropdown,
-    ]
+    @html.input(
+      input_type=Text,
+      value=input_val,
+      style=[..input_style, "width:100%", "box-sizing:border-box"],
+      on_input=s => dispatch(TagAutoInputChanged(s)),
+    ) <| "",
+    dropdown,
+  ]
   @html.div(style=["display:flex", "flex-direction:column", "width:100%"]) <| [
     tag_pills, input_wrapper,
   ]

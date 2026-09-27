@@ -26,7 +26,7 @@ fn KnobModel::KnobModel(
   max? : Int = 100,
   step? : Int = 1,
 ) -> KnobModel {
-  { value, min_val: min, max_val: max, step }
+  { value, min_val: min, max_val: max, step, }
 }
 
 ///|
@@ -34,13 +34,13 @@ fn KnobModel::update(self : KnobModel, msg : KnobMsg) -> KnobModel {
   match msg {
     Increment => {
       let v = self.value + self.step
-      { ..self, value: if v > self.max_val { self.max_val } else { v } }
+      { ..self, value: if v > self.max_val { self.max_val } else { v }, }
     }
     Decrement => {
       let v = self.value - self.step
-      { ..self, value: if v < self.min_val { self.min_val } else { v } }
+      { ..self, value: if v < self.min_val { self.min_val } else { v }, }
     }
-    Reset => { ..self, value: self.min_val }
+    Reset => { ..self, value: self.min_val, }
   }
 }
 
@@ -112,7 +112,7 @@ priv enum StepMsg {
 
 ///|
 fn StepModel::StepModel() -> StepModel {
-  { steps: FixedArray::make(8, false) }
+  { steps: FixedArray::make(8, false), }
 }
 
 ///|
@@ -123,7 +123,7 @@ fn StepModel::update(self : StepModel, msg : StepMsg) -> StepModel {
       for j in 0..<8 {
         new_steps[j] = if j == i { !self.steps[j] } else { self.steps[j] }
       }
-      { steps: new_steps }
+      { steps: new_steps, }
     }
   }
 }

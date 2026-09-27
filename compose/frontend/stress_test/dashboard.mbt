@@ -32,9 +32,9 @@ fn DashboardModel::update(
   msg : DashboardMsg,
 ) -> DashboardModel {
   match msg {
-    Mixer(m) => { ..self, mixer: self.mixer.update(m) }
-    Color(m) => { ..self, color: self.color.update(m) }
-    ToggleDarkMode => { ..self, dark_mode: !self.dark_mode }
+    Mixer(m) => { ..self, mixer: self.mixer.update(m), }
+    Color(m) => { ..self, color: self.color.update(m), }
+    ToggleDarkMode => { ..self, dark_mode: !self.dark_mode, }
   }
 }
 
@@ -102,7 +102,7 @@ fn DashboardModel::view(
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
     model=(
-      { mixer: MixerModel(), color: ColorModel(), dark_mode: true } :
+      { mixer: MixerModel(), color: ColorModel(), dark_mode: true, } :
       DashboardModel),
     update=fn(msg, model) { model.update(msg) },
     view=fn(dispatch, model) { model.view(dispatch) },

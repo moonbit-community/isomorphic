@@ -48,7 +48,7 @@ fn PairModel::update(self : PairModel, msg : PairMsg) -> PairModel {
       } else {
         self.right
       }
-      { ..self, left: new_left, right: new_right }
+      { ..self, left: new_left, right: new_right, }
     }
     Right(child_msg) => {
       let new_right = self.right.update(child_msg)
@@ -57,9 +57,9 @@ fn PairModel::update(self : PairModel, msg : PairMsg) -> PairModel {
       } else {
         self.left
       }
-      { ..self, left: new_left, right: new_right }
+      { ..self, left: new_left, right: new_right, }
     }
-    ToggleSync => { ..self, sync_mode: !self.sync_mode }
+    ToggleSync => { ..self, sync_mode: !self.sync_mode, }
   }
 }
 
@@ -96,7 +96,7 @@ fn PairModel::view(
 /// Create a cell with two nested counters that can optionally sync their actions.
 pub fn make() -> @rabbita.Cell {
   @rabbita.simple_cell(
-    model={ left: Model(), right: Model(), sync_mode: false },
+    model={ left: Model(), right: Model(), sync_mode: false, },
     update=(msg, model) => model.update(msg),
     view=(dispatch, model) => model.view(dispatch),
   )
