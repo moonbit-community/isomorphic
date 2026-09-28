@@ -3,6 +3,7 @@ package "bobzhang/spreadsheet/frontend/sheet"
 
 import {
   "bobzhang/spreadsheet/frontend/cell",
+  "moonbitlang/core/json",
 }
 
 // Values
@@ -16,13 +17,11 @@ pub let num_rows : Int
 pub(all) struct Sheet {
   name : String
   cells : Map[String, @cell.Cell]
-
-  fn new(String) -> Sheet
-}
+} derive(ToJson, @json.FromJson)
+pub fn Sheet::Sheet(String) -> Self
 pub fn Sheet::clone(Self, cells? : Map[String, @cell.Cell], name? : String) -> Self
 pub fn Sheet::get(Self, String) -> @cell.Cell
 pub fn Sheet::get_num(Self, Int, Int) -> Double
-pub fn Sheet::new(String) -> Self
 pub fn Sheet::populate_sales_dashboard(Self) -> Unit
 pub fn Sheet::populate_team_metrics(Self) -> Unit
 pub fn Sheet::recalc(Self) -> Self
@@ -36,4 +35,3 @@ pub fn Sheet::set_styled(Self, String, String, Bool, @cell.Align, @cell.NumForma
 // Type aliases
 
 // Traits
-

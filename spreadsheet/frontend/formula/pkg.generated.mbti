@@ -8,6 +8,8 @@ import {
 // Values
 pub fn evaluate(String, (String) -> @cell.Value) -> @cell.Value
 
+pub fn extract_reference_groups(String) -> Array[(String, Int)]
+
 pub fn extract_references(String) -> Array[String]
 
 // Errors
@@ -17,4 +19,3 @@ pub fn extract_references(String) -> Array[String]
 // Type aliases
 
 // Traits
-

@@ -1,0 +1,19 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/spreadsheet/frontend/xlsx"
+
+import {
+  "bobzhang/spreadsheet/frontend/sheet",
+}
+
+// Values
+pub fn load_sheets(Bytes) -> Array[@sheet.Sheet]
+
+pub fn write_sheets(Array[@sheet.Sheet], String) -> Bytes?
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

@@ -53,4 +53,3 @@ pub(all) struct PollResults {
 // Type aliases
 
 // Traits
-

@@ -2,8 +2,8 @@
 package "bobzhang/compose-demo/frontend/counter"
 
 import {
+  "moonbit-community/rabbita/cmd",
   "moonbit-community/rabbita/html",
-  "moonbit-community/rabbita/internal/runtime",
 }
 
 // Values
@@ -13,12 +13,10 @@ import {
 // Types and methods
 pub struct Model {
   count : Int
-
-  fn new() -> Model
 }
-pub fn Model::new() -> Self
+pub fn Model::Model() -> Self
 pub fn Model::update(Self, Msg) -> Self
-pub fn Model::view(Self, (Msg) -> @runtime.Cmd, label~ : String) -> @html.Html
+pub fn Model::view(Self, @cmd.Dispatch[Msg], label~ : String) -> @html.Html
 
 pub(all) enum Msg {
   Increment
@@ -29,4 +27,3 @@ pub(all) enum Msg {
 // Type aliases
 
 // Traits
-

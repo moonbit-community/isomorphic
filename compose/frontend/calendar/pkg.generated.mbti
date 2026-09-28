@@ -2,8 +2,8 @@
 package "bobzhang/compose-demo/frontend/calendar"
 
 import {
+  "moonbit-community/rabbita/cmd",
   "moonbit-community/rabbita/html",
-  "moonbit-community/rabbita/internal/runtime",
 }
 
 // Values
@@ -23,12 +23,10 @@ pub struct Model {
   view_month : Int
   selected : Date?
   today : Date
-
-  fn new(today~ : Date) -> Model
 }
-pub fn Model::new(today~ : Date) -> Self
+pub fn Model::Model(today~ : Date) -> Self
 pub fn Model::update(Self, Msg) -> Self
-pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub fn Model::view(Self, @cmd.Dispatch[Msg]) -> @html.Html
 
 pub(all) enum Msg {
   PrevMonth
@@ -40,4 +38,3 @@ pub(all) enum Msg {
 // Type aliases
 
 // Traits
-

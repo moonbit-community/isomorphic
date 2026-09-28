@@ -15,4 +15,3 @@ pub fn make() -> @rabbita.Cell
 // Type aliases
 
 // Traits
-

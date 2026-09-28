@@ -45,4 +45,3 @@ pub(all) struct Post {
 // Type aliases
 
 // Traits
-

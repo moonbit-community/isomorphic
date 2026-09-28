@@ -29,4 +29,3 @@ pub(all) struct Todo {
 // Type aliases
 
 // Traits
-

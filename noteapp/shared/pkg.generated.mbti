@@ -52,4 +52,3 @@ pub(all) struct NoteStats {
 // Type aliases
 
 // Traits
-

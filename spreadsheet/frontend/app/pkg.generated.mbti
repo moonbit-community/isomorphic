@@ -4,11 +4,14 @@ package "bobzhang/spreadsheet/frontend/app"
 import {
   "bobzhang/spreadsheet/frontend/cell",
   "bobzhang/spreadsheet/frontend/sheet",
+  "moonbit-community/rabbita/cmd",
   "moonbit-community/rabbita/html",
-  "moonbit-community/rabbita/internal/runtime",
 }
 
 // Values
+pub fn init_sync(@cmd.Dispatch[Msg]) -> Unit
+
+pub fn ws_listen_cmd(@cmd.Dispatch[Msg]) -> @cmd.Cmd
 
 // Errors
 
@@ -22,14 +25,15 @@ pub(all) struct Model {
   edit_value : String
   show_chart : Bool
   heat_map : Bool
-
-  fn new() -> Model
+  autocomplete_suggestions : Array[String]
+  autocomplete_index : Int
+  save_status : String
 }
+pub fn Model::Model() -> Self
 pub fn Model::current_sheet(Self) -> @sheet.Sheet
-pub fn Model::new() -> Self
 pub fn Model::selected_cell(Self) -> @cell.Cell
-pub fn Model::update(Self, (Msg) -> @runtime.Cmd, Msg) -> (@runtime.Cmd, Self)
-pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub fn Model::update(Self, @cmd.Dispatch[Msg], Msg) -> (@cmd.Cmd, Self)
+pub fn Model::view(Self, @cmd.Dispatch[Msg]) -> @html.Html
 
 pub(all) enum Msg {
   SelectCell(Int, Int)
@@ -54,9 +58,14 @@ pub(all) enum Msg {
   RequestImport
   ImportExcel(Bytes)
   ExportExcel
+  AutocompleteSelect(String)
+  AutocompleteNav(Int)
+  LoadFromBackend
+  GotBackendData(Result[Array[@sheet.Sheet], String])
+  SavedToBackend
+  WsRefresh
 }
 
 // Type aliases
 
 // Traits
-
