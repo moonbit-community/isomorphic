@@ -92,4 +92,3 @@ pub(all) struct MoveCardRequest {
 // Type aliases
 
 // Traits
-

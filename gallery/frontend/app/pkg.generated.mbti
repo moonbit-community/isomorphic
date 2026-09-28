@@ -2,8 +2,8 @@
 package "bobzhang/gallery/frontend/app"
 
 import {
+  "moonbit-community/rabbita/cmd",
   "moonbit-community/rabbita/html",
-  "moonbit-community/rabbita/internal/runtime",
   "moonbitlang/core/debug",
 }
 
@@ -236,9 +236,9 @@ pub(all) struct Model {
   spreadsheet : SpreadsheetState
   drag_sort : DragSortState
 } derive(@debug.Debug)
-pub fn Model::render_component(Self, (Msg) -> @runtime.Cmd) -> @html.Html
-pub fn Model::update(Self, msg~ : Msg, dispatch~ : (Msg) -> @runtime.Cmd) -> (Self, @runtime.Cmd)
-pub fn Model::view(Self, (Msg) -> @runtime.Cmd) -> @html.Html
+pub fn Model::render_component(Self, @cmd.Dispatch[Msg]) -> @html.Html
+pub fn Model::update(Self, msg~ : Msg, dispatch~ : @cmd.Dispatch[Msg]) -> (Self, @cmd.Cmd)
+pub fn Model::view(Self, @cmd.Dispatch[Msg]) -> @html.Html
 
 pub(all) enum Msg {
   ChangeSection(Section)
@@ -555,4 +555,3 @@ pub(all) struct WizardStep {
 // Type aliases
 
 // Traits
-

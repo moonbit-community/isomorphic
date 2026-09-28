@@ -51,4 +51,3 @@ pub(all) struct Contact {
 // Type aliases
 
 // Traits
-

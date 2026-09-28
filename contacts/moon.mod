@@ -11,7 +11,7 @@ import {
   "oboard/mocket@0.10.1",
   "moonbit-community/sqlite3@0.2.2",
   "moonbitlang/x@0.5.5",
-  "moonbitlang/async@0.22.1",
+  "moonbitlang/async@0.22.4",
 }
 
 warnings = "+missing_doc+unnecessary_annotation"

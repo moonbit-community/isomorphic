@@ -206,6 +206,20 @@ async fn main {
         println("WS upgrade from \{addr}")
         let ws = @websocket.from_http_server(request, sconn)
         ws_clients.push(ws)
+        // Clean up: close and remove this client. This lives in `defer` so it
+        // also runs when the handler is cancelled (`catch` no longer sees
+        // cancellation since moonbitlang/async 0.22).
+        defer {
+          ws.close()
+          for i = ws_clients.length() - 1; i >= 0; i = i - 1 {
+            if physical_equal(ws_clients[i], ws) {
+              ignore(ws_clients.remove(i))
+              break
+            }
+          }
+          let remaining = ws_clients.length()
+          println("  -> Cleaned up WS client (remaining: \{remaining})")
+        }
         let total = ws_clients.length()
         println("  -> WebSocket connected (total: \{total})")
         try {
@@ -225,18 +239,6 @@ async fn main {
           }
           _ => ()
         }
-        // Clean up: close and remove this client
-        ws.close()
-        // Use index tracking — we saved the index when we pushed
-        let _my_idx = ws_clients.length() - 1 // approximate; rebuild is safer
-        for i = ws_clients.length() - 1; i >= 0; i = i - 1 {
-          if physical_equal(ws_clients[i], ws) {
-            ignore(ws_clients.remove(i))
-            break
-          }
-        }
-        let remaining = ws_clients.length()
-        println("  -> Cleaned up WS client (remaining: \{remaining})")
       }
       _ => {
         println(

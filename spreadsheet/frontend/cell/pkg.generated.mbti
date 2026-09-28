@@ -3,6 +3,7 @@ package "bobzhang/spreadsheet/frontend/cell"
 
 import {
   "moonbitlang/core/debug",
+  "moonbitlang/core/json",
 }
 
 // Values
@@ -20,7 +21,7 @@ pub(all) enum Align {
   Left
   Center
   Right
-}
+} derive(ToJson, @json.FromJson)
 
 pub(all) struct Cell {
   raw : String
@@ -31,23 +32,22 @@ pub(all) struct Cell {
   format : NumFormat
   bg_color : String
   text_color : String
-
-  fn new(raw? : String, value? : Value, bold? : Bool, italic? : Bool, align? : Align, format? : NumFormat, bg_color? : String, text_color? : String) -> Cell
-}
+} derive(ToJson, @json.FromJson)
+pub fn Cell::Cell(raw? : String, value? : Value, bold? : Bool, italic? : Bool, align? : Align, format? : NumFormat, bg_color? : String, text_color? : String) -> Self
 
 pub(all) enum NumFormat {
   General
   Currency
   Percent
   Fixed
-}
+} derive(ToJson, @json.FromJson)
 
 pub(all) enum Value {
   Empty
   Num(Double)
   Text(String)
   Error(String)
-} derive(@debug.Debug)
+} derive(ToJson, @debug.Debug, @json.FromJson)
 pub fn Value::format_with(Self, NumFormat) -> String
 pub fn Value::to_display(Self) -> String
 pub impl Eq for Value
@@ -56,4 +56,3 @@ pub impl Show for Value
 // Type aliases
 
 // Traits
-

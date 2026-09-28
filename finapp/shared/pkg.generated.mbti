@@ -122,4 +122,3 @@ pub fn TransactionType::to_label(Self) -> String
 // Type aliases
 
 // Traits
-
