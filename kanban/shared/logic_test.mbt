@@ -37,16 +37,16 @@ test "compute_insert_position returns 0 when gap too small" {
 
 ///|
 test "renumber_positions generates evenly spaced" {
-  inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
-  inspect(@shared.renumber_positions(0), content="[]")
-  inspect(@shared.renumber_positions(1), content="[1000]")
+  debug_inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
+  debug_inspect(@shared.renumber_positions(0), content="[]")
+  debug_inspect(@shared.renumber_positions(1), content="[1000]")
 }
 
 ///|
 test "sort_by_position sorts ascending" {
   let items = [3, 1, 2]
   let sorted = @shared.sort_by_position(items, fn(x) { x * 1000 })
-  inspect(sorted, content="[1, 2, 3]")
+  debug_inspect(sorted, content="[1, 2, 3]")
 }
 
 ///|
@@ -189,7 +189,7 @@ test "sort_by_position preserves equal positions" {
   let items = [10, 20, 30]
   // All same position — order preserved (stable sort)
   let sorted = @shared.sort_by_position(items, fn(_) { 1000 })
-  inspect(sorted, content="[10, 20, 30]")
+  debug_inspect(sorted, content="[10, 20, 30]")
 }
 
 ///|
@@ -197,7 +197,7 @@ test "sort_by_position does not mutate original" {
   let items = [3, 1, 2]
   let _ = @shared.sort_by_position(items, fn(x) { x })
   // Original unchanged
-  inspect(items, content="[3, 1, 2]")
+  debug_inspect(items, content="[3, 1, 2]")
 }
 
 ///|
@@ -257,7 +257,7 @@ test "compute_move_position with large target_index goes to bottom" {
 ///|
 test "renumber_positions large count" {
   let positions = @shared.renumber_positions(5)
-  inspect(positions, content="[1000, 2000, 3000, 4000, 5000]")
+  debug_inspect(positions, content="[1000, 2000, 3000, 4000, 5000]")
 }
 
 ///|

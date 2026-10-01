@@ -130,8 +130,8 @@ test "workflow: dependency chain blocks progress" {
   inspect(@shared.has_unresolved_deps(deps, tasks, 3), content="true")
   inspect(@shared.has_unresolved_deps(deps, tasks, 4), content="true")
   // Check dependency lists
-  inspect(@shared.get_dependencies(deps, 4), content="[2, 3]")
-  inspect(@shared.get_dependencies(deps, 1), content="[]")
+  debug_inspect(@shared.get_dependencies(deps, 4), content="[2, 3]")
+  debug_inspect(@shared.get_dependencies(deps, 1), content="[]")
 }
 
 ///|

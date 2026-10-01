@@ -214,7 +214,7 @@ fn format_with_commas(n : Int) -> String {
   if chars.length() <= 3 {
     return if is_neg { "-\{s}" } else { s }
   }
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   if is_neg {
     sb.write_char('-')
   }

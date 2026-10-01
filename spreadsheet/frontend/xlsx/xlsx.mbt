@@ -250,7 +250,7 @@ fn get_xlsx_style(
                 let c = colors[0]
                 // Excel colors may be "FFRRGGBB" (8-char ARGB) — convert to #RRGGBB
                 if c.length() == 8 {
-                  "#\{c[2:].to_string()}"
+                  "#\{c[2:].to_owned()}"
                 } else if c.length() == 6 {
                   "#\{c}"
                 } else {
@@ -309,7 +309,7 @@ fn export_sheet_cells(
     // Set formula (strip leading '=', normalize AVG->AVERAGE for Excel)
     match cell.raw.strip_prefix("=") {
       Some(rest) => {
-        let formula = normalize_formula(rest.to_string())
+        let formula = normalize_formula(rest.to_owned())
         ws.set_cell_formula(key, formula) catch {
           _ => ()
         }
@@ -374,7 +374,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @mbtexcel_xlsx.Style {
   if !cell.bg_color.is_empty() {
     // Convert "#RRGGBB" to "FFRRGGBB"
     let color = if cell.bg_color.length() == 7 && cell.bg_color[0] == '#' {
-      "FF\{cell.bg_color[1:].to_string()}"
+      "FF\{cell.bg_color[1:].to_owned()}"
     } else {
       cell.bg_color
     }
@@ -393,7 +393,7 @@ fn build_xlsx_style(cell : @cell.Cell) -> @mbtexcel_xlsx.Style {
 /// not preceded by another uppercase letter (to avoid mangling names like
 /// `NAVG`).
 fn normalize_formula(formula : String) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   let chars = formula.to_array()
   let len = chars.length()
   let mut i = 0
@@ -430,7 +430,7 @@ fn normalize_formula(formula : String) -> String {
 /// is present. Used to parse dimension strings like `"A1:H14"`.
 fn split_colon(s : String) -> (String, String)? {
   match s.split_once(":") {
-    Some((left, right)) => Some((left.to_string(), right.to_string()))
+    Some((left, right)) => Some((left.to_owned(), right.to_owned()))
     None => None
   }
 }

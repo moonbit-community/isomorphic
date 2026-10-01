@@ -62,7 +62,7 @@ pub fn compute_insert_position(before : Int, after : Int) -> Int {
 ///
 /// ```mbt check
 /// test {
-///   inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
+///   debug_inspect(@shared.renumber_positions(3), content="[1000, 2000, 3000]")
 /// }
 /// ```
 pub fn renumber_positions(count : Int) -> Array[Int] {

@@ -1,12 +1,12 @@
 ///|
-fn noop_dispatch(_msg : Msg) -> @rabbita.Cmd {
+fn noop_dispatch(_msg : @app.Msg) -> @rabbita.Cmd {
   @rabbita.none
 }
 
 // ── Helper: minimal model with empty sheets for fast, deterministic tests ────
 
 ///|
-fn empty_model() -> Model {
+fn empty_model() -> @app.Model {
   let sheet1 = @sheet.Sheet("Sheet 1")
   let sheet2 = @sheet.Sheet("Sheet 2")
   let sheet3 = @sheet.Sheet("Sheet 3")
@@ -29,13 +29,13 @@ fn empty_model() -> Model {
 
 ///|
 test "Model::new() creates 3 sheets" {
-  let model = Model()
+  let model = @app.Model()
   assert_eq(model.sheets.length(), 3)
 }
 
 ///|
 test "Model::new() sheet names" {
-  let model = Model()
+  let model = @app.Model()
   assert_eq(model.sheets[0].name, "Sales Dashboard")
   assert_eq(model.sheets[1].name, "Team Metrics")
   assert_eq(model.sheets[2].name, "Sheet 3")
@@ -43,7 +43,7 @@ test "Model::new() sheet names" {
 
 ///|
 test "Model::new() default selection and flags" {
-  let model = Model()
+  let model = @app.Model()
   assert_eq(model.active_sheet, 0)
   assert_eq(model.sel_col, 0)
   assert_eq(model.sel_row, 0)
@@ -252,37 +252,37 @@ test "ToggleItalic toggles italic on selected cell" {
 ///|
 test "SetAlign changes alignment to Center" {
   let (_, model) = empty_model().update(noop_dispatch, SetAlign(Center))
-  guard model.selected_cell().align is Center
+  guard! model.selected_cell().align is Center
 }
 
 ///|
 test "SetAlign changes alignment to Right" {
   let (_, model) = empty_model().update(noop_dispatch, SetAlign(Right))
-  guard model.selected_cell().align is Right
+  guard! model.selected_cell().align is Right
 }
 
 ///|
 test "SetAlign changes alignment to Left" {
   let (_, model) = empty_model().update(noop_dispatch, SetAlign(Left))
-  guard model.selected_cell().align is Left
+  guard! model.selected_cell().align is Left
 }
 
 ///|
 test "SetFormat changes number format to Currency" {
   let (_, model) = empty_model().update(noop_dispatch, SetFormat(Currency))
-  guard model.selected_cell().format is Currency
+  guard! model.selected_cell().format is Currency
 }
 
 ///|
 test "SetFormat changes number format to Percent" {
   let (_, model) = empty_model().update(noop_dispatch, SetFormat(Percent))
-  guard model.selected_cell().format is Percent
+  guard! model.selected_cell().format is Percent
 }
 
 ///|
 test "SetFormat changes number format to Fixed" {
   let (_, model) = empty_model().update(noop_dispatch, SetFormat(Fixed))
-  guard model.selected_cell().format is Fixed
+  guard! model.selected_cell().format is Fixed
 }
 
 ///|
@@ -340,7 +340,7 @@ test "DeleteSheet removes a sheet" {
 
 ///|
 test "DeleteSheet cannot delete last sheet" {
-  let single_sheet : Model = {
+  let single_sheet : @app.Model = {
     sheets: [Sheet("Only")],
     active_sheet: 0,
     sel_col: 0,
@@ -408,8 +408,8 @@ test "ClearCell removes formatting too" {
   let (_, model) = m.update(noop_dispatch, ClearCell)
   let cell = model.selected_cell()
   assert_eq(cell.bold, false)
-  guard cell.align is Auto
-  guard cell.format is General
+  guard! cell.align is Auto
+  guard! cell.format is General
 }
 
 // ── Toggle flags ────────────────────────────────────────────────────
@@ -486,7 +486,7 @@ test "full edit-navigate-edit cycle" {
 
 ///|
 /// Helper: replay a sequence of Msgs and return the final Model.
-fn replay(model : Model, msgs : Array[Msg]) -> Model {
+fn replay(model : @app.Model, msgs : Array[@app.Msg]) -> @app.Model {
   let mut m = model
   for msg in msgs {
     let (_, next) = m.update(noop_dispatch, msg)

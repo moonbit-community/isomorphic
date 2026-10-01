@@ -11,16 +11,16 @@ pub let valid_statuses : Array[String] = [
 ///
 /// ```mbt check
 /// test {
-///   inspect(
+///   debug_inspect(
 ///     @shared.allowed_transitions("todo"),
 ///     content=(
-///       #|[in_progress, blocked]
+///       #|["in_progress", "blocked"]
 ///     ),
 ///   )
-///   inspect(
+///   debug_inspect(
 ///     @shared.allowed_transitions("done"),
 ///     content=(
-///       #|[todo]
+///       #|["todo"]
 ///     ),
 ///   )
 /// }

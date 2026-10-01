@@ -1,11 +1,11 @@
 ///|
-fn noop_dispatch(_msg : Msg) -> @rabbita.Cmd {
+fn noop_dispatch(_msg : @app.Msg) -> @rabbita.Cmd {
   @rabbita.none
 }
 
 ///|
-fn m() -> Model {
-  initial_model()
+fn m() -> @app.Model {
+  @app.initial_model()
 }
 
 // ── Navigation ───────────────────────────────────────────────────────
