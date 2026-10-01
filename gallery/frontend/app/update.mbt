@@ -481,7 +481,7 @@ pub fn Model::update(
     // ── TextArea ─────────────────────────────
     TextAreaChanged(v) => {
       let trimmed = if v.char_length() > self.text_area.max_chars {
-        v[:self.text_area.max_chars].to_string()
+        v[:self.text_area.max_chars].to_owned()
       } else {
         v
       }
@@ -1214,7 +1214,7 @@ pub fn Model::update(
     PinDigitChanged(idx, val) => {
       let digits = self.pin_input.digits.copy()
       let d = if val.char_length() > 1 {
-        val[val.char_length() - 1:].to_string()
+        val[val.char_length() - 1:].to_owned()
       } else {
         val
       }

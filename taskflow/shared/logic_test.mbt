@@ -895,9 +895,9 @@ test "get_dependencies" {
     { task_id: 1, depends_on_id: 3, },
     { task_id: 2, depends_on_id: 3, },
   ]
-  inspect(@shared.get_dependencies(deps, 1), content="[2, 3]")
-  inspect(@shared.get_dependencies(deps, 2), content="[3]")
-  inspect(@shared.get_dependencies(deps, 3), content="[]")
+  debug_inspect(@shared.get_dependencies(deps, 1), content="[2, 3]")
+  debug_inspect(@shared.get_dependencies(deps, 2), content="[3]")
+  debug_inspect(@shared.get_dependencies(deps, 3), content="[]")
 }
 
 ///|
@@ -1300,7 +1300,7 @@ test "has_unresolved_deps dep on nonexistent task" {
 
 ///|
 test "get_dependencies empty" {
-  inspect(@shared.get_dependencies([], 1), content="[]")
+  debug_inspect(@shared.get_dependencies([], 1), content="[]")
 }
 
 ///|
@@ -1555,9 +1555,9 @@ test "subtask_progress counts done vs total" {
     { id: 3, task_id: 10, title: "C", done: true, },
     { id: 4, task_id: 20, title: "D", done: false, },
   ]
-  inspect(@shared.subtask_progress(subs, 10), content="(2, 3)")
-  inspect(@shared.subtask_progress(subs, 20), content="(0, 1)")
-  inspect(@shared.subtask_progress(subs, 99), content="(0, 0)")
+  debug_inspect(@shared.subtask_progress(subs, 10), content="(2, 3)")
+  debug_inspect(@shared.subtask_progress(subs, 20), content="(0, 1)")
+  debug_inspect(@shared.subtask_progress(subs, 99), content="(0, 0)")
 }
 
 ///|

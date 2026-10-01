@@ -9,7 +9,7 @@ fn render(html : @rabbita.Html) -> String {
 }
 
 ///|
-fn noop(_msg : Msg) -> @rabbita.Cmd {
+fn noop(_msg : @app.Msg) -> @rabbita.Cmd {
   @rabbita.none
 }
 
@@ -17,7 +17,7 @@ fn noop(_msg : Msg) -> @rabbita.Cmd {
 
 ///|
 test "E2E: initial render shows Inputs section with TextInput active" {
-  let model = initial_model()
+  let model = @app.initial_model()
   let html = render(model.view(noop))
   // Sidebar should exist with "Gallery" header
   assert_true(html.contains("Gallery"))
@@ -29,7 +29,7 @@ test "E2E: initial render shows Inputs section with TextInput active" {
 
 ///|
 test "E2E: navigate to Display section shows Avatar" {
-  let (model, _) = initial_model().update(
+  let (model, _) = @app.initial_model().update(
     msg=ChangeSection(Display),
     dispatch=noop,
   )
@@ -40,7 +40,10 @@ test "E2E: navigate to Display section shows Avatar" {
 
 ///|
 test "E2E: navigate to specific component in section" {
-  let (m1, _) = initial_model().update(msg=ChangeSection(Data), dispatch=noop)
+  let (m1, _) = @app.initial_model().update(
+    msg=ChangeSection(Data),
+    dispatch=noop,
+  )
   let (m2, _) = m1.update(msg=ChangeComponent(1), dispatch=noop)
   let html = render(m2.view(noop))
   // Should show Calendar component
@@ -52,7 +55,7 @@ test "E2E: navigate to specific component in section" {
 
 ///|
 test "E2E: typing short text shows validation error in view" {
-  let (model, _) = initial_model().update(
+  let (model, _) = @app.initial_model().update(
     msg=TextInputChanged("ab"),
     dispatch=noop,
   )
@@ -65,7 +68,7 @@ test "E2E: typing short text shows validation error in view" {
 
 ///|
 test "E2E: typing valid text clears error in view" {
-  let (m1, _) = initial_model().update(
+  let (m1, _) = @app.initial_model().update(
     msg=TextInputChanged("ab"),
     dispatch=noop,
   )
@@ -80,7 +83,10 @@ test "E2E: typing valid text clears error in view" {
 
 ///|
 test "E2E: toggling checkbox updates the view" {
-  let (m1, _) = initial_model().update(msg=ChangeSection(Inputs), dispatch=noop)
+  let (m1, _) = @app.initial_model().update(
+    msg=ChangeSection(Inputs),
+    dispatch=noop,
+  )
   let (m2, _) = m1.update(msg=ChangeComponent(2), dispatch=noop)
   // Toggle "Dark mode" (index 1, initially false)
   let (m3, _) = m2.update(msg=CheckboxToggled(1), dispatch=noop)
@@ -97,7 +103,7 @@ test "E2E: toggling checkbox updates the view" {
 
 ///|
 test "E2E: add tag then remove it" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m0b, _) = m0.update(msg=ChangeSection(Display), dispatch=noop)
   let (m0c, _) = m0b.update(msg=ChangeComponent(4), dispatch=noop)
   // Type a new tag
@@ -118,7 +124,7 @@ test "E2E: add tag then remove it" {
 
 ///|
 test "E2E: accordion expand shows content, collapse hides it" {
-  let (m1, _) = initial_model().update(
+  let (m1, _) = @app.initial_model().update(
     msg=ChangeSection(Navigation),
     dispatch=noop,
   )
@@ -142,7 +148,7 @@ test "E2E: accordion expand shows content, collapse hides it" {
 
 ///|
 test "E2E: switching tabs changes visible content" {
-  let (m1, _) = initial_model().update(
+  let (m1, _) = @app.initial_model().update(
     msg=ChangeSection(Navigation),
     dispatch=noop,
   )
@@ -164,7 +170,7 @@ test "E2E: switching tabs changes visible content" {
 
 ///|
 test "E2E: sort table by column and paginate" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Sort by email
   let (m1, _) = m0.update(msg=TableSort("email"), dispatch=noop)
   inspect(m1.data_table.sort_col, content="email")
@@ -184,7 +190,7 @@ test "E2E: sort table by column and paginate" {
 
 ///|
 test "E2E: select and deselect table rows" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Select row 0
   let (m1, _) = m0.update(msg=TableToggleRow(0), dispatch=noop)
   assert_true(m1.data_table.selected.contains(0))
@@ -200,7 +206,10 @@ test "E2E: select and deselect table rows" {
 
 ///|
 test "E2E: calendar navigate months and select day" {
-  let (m1, _) = initial_model().update(msg=ChangeSection(Data), dispatch=noop)
+  let (m1, _) = @app.initial_model().update(
+    msg=ChangeSection(Data),
+    dispatch=noop,
+  )
   let (m2, _) = m1.update(msg=ChangeComponent(1), dispatch=noop)
   // Initial: March 2026
   let html0 = render(m2.render_component(noop))
@@ -224,7 +233,7 @@ test "E2E: calendar navigate months and select day" {
 
 ///|
 test "E2E: show and dismiss toast" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Show a success toast
   let (m1, _) = m0.update(
     msg=ShowToast("Saved", "Your changes were saved.", "success"),
@@ -253,7 +262,7 @@ test "E2E: show and dismiss toast" {
 
 ///|
 test "E2E: modal open, confirm, shows result" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Open modal
   let (m1, _) = m0.update(msg=ModalOpen, dispatch=noop)
   assert_true(m1.modal.open)
@@ -276,7 +285,7 @@ test "E2E: modal open, confirm, shows result" {
 
 ///|
 test "E2E: modal open and cancel" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ModalOpen, dispatch=noop)
   let (m2, _) = m1.update(msg=ModalClose, dispatch=noop)
   assert_false(m2.modal.open)
@@ -287,7 +296,7 @@ test "E2E: modal open and cancel" {
 
 ///|
 test "E2E: move kanban card from To Do to In Progress" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeSection(Composite), dispatch=noop)
   let (m2, _) = m1.update(msg=ChangeComponent(0), dispatch=noop)
   // Card 1 starts in "To Do" (col 0)
@@ -308,7 +317,7 @@ test "E2E: move kanban card from To Do to In Progress" {
 
 ///|
 test "E2E: wizard validation, fill, advance, complete" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeSection(Composite), dispatch=noop)
   let (m2, _) = m1.update(msg=ChangeComponent(3), dispatch=noop)
   // Try to advance with empty fields — should show errors
@@ -348,7 +357,7 @@ test "E2E: wizard validation, fill, advance, complete" {
 
 ///|
 test "E2E: wizard go back preserves filled data" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Fill step 0 and advance
   let (m1, _) = m0.update(msg=WizardFieldChanged(0, "Bob"), dispatch=noop)
   let (m2, _) = m1.update(msg=WizardFieldChanged(1, "bob@b.com"), dispatch=noop)
@@ -366,7 +375,7 @@ test "E2E: wizard go back preserves filled data" {
 
 ///|
 test "E2E: searchable select filter and pick" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Open the dropdown
   let (m1, _) = m0.update(msg=SearchableToggleOpen, dispatch=noop)
   assert_true(m1.searchable_select.open)
@@ -383,7 +392,7 @@ test "E2E: searchable select filter and pick" {
 
 ///|
 test "E2E: command palette navigates to Inputs" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeSection(Display), dispatch=noop)
   // Open palette
   let (m2, _) = m1.update(msg=CommandPaletteToggle, dispatch=noop)
@@ -398,7 +407,7 @@ test "E2E: command palette navigates to Inputs" {
 
 ///|
 test "E2E: pick start and end dates" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Set picking mode to start
   let (m1, _) = m0.update(msg=DateRangeSetPicking("start"), dispatch=noop)
   // Pick day 5
@@ -417,7 +426,7 @@ test "E2E: pick start and end dates" {
 
 ///|
 test "E2E: adjust progress and verify view" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeSection(Display), dispatch=noop)
   let (m2, _) = m1.update(msg=ChangeComponent(2), dispatch=noop)
   // Change progress to 80
@@ -430,7 +439,7 @@ test "E2E: adjust progress and verify view" {
 
 ///|
 test "E2E: pick swatch then edit hex" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Pick red swatch
   let (m1, _) = m0.update(msg=ColorSwatchClicked("#ef4444"), dispatch=noop)
   inspect(m1.color_picker.selected, content="#ef4444")
@@ -448,7 +457,7 @@ test "E2E: pick swatch then edit hex" {
 
 ///|
 test "E2E: skeleton toggle shows/hides loading state" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeSection(Display), dispatch=noop)
   let (m2, _) = m1.update(msg=ChangeComponent(5), dispatch=noop)
   // Initially loading=true
@@ -465,7 +474,7 @@ test "E2E: skeleton toggle shows/hides loading state" {
 
 ///|
 test "E2E: tree view expand and collapse nodes" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeSection(Navigation), dispatch=noop)
   let (m2, _) = m1.update(msg=ChangeComponent(3), dispatch=noop)
   // Initially nodes 1 and 2 are expanded
@@ -485,7 +494,7 @@ test "E2E: tree view expand and collapse nodes" {
 
 ///|
 test "E2E: breadcrumb navigate truncates path" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   // Initial path: Home > Components > Navigation > Breadcrumb
   inspect(m0.breadcrumb.path.length(), content="4")
   // Navigate to "Components" (index 1)
@@ -503,7 +512,7 @@ test "E2E: breadcrumb navigate truncates path" {
 
 ///|
 test "E2E: radio selection renders correctly" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeComponent(3), dispatch=noop) // RadioGroup
   let (m2, _) = m1.update(msg=RadioSelected("Large"), dispatch=noop)
   let html = render(m2.render_component(noop))
@@ -515,7 +524,7 @@ test "E2E: radio selection renders correctly" {
 
 ///|
 test "E2E: slider value appears in view" {
-  let m0 = initial_model()
+  let m0 = @app.initial_model()
   let (m1, _) = m0.update(msg=ChangeComponent(6), dispatch=noop) // Slider
   let (m2, _) = m1.update(msg=SliderChanged("75"), dispatch=noop)
   let html = render(m2.render_component(noop))

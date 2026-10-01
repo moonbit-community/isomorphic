@@ -52,11 +52,11 @@
 /// This is used by the dependency tracker to know which cells a formula
 /// depends on so that recalculation can propagate changes.
 pub fn extract_references(raw : String) -> Array[String] {
-  let trimmed = raw.trim().to_string()
+  let trimmed = raw.trim().to_owned()
   if trimmed.is_empty() || trimmed[0] != '=' {
     return []
   }
-  let expr = trimmed[1:].to_string().trim().to_string()
+  let expr = trimmed[1:].to_owned().trim().to_owned()
   let tokens = tokenize(expr)
   let refs : Array[String] = []
   let len = tokens.length()
@@ -112,11 +112,11 @@ pub fn extract_references(raw : String) -> Array[String] {
 /// Given `"=SUM(A1:A3) + B4"`, returns:
 ///   `[("A1", 0), ("A2", 0), ("A3", 0), ("B4", 1)]`
 pub fn extract_reference_groups(raw : String) -> Array[(String, Int)] {
-  let trimmed = raw.trim().to_string()
+  let trimmed = raw.trim().to_owned()
   if trimmed.is_empty() || trimmed[0] != '=' {
     return []
   }
-  let expr = trimmed[1:].to_string().trim().to_string()
+  let expr = trimmed[1:].to_owned().trim().to_owned()
   let tokens = tokenize(expr)
   let result : Array[(String, Int)] = []
   let len = tokens.length()
@@ -186,10 +186,10 @@ pub fn evaluate(raw : String, lookup : (String) -> @cell.Value) -> @cell.Value {
   if trimmed.is_empty() {
     return Empty
   }
-  let trimmed_str = trimmed.to_string()
+  let trimmed_str = trimmed.to_owned()
   match trimmed_str.strip_prefix("=") {
     Some(rest) => {
-      let expr = rest.to_string().trim().to_string()
+      let expr = rest.to_owned().trim().to_owned()
       parse_and_eval(expr, lookup)
     }
     None =>
@@ -288,7 +288,7 @@ fn tokenize(s : String) -> Array[Token] {
     if c == '"' {
       // String literal
       i = i + 1
-      let sb = StringBuilder::new()
+      let sb = StringBuilder()
       while i < len && chars[i] != '"' {
         sb.write_char(chars[i])
         i = i + 1
@@ -329,7 +329,7 @@ fn tokenize(s : String) -> Array[Token] {
         }
         let num_str = chars[start:i]
           .iter()
-          .fold(init=StringBuilder::new(), fn(sb, c) {
+          .fold(init=StringBuilder(), fn(sb, c) {
             sb.write_char(c)
             sb
           })
@@ -385,7 +385,7 @@ fn tokenize(s : String) -> Array[Token] {
       }
       let num_str = chars[start:i]
         .iter()
-        .fold(init=StringBuilder::new(), fn(sb, c) {
+        .fold(init=StringBuilder(), fn(sb, c) {
           sb.write_char(c)
           sb
         })
@@ -407,7 +407,7 @@ fn tokenize(s : String) -> Array[Token] {
         }
         let ref_str = chars[start:i]
           .iter()
-          .fold(init=StringBuilder::new(), fn(sb, c) {
+          .fold(init=StringBuilder(), fn(sb, c) {
             sb.write_char(c)
             sb
           })
@@ -417,7 +417,7 @@ fn tokenize(s : String) -> Array[Token] {
         // It's a function name like SUM, AVG
         let func_str = chars[start:i]
           .iter()
-          .fold(init=StringBuilder::new(), fn(sb, c) {
+          .fold(init=StringBuilder(), fn(sb, c) {
             sb.write_char(c)
             sb
           })
@@ -1070,7 +1070,7 @@ fn value_to_string(v : @cell.Value) -> String {
 fn apply_string_func(name : String, args : Array[@cell.Value]) -> @cell.Value {
   match name {
     "CONCAT" => {
-      let sb = StringBuilder::new()
+      let sb = StringBuilder()
       for arg in args {
         sb.write_string(value_to_string(arg))
       }
@@ -1233,7 +1233,7 @@ fn pow10(n : Int) -> Double {
 /// Convert ASCII lowercase letters (a-z) to uppercase. Non-ASCII characters
 /// are passed through unchanged.
 fn to_upper(s : String) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for c in s {
     if c >= 'a' && c <= 'z' {
       sb.write_char((c.to_int() - 32).unsafe_to_char())
@@ -1248,7 +1248,7 @@ fn to_upper(s : String) -> String {
 /// Convert ASCII uppercase letters (A-Z) to lowercase. Non-ASCII characters
 /// are passed through unchanged.
 fn to_lower(s : String) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for c in s {
     if c >= 'A' && c <= 'Z' {
       sb.write_char((c.to_int() + 32).unsafe_to_char())

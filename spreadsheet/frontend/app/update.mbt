@@ -372,7 +372,7 @@ fn extract_partial(value : String) -> String {
     return ""
   }
   // Build the partial string
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for j = start; j < end; j = j + 1 {
     sb.write_char(chars[j])
   }
@@ -415,7 +415,7 @@ fn insert_autocomplete(value : String, name : String) -> String {
   // Remove the partial from the end and append the full name
   let prefix_len = value.length() - partial.length()
   let chars = value.to_array()
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for i = 0; i < prefix_len; i = i + 1 {
     sb.write_char(chars[i])
   }

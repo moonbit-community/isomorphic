@@ -26,7 +26,10 @@ jobs:
         run: moon update
 
       - name: Check
-        run: moon check
+        run: moon check --deny-warn
+
+      - name: Format (no diff)
+        run: moon fmt --check
 
       - name: Build JS
         run: moon build --target js

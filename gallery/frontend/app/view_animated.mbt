@@ -112,7 +112,7 @@ fn Model::view_typewriter(
   let full = self.typewriter.full_text
   let visible = self.typewriter.visible_chars
   let running = self.typewriter.running
-  let shown = full[:visible].to_string()
+  let shown = full[:visible].to_owned()
   let cursor = if running { "\u{258B}" } else { "" }
   @html.div(
     style=[

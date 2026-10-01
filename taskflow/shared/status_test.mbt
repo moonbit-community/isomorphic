@@ -1,56 +1,56 @@
 ///|
 test "allowed_transitions from todo" {
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("todo"),
     content=(
-      #|[in_progress, blocked]
+      #|["in_progress", "blocked"]
     ),
   )
 }
 
 ///|
 test "allowed_transitions from in_progress" {
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("in_progress"),
     content=(
-      #|[review, blocked, todo]
+      #|["review", "blocked", "todo"]
     ),
   )
 }
 
 ///|
 test "allowed_transitions from review" {
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("review"),
     content=(
-      #|[done, in_progress]
+      #|["done", "in_progress"]
     ),
   )
 }
 
 ///|
 test "allowed_transitions from blocked" {
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("blocked"),
     content=(
-      #|[todo, in_progress]
+      #|["todo", "in_progress"]
     ),
   )
 }
 
 ///|
 test "allowed_transitions from done" {
-  inspect(
+  debug_inspect(
     @shared.allowed_transitions("done"),
     content=(
-      #|[todo]
+      #|["todo"]
     ),
   )
 }
 
 ///|
 test "allowed_transitions from unknown" {
-  inspect(@shared.allowed_transitions("invalid"), content="[]")
+  debug_inspect(@shared.allowed_transitions("invalid"), content="[]")
 }
 
 ///|
@@ -157,7 +157,7 @@ test "is_terminal exhaustive" {
 
 ///|
 test "allowed_transitions empty string" {
-  inspect(@shared.allowed_transitions(""), content="[]")
+  debug_inspect(@shared.allowed_transitions(""), content="[]")
 }
 
 ///|

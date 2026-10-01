@@ -160,7 +160,7 @@ fn replay(model : Model, msgs : Array[Msg]) -> Model {
 /// Helper: minimal empty model.
 fn test_model() -> Model {
   {
-    sheets: [@sheet.Sheet("S1"), @sheet.Sheet("S2")],
+    sheets: [Sheet("S1"), Sheet("S2")],
     active_sheet: 0,
     sel_col: 0,
     sel_row: 0,

@@ -59,7 +59,7 @@ pub fn truncate(text : String, max_len : Int) -> String {
   if text.char_length() <= max_len {
     text
   } else {
-    let buf = StringBuilder::new()
+    let buf = StringBuilder()
     for ch in text; i = 0 {
       if i >= max_len {
         break

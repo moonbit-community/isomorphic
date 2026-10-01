@@ -44,7 +44,7 @@ pub fn parse_amount(s : String) -> Int {
     let v = @string.parse_int(after_dot) catch { _ => 0 }
     v * 10
   } else if after_dot.length() >= 2 {
-    let two = after_dot[0:2].to_string()
+    let two = after_dot[0:2].to_owned()
     @string.parse_int(two) catch {
       _ => 0
     }
@@ -77,7 +77,7 @@ pub fn monthly_totals(
   month : String,
 ) -> MonthSummary {
   let (income, expenses) = for t in transactions; income = 0, expenses = 0 {
-    if t.date.length() >= 7 && t.date[0:7].to_string() == month {
+    if t.date.length() >= 7 && t.date[0:7].to_owned() == month {
       match t.txn_type {
         Income => continue income + t.amount, expenses
         Expense => continue income, expenses + t.amount
@@ -105,7 +105,7 @@ pub fn category_spending(
         if t.category_id == cat.id &&
           t.txn_type == Expense &&
           t.date.length() >= 7 &&
-          t.date[0:7].to_string() == month {
+          t.date[0:7].to_owned() == month {
           continue total + t.amount
         } else {
           continue total
@@ -143,7 +143,7 @@ pub fn spent_in_category(
     t.category_id == category_id &&
     t.txn_type == Expense &&
     t.date.length() >= 7 &&
-    t.date[0:7].to_string() == month
+    t.date[0:7].to_owned() == month
   })
   .fold(init=0, fn(acc, t) { acc + t.amount })
 }

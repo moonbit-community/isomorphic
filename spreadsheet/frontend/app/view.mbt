@@ -540,7 +540,7 @@ fn Model::view_grid(
   // Each referenced cell gets a color index so different refs/ranges have distinct colors.
   let sel_cell = self.selected_cell()
   let formula_src = if self.editing { self.edit_value } else { sel_cell.raw }
-  let highlighted_refs : Map[String, Int] = {}
+  let highlighted_refs : Map[String, Int] = Map([])
   if !formula_src.is_empty() && formula_src[0] == '=' {
     let groups = @formula.extract_reference_groups(formula_src)
     for pair in groups {
@@ -805,7 +805,7 @@ fn Model::view_grid(
         } else if key == "Backspace" {
           let v = self.edit_value
           let new_v = if v.length() > 0 {
-            v[:v.length() - 1].to_string()
+            v[:v.length() - 1].to_owned()
           } else {
             ""
           }
