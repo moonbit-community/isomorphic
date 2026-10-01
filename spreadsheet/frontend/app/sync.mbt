@@ -21,7 +21,7 @@ fn save_cmd(
 ) -> @rabbita.Cmd {
   @http.post(
     api_save,
-    Json(sheets.to_json()),
+    Json(Json(sheets)),
     expect=Text(fn(_result) { dispatch(SavedToBackend) }),
   )
 }
